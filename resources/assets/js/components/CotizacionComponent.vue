@@ -301,10 +301,6 @@
 										  <input class="form-check-input" type="checkbox" id="checkbox-ana" v-model="cliente.ana" true-value="1" false-value="0">
 										  <label class="form-check-label" for="checkbox-ana"><img :src="img.anaImage" width="120" height="50"></label>
 										</div>
-		                            	<!-- <div class="form-check form-check-inline" v-if="cliente.uso_auto == 'Servicio Particular'">
-										  <input class="form-check-input" type="checkbox" id="checkbox-gs" v-model="cliente.gs" true-value="1" false-value="0">
-										  <label class="form-check-label" for="checkbox-gs"><img :src="img.gsImage" width="120" height="50"></label>
-										</div> -->
 		                                <!-- <input type="date" v-model="cliente.f_nac" id="valorEdad" onchange="cambiarEdad(this.value)" class="form-control col"> -->
 		                            </div>
 
@@ -343,6 +339,14 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 	this.email = email;
 	this.sexo = sexo;
 	this.f_nac = f_nac;
+	/*
+		Opcion de General de seguros, para cuando ya este habilitado
+
+        	<div class="form-check form-check-inline" v-if="cliente.uso_auto == 'Servicio Particular'">
+	  <input class="form-check-input" type="checkbox" id="checkbox-gs" v-model="cliente.gs" true-value="1" false-value="0">
+	  <label class="form-check-label" for="checkbox-gs"><img :src="img.gsImage" width="120" height="50"></label>
+	</div>
+	*/
 
 }
     export default {
