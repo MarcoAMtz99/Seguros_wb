@@ -65408,8 +65408,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\seguros_cotiza\resources\assets\js\app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\seguros_cotiza\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
+__webpack_require__(/*! C:\Users\B&W\Documents\seguros\seguros_cotiza\resources\assets\js\app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\B&W\Documents\seguros\seguros_cotiza\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
 
 
 /***/ })

@@ -51,7 +51,7 @@
 @endsection
 @section('scripts')
 <!--TRANSITIONS-->
-    {{-- <script>
+    <script>
 
         //DAUTO
         var uso, tipo, marca, modelo,descripcion;
@@ -384,5 +384,5 @@
             })
         }
 
-    </script> --}}
+    </script>
 @endsection

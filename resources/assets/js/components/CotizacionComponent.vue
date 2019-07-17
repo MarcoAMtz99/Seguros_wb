@@ -301,10 +301,10 @@
 										  <input class="form-check-input" type="checkbox" id="checkbox-ana" v-model="cliente.ana" true-value="1" false-value="0">
 										  <label class="form-check-label" for="checkbox-ana"><img :src="img.anaImage" width="120" height="50"></label>
 										</div>
-		                            	<div class="form-check form-check-inline" v-if="cliente.uso_auto == 'Servicio Particular'">
+		                            	<!-- <div class="form-check form-check-inline" v-if="cliente.uso_auto == 'Servicio Particular'">
 										  <input class="form-check-input" type="checkbox" id="checkbox-gs" v-model="cliente.gs" true-value="1" false-value="0">
 										  <label class="form-check-label" for="checkbox-gs"><img :src="img.gsImage" width="120" height="50"></label>
-										</div>
+										</div> -->
 		                                <!-- <input type="date" v-model="cliente.f_nac" id="valorEdad" onchange="cambiarEdad(this.value)" class="form-control col"> -->
 		                            </div>
 
@@ -450,14 +450,14 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     	},
     	methods:{
     		searchCliente(cotizacion){
-    			console.log(cotizacion);
+    			//console.log(cotizacion);
     			// TODO
     			let url = './api/searchCliente';
     			let params = {cotizacion:cotizacion};
     			this.alert.message = '';
 				this.alert.class = '';
     			axios.post(url,params).then(res=>{
-    				console.log("res cot",res);
+    				//console.log("res cot",res);
     				if(res.data.cotizacion){
     					this.searchOption = true;
     					// this.cliente = new Cliente(res.data.cotizacion);
@@ -555,7 +555,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			let url = `./api/marcasANA/${modelo}`;
     			axios.get(url).then(res=>{
     				this.loader_marca = false;
-    				console.log("res marcas",res);
+    				//console.log("res marcas",res);
     				this.marcas = res.data.marcas.sort();
     			}).catch(error=>{
     				console.log('error',error);
@@ -568,7 +568,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			$('#descripcion').append('<div class="loader"></div>');
     			axios.get(url).then(res=>{
     				this.loader_tipo = false;
-    				console.log('res submarcas',res);
+    				//console.log('res submarcas',res);
     				if (res.data.submarcas) {
     					this.submarcas = res.data.submarcas.sort();
     				}
@@ -579,7 +579,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     		getModelos(){
     			let url = `./api/modelosANA`;
     			axios.get(url).then(res=>{
-    				console.log('res modelos',res);
+    				//console.log('res modelos',res);
     				this.loader_modelo=false;
     				if (res.data.modelos) {
     					this.modelos = res.data.modelos;
@@ -596,7 +596,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			let url = `./api/vehiculoANA/${marca}/${submarca}/${modelo}`;
     			axios.get(url).then(res=>{
     				this.loader_desc = false;
-    				console.log('getDescripciones res',res);
+    				//console.log('getDescripciones res',res);
     				this.descripciones = res.data.vehiculos;
     			}).catch(err=>{
 
@@ -616,7 +616,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     		// },
     		nextPill(input){
     			if (input == "cp" && this.cliente.cp != "") {
-    				console.log('si entra');
+    				//console.log('si entra');
     				// this.showPill('v-pills-Marca');
     				// this.nombre = true;
     				// this.cliente.cestado = '10';
@@ -707,7 +707,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			this.alert.message = '';
 				this.alert.class = '';
     			axios.post(url,cliente).then(res=>{
-    				console.log('res',res);
+    				//console.log('res',res);
     				this.cliente.cotizacion =res.data.cotizacion.cotizacion;
 					this.cliente.uso_auto =res.data.cotizacion.uso_auto;
 					this.cliente.descripcion_auto = res.data.cotizacion.auto.version;
@@ -757,7 +757,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 		      	this.cliente.cotizacion = getVars.cotizacion
 		      	this.searchCliente(this.cliente.cotizacion);
 		      }
-		      console.log(getVars);
+		      //console.log(getVars);
 		      // do 
 		    }
             // console.log(uri[1]);
