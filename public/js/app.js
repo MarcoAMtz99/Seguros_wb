@@ -2091,10 +2091,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 function Cliente(_ref) {
   var cotizacion = _ref.cotizacion,
       auto = _ref.auto,
@@ -2120,6 +2116,14 @@ function Cliente(_ref) {
   this.email = email;
   this.sexo = sexo;
   this.f_nac = f_nac;
+  /*
+  	Opcion de General de seguros, para cuando ya este habilitado
+  
+         	<div class="form-check form-check-inline" v-if="cliente.uso_auto == 'Servicio Particular'">
+    <input class="form-check-input" type="checkbox" id="checkbox-gs" v-model="cliente.gs" true-value="1" false-value="0">
+    <label class="form-check-label" for="checkbox-gs"><img :src="img.gsImage" width="120" height="50"></label>
+  </div>
+  */
 }
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2223,8 +2227,8 @@ function Cliente(_ref) {
     searchCliente: function searchCliente(cotizacion) {
       var _this = this;
 
-      console.log(cotizacion); // TODO
-
+      //console.log(cotizacion);
+      // TODO
       var url = './api/searchCliente';
       var params = {
         cotizacion: cotizacion
@@ -2232,8 +2236,7 @@ function Cliente(_ref) {
       this.alert.message = '';
       this.alert.class = '';
       axios.post(url, params).then(function (res) {
-        console.log("res cot", res);
-
+        //console.log("res cot",res);
         if (res.data.cotizacion) {
           _this.searchOption = true; // this.cliente = new Cliente(res.data.cotizacion);
 
@@ -2324,8 +2327,8 @@ function Cliente(_ref) {
       this.loader_marca = true;
       var url = "./api/marcasANA/".concat(modelo);
       axios.get(url).then(function (res) {
-        _this2.loader_marca = false;
-        console.log("res marcas", res);
+        _this2.loader_marca = false; //console.log("res marcas",res);
+
         _this2.marcas = res.data.marcas.sort();
       }).catch(function (error) {
         console.log('error', error);
@@ -2338,8 +2341,7 @@ function Cliente(_ref) {
       var url = "./api/submarcaANA/".concat(marca, "/").concat(this.cliente.modelo_auto);
       $('#descripcion').append('<div class="loader"></div>');
       axios.get(url).then(function (res) {
-        _this3.loader_tipo = false;
-        console.log('res submarcas', res);
+        _this3.loader_tipo = false; //console.log('res submarcas',res);
 
         if (res.data.submarcas) {
           _this3.submarcas = res.data.submarcas.sort();
@@ -2353,7 +2355,7 @@ function Cliente(_ref) {
 
       var url = "./api/modelosANA";
       axios.get(url).then(function (res) {
-        console.log('res modelos', res);
+        //console.log('res modelos',res);
         _this4.loader_modelo = false;
 
         if (res.data.modelos) {
@@ -2371,8 +2373,8 @@ function Cliente(_ref) {
       $('#descripcion').append('<div class="loader"></div>');
       var url = "./api/vehiculoANA/".concat(marca, "/").concat(submarca, "/").concat(modelo);
       axios.get(url).then(function (res) {
-        _this5.loader_desc = false;
-        console.log('getDescripciones res', res);
+        _this5.loader_desc = false; //console.log('getDescripciones res',res);
+
         _this5.descripciones = res.data.vehiculos;
       }).catch(function (err) {
         console.log('getDescripciones err', err);
@@ -2393,13 +2395,13 @@ function Cliente(_ref) {
       var _this6 = this;
 
       if (input == "cp" && this.cliente.cp != "") {
-        console.log('si entra'); // this.showPill('v-pills-Marca');
+        //console.log('si entra');
+        // this.showPill('v-pills-Marca');
         // this.nombre = true;
         // this.cliente.cestado = '10';
         // $('#v-pills-Nombre-tab').removeClass('disabled');
         // // $('#v-pills-Nombre-tab').addClass('disabled');
         // $('#v-pills-Nombre-tab').click();
-
         var url = "./api/cp/".concat(this.cliente.cp);
         axios.get(url).then(function (res) {
           if (res.data.response) {
@@ -2483,7 +2485,7 @@ function Cliente(_ref) {
       this.alert.message = '';
       this.alert.class = '';
       axios.post(url, cliente).then(function (res) {
-        console.log('res', res);
+        //console.log('res',res);
         _this7.cliente.cotizacion = res.data.cotizacion.cotizacion;
         _this7.cliente.uso_auto = res.data.cotizacion.uso_auto;
         _this7.cliente.descripcion_auto = res.data.cotizacion.auto.version;
@@ -2531,9 +2533,9 @@ function Cliente(_ref) {
       if (getVars.cotizacion) {
         this.cliente.cotizacion = getVars.cotizacion;
         this.searchCliente(this.cliente.cotizacion);
-      }
+      } //console.log(getVars);
+      // do 
 
-      console.log(getVars); // do 
     } // console.log(uri[1]);
 
   }
@@ -43882,84 +43884,6 @@ var render = function() {
                                       _c("img", {
                                         attrs: {
                                           src: _vm.img.anaImage,
-                                          width: "120",
-                                          height: "50"
-                                        }
-                                      })
-                                    ]
-                                  )
-                                ]
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _vm.cliente.uso_auto == "Servicio Particular"
-                            ? _c(
-                                "div",
-                                { staticClass: "form-check form-check-inline" },
-                                [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.cliente.gs,
-                                        expression: "cliente.gs"
-                                      }
-                                    ],
-                                    staticClass: "form-check-input",
-                                    attrs: {
-                                      type: "checkbox",
-                                      id: "checkbox-gs",
-                                      "true-value": "1",
-                                      "false-value": "0"
-                                    },
-                                    domProps: {
-                                      checked: Array.isArray(_vm.cliente.gs)
-                                        ? _vm._i(_vm.cliente.gs, null) > -1
-                                        : _vm._q(_vm.cliente.gs, "1")
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        var $$a = _vm.cliente.gs,
-                                          $$el = $event.target,
-                                          $$c = $$el.checked ? "1" : "0"
-                                        if (Array.isArray($$a)) {
-                                          var $$v = null,
-                                            $$i = _vm._i($$a, $$v)
-                                          if ($$el.checked) {
-                                            $$i < 0 &&
-                                              _vm.$set(
-                                                _vm.cliente,
-                                                "gs",
-                                                $$a.concat([$$v])
-                                              )
-                                          } else {
-                                            $$i > -1 &&
-                                              _vm.$set(
-                                                _vm.cliente,
-                                                "gs",
-                                                $$a
-                                                  .slice(0, $$i)
-                                                  .concat($$a.slice($$i + 1))
-                                              )
-                                          }
-                                        } else {
-                                          _vm.$set(_vm.cliente, "gs", $$c)
-                                        }
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "label",
-                                    {
-                                      staticClass: "form-check-label",
-                                      attrs: { for: "checkbox-gs" }
-                                    },
-                                    [
-                                      _c("img", {
-                                        attrs: {
-                                          src: _vm.img.gsImage,
                                           width: "120",
                                           height: "50"
                                         }
