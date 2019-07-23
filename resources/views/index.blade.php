@@ -137,6 +137,8 @@
         });
         $(".seleccionador").click(function(e) {
             var temp = e.target.id.slice(0,1);
+            console.log('TEMP');
+            console.log(temp);
             switch(temp){
                 case "1":
                     $(this).siblings().removeClass("active");
@@ -169,7 +171,7 @@
                     cambiarL("#v-pills-Sexo-tab", "#v-pills-Edad-tab", e);
                     break;
                 case "8":
-                    cambiarL("#v-pills-Edad-tab", "#paso2-tab", e);
+                    //cambiarL("#v-pills-Edad-tab", "#v-pills-CP-tab", e);
                     alertmobile();
                     break;
                 case "9":

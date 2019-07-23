@@ -2091,6 +2091,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+$(document).ready(function ($) {
+  if ($("[type=date]").prop('type') != 'date') {
+    $("[type=date]").datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  }
+});
+
 function Cliente(_ref) {
   var cotizacion = _ref.cotizacion,
       auto = _ref.auto,
@@ -42497,7 +42506,7 @@ var render = function() {
                 expression: "!searchOption"
               }
             ],
-            staticClass: "col col-sm-6 p-2 my-auto"
+            staticClass: "col col-sm-6 p-2"
           },
           [
             _c(
@@ -43577,7 +43586,7 @@ var render = function() {
                     _c("div", { staticClass: "card p-0" }, [
                       _c("div", { staticClass: "card-header" }, [
                         _vm._v(
-                          "\n\t\t                            Nacimiento\n\t\t                        "
+                          "\n\t\t                            Fecha de Nacimiento\n\t\t                        "
                         )
                       ]),
                       _vm._v(" "),
@@ -44100,7 +44109,10 @@ var staticRenderFns = [
         "button",
         {
           staticClass: "btn btn-primary",
-          attrs: { type: "button", onclick: "$('#v-pills-Sexo-tab').click();" }
+          attrs: {
+            type: "button",
+            onclick: "$('#v-pills-Nacimiento-tab').click();"
+          }
         },
         [_vm._v("Atras")]
       )
@@ -51596,20 +51608,6 @@ var render = function() {
                                                                 )
                                                               )
                                                             ])
-                                                          : _vm._e(),
-                                                        _vm._v(" "),
-                                                        cobertura.pma
-                                                          ? _c("span", [
-                                                              _c("strong", [
-                                                                _vm._v("Prima:")
-                                                              ]),
-                                                              _vm._v(
-                                                                "$" +
-                                                                  _vm._s(
-                                                                    cobertura.pma
-                                                                  )
-                                                              )
-                                                            ])
                                                           : _vm._e()
                                                       ])
                                                     : _vm._e()
@@ -51684,24 +51682,6 @@ var render = function() {
                                                                     )
                                                                   ) +
                                                                   "%"
-                                                              )
-                                                            ])
-                                                          : _vm._e(),
-                                                        _vm._v(" "),
-                                                        cobertura.Prima
-                                                          ? _c("span", [
-                                                              _c("strong", [
-                                                                _vm._v("Prima:")
-                                                              ]),
-                                                              _vm._v(
-                                                                "$" +
-                                                                  _vm._s(
-                                                                    _vm._f(
-                                                                      "int"
-                                                                    )(
-                                                                      cobertura.Prima
-                                                                    )
-                                                                  )
                                                               )
                                                             ])
                                                           : _vm._e()
@@ -51880,20 +51860,6 @@ var render = function() {
                                                                 )
                                                               )
                                                             ])
-                                                          : _vm._e(),
-                                                        _vm._v(" "),
-                                                        cobertura.pma
-                                                          ? _c("span", [
-                                                              _c("strong", [
-                                                                _vm._v("Prima:")
-                                                              ]),
-                                                              _vm._v(
-                                                                "$" +
-                                                                  _vm._s(
-                                                                    cobertura.pma
-                                                                  )
-                                                              )
-                                                            ])
                                                           : _vm._e()
                                                       ])
                                                     : _vm._e()
@@ -51968,24 +51934,6 @@ var render = function() {
                                                                     )
                                                                   ) +
                                                                   "%"
-                                                              )
-                                                            ])
-                                                          : _vm._e(),
-                                                        _vm._v(" "),
-                                                        cobertura.Prima
-                                                          ? _c("span", [
-                                                              _c("strong", [
-                                                                _vm._v("Prima:")
-                                                              ]),
-                                                              _vm._v(
-                                                                "$" +
-                                                                  _vm._s(
-                                                                    _vm._f(
-                                                                      "int"
-                                                                    )(
-                                                                      cobertura.Prima
-                                                                    )
-                                                                  )
                                                               )
                                                             ])
                                                           : _vm._e()
@@ -52124,20 +52072,6 @@ var render = function() {
                                                                 )
                                                               )
                                                             ])
-                                                          : _vm._e(),
-                                                        _vm._v(" "),
-                                                        cobertura.pma
-                                                          ? _c("span", [
-                                                              _c("strong", [
-                                                                _vm._v("Prima:")
-                                                              ]),
-                                                              _vm._v(
-                                                                "$" +
-                                                                  _vm._s(
-                                                                    cobertura.pma
-                                                                  )
-                                                              )
-                                                            ])
                                                           : _vm._e()
                                                       ]
                                                     )
@@ -52183,20 +52117,6 @@ var render = function() {
                                                                 _vm._s(
                                                                   cobertura.ded
                                                                 )
-                                                              )
-                                                            ])
-                                                          : _vm._e(),
-                                                        _vm._v(" "),
-                                                        cobertura.pma
-                                                          ? _c("span", [
-                                                              _c("strong", [
-                                                                _vm._v("Prima:")
-                                                              ]),
-                                                              _vm._v(
-                                                                "$" +
-                                                                  _vm._s(
-                                                                    cobertura.pma
-                                                                  )
                                                               )
                                                             ])
                                                           : _vm._e()
@@ -52246,20 +52166,6 @@ var render = function() {
                                                                 )
                                                               )
                                                             ])
-                                                          : _vm._e(),
-                                                        _vm._v(" "),
-                                                        cobertura.pma
-                                                          ? _c("span", [
-                                                              _c("strong", [
-                                                                _vm._v("Prima:")
-                                                              ]),
-                                                              _vm._v(
-                                                                "$" +
-                                                                  _vm._s(
-                                                                    cobertura.pma
-                                                                  )
-                                                              )
-                                                            ])
                                                           : _vm._e()
                                                       ]
                                                     )
@@ -52305,20 +52211,6 @@ var render = function() {
                                                                 _vm._s(
                                                                   cobertura.ded
                                                                 )
-                                                              )
-                                                            ])
-                                                          : _vm._e(),
-                                                        _vm._v(" "),
-                                                        cobertura.pma
-                                                          ? _c("span", [
-                                                              _c("strong", [
-                                                                _vm._v("Prima:")
-                                                              ]),
-                                                              _vm._v(
-                                                                "$" +
-                                                                  _vm._s(
-                                                                    cobertura.pma
-                                                                  )
                                                               )
                                                             ])
                                                           : _vm._e()
@@ -52368,20 +52260,6 @@ var render = function() {
                                                                 )
                                                               )
                                                             ])
-                                                          : _vm._e(),
-                                                        _vm._v(" "),
-                                                        cobertura.pma
-                                                          ? _c("span", [
-                                                              _c("strong", [
-                                                                _vm._v("Prima:")
-                                                              ]),
-                                                              _vm._v(
-                                                                "$" +
-                                                                  _vm._s(
-                                                                    cobertura.pma
-                                                                  )
-                                                              )
-                                                            ])
                                                           : _vm._e()
                                                       ]
                                                     )
@@ -52429,20 +52307,6 @@ var render = function() {
                                                                 )
                                                               )
                                                             ])
-                                                          : _vm._e(),
-                                                        _vm._v(" "),
-                                                        cobertura.pma
-                                                          ? _c("span", [
-                                                              _c("strong", [
-                                                                _vm._v("Prima:")
-                                                              ]),
-                                                              _vm._v(
-                                                                "$" +
-                                                                  _vm._s(
-                                                                    cobertura.pma
-                                                                  )
-                                                              )
-                                                            ])
                                                           : _vm._e()
                                                       ]
                                                     )
@@ -52488,20 +52352,6 @@ var render = function() {
                                                                 _vm._s(
                                                                   cobertura.ded
                                                                 )
-                                                              )
-                                                            ])
-                                                          : _vm._e(),
-                                                        _vm._v(" "),
-                                                        cobertura.pma
-                                                          ? _c("span", [
-                                                              _c("strong", [
-                                                                _vm._v("Prima:")
-                                                              ]),
-                                                              _vm._v(
-                                                                "$" +
-                                                                  _vm._s(
-                                                                    cobertura.pma
-                                                                  )
                                                               )
                                                             ])
                                                           : _vm._e()
@@ -52578,22 +52428,6 @@ var render = function() {
                                                                 )
                                                               ) +
                                                               "%"
-                                                          )
-                                                        ])
-                                                      : _vm._e(),
-                                                    _vm._v(" "),
-                                                    cobertura.Prima
-                                                      ? _c("span", [
-                                                          _c("strong", [
-                                                            _vm._v("Prima:")
-                                                          ]),
-                                                          _vm._v(
-                                                            "$" +
-                                                              _vm._s(
-                                                                _vm._f("int")(
-                                                                  cobertura.Prima
-                                                                )
-                                                              )
                                                           )
                                                         ])
                                                       : _vm._e()
@@ -52831,22 +52665,6 @@ var render = function() {
                                                               "%"
                                                           )
                                                         ])
-                                                      : _vm._e(),
-                                                    _vm._v(" "),
-                                                    cobertura.Prima
-                                                      ? _c("span", [
-                                                          _c("strong", [
-                                                            _vm._v("Prima:")
-                                                          ]),
-                                                          _vm._v(
-                                                            "$" +
-                                                              _vm._s(
-                                                                _vm._f("int")(
-                                                                  cobertura.Prima
-                                                                )
-                                                              )
-                                                          )
-                                                        ])
                                                       : _vm._e()
                                                   ])
                                                 : _vm._e()
@@ -53039,22 +52857,6 @@ var render = function() {
                                                                 )
                                                               ) +
                                                               "%"
-                                                          )
-                                                        ])
-                                                      : _vm._e(),
-                                                    _vm._v(" "),
-                                                    cobertura.Prima
-                                                      ? _c("span", [
-                                                          _c("strong", [
-                                                            _vm._v("Prima:")
-                                                          ]),
-                                                          _vm._v(
-                                                            "$" +
-                                                              _vm._s(
-                                                                _vm._f("int")(
-                                                                  cobertura.Prima
-                                                                )
-                                                              )
                                                           )
                                                         ])
                                                       : _vm._e()
@@ -53251,22 +53053,6 @@ var render = function() {
                                                               "%"
                                                           )
                                                         ])
-                                                      : _vm._e(),
-                                                    _vm._v(" "),
-                                                    cobertura.Prima
-                                                      ? _c("span", [
-                                                          _c("strong", [
-                                                            _vm._v("Prima:")
-                                                          ]),
-                                                          _vm._v(
-                                                            "$" +
-                                                              _vm._s(
-                                                                _vm._f("int")(
-                                                                  cobertura.Prima
-                                                                )
-                                                              )
-                                                          )
-                                                        ])
                                                       : _vm._e()
                                                   ])
                                                 : _vm._e()
@@ -53411,20 +53197,6 @@ var render = function() {
                                                               )
                                                             )
                                                           ])
-                                                        : _vm._e(),
-                                                      _vm._v(" "),
-                                                      cobertura.pma
-                                                        ? _c("span", [
-                                                            _c("strong", [
-                                                              _vm._v("Prima:")
-                                                            ]),
-                                                            _vm._v(
-                                                              "$" +
-                                                                _vm._s(
-                                                                  cobertura.pma
-                                                                )
-                                                            )
-                                                          ])
                                                         : _vm._e()
                                                     ])
                                                   ])
@@ -53507,22 +53279,6 @@ var render = function() {
                                                                   )
                                                                 ) +
                                                                 "%"
-                                                            )
-                                                          ])
-                                                        : _vm._e(),
-                                                      _vm._v(" "),
-                                                      cobertura.Prima
-                                                        ? _c("span", [
-                                                            _c("strong", [
-                                                              _vm._v("Prima:")
-                                                            ]),
-                                                            _vm._v(
-                                                              " $" +
-                                                                _vm._s(
-                                                                  _vm._f("int")(
-                                                                    cobertura.Prima
-                                                                  )
-                                                                )
                                                             )
                                                           ])
                                                         : _vm._e()

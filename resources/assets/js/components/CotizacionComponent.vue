@@ -19,7 +19,7 @@
 		              <a class="nav-link" id="v-pills-Aseguradoras-tab" data-toggle="pill"  href="#v-pills-Aseguradoras" role="tab" aria-controls="v-pills-Aseguradoras" aria-selected="false">Aseguradoras:</a>
 		            </div>
     			</div>
-    			<div class="col col-sm-6 p-2 my-auto" v-show="!searchOption">
+    			<div class="col col-sm-6 p-2" v-show="!searchOption">
     				<div class="tab-content" id="v-pills-tabContent">
     					 <!--USO-->
     					<div class="tab-pane fade show active" id="v-pills-Uso" role="tabpanel" aria-albelledby="v-pills-Uso-tab">
@@ -257,7 +257,7 @@
 		                <div class="tab-pane fade" v-show="nac" id="v-pills-Nacimiento" role="tabpanel" aria-albelledby="v-pills-Nacimiento-tab">
 		                    <div class="card p-0">
 		                        <div class="card-header">
-		                            Nacimiento
+		                            Fecha de Nacimiento
 		                        </div>
 		                        <div class="card-body">
 		                            <!-- TODO -->
@@ -306,7 +306,7 @@
 
 		                            <div class="row">
 										<div class="col mt-3 d-block d-sm-none">
-											<button class="btn btn-primary" type="button" onclick="$('#v-pills-Sexo-tab').click();">Atras</button>
+											<button class="btn btn-primary" type="button" onclick="$('#v-pills-Nacimiento-tab').click();">Atras</button>
 										</div>
 										<div class="col mt-3 d-flex justify-content-end">
 		                                    <button type="button" id="8_1" @click="sendCotizacion(cliente)" class="btn btn-primary seleccionador">Siguiente</button>
@@ -327,6 +327,15 @@
 </template>
 
 <script>
+$(document).ready(function($) {
+	if ($("[type=date]").prop('type') != 'date' ) {
+		$("[type=date]").datepicker({
+		  	changeMonth:true,
+		  	changeYear: true
+		  });
+	}
+});
+
 function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefono,email,sexo,f_nac, qualitas, ana,}){
 	this.cotizacion = cotizacion;
 	this.uso_auto = uso_auto;

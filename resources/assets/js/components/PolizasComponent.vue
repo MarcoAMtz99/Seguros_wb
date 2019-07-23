@@ -200,7 +200,7 @@
                                                         <div v-for="(cobertura,index) in cotizacionesANA[0]['CONTADO']['coberturas']" v-if="cobertura.desc == 'DAÑOS MATERIALES'">
                                                             <span><strong>{{cobertura.desc}}:</strong> {{cobertura.sa}}</span>
                                                             <span v-if="cobertura.ded"><strong>Deducible por daños:</strong>{{cobertura.ded}}</span>
-                                                            <span v-if="cobertura.pma"><strong>Prima:</strong>${{cobertura.pma}}</span>
+                                                            <!-- <span v-if="cobertura.pma"><strong>Prima:</strong>${{cobertura.pma}}</span> -->
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">
@@ -212,7 +212,7 @@
                                                         <div v-for="(cobertura,index) in cotizacionesQualitas['Coberturas']" v-if="cobertura.tipo == 'Daños Materiales'">
                                                             <span><strong>{{cobertura.tipo}}:</strong> ${{cobertura['SumaAsegurada']|int}}</span>
                                                             <span v-if="cobertura['Deducible']"><strong>Deducible por daños:</strong> {{cobertura['Deducible']|int}}%</span>
-                                                            <span v-if="cobertura.Prima"><strong>Prima:</strong>${{cobertura.Prima|int}}</span>
+                                                            <!-- <span v-if="cobertura.Prima"><strong>Prima:</strong>${{cobertura.Prima|int}}</span> -->
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">
@@ -243,7 +243,7 @@
                                                         <div v-for="(cobertura,index) in cotizacionesANA[0]['CONTADO']['coberturas']" v-if="cobertura.desc == 'ROBO TOTAL'">
                                                             <span><strong>{{cobertura.desc}}:</strong> {{cobertura.sa}}</span>
                                                             <span v-if="cobertura.ded"><strong>Deducible por daños:</strong>{{cobertura.ded}}</span>
-                                                            <span v-if="cobertura.pma"><strong>Prima:</strong>${{cobertura.pma}}</span>
+                                                            <!-- <span v-if="cobertura.pma"><strong>Prima:</strong>${{cobertura.pma}}</span> -->
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">
@@ -255,7 +255,7 @@
                                                         <div v-for="(cobertura,indez) in cotizacionesQualitas['Coberturas']" v-if="cobertura.tipo == 'Robo Total'">
                                                             <span><strong>{{cobertura.tipo}}:</strong> ${{cobertura['SumaAsegurada']|int}}</span>
                                                             <span v-if="cobertura['Deducible']"><strong>Deducible por daños:</strong> {{cobertura['Deducible']|int}}%</span>
-                                                            <span v-if="cobertura.Prima"><strong>Prima:</strong>${{cobertura.Prima|int}}</span>
+                                                            <!-- <span v-if="cobertura.Prima"><strong>Prima:</strong>${{cobertura.Prima|int}}</span> -->
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">
@@ -285,37 +285,37 @@
                                                         <div class="border" v-for="(cobertura,index) in cotizacionesANA[0]['CONTADO']['coberturas']" v-if="cobertura.desc == 'RESPONSABILIDAD CIVIL'">
                                                             <span><strong>{{cobertura.desc}}:</strong> {{cobertura.sa}}</span>
                                                             <span v-if="cobertura.ded"><strong>Deducible por daños:</strong>{{cobertura.ded}}</span>
-                                                            <span v-if="cobertura.pma"><strong>Prima:</strong>${{cobertura.pma}}</span>
+                                                            <!-- <span v-if="cobertura.pma"><strong>Prima:</strong>${{cobertura.pma}}</span> -->
                                                         </div>
                                                         <div class="border" v-for="(cobertura,index) in cotizacionesANA[0]['CONTADO']['coberturas']" v-if="cobertura.desc == '  RC BIENES'">
                                                             <span><strong>{{cobertura.desc}}:</strong> {{cobertura.sa}}</span>
                                                             <span v-if="cobertura.ded"><strong>Deducible por daños:</strong>{{cobertura.ded}}</span>
-                                                            <span v-if="cobertura.pma"><strong>Prima:</strong>${{cobertura.pma}}</span>
+                                                            <!-- <span v-if="cobertura.pma"><strong>Prima:</strong>${{cobertura.pma}}</span> -->
                                                         </div>
                                                         <div class="border" v-for="(cobertura,index) in cotizacionesANA[0]['CONTADO']['coberturas']" v-if="cobertura.desc == '  RC PERSONAS'">
                                                             <span><strong>{{cobertura.desc}}:</strong> {{cobertura.sa}}</span>
                                                             <span v-if="cobertura.ded"><strong>Deducible por daños:</strong>{{cobertura.ded}}</span>
-                                                            <span v-if="cobertura.pma"><strong>Prima:</strong>${{cobertura.pma}}</span>
+                                                            <!-- <span v-if="cobertura.pma"><strong>Prima:</strong>${{cobertura.pma}}</span> -->
                                                         </div>
                                                         <div class="border" v-for="(cobertura,index) in cotizacionesANA[0]['CONTADO']['coberturas']" v-if="cobertura.desc == '  EXTENSION RC'">
                                                             <span><strong>{{cobertura.desc}}:</strong> {{cobertura.sa}}</span>
                                                             <span v-if="cobertura.ded"><strong>Deducible por daños:</strong>{{cobertura.ded}}</span>
-                                                            <span v-if="cobertura.pma"><strong>Prima:</strong>${{cobertura.pma}}</span>
+                                                            <!-- <span v-if="cobertura.pma"><strong>Prima:</strong>${{cobertura.pma}}</span> -->
                                                         </div>
                                                         <div class="border" v-for="(cobertura,index) in cotizacionesANA[0]['CONTADO']['coberturas']" v-if="cobertura.desc == '  RC DEL HIJO MENOR'">
                                                             <span><strong>{{cobertura.desc}}:</strong> {{cobertura.sa}}</span>
                                                             <span v-if="cobertura.ded"><strong>Deducible por daños:</strong>{{cobertura.ded}}</span>
-                                                            <span v-if="cobertura.pma"><strong>Prima:</strong>${{cobertura.pma}}</span>
+                                                            <!-- <span v-if="cobertura.pma"><strong>Prima:</strong>${{cobertura.pma}}</span> -->
                                                         </div>
                                                         <div class="border" v-for="(cobertura,index) in cotizacionesANA[0]['CONTADO']['coberturas']" v-if="cobertura.desc == '  RC POR REMOLQUES'">
                                                             <span><strong>{{cobertura.desc}}:</strong> {{cobertura.sa}}</span>
                                                             <span v-if="cobertura.ded"><strong>Deducible por daños:</strong>{{cobertura.ded}}</span>
-                                                            <span v-if="cobertura.pma"><strong>Prima:</strong>${{cobertura.pma}}</span>
+                                                            <!-- <span v-if="cobertura.pma"><strong>Prima:</strong>${{cobertura.pma}}</span> -->
                                                         </div>
                                                         <div class="border" v-for="(cobertura,index) in cotizacionesANA[0]['CONTADO']['coberturas']" v-if="cobertura.desc == 'RC CATASTROFICA POR MUERTE'">
                                                             <span><strong>{{cobertura.desc}}:</strong> {{cobertura.sa}}</span>
                                                             <span v-if="cobertura.ded"><strong>Deducible por daños:</strong>{{cobertura.ded}}</span>
-                                                            <span v-if="cobertura.pma"><strong>Prima:</strong>${{cobertura.pma}}</span>
+                                                            <!-- <span v-if="cobertura.pma"><strong>Prima:</strong>${{cobertura.pma}}</span> -->
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">
@@ -327,7 +327,7 @@
                                                         <div v-for="(cobertura,indez) in cotizacionesQualitas['Coberturas']" v-if="cobertura.tipo == 'Responsabilidad Civil'">
                                                             <span><strong>{{cobertura.tipo}}:</strong> ${{cobertura['SumaAsegurada']|int}}</span>
                                                             <span v-if="cobertura['Deducible']"><strong>Deducible por daños:</strong> {{cobertura['Deducible']|int}}%</span>
-                                                            <span v-if="cobertura.Prima"><strong>Prima:</strong>${{cobertura.Prima|int}}</span>
+                                                            <!-- <span v-if="cobertura.Prima"><strong>Prima:</strong>${{cobertura.Prima|int}}</span> -->
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">
@@ -368,7 +368,7 @@
                                                         <div v-for="(cobertura,indez) in cotizacionesQualitas['Coberturas']" v-if="cobertura.tipo == 'Gastos Médicos'">
                                                             <span><strong>{{cobertura.tipo}}:</strong> ${{cobertura['SumaAsegurada']|int}} </span>
                                                             <span v-if="cobertura['Deducible']"><strong>Deducible por daños:</strong> {{cobertura['Deducible']|int}}%</span>
-                                                            <span v-if="cobertura.Prima"><strong>Prima:</strong>${{cobertura.Prima|int}}</span>
+                                                            <!-- <span v-if="cobertura.Prima"><strong>Prima:</strong>${{cobertura.Prima|int}}</span> -->
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">
@@ -406,7 +406,7 @@
                                                         <div v-for="(cobertura,indez) in cotizacionesQualitas['Coberturas']" v-if="cobertura.tipo == 'Gastos Legales'">
                                                             <span><strong>{{cobertura.tipo}}:</strong> ${{cobertura['SumaAsegurada']|int}} </span>
                                                             <span v-if="cobertura['Deducible']"><strong>Deducible por daños:</strong> {{cobertura['Deducible']|int}}%</span>
-                                                            <span v-if="cobertura.Prima"><strong>Prima:</strong>${{cobertura.Prima|int}}</span>
+                                                            <!-- <span v-if="cobertura.Prima"><strong>Prima:</strong>${{cobertura.Prima|int}}</span> -->
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">
@@ -444,7 +444,7 @@
                                                         <div v-for="(cobertura,indez) in cotizacionesQualitas['Coberturas']" v-if="cobertura.tipo == 'Asistencia Vial'">
                                                             <span><strong>{{cobertura.tipo}}:</strong> ${{cobertura['SumaAsegurada']|int}} </span>
                                                             <span v-if="cobertura['Deducible']"><strong>Deducible por daños:</strong> {{cobertura['Deducible']|int}}%</span>
-                                                            <span v-if="cobertura.Prima"><strong>Prima:</strong>${{cobertura.Prima|int}}</span>
+                                                            <!-- <span v-if="cobertura.Prima"><strong>Prima:</strong>${{cobertura.Prima|int}}</span> -->
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">
@@ -481,7 +481,7 @@
                                                             <div>
                                                                 <span><strong>{{cobertura.desc}}:</strong> {{cobertura.sa}}</span>
                                                                 <span v-if="cobertura.ded"><strong>Deducible:</strong>{{cobertura.ded}}</span>
-                                                                <span v-if="cobertura.pma"><strong>Prima:</strong>${{cobertura.pma}}</span>
+                                                                <!-- <span v-if="cobertura.pma"><strong>Prima:</strong>${{cobertura.pma}}</span> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -495,7 +495,7 @@
                                                             <div>
                                                                 <span><strong>{{cobertura.tipo}}:</strong>${{cobertura.SumaAsegurada|int}}</span>
                                                                 <span v-if="cobertura.Deducible"><strong>Deducible:</strong> {{cobertura.Deducible|int}}%</span>
-                                                                <span v-if="cobertura.Prima"><strong>Prima:</strong> ${{cobertura.Prima|int}}</span>
+                                                                <!-- <span v-if="cobertura.Prima"><strong>Prima:</strong> ${{cobertura.Prima|int}}</span> -->
                                                             </div>
                                                         </div>
                                                     </div>
