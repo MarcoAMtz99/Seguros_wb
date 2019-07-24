@@ -52,6 +52,18 @@
 @section('scripts')
 <!--TRANSITIONS-->
     <script>
+        $(document).ready(function($) {
+            //if ($('[name="date"]').prop('type') != 'date' ) {
+                // $('[type="date"]').datepicker({
+                //     changeMonth:true,
+                //     changeYear: true
+                //   });
+            //}
+            if(!Modernizr.inputtypes.date) {
+                console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
+                $("#p").datepicker();
+            }
+        });
 
         //DAUTO
         var uso, tipo, marca, modelo,descripcion;
@@ -137,8 +149,6 @@
         });
         $(".seleccionador").click(function(e) {
             var temp = e.target.id.slice(0,1);
-            console.log('TEMP');
-            console.log(temp);
             switch(temp){
                 case "1":
                     $(this).siblings().removeClass("active");

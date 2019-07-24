@@ -328,12 +328,16 @@
 
 <script>
 $(document).ready(function($) {
-	if ($("[type=date]").prop('type') != 'date' ) {
-		$("[type=date]").datepicker({
-		  	changeMonth:true,
-		  	changeYear: true
-		  });
-	}
+	// if ($("[type=date]").prop('type') != 'date' ) {
+	// 	$("[type=date]").datepicker({
+	// 	  	changeMonth:true,
+	// 	  	changeYear: true
+	// 	  });
+	// }
+	if(!Modernizr.inputtypes.date) {
+        console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
+        $("#valorEdad").datepicker({changeMonth:true, changeYear: true});
+    }
 });
 
 function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefono,email,sexo,f_nac, qualitas, ana,}){

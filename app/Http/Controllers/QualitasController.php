@@ -312,7 +312,7 @@ XML;
 		<Direccion/>
 		<Colonia/>
 		<Poblacion/>
-		<Estado>9</Estado>
+		<Estado>$cliente->cestado</Estado>
 		<CodigoPostal>$cliente->cp</CodigoPostal>
 		<NoEmpleado/>
 		<Agrupador/>
@@ -345,8 +345,8 @@ XML;
 		<ClaveAmis>$camis</ClaveAmis>
 		<Modelo>$modelo</Modelo>
 		<DescripcionVehiculo></DescripcionVehiculo>
-		<Uso>1</Uso>
-		<Servicio>1</Servicio>
+		<Uso>$cliente->uso</Uso>
+		<Servicio>$cliente->servicio</Servicio>
 		<Paquete>3</Paquete>
 		<Motor/>
 		<Serie/>
@@ -445,7 +445,7 @@ XML;
 		<Direccion/>
 		<Colonia/>
 		<Poblacion/>
-		<Estado>9</Estado>
+		<Estado>$cliente->cestado</Estado>
 		<CodigoPostal>$cliente->cp</CodigoPostal>
 		<NoEmpleado/>
 		<Agrupador/>
@@ -478,8 +478,8 @@ XML;
 		<ClaveAmis>$camis</ClaveAmis>
 		<Modelo>$modelo</Modelo>
 		<DescripcionVehiculo></DescripcionVehiculo>
-		<Uso>1</Uso>
-		<Servicio>1</Servicio>
+		<Uso>$cliente->uso</Uso>
+		<Servicio>$cliente->servicio</Servicio>
 		<Paquete>4</Paquete>
 		<Motor/>
 		<Serie/>
