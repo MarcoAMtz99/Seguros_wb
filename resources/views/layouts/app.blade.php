@@ -62,7 +62,7 @@
                         <h5 class="d-flex justify-content-around">
                             <img src="{{ asset('img/logo2.jpg') }}" alt="">
                             <p class="mt-3">
-                                AutoSeguroDirecto.com
+                                AutoSeguroDirecto.com.mx
                             </p>
                             <span class="d-none d-sm-block text-secondary ml-2 mt-3 p-auto">
                                 <small>
@@ -116,7 +116,7 @@
         <!--FOOTER-->
         <div class="row bg-info text-white p-4">
             <div class="col-12 col-sm-4">
-                <p class="font-weight-bold text-center">AutoSeguroDirecto.com</p>
+                <p class="font-weight-bold text-center">AutoSeguroDirecto.com.mx</p>
                 <p class="text-center">"A un click de tu Seguro"</p>
             </div>
             <div class="col-12 col-sm-4">
