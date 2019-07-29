@@ -148,6 +148,8 @@
             cambiarL("#v-pills-Descripcion-tab", "#v-pills-CP-tab", e);
         });
         $(".seleccionador").click(function(e) {
+            console.log('seleccionador');
+            console.log(e.target.id);
             var temp = e.target.id.slice(0,1);
             switch(temp){
                 case "1":
@@ -181,7 +183,7 @@
                     cambiarL("#v-pills-Sexo-tab", "#v-pills-Edad-tab", e);
                     break;
                 case "8":
-                    //cambiarL("#v-pills-Edad-tab", "#v-pills-CP-tab", e);
+                    cambiarL("#v-pills-Edad-tab", "#v-pills-Aseguradoras", e);
                     alertmobile();
                     break;
                 case "9":
