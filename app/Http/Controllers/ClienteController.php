@@ -22,6 +22,7 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request->all());
         $rules=[
             'uso_auto'=>'required',
             'marca_auto'=>'required|array',
@@ -55,7 +56,9 @@ class ClienteController extends Controller
             'f_nac'=>$request->f_nac,
             'ana'=>$request->ana,
             'gs'=>$request->gs,
-            'qualitas'=>$request->qualitas
+            'qualitas'=>$request->qualitas,
+            'ejecutivo'=>$request->ejecutivo,
+            'codigo_descuento'=>$request->codigo_descuento
 
         ]);
         $auto = new Auto();
@@ -78,6 +81,14 @@ class ClienteController extends Controller
         $cliente->save();
         $cliente->emailCotizacion();
         return response()->json(['cotizacion'=>$cliente],201);
+    }
+
+    public function sendEmail(Request $request)
+    {
+        $cliente = $request->cliente;
+        $cotizacion = $request->cotizacion;
+        dd($request->all());
+        //$cliente->emailCotizacion($cotizacion);
     }
 
     public function search(Request $request){

@@ -590,6 +590,7 @@
                 axios.get(url).then(res=>{
                     // console.log('descripcion ana',res.data)
                     this.descripciones_ana = res.data.vehiculos;
+                    console.log('Get Descripcion ANA');
                 }).catch(err=>{
                     console.log('err',err)
                 })
@@ -608,6 +609,7 @@
                         this.loader=false;
                         // console.log('cotizacion ana',res.data);
                         this.cotizacionesANA=res.data.ANASeguros;
+                    //-+-+-+-+-+-+-+-++    this.sendCotizacion(this.cliente, this.cotizacionesANA[0]);   -+-+-+-+-+-+-+-+-+
                         // this.loaderA = false;
                         // console.log(this.cotizac'ionesANA);
                     }
@@ -616,6 +618,41 @@
                     console.log('coberturas ana error',err);
                 });
 
+            },
+            sendCotizacion(cliente, cotizacion){
+                let params = { "cliente": cliente, "cotizacion": cotizacion};
+                let url = "./api/email-cotizacion";
+                this.alert.message = '';
+                this.alert.class = '';
+                axios.post(url,params).then(res=>{
+                    //console.log('res',res);
+                    this.cliente.cotizacion =res.data.cotizacion.cotizacion;
+                    this.cliente.uso_auto =res.data.cotizacion.uso_auto;
+                    this.cliente.descripcion_auto = res.data.cotizacion.auto.version;
+                    this.cliente.marca_auto = res.data.cotizacion.auto.marca;
+                    this.cliente.modelo_auto = res.data.cotizacion.auto.submarca.anio;
+                    this.cliente.submarca_auto = res.data.cotizacion.auto.submarca;
+                    // this.cliente.auto = res.data.cotizacion.auto;
+                    this.cliente.cp =res.data.cotizacion.cp;
+                    this.cliente.nombre=res.data.cotizacion.nombre;
+                    this.cliente.appaterno =res.data.cotizacion.appaterno;
+                    this.cliente.apmaterno =res.data.cotizacion.apmaterno;
+                    this.cliente.telefono =res.data.cotizacion.telefono;
+                    this.cliente.email =res.data.cotizacion.email;
+                    this.cliente.sexo =res.data.cotizacion.sexo;
+                    this.cliente.f_nac =res.data.cotizacion.f_nac;
+                    this.cliente.ana = res.data.cotizacion.ana;
+                    this.cliente.gs=res.data.cotizacion.gs;
+                    this.cliente.qualitas = res.data.cotizacion.qualitas;
+                    this.getcotizacion.value = !this.getcotizacion.value;
+                    //this.alert.message = `${this.cliente.nombre} ${this.cliente.appaterno} ${this.cliente.apmaterno} su cotización se guardo con el folio ${this.cliente.cotizacion}`;
+                    //this.alert.class = "alert alert-success alert-dismissible fade show";
+                    //$("#paso2-tab").removeClass("disabled");
+                    //$("#paso2-tab").click();
+                    // $('#cotizar').modal('show');
+                }).catch(err=>{
+                    console.log('err',err);
+                })
             },
             getDescripcionesQualitas(marca,submarca,modelo){
                 let uso = this.cliente.uso_auto

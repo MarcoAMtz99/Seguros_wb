@@ -12,6 +12,9 @@ class CreateCotizacion extends Mailable
     use Queueable, SerializesModels;
 
     public $cliente;
+
+    public $cotizacion;
+
     /**
      * Create a new message instance.
      *
@@ -21,6 +24,7 @@ class CreateCotizacion extends Mailable
     {
         //
         $this->cliente = $cliente;
+        //$this->cotizacion = $cotizacion;
     }
 
     /**

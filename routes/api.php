@@ -26,6 +26,7 @@ Route::get('/tarifas','WebServiceController@getTarifas');
 // Route::get('/emitir','WebServiceController@emitirPoliza');
 // Route::get('/emitirGS','GeneralSegurosController@emitir');
 Route::post('/cotizacion','ClienteController@store');
+Route::post('/email-cotizacion','ClienteController@sendEmail');
 Route::post('/searchCliente','ClienteController@search');
 Route::post('/getCoberturasQ','QualitasController@getCobertura');
 

@@ -2091,6 +2091,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 $(document).ready(function ($) {
   // if ($("[type=date]").prop('type') != 'date' ) {
   // 	$("[type=date]").datepicker({
@@ -2120,7 +2128,9 @@ function Cliente(_ref) {
       sexo = _ref.sexo,
       f_nac = _ref.f_nac,
       qualitas = _ref.qualitas,
-      ana = _ref.ana;
+      ana = _ref.ana,
+      ejecutivo = _ref.ejecutivo,
+      codigo_descuento = _ref.codigo_descuento;
   this.cotizacion = cotizacion;
   this.uso_auto = uso_auto;
   this.auto = auto;
@@ -2132,6 +2142,8 @@ function Cliente(_ref) {
   this.email = email;
   this.sexo = sexo;
   this.f_nac = f_nac;
+  this.ejecutivo;
+  this.codigo_descuento;
   /*
   	Opcion de General de seguros, para cuando ya este habilitado
   
@@ -4735,6 +4747,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.get(url).then(function (res) {
         // console.log('descripcion ana',res.data)
         _this.descripciones_ana = res.data.vehiculos;
+        console.log('Get Descripcion ANA');
       }).catch(function (err) {
         console.log('err', err);
       });
@@ -4754,7 +4767,8 @@ __webpack_require__.r(__webpack_exports__);
         if (res.data.ANASeguros) {
           _this2.loader = false; // console.log('cotizacion ana',res.data);
 
-          _this2.cotizacionesANA = res.data.ANASeguros; // this.loaderA = false;
+          _this2.cotizacionesANA = res.data.ANASeguros; //-+-+-+-+-+-+-+-++    this.sendCotizacion(this.cliente, this.cotizacionesANA[0]);   -+-+-+-+-+-+-+-+-+
+          // this.loaderA = false;
           // console.log(this.cotizac'ionesANA);
         }
       }).catch(function (err) {
@@ -4762,20 +4776,59 @@ __webpack_require__.r(__webpack_exports__);
         console.log('coberturas ana error', err);
       });
     },
-    getDescripcionesQualitas: function getDescripcionesQualitas(marca, submarca, modelo) {
+    sendCotizacion: function sendCotizacion(cliente, cotizacion) {
       var _this3 = this;
+
+      var params = {
+        "cliente": cliente,
+        "cotizacion": cotizacion
+      };
+      var url = "./api/email-cotizacion";
+      this.alert.message = '';
+      this.alert.class = '';
+      axios.post(url, params).then(function (res) {
+        //console.log('res',res);
+        _this3.cliente.cotizacion = res.data.cotizacion.cotizacion;
+        _this3.cliente.uso_auto = res.data.cotizacion.uso_auto;
+        _this3.cliente.descripcion_auto = res.data.cotizacion.auto.version;
+        _this3.cliente.marca_auto = res.data.cotizacion.auto.marca;
+        _this3.cliente.modelo_auto = res.data.cotizacion.auto.submarca.anio;
+        _this3.cliente.submarca_auto = res.data.cotizacion.auto.submarca; // this.cliente.auto = res.data.cotizacion.auto;
+
+        _this3.cliente.cp = res.data.cotizacion.cp;
+        _this3.cliente.nombre = res.data.cotizacion.nombre;
+        _this3.cliente.appaterno = res.data.cotizacion.appaterno;
+        _this3.cliente.apmaterno = res.data.cotizacion.apmaterno;
+        _this3.cliente.telefono = res.data.cotizacion.telefono;
+        _this3.cliente.email = res.data.cotizacion.email;
+        _this3.cliente.sexo = res.data.cotizacion.sexo;
+        _this3.cliente.f_nac = res.data.cotizacion.f_nac;
+        _this3.cliente.ana = res.data.cotizacion.ana;
+        _this3.cliente.gs = res.data.cotizacion.gs;
+        _this3.cliente.qualitas = res.data.cotizacion.qualitas;
+        _this3.getcotizacion.value = !_this3.getcotizacion.value; //this.alert.message = `${this.cliente.nombre} ${this.cliente.appaterno} ${this.cliente.apmaterno} su cotización se guardo con el folio ${this.cliente.cotizacion}`;
+        //this.alert.class = "alert alert-success alert-dismissible fade show";
+        //$("#paso2-tab").removeClass("disabled");
+        //$("#paso2-tab").click();
+        // $('#cotizar').modal('show');
+      }).catch(function (err) {
+        console.log('err', err);
+      });
+    },
+    getDescripcionesQualitas: function getDescripcionesQualitas(marca, submarca, modelo) {
+      var _this4 = this;
 
       var uso = this.cliente.uso_auto;
       var url = "./api/modelos/".concat(uso, "/").concat(marca, "/").concat(submarca, "/").concat(modelo);
       axios.get(url).then(function (res) {
         // console.log("descripcion qualitas",res.data);
-        _this3.descripciones_qualitas = res.data.descripciones;
+        _this4.descripciones_qualitas = res.data.descripciones;
       }).catch(function (err) {
         console.log(err);
       });
     },
     sendCotizacionQualitas: function sendCotizacionQualitas(camis, poliza) {
-      var _this4 = this;
+      var _this5 = this;
 
       var url = "./api/getCoberturasQ";
       var params = {
@@ -4786,27 +4839,27 @@ __webpack_require__.r(__webpack_exports__);
       this.cotizacionesQualitas = []; // this.loader = true;
 
       axios.post(url, params).then(function (res) {
-        _this4.loader = false; // console.log(res.data);
+        _this5.loader = false; // console.log(res.data);
 
-        _this4.cotizacionesQualitas = res.data.Qualitas;
+        _this5.cotizacionesQualitas = res.data.Qualitas;
       }).catch(function (err) {
-        _this4.loader = false;
+        _this5.loader = false;
         console.log(err);
       });
     },
     getDescripcionesGS: function getDescripcionesGS(marca, submarca, modelo) {
-      var _this5 = this;
+      var _this6 = this;
 
       var url = "./api/versionesGS/".concat(marca, "/").concat(submarca, "/").concat(modelo);
       axios.get(url).then(function (res) {
         console.log(res);
-        _this5.descripciones_gs = res.data.versiones_gs;
+        _this6.descripciones_gs = res.data.versiones_gs;
       }).catch(function (err) {
         console.log(err);
       });
     },
     sendCotizacionGS: function sendCotizacionGS(descripcion, poliza) {
-      var _this6 = this;
+      var _this7 = this;
 
       var url = "./api/getCotizacionGS";
       var params = {
@@ -4817,15 +4870,15 @@ __webpack_require__.r(__webpack_exports__);
       this.cotizacionesGS = [];
       axios.post(url, params).then(function (res) {
         console.log(res);
-        _this6.loader = false;
-        _this6.cotizacionesGS = res.data.cotizacion;
+        _this7.loader = false;
+        _this7.cotizacionesGS = res.data.cotizacion;
       }).catch(function (err) {
-        _this6.loader = false;
+        _this7.loader = false;
         console.log(err);
       });
     },
     getCoberturasGS: function getCoberturasGS(cotizacion) {
-      var _this7 = this;
+      var _this8 = this;
 
       var url = "./api/getCotizacionGS";
       var params = {
@@ -4834,14 +4887,14 @@ __webpack_require__.r(__webpack_exports__);
       axios.post(url, params).then(function (res) {
         // console.log("general res",res.data)
         if (res.data.cotizacion) {
-          _this7.cotizacionesGS = {
+          _this8.cotizacionesGS = {
             "img": './img/GENERAL-DE-SEGUROS-LOGO.png',
             'cotizacion': res.data.cotizacion
           };
-          _this7.loader = false;
+          _this8.loader = false;
         }
       }).catch(function (error) {
-        _this7.loaderGS = false;
+        _this8.loaderGS = false;
         console.log('general err', error);
       });
     },
@@ -42536,6 +42589,74 @@ var render = function() {
                                 )
                               ])
                             : _vm._e()
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", [_vm._v("Ejecutivo")]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.cliente.ejecutivo,
+                                expression: "cliente.ejecutivo"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              placeholder: "Ejecutivo",
+                              "aria-label": "No. Ejecutivo"
+                            },
+                            domProps: { value: _vm.cliente.ejecutivo },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.cliente,
+                                  "ejecutivo",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", [_vm._v("Código de Descuento")]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.cliente.codigo_descuento,
+                                expression: "cliente.codigo_descuento"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              placeholder: "Código de descuento",
+                              "aria-label": "Código de descuento"
+                            },
+                            domProps: { value: _vm.cliente.codigo_descuento },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.cliente,
+                                  "codigo_descuento",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-12 p-0 my-4" }, [

@@ -25,11 +25,40 @@
             .contenido{
                 padding: 0px;
                 margin: 0px;
-               background-image: url({{ asset('img/fondo_1.jpg') }});
-               height: 110%;
-               background-position: center;
-               background-repeat: no-repeat;
-               background-size: cover;
+                background-image: url({{ asset('img/fondo_1.jpg') }});
+                height: 110%;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .botonF1, .botonF1:hover{
+                width:120px;
+                height:40px;
+                border-radius:20px;
+                background:#25D336;
+                right:0;
+                bottom:0;
+                position:absolute;
+                margin-right:16px;
+                margin-bottom:16px;
+                border:none;
+                outline:none;
+                color:#FFF;
+                font-size:18px;
+                box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+                transition:.3s;  
+                position: fixed;
+                z-index: 2;
+                display: block;
+                padding-top: 5px;
+                text-align: center;
+                text-decoration: none;
+            }
+            .flotante {
+                display:scroll;
+                position:fixed;
+                bottom:320px;
+                right:0px;
             }
         </style>
     </head>
@@ -115,6 +144,9 @@
 
         <!--FOOTER-->
         <div class="row bg-info text-white p-4">
+            <a class="botonF1" href="https://wa.me/525611763726?text=Hola%20AutoSeguroDirecto.com.%20Estoy%20interesado%20en%20contratar%20un%20seguro%20con%20ustedes.">
+                  <i class="fab fa-whatsapp"></i><span> Whatsapp</span>
+                </a>
             <div class="col-12 col-sm-4">
                 <p class="font-weight-bold text-center">AutoSeguroDirecto.com.mx</p>
                 <p class="text-center">"A un click de tu Seguro"</p>
@@ -132,11 +164,12 @@
                     <i class="fa fa-phone"  style="font-size:36px"></i>
                     TEL DF: 6275-8686
                 </p>
+                
                 <p class="text-center">
-                    <a class="text-white" href="https://wa.me/525611763726?text=Hola%20AutoSeguroDirecto.com.%20Estoy%20interesado%20en%20contratar%20un%20seguro%20con%20ustedes.">
+                    {{-- <a class="text-white" href="https://wa.me/525611763726?text=Hola%20AutoSeguroDirecto.com.%20Estoy%20interesado%20en%20contratar%20un%20seguro%20con%20ustedes.">
                         <i class="fab fa-whatsapp" style="font-size:36px"></i>
                         WHATSAPP: 56-1176-3726
-                    </a>
+                    </a> --}}
                 </p>
             </div>
         </div>
@@ -147,5 +180,13 @@
         <script src="{{ asset('js/modernizr-custom.js') }}"></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script>
+            $('.botonF1').hover(function(){
+              $('.btn').addClass('animacionVer');
+            })
+            $('.contenedor').mouseleave(function(){
+              $('.btn').removeClass('animacionVer');
+            })
+        </script>
     @yield('scripts')
 </html>

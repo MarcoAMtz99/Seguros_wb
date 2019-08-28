@@ -31,6 +31,14 @@
     										<button class="btn input-group-text" @click="searchCliente(cliente.cotizacion)">Ver</button>
     									</div>
     								</div>
+    								<div class="form-group">
+    									<label>Ejecutivo</label>
+    									<input class="form-control" type="text" v-model="cliente.ejecutivo" placeholder="Ejecutivo" aria-label="No. Ejecutivo">
+    								</div>
+    								<div class="form-group">
+    									<label>Código de Descuento</label>
+    									<input class="form-control" type="text" v-model="cliente.codigo_descuento" placeholder="Código de descuento" aria-label="Código de descuento">
+    								</div>
     								<div class="col-12 p-0 my-4">
     									<div class="card">
     										<div class="card-header">
@@ -340,7 +348,7 @@ $(document).ready(function($) {
     }
 });
 
-function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefono,email,sexo,f_nac, qualitas, ana,}){
+function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefono,email,sexo,f_nac, qualitas, ana,ejecutivo,codigo_descuento,}){
 	this.cotizacion = cotizacion;
 	this.uso_auto = uso_auto;
 	this.auto = auto;
@@ -352,6 +360,8 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 	this.email = email;
 	this.sexo = sexo;
 	this.f_nac = f_nac;
+	this.ejecutivo;
+	this.codigo_descuento;
 	/*
 		Opcion de General de seguros, para cuando ya este habilitado
 
