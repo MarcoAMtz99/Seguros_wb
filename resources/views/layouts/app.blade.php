@@ -22,6 +22,14 @@
         <!--STYLE-->
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
         <style>
+            html {
+              min-height: 100%;
+              position: relative;
+            }
+            body {
+              margin: 0;
+              margin-bottom: 140px;
+            }
             .contenido{
                 padding: 0px;
                 margin: 0px;
@@ -60,6 +68,13 @@
                 bottom:320px;
                 right:0px;
             }
+            .footer {
+              position: absolute;
+              bottom: 0;
+              width: 100%;
+              margin: 0;
+              height: 140px;
+            }
         </style>
     </head>
     <body>
@@ -91,7 +106,7 @@
                         <h5 class="d-flex justify-content-around">
                             <img src="{{ asset('img/logo2.jpg') }}" alt="">
                             <p class="mt-3">
-                                AutoSeguroDirecto.com.mx
+                                Autosegurodirecto.com.mx
                             </p>
                             <span class="d-none d-sm-block text-secondary ml-2 mt-3 p-auto">
                                 <small>
@@ -143,12 +158,12 @@
         </div>
 
         <!--FOOTER-->
-        <div class="row bg-info text-white p-4">
-            <a class="botonF1" href="https://wa.me/525611763726?text=Hola%20AutoSeguroDirecto.com.%20Estoy%20interesado%20en%20contratar%20un%20seguro%20con%20ustedes.">
+        <div class="row bg-info text-white p-4 footer">
+            <a class="botonF1" href="https://wa.me/525611763726?text=Hola%20Autosegurodirecto.com.%20Estoy%20interesado%20en%20contratar%20un%20seguro%20con%20ustedes.">
                   <i class="fab fa-whatsapp"></i><span> Whatsapp</span>
                 </a>
             <div class="col-12 col-sm-4">
-                <p class="font-weight-bold text-center">AutoSeguroDirecto.com.mx</p>
+                <p class="font-weight-bold text-center">Autosegurodirecto.com.mx</p>
                 <p class="text-center">"A un click de tu Seguro"</p>
             </div>
             <div class="col-12 col-sm-4">

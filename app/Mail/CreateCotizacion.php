@@ -20,11 +20,11 @@ class CreateCotizacion extends Mailable
      *
      * @return void
      */
-    public function __construct($cliente)
+    public function __construct($cliente, $cotizacion)
     {
         //
         $this->cliente = $cliente;
-        //$this->cotizacion = $cotizacion;
+        $this->cotizacion = $cotizacion;
     }
 
     /**
@@ -34,6 +34,6 @@ class CreateCotizacion extends Mailable
      */
     public function build()
     {
-        return $this->subject('Gracias por usar AutoSeguroDirecto')->markdown('emails.cotizacion');
+        return $this->subject('Gracias por usar Autosegurodirecto')->view('emails.cotizacion');
     }
 }

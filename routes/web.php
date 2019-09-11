@@ -14,6 +14,10 @@ Route::get('/', function () {
 	
     return view('index');
 })->name('index');
+Route::get('/dev-envio', function(){
+	return view('prueba');
+});
+Route::get('prueba', 'PruebaController@envio');
 Route::post('sendGS','GeneralSegurosController@sendGS');
 Route::post('sendQua','QualitasController@emitirPoliza');
 Route::post('sendANA','API\AnaController@emitirPoliza');

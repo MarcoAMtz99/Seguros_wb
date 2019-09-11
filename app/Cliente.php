@@ -48,10 +48,9 @@ class Cliente extends Model
         return substr(md5(uniqid(mt_rand(), true)), 0, 10);
     }
 
-    public function emailCotizacion(){
-        $cliente = $this;
-        // dd($cliente);
-        Mail::to($cliente->email)->send(new CreateCotizacion($cliente));
+    public function emailCotizacion($cotizacion){
+        Mail::to($this->email)->send(new CreateCotizacion($this, $cotizacion));
+        //return (new CreateCotizacion($this, $cotizacion));
     }
 
 

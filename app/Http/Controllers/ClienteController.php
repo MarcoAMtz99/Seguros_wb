@@ -79,16 +79,17 @@ class ClienteController extends Controller
 
         $cliente->cotizacion = $cliente->generarCotizacion();
         $cliente->save();
-        $cliente->emailCotizacion();
+        //$cliente->emailCotizacion();
         return response()->json(['cotizacion'=>$cliente],201);
     }
 
     public function sendEmail(Request $request)
     {
         $cliente = $request->cliente;
+        $cliente = Cliente::where('cotizacion', $cliente['cotizacion'])->first();
         $cotizacion = $request->cotizacion;
-        dd($request->all());
-        //$cliente->emailCotizacion($cotizacion);
+        $cliente->emailCotizacion($cotizacion);
+        dd($cotizacion);
     }
 
     public function search(Request $request){
