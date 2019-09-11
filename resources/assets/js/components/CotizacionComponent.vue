@@ -31,6 +31,7 @@
     										<button class="btn input-group-text" @click="searchCliente(cliente.cotizacion)">Ver</button>
     									</div>
     								</div>
+    								<h3>R</h3>
     								<div class="form-group">
     									<label>Ejecutivo</label>
     									<input class="form-control" type="text" v-model="cliente.ejecutivo" placeholder="Ejecutivo" aria-label="No. Ejecutivo">
