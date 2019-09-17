@@ -301,6 +301,10 @@
 		                        <div class="card-body">
 		                            <!-- TODO -->
 		                            <div class="form-group">
+										<div class="form-check form-check-inline" v-if="cliente.uso_auto == 'Servicio Particular'">
+										  <input class="form-check-input" type="checkbox" id="checkbox-gs" v-model="cliente.gs" true-value="1" false-value="0">
+										  <label class="form-check-label" for="checkbox-gs"><img :src="img.gsImage" width="120" height="50"></label>
+										</div>
 		                            	<div class="form-check form-check-inline">
 										  <input class="form-check-input" type="checkbox" id="checkbox-qualitas" v-model="cliente.qualitas" true-value="1" false-value="0">
 										  <label class="form-check-label" for="checkbox-qualitas"><img :src="img.quaImage" width="120" height="50"></label>

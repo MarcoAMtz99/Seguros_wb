@@ -79,6 +79,9 @@ class ClienteController extends Controller
 
         $cliente->cotizacion = $cliente->generarCotizacion();
         $cliente->save();
+        $cliente->auto;
+        $cliente->auto->marca;
+        $cliente->auto->submarca;
         //$cliente->emailCotizacion();
         return response()->json(['cotizacion'=>$cliente],201);
     }

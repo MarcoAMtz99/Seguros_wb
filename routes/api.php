@@ -30,7 +30,7 @@ Route::post('/email-cotizacion','ClienteController@sendEmail');
 Route::post('/searchCliente','ClienteController@search');
 Route::post('/getCoberturasQ','QualitasController@getCobertura');
 
-
+// GNP
 Route::get('/versionesGS/{marca}/{submarca}/{modelo}','GeneralSegurosController@versiones');
 Route::get('/getMarcas','GeneralSegurosController@getMarcas');
 Route::get('/getSubmarcas/{marca_id}','GeneralSegurosController@getSubmarcas');

@@ -61,212 +61,212 @@ class WebServiceController extends Controller
 		try{
 			// dd($this->clientCotizaImpresion->__getTypes());
 			$xmlPoliza = 
-<<<XML
-<?xml version="1.0" encoding="utf-8"?>
-<Movimientos>
-	<Movimiento TipoMovimiento="3" NoPoliza="" NoCotizacion="" NoEndoso="" TipoEndoso="" NoOTra="" NoNegocio="05545">
-		<DatosAsegurado NoAsegurado="">
-			<Nombre>$cliente->appaterno $cliente->apmaterno $cliente->nombre</Nombre>
-			<Direccion>Norte 48-A, 3644</Direccion>
-			<Colonia>Mártires de Río Blanco</Colonia>
-			<Poblacion>5</Poblacion>
-			<Estado>9</Estado>
-			<CodigoPostal>07880</CodigoPostal>
-			<NoEmpleado/>
-			<Agrupador/>
-			<?asegurado persona fisica?>
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-				<TipoRegla>1</TipoRegla>
-				<ValorRegla>3644</ValorRegla>
-			</ConsideracionesAdicionalesDA>
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-				<TipoRegla>2</TipoRegla>
-				<ValorRegla>1</ValorRegla>
-			</ConsideracionesAdicionalesDA>
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-				<TipoRegla>3</TipoRegla>
-				<ValorRegla>México</ValorRegla>
-			</ConsideracionesAdicionalesDA>
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-				<TipoRegla>4</TipoRegla>
-				<ValorRegla>$cliente->nombre</ValorRegla>
-			</ConsideracionesAdicionalesDA>
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-				<TipoRegla>5</TipoRegla>
-				<ValorRegla>$cliente->appaterno</ValorRegla>
-			</ConsideracionesAdicionalesDA>
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-				<TipoRegla>6</TipoRegla>
-				<ValorRegla>$cliente->apmaterno</ValorRegla>
-			</ConsideracionesAdicionalesDA>
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-				<TipoRegla>7</TipoRegla>
-				<ValorRegla>5</ValorRegla>
-			</ConsideracionesAdicionalesDA>
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-				<TipoRegla>19</TipoRegla>
-				<ValorRegla>1</ValorRegla>
-			</ConsideracionesAdicionalesDA>
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-				<TipoRegla>20</TipoRegla>
-				<ValorRegla>$nacimiento</ValorRegla>
-			</ConsideracionesAdicionalesDA>
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-				<TipoRegla>21</TipoRegla>
-				<ValorRegla>1</ValorRegla>
-			</ConsideracionesAdicionalesDA>
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-				<TipoRegla>23</TipoRegla>
-				<ValorRegla>2</ValorRegla>
-			</ConsideracionesAdicionalesDA>
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-				<TipoRegla>24</TipoRegla>
-				<ValorRegla>32</ValorRegla>
-			</ConsideracionesAdicionalesDA>
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-				<TipoRegla>25</TipoRegla>
-				<ValorRegla>8</ValorRegla>
-			</ConsideracionesAdicionalesDA>
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-				<TipoRegla>26</TipoRegla>
-				<ValorRegla>$cliente->email</ValorRegla>
-			</ConsideracionesAdicionalesDA>	
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-				<TipoRegla>27</TipoRegla>
-				<ValorRegla>ROOG921021HDFJRL24</ValorRegla>
-			</ConsideracionesAdicionalesDA>
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-				<TipoRegla>28</TipoRegla>
-				<ValorRegla>ROOG921021Iz2</ValorRegla>
-			</ConsideracionesAdicionalesDA>
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-				<TipoRegla>36</TipoRegla>
-				<ValorRegla>$cliente->nombre</ValorRegla>
-			</ConsideracionesAdicionalesDA>
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-				<TipoRegla>37</TipoRegla>
-				<ValorRegla>$cliente->appaterno</ValorRegla>
-			</ConsideracionesAdicionalesDA>
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-				<TipoRegla>38</TipoRegla>
-				<ValorRegla>$cliente->apmaterno</ValorRegla>
-			</ConsideracionesAdicionalesDA>
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-				<TipoRegla>39</TipoRegla>
-				<ValorRegla>1</ValorRegla>
-			</ConsideracionesAdicionalesDA>
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-				<TipoRegla>47</TipoRegla>
-				<ValorRegla>ROOG921021HDFJRL24</ValorRegla>
-			</ConsideracionesAdicionalesDA>
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-				<TipoRegla>48</TipoRegla>
-				<ValorRegla>ROOG921021IZ2</ValorRegla>
-			</ConsideracionesAdicionalesDA>
-			<ConsideracionesAdicionalesDA NoConsideracion="40">
-        		<TipoRegla>70</TipoRegla>
-        		<ValorRegla>83112329</ValorRegla>
-      		</ConsideracionesAdicionalesDA>
-		</DatosAsegurado>
-		<DatosVehiculo NoInciso="1">
-			<ClaveAmis>$camis</ClaveAmis>
-			<Modelo>$modelo</Modelo>
-			<DescripcionVehiculo/>
-			<Uso>1</Uso>
-			<Servicio>1</Servicio>
-			<Paquete>1</Paquete>
-			<Motor>2563158974</Motor>
-			<Serie>9876555231462545</Serie>
-			<Coberturas NoCobertura="1">
-			  <SumaAsegurada>0</SumaAsegurada>
-			  <TipoSuma>0</TipoSuma>
-			  <Deducible>5</Deducible>
-			  <Prima>0</Prima>
-			</Coberturas>
-			<Coberturas NoCobertura="3">
-			  <SumaAsegurada>0</SumaAsegurada>
-			  <TipoSuma>0</TipoSuma>
-			  <Deducible>10</Deducible>
-			  <Prima>0</Prima>
-			</Coberturas>
-			<Coberturas NoCobertura="4">
-			  <SumaAsegurada>2000000</SumaAsegurada>
-			  <TipoSuma>0</TipoSuma>
-			  <Deducible>0</Deducible>
-			  <Prima>0</Prima>
-			</Coberturas>
-			<Coberturas NoCobertura="5">
-			  <SumaAsegurada>250000</SumaAsegurada>
-			  <TipoSuma>0</TipoSuma>
-			  <Deducible>0</Deducible>
-			  <Prima>0</Prima>
-			</Coberturas>
-			<Coberturas NoCobertura="7">
-			  <SumaAsegurada/>
-			  <TipoSuma>0</TipoSuma>
-			  <Deducible>0</Deducible>
-			  <Prima>0</Prima>
-			</Coberturas>
-			<Coberturas NoCobertura="6">
-			  <SumaAsegurada>100000</SumaAsegurada>
-			  <TipoSuma>0</TipoSuma>
-			  <Deducible>0</Deducible>
-			  <Prima>0</Prima>
-			</Coberturas>
-			<Coberturas NoCobertura="13">
-				<SumaAsegurada>0</SumaAsegurada>
-				<TipoSuma>0</TipoSuma>
-				<Deducible>1500</Deducible>
-				<Prima>0</Prima>
-			</Coberturas>
-			<Coberturas NoCobertura="14">
-			  <SumaAsegurada>90</SumaAsegurada>
-			  <TipoSuma>0</TipoSuma>
-			  <Deducible>0</Deducible>
-			  <Prima>0</Prima>
-			</Coberturas>
-			<Coberturas NoCobertura="47">
-			  <SumaAsegurada>1000000</SumaAsegurada>
-			  <TipoSuma>14</TipoSuma>
-			  <Deducible>0</Deducible>
-			  <Prima>0</Prima>
-			</Coberturas>
-		</DatosVehiculo>
-		<DatosGenerales>
-			<FechaEmision>2018-12-19</FechaEmision>
-			<FechaInicio>2018-12-19</FechaInicio>
-			<FechaTermino>2019-12-19</FechaTermino>
-			<Moneda>0</Moneda>
-			<Agente>74285</Agente>
-			<FormaPago>C</FormaPago>
-			<TarifaValores>LINEA</TarifaValores>
-			<TarifaCuotas>LINEA</TarifaCuotas>
-			<TarifaDerechos>LINEA</TarifaDerechos>
-			<Plazo/>
-			<Agencia/>
-			<Contrato/>
-			<PorcentajeDescuento>20</PorcentajeDescuento>
-			<ConsideracionesAdicionalesDG NoConsideracion="1">
-			  <TipoRegla>1</TipoRegla>
-			  <ValorRegla>$dig</ValorRegla>
-			</ConsideracionesAdicionalesDG>
-			<ConsideracionesAdicionalesDG NoConsideracion="04">
-			  <TipoRegla>1</TipoRegla>
-			  <ValorRegla>1</ValorRegla>
-			</ConsideracionesAdicionalesDG>
-		</DatosGenerales>
-		<Primas>
-			<PrimaNeta/>
-			<Derecho>500</Derecho>
-			<Recargo/>
-			<Impuesto/>
-			<PrimaTotal/>
-			<Comision/>
-	  	</Primas>
-		<CodigoError/>
-	</Movimiento>
-</Movimientos>
-XML;
+			<<<XML
+			<?xml version="1.0" encoding="utf-8"?>
+			<Movimientos>
+				<Movimiento TipoMovimiento="3" NoPoliza="" NoCotizacion="" NoEndoso="" TipoEndoso="" NoOTra="" NoNegocio="05545">
+					<DatosAsegurado NoAsegurado="">
+						<Nombre>$cliente->appaterno $cliente->apmaterno $cliente->nombre</Nombre>
+						<Direccion>Norte 48-A, 3644</Direccion>
+						<Colonia>Mártires de Río Blanco</Colonia>
+						<Poblacion>5</Poblacion>
+						<Estado>9</Estado>
+						<CodigoPostal>07880</CodigoPostal>
+						<NoEmpleado/>
+						<Agrupador/>
+						<?asegurado persona fisica?>
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+							<TipoRegla>1</TipoRegla>
+							<ValorRegla>3644</ValorRegla>
+						</ConsideracionesAdicionalesDA>
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+							<TipoRegla>2</TipoRegla>
+							<ValorRegla>1</ValorRegla>
+						</ConsideracionesAdicionalesDA>
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+							<TipoRegla>3</TipoRegla>
+							<ValorRegla>México</ValorRegla>
+						</ConsideracionesAdicionalesDA>
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+							<TipoRegla>4</TipoRegla>
+							<ValorRegla>$cliente->nombre</ValorRegla>
+						</ConsideracionesAdicionalesDA>
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+							<TipoRegla>5</TipoRegla>
+							<ValorRegla>$cliente->appaterno</ValorRegla>
+						</ConsideracionesAdicionalesDA>
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+							<TipoRegla>6</TipoRegla>
+							<ValorRegla>$cliente->apmaterno</ValorRegla>
+						</ConsideracionesAdicionalesDA>
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+							<TipoRegla>7</TipoRegla>
+							<ValorRegla>5</ValorRegla>
+						</ConsideracionesAdicionalesDA>
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+							<TipoRegla>19</TipoRegla>
+							<ValorRegla>1</ValorRegla>
+						</ConsideracionesAdicionalesDA>
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+							<TipoRegla>20</TipoRegla>
+							<ValorRegla>$nacimiento</ValorRegla>
+						</ConsideracionesAdicionalesDA>
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+							<TipoRegla>21</TipoRegla>
+							<ValorRegla>1</ValorRegla>
+						</ConsideracionesAdicionalesDA>
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+							<TipoRegla>23</TipoRegla>
+							<ValorRegla>2</ValorRegla>
+						</ConsideracionesAdicionalesDA>
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+							<TipoRegla>24</TipoRegla>
+							<ValorRegla>32</ValorRegla>
+						</ConsideracionesAdicionalesDA>
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+							<TipoRegla>25</TipoRegla>
+							<ValorRegla>8</ValorRegla>
+						</ConsideracionesAdicionalesDA>
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+							<TipoRegla>26</TipoRegla>
+							<ValorRegla>$cliente->email</ValorRegla>
+						</ConsideracionesAdicionalesDA>	
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+							<TipoRegla>27</TipoRegla>
+							<ValorRegla>ROOG921021HDFJRL24</ValorRegla>
+						</ConsideracionesAdicionalesDA>
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+							<TipoRegla>28</TipoRegla>
+							<ValorRegla>ROOG921021Iz2</ValorRegla>
+						</ConsideracionesAdicionalesDA>
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+							<TipoRegla>36</TipoRegla>
+							<ValorRegla>$cliente->nombre</ValorRegla>
+						</ConsideracionesAdicionalesDA>
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+							<TipoRegla>37</TipoRegla>
+							<ValorRegla>$cliente->appaterno</ValorRegla>
+						</ConsideracionesAdicionalesDA>
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+							<TipoRegla>38</TipoRegla>
+							<ValorRegla>$cliente->apmaterno</ValorRegla>
+						</ConsideracionesAdicionalesDA>
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+							<TipoRegla>39</TipoRegla>
+							<ValorRegla>1</ValorRegla>
+						</ConsideracionesAdicionalesDA>
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+							<TipoRegla>47</TipoRegla>
+							<ValorRegla>ROOG921021HDFJRL24</ValorRegla>
+						</ConsideracionesAdicionalesDA>
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+							<TipoRegla>48</TipoRegla>
+							<ValorRegla>ROOG921021IZ2</ValorRegla>
+						</ConsideracionesAdicionalesDA>
+						<ConsideracionesAdicionalesDA NoConsideracion="40">
+			        		<TipoRegla>70</TipoRegla>
+			        		<ValorRegla>83112329</ValorRegla>
+			      		</ConsideracionesAdicionalesDA>
+					</DatosAsegurado>
+					<DatosVehiculo NoInciso="1">
+						<ClaveAmis>$camis</ClaveAmis>
+						<Modelo>$modelo</Modelo>
+						<DescripcionVehiculo/>
+						<Uso>1</Uso>
+						<Servicio>1</Servicio>
+						<Paquete>1</Paquete>
+						<Motor>2563158974</Motor>
+						<Serie>9876555231462545</Serie>
+						<Coberturas NoCobertura="1">
+						  <SumaAsegurada>0</SumaAsegurada>
+						  <TipoSuma>0</TipoSuma>
+						  <Deducible>5</Deducible>
+						  <Prima>0</Prima>
+						</Coberturas>
+						<Coberturas NoCobertura="3">
+						  <SumaAsegurada>0</SumaAsegurada>
+						  <TipoSuma>0</TipoSuma>
+						  <Deducible>10</Deducible>
+						  <Prima>0</Prima>
+						</Coberturas>
+						<Coberturas NoCobertura="4">
+						  <SumaAsegurada>2000000</SumaAsegurada>
+						  <TipoSuma>0</TipoSuma>
+						  <Deducible>0</Deducible>
+						  <Prima>0</Prima>
+						</Coberturas>
+						<Coberturas NoCobertura="5">
+						  <SumaAsegurada>250000</SumaAsegurada>
+						  <TipoSuma>0</TipoSuma>
+						  <Deducible>0</Deducible>
+						  <Prima>0</Prima>
+						</Coberturas>
+						<Coberturas NoCobertura="7">
+						  <SumaAsegurada/>
+						  <TipoSuma>0</TipoSuma>
+						  <Deducible>0</Deducible>
+						  <Prima>0</Prima>
+						</Coberturas>
+						<Coberturas NoCobertura="6">
+						  <SumaAsegurada>100000</SumaAsegurada>
+						  <TipoSuma>0</TipoSuma>
+						  <Deducible>0</Deducible>
+						  <Prima>0</Prima>
+						</Coberturas>
+						<Coberturas NoCobertura="13">
+							<SumaAsegurada>0</SumaAsegurada>
+							<TipoSuma>0</TipoSuma>
+							<Deducible>1500</Deducible>
+							<Prima>0</Prima>
+						</Coberturas>
+						<Coberturas NoCobertura="14">
+						  <SumaAsegurada>90</SumaAsegurada>
+						  <TipoSuma>0</TipoSuma>
+						  <Deducible>0</Deducible>
+						  <Prima>0</Prima>
+						</Coberturas>
+						<Coberturas NoCobertura="47">
+						  <SumaAsegurada>1000000</SumaAsegurada>
+						  <TipoSuma>14</TipoSuma>
+						  <Deducible>0</Deducible>
+						  <Prima>0</Prima>
+						</Coberturas>
+					</DatosVehiculo>
+					<DatosGenerales>
+						<FechaEmision>2018-12-19</FechaEmision>
+						<FechaInicio>2018-12-19</FechaInicio>
+						<FechaTermino>2019-12-19</FechaTermino>
+						<Moneda>0</Moneda>
+						<Agente>74285</Agente>
+						<FormaPago>C</FormaPago>
+						<TarifaValores>LINEA</TarifaValores>
+						<TarifaCuotas>LINEA</TarifaCuotas>
+						<TarifaDerechos>LINEA</TarifaDerechos>
+						<Plazo/>
+						<Agencia/>
+						<Contrato/>
+						<PorcentajeDescuento>20</PorcentajeDescuento>
+						<ConsideracionesAdicionalesDG NoConsideracion="1">
+						  <TipoRegla>1</TipoRegla>
+						  <ValorRegla>$dig</ValorRegla>
+						</ConsideracionesAdicionalesDG>
+						<ConsideracionesAdicionalesDG NoConsideracion="04">
+						  <TipoRegla>1</TipoRegla>
+						  <ValorRegla>1</ValorRegla>
+						</ConsideracionesAdicionalesDG>
+					</DatosGenerales>
+					<Primas>
+						<PrimaNeta/>
+						<Derecho>500</Derecho>
+						<Recargo/>
+						<Impuesto/>
+						<PrimaTotal/>
+						<Comision/>
+				  	</Primas>
+					<CodigoError/>
+				</Movimiento>
+			</Movimientos>
+			XML;
 			$client = $this->clientCotiza->obtenerNuevaEmision(array('xmlEmision'=>$xmlPoliza));
 			$xml = simplexml_load_string($client->obtenerNuevaEmisionResult);
 			$response = json_decode(json_encode($xml), true);
@@ -332,136 +332,136 @@ XML;
 	  try {
 		// dd($this->clientCotiza->__getLastResponse());
 		$xmlstr =<<<XML
-<Movimientos>
-  <Movimiento TipoMovimiento="2" NoPoliza="" NoCotizacion="" NoEndoso="" TipoEndoso="" NoOTra="" NoNegocio="05545">
-	<DatosAsegurado NoAsegurado="">
-	  <Nombre/>
-	  <Direccion/>
-	  <Colonia/>
-	  <Poblacion/>
-	  <Estado>9</Estado>
-	  <CodigoPostal>06000</CodigoPostal>
-	  <NoEmpleado/>
-	  <Agrupador/>
-	  <ConsideracionesAdicionalesDA NoConsideracion="40">
-		<TipoRegla>1</TipoRegla>
-		<ValorRegla>1</ValorRegla>
-	  </ConsideracionesAdicionalesDA>
-	  <ConsideracionesAdicionalesDA NoConsideracion="40">
-		<TipoRegla>2</TipoRegla>
-		<ValorRegla>2</ValorRegla>
-	  </ConsideracionesAdicionalesDA>
-	  <ConsideracionesAdicionalesDA NoConsideracion="40">
-		<TipoRegla>3</TipoRegla>
-		<ValorRegla>MEXICO</ValorRegla>
-	  </ConsideracionesAdicionalesDA>
-	  <ConsideracionesAdicionalesDA NoConsideracion="40">
-		<TipoRegla>4</TipoRegla>
-		<ValorRegla>NOMBRE2</ValorRegla>
-	  </ConsideracionesAdicionalesDA>
-	  <ConsideracionesAdicionalesDA NoConsideracion="40">
-		<TipoRegla>5</TipoRegla>
-		<ValorRegla>APELLIDOP2</ValorRegla>
-	  </ConsideracionesAdicionalesDA>
-	  <ConsideracionesAdicionalesDA NoConsideracion="40">
-		<TipoRegla>6</TipoRegla>
-		<ValorRegla>APELLIDOM2</ValorRegla>
-	  </ConsideracionesAdicionalesDA>
-	</DatosAsegurado>
-	<DatosVehiculo NoInciso="1">
-	  <ClaveAmis>2789</ClaveAmis>
-	  <Modelo>2018</Modelo>
-	  <DescripcionVehiculo/>
-	  <Uso>1</Uso>
-	  <Servicio>1</Servicio>
+		<Movimientos>
+		  <Movimiento TipoMovimiento="2" NoPoliza="" NoCotizacion="" NoEndoso="" TipoEndoso="" NoOTra="" NoNegocio="05545">
+			<DatosAsegurado NoAsegurado="">
+			  <Nombre/>
+			  <Direccion/>
+			  <Colonia/>
+			  <Poblacion/>
+			  <Estado>9</Estado>
+			  <CodigoPostal>06000</CodigoPostal>
+			  <NoEmpleado/>
+			  <Agrupador/>
+			  <ConsideracionesAdicionalesDA NoConsideracion="40">
+				<TipoRegla>1</TipoRegla>
+				<ValorRegla>1</ValorRegla>
+			  </ConsideracionesAdicionalesDA>
+			  <ConsideracionesAdicionalesDA NoConsideracion="40">
+				<TipoRegla>2</TipoRegla>
+				<ValorRegla>2</ValorRegla>
+			  </ConsideracionesAdicionalesDA>
+			  <ConsideracionesAdicionalesDA NoConsideracion="40">
+				<TipoRegla>3</TipoRegla>
+				<ValorRegla>MEXICO</ValorRegla>
+			  </ConsideracionesAdicionalesDA>
+			  <ConsideracionesAdicionalesDA NoConsideracion="40">
+				<TipoRegla>4</TipoRegla>
+				<ValorRegla>NOMBRE2</ValorRegla>
+			  </ConsideracionesAdicionalesDA>
+			  <ConsideracionesAdicionalesDA NoConsideracion="40">
+				<TipoRegla>5</TipoRegla>
+				<ValorRegla>APELLIDOP2</ValorRegla>
+			  </ConsideracionesAdicionalesDA>
+			  <ConsideracionesAdicionalesDA NoConsideracion="40">
+				<TipoRegla>6</TipoRegla>
+				<ValorRegla>APELLIDOM2</ValorRegla>
+			  </ConsideracionesAdicionalesDA>
+			</DatosAsegurado>
+			<DatosVehiculo NoInciso="1">
+			  <ClaveAmis>2789</ClaveAmis>
+			  <Modelo>2018</Modelo>
+			  <DescripcionVehiculo/>
+			  <Uso>1</Uso>
+			  <Servicio>1</Servicio>
 
-	  <Paquete>4</Paquete>
-	  <Motor/>
-	  <Serie/>
-	  <Coberturas NoCobertura="1">
-		<SumaAsegurada>0</SumaAsegurada>
-		<TipoSuma>0</TipoSuma>
-		<Deducible>5</Deducible>
-		<Prima>0</Prima>
-	  </Coberturas>
-	  <Coberturas NoCobertura="3">
-		<SumaAsegurada>0</SumaAsegurada>
-		<TipoSuma>0</TipoSuma>
-		<Deducible>10</Deducible>
-		<Prima>0</Prima>
-	  </Coberturas>
-	  <Coberturas NoCobertura="4">
-		<SumaAsegurada>2000000</SumaAsegurada>
-		<TipoSuma>0</TipoSuma>
-		<Deducible>0</Deducible>
-		<Prima>0</Prima>
-	  </Coberturas>
-	  <Coberturas NoCobertura="5">
-		<SumaAsegurada>250000</SumaAsegurada>
-		<TipoSuma>0</TipoSuma>
-		<Deducible>0</Deducible>
-		<Prima>0</Prima>
-	  </Coberturas>
-	  <Coberturas NoCobertura="7">
-		<SumaAsegurada/>
-		<TipoSuma>0</TipoSuma>
-		<Deducible>0</Deducible>
-		<Prima>0</Prima>
-	  </Coberturas>
-	  <Coberturas NoCobertura="6">
-		<SumaAsegurada>100000</SumaAsegurada>
-		<TipoSuma>0</TipoSuma>
-		<Deducible>0</Deducible>
-		<Prima>0</Prima>
-	  </Coberturas>
-	  <Coberturas NoCobertura="14">
-		<SumaAsegurada>90</SumaAsegurada>
-		<TipoSuma>0</TipoSuma>
-		<Deducible>0</Deducible>
-		<Prima>0</Prima>
-	  </Coberturas>
-	  <Coberturas NoCobertura="47">
-		<SumaAsegurada>1000000</SumaAsegurada>
-		<TipoSuma>14</TipoSuma>
-		<Deducible>0</Deducible>
-		<Prima>0</Prima>
-	  </Coberturas>
-	</DatosVehiculo>
-	<DatosGenerales>
-	  <FechaEmision>2018-11-29</FechaEmision>
-	  <FechaInicio>2018-11-29</FechaInicio>
-	  <FechaTermino>2019-10-26</FechaTermino>
-	  <Moneda>0</Moneda>
-	  <Agente>74285</Agente>
-	  <FormaPago>C</FormaPago>
-	  <TarifaValores>LINEA</TarifaValores>
-	  <TarifaCuotas>LINEA</TarifaCuotas>
-	  <TarifaDerechos>LINEA</TarifaDerechos>
-	  <Plazo/>
-	  <Agencia/>
-	  <Contrato/>
-	  <PorcentajeDescuento>20</PorcentajeDescuento>
-	  <ConsideracionesAdicionalesDG NoConsideracion="1">
-		<TipoRegla>1</TipoRegla>
-		<ValorRegla>2</ValorRegla>
-	  </ConsideracionesAdicionalesDG>
-	  <ConsideracionesAdicionalesDG NoConsideracion="4">
-		<TipoRegla>1</TipoRegla>
-		<ValorRegla>1</ValorRegla>
-	  </ConsideracionesAdicionalesDG>
-	</DatosGenerales>
-	<Primas>
-	  <PrimaNeta/>
-	  <Derecho>500</Derecho>
-	  <Recargo/>
-	  <Impuesto/>
-	  <PrimaTotal/>
-	  <Comision/>
-	</Primas>
-	<CodigoError/>
-  </Movimiento>
-</Movimientos>
-XML;
+			  <Paquete>4</Paquete>
+			  <Motor/>
+			  <Serie/>
+			  <Coberturas NoCobertura="1">
+				<SumaAsegurada>0</SumaAsegurada>
+				<TipoSuma>0</TipoSuma>
+				<Deducible>5</Deducible>
+				<Prima>0</Prima>
+			  </Coberturas>
+			  <Coberturas NoCobertura="3">
+				<SumaAsegurada>0</SumaAsegurada>
+				<TipoSuma>0</TipoSuma>
+				<Deducible>10</Deducible>
+				<Prima>0</Prima>
+			  </Coberturas>
+			  <Coberturas NoCobertura="4">
+				<SumaAsegurada>2000000</SumaAsegurada>
+				<TipoSuma>0</TipoSuma>
+				<Deducible>0</Deducible>
+				<Prima>0</Prima>
+			  </Coberturas>
+			  <Coberturas NoCobertura="5">
+				<SumaAsegurada>250000</SumaAsegurada>
+				<TipoSuma>0</TipoSuma>
+				<Deducible>0</Deducible>
+				<Prima>0</Prima>
+			  </Coberturas>
+			  <Coberturas NoCobertura="7">
+				<SumaAsegurada/>
+				<TipoSuma>0</TipoSuma>
+				<Deducible>0</Deducible>
+				<Prima>0</Prima>
+			  </Coberturas>
+			  <Coberturas NoCobertura="6">
+				<SumaAsegurada>100000</SumaAsegurada>
+				<TipoSuma>0</TipoSuma>
+				<Deducible>0</Deducible>
+				<Prima>0</Prima>
+			  </Coberturas>
+			  <Coberturas NoCobertura="14">
+				<SumaAsegurada>90</SumaAsegurada>
+				<TipoSuma>0</TipoSuma>
+				<Deducible>0</Deducible>
+				<Prima>0</Prima>
+			  </Coberturas>
+			  <Coberturas NoCobertura="47">
+				<SumaAsegurada>1000000</SumaAsegurada>
+				<TipoSuma>14</TipoSuma>
+				<Deducible>0</Deducible>
+				<Prima>0</Prima>
+			  </Coberturas>
+			</DatosVehiculo>
+			<DatosGenerales>
+			  <FechaEmision>2018-11-29</FechaEmision>
+			  <FechaInicio>2018-11-29</FechaInicio>
+			  <FechaTermino>2019-10-26</FechaTermino>
+			  <Moneda>0</Moneda>
+			  <Agente>74285</Agente>
+			  <FormaPago>C</FormaPago>
+			  <TarifaValores>LINEA</TarifaValores>
+			  <TarifaCuotas>LINEA</TarifaCuotas>
+			  <TarifaDerechos>LINEA</TarifaDerechos>
+			  <Plazo/>
+			  <Agencia/>
+			  <Contrato/>
+			  <PorcentajeDescuento>20</PorcentajeDescuento>
+			  <ConsideracionesAdicionalesDG NoConsideracion="1">
+				<TipoRegla>1</TipoRegla>
+				<ValorRegla>2</ValorRegla>
+			  </ConsideracionesAdicionalesDG>
+			  <ConsideracionesAdicionalesDG NoConsideracion="4">
+				<TipoRegla>1</TipoRegla>
+				<ValorRegla>1</ValorRegla>
+			  </ConsideracionesAdicionalesDG>
+			</DatosGenerales>
+			<Primas>
+			  <PrimaNeta/>
+			  <Derecho>500</Derecho>
+			  <Recargo/>
+			  <Impuesto/>
+			  <PrimaTotal/>
+			  <Comision/>
+			</Primas>
+			<CodigoError/>
+		  </Movimiento>
+		</Movimientos>
+		XML;
 		// $xml = simplexml_load_file($xmlstr);
 		// dd($xmlstr);
 		// var_dump($this->clientCotiza->__getFunctions());  
@@ -521,401 +521,401 @@ XML;
 	   //  dd($digito);
 
 		 $xmlA =<<<XML
-  <Movimientos>
-	<Movimiento TipoMovimiento="2" NoPoliza="" NoCotizacion="" NoEndoso="" TipoEndoso="" NoOTra="" NoNegocio="05545">
-	  <DatosAsegurado NoAsegurado="">
-		<Nombre/>
-		<Direccion/>
-		<Colonia/>
-		<Poblacion/>
-		<Estado>$cliente->cestado</Estado>
-		<CodigoPostal>$cliente->cp</CodigoPostal>
-		<NoEmpleado/>
-		<Agrupador/>
-		<ConsideracionesAdicionalesDA NoConsideracion="40">
-		  <TipoRegla>1</TipoRegla>
-		  <ValorRegla>1</ValorRegla>
-		</ConsideracionesAdicionalesDA>
-		<ConsideracionesAdicionalesDA NoConsideracion="40">
-		  <TipoRegla>2</TipoRegla>
-		  <ValorRegla>2</ValorRegla>
-		</ConsideracionesAdicionalesDA>
-		<ConsideracionesAdicionalesDA NoConsideracion="40">
-		  <TipoRegla>3</TipoRegla>
-		  <ValorRegla>MEXICO</ValorRegla>
-		</ConsideracionesAdicionalesDA>
-		<ConsideracionesAdicionalesDA NoConsideracion="40">
-		  <TipoRegla>4</TipoRegla>
-		  <ValorRegla>$cliente->nombre</ValorRegla>
-		</ConsideracionesAdicionalesDA>
-		<ConsideracionesAdicionalesDA NoConsideracion="40">
-		  <TipoRegla>5</TipoRegla>
-		  <ValorRegla>$cliente->appaterno</ValorRegla>
-		</ConsideracionesAdicionalesDA>
-		<ConsideracionesAdicionalesDA NoConsideracion="40">
-		  <TipoRegla>6</TipoRegla>
-		  <ValorRegla>$cliente->apmaterno</ValorRegla>
-		</ConsideracionesAdicionalesDA>
-	  </DatosAsegurado>
-	  <DatosVehiculo NoInciso="1">
-		<ClaveAmis>$cliente->c_amis</ClaveAmis>
-		<Modelo>$cliente->modelo_auto</Modelo>
-		<DescripcionVehiculo></DescripcionVehiculo>
-		<Uso>$cliente->uso</Uso>
-		<Servicio>$cliente->servicio</Servicio>
-		<Paquete>1</Paquete>
-		<Motor/>
-		<Serie/>
-		<Coberturas NoCobertura="1">
-		  <SumaAsegurada>0</SumaAsegurada>
-		  <TipoSuma>0</TipoSuma>
-		  <Deducible>5</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-		<Coberturas NoCobertura="3">
-		  <SumaAsegurada>0</SumaAsegurada>
-		  <TipoSuma>0</TipoSuma>
-		  <Deducible>10</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-		<Coberturas NoCobertura="4">
-		  <SumaAsegurada>2000000</SumaAsegurada>
-		  <TipoSuma>0</TipoSuma>
-		  <Deducible>0</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-		<Coberturas NoCobertura="5">
-		  <SumaAsegurada>250000</SumaAsegurada>
-		  <TipoSuma>0</TipoSuma>
-		  <Deducible>0</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-		<Coberturas NoCobertura="7">
-		  <SumaAsegurada/>
-		  <TipoSuma>0</TipoSuma>
-		  <Deducible>0</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-		<Coberturas NoCobertura="6">
-		  <SumaAsegurada>100000</SumaAsegurada>
-		  <TipoSuma>0</TipoSuma>
-		  <Deducible>0</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-		<Coberturas NoCobertura="13">
-			<SumaAsegurada>0</SumaAsegurada>
-			<TipoSuma>0</TipoSuma>
-			<Deducible>1500</Deducible>
-			<Prima>0</Prima>
-		</Coberturas>
-		<Coberturas NoCobertura="14">
-		  <SumaAsegurada>90</SumaAsegurada>
-		  <TipoSuma>0</TipoSuma>
-		  <Deducible>0</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-		<Coberturas NoCobertura="47">
-		  <SumaAsegurada>1000000</SumaAsegurada>
-		  <TipoSuma>14</TipoSuma>
-		  <Deducible>0</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-	  </DatosVehiculo>
-	  <DatosGenerales>
-		<FechaEmision>$fecha</FechaEmision>
-		<FechaInicio>$fecha</FechaInicio>
-		<FechaTermino>$fecha_t</FechaTermino>
-		<Moneda>0</Moneda>
-		<Agente>74285</Agente>
-		<FormaPago>C</FormaPago>
-		<TarifaValores>LINEA</TarifaValores>
-		<TarifaCuotas>LINEA</TarifaCuotas>
-		<TarifaDerechos>LINEA</TarifaDerechos>
-		<Plazo/>
-		<Agencia/>
-		<Contrato/>
-		<PorcentajeDescuento>20</PorcentajeDescuento>
-		<ConsideracionesAdicionalesDG NoConsideracion="1">
-		  <TipoRegla>1</TipoRegla>
-		  <ValorRegla>$cliente->dig</ValorRegla>
-		</ConsideracionesAdicionalesDG>
-		<ConsideracionesAdicionalesDG NoConsideracion="4">
-		  <TipoRegla>1</TipoRegla>
-		  <ValorRegla>1</ValorRegla>
-		</ConsideracionesAdicionalesDG>
-	  </DatosGenerales>
-	  <Primas>
-		<PrimaNeta/>
-		<Derecho>500</Derecho>
-		<Recargo/>
-		<Impuesto/>
-		<PrimaTotal/>
-		<Comision/>
-	  </Primas>
-	  <CodigoError/>
-	</Movimiento>
-  </Movimientos>
-XML;
+		  <Movimientos>
+			<Movimiento TipoMovimiento="2" NoPoliza="" NoCotizacion="" NoEndoso="" TipoEndoso="" NoOTra="" NoNegocio="05545">
+			  <DatosAsegurado NoAsegurado="">
+				<Nombre/>
+				<Direccion/>
+				<Colonia/>
+				<Poblacion/>
+				<Estado>$cliente->cestado</Estado>
+				<CodigoPostal>$cliente->cp</CodigoPostal>
+				<NoEmpleado/>
+				<Agrupador/>
+				<ConsideracionesAdicionalesDA NoConsideracion="40">
+				  <TipoRegla>1</TipoRegla>
+				  <ValorRegla>1</ValorRegla>
+				</ConsideracionesAdicionalesDA>
+				<ConsideracionesAdicionalesDA NoConsideracion="40">
+				  <TipoRegla>2</TipoRegla>
+				  <ValorRegla>2</ValorRegla>
+				</ConsideracionesAdicionalesDA>
+				<ConsideracionesAdicionalesDA NoConsideracion="40">
+				  <TipoRegla>3</TipoRegla>
+				  <ValorRegla>MEXICO</ValorRegla>
+				</ConsideracionesAdicionalesDA>
+				<ConsideracionesAdicionalesDA NoConsideracion="40">
+				  <TipoRegla>4</TipoRegla>
+				  <ValorRegla>$cliente->nombre</ValorRegla>
+				</ConsideracionesAdicionalesDA>
+				<ConsideracionesAdicionalesDA NoConsideracion="40">
+				  <TipoRegla>5</TipoRegla>
+				  <ValorRegla>$cliente->appaterno</ValorRegla>
+				</ConsideracionesAdicionalesDA>
+				<ConsideracionesAdicionalesDA NoConsideracion="40">
+				  <TipoRegla>6</TipoRegla>
+				  <ValorRegla>$cliente->apmaterno</ValorRegla>
+				</ConsideracionesAdicionalesDA>
+			  </DatosAsegurado>
+			  <DatosVehiculo NoInciso="1">
+				<ClaveAmis>$cliente->c_amis</ClaveAmis>
+				<Modelo>$cliente->modelo_auto</Modelo>
+				<DescripcionVehiculo></DescripcionVehiculo>
+				<Uso>$cliente->uso</Uso>
+				<Servicio>$cliente->servicio</Servicio>
+				<Paquete>1</Paquete>
+				<Motor/>
+				<Serie/>
+				<Coberturas NoCobertura="1">
+				  <SumaAsegurada>0</SumaAsegurada>
+				  <TipoSuma>0</TipoSuma>
+				  <Deducible>5</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+				<Coberturas NoCobertura="3">
+				  <SumaAsegurada>0</SumaAsegurada>
+				  <TipoSuma>0</TipoSuma>
+				  <Deducible>10</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+				<Coberturas NoCobertura="4">
+				  <SumaAsegurada>2000000</SumaAsegurada>
+				  <TipoSuma>0</TipoSuma>
+				  <Deducible>0</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+				<Coberturas NoCobertura="5">
+				  <SumaAsegurada>250000</SumaAsegurada>
+				  <TipoSuma>0</TipoSuma>
+				  <Deducible>0</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+				<Coberturas NoCobertura="7">
+				  <SumaAsegurada/>
+				  <TipoSuma>0</TipoSuma>
+				  <Deducible>0</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+				<Coberturas NoCobertura="6">
+				  <SumaAsegurada>100000</SumaAsegurada>
+				  <TipoSuma>0</TipoSuma>
+				  <Deducible>0</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+				<Coberturas NoCobertura="13">
+					<SumaAsegurada>0</SumaAsegurada>
+					<TipoSuma>0</TipoSuma>
+					<Deducible>1500</Deducible>
+					<Prima>0</Prima>
+				</Coberturas>
+				<Coberturas NoCobertura="14">
+				  <SumaAsegurada>90</SumaAsegurada>
+				  <TipoSuma>0</TipoSuma>
+				  <Deducible>0</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+				<Coberturas NoCobertura="47">
+				  <SumaAsegurada>1000000</SumaAsegurada>
+				  <TipoSuma>14</TipoSuma>
+				  <Deducible>0</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+			  </DatosVehiculo>
+			  <DatosGenerales>
+				<FechaEmision>$fecha</FechaEmision>
+				<FechaInicio>$fecha</FechaInicio>
+				<FechaTermino>$fecha_t</FechaTermino>
+				<Moneda>0</Moneda>
+				<Agente>74285</Agente>
+				<FormaPago>C</FormaPago>
+				<TarifaValores>LINEA</TarifaValores>
+				<TarifaCuotas>LINEA</TarifaCuotas>
+				<TarifaDerechos>LINEA</TarifaDerechos>
+				<Plazo/>
+				<Agencia/>
+				<Contrato/>
+				<PorcentajeDescuento>20</PorcentajeDescuento>
+				<ConsideracionesAdicionalesDG NoConsideracion="1">
+				  <TipoRegla>1</TipoRegla>
+				  <ValorRegla>$cliente->dig</ValorRegla>
+				</ConsideracionesAdicionalesDG>
+				<ConsideracionesAdicionalesDG NoConsideracion="4">
+				  <TipoRegla>1</TipoRegla>
+				  <ValorRegla>1</ValorRegla>
+				</ConsideracionesAdicionalesDG>
+			  </DatosGenerales>
+			  <Primas>
+				<PrimaNeta/>
+				<Derecho>500</Derecho>
+				<Recargo/>
+				<Impuesto/>
+				<PrimaTotal/>
+				<Comision/>
+			  </Primas>
+			  <CodigoError/>
+			</Movimiento>
+		  </Movimientos>
+		XML;
   		$xmlL =<<<XML
-  <Movimientos>
-	<Movimiento TipoMovimiento="2" NoPoliza="" NoCotizacion="" NoEndoso="" TipoEndoso="" NoOTra="" NoNegocio="05545">
-	  <DatosAsegurado NoAsegurado="">
-		<Nombre/>
-		<Direccion/>
-		<Colonia/>
-		<Poblacion/>
-		<Estado>9</Estado>
-		<CodigoPostal>$cliente->cp</CodigoPostal>
-		<NoEmpleado/>
-		<Agrupador/>
-		<ConsideracionesAdicionalesDA NoConsideracion="40">
-		  <TipoRegla>1</TipoRegla>
-		  <ValorRegla>1</ValorRegla>
-		</ConsideracionesAdicionalesDA>
-		<ConsideracionesAdicionalesDA NoConsideracion="40">
-		  <TipoRegla>2</TipoRegla>
-		  <ValorRegla>2</ValorRegla>
-		</ConsideracionesAdicionalesDA>
-		<ConsideracionesAdicionalesDA NoConsideracion="40">
-		  <TipoRegla>3</TipoRegla>
-		  <ValorRegla>MEXICO</ValorRegla>
-		</ConsideracionesAdicionalesDA>
-		<ConsideracionesAdicionalesDA NoConsideracion="40">
-		  <TipoRegla>4</TipoRegla>
-		  <ValorRegla>$cliente->nombre</ValorRegla>
-		</ConsideracionesAdicionalesDA>
-		<ConsideracionesAdicionalesDA NoConsideracion="40">
-		  <TipoRegla>5</TipoRegla>
-		  <ValorRegla>$cliente->appaterno</ValorRegla>
-		</ConsideracionesAdicionalesDA>
-		<ConsideracionesAdicionalesDA NoConsideracion="40">
-		  <TipoRegla>6</TipoRegla>
-		  <ValorRegla>$cliente->apmaterno</ValorRegla>
-		</ConsideracionesAdicionalesDA>
-	  </DatosAsegurado>
-	  <DatosVehiculo NoInciso="1">
-		<ClaveAmis>$cliente->c_amis</ClaveAmis>
-		<Modelo>$cliente->modelo_auto</Modelo>
-		<DescripcionVehiculo></DescripcionVehiculo>
-		<Uso>1</Uso>
-		<Servicio>1</Servicio>
-		<Paquete>3</Paquete>
-		<Motor/>
-		<Serie/>
-		<Coberturas NoCobertura="1">
-		  <SumaAsegurada>0</SumaAsegurada>
-		  <TipoSuma>0</TipoSuma>
-		  <Deducible>5</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-		<Coberturas NoCobertura="3">
-		  <SumaAsegurada>0</SumaAsegurada>
-		  <TipoSuma>0</TipoSuma>
-		  <Deducible>10</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-		<Coberturas NoCobertura="4">
-		  <SumaAsegurada>2000000</SumaAsegurada>
-		  <TipoSuma>0</TipoSuma>
-		  <Deducible>0</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-		<Coberturas NoCobertura="5">
-		  <SumaAsegurada>250000</SumaAsegurada>
-		  <TipoSuma>0</TipoSuma>
-		  <Deducible>0</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-		<Coberturas NoCobertura="7">
-		  <SumaAsegurada/>
-		  <TipoSuma>0</TipoSuma>
-		  <Deducible>0</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-		<Coberturas NoCobertura="6">
-		  <SumaAsegurada>100000</SumaAsegurada>
-		  <TipoSuma>0</TipoSuma>
-		  <Deducible>0</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-		<Coberturas NoCobertura="14">
-		  <SumaAsegurada>90</SumaAsegurada>
-		  <TipoSuma>0</TipoSuma>
-		  <Deducible>0</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-		<Coberturas NoCobertura="47">
-		  <SumaAsegurada>1000000</SumaAsegurada>
-		  <TipoSuma>14</TipoSuma>
-		  <Deducible>0</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-	  </DatosVehiculo>
-	  <DatosGenerales>
-		<FechaEmision>$fecha</FechaEmision>
-		<FechaInicio>$fecha</FechaInicio>
-		<FechaTermino>$fecha_t</FechaTermino>
-		<Moneda>0</Moneda>
-		<Agente>74285</Agente>
-		<FormaPago>C</FormaPago>
-		<TarifaValores>LINEA</TarifaValores>
-		<TarifaCuotas>LINEA</TarifaCuotas>
-		<TarifaDerechos>LINEA</TarifaDerechos>
-		<Plazo/>
-		<Agencia/>
-		<Contrato/>
-		<PorcentajeDescuento>20</PorcentajeDescuento>
-		<ConsideracionesAdicionalesDG NoConsideracion="1">
-		  <TipoRegla>1</TipoRegla>
-		  <ValorRegla>$cliente->dig</ValorRegla>
-		</ConsideracionesAdicionalesDG>
-		<ConsideracionesAdicionalesDG NoConsideracion="4">
-		  <TipoRegla>1</TipoRegla>
-		  <ValorRegla>1</ValorRegla>
-		</ConsideracionesAdicionalesDG>
-	  </DatosGenerales>
-	  <Primas>
-		<PrimaNeta/>
-		<Derecho>500</Derecho>
-		<Recargo/>
-		<Impuesto/>
-		<PrimaTotal/>
-		<Comision/>
-	  </Primas>
-	  <CodigoError/>
-	</Movimiento>
-  </Movimientos>
-XML;
+		  <Movimientos>
+			<Movimiento TipoMovimiento="2" NoPoliza="" NoCotizacion="" NoEndoso="" TipoEndoso="" NoOTra="" NoNegocio="05545">
+			  <DatosAsegurado NoAsegurado="">
+				<Nombre/>
+				<Direccion/>
+				<Colonia/>
+				<Poblacion/>
+				<Estado>9</Estado>
+				<CodigoPostal>$cliente->cp</CodigoPostal>
+				<NoEmpleado/>
+				<Agrupador/>
+				<ConsideracionesAdicionalesDA NoConsideracion="40">
+				  <TipoRegla>1</TipoRegla>
+				  <ValorRegla>1</ValorRegla>
+				</ConsideracionesAdicionalesDA>
+				<ConsideracionesAdicionalesDA NoConsideracion="40">
+				  <TipoRegla>2</TipoRegla>
+				  <ValorRegla>2</ValorRegla>
+				</ConsideracionesAdicionalesDA>
+				<ConsideracionesAdicionalesDA NoConsideracion="40">
+				  <TipoRegla>3</TipoRegla>
+				  <ValorRegla>MEXICO</ValorRegla>
+				</ConsideracionesAdicionalesDA>
+				<ConsideracionesAdicionalesDA NoConsideracion="40">
+				  <TipoRegla>4</TipoRegla>
+				  <ValorRegla>$cliente->nombre</ValorRegla>
+				</ConsideracionesAdicionalesDA>
+				<ConsideracionesAdicionalesDA NoConsideracion="40">
+				  <TipoRegla>5</TipoRegla>
+				  <ValorRegla>$cliente->appaterno</ValorRegla>
+				</ConsideracionesAdicionalesDA>
+				<ConsideracionesAdicionalesDA NoConsideracion="40">
+				  <TipoRegla>6</TipoRegla>
+				  <ValorRegla>$cliente->apmaterno</ValorRegla>
+				</ConsideracionesAdicionalesDA>
+			  </DatosAsegurado>
+			  <DatosVehiculo NoInciso="1">
+				<ClaveAmis>$cliente->c_amis</ClaveAmis>
+				<Modelo>$cliente->modelo_auto</Modelo>
+				<DescripcionVehiculo></DescripcionVehiculo>
+				<Uso>1</Uso>
+				<Servicio>1</Servicio>
+				<Paquete>3</Paquete>
+				<Motor/>
+				<Serie/>
+				<Coberturas NoCobertura="1">
+				  <SumaAsegurada>0</SumaAsegurada>
+				  <TipoSuma>0</TipoSuma>
+				  <Deducible>5</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+				<Coberturas NoCobertura="3">
+				  <SumaAsegurada>0</SumaAsegurada>
+				  <TipoSuma>0</TipoSuma>
+				  <Deducible>10</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+				<Coberturas NoCobertura="4">
+				  <SumaAsegurada>2000000</SumaAsegurada>
+				  <TipoSuma>0</TipoSuma>
+				  <Deducible>0</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+				<Coberturas NoCobertura="5">
+				  <SumaAsegurada>250000</SumaAsegurada>
+				  <TipoSuma>0</TipoSuma>
+				  <Deducible>0</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+				<Coberturas NoCobertura="7">
+				  <SumaAsegurada/>
+				  <TipoSuma>0</TipoSuma>
+				  <Deducible>0</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+				<Coberturas NoCobertura="6">
+				  <SumaAsegurada>100000</SumaAsegurada>
+				  <TipoSuma>0</TipoSuma>
+				  <Deducible>0</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+				<Coberturas NoCobertura="14">
+				  <SumaAsegurada>90</SumaAsegurada>
+				  <TipoSuma>0</TipoSuma>
+				  <Deducible>0</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+				<Coberturas NoCobertura="47">
+				  <SumaAsegurada>1000000</SumaAsegurada>
+				  <TipoSuma>14</TipoSuma>
+				  <Deducible>0</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+			  </DatosVehiculo>
+			  <DatosGenerales>
+				<FechaEmision>$fecha</FechaEmision>
+				<FechaInicio>$fecha</FechaInicio>
+				<FechaTermino>$fecha_t</FechaTermino>
+				<Moneda>0</Moneda>
+				<Agente>74285</Agente>
+				<FormaPago>C</FormaPago>
+				<TarifaValores>LINEA</TarifaValores>
+				<TarifaCuotas>LINEA</TarifaCuotas>
+				<TarifaDerechos>LINEA</TarifaDerechos>
+				<Plazo/>
+				<Agencia/>
+				<Contrato/>
+				<PorcentajeDescuento>20</PorcentajeDescuento>
+				<ConsideracionesAdicionalesDG NoConsideracion="1">
+				  <TipoRegla>1</TipoRegla>
+				  <ValorRegla>$cliente->dig</ValorRegla>
+				</ConsideracionesAdicionalesDG>
+				<ConsideracionesAdicionalesDG NoConsideracion="4">
+				  <TipoRegla>1</TipoRegla>
+				  <ValorRegla>1</ValorRegla>
+				</ConsideracionesAdicionalesDG>
+			  </DatosGenerales>
+			  <Primas>
+				<PrimaNeta/>
+				<Derecho>500</Derecho>
+				<Recargo/>
+				<Impuesto/>
+				<PrimaTotal/>
+				<Comision/>
+			  </Primas>
+			  <CodigoError/>
+			</Movimiento>
+		  </Movimientos>
+		XML;
   		$xmlRC =<<<XML
-  <Movimientos>
-	<Movimiento TipoMovimiento="2" NoPoliza="" NoCotizacion="" NoEndoso="" TipoEndoso="" NoOTra="" NoNegocio="05545">
-	  <DatosAsegurado NoAsegurado="">
-		<Nombre/>
-		<Direccion/>
-		<Colonia/>
-		<Poblacion/>
-		<Estado>9</Estado>
-		<CodigoPostal>$cliente->cp</CodigoPostal>
-		<NoEmpleado/>
-		<Agrupador/>
-		<ConsideracionesAdicionalesDA NoConsideracion="40">
-		  <TipoRegla>1</TipoRegla>
-		  <ValorRegla>1</ValorRegla>
-		</ConsideracionesAdicionalesDA>
-		<ConsideracionesAdicionalesDA NoConsideracion="40">
-		  <TipoRegla>2</TipoRegla>
-		  <ValorRegla>2</ValorRegla>
-		</ConsideracionesAdicionalesDA>
-		<ConsideracionesAdicionalesDA NoConsideracion="40">
-		  <TipoRegla>3</TipoRegla>
-		  <ValorRegla>MEXICO</ValorRegla>
-		</ConsideracionesAdicionalesDA>
-		<ConsideracionesAdicionalesDA NoConsideracion="40">
-		  <TipoRegla>4</TipoRegla>
-		  <ValorRegla>$cliente->nombre</ValorRegla>
-		</ConsideracionesAdicionalesDA>
-		<ConsideracionesAdicionalesDA NoConsideracion="40">
-		  <TipoRegla>5</TipoRegla>
-		  <ValorRegla>$cliente->appaterno</ValorRegla>
-		</ConsideracionesAdicionalesDA>
-		<ConsideracionesAdicionalesDA NoConsideracion="40">
-		  <TipoRegla>6</TipoRegla>
-		  <ValorRegla>$cliente->apmaterno</ValorRegla>
-		</ConsideracionesAdicionalesDA>
-	  </DatosAsegurado>
-	  <DatosVehiculo NoInciso="1">
-		<ClaveAmis>$cliente->c_amis</ClaveAmis>
-		<Modelo>$cliente->modelo_auto</Modelo>
-		<DescripcionVehiculo></DescripcionVehiculo>
-		<Uso>1</Uso>
-		<Servicio>1</Servicio>
-		<Paquete>4</Paquete>
-		<Motor/>
-		<Serie/>
-		<Coberturas NoCobertura="1">
-		  <SumaAsegurada>0</SumaAsegurada>
-		  <TipoSuma>0</TipoSuma>
-		  <Deducible>5</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-		<Coberturas NoCobertura="3">
-		  <SumaAsegurada>0</SumaAsegurada>
-		  <TipoSuma>0</TipoSuma>
-		  <Deducible>10</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-		<Coberturas NoCobertura="4">
-		  <SumaAsegurada>2000000</SumaAsegurada>
-		  <TipoSuma>0</TipoSuma>
-		  <Deducible>0</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-		<Coberturas NoCobertura="5">
-		  <SumaAsegurada>250000</SumaAsegurada>
-		  <TipoSuma>0</TipoSuma>
-		  <Deducible>0</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-		<Coberturas NoCobertura="7">
-		  <SumaAsegurada/>
-		  <TipoSuma>0</TipoSuma>
-		  <Deducible>0</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-		<Coberturas NoCobertura="6">
-		  <SumaAsegurada>100000</SumaAsegurada>
-		  <TipoSuma>0</TipoSuma>
-		  <Deducible>0</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-		<Coberturas NoCobertura="14">
-		  <SumaAsegurada>90</SumaAsegurada>
-		  <TipoSuma>0</TipoSuma>
-		  <Deducible>0</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-		<Coberturas NoCobertura="47">
-		  <SumaAsegurada>1000000</SumaAsegurada>
-		  <TipoSuma>14</TipoSuma>
-		  <Deducible>0</Deducible>
-		  <Prima>0</Prima>
-		</Coberturas>
-	  </DatosVehiculo>
-	  <DatosGenerales>
-		<FechaEmision>$fecha</FechaEmision>
-		<FechaInicio>$fecha</FechaInicio>
-		<FechaTermino>$fecha_t</FechaTermino>
-		<Moneda>0</Moneda>
-		<Agente>74285</Agente>
-		<FormaPago>C</FormaPago>
-		<TarifaValores>LINEA</TarifaValores>
-		<TarifaCuotas>LINEA</TarifaCuotas>
-		<TarifaDerechos>LINEA</TarifaDerechos>
-		<Plazo/>
-		<Agencia/>
-		<Contrato/>
-		<PorcentajeDescuento>20</PorcentajeDescuento>
-		<ConsideracionesAdicionalesDG NoConsideracion="1">
-		  <TipoRegla>1</TipoRegla>
-		  <ValorRegla>$cliente->dig</ValorRegla>
-		</ConsideracionesAdicionalesDG>
-		<ConsideracionesAdicionalesDG NoConsideracion="4">
-		  <TipoRegla>1</TipoRegla>
-		  <ValorRegla>1</ValorRegla>
-		</ConsideracionesAdicionalesDG>
-	  </DatosGenerales>
-	  <Primas>
-		<PrimaNeta/>
-		<Derecho>500</Derecho>
-		<Recargo/>
-		<Impuesto/>
-		<PrimaTotal/>
-		<Comision/>
-	  </Primas>
-	  <CodigoError/>
-	</Movimiento>
-  </Movimientos>
-XML;
+		  <Movimientos>
+			<Movimiento TipoMovimiento="2" NoPoliza="" NoCotizacion="" NoEndoso="" TipoEndoso="" NoOTra="" NoNegocio="05545">
+			  <DatosAsegurado NoAsegurado="">
+				<Nombre/>
+				<Direccion/>
+				<Colonia/>
+				<Poblacion/>
+				<Estado>9</Estado>
+				<CodigoPostal>$cliente->cp</CodigoPostal>
+				<NoEmpleado/>
+				<Agrupador/>
+				<ConsideracionesAdicionalesDA NoConsideracion="40">
+				  <TipoRegla>1</TipoRegla>
+				  <ValorRegla>1</ValorRegla>
+				</ConsideracionesAdicionalesDA>
+				<ConsideracionesAdicionalesDA NoConsideracion="40">
+				  <TipoRegla>2</TipoRegla>
+				  <ValorRegla>2</ValorRegla>
+				</ConsideracionesAdicionalesDA>
+				<ConsideracionesAdicionalesDA NoConsideracion="40">
+				  <TipoRegla>3</TipoRegla>
+				  <ValorRegla>MEXICO</ValorRegla>
+				</ConsideracionesAdicionalesDA>
+				<ConsideracionesAdicionalesDA NoConsideracion="40">
+				  <TipoRegla>4</TipoRegla>
+				  <ValorRegla>$cliente->nombre</ValorRegla>
+				</ConsideracionesAdicionalesDA>
+				<ConsideracionesAdicionalesDA NoConsideracion="40">
+				  <TipoRegla>5</TipoRegla>
+				  <ValorRegla>$cliente->appaterno</ValorRegla>
+				</ConsideracionesAdicionalesDA>
+				<ConsideracionesAdicionalesDA NoConsideracion="40">
+				  <TipoRegla>6</TipoRegla>
+				  <ValorRegla>$cliente->apmaterno</ValorRegla>
+				</ConsideracionesAdicionalesDA>
+			  </DatosAsegurado>
+			  <DatosVehiculo NoInciso="1">
+				<ClaveAmis>$cliente->c_amis</ClaveAmis>
+				<Modelo>$cliente->modelo_auto</Modelo>
+				<DescripcionVehiculo></DescripcionVehiculo>
+				<Uso>1</Uso>
+				<Servicio>1</Servicio>
+				<Paquete>4</Paquete>
+				<Motor/>
+				<Serie/>
+				<Coberturas NoCobertura="1">
+				  <SumaAsegurada>0</SumaAsegurada>
+				  <TipoSuma>0</TipoSuma>
+				  <Deducible>5</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+				<Coberturas NoCobertura="3">
+				  <SumaAsegurada>0</SumaAsegurada>
+				  <TipoSuma>0</TipoSuma>
+				  <Deducible>10</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+				<Coberturas NoCobertura="4">
+				  <SumaAsegurada>2000000</SumaAsegurada>
+				  <TipoSuma>0</TipoSuma>
+				  <Deducible>0</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+				<Coberturas NoCobertura="5">
+				  <SumaAsegurada>250000</SumaAsegurada>
+				  <TipoSuma>0</TipoSuma>
+				  <Deducible>0</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+				<Coberturas NoCobertura="7">
+				  <SumaAsegurada/>
+				  <TipoSuma>0</TipoSuma>
+				  <Deducible>0</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+				<Coberturas NoCobertura="6">
+				  <SumaAsegurada>100000</SumaAsegurada>
+				  <TipoSuma>0</TipoSuma>
+				  <Deducible>0</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+				<Coberturas NoCobertura="14">
+				  <SumaAsegurada>90</SumaAsegurada>
+				  <TipoSuma>0</TipoSuma>
+				  <Deducible>0</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+				<Coberturas NoCobertura="47">
+				  <SumaAsegurada>1000000</SumaAsegurada>
+				  <TipoSuma>14</TipoSuma>
+				  <Deducible>0</Deducible>
+				  <Prima>0</Prima>
+				</Coberturas>
+			  </DatosVehiculo>
+			  <DatosGenerales>
+				<FechaEmision>$fecha</FechaEmision>
+				<FechaInicio>$fecha</FechaInicio>
+				<FechaTermino>$fecha_t</FechaTermino>
+				<Moneda>0</Moneda>
+				<Agente>74285</Agente>
+				<FormaPago>C</FormaPago>
+				<TarifaValores>LINEA</TarifaValores>
+				<TarifaCuotas>LINEA</TarifaCuotas>
+				<TarifaDerechos>LINEA</TarifaDerechos>
+				<Plazo/>
+				<Agencia/>
+				<Contrato/>
+				<PorcentajeDescuento>20</PorcentajeDescuento>
+				<ConsideracionesAdicionalesDG NoConsideracion="1">
+				  <TipoRegla>1</TipoRegla>
+				  <ValorRegla>$cliente->dig</ValorRegla>
+				</ConsideracionesAdicionalesDG>
+				<ConsideracionesAdicionalesDG NoConsideracion="4">
+				  <TipoRegla>1</TipoRegla>
+				  <ValorRegla>1</ValorRegla>
+				</ConsideracionesAdicionalesDG>
+			  </DatosGenerales>
+			  <Primas>
+				<PrimaNeta/>
+				<Derecho>500</Derecho>
+				<Recargo/>
+				<Impuesto/>
+				<PrimaTotal/>
+				<Comision/>
+			  </Primas>
+			  <CodigoError/>
+			</Movimiento>
+		  </Movimientos>
+		XML;
 		// dd($xmlA);
 		$amplia = $this->getQualitas($xmlA);
 		$limitada = $this->getQualitas($xmlL);
