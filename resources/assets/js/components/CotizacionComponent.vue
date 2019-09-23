@@ -772,7 +772,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
             console.log('Component mounted.');
    //          this.anaImage="./img/ana1.png";
 			// this.gsImage = "./img/GENERAL-DE-SEGUROS-LOGO.png";
-			// this.quaImage = "./img/qua.png";
+			// this.quaImage = "./img/AgenteCertificado.png";
             let uri = window.location.href.split('?');
             if (uri.length == 2)
 		    {

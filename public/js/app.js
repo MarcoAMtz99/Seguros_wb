@@ -2549,7 +2549,7 @@ function Cliente(_ref) {
   mounted: function mounted() {
     console.log('Component mounted.'); //          this.anaImage="./img/ana1.png";
     // this.gsImage = "./img/GENERAL-DE-SEGUROS-LOGO.png";
-    // this.quaImage = "./img/qua.png";
+    // this.quaImage = "./img/AgenteCertificado.png";
 
     var uri = window.location.href.split('?');
 
@@ -64801,7 +64801,7 @@ var app = new Vue({
       anaImageForm: "./img/ana_logo_alta.jpg",
       gsImage: "./img/GENERAL-DE-SEGUROS-LOGO.png",
       gsImageForm: "./img/general_seguros_form.png",
-      quaImage: "./img/qua.png",
+      quaImage: "./img/AgenteCertificado.png",
       quaImageForm: "./img/Imagotipo_Banner_SitioWebQuálitas.svg",
       quaImageBG: "./img/qualitas_form.png"
     },
