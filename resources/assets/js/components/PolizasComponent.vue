@@ -609,7 +609,7 @@
                         this.loader=false;
                         // console.log('cotizacion ana',res.data);
                         this.cotizacionesANA=res.data.ANASeguros;
-                        this.sendCotizacion(this.cliente, this.cotizacionesANA[0]);
+                        this.sendCotizacion(this.cliente, this.cotizacionesANA[0], "ANA");
                         // this.loaderA = false;
                         // console.log(this.cotizac'ionesANA);
                     }
@@ -619,8 +619,8 @@
                 });
 
             },
-            sendCotizacion(cliente, cotizacion){
-                let params = { "cliente": cliente, "cotizacion": cotizacion};
+            sendCotizacion(cliente, cotizacion, aseguradora){
+                let params = { "cliente": cliente, "cotizacion": cotizacion, "aseguradora": aseguradora};
                 let url = "./api/email-cotizacion";
                 this.alert.message = '';
                 this.alert.class = '';
@@ -733,7 +733,7 @@
                 console.log(this.setCotizacion);
             },
             emitirANA(key,cotiza){
-                this.setCotizacion={nombre:"ANASeguros",cotizacion:{tipo:key,info:cotiza}};
+                this.setCotizacion={nombre:"ANASeguros",cotizacion:{tipo:key,info:cotiza}, id_cotizacion:this.cliente.cotizacion};
                 this.$emit("emitirana" , this.setCotizacion);
                 $("#paso3-tab").removeClass("disabled");
                 $("#paso3-tab").click();

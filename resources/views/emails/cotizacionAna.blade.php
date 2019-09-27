@@ -97,7 +97,7 @@
 	  text-align:left;
 	  vertical-align:middle;
 	  font-weight:300;
-	  font-size:18px;
+	  font-size:14px;
 	  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
 	  border-right: 1px solid #C1C3D1;
 	}
@@ -158,7 +158,7 @@ Los datos de tu cotizacion son los siguientes:
 	<tbody class="table-hover">
 		<tr>
 			<td class="text-center">
-				<div class="border">Contado: {{  $cotizacion['CONTADO']['prima']['primatotal'] }}</div>
+				<div class="border">Contado: {{  number_format($cotizacion['CONTADO']['prima']['primatotal']) }}</div>
 			</td>
 			<td class="text-center">
 				@foreach($cotizacion['CONTADO']['coberturas'] as $cobertura)
@@ -168,7 +168,7 @@ Los datos de tu cotizacion son los siguientes:
 				@endforeach
 			</td>
 			<td class="text-center">
-				@foreach($cotizacion['CONTADO']['coberturas'])
+				@foreach($cotizacion['CONTADO']['coberturas'] as $cobertura)
 				@if($cobertura['desc'] == "ROBO TOTAL")
 					{{ $cobertura['desc'] }}: {{ $cobertura['sa'] }} @if($cobertura['ded'])Deducible por daños: {{ $cobertura['ded'] }} @endif <br>
                 @endif
@@ -200,36 +200,35 @@ Los datos de tu cotizacion son los siguientes:
 				@endforeach
 			</td>
 			<td class="text-center">
-				@foreach($cotizacion['CONTADO']['coberturas'])
+				@foreach($cotizacion['CONTADO']['coberturas'] as $cobertura)
 				@if($cobertura['desc'] == "GASTOS MEDICOS")
 					{{ $cobertura['desc'] }}: {{ $cobertura['sa'] }} @if($cobertura['ded'])Deducible por daños: {{ $cobertura['ded'] }} @endif <br>
                 @endif
 				@endforeach
 			</td>
 			<td class="text-center">
-				@foreach($cotizacion['CONTADO']['coberturas'])
+				@foreach($cotizacion['CONTADO']['coberturas'] as $cobertura)
 				@if($cobertura['desc'] == "DEF. JUD. Y ASIS. LEGAL")
 					{{ $cobertura['desc'] }}: {{ $cobertura['sa'] }} @if($cobertura['ded'])Deducible por daños: {{ $cobertura['ded'] }} @endif <br>
                 @endif
 				@endforeach
 			</td>
 			<td class="text-center">
-				@foreach($cotizacion['CONTADO']['coberturas'])
+				@foreach($cotizacion['CONTADO']['coberturas'] as $cobertura)
 				@if($cobertura['desc'] == "ANA ASISTENCIA")
 					{{ $cobertura['desc'] }}: {{ $cobertura['sa'] }} @if($cobertura['ded'])Deducible por daños: {{ $cobertura['ded'] }} @endif <br>
                 @endif
 				@endforeach
 			</td>
 			<td class="text-center">
-				@foreach($cotizacion['CONTADO']['coberturas'])
-				@if(!in_array($cobertura['desc'], ['DAÑOS MATERIALES','ROBO TOTAL','RESPONSABILIDAD CIVIL','  RC BIENES','  RC PERSONAS','  EXTENSION RC','  RC DEL HIJO MENOR','  RC POR REMOLQUES','RC CATASTROFICA POR MUERTE','GASTOS MEDICOS','DEF. JUD. Y ASIS. LEGAL','ANA ASISTENCIA'] ))
+				@foreach($cotizacion['CONTADO']['coberturas'] as $cobertura)
+				@if(!in_array($cobertura['desc'], ['DAÑOS MATERIALES','ROBO TOTAL','RESPONSABILIDAD CIVIL','RC BIENES','RC PERSONAS','EXTENSION RC','RC DEL HIJO MENOR','RC POR REMOLQUES','RC CATASTROFICA POR MUERTE','GASTOS MEDICOS','DEF. JUD. Y ASIS. LEGAL','ANA ASISTENCIA'] ))
 					{{ $cobertura['desc'] }}: {{ $cobertura['sa'] }} @if($cobertura['ded'])Deducible por daños: {{ $cobertura['ded'] }} @endif <br>
                 @endif
 				@endforeach
 			</td>
 		</tr>
 	</tbody>
-</table> --}}
-
+</table> 
 Gracias,<br>
 {{ config('app.name') }}

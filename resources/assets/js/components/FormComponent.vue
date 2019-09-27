@@ -717,6 +717,7 @@
 						</div>
 						<input type="hidden" name="amis" :value="cotizacion.cotizacion.info[0].CONTADO.vehiculo.amis">
 						<input type="hidden" name="modelo" :value="cotizacion.cotizacion.info[0].CONTADO.vehiculo.modelo">
+						<input type="hidden" name="id_cotizacion" :value="cotizacion.id_cotizacion">
 					</div>
 					<div class="row">
 						<div class="col-12 mt-3">
@@ -949,6 +950,7 @@
 						representante:"",
 						nacionalidad_representante:"",
 						tipo_pago:'Referenciado',
+						id_cotizacion: this.cotizacion.id_cotizacion,
 						tarjeta:{
 							nombre:'',
 							numero:'',
@@ -1187,7 +1189,6 @@
 
 		},
 		created(){
-			
 		},
 		methods:{
 			'getGirosANA':function(){
@@ -1313,6 +1314,7 @@
 				let url = `./api/municipiosANA/${estado_id}`;
 				axios.get(url).then(res=>{
 					console.log(res.data);
+					console.log('-- CLIENTE -- ', this.cotizacion);
 					if (res.data.municipios) {
 						this.anamunicipios=res.data.municipios;
 					}
@@ -1397,6 +1399,7 @@
 			  }
     	},
 		mounted(){
+			console.log(this.cotizacion);
 			this.getEdoCivil();
 			this.getOcupaciones();
 			this.getGiros();

@@ -20,11 +20,12 @@ class CreateCotizacion extends Mailable
      *
      * @return void
      */
-    public function __construct($cliente, $cotizacion)
+    public function __construct($cliente, $cotizacion, $aseguradora)
     {
         //
         $this->cliente = $cliente;
         $this->cotizacion = $cotizacion;
+        $this->aseguradora = $aseguradora;
     }
 
     /**
@@ -34,6 +35,10 @@ class CreateCotizacion extends Mailable
      */
     public function build()
     {
-        return $this->subject('Gracias por usar Autosegurodirecto')->view('emails.cotizacion');
+        if ($this->aseguradora == "ANA") {
+            return $this->subject('Gracias por usar Autosegurodirecto')->view('emails.cotizacionAna');
+        }
+        else
+            return $this->subject('Gracias por usar Autosegurodirecto')->view('emails.cotizacion');
     }
 }

@@ -131,53 +131,13 @@
 	}
 
 </style>
-<h1>Bienvenido a {{ config('app.name') }} {{$cliente->nombre}} {{$cliente->appaterno}} {{$cliente->apmaterno}}:</h1>
+<h1>Felicidades {{$cliente->nombre}} {{$cliente->appaterno}} {{$cliente->apmaterno}}:</h1>
 
-La cotización de tú auto {{$cliente->auto->marca->descripcion}} {{$cliente->auto->submarca->descripcion}} {{$cliente->auto->submarca->anio}} se guardo en nuestro sistema con este folio:
+Tu poliza se genero con éxito, el número de poliza es: {{ $poliza['id'] }}.
+Recuerda que solo <b>cuentas con 7 días</b> para pagar tu poliza.
 
-{{$cliente->cotizacion}}
 
-
-<a href="url('/')?"cotizacion=".$cliente->cotizacion" class="btn btn-primary">Ver cotización</a>
-
-Los datos de tu cotizacion son los siguientes:
-
-<table class="table-fill">
-	<thea>
-		<tr>
-			<th class="text-center">Prima Total</th>
-			<th class="text-center">Daños Materiales</th>
-			<th class="text-center">Robo Total </th>
-			<th class="text-center">Responsabilidad Civil</th>
-			<th class="text-center">Gastos Médicos</th>
-			<th class="text-center">Legal</th>
-			<th class="text-center">Vial</th>
-			<th class="text-center">Otras Coberturas</th>
-		</tr>
-	</thead>
-	<tbody class="table-hover">
-		<tr>
-			<td class="text-center">TT</td>
-			<td class="text-center">HH</td>
-			<td class="text-center">JJ</td>
-			<td class="text-center"></td>
-			<td class="text-center"></td>
-			<td class="text-center"></td>
-			<td class="text-center"></td>
-			<td class="text-center"></td>
-		</tr>
-		<tr>
-			<td class="text-center">OO</td>
-			<td class="text-center">LL</td>
-			<td class="text-center">SS</td>
-			<td class="text-center"></td>
-			<td class="text-center"></td>
-			<td class="text-center"></td>
-			<td class="text-center"></td>
-			<td class="text-center"></td>
-		</tr>
-	</tbody>
-</table> 
+<a href="{{ $poliza['link']  }}" class="btn btn-primary">Documentos</a>
 
 Gracias,<br>
 {{ config('app.name') }}

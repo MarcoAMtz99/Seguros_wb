@@ -63,7 +63,7 @@
 		                            Modelo
 		                        </div>
 		                        <div class="card-body">
-		                            <select class="list-group list-group-flush col" v-model="cliente.modelo_auto" size="3">
+		                            <select class="list-group list-group-flush col" v-model="cliente.modelo_auto" size="7">
 		                            	<option value=""  class="list-group-item text-center text-dark seleccionador">Seleccione su modelo</option>
 		                            	<option v-for="anio in modelos" :value="anio" class="list-group-item text-center text-dark seleccionador">{{anio}}</option>
 		                            </select>
@@ -86,7 +86,7 @@
 		                        	<div v-show="!loader_marca && this.marcas.length == 0">
 		                        		<label>No se encontraron resultados</label>
 		                        	</div>
-		                            <select v-show="!loader_marca && this.marcas.length != 0" v-model="cliente.marca_auto" size="3" class="list-group list-group-flush col">
+		                            <select v-show="!loader_marca && this.marcas.length != 0" v-model="cliente.marca_auto" size="7" class="list-group list-group-flush col">
 		                            	<option value="" class="list-group-item text-center text-dark seleccionador">Seleccione su marca</option>
 										<option v-for="marca in marcas" :value="marca" class="list-group-item text-center text-dark seleccionador">{{marca.descripcion}}</option>
 									</select>
@@ -109,7 +109,7 @@
 		                        	<div v-show="!loader_tipo && this.submarca.length == 0">
 		                        		<label>No se encontraron resultados</label>
 		                        	</div>
-		                            <select v-show="!loader_tipo && this.submarca.length != 0" v-model="cliente.submarca_auto" size="3" class="list-group list-group-flush col">
+		                            <select v-show="!loader_tipo && this.submarca.length != 0" v-model="cliente.submarca_auto" size="7" class="list-group list-group-flush col">
 		                            	<option value="" class="list-group-item text-center text-dark seleccionador">Seleccione su tipo</option>
 										<option v-for="submarca in submarcas" :value="submarca" class="list-group-item text-center text-dark seleccionador">{{submarca.descripcion}}</option>
 									</select>

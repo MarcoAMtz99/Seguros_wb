@@ -91,8 +91,8 @@ class ClienteController extends Controller
         $cliente = $request->cliente;
         $cliente = Cliente::where('cotizacion', $cliente['cotizacion'])->first();
         $cotizacion = $request->cotizacion;
-        $cliente->emailCotizacion($cotizacion);
-        dd($cotizacion);
+        $cliente->emailCotizacion($cotizacion, $request->aseguradora);
+        dd($request->aseguradora);
     }
 
     public function search(Request $request){
@@ -105,5 +105,5 @@ class ClienteController extends Controller
             return response()->json(['error'=>'Cotización no encontrada'],404);
         }
     }
-
+//1GNCS13Z6M0246591
 }
