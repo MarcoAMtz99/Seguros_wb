@@ -543,16 +543,16 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				this.cliente.gs = 0
     			}
     		},
-    // 		getMarcas(){
-    // 			let url = './api/getMarcas';
-    // 			axios.get(url).then(res=>{
-    // 				console.log("res",res);
-    // 				this.marcas = res.data.marcas.sort();
-    // 			}).catch(error=>{
-    // 				console.log('error',error);
+    		getMarcas(){
+    			let url = './api/getMarcas';
+    			axios.get(url).then(res=>{
+    				console.log("res",res);
+    				this.marcas = res.data.marcas.sort();
+    			}).catch(error=>{
+    				console.log('error',error);
 
-    // 			})
-    // 		},
+    			})
+    		},
     // 		getSubmarcas(marca){
     // 			this.loader_tipo=true;
     // 			let url = `./api/getSubmarcas/${marca}`;

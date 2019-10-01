@@ -20,11 +20,18 @@ class GeneralSegurosController extends Controller
 		);
 		$this->params = array ('encoding' => 'UTF-8', 'trace' => true, 'keep_alive' => false, 'soap_version' => SOAP_1_1,'stream_context' => stream_context_create($this->opts) );
     	 // DATOS GENERAL DE SEGUROS
-		$this->urlAuth = "https://gdswas.mx/gsautos-ws/soap/autenticacionWS?wsdl";
-		$this->urlCotiza = "https://gdswas.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
-		$this->urlCat = "https://gdswas.mx/gsautos-ws/soap/catalogosWS?wsdl";
-		$this->urlCatAuto = "https://gdswas.mx/gsautos-ws/soap/catalogoAutosWS?wsdl";
-		$this->urlCober = "https://gdswas.mx/gsautos-ws/soap/catalogoCoberturasWS?wsdl";
+        // ******************************************************
+		// $this->urlAuth = "https://gdswas.mx/gsautos-ws/soap/autenticacionWS?wsdl";
+		// $this->urlCotiza = "https://gdswas.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
+		// $this->urlCat = "https://gdswas.mx/gsautos-ws/soap/catalogosWS?wsdl";
+		// $this->urlCatAuto = "https://gdswas.mx/gsautos-ws/soap/catalogoAutosWS?wsdl";
+		// $this->urlCober = "https://gdswas.mx/gsautos-ws/soap/catalogoCoberturasWS?wsdl";
+        // *******************************************************
+        $this->urlAuth = "https://gdswas.mx/gsautos-ws/soap/autenticacionWS?wsdl";
+        $this->urlCotiza = "https://gdswas.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
+        $this->urlCat = "https://gdswas.mx/gsautos-ws/soap/catalogosWS?wsdl";
+        $this->urlCatAuto = "https://gdswas.mx/gsautos-ws/soap/catalogoAutosWS?wsdl";
+        $this->urlCober = "https://gdswas.mx/gsautos-ws/soap/catalogoCoberturasWS?wsdl";
 		try{
 			$this->clientAuthGS = $this->getClient($this->urlAuth);
 			

@@ -1763,6 +1763,10 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+var _methods;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2255,7 +2259,7 @@ function Cliente(_ref) {
     // this.getMarcas();
     this.getModelos(); // this.getModelos();
   },
-  methods: {
+  methods: (_methods = {
     searchCliente: function searchCliente(cotizacion) {
       var _this = this;
 
@@ -2316,236 +2320,184 @@ function Cliente(_ref) {
         this.cliente.gs = 0;
       }
     },
-    // 		getMarcas(){
-    // 			let url = './api/getMarcas';
-    // 			axios.get(url).then(res=>{
-    // 				console.log("res",res);
-    // 				this.marcas = res.data.marcas.sort();
-    // 			}).catch(error=>{
-    // 				console.log('error',error);
-    // 			})
-    // 		},
-    // 		getSubmarcas(marca){
-    // 			this.loader_tipo=true;
-    // 			let url = `./api/getSubmarcas/${marca}`;
-    // 			$('#descripcion').append('<div class="loader"></div>');
-    // 			axios.get(url).then(res=>{
-    // 				this.loader_tipo = false;
-    // 				console.log('res submarcas',res);
-    // 				if (res.data.submarcas) {
-    // 					this.submarcas = res.data.submarcas.sort();
-    // 				}
-    // 			}).catch(error=>{
-    // 				console.log('error submarcas',error);
-    // });
-    // 		},
-    // 		getModelos(submarca){
-    // 			this.loader_modelo=true;
-    // 			let url = `./api/getModelos/${submarca}`;
-    // 			axios.get(url).then(res=>{
-    // 				console.log('res modelos',res);
-    // 				this.loader_modelo=false;
-    // 				if (res.data.modelos) {
-    // 					this.modelos = res.data.modelos;
-    // 					this.modelos = this.modelos.reverse();
-    // 				}
-    // 			}).catch(error=>{
-    // 				console.log('error modelos',error);
-    // });
-    // 		},
-    getMarcas: function getMarcas(modelo) {
+    getMarcas: function getMarcas() {
       var _this2 = this;
 
-      this.loader_marca = true;
-      var url = "./api/marcasANA/".concat(modelo);
+      var url = './api/getMarcas';
       axios.get(url).then(function (res) {
-        _this2.loader_marca = false; //console.log("res marcas",res);
-
+        console.log("res", res);
         _this2.marcas = res.data.marcas.sort();
       }).catch(function (error) {
         console.log('error', error);
       });
-    },
-    getSubmarcas: function getSubmarcas(marca) {
-      var _this3 = this;
+    }
+  }, _defineProperty(_methods, "getMarcas", function getMarcas(modelo) {
+    var _this3 = this;
 
-      this.loader_tipo = true;
-      var url = "./api/submarcaANA/".concat(marca, "/").concat(this.cliente.modelo_auto);
-      $('#descripcion').append('<div class="loader"></div>');
+    this.loader_marca = true;
+    var url = "./api/marcasANA/".concat(modelo);
+    axios.get(url).then(function (res) {
+      _this3.loader_marca = false; //console.log("res marcas",res);
+
+      _this3.marcas = res.data.marcas.sort();
+    }).catch(function (error) {
+      console.log('error', error);
+    });
+  }), _defineProperty(_methods, "getSubmarcas", function getSubmarcas(marca) {
+    var _this4 = this;
+
+    this.loader_tipo = true;
+    var url = "./api/submarcaANA/".concat(marca, "/").concat(this.cliente.modelo_auto);
+    $('#descripcion').append('<div class="loader"></div>');
+    axios.get(url).then(function (res) {
+      _this4.loader_tipo = false; //console.log('res submarcas',res);
+
+      if (res.data.submarcas) {
+        _this4.submarcas = res.data.submarcas.sort();
+      }
+    }).catch(function (error) {
+      console.log('error submarcas', error);
+    });
+  }), _defineProperty(_methods, "getModelos", function getModelos() {
+    var _this5 = this;
+
+    var url = "./api/modelosANA";
+    axios.get(url).then(function (res) {
+      //console.log('res modelos',res);
+      _this5.loader_modelo = false;
+
+      if (res.data.modelos) {
+        _this5.modelos = res.data.modelos; // this.modelos = this.modelos.reverse();
+      }
+    }).catch(function (error) {
+      console.log('error modelos', error);
+    });
+  }), _defineProperty(_methods, "getDescripciones", function getDescripciones(submarca, modelo, marca) {
+    var _this6 = this;
+
+    this.loader_desc = true; // console.log(marca);
+
+    $('#descripcion').append('<div class="loader"></div>');
+    var url = "./api/vehiculoANA/".concat(marca, "/").concat(submarca, "/").concat(modelo);
+    axios.get(url).then(function (res) {
+      _this6.loader_desc = false; //console.log('getDescripciones res',res);
+
+      _this6.descripciones = res.data.vehiculos;
+    }).catch(function (err) {
+      console.log('getDescripciones err', err);
+    });
+  }), _defineProperty(_methods, "nextPill", function nextPill(input) {
+    var _this7 = this;
+
+    if (input == "cp" && this.cliente.cp != "") {
+      //console.log('si entra');
+      // this.showPill('v-pills-Marca');
+      // this.nombre = true;
+      // this.cliente.cestado = '10';
+      // $('#v-pills-Nombre-tab').removeClass('disabled');
+      // // $('#v-pills-Nombre-tab').addClass('disabled');
+      // $('#v-pills-Nombre-tab').click();
+      var url = "./api/cp/".concat(this.cliente.cp);
       axios.get(url).then(function (res) {
-        _this3.loader_tipo = false; //console.log('res submarcas',res);
+        if (res.data.response) {
+          _this7.alert_cp = _this7.nombre = true;
+          _this7.alert_cp = "";
+          console.log('si entra'); // this.showPill('v-pills-Marca');
 
-        if (res.data.submarcas) {
-          _this3.submarcas = res.data.submarcas.sort();
+          _this7.cliente.cestado = res.data.response[0].cestado;
+          $('#v-pills-Nombre-tab').removeClass('disabled'); // $('#v-pills-Nombre-tab').addClass('disabled');
+
+          $('#v-pills-Nombre-tab').click();
         }
-      }).catch(function (error) {
-        console.log('error submarcas', error);
-      });
-    },
-    getModelos: function getModelos() {
-      var _this4 = this;
 
-      var url = "./api/modelosANA";
-      axios.get(url).then(function (res) {
-        //console.log('res modelos',res);
-        _this4.loader_modelo = false;
-
-        if (res.data.modelos) {
-          _this4.modelos = res.data.modelos; // this.modelos = this.modelos.reverse();
+        console.log(res);
+      }).catch(function (err) {
+        if (err.response.data.error) {
+          _this7.nombre = false;
+          $('#v-pills-Nombre-tab').addClass('disabled');
+          _this7.alert_cp = err.response.data.error;
         }
-      }).catch(function (error) {
-        console.log('error modelos', error);
-      });
-    },
-    getDescripciones: function getDescripciones(submarca, modelo, marca) {
-      var _this5 = this;
-
-      this.loader_desc = true; // console.log(marca);
-
-      $('#descripcion').append('<div class="loader"></div>');
-      var url = "./api/vehiculoANA/".concat(marca, "/").concat(submarca, "/").concat(modelo);
-      axios.get(url).then(function (res) {
-        _this5.loader_desc = false; //console.log('getDescripciones res',res);
-
-        _this5.descripciones = res.data.vehiculos;
-      }).catch(function (err) {
-        console.log('getDescripciones err', err);
-      });
-    },
-    // showPill(etiqueta){
-    // 	console.log(`#${etiqueta}`);
-    // 	this.pills.forEach(function(pill){
-    // 		if(pill == etiqueta){
-    // 			$(`#${pill}`).addClass('show active');
-    // 		}
-    // 		else{
-    // 			$(`#${pill}`).removeClass('show active');	
-    // 		}
-    // 	});
-    // },
-    nextPill: function nextPill(input) {
-      var _this6 = this;
-
-      if (input == "cp" && this.cliente.cp != "") {
-        //console.log('si entra');
-        // this.showPill('v-pills-Marca');
-        // this.nombre = true;
-        // this.cliente.cestado = '10';
-        // $('#v-pills-Nombre-tab').removeClass('disabled');
-        // // $('#v-pills-Nombre-tab').addClass('disabled');
-        // $('#v-pills-Nombre-tab').click();
-        var url = "./api/cp/".concat(this.cliente.cp);
-        axios.get(url).then(function (res) {
-          if (res.data.response) {
-            _this6.alert_cp = _this6.nombre = true;
-            _this6.alert_cp = "";
-            console.log('si entra'); // this.showPill('v-pills-Marca');
-
-            _this6.cliente.cestado = res.data.response[0].cestado;
-            $('#v-pills-Nombre-tab').removeClass('disabled'); // $('#v-pills-Nombre-tab').addClass('disabled');
-
-            $('#v-pills-Nombre-tab').click();
-          }
-
-          console.log(res);
-        }).catch(function (err) {
-          if (err.response.data.error) {
-            _this6.nombre = false;
-            $('#v-pills-Nombre-tab').addClass('disabled');
-            _this6.alert_cp = err.response.data.error;
-          }
-        });
-      }
-
-      if (input == "nombre" && this.cliente.nombre != "" && this.cliente.appaterno != "") {
-        // console.log('si')
-        this.celular = true; // this.showPill('v-pills-Marca');
-
-        $('#v-pills-Celular-tab').removeClass('disabled'); // $('#v-pills-Celular-tab').addClass('disabled');
-
-        $('#v-pills-Celular-tab').click();
-      }
-
-      if (input == "telefono" && this.cliente.telefono != "") {
-        // console.log('si')
-        this.correo = true; // this.showPill('v-pills-Marca');
-
-        $('#v-pills-Correo-tab').removeClass('disabled'); // $('#v-pills-Correo-tab').addClass('disabled');
-
-        $('#v-pills-Correo-tab').click();
-      }
-
-      if (input == "correo" && this.cliente.telefono != "") {
-        // console.log('si')
-        this.sexo = true; // this.showPill('v-pills-Marca');
-
-        $('#v-pills-Sexo-tab').removeClass('disabled'); // $('#v-pills-Sexo-tab').addClass('disabled');
-
-        $('#v-pills-Sexo-tab').click();
-      }
-
-      if (input == "sexo" && this.cliente.telefono != "") {
-        // console.log('si')
-        this.nac = true; // this.showPill('v-pills-Marca');
-
-        $('#v-pills-Nacimiento-tab').removeClass('disabled'); // $('#v-pills-Nacimiento-tab').addClass('disabled');
-
-        $('#v-pills-Nacimiento-tab').click();
-      }
-
-      if (input == "aseguradoras") {
-        this.aseguradoras = true;
-        $('#v-pills-Aseguradoras-tab').removeClass('disabled'); // $('#v-pills-Aseguradoras-tab').addClass('disabled');
-
-        $('#v-pills-Aseguradoras-tab').click();
-      }
-    },
-    // getModelos(){
-    // 	var currentYear = new Date().getFullYear()+1;
-    // 	var startYear = 1999;
-    //       	startYear = startYear || 1980;
-    //       	while ( startYear <= currentYear ) {
-    //               this.anios.push(startYear++);
-    //       	} 
-    //       	this.anios = this.anios.reverse();
-    // },
-    sendCotizacion: function sendCotizacion(cliente) {
-      var _this7 = this;
-
-      var params = cliente;
-      var url = "./api/cotizacion";
-      this.alert.message = '';
-      this.alert.class = '';
-      axios.post(url, cliente).then(function (res) {
-        //console.log('res',res);
-        _this7.cliente.cotizacion = res.data.cotizacion.cotizacion;
-        _this7.cliente.uso_auto = res.data.cotizacion.uso_auto;
-        _this7.cliente.descripcion_auto = res.data.cotizacion.auto.version;
-        _this7.cliente.marca_auto = res.data.cotizacion.auto.marca;
-        _this7.cliente.modelo_auto = res.data.cotizacion.auto.submarca.anio;
-        _this7.cliente.submarca_auto = res.data.cotizacion.auto.submarca; // this.cliente.auto = res.data.cotizacion.auto;
-
-        _this7.cliente.cp = res.data.cotizacion.cp;
-        _this7.cliente.nombre = res.data.cotizacion.nombre;
-        _this7.cliente.appaterno = res.data.cotizacion.appaterno;
-        _this7.cliente.apmaterno = res.data.cotizacion.apmaterno;
-        _this7.cliente.telefono = res.data.cotizacion.telefono;
-        _this7.cliente.email = res.data.cotizacion.email;
-        _this7.cliente.sexo = res.data.cotizacion.sexo;
-        _this7.cliente.f_nac = res.data.cotizacion.f_nac;
-        _this7.cliente.ana = res.data.cotizacion.ana;
-        _this7.cliente.gs = res.data.cotizacion.gs;
-        _this7.cliente.qualitas = res.data.cotizacion.qualitas;
-        _this7.getcotizacion.value = !_this7.getcotizacion.value;
-        _this7.alert.message = "".concat(_this7.cliente.nombre, " ").concat(_this7.cliente.appaterno, " ").concat(_this7.cliente.apmaterno, " su cotizaci\xF3n se guardo con el folio ").concat(_this7.cliente.cotizacion);
-        _this7.alert.class = "alert alert-success alert-dismissible fade show";
-        $("#paso2-tab").removeClass("disabled");
-        $("#paso2-tab").click(); // $('#cotizar').modal('show');
-      }).catch(function (err) {
-        console.log('err', err);
       });
     }
-  },
+
+    if (input == "nombre" && this.cliente.nombre != "" && this.cliente.appaterno != "") {
+      // console.log('si')
+      this.celular = true; // this.showPill('v-pills-Marca');
+
+      $('#v-pills-Celular-tab').removeClass('disabled'); // $('#v-pills-Celular-tab').addClass('disabled');
+
+      $('#v-pills-Celular-tab').click();
+    }
+
+    if (input == "telefono" && this.cliente.telefono != "") {
+      // console.log('si')
+      this.correo = true; // this.showPill('v-pills-Marca');
+
+      $('#v-pills-Correo-tab').removeClass('disabled'); // $('#v-pills-Correo-tab').addClass('disabled');
+
+      $('#v-pills-Correo-tab').click();
+    }
+
+    if (input == "correo" && this.cliente.telefono != "") {
+      // console.log('si')
+      this.sexo = true; // this.showPill('v-pills-Marca');
+
+      $('#v-pills-Sexo-tab').removeClass('disabled'); // $('#v-pills-Sexo-tab').addClass('disabled');
+
+      $('#v-pills-Sexo-tab').click();
+    }
+
+    if (input == "sexo" && this.cliente.telefono != "") {
+      // console.log('si')
+      this.nac = true; // this.showPill('v-pills-Marca');
+
+      $('#v-pills-Nacimiento-tab').removeClass('disabled'); // $('#v-pills-Nacimiento-tab').addClass('disabled');
+
+      $('#v-pills-Nacimiento-tab').click();
+    }
+
+    if (input == "aseguradoras") {
+      this.aseguradoras = true;
+      $('#v-pills-Aseguradoras-tab').removeClass('disabled'); // $('#v-pills-Aseguradoras-tab').addClass('disabled');
+
+      $('#v-pills-Aseguradoras-tab').click();
+    }
+  }), _defineProperty(_methods, "sendCotizacion", function sendCotizacion(cliente) {
+    var _this8 = this;
+
+    var params = cliente;
+    var url = "./api/cotizacion";
+    this.alert.message = '';
+    this.alert.class = '';
+    axios.post(url, cliente).then(function (res) {
+      //console.log('res',res);
+      _this8.cliente.cotizacion = res.data.cotizacion.cotizacion;
+      _this8.cliente.uso_auto = res.data.cotizacion.uso_auto;
+      _this8.cliente.descripcion_auto = res.data.cotizacion.auto.version;
+      _this8.cliente.marca_auto = res.data.cotizacion.auto.marca;
+      _this8.cliente.modelo_auto = res.data.cotizacion.auto.submarca.anio;
+      _this8.cliente.submarca_auto = res.data.cotizacion.auto.submarca; // this.cliente.auto = res.data.cotizacion.auto;
+
+      _this8.cliente.cp = res.data.cotizacion.cp;
+      _this8.cliente.nombre = res.data.cotizacion.nombre;
+      _this8.cliente.appaterno = res.data.cotizacion.appaterno;
+      _this8.cliente.apmaterno = res.data.cotizacion.apmaterno;
+      _this8.cliente.telefono = res.data.cotizacion.telefono;
+      _this8.cliente.email = res.data.cotizacion.email;
+      _this8.cliente.sexo = res.data.cotizacion.sexo;
+      _this8.cliente.f_nac = res.data.cotizacion.f_nac;
+      _this8.cliente.ana = res.data.cotizacion.ana;
+      _this8.cliente.gs = res.data.cotizacion.gs;
+      _this8.cliente.qualitas = res.data.cotizacion.qualitas;
+      _this8.getcotizacion.value = !_this8.getcotizacion.value;
+      _this8.alert.message = "".concat(_this8.cliente.nombre, " ").concat(_this8.cliente.appaterno, " ").concat(_this8.cliente.apmaterno, " su cotizaci\xF3n se guardo con el folio ").concat(_this8.cliente.cotizacion);
+      _this8.alert.class = "alert alert-success alert-dismissible fade show";
+      $("#paso2-tab").removeClass("disabled");
+      $("#paso2-tab").click(); // $('#cotizar').modal('show');
+    }).catch(function (err) {
+      console.log('err', err);
+    });
+  }), _methods),
   mounted: function mounted() {
     console.log('Component mounted.'); //          this.anaImage="./img/ana1.png";
     // this.gsImage = "./img/GENERAL-DE-SEGUROS-LOGO.png";

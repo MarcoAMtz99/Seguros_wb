@@ -157,19 +157,9 @@ Los datos de tu cotizacion son los siguientes:
 	</thead>
 	<tbody class="table-hover">
 		<tr>
-			<td class="text-center">TT</td>
-			<td class="text-center">HH</td>
-			<td class="text-center">JJ</td>
 			<td class="text-center"></td>
 			<td class="text-center"></td>
 			<td class="text-center"></td>
-			<td class="text-center"></td>
-			<td class="text-center"></td>
-		</tr>
-		<tr>
-			<td class="text-center">OO</td>
-			<td class="text-center">LL</td>
-			<td class="text-center">SS</td>
 			<td class="text-center"></td>
 			<td class="text-center"></td>
 			<td class="text-center"></td>
