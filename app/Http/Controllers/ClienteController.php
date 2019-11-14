@@ -14,66 +14,69 @@ class ClienteController extends Controller
 {
     
     /**
-     * Store a newly created resource in storage.
+     * Guarda un nuevo cliente, un auto, marca y submarca para la
+     * Cotizacion que hizo el cliente
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response $cliente
      */
     public function store(Request $request)
     {
-        //
-        //dd($request->all());
+        // dd($request->all());
         $rules=[
-            'uso_auto'=>'required',
-            'marca_auto'=>'required|array',
-            'submarca_auto'=>'required|array',
-            'modelo_auto'=>"required|numeric",
-            // 'descripcion_auto'=>"required|array",
-            'cp'=>"required",
-            'cestado'=>'required',
-            'nombre'=>'required|string',
-            'appaterno'=>'required|string',
-            'apmaterno'=>'nullable|string',
-            'telefono'=>'required|numeric',
-            'email'=>"required|email",
-            'sexo'=>'required|in:Hombre,Mujer,Otro',
-            'f_nac'=>"required|date"
+            'uso_auto'      => 'required',
+            'marca_auto'    => 'required|array',
+            'submarca_auto' => 'required|array',
+            'modelo_auto'   => 'required|numeric',
+            'cp'            => 'required',
+            'cestado'       => 'required',
+            'nombre'        => 'required|string',
+            'appaterno'     => 'required|string',
+            'apmaterno'     => 'nullable|string',
+            'telefono'      => 'required|numeric',
+            'email'         => 'required|email',
+            'sexo'          => 'required|in:Hombre,Mujer,Otro',
+            'f_nac'         => 'required|date'
 
         ];
         $this->validate($request,$rules);
         // return $request->all();
 
         $cliente = Cliente::create([
-            "uso_auto"=>$request->uso_auto,
-            'cp'=>$request->cp,
-            'cestado'=>$request->cestado,
-            'nombre'=>$request->nombre,
-            'appaterno'=>$request->appaterno,
-            'apmaterno'=>$request->apmaterno,
-            'telefono'=>$request->telefono,
-            'email'=>$request->email,
-            'sexo'=>$request->sexo,
-            'f_nac'=>$request->f_nac,
-            'ana'=>$request->ana,
-            'gs'=>$request->gs,
-            'qualitas'=>$request->qualitas,
-            'ejecutivo'=>$request->ejecutivo,
-            'codigo_descuento'=>$request->codigo_descuento
+            "uso_auto"         => $request->uso_auto,
+            'cp'               => $request->cp,
+            'cestado'          => $request->cestado,
+            'nombre'           => $request->nombre,
+            'appaterno'        => $request->appaterno,
+            'apmaterno'        => $request->apmaterno,
+            'telefono'         => $request->telefono,
+            'email'            => $request->email,
+            'sexo'             => $request->sexo,
+            'f_nac'            => $request->f_nac,
+            'ana'              => $request->ana,
+            'gs'               => $request->gs,
+            'qualitas'         => $request->qualitas,
+            'gnp'              => $request->gnp,
+            'ejecutivo'        => $request->ejecutivo,
+            'codigo_descuento' => $request->codigo_descuento
 
         ]);
+
         $auto = new Auto();
         $cliente->auto()->save($auto);
+
         $marca = new Marca([
-            'id_ana'=>$request->marca_auto['id'],
-            'descripcion'=>$request->marca_auto['descripcion']
+            'id_ana'      => $request->marca_auto['id'],
+            'descripcion' => $request->marca_auto['descripcion']
         ]);
+
         $auto->marca()->save($marca);
+
         $submarca=new Submarca([
-            "id_ana"=>$request->submarca_auto['id'],
-            "descripcion"=>$request->submarca_auto['descripcion'],
-            // "id_seg_gs"=>$request->submarca_auto['idSegmento'],
-            "id_seg_gs"=>"1",
-            "anio"=>$request->modelo_auto,
+            "id_ana"      => $request->submarca_auto['id'],
+            "descripcion" => $request->submarca_auto['descripcion'],
+            "id_seg_gs"   => "1",
+            "anio"        => $request->modelo_auto,
         ]);
         $auto->submarca()->save($submarca);
 

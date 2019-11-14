@@ -22,8 +22,8 @@ window.Vue = require('vue');
 Vue.component('cotizacion', require('./components/CotizacionComponent.vue').default);
 Vue.component('formulario',require('./components/FormComponent.vue').default);
 Vue.component('polizas',require('./components/PolizasComponent.vue').default);
-var emojis = require('emojis-list');
-console.log("emoji",emojis[26]);
+// var emojis = require('emojis-list');
+// console.log("emoji",emojis[26]);
 const app = new Vue({
     el: '#app',
     data:{
@@ -46,6 +46,7 @@ const app = new Vue({
             'ana': "",
             'qualitas': "",
             'gs': "",
+            'gnp': ""
     	},
         img:{
             anaImage:"./img/ana_logo.png",
@@ -54,7 +55,8 @@ const app = new Vue({
             gsImageForm: "./img/general_seguros_form.png",
             quaImage : "./img/AgenteCertificado.png",
             quaImageForm: "./img/Imagotipo_Banner_SitioWebQuálitas.svg",
-            quaImageBG: "./img/qualitas_form.png"
+            quaImageBG: "./img/qualitas_form.png",
+            gnpImage: "./img/gnp.png"
         },
     	getcotizacion:{
     		type: Boolean,

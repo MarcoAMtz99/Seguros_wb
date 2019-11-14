@@ -17,7 +17,7 @@ Route::get('/', function () {
 Route::get('/dev-envio', function(){
 	return view('prueba');
 });
-Route::get('prueba', 'PruebaController@envio');
+Route::get('prueba', 'GNPController@prueba');
 Route::post('sendGS','GeneralSegurosController@sendGS');
 Route::post('sendQua','QualitasController@emitirPoliza');
 Route::post('sendANA','API\AnaController@emitirPoliza');

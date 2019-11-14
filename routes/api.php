@@ -30,7 +30,7 @@ Route::post('/email-cotizacion','ClienteController@sendEmail');
 Route::post('/searchCliente','ClienteController@search');
 Route::post('/getCoberturasQ','QualitasController@getCobertura');
 
-// GNP
+// General de seguros
 Route::get('/versionesGS/{marca}/{submarca}/{modelo}','GeneralSegurosController@versiones');
 Route::get('/getMarcas','GeneralSegurosController@getMarcas');
 Route::get('/getSubmarcas/{marca_id}','GeneralSegurosController@getSubmarcas');
@@ -66,3 +66,7 @@ Route::get('/marcasANA/{modelo}','API\AnaController@marcas');
 Route::get('/submarcaANA/{marca}/{modelo}','API\AnaController@subMarcas');
 Route::get('/vehiculoANA/{marca}/{submarca}/{modelo}','API\AnaController@vehiculo');
 Route::get('/catVehANA/{modeloMin}/{modeloMax}','API\AnaController@catalogoVehi');
+
+// GNP
+Route::get('/modelos-gnp/{marca}/{submarca}/{modelo}', 'GNPController@modelos');
+Route::post('/get-cotizacion-gnp', 'GNPController@getCotizacion');

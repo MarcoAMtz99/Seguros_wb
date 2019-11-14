@@ -122,7 +122,7 @@
 		                    </div>
 		                </div>
 		                  <!--Descripcion-->
-		               <!--  <div class="tab-pane fade" v-show="descripcion" id="v-pills-Descripcion" role="tabpanel" aria-albelledby="v-pills-Descripcion-tab" >
+		               	<!--  <div class="tab-pane fade" v-show="descripcion" id="v-pills-Descripcion" role="tabpanel" aria-albelledby="v-pills-Descripcion-tab" >
 		                    <div class="card p-0">
 		                        <div class="card-header">
 		                            Descripcion
@@ -283,12 +283,11 @@
 									</div>
 		                        </div>
 		                    </div>
-		                </div
-		                ><!--Nacimiento-->
+		                </div>
 		                <div class="tab-pane fade" v-show="nac"  id="v-pills-Aseguradoras" role="tabpanel" aria-albelledby="v-pills-Aseguradoras-tab">
 		                    <div class="card p-0">
 		                        <div class="card-header">
-		                        	<div class="row">
+		                        	<div class="row text-center">
 		                        		<label>
 		                            		Aseguradoras
 		                        		</label>
@@ -299,16 +298,23 @@
 		                        	</div>
 		                        </div>
 		                        <div class="card-body">
-		                            <!-- TODO -->
 		                            <div class="form-group">
+		                            	<!-- GNP -->
+		                            	<div class="form-check form-check-inline">
+										  <input class="form-check-input" type="checkbox" id="checkbox-gnp" v-model="cliente.gnp" true-value="1" false-value="0">
+										  <label class="form-check-label" for="checkbox-gnp"><img :src="img.gnpImage" width="120" height="50"></label>
+										</div>
+										<!-- General de seguros -->
 										<div class="form-check form-check-inline" v-if="cliente.uso_auto == 'Servicio Particular'">
 										  <input class="form-check-input" type="checkbox" id="checkbox-gs" v-model="cliente.gs" true-value="1" false-value="0">
 										  <label class="form-check-label" for="checkbox-gs"><img :src="img.gsImage" width="120" height="50"></label>
 										</div>
+										<!-- Qualitas -->
 		                            	<div class="form-check form-check-inline">
 										  <input class="form-check-input" type="checkbox" id="checkbox-qualitas" v-model="cliente.qualitas" true-value="1" false-value="0">
 										  <label class="form-check-label" for="checkbox-qualitas"><img :src="img.quaImage" width="120" height="50"></label>
 										</div>
+										<!-- ANA -->
 		                            	<div class="form-check form-check-inline" v-if="cliente.uso_auto == 'Servicio Particular'">
 										  <input class="form-check-input" type="checkbox" id="checkbox-ana" v-model="cliente.ana" true-value="1" false-value="0">
 										  <label class="form-check-label" for="checkbox-ana"><img :src="img.anaImage" width="120" height="50"></label>
@@ -340,12 +346,6 @@
 
 <script>
 $(document).ready(function($) {
-	// if ($("[type=date]").prop('type') != 'date' ) {
-	// 	$("[type=date]").datepicker({
-	// 	  	changeMonth:true,
-	// 	  	changeYear: true
-	// 	  });
-	// }
 	if(!Modernizr.inputtypes.date) {
         console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
         $("#valorEdad").datepicker({changeMonth:true, changeYear: true});
@@ -354,29 +354,23 @@ $(document).ready(function($) {
 
 function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefono,email,sexo,f_nac, qualitas, ana,ejecutivo,codigo_descuento,}){
 	this.cotizacion = cotizacion;
-	this.uso_auto = uso_auto;
-	this.auto = auto;
-	this.cp = cp;
-	this.nombre= nombre;
-	this.appaterno = appaterno;
-	this.apmaterno = apmaterno;
-	this.telefono = telefono;
-	this.email = email;
-	this.sexo = sexo;
-	this.f_nac = f_nac;
+	this.uso_auto   = uso_auto;
+	this.auto       = auto;
+	this.cp 	    = cp;
+	this.nombre     = nombre;
+	this.appaterno  = appaterno;
+	this.apmaterno  = apmaterno;
+	this.telefono   = telefono;
+	this.email 	    = email;
+	this.sexo 	    = sexo;
+	this.f_nac      = f_nac;
 	this.ejecutivo;
 	this.codigo_descuento;
-	/*
-		Opcion de General de seguros, para cuando ya este habilitado
-
-        	<div class="form-check form-check-inline" v-if="cliente.uso_auto == 'Servicio Particular'">
-	  <input class="form-check-input" type="checkbox" id="checkbox-gs" v-model="cliente.gs" true-value="1" false-value="0">
-	  <label class="form-check-label" for="checkbox-gs"><img :src="img.gsImage" width="120" height="50"></label>
-	</div>
-	*/
 
 }
     export default {
+    	// Propiedades que se le asignan desde el componente padre 
+    	// (serian como entradas en el componente).
     	props:[
     		'cliente',
     		'getcotizacion',
@@ -384,14 +378,26 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     		'img'
     	],
     	data(){
+    		// Propiedades que tendra el componente mediante this
     		return{
-    			// cliente: this.cliente,
     			descripciones:[],
     			anios:[],
     			marcas: [],
     			submarcas:[],
     			modelos:[],
-    			pills:['v-pills-Uso','v-pills-Marca','v-pills-Submarca','v-pills-Modelo','v-pills-CP','v-pills-Nombre','v-pills-Celular','v-pills-Correo','v-pills-Sexo','v-pills-Nacimiento','v-pills-Aseguradoras'],
+    			pills:[
+    				'v-pills-Uso',
+    				'v-pills-Marca',
+    				'v-pills-Submarca',
+    				'v-pills-Modelo',
+    				'v-pills-CP',
+    				'v-pills-Nombre',
+    				'v-pills-Celular',
+    				'v-pills-Correo',
+    				'v-pills-Sexo',
+    				'v-pills-Nacimiento',
+    				'v-pills-Aseguradoras'
+    			],
     			alert_cp:"",
     			uso: true,
     			marca: false,
@@ -410,17 +416,12 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			nac: false,
     			searchOption:false,
     			checkall:false,
-
     		}
     	},
     	watch:{
     		'cliente.uso_auto': function(newValue,oldValue){
     			if (newValue != "") {
     				this.marca = true;
-    				// this.showPill('v-pills-Marca');
-    				// $('#v-pills-Marca-tab').removeClass('disabled');
-    				// // $('#v-pills-Marca-tab').addClass('disabled');
-    				// $('#v-pills-Marca-tab').click();
     				$('#v-pills-Modelo-tab').removeClass('disabled');
     				$('#v-pills-Modelo-tab').click();
     				this.modelo = true;
@@ -429,29 +430,21 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     		'cliente.modelo_auto':function(newV,oldV){
     			if (newV != "") {
     				this.marca = true;
-    				// this.descripcion = true;
-    				// if(this.searchOption == false){
-    				// 	this.cliente.descripcion_auto="";
-    				// }
     				this.getMarcas(this.cliente.modelo_auto)
     				$('#v-pills-Marca-tab').removeClass('disabled');
     				$('#v-pills-Marca-tab').click();
-    				// $('#v-pills-Descripcion-tab').removeClass('disabled');
-    				// $('#v-pills-Descripcion-tab').addClass('disabled');
-    				// this.getDescripciones(this.cliente.submarca_auto.id,this.cliente.modelo_auto);
-    				// $('#v-pills-Descripcion-tab').click();
     			}
     		},
     		'cliente.marca_auto': function(newValue,oldValue){
     			if (newValue != "") {
     				this.modelo = true;
+
     				if(this.searchOption == false){
     					this.cliente.descripcion_auto="";
     				}
+
     				this.getSubmarcas(this.cliente.marca_auto.id);
-    				// this.showPill('v-pills-Marca');
     				$('#v-pills-Submarca-tab').removeClass('disabled');
-    				// $('#v-pills-Submarca-tab').addClass('disabled');
     				$('#v-pills-Submarca-tab').click();
     			}
     		},
@@ -459,57 +452,51 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			if (newV != "") {
     				this.cp = true;
     				$('#v-pills-CP-tab').removeClass('disabled');
-    				// $('#v-pills-Descripcion-tab').addClass('disabled');
-    				// this.getDescripciones(this.cliente.submarca_auto.id,this.cliente.modelo_auto,this.cliente.marca_auto.id);
     				$('#v-pills-CP-tab').click();
     			}
     		},
     		'cliente.sexo':function(newV,oldV){
     			if (newV != "") {
     				this.nac = true;
-    				// this.showPill('v-pills-Marca');
     				$('#v-pills-Nacimiento-tab').removeClass('disabled');
-    				// $('#v-pills-Nacimiento-tab').addClass('disabled');
     				$('#v-pills-Nacimiento-tab').click();
     			}
     		},
     	},
     	created(){
-    		// this.getMarcas();
     		this.getModelos();
-    		// this.getModelos();
     	},
     	methods:{
     		searchCliente(cotizacion){
     			//console.log(cotizacion);
-    			// TODO
     			let url = './api/searchCliente';
     			let params = {cotizacion:cotizacion};
     			this.alert.message = '';
 				this.alert.class = '';
     			axios.post(url,params).then(res=>{
-    				//console.log("res cot",res);
+    				// console.log("res cot",res);
     				if(res.data.cotizacion){
     					this.searchOption = true;
     					// this.cliente = new Cliente(res.data.cotizacion);
-    					this.cliente.cotizacion =res.data.cotizacion.cotizacion;
-						this.cliente.uso_auto =res.data.cotizacion.uso_auto;
+    					this.cliente.cotizacion 	  = res.data.cotizacion.cotizacion;
+						this.cliente.uso_auto 		  = res.data.cotizacion.uso_auto;
 						this.cliente.descripcion_auto = res.data.cotizacion.auto.version;
-						this.cliente.marca_auto = res.data.cotizacion.auto.marca;
-						this.cliente.modelo_auto = res.data.cotizacion.auto.submarca.anio;
-						this.cliente.submarca_auto = res.data.cotizacion.auto.submarca;
-						// this.cliente.auto = res.data.cotizacion.auto;
-						this.cliente.cp =res.data.cotizacion.cp;
-						this.cliente.nombre=res.data.cotizacion.nombre;
-						this.cliente.appaterno =res.data.cotizacion.appaterno;
-						this.cliente.apmaterno =res.data.cotizacion.apmaterno;
-						this.cliente.telefono =res.data.cotizacion.telefono;
-						this.cliente.email =res.data.cotizacion.email;
-						this.cliente.sexo =res.data.cotizacion.sexo;
-						this.cliente.f_nac =res.data.cotizacion.f_nac;
-						this.cliente.ana = res.data.cotizacion.ana;
-						this.cliente.gs=res.data.cotizacion.gs;
-						this.cliente.qualitas = res.data.cotizacion.qualitas
+						this.cliente.marca_auto    	  = res.data.cotizacion.auto.marca;
+						this.cliente.modelo_auto   	  = res.data.cotizacion.auto.submarca.anio;
+						this.cliente.submarca_auto 	  = res.data.cotizacion.auto.submarca;
+						this.cliente.cp 			  = res.data.cotizacion.cp;
+						this.cliente.nombre 		  = res.data.cotizacion.nombre;
+						this.cliente.appaterno 		  = res.data.cotizacion.appaterno;
+						this.cliente.apmaterno 		  = res.data.cotizacion.apmaterno;
+						this.cliente.telefono 		  = res.data.cotizacion.telefono;
+						this.cliente.email 			  = res.data.cotizacion.email;
+						this.cliente.sexo 			  = res.data.cotizacion.sexo;
+						this.cliente.f_nac 			  = res.data.cotizacion.f_nac;
+						this.cliente.ana 			  = res.data.cotizacion.ana;
+						this.cliente.gs 			  = res.data.cotizacion.gs;
+						this.cliente.qualitas 		  = res.data.cotizacion.qualitas;
+						this.cliente.gnp 		  	  = res.data.cotizacion.gnp;
+
 					 	$("#paso2-tab").removeClass("disabled");
         				$("#paso2-tab").click();
         				this.getcotizacion.value = !this.getcotizacion.value;
@@ -614,8 +601,8 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				this.loader_modelo=false;
     				if (res.data.modelos) {
     					this.modelos = res.data.modelos;
-    					// this.modelos = this.modelos.reverse();
     				}
+
     			}).catch(error=>{
     				console.log('error modelos',error);
 				});
@@ -627,111 +614,67 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			let url = `./api/vehiculoANA/${marca}/${submarca}/${modelo}`;
     			axios.get(url).then(res=>{
     				this.loader_desc = false;
-    				//console.log('getDescripciones res',res);
     				this.descripciones = res.data.vehiculos;
     			}).catch(err=>{
 
     				console.log('getDescripciones err',err);
     			})
     		},
-    		// showPill(etiqueta){
-    		// 	console.log(`#${etiqueta}`);
-    		// 	this.pills.forEach(function(pill){
-    		// 		if(pill == etiqueta){
-    		// 			$(`#${pill}`).addClass('show active');
-    		// 		}
-    		// 		else{
-    		// 			$(`#${pill}`).removeClass('show active');	
-    		// 		}
-    		// 	});
-    		// },
     		nextPill(input){
     			if (input == "cp" && this.cliente.cp != "") {
-    				//console.log('si entra');
-    				// this.showPill('v-pills-Marca');
-    				// this.nombre = true;
-    				// this.cliente.cestado = '10';
-
-    				// $('#v-pills-Nombre-tab').removeClass('disabled');
-    				// // $('#v-pills-Nombre-tab').addClass('disabled');
-    				// $('#v-pills-Nombre-tab').click();
 	    			let url = `./api/cp/${this.cliente.cp}`;
-    				axios.get(url).then(
-    					res=>{
+
+    				axios.get(url).then(res=>{
     						if(res.data.response){
     							this.alert_cp = 
     							this.nombre = true;
     							this.alert_cp = "";
-    							console.log('si entra');
-			    				// this.showPill('v-pills-Marca');
+    							// console.log('si entra');
+
 			    				this.cliente.cestado = res.data.response[0].cestado;
 
 			    				$('#v-pills-Nombre-tab').removeClass('disabled');
-			    				// $('#v-pills-Nombre-tab').addClass('disabled');
 			    				$('#v-pills-Nombre-tab').click();
     						}
-    						console.log(res);
-    					}).catch(
+    						console.log('CP',res);
+    				}).catch(
     					err=>{
     						if(err.response.data.error){
     							this.nombre = false;
     							$('#v-pills-Nombre-tab').addClass('disabled');
     							this.alert_cp = err.response.data.error;
     						}
-    					})
+    					});
     				
     			}
     			if (input == "nombre" && this.cliente.nombre != "" && this.cliente.appaterno != "") {
-    				// console.log('si')
     				this.celular = true;
-    				// this.showPill('v-pills-Marca');
     				$('#v-pills-Celular-tab').removeClass('disabled');
-    				// $('#v-pills-Celular-tab').addClass('disabled');
     				$('#v-pills-Celular-tab').click();
     			}
     			if (input == "telefono" && this.cliente.telefono != "") {
-    				// console.log('si')
     				this.correo = true;
-    				// this.showPill('v-pills-Marca');
     				$('#v-pills-Correo-tab').removeClass('disabled');
-    				// $('#v-pills-Correo-tab').addClass('disabled');
     				$('#v-pills-Correo-tab').click();
     			}
     			if (input == "correo" && this.cliente.telefono != "") {
-    				// console.log('si')
     				this.sexo = true;
-    				// this.showPill('v-pills-Marca');
     				$('#v-pills-Sexo-tab').removeClass('disabled');
-    				// $('#v-pills-Sexo-tab').addClass('disabled');
     				$('#v-pills-Sexo-tab').click();
     			}
     			if (input == "sexo" && this.cliente.telefono != "") {
-    				// console.log('si')
     				this.nac = true;
-    				// this.showPill('v-pills-Marca');
     				$('#v-pills-Nacimiento-tab').removeClass('disabled');
-    				// $('#v-pills-Nacimiento-tab').addClass('disabled');
     				$('#v-pills-Nacimiento-tab').click();
     			}
     			if (input == "aseguradoras" ) {
     				this.aseguradoras = true;
     				$('#v-pills-Aseguradoras-tab').removeClass('disabled');
-    				// $('#v-pills-Aseguradoras-tab').addClass('disabled');
     				$('#v-pills-Aseguradoras-tab').click();
 
     			}
     		},
-    		
-    		// getModelos(){
-    		// 	var currentYear = new Date().getFullYear()+1;
-    		// 	var startYear = 1999;
-      //       	startYear = startYear || 1980;
-      //       	while ( startYear <= currentYear ) {
-      //               this.anios.push(startYear++);
-      //       	} 
 
-      //       	this.anios = this.anios.reverse();
-    		// },
     		sendCotizacion(cliente){
     			let params = cliente;
     			let url = "./api/cotizacion";
@@ -739,59 +682,54 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 				this.alert.class = '';
     			axios.post(url,cliente).then(res=>{
     				//console.log('res',res);
-    				this.cliente.cotizacion =res.data.cotizacion.cotizacion;
-					this.cliente.uso_auto =res.data.cotizacion.uso_auto;
+    				this.cliente.cotizacion 	  = res.data.cotizacion.cotizacion;
+					this.cliente.uso_auto 		  = res.data.cotizacion.uso_auto;
 					this.cliente.descripcion_auto = res.data.cotizacion.auto.version;
-					this.cliente.marca_auto = res.data.cotizacion.auto.marca;
-					this.cliente.modelo_auto = res.data.cotizacion.auto.submarca.anio;
-					this.cliente.submarca_auto = res.data.cotizacion.auto.submarca;
-					// this.cliente.auto = res.data.cotizacion.auto;
-					this.cliente.cp =res.data.cotizacion.cp;
-					this.cliente.nombre=res.data.cotizacion.nombre;
-					this.cliente.appaterno =res.data.cotizacion.appaterno;
-					this.cliente.apmaterno =res.data.cotizacion.apmaterno;
-					this.cliente.telefono =res.data.cotizacion.telefono;
-					this.cliente.email =res.data.cotizacion.email;
-					this.cliente.sexo =res.data.cotizacion.sexo;
-					this.cliente.f_nac =res.data.cotizacion.f_nac;
-					this.cliente.ana = res.data.cotizacion.ana;
-					this.cliente.gs=res.data.cotizacion.gs;
-					this.cliente.qualitas = res.data.cotizacion.qualitas;
-    				this.getcotizacion.value = !this.getcotizacion.value;
-    				this.alert.message = `${this.cliente.nombre} ${this.cliente.appaterno} ${this.cliente.apmaterno} su cotización se guardo con el folio ${this.cliente.cotizacion}`;
-    				this.alert.class = "alert alert-success alert-dismissible fade show";
+					this.cliente.marca_auto    	  = res.data.cotizacion.auto.marca;
+					this.cliente.modelo_auto      = res.data.cotizacion.auto.submarca.anio;
+					this.cliente.submarca_auto    = res.data.cotizacion.auto.submarca;
+					this.cliente.cp 			  = res.data.cotizacion.cp;
+					this.cliente.nombre 		  = res.data.cotizacion.nombre;
+					this.cliente.appaterno 		  = res.data.cotizacion.appaterno;
+					this.cliente.apmaterno 		  = res.data.cotizacion.apmaterno;
+					this.cliente.telefono 		  = res.data.cotizacion.telefono;
+					this.cliente.email 			  = res.data.cotizacion.email;
+					this.cliente.sexo 			  = res.data.cotizacion.sexo;
+					this.cliente.f_nac 			  = res.data.cotizacion.f_nac;
+					this.cliente.ana 			  = res.data.cotizacion.ana;
+					this.cliente.gs 			  = res.data.cotizacion.gs;
+					this.cliente.qualitas 		  = res.data.cotizacion.qualitas;
+    				this.getcotizacion.value 	  = !this.getcotizacion.value;
+    				this.alert.message 			  = `${this.cliente.nombre} ${this.cliente.appaterno} ${this.cliente.apmaterno} su cotización se guardo con el folio ${this.cliente.cotizacion}`;
+    				this.alert.class 			  = "alert alert-success alert-dismissible fade show";
+
     				$("#paso2-tab").removeClass("disabled");
         			$("#paso2-tab").click();
-    				// $('#cotizar').modal('show');
     			}).catch(err=>{
-    				console.log('err',err);
+    				console.log('sendCotizacion err', err);
     			})
     		}
     	},
         mounted() {
             console.log('Component mounted.');
-   //          this.anaImage="./img/ana1.png";
-			// this.gsImage = "./img/GENERAL-DE-SEGUROS-LOGO.png";
-			// this.quaImage = "./img/AgenteCertificado.png";
             let uri = window.location.href.split('?');
-            if (uri.length == 2)
-		    {
-		      let vars = uri[1].split('&');
-		      let getVars = {};
-		      let tmp = '';
-		      vars.forEach(function(v){
-		        tmp = v.split('=');
-		        if(tmp.length == 2)
-		        getVars[tmp[0]] = tmp[1];
-		      });
-		      if(getVars.cotizacion){
-		      	this.cliente.cotizacion = getVars.cotizacion
-		      	this.searchCliente(this.cliente.cotizacion);
-		      }
-		      //console.log(getVars);
-		      // do 
+            if (uri.length == 2) {
+
+				let vars = uri[1].split('&');
+				let getVars = {};
+				let tmp = '';
+
+				vars.forEach(function(v) {
+					tmp = v.split('=');
+					if(tmp.length == 2)
+						getVars[tmp[0]] = tmp[1];
+				});
+
+				if(getVars.cotizacion) {
+					this.cliente.cotizacion = getVars.cotizacion
+					this.searchCliente(this.cliente.cotizacion);
+				}
 		    }
-            // console.log(uri[1]);
         }
     }
 </script>

@@ -31,6 +31,7 @@ class Cliente extends Model
         'f_nac',
         'ana',
         'gs',
+        'gnp',
         'qualitas'
     ];
 
@@ -69,8 +70,7 @@ class Cliente extends Model
     public function getTipoServicioAttribute()
     {
         $uso = $this->uso_auto;
-        // $codigo;
-        // dd($uso);
+
         if($uso == "Servicio Público"){
             return "COMERCIAL";
         }
@@ -82,34 +82,24 @@ class Cliente extends Model
     public function getUsoAttribute()
     {
         $uso = $this->uso_auto;
-        // $codigo;
-        // dd($uso);
         if($uso == "Servicio Público"){
             return "8";
         }
         if($uso == "Servicio Particular"){
             return "1";
         }
-        // return $codigo;
     }
 
     public function getServicioAttribute()
     {
         $uso = $this->uso_auto;
-        // $codigo;
-        // dd($uso);
         if($uso == "Servicio Público"){
             return "2";
         }
         if($uso == "Servicio Particular"){
             return "1";
         }
-        
-        // return $codigo;
+
     }
-
-
-
-   
 
 }

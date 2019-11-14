@@ -36,7 +36,7 @@
                 <div class="tab-pane fade" id="paso2" role="tabpanel" aria-labelledby="paso2-tab">
                     <polizas v-bind:cliente="cliente" :img="img" :getcotizacion="getcotizacion" :cotizacion="cotizacion" @emitirgs="cotizacion=$event" @emitirqua="cotizacion=$event" @emitirana="cotizacion=$event" :alert="alert"></polizas>
                 </div>
-                <div class="tab-pane fade {{-- show active --}}" id="paso3" role="tabpanel" aria-labelledby="paso3-tab">
+                <div class="tab-pane fade" id="paso3" role="tabpanel" aria-labelledby="paso3-tab">
                     <formulario :cotizacion="cotizacion" :img="img" :cliente="cliente" :alert="alert"></formulario>
                 </div>
                 
@@ -53,12 +53,7 @@
 <!--TRANSITIONS-->
     <script>
         $(document).ready(function($) {
-            //if ($('[name="date"]').prop('type') != 'date' ) {
-                // $('[type="date"]').datepicker({
-                //     changeMonth:true,
-                //     changeYear: true
-                //   });
-            //}
+
             if(!Modernizr.inputtypes.date) {
                 console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
                 $("#p").datepicker();
@@ -92,12 +87,6 @@
             $('li.datos-modal#datosm_8').text("Nacimiento: "+$("#valorEdad").val());
             nacimiento = $("#valorEdad").val();
         }
-
-        /*$('#8_2').click(function(e){
-            $('#modaldecel').modal('toggle');
-            $('#v-pills-Tipo-Uso').click();
-            console.log('Editar');
-        });*/
         
         function mostrarD(){
             alert("1");

@@ -2107,13 +2107,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 $(document).ready(function ($) {
-  // if ($("[type=date]").prop('type') != 'date' ) {
-  // 	$("[type=date]").datepicker({
-  // 	  	changeMonth:true,
-  // 	  	changeYear: true
-  // 	  });
-  // }
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
     $("#valorEdad").datepicker({
@@ -2152,21 +2152,15 @@ function Cliente(_ref) {
   this.f_nac = f_nac;
   this.ejecutivo;
   this.codigo_descuento;
-  /*
-  	Opcion de General de seguros, para cuando ya este habilitado
-  
-         	<div class="form-check form-check-inline" v-if="cliente.uso_auto == 'Servicio Particular'">
-    <input class="form-check-input" type="checkbox" id="checkbox-gs" v-model="cliente.gs" true-value="1" false-value="0">
-    <label class="form-check-label" for="checkbox-gs"><img :src="img.gsImage" width="120" height="50"></label>
-  </div>
-  */
 }
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  // Propiedades que se le asignan desde el componente padre 
+  // (serian como entradas en el componente).
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
+    // Propiedades que tendra el componente mediante this
     return {
-      // cliente: this.cliente,
       descripciones: [],
       anios: [],
       marcas: [],
@@ -2196,11 +2190,7 @@ function Cliente(_ref) {
   watch: {
     'cliente.uso_auto': function clienteUso_auto(newValue, oldValue) {
       if (newValue != "") {
-        this.marca = true; // this.showPill('v-pills-Marca');
-        // $('#v-pills-Marca-tab').removeClass('disabled');
-        // // $('#v-pills-Marca-tab').addClass('disabled');
-        // $('#v-pills-Marca-tab').click();
-
+        this.marca = true;
         $('#v-pills-Modelo-tab').removeClass('disabled');
         $('#v-pills-Modelo-tab').click();
         this.modelo = true;
@@ -2208,17 +2198,10 @@ function Cliente(_ref) {
     },
     'cliente.modelo_auto': function clienteModelo_auto(newV, oldV) {
       if (newV != "") {
-        this.marca = true; // this.descripcion = true;
-        // if(this.searchOption == false){
-        // 	this.cliente.descripcion_auto="";
-        // }
-
+        this.marca = true;
         this.getMarcas(this.cliente.modelo_auto);
         $('#v-pills-Marca-tab').removeClass('disabled');
-        $('#v-pills-Marca-tab').click(); // $('#v-pills-Descripcion-tab').removeClass('disabled');
-        // $('#v-pills-Descripcion-tab').addClass('disabled');
-        // this.getDescripciones(this.cliente.submarca_auto.id,this.cliente.modelo_auto);
-        // $('#v-pills-Descripcion-tab').click();
+        $('#v-pills-Marca-tab').click();
       }
     },
     'cliente.marca_auto': function clienteMarca_auto(newValue, oldValue) {
@@ -2229,42 +2212,34 @@ function Cliente(_ref) {
           this.cliente.descripcion_auto = "";
         }
 
-        this.getSubmarcas(this.cliente.marca_auto.id); // this.showPill('v-pills-Marca');
-
-        $('#v-pills-Submarca-tab').removeClass('disabled'); // $('#v-pills-Submarca-tab').addClass('disabled');
-
+        this.getSubmarcas(this.cliente.marca_auto.id);
+        $('#v-pills-Submarca-tab').removeClass('disabled');
         $('#v-pills-Submarca-tab').click();
       }
     },
     'cliente.submarca_auto': function clienteSubmarca_auto(newV, oldV) {
       if (newV != "") {
         this.cp = true;
-        $('#v-pills-CP-tab').removeClass('disabled'); // $('#v-pills-Descripcion-tab').addClass('disabled');
-        // this.getDescripciones(this.cliente.submarca_auto.id,this.cliente.modelo_auto,this.cliente.marca_auto.id);
-
+        $('#v-pills-CP-tab').removeClass('disabled');
         $('#v-pills-CP-tab').click();
       }
     },
     'cliente.sexo': function clienteSexo(newV, oldV) {
       if (newV != "") {
-        this.nac = true; // this.showPill('v-pills-Marca');
-
-        $('#v-pills-Nacimiento-tab').removeClass('disabled'); // $('#v-pills-Nacimiento-tab').addClass('disabled');
-
+        this.nac = true;
+        $('#v-pills-Nacimiento-tab').removeClass('disabled');
         $('#v-pills-Nacimiento-tab').click();
       }
     }
   },
   created: function created() {
-    // this.getMarcas();
-    this.getModelos(); // this.getModelos();
+    this.getModelos();
   },
   methods: (_methods = {
     searchCliente: function searchCliente(cotizacion) {
       var _this = this;
 
       //console.log(cotizacion);
-      // TODO
       var url = './api/searchCliente';
       var params = {
         cotizacion: cotizacion
@@ -2272,7 +2247,7 @@ function Cliente(_ref) {
       this.alert.message = '';
       this.alert.class = '';
       axios.post(url, params).then(function (res) {
-        //console.log("res cot",res);
+        // console.log("res cot",res);
         if (res.data.cotizacion) {
           _this.searchOption = true; // this.cliente = new Cliente(res.data.cotizacion);
 
@@ -2281,8 +2256,7 @@ function Cliente(_ref) {
           _this.cliente.descripcion_auto = res.data.cotizacion.auto.version;
           _this.cliente.marca_auto = res.data.cotizacion.auto.marca;
           _this.cliente.modelo_auto = res.data.cotizacion.auto.submarca.anio;
-          _this.cliente.submarca_auto = res.data.cotizacion.auto.submarca; // this.cliente.auto = res.data.cotizacion.auto;
-
+          _this.cliente.submarca_auto = res.data.cotizacion.auto.submarca;
           _this.cliente.cp = res.data.cotizacion.cp;
           _this.cliente.nombre = res.data.cotizacion.nombre;
           _this.cliente.appaterno = res.data.cotizacion.appaterno;
@@ -2294,6 +2268,7 @@ function Cliente(_ref) {
           _this.cliente.ana = res.data.cotizacion.ana;
           _this.cliente.gs = res.data.cotizacion.gs;
           _this.cliente.qualitas = res.data.cotizacion.qualitas;
+          _this.cliente.gnp = res.data.cotizacion.gnp;
           $("#paso2-tab").removeClass("disabled");
           $("#paso2-tab").click();
           _this.getcotizacion.value = !_this.getcotizacion.value;
@@ -2367,7 +2342,7 @@ function Cliente(_ref) {
       _this5.loader_modelo = false;
 
       if (res.data.modelos) {
-        _this5.modelos = res.data.modelos; // this.modelos = this.modelos.reverse();
+        _this5.modelos = res.data.modelos;
       }
     }).catch(function (error) {
       console.log('error modelos', error);
@@ -2380,8 +2355,7 @@ function Cliente(_ref) {
     $('#descripcion').append('<div class="loader"></div>');
     var url = "./api/vehiculoANA/".concat(marca, "/").concat(submarca, "/").concat(modelo);
     axios.get(url).then(function (res) {
-      _this6.loader_desc = false; //console.log('getDescripciones res',res);
-
+      _this6.loader_desc = false;
       _this6.descripciones = res.data.vehiculos;
     }).catch(function (err) {
       console.log('getDescripciones err', err);
@@ -2390,27 +2364,18 @@ function Cliente(_ref) {
     var _this7 = this;
 
     if (input == "cp" && this.cliente.cp != "") {
-      //console.log('si entra');
-      // this.showPill('v-pills-Marca');
-      // this.nombre = true;
-      // this.cliente.cestado = '10';
-      // $('#v-pills-Nombre-tab').removeClass('disabled');
-      // // $('#v-pills-Nombre-tab').addClass('disabled');
-      // $('#v-pills-Nombre-tab').click();
       var url = "./api/cp/".concat(this.cliente.cp);
       axios.get(url).then(function (res) {
         if (res.data.response) {
           _this7.alert_cp = _this7.nombre = true;
-          _this7.alert_cp = "";
-          console.log('si entra'); // this.showPill('v-pills-Marca');
+          _this7.alert_cp = ""; // console.log('si entra');
 
           _this7.cliente.cestado = res.data.response[0].cestado;
-          $('#v-pills-Nombre-tab').removeClass('disabled'); // $('#v-pills-Nombre-tab').addClass('disabled');
-
+          $('#v-pills-Nombre-tab').removeClass('disabled');
           $('#v-pills-Nombre-tab').click();
         }
 
-        console.log(res);
+        console.log('CP', res);
       }).catch(function (err) {
         if (err.response.data.error) {
           _this7.nombre = false;
@@ -2421,45 +2386,32 @@ function Cliente(_ref) {
     }
 
     if (input == "nombre" && this.cliente.nombre != "" && this.cliente.appaterno != "") {
-      // console.log('si')
-      this.celular = true; // this.showPill('v-pills-Marca');
-
-      $('#v-pills-Celular-tab').removeClass('disabled'); // $('#v-pills-Celular-tab').addClass('disabled');
-
+      this.celular = true;
+      $('#v-pills-Celular-tab').removeClass('disabled');
       $('#v-pills-Celular-tab').click();
     }
 
     if (input == "telefono" && this.cliente.telefono != "") {
-      // console.log('si')
-      this.correo = true; // this.showPill('v-pills-Marca');
-
-      $('#v-pills-Correo-tab').removeClass('disabled'); // $('#v-pills-Correo-tab').addClass('disabled');
-
+      this.correo = true;
+      $('#v-pills-Correo-tab').removeClass('disabled');
       $('#v-pills-Correo-tab').click();
     }
 
     if (input == "correo" && this.cliente.telefono != "") {
-      // console.log('si')
-      this.sexo = true; // this.showPill('v-pills-Marca');
-
-      $('#v-pills-Sexo-tab').removeClass('disabled'); // $('#v-pills-Sexo-tab').addClass('disabled');
-
+      this.sexo = true;
+      $('#v-pills-Sexo-tab').removeClass('disabled');
       $('#v-pills-Sexo-tab').click();
     }
 
     if (input == "sexo" && this.cliente.telefono != "") {
-      // console.log('si')
-      this.nac = true; // this.showPill('v-pills-Marca');
-
-      $('#v-pills-Nacimiento-tab').removeClass('disabled'); // $('#v-pills-Nacimiento-tab').addClass('disabled');
-
+      this.nac = true;
+      $('#v-pills-Nacimiento-tab').removeClass('disabled');
       $('#v-pills-Nacimiento-tab').click();
     }
 
     if (input == "aseguradoras") {
       this.aseguradoras = true;
-      $('#v-pills-Aseguradoras-tab').removeClass('disabled'); // $('#v-pills-Aseguradoras-tab').addClass('disabled');
-
+      $('#v-pills-Aseguradoras-tab').removeClass('disabled');
       $('#v-pills-Aseguradoras-tab').click();
     }
   }), _defineProperty(_methods, "sendCotizacion", function sendCotizacion(cliente) {
@@ -2476,8 +2428,7 @@ function Cliente(_ref) {
       _this8.cliente.descripcion_auto = res.data.cotizacion.auto.version;
       _this8.cliente.marca_auto = res.data.cotizacion.auto.marca;
       _this8.cliente.modelo_auto = res.data.cotizacion.auto.submarca.anio;
-      _this8.cliente.submarca_auto = res.data.cotizacion.auto.submarca; // this.cliente.auto = res.data.cotizacion.auto;
-
+      _this8.cliente.submarca_auto = res.data.cotizacion.auto.submarca;
       _this8.cliente.cp = res.data.cotizacion.cp;
       _this8.cliente.nombre = res.data.cotizacion.nombre;
       _this8.cliente.appaterno = res.data.cotizacion.appaterno;
@@ -2493,16 +2444,13 @@ function Cliente(_ref) {
       _this8.alert.message = "".concat(_this8.cliente.nombre, " ").concat(_this8.cliente.appaterno, " ").concat(_this8.cliente.apmaterno, " su cotizaci\xF3n se guardo con el folio ").concat(_this8.cliente.cotizacion);
       _this8.alert.class = "alert alert-success alert-dismissible fade show";
       $("#paso2-tab").removeClass("disabled");
-      $("#paso2-tab").click(); // $('#cotizar').modal('show');
+      $("#paso2-tab").click();
     }).catch(function (err) {
-      console.log('err', err);
+      console.log('sendCotizacion err', err);
     });
   }), _methods),
   mounted: function mounted() {
-    console.log('Component mounted.'); //          this.anaImage="./img/ana1.png";
-    // this.gsImage = "./img/GENERAL-DE-SEGUROS-LOGO.png";
-    // this.quaImage = "./img/AgenteCertificado.png";
-
+    console.log('Component mounted.');
     var uri = window.location.href.split('?');
 
     if (uri.length == 2) {
@@ -2517,11 +2465,8 @@ function Cliente(_ref) {
       if (getVars.cotizacion) {
         this.cliente.cotizacion = getVars.cotizacion;
         this.searchCliente(this.cliente.cotizacion);
-      } //console.log(getVars);
-      // do 
-
-    } // console.log(uri[1]);
-
+      }
+    }
   }
 });
 
@@ -4636,6 +4581,65 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -4644,27 +4648,31 @@ __webpack_require__.r(__webpack_exports__);
       loaderQ: true,
       loaderA: true,
       loaderGS: true,
+      loaderGNP: true,
       cotizacion: null,
       cotizacionesQualitas: [],
       cotizacionesGS: [],
       cotizacionesANA: [],
+      cotizacionesGNP: [],
       error: null,
       setCotizacion: null,
       anaImage: null,
       gsImage: null,
       quaImage: null,
+      gnpImage: null,
       descripciones_ana: [],
       descripciones_gs: [],
       descripciones_qualitas: [],
+      descripciones_gnp: [],
       desc_ana: "",
       desc_gs: "",
       desc_qualitas: "",
+      desc_gnp: "",
       tipo_poliza: "Amplia"
     };
   },
   watch: {
     'getcotizacion.value': function getcotizacionValue(newVal, oldVal) {
-      // body...
       if (this.cliente.ana) {
         this.getDescripcionesANA(this.cliente.marca_auto.id_ana, this.cliente.submarca_auto.id_ana, this.cliente.submarca_auto.anio);
       }
@@ -4675,10 +4683,11 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.cliente.gs) {
         this.getDescripcionesGS(this.cliente.marca_auto.descripcion, this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio);
-      } //          this.getCoberturasGS(this.cliente.cotizacion);
-      // this.getCoberturas(this.cliente.cotizacion);
-      //          this.getCoberturasAna(this.cliente.cotizacion);
+      }
 
+      if (this.cliente.gnp) {
+        this.getDescripcionesGNP(this.cliente.marca_auto.descripcion, this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio);
+      }
     },
     'desc_ana': function desc_ana(newVal, oldVal) {
       this.loader = true;
@@ -4691,6 +4700,11 @@ __webpack_require__.r(__webpack_exports__);
     'desc_gs': function desc_gs(newVal, oldVal) {
       this.loader = true;
       this.sendCotizacionGS(this.desc_gs, this.tipo_poliza);
+    },
+    'desc_gnp': function desc_gnp(value) {
+      this.loader = true;
+      console.log('DESCRIPCION select GNP', value);
+      this.sendCotizacionGNP(this.desc_gnp, this.tipo_poliza);
     },
     'tipo_poliza': function tipo_poliza(newVal, oldVal) {
       this.loader = true;
@@ -4721,17 +4735,13 @@ __webpack_require__.r(__webpack_exports__);
         descripcion: descripcion,
         poliza: poliza
       };
-      this.cotizacionesANA = []; // this.loader = true;
-
+      this.cotizacionesANA = [];
       axios.post(url, params).then(function (res) {
         if (res.data.ANASeguros) {
-          _this2.loader = false; // console.log('cotizacion ana',res.data);
-
+          _this2.loader = false;
           _this2.cotizacionesANA = res.data.ANASeguros;
 
-          _this2.sendCotizacion(_this2.cliente, _this2.cotizacionesANA[0], "ANA"); // this.loaderA = false;
-          // console.log(this.cotizac'ionesANA);
-
+          _this2.sendCotizacion(_this2.cliente, _this2.cotizacionesANA[0], "ANA");
         }
       }).catch(function (err) {
         _this2.loader = false;
@@ -4839,8 +4849,38 @@ __webpack_require__.r(__webpack_exports__);
         console.log(err);
       });
     },
-    getCoberturasGS: function getCoberturasGS(cotizacion) {
+    getDescripcionesGNP: function getDescripcionesGNP(marca, submarca, modelo) {
       var _this7 = this;
+
+      var url = "./api/modelos-gnp/".concat(marca, "/").concat(submarca, "/").concat(modelo);
+      axios.get(url).then(function (res) {
+        // console.log('DESCRIPCIONES GNP', res);
+        _this7.descripciones_gnp = res.data.modelosGNP.ELEMENTOS;
+      }).catch(function (err) {
+        console.log(err);
+      });
+    },
+    sendCotizacionGNP: function sendCotizacionGNP(descripcion, poliza) {
+      var _this8 = this;
+
+      var url = "./api/get-cotizacion-gnp";
+      var params = {
+        cotizacion: this.cliente.cotizacion,
+        descripcionGNP: descripcion,
+        poliza: poliza
+      };
+      this.cotizacionesGNP = [];
+      axios.post(url, params).then(function (res) {
+        console.log(res);
+        _this8.cotizacionesGNP = res.data.cotizacionGNP;
+        _this8.loader = false;
+      }).catch(function (err) {
+        _this8.loader = false;
+        console.log(err);
+      });
+    },
+    getCoberturasGS: function getCoberturasGS(cotizacion) {
+      var _this9 = this;
 
       var url = "./api/getCotizacionGS";
       var params = {
@@ -4849,14 +4889,14 @@ __webpack_require__.r(__webpack_exports__);
       axios.post(url, params).then(function (res) {
         // console.log("general res",res.data)
         if (res.data.cotizacion) {
-          _this7.cotizacionesGS = {
+          _this9.cotizacionesGS = {
             "img": './img/GENERAL-DE-SEGUROS-LOGO.png',
             'cotizacion': res.data.cotizacion
           };
-          _this7.loader = false;
+          _this9.loader = false;
         }
       }).catch(function (error) {
-        _this7.loaderGS = false;
+        _this9.loaderGS = false;
         console.log('general err', error);
       });
     },
@@ -9182,2495 +9222,6 @@ __webpack_require__.r(__webpack_exports__);
 })));
 //# sourceMappingURL=bootstrap.js.map
 
-
-/***/ }),
-
-/***/ "./node_modules/emojis-list/index.js":
-/*!*******************************************!*\
-  !*** ./node_modules/emojis-list/index.js ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = [
-  "🀄",
-  "🃏",
-  "🅰",
-  "🅱",
-  "🅾",
-  "🅿",
-  "🆎",
-  "🆑",
-  "🆒",
-  "🆓",
-  "🆔",
-  "🆕",
-  "🆖",
-  "🆗",
-  "🆘",
-  "🆙",
-  "🆚",
-  "🇦🇨",
-  "🇦🇩",
-  "🇦🇪",
-  "🇦🇫",
-  "🇦🇬",
-  "🇦🇮",
-  "🇦🇱",
-  "🇦🇲",
-  "🇦🇴",
-  "🇦🇶",
-  "🇦🇷",
-  "🇦🇸",
-  "🇦🇹",
-  "🇦🇺",
-  "🇦🇼",
-  "🇦🇽",
-  "🇦🇿",
-  "🇦",
-  "🇧🇦",
-  "🇧🇧",
-  "🇧🇩",
-  "🇧🇪",
-  "🇧🇫",
-  "🇧🇬",
-  "🇧🇭",
-  "🇧🇮",
-  "🇧🇯",
-  "🇧🇱",
-  "🇧🇲",
-  "🇧🇳",
-  "🇧🇴",
-  "🇧🇶",
-  "🇧🇷",
-  "🇧🇸",
-  "🇧🇹",
-  "🇧🇻",
-  "🇧🇼",
-  "🇧🇾",
-  "🇧🇿",
-  "🇧",
-  "🇨🇦",
-  "🇨🇨",
-  "🇨🇩",
-  "🇨🇫",
-  "🇨🇬",
-  "🇨🇭",
-  "🇨🇮",
-  "🇨🇰",
-  "🇨🇱",
-  "🇨🇲",
-  "🇨🇳",
-  "🇨🇴",
-  "🇨🇵",
-  "🇨🇷",
-  "🇨🇺",
-  "🇨🇻",
-  "🇨🇼",
-  "🇨🇽",
-  "🇨🇾",
-  "🇨🇿",
-  "🇨",
-  "🇩🇪",
-  "🇩🇬",
-  "🇩🇯",
-  "🇩🇰",
-  "🇩🇲",
-  "🇩🇴",
-  "🇩🇿",
-  "🇩",
-  "🇪🇦",
-  "🇪🇨",
-  "🇪🇪",
-  "🇪🇬",
-  "🇪🇭",
-  "🇪🇷",
-  "🇪🇸",
-  "🇪🇹",
-  "🇪🇺",
-  "🇪",
-  "🇫🇮",
-  "🇫🇯",
-  "🇫🇰",
-  "🇫🇲",
-  "🇫🇴",
-  "🇫🇷",
-  "🇫",
-  "🇬🇦",
-  "🇬🇧",
-  "🇬🇩",
-  "🇬🇪",
-  "🇬🇫",
-  "🇬🇬",
-  "🇬🇭",
-  "🇬🇮",
-  "🇬🇱",
-  "🇬🇲",
-  "🇬🇳",
-  "🇬🇵",
-  "🇬🇶",
-  "🇬🇷",
-  "🇬🇸",
-  "🇬🇹",
-  "🇬🇺",
-  "🇬🇼",
-  "🇬🇾",
-  "🇬",
-  "🇭🇰",
-  "🇭🇲",
-  "🇭🇳",
-  "🇭🇷",
-  "🇭🇹",
-  "🇭🇺",
-  "🇭",
-  "🇮🇨",
-  "🇮🇩",
-  "🇮🇪",
-  "🇮🇱",
-  "🇮🇲",
-  "🇮🇳",
-  "🇮🇴",
-  "🇮🇶",
-  "🇮🇷",
-  "🇮🇸",
-  "🇮🇹",
-  "🇮",
-  "🇯🇪",
-  "🇯🇲",
-  "🇯🇴",
-  "🇯🇵",
-  "🇯",
-  "🇰🇪",
-  "🇰🇬",
-  "🇰🇭",
-  "🇰🇮",
-  "🇰🇲",
-  "🇰🇳",
-  "🇰🇵",
-  "🇰🇷",
-  "🇰🇼",
-  "🇰🇾",
-  "🇰🇿",
-  "🇰",
-  "🇱🇦",
-  "🇱🇧",
-  "🇱🇨",
-  "🇱🇮",
-  "🇱🇰",
-  "🇱🇷",
-  "🇱🇸",
-  "🇱🇹",
-  "🇱🇺",
-  "🇱🇻",
-  "🇱🇾",
-  "🇱",
-  "🇲🇦",
-  "🇲🇨",
-  "🇲🇩",
-  "🇲🇪",
-  "🇲🇫",
-  "🇲🇬",
-  "🇲🇭",
-  "🇲🇰",
-  "🇲🇱",
-  "🇲🇲",
-  "🇲🇳",
-  "🇲🇴",
-  "🇲🇵",
-  "🇲🇶",
-  "🇲🇷",
-  "🇲🇸",
-  "🇲🇹",
-  "🇲🇺",
-  "🇲🇻",
-  "🇲🇼",
-  "🇲🇽",
-  "🇲🇾",
-  "🇲🇿",
-  "🇲",
-  "🇳🇦",
-  "🇳🇨",
-  "🇳🇪",
-  "🇳🇫",
-  "🇳🇬",
-  "🇳🇮",
-  "🇳🇱",
-  "🇳🇴",
-  "🇳🇵",
-  "🇳🇷",
-  "🇳🇺",
-  "🇳🇿",
-  "🇳",
-  "🇴🇲",
-  "🇴",
-  "🇵🇦",
-  "🇵🇪",
-  "🇵🇫",
-  "🇵🇬",
-  "🇵🇭",
-  "🇵🇰",
-  "🇵🇱",
-  "🇵🇲",
-  "🇵🇳",
-  "🇵🇷",
-  "🇵🇸",
-  "🇵🇹",
-  "🇵🇼",
-  "🇵🇾",
-  "🇵",
-  "🇶🇦",
-  "🇶",
-  "🇷🇪",
-  "🇷🇴",
-  "🇷🇸",
-  "🇷🇺",
-  "🇷🇼",
-  "🇷",
-  "🇸🇦",
-  "🇸🇧",
-  "🇸🇨",
-  "🇸🇩",
-  "🇸🇪",
-  "🇸🇬",
-  "🇸🇭",
-  "🇸🇮",
-  "🇸🇯",
-  "🇸🇰",
-  "🇸🇱",
-  "🇸🇲",
-  "🇸🇳",
-  "🇸🇴",
-  "🇸🇷",
-  "🇸🇸",
-  "🇸🇹",
-  "🇸🇻",
-  "🇸🇽",
-  "🇸🇾",
-  "🇸🇿",
-  "🇸",
-  "🇹🇦",
-  "🇹🇨",
-  "🇹🇩",
-  "🇹🇫",
-  "🇹🇬",
-  "🇹🇭",
-  "🇹🇯",
-  "🇹🇰",
-  "🇹🇱",
-  "🇹🇲",
-  "🇹🇳",
-  "🇹🇴",
-  "🇹🇷",
-  "🇹🇹",
-  "🇹🇻",
-  "🇹🇼",
-  "🇹🇿",
-  "🇹",
-  "🇺🇦",
-  "🇺🇬",
-  "🇺🇲",
-  "🇺🇳",
-  "🇺🇸",
-  "🇺🇾",
-  "🇺🇿",
-  "🇺",
-  "🇻🇦",
-  "🇻🇨",
-  "🇻🇪",
-  "🇻🇬",
-  "🇻🇮",
-  "🇻🇳",
-  "🇻🇺",
-  "🇻",
-  "🇼🇫",
-  "🇼🇸",
-  "🇼",
-  "🇽🇰",
-  "🇽",
-  "🇾🇪",
-  "🇾🇹",
-  "🇾",
-  "🇿🇦",
-  "🇿🇲",
-  "🇿🇼",
-  "🇿",
-  "🈁",
-  "🈂",
-  "🈚",
-  "🈯",
-  "🈲",
-  "🈳",
-  "🈴",
-  "🈵",
-  "🈶",
-  "🈷",
-  "🈸",
-  "🈹",
-  "🈺",
-  "🉐",
-  "🉑",
-  "🌀",
-  "🌁",
-  "🌂",
-  "🌃",
-  "🌄",
-  "🌅",
-  "🌆",
-  "🌇",
-  "🌈",
-  "🌉",
-  "🌊",
-  "🌋",
-  "🌌",
-  "🌍",
-  "🌎",
-  "🌏",
-  "🌐",
-  "🌑",
-  "🌒",
-  "🌓",
-  "🌔",
-  "🌕",
-  "🌖",
-  "🌗",
-  "🌘",
-  "🌙",
-  "🌚",
-  "🌛",
-  "🌜",
-  "🌝",
-  "🌞",
-  "🌟",
-  "🌠",
-  "🌡",
-  "🌤",
-  "🌥",
-  "🌦",
-  "🌧",
-  "🌨",
-  "🌩",
-  "🌪",
-  "🌫",
-  "🌬",
-  "🌭",
-  "🌮",
-  "🌯",
-  "🌰",
-  "🌱",
-  "🌲",
-  "🌳",
-  "🌴",
-  "🌵",
-  "🌶",
-  "🌷",
-  "🌸",
-  "🌹",
-  "🌺",
-  "🌻",
-  "🌼",
-  "🌽",
-  "🌾",
-  "🌿",
-  "🍀",
-  "🍁",
-  "🍂",
-  "🍃",
-  "🍄",
-  "🍅",
-  "🍆",
-  "🍇",
-  "🍈",
-  "🍉",
-  "🍊",
-  "🍋",
-  "🍌",
-  "🍍",
-  "🍎",
-  "🍏",
-  "🍐",
-  "🍑",
-  "🍒",
-  "🍓",
-  "🍔",
-  "🍕",
-  "🍖",
-  "🍗",
-  "🍘",
-  "🍙",
-  "🍚",
-  "🍛",
-  "🍜",
-  "🍝",
-  "🍞",
-  "🍟",
-  "🍠",
-  "🍡",
-  "🍢",
-  "🍣",
-  "🍤",
-  "🍥",
-  "🍦",
-  "🍧",
-  "🍨",
-  "🍩",
-  "🍪",
-  "🍫",
-  "🍬",
-  "🍭",
-  "🍮",
-  "🍯",
-  "🍰",
-  "🍱",
-  "🍲",
-  "🍳",
-  "🍴",
-  "🍵",
-  "🍶",
-  "🍷",
-  "🍸",
-  "🍹",
-  "🍺",
-  "🍻",
-  "🍼",
-  "🍽",
-  "🍾",
-  "🍿",
-  "🎀",
-  "🎁",
-  "🎂",
-  "🎃",
-  "🎄",
-  "🎅🏻",
-  "🎅🏼",
-  "🎅🏽",
-  "🎅🏾",
-  "🎅🏿",
-  "🎅",
-  "🎆",
-  "🎇",
-  "🎈",
-  "🎉",
-  "🎊",
-  "🎋",
-  "🎌",
-  "🎍",
-  "🎎",
-  "🎏",
-  "🎐",
-  "🎑",
-  "🎒",
-  "🎓",
-  "🎖",
-  "🎗",
-  "🎙",
-  "🎚",
-  "🎛",
-  "🎞",
-  "🎟",
-  "🎠",
-  "🎡",
-  "🎢",
-  "🎣",
-  "🎤",
-  "🎥",
-  "🎦",
-  "🎧",
-  "🎨",
-  "🎩",
-  "🎪",
-  "🎫",
-  "🎬",
-  "🎭",
-  "🎮",
-  "🎯",
-  "🎰",
-  "🎱",
-  "🎲",
-  "🎳",
-  "🎴",
-  "🎵",
-  "🎶",
-  "🎷",
-  "🎸",
-  "🎹",
-  "🎺",
-  "🎻",
-  "🎼",
-  "🎽",
-  "🎾",
-  "🎿",
-  "🏀",
-  "🏁",
-  "🏂🏻",
-  "🏂🏼",
-  "🏂🏽",
-  "🏂🏾",
-  "🏂🏿",
-  "🏂",
-  "🏃🏻‍♀️",
-  "🏃🏻‍♂️",
-  "🏃🏻",
-  "🏃🏼‍♀️",
-  "🏃🏼‍♂️",
-  "🏃🏼",
-  "🏃🏽‍♀️",
-  "🏃🏽‍♂️",
-  "🏃🏽",
-  "🏃🏾‍♀️",
-  "🏃🏾‍♂️",
-  "🏃🏾",
-  "🏃🏿‍♀️",
-  "🏃🏿‍♂️",
-  "🏃🏿",
-  "🏃‍♀️",
-  "🏃‍♂️",
-  "🏃",
-  "🏄🏻‍♀️",
-  "🏄🏻‍♂️",
-  "🏄🏻",
-  "🏄🏼‍♀️",
-  "🏄🏼‍♂️",
-  "🏄🏼",
-  "🏄🏽‍♀️",
-  "🏄🏽‍♂️",
-  "🏄🏽",
-  "🏄🏾‍♀️",
-  "🏄🏾‍♂️",
-  "🏄🏾",
-  "🏄🏿‍♀️",
-  "🏄🏿‍♂️",
-  "🏄🏿",
-  "🏄‍♀️",
-  "🏄‍♂️",
-  "🏄",
-  "🏅",
-  "🏆",
-  "🏇🏻",
-  "🏇🏼",
-  "🏇🏽",
-  "🏇🏾",
-  "🏇🏿",
-  "🏇",
-  "🏈",
-  "🏉",
-  "🏊🏻‍♀️",
-  "🏊🏻‍♂️",
-  "🏊🏻",
-  "🏊🏼‍♀️",
-  "🏊🏼‍♂️",
-  "🏊🏼",
-  "🏊🏽‍♀️",
-  "🏊🏽‍♂️",
-  "🏊🏽",
-  "🏊🏾‍♀️",
-  "🏊🏾‍♂️",
-  "🏊🏾",
-  "🏊🏿‍♀️",
-  "🏊🏿‍♂️",
-  "🏊🏿",
-  "🏊‍♀️",
-  "🏊‍♂️",
-  "🏊",
-  "🏋🏻‍♀️",
-  "🏋🏻‍♂️",
-  "🏋🏻",
-  "🏋🏼‍♀️",
-  "🏋🏼‍♂️",
-  "🏋🏼",
-  "🏋🏽‍♀️",
-  "🏋🏽‍♂️",
-  "🏋🏽",
-  "🏋🏾‍♀️",
-  "🏋🏾‍♂️",
-  "🏋🏾",
-  "🏋🏿‍♀️",
-  "🏋🏿‍♂️",
-  "🏋🏿",
-  "🏋️‍♀️",
-  "🏋️‍♂️",
-  "🏋",
-  "🏌🏻‍♀️",
-  "🏌🏻‍♂️",
-  "🏌🏻",
-  "🏌🏼‍♀️",
-  "🏌🏼‍♂️",
-  "🏌🏼",
-  "🏌🏽‍♀️",
-  "🏌🏽‍♂️",
-  "🏌🏽",
-  "🏌🏾‍♀️",
-  "🏌🏾‍♂️",
-  "🏌🏾",
-  "🏌🏿‍♀️",
-  "🏌🏿‍♂️",
-  "🏌🏿",
-  "🏌️‍♀️",
-  "🏌️‍♂️",
-  "🏌",
-  "🏍",
-  "🏎",
-  "🏏",
-  "🏐",
-  "🏑",
-  "🏒",
-  "🏓",
-  "🏔",
-  "🏕",
-  "🏖",
-  "🏗",
-  "🏘",
-  "🏙",
-  "🏚",
-  "🏛",
-  "🏜",
-  "🏝",
-  "🏞",
-  "🏟",
-  "🏠",
-  "🏡",
-  "🏢",
-  "🏣",
-  "🏤",
-  "🏥",
-  "🏦",
-  "🏧",
-  "🏨",
-  "🏩",
-  "🏪",
-  "🏫",
-  "🏬",
-  "🏭",
-  "🏮",
-  "🏯",
-  "🏰",
-  "🏳️‍🌈",
-  "🏳",
-  "🏴‍☠️",
-  "🏴",
-  "🏵",
-  "🏷",
-  "🏸",
-  "🏹",
-  "🏺",
-  "🏻",
-  "🏼",
-  "🏽",
-  "🏾",
-  "🏿",
-  "🐀",
-  "🐁",
-  "🐂",
-  "🐃",
-  "🐄",
-  "🐅",
-  "🐆",
-  "🐇",
-  "🐈",
-  "🐉",
-  "🐊",
-  "🐋",
-  "🐌",
-  "🐍",
-  "🐎",
-  "🐏",
-  "🐐",
-  "🐑",
-  "🐒",
-  "🐓",
-  "🐔",
-  "🐕",
-  "🐖",
-  "🐗",
-  "🐘",
-  "🐙",
-  "🐚",
-  "🐛",
-  "🐜",
-  "🐝",
-  "🐞",
-  "🐟",
-  "🐠",
-  "🐡",
-  "🐢",
-  "🐣",
-  "🐤",
-  "🐥",
-  "🐦",
-  "🐧",
-  "🐨",
-  "🐩",
-  "🐪",
-  "🐫",
-  "🐬",
-  "🐭",
-  "🐮",
-  "🐯",
-  "🐰",
-  "🐱",
-  "🐲",
-  "🐳",
-  "🐴",
-  "🐵",
-  "🐶",
-  "🐷",
-  "🐸",
-  "🐹",
-  "🐺",
-  "🐻",
-  "🐼",
-  "🐽",
-  "🐾",
-  "🐿",
-  "👀",
-  "👁‍🗨",
-  "👁",
-  "👂🏻",
-  "👂🏼",
-  "👂🏽",
-  "👂🏾",
-  "👂🏿",
-  "👂",
-  "👃🏻",
-  "👃🏼",
-  "👃🏽",
-  "👃🏾",
-  "👃🏿",
-  "👃",
-  "👄",
-  "👅",
-  "👆🏻",
-  "👆🏼",
-  "👆🏽",
-  "👆🏾",
-  "👆🏿",
-  "👆",
-  "👇🏻",
-  "👇🏼",
-  "👇🏽",
-  "👇🏾",
-  "👇🏿",
-  "👇",
-  "👈🏻",
-  "👈🏼",
-  "👈🏽",
-  "👈🏾",
-  "👈🏿",
-  "👈",
-  "👉🏻",
-  "👉🏼",
-  "👉🏽",
-  "👉🏾",
-  "👉🏿",
-  "👉",
-  "👊🏻",
-  "👊🏼",
-  "👊🏽",
-  "👊🏾",
-  "👊🏿",
-  "👊",
-  "👋🏻",
-  "👋🏼",
-  "👋🏽",
-  "👋🏾",
-  "👋🏿",
-  "👋",
-  "👌🏻",
-  "👌🏼",
-  "👌🏽",
-  "👌🏾",
-  "👌🏿",
-  "👌",
-  "👍🏻",
-  "👍🏼",
-  "👍🏽",
-  "👍🏾",
-  "👍🏿",
-  "👍",
-  "👎🏻",
-  "👎🏼",
-  "👎🏽",
-  "👎🏾",
-  "👎🏿",
-  "👎",
-  "👏🏻",
-  "👏🏼",
-  "👏🏽",
-  "👏🏾",
-  "👏🏿",
-  "👏",
-  "👐🏻",
-  "👐🏼",
-  "👐🏽",
-  "👐🏾",
-  "👐🏿",
-  "👐",
-  "👑",
-  "👒",
-  "👓",
-  "👔",
-  "👕",
-  "👖",
-  "👗",
-  "👘",
-  "👙",
-  "👚",
-  "👛",
-  "👜",
-  "👝",
-  "👞",
-  "👟",
-  "👠",
-  "👡",
-  "👢",
-  "👣",
-  "👤",
-  "👥",
-  "👦🏻",
-  "👦🏼",
-  "👦🏽",
-  "👦🏾",
-  "👦🏿",
-  "👦",
-  "👧🏻",
-  "👧🏼",
-  "👧🏽",
-  "👧🏾",
-  "👧🏿",
-  "👧",
-  "👨🏻‍🌾",
-  "👨🏻‍🍳",
-  "👨🏻‍🎓",
-  "👨🏻‍🎤",
-  "👨🏻‍🎨",
-  "👨🏻‍🏫",
-  "👨🏻‍🏭",
-  "👨🏻‍💻",
-  "👨🏻‍💼",
-  "👨🏻‍🔧",
-  "👨🏻‍🔬",
-  "👨🏻‍🚀",
-  "👨🏻‍🚒",
-  "👨🏻‍⚕️",
-  "👨🏻‍⚖️",
-  "👨🏻‍✈️",
-  "👨🏻",
-  "👨🏼‍🌾",
-  "👨🏼‍🍳",
-  "👨🏼‍🎓",
-  "👨🏼‍🎤",
-  "👨🏼‍🎨",
-  "👨🏼‍🏫",
-  "👨🏼‍🏭",
-  "👨🏼‍💻",
-  "👨🏼‍💼",
-  "👨🏼‍🔧",
-  "👨🏼‍🔬",
-  "👨🏼‍🚀",
-  "👨🏼‍🚒",
-  "👨🏼‍⚕️",
-  "👨🏼‍⚖️",
-  "👨🏼‍✈️",
-  "👨🏼",
-  "👨🏽‍🌾",
-  "👨🏽‍🍳",
-  "👨🏽‍🎓",
-  "👨🏽‍🎤",
-  "👨🏽‍🎨",
-  "👨🏽‍🏫",
-  "👨🏽‍🏭",
-  "👨🏽‍💻",
-  "👨🏽‍💼",
-  "👨🏽‍🔧",
-  "👨🏽‍🔬",
-  "👨🏽‍🚀",
-  "👨🏽‍🚒",
-  "👨🏽‍⚕️",
-  "👨🏽‍⚖️",
-  "👨🏽‍✈️",
-  "👨🏽",
-  "👨🏾‍🌾",
-  "👨🏾‍🍳",
-  "👨🏾‍🎓",
-  "👨🏾‍🎤",
-  "👨🏾‍🎨",
-  "👨🏾‍🏫",
-  "👨🏾‍🏭",
-  "👨🏾‍💻",
-  "👨🏾‍💼",
-  "👨🏾‍🔧",
-  "👨🏾‍🔬",
-  "👨🏾‍🚀",
-  "👨🏾‍🚒",
-  "👨🏾‍⚕️",
-  "👨🏾‍⚖️",
-  "👨🏾‍✈️",
-  "👨🏾",
-  "👨🏿‍🌾",
-  "👨🏿‍🍳",
-  "👨🏿‍🎓",
-  "👨🏿‍🎤",
-  "👨🏿‍🎨",
-  "👨🏿‍🏫",
-  "👨🏿‍🏭",
-  "👨🏿‍💻",
-  "👨🏿‍💼",
-  "👨🏿‍🔧",
-  "👨🏿‍🔬",
-  "👨🏿‍🚀",
-  "👨🏿‍🚒",
-  "👨🏿‍⚕️",
-  "👨🏿‍⚖️",
-  "👨🏿‍✈️",
-  "👨🏿",
-  "👨‍🌾",
-  "👨‍🍳",
-  "👨‍🎓",
-  "👨‍🎤",
-  "👨‍🎨",
-  "👨‍🏫",
-  "👨‍🏭",
-  "👨‍👦‍👦",
-  "👨‍👦",
-  "👨‍👧‍👦",
-  "👨‍👧‍👧",
-  "👨‍👧",
-  "👨‍👨‍👦‍👦",
-  "👨‍👨‍👦",
-  "👨‍👨‍👧‍👦",
-  "👨‍👨‍👧‍👧",
-  "👨‍👨‍👧",
-  "👨‍👩‍👦‍👦",
-  "👨‍👩‍👦",
-  "👨‍👩‍👧‍👦",
-  "👨‍👩‍👧‍👧",
-  "👨‍👩‍👧",
-  "👨‍💻",
-  "👨‍💼",
-  "👨‍🔧",
-  "👨‍🔬",
-  "👨‍🚀",
-  "👨‍🚒",
-  "👨‍⚕️",
-  "👨‍⚖️",
-  "👨‍✈️",
-  "👨‍❤️‍👨",
-  "👨‍❤️‍💋‍👨",
-  "👨",
-  "👩🏻‍🌾",
-  "👩🏻‍🍳",
-  "👩🏻‍🎓",
-  "👩🏻‍🎤",
-  "👩🏻‍🎨",
-  "👩🏻‍🏫",
-  "👩🏻‍🏭",
-  "👩🏻‍💻",
-  "👩🏻‍💼",
-  "👩🏻‍🔧",
-  "👩🏻‍🔬",
-  "👩🏻‍🚀",
-  "👩🏻‍🚒",
-  "👩🏻‍⚕️",
-  "👩🏻‍⚖️",
-  "👩🏻‍✈️",
-  "👩🏻",
-  "👩🏼‍🌾",
-  "👩🏼‍🍳",
-  "👩🏼‍🎓",
-  "👩🏼‍🎤",
-  "👩🏼‍🎨",
-  "👩🏼‍🏫",
-  "👩🏼‍🏭",
-  "👩🏼‍💻",
-  "👩🏼‍💼",
-  "👩🏼‍🔧",
-  "👩🏼‍🔬",
-  "👩🏼‍🚀",
-  "👩🏼‍🚒",
-  "👩🏼‍⚕️",
-  "👩🏼‍⚖️",
-  "👩🏼‍✈️",
-  "👩🏼",
-  "👩🏽‍🌾",
-  "👩🏽‍🍳",
-  "👩🏽‍🎓",
-  "👩🏽‍🎤",
-  "👩🏽‍🎨",
-  "👩🏽‍🏫",
-  "👩🏽‍🏭",
-  "👩🏽‍💻",
-  "👩🏽‍💼",
-  "👩🏽‍🔧",
-  "👩🏽‍🔬",
-  "👩🏽‍🚀",
-  "👩🏽‍🚒",
-  "👩🏽‍⚕️",
-  "👩🏽‍⚖️",
-  "👩🏽‍✈️",
-  "👩🏽",
-  "👩🏾‍🌾",
-  "👩🏾‍🍳",
-  "👩🏾‍🎓",
-  "👩🏾‍🎤",
-  "👩🏾‍🎨",
-  "👩🏾‍🏫",
-  "👩🏾‍🏭",
-  "👩🏾‍💻",
-  "👩🏾‍💼",
-  "👩🏾‍🔧",
-  "👩🏾‍🔬",
-  "👩🏾‍🚀",
-  "👩🏾‍🚒",
-  "👩🏾‍⚕️",
-  "👩🏾‍⚖️",
-  "👩🏾‍✈️",
-  "👩🏾",
-  "👩🏿‍🌾",
-  "👩🏿‍🍳",
-  "👩🏿‍🎓",
-  "👩🏿‍🎤",
-  "👩🏿‍🎨",
-  "👩🏿‍🏫",
-  "👩🏿‍🏭",
-  "👩🏿‍💻",
-  "👩🏿‍💼",
-  "👩🏿‍🔧",
-  "👩🏿‍🔬",
-  "👩🏿‍🚀",
-  "👩🏿‍🚒",
-  "👩🏿‍⚕️",
-  "👩🏿‍⚖️",
-  "👩🏿‍✈️",
-  "👩🏿",
-  "👩‍🌾",
-  "👩‍🍳",
-  "👩‍🎓",
-  "👩‍🎤",
-  "👩‍🎨",
-  "👩‍🏫",
-  "👩‍🏭",
-  "👩‍👦‍👦",
-  "👩‍👦",
-  "👩‍👧‍👦",
-  "👩‍👧‍👧",
-  "👩‍👧",
-  "👩‍👩‍👦‍👦",
-  "👩‍👩‍👦",
-  "👩‍👩‍👧‍👦",
-  "👩‍👩‍👧‍👧",
-  "👩‍👩‍👧",
-  "👩‍💻",
-  "👩‍💼",
-  "👩‍🔧",
-  "👩‍🔬",
-  "👩‍🚀",
-  "👩‍🚒",
-  "👩‍⚕️",
-  "👩‍⚖️",
-  "👩‍✈️",
-  "👩‍❤️‍👨",
-  "👩‍❤️‍👩",
-  "👩‍❤️‍💋‍👨",
-  "👩‍❤️‍💋‍👩",
-  "👩",
-  "👪🏻",
-  "👪🏼",
-  "👪🏽",
-  "👪🏾",
-  "👪🏿",
-  "👪",
-  "👫🏻",
-  "👫🏼",
-  "👫🏽",
-  "👫🏾",
-  "👫🏿",
-  "👫",
-  "👬🏻",
-  "👬🏼",
-  "👬🏽",
-  "👬🏾",
-  "👬🏿",
-  "👬",
-  "👭🏻",
-  "👭🏼",
-  "👭🏽",
-  "👭🏾",
-  "👭🏿",
-  "👭",
-  "👮🏻‍♀️",
-  "👮🏻‍♂️",
-  "👮🏻",
-  "👮🏼‍♀️",
-  "👮🏼‍♂️",
-  "👮🏼",
-  "👮🏽‍♀️",
-  "👮🏽‍♂️",
-  "👮🏽",
-  "👮🏾‍♀️",
-  "👮🏾‍♂️",
-  "👮🏾",
-  "👮🏿‍♀️",
-  "👮🏿‍♂️",
-  "👮🏿",
-  "👮‍♀️",
-  "👮‍♂️",
-  "👮",
-  "👯🏻‍♀️",
-  "👯🏻‍♂️",
-  "👯🏻",
-  "👯🏼‍♀️",
-  "👯🏼‍♂️",
-  "👯🏼",
-  "👯🏽‍♀️",
-  "👯🏽‍♂️",
-  "👯🏽",
-  "👯🏾‍♀️",
-  "👯🏾‍♂️",
-  "👯🏾",
-  "👯🏿‍♀️",
-  "👯🏿‍♂️",
-  "👯🏿",
-  "👯‍♀️",
-  "👯‍♂️",
-  "👯",
-  "👰🏻",
-  "👰🏼",
-  "👰🏽",
-  "👰🏾",
-  "👰🏿",
-  "👰",
-  "👱🏻‍♀️",
-  "👱🏻‍♂️",
-  "👱🏻",
-  "👱🏼‍♀️",
-  "👱🏼‍♂️",
-  "👱🏼",
-  "👱🏽‍♀️",
-  "👱🏽‍♂️",
-  "👱🏽",
-  "👱🏾‍♀️",
-  "👱🏾‍♂️",
-  "👱🏾",
-  "👱🏿‍♀️",
-  "👱🏿‍♂️",
-  "👱🏿",
-  "👱‍♀️",
-  "👱‍♂️",
-  "👱",
-  "👲🏻",
-  "👲🏼",
-  "👲🏽",
-  "👲🏾",
-  "👲🏿",
-  "👲",
-  "👳🏻‍♀️",
-  "👳🏻‍♂️",
-  "👳🏻",
-  "👳🏼‍♀️",
-  "👳🏼‍♂️",
-  "👳🏼",
-  "👳🏽‍♀️",
-  "👳🏽‍♂️",
-  "👳🏽",
-  "👳🏾‍♀️",
-  "👳🏾‍♂️",
-  "👳🏾",
-  "👳🏿‍♀️",
-  "👳🏿‍♂️",
-  "👳🏿",
-  "👳‍♀️",
-  "👳‍♂️",
-  "👳",
-  "👴🏻",
-  "👴🏼",
-  "👴🏽",
-  "👴🏾",
-  "👴🏿",
-  "👴",
-  "👵🏻",
-  "👵🏼",
-  "👵🏽",
-  "👵🏾",
-  "👵🏿",
-  "👵",
-  "👶🏻",
-  "👶🏼",
-  "👶🏽",
-  "👶🏾",
-  "👶🏿",
-  "👶",
-  "👷🏻‍♀️",
-  "👷🏻‍♂️",
-  "👷🏻",
-  "👷🏼‍♀️",
-  "👷🏼‍♂️",
-  "👷🏼",
-  "👷🏽‍♀️",
-  "👷🏽‍♂️",
-  "👷🏽",
-  "👷🏾‍♀️",
-  "👷🏾‍♂️",
-  "👷🏾",
-  "👷🏿‍♀️",
-  "👷🏿‍♂️",
-  "👷🏿",
-  "👷‍♀️",
-  "👷‍♂️",
-  "👷",
-  "👸🏻",
-  "👸🏼",
-  "👸🏽",
-  "👸🏾",
-  "👸🏿",
-  "👸",
-  "👹",
-  "👺",
-  "👻",
-  "👼🏻",
-  "👼🏼",
-  "👼🏽",
-  "👼🏾",
-  "👼🏿",
-  "👼",
-  "👽",
-  "👾",
-  "👿",
-  "💀",
-  "💁🏻‍♀️",
-  "💁🏻‍♂️",
-  "💁🏻",
-  "💁🏼‍♀️",
-  "💁🏼‍♂️",
-  "💁🏼",
-  "💁🏽‍♀️",
-  "💁🏽‍♂️",
-  "💁🏽",
-  "💁🏾‍♀️",
-  "💁🏾‍♂️",
-  "💁🏾",
-  "💁🏿‍♀️",
-  "💁🏿‍♂️",
-  "💁🏿",
-  "💁‍♀️",
-  "💁‍♂️",
-  "💁",
-  "💂🏻‍♀️",
-  "💂🏻‍♂️",
-  "💂🏻",
-  "💂🏼‍♀️",
-  "💂🏼‍♂️",
-  "💂🏼",
-  "💂🏽‍♀️",
-  "💂🏽‍♂️",
-  "💂🏽",
-  "💂🏾‍♀️",
-  "💂🏾‍♂️",
-  "💂🏾",
-  "💂🏿‍♀️",
-  "💂🏿‍♂️",
-  "💂🏿",
-  "💂‍♀️",
-  "💂‍♂️",
-  "💂",
-  "💃🏻",
-  "💃🏼",
-  "💃🏽",
-  "💃🏾",
-  "💃🏿",
-  "💃",
-  "💄",
-  "💅🏻",
-  "💅🏼",
-  "💅🏽",
-  "💅🏾",
-  "💅🏿",
-  "💅",
-  "💆🏻‍♀️",
-  "💆🏻‍♂️",
-  "💆🏻",
-  "💆🏼‍♀️",
-  "💆🏼‍♂️",
-  "💆🏼",
-  "💆🏽‍♀️",
-  "💆🏽‍♂️",
-  "💆🏽",
-  "💆🏾‍♀️",
-  "💆🏾‍♂️",
-  "💆🏾",
-  "💆🏿‍♀️",
-  "💆🏿‍♂️",
-  "💆🏿",
-  "💆‍♀️",
-  "💆‍♂️",
-  "💆",
-  "💇🏻‍♀️",
-  "💇🏻‍♂️",
-  "💇🏻",
-  "💇🏼‍♀️",
-  "💇🏼‍♂️",
-  "💇🏼",
-  "💇🏽‍♀️",
-  "💇🏽‍♂️",
-  "💇🏽",
-  "💇🏾‍♀️",
-  "💇🏾‍♂️",
-  "💇🏾",
-  "💇🏿‍♀️",
-  "💇🏿‍♂️",
-  "💇🏿",
-  "💇‍♀️",
-  "💇‍♂️",
-  "💇",
-  "💈",
-  "💉",
-  "💊",
-  "💋",
-  "💌",
-  "💍",
-  "💎",
-  "💏",
-  "💐",
-  "💑",
-  "💒",
-  "💓",
-  "💔",
-  "💕",
-  "💖",
-  "💗",
-  "💘",
-  "💙",
-  "💚",
-  "💛",
-  "💜",
-  "💝",
-  "💞",
-  "💟",
-  "💠",
-  "💡",
-  "💢",
-  "💣",
-  "💤",
-  "💥",
-  "💦",
-  "💧",
-  "💨",
-  "💩",
-  "💪🏻",
-  "💪🏼",
-  "💪🏽",
-  "💪🏾",
-  "💪🏿",
-  "💪",
-  "💫",
-  "💬",
-  "💭",
-  "💮",
-  "💯",
-  "💰",
-  "💱",
-  "💲",
-  "💳",
-  "💴",
-  "💵",
-  "💶",
-  "💷",
-  "💸",
-  "💹",
-  "💺",
-  "💻",
-  "💼",
-  "💽",
-  "💾",
-  "💿",
-  "📀",
-  "📁",
-  "📂",
-  "📃",
-  "📄",
-  "📅",
-  "📆",
-  "📇",
-  "📈",
-  "📉",
-  "📊",
-  "📋",
-  "📌",
-  "📍",
-  "📎",
-  "📏",
-  "📐",
-  "📑",
-  "📒",
-  "📓",
-  "📔",
-  "📕",
-  "📖",
-  "📗",
-  "📘",
-  "📙",
-  "📚",
-  "📛",
-  "📜",
-  "📝",
-  "📞",
-  "📟",
-  "📠",
-  "📡",
-  "📢",
-  "📣",
-  "📤",
-  "📥",
-  "📦",
-  "📧",
-  "📨",
-  "📩",
-  "📪",
-  "📫",
-  "📬",
-  "📭",
-  "📮",
-  "📯",
-  "📰",
-  "📱",
-  "📲",
-  "📳",
-  "📴",
-  "📵",
-  "📶",
-  "📷",
-  "📸",
-  "📹",
-  "📺",
-  "📻",
-  "📼",
-  "📽",
-  "📿",
-  "🔀",
-  "🔁",
-  "🔂",
-  "🔃",
-  "🔄",
-  "🔅",
-  "🔆",
-  "🔇",
-  "🔈",
-  "🔉",
-  "🔊",
-  "🔋",
-  "🔌",
-  "🔍",
-  "🔎",
-  "🔏",
-  "🔐",
-  "🔑",
-  "🔒",
-  "🔓",
-  "🔔",
-  "🔕",
-  "🔖",
-  "🔗",
-  "🔘",
-  "🔙",
-  "🔚",
-  "🔛",
-  "🔜",
-  "🔝",
-  "🔞",
-  "🔟",
-  "🔠",
-  "🔡",
-  "🔢",
-  "🔣",
-  "🔤",
-  "🔥",
-  "🔦",
-  "🔧",
-  "🔨",
-  "🔩",
-  "🔪",
-  "🔫",
-  "🔬",
-  "🔭",
-  "🔮",
-  "🔯",
-  "🔰",
-  "🔱",
-  "🔲",
-  "🔳",
-  "🔴",
-  "🔵",
-  "🔶",
-  "🔷",
-  "🔸",
-  "🔹",
-  "🔺",
-  "🔻",
-  "🔼",
-  "🔽",
-  "🕉",
-  "🕊",
-  "🕋",
-  "🕌",
-  "🕍",
-  "🕎",
-  "🕐",
-  "🕑",
-  "🕒",
-  "🕓",
-  "🕔",
-  "🕕",
-  "🕖",
-  "🕗",
-  "🕘",
-  "🕙",
-  "🕚",
-  "🕛",
-  "🕜",
-  "🕝",
-  "🕞",
-  "🕟",
-  "🕠",
-  "🕡",
-  "🕢",
-  "🕣",
-  "🕤",
-  "🕥",
-  "🕦",
-  "🕧",
-  "🕯",
-  "🕰",
-  "🕳",
-  "🕴🏻",
-  "🕴🏼",
-  "🕴🏽",
-  "🕴🏾",
-  "🕴🏿",
-  "🕴",
-  "🕵🏻‍♀️",
-  "🕵🏻‍♂️",
-  "🕵🏻",
-  "🕵🏼‍♀️",
-  "🕵🏼‍♂️",
-  "🕵🏼",
-  "🕵🏽‍♀️",
-  "🕵🏽‍♂️",
-  "🕵🏽",
-  "🕵🏾‍♀️",
-  "🕵🏾‍♂️",
-  "🕵🏾",
-  "🕵🏿‍♀️",
-  "🕵🏿‍♂️",
-  "🕵🏿",
-  "🕵️‍♀️",
-  "🕵️‍♂️",
-  "🕵",
-  "🕶",
-  "🕷",
-  "🕸",
-  "🕹",
-  "🕺🏻",
-  "🕺🏼",
-  "🕺🏽",
-  "🕺🏾",
-  "🕺🏿",
-  "🕺",
-  "🖇",
-  "🖊",
-  "🖋",
-  "🖌",
-  "🖍",
-  "🖐🏻",
-  "🖐🏼",
-  "🖐🏽",
-  "🖐🏾",
-  "🖐🏿",
-  "🖐",
-  "🖕🏻",
-  "🖕🏼",
-  "🖕🏽",
-  "🖕🏾",
-  "🖕🏿",
-  "🖕",
-  "🖖🏻",
-  "🖖🏼",
-  "🖖🏽",
-  "🖖🏾",
-  "🖖🏿",
-  "🖖",
-  "🖤",
-  "🖥",
-  "🖨",
-  "🖱",
-  "🖲",
-  "🖼",
-  "🗂",
-  "🗃",
-  "🗄",
-  "🗑",
-  "🗒",
-  "🗓",
-  "🗜",
-  "🗝",
-  "🗞",
-  "🗡",
-  "🗣",
-  "🗨",
-  "🗯",
-  "🗳",
-  "🗺",
-  "🗻",
-  "🗼",
-  "🗽",
-  "🗾",
-  "🗿",
-  "😀",
-  "😁",
-  "😂",
-  "😃",
-  "😄",
-  "😅",
-  "😆",
-  "😇",
-  "😈",
-  "😉",
-  "😊",
-  "😋",
-  "😌",
-  "😍",
-  "😎",
-  "😏",
-  "😐",
-  "😑",
-  "😒",
-  "😓",
-  "😔",
-  "😕",
-  "😖",
-  "😗",
-  "😘",
-  "😙",
-  "😚",
-  "😛",
-  "😜",
-  "😝",
-  "😞",
-  "😟",
-  "😠",
-  "😡",
-  "😢",
-  "😣",
-  "😤",
-  "😥",
-  "😦",
-  "😧",
-  "😨",
-  "😩",
-  "😪",
-  "😫",
-  "😬",
-  "😭",
-  "😮",
-  "😯",
-  "😰",
-  "😱",
-  "😲",
-  "😳",
-  "😴",
-  "😵",
-  "😶",
-  "😷",
-  "😸",
-  "😹",
-  "😺",
-  "😻",
-  "😼",
-  "😽",
-  "😾",
-  "😿",
-  "🙀",
-  "🙁",
-  "🙂",
-  "🙃",
-  "🙄",
-  "🙅🏻‍♀️",
-  "🙅🏻‍♂️",
-  "🙅🏻",
-  "🙅🏼‍♀️",
-  "🙅🏼‍♂️",
-  "🙅🏼",
-  "🙅🏽‍♀️",
-  "🙅🏽‍♂️",
-  "🙅🏽",
-  "🙅🏾‍♀️",
-  "🙅🏾‍♂️",
-  "🙅🏾",
-  "🙅🏿‍♀️",
-  "🙅🏿‍♂️",
-  "🙅🏿",
-  "🙅‍♀️",
-  "🙅‍♂️",
-  "🙅",
-  "🙆🏻‍♀️",
-  "🙆🏻‍♂️",
-  "🙆🏻",
-  "🙆🏼‍♀️",
-  "🙆🏼‍♂️",
-  "🙆🏼",
-  "🙆🏽‍♀️",
-  "🙆🏽‍♂️",
-  "🙆🏽",
-  "🙆🏾‍♀️",
-  "🙆🏾‍♂️",
-  "🙆🏾",
-  "🙆🏿‍♀️",
-  "🙆🏿‍♂️",
-  "🙆🏿",
-  "🙆‍♀️",
-  "🙆‍♂️",
-  "🙆",
-  "🙇🏻‍♀️",
-  "🙇🏻‍♂️",
-  "🙇🏻",
-  "🙇🏼‍♀️",
-  "🙇🏼‍♂️",
-  "🙇🏼",
-  "🙇🏽‍♀️",
-  "🙇🏽‍♂️",
-  "🙇🏽",
-  "🙇🏾‍♀️",
-  "🙇🏾‍♂️",
-  "🙇🏾",
-  "🙇🏿‍♀️",
-  "🙇🏿‍♂️",
-  "🙇🏿",
-  "🙇‍♀️",
-  "🙇‍♂️",
-  "🙇",
-  "🙈",
-  "🙉",
-  "🙊",
-  "🙋🏻‍♀️",
-  "🙋🏻‍♂️",
-  "🙋🏻",
-  "🙋🏼‍♀️",
-  "🙋🏼‍♂️",
-  "🙋🏼",
-  "🙋🏽‍♀️",
-  "🙋🏽‍♂️",
-  "🙋🏽",
-  "🙋🏾‍♀️",
-  "🙋🏾‍♂️",
-  "🙋🏾",
-  "🙋🏿‍♀️",
-  "🙋🏿‍♂️",
-  "🙋🏿",
-  "🙋‍♀️",
-  "🙋‍♂️",
-  "🙋",
-  "🙌🏻",
-  "🙌🏼",
-  "🙌🏽",
-  "🙌🏾",
-  "🙌🏿",
-  "🙌",
-  "🙍🏻‍♀️",
-  "🙍🏻‍♂️",
-  "🙍🏻",
-  "🙍🏼‍♀️",
-  "🙍🏼‍♂️",
-  "🙍🏼",
-  "🙍🏽‍♀️",
-  "🙍🏽‍♂️",
-  "🙍🏽",
-  "🙍🏾‍♀️",
-  "🙍🏾‍♂️",
-  "🙍🏾",
-  "🙍🏿‍♀️",
-  "🙍🏿‍♂️",
-  "🙍🏿",
-  "🙍‍♀️",
-  "🙍‍♂️",
-  "🙍",
-  "🙎🏻‍♀️",
-  "🙎🏻‍♂️",
-  "🙎🏻",
-  "🙎🏼‍♀️",
-  "🙎🏼‍♂️",
-  "🙎🏼",
-  "🙎🏽‍♀️",
-  "🙎🏽‍♂️",
-  "🙎🏽",
-  "🙎🏾‍♀️",
-  "🙎🏾‍♂️",
-  "🙎🏾",
-  "🙎🏿‍♀️",
-  "🙎🏿‍♂️",
-  "🙎🏿",
-  "🙎‍♀️",
-  "🙎‍♂️",
-  "🙎",
-  "🙏🏻",
-  "🙏🏼",
-  "🙏🏽",
-  "🙏🏾",
-  "🙏🏿",
-  "🙏",
-  "🚀",
-  "🚁",
-  "🚂",
-  "🚃",
-  "🚄",
-  "🚅",
-  "🚆",
-  "🚇",
-  "🚈",
-  "🚉",
-  "🚊",
-  "🚋",
-  "🚌",
-  "🚍",
-  "🚎",
-  "🚏",
-  "🚐",
-  "🚑",
-  "🚒",
-  "🚓",
-  "🚔",
-  "🚕",
-  "🚖",
-  "🚗",
-  "🚘",
-  "🚙",
-  "🚚",
-  "🚛",
-  "🚜",
-  "🚝",
-  "🚞",
-  "🚟",
-  "🚠",
-  "🚡",
-  "🚢",
-  "🚣🏻‍♀️",
-  "🚣🏻‍♂️",
-  "🚣🏻",
-  "🚣🏼‍♀️",
-  "🚣🏼‍♂️",
-  "🚣🏼",
-  "🚣🏽‍♀️",
-  "🚣🏽‍♂️",
-  "🚣🏽",
-  "🚣🏾‍♀️",
-  "🚣🏾‍♂️",
-  "🚣🏾",
-  "🚣🏿‍♀️",
-  "🚣🏿‍♂️",
-  "🚣🏿",
-  "🚣‍♀️",
-  "🚣‍♂️",
-  "🚣",
-  "🚤",
-  "🚥",
-  "🚦",
-  "🚧",
-  "🚨",
-  "🚩",
-  "🚪",
-  "🚫",
-  "🚬",
-  "🚭",
-  "🚮",
-  "🚯",
-  "🚰",
-  "🚱",
-  "🚲",
-  "🚳",
-  "🚴🏻‍♀️",
-  "🚴🏻‍♂️",
-  "🚴🏻",
-  "🚴🏼‍♀️",
-  "🚴🏼‍♂️",
-  "🚴🏼",
-  "🚴🏽‍♀️",
-  "🚴🏽‍♂️",
-  "🚴🏽",
-  "🚴🏾‍♀️",
-  "🚴🏾‍♂️",
-  "🚴🏾",
-  "🚴🏿‍♀️",
-  "🚴🏿‍♂️",
-  "🚴🏿",
-  "🚴‍♀️",
-  "🚴‍♂️",
-  "🚴",
-  "🚵🏻‍♀️",
-  "🚵🏻‍♂️",
-  "🚵🏻",
-  "🚵🏼‍♀️",
-  "🚵🏼‍♂️",
-  "🚵🏼",
-  "🚵🏽‍♀️",
-  "🚵🏽‍♂️",
-  "🚵🏽",
-  "🚵🏾‍♀️",
-  "🚵🏾‍♂️",
-  "🚵🏾",
-  "🚵🏿‍♀️",
-  "🚵🏿‍♂️",
-  "🚵🏿",
-  "🚵‍♀️",
-  "🚵‍♂️",
-  "🚵",
-  "🚶🏻‍♀️",
-  "🚶🏻‍♂️",
-  "🚶🏻",
-  "🚶🏼‍♀️",
-  "🚶🏼‍♂️",
-  "🚶🏼",
-  "🚶🏽‍♀️",
-  "🚶🏽‍♂️",
-  "🚶🏽",
-  "🚶🏾‍♀️",
-  "🚶🏾‍♂️",
-  "🚶🏾",
-  "🚶🏿‍♀️",
-  "🚶🏿‍♂️",
-  "🚶🏿",
-  "🚶‍♀️",
-  "🚶‍♂️",
-  "🚶",
-  "🚷",
-  "🚸",
-  "🚹",
-  "🚺",
-  "🚻",
-  "🚼",
-  "🚽",
-  "🚾",
-  "🚿",
-  "🛀🏻",
-  "🛀🏼",
-  "🛀🏽",
-  "🛀🏾",
-  "🛀🏿",
-  "🛀",
-  "🛁",
-  "🛂",
-  "🛃",
-  "🛄",
-  "🛅",
-  "🛋",
-  "🛌🏻",
-  "🛌🏼",
-  "🛌🏽",
-  "🛌🏾",
-  "🛌🏿",
-  "🛌",
-  "🛍",
-  "🛎",
-  "🛏",
-  "🛐",
-  "🛑",
-  "🛒",
-  "🛠",
-  "🛡",
-  "🛢",
-  "🛣",
-  "🛤",
-  "🛥",
-  "🛩",
-  "🛫",
-  "🛬",
-  "🛰",
-  "🛳",
-  "🛴",
-  "🛵",
-  "🛶",
-  "🤐",
-  "🤑",
-  "🤒",
-  "🤓",
-  "🤔",
-  "🤕",
-  "🤖",
-  "🤗",
-  "🤘🏻",
-  "🤘🏼",
-  "🤘🏽",
-  "🤘🏾",
-  "🤘🏿",
-  "🤘",
-  "🤙🏻",
-  "🤙🏼",
-  "🤙🏽",
-  "🤙🏾",
-  "🤙🏿",
-  "🤙",
-  "🤚🏻",
-  "🤚🏼",
-  "🤚🏽",
-  "🤚🏾",
-  "🤚🏿",
-  "🤚",
-  "🤛🏻",
-  "🤛🏼",
-  "🤛🏽",
-  "🤛🏾",
-  "🤛🏿",
-  "🤛",
-  "🤜🏻",
-  "🤜🏼",
-  "🤜🏽",
-  "🤜🏾",
-  "🤜🏿",
-  "🤜",
-  "🤝🏻",
-  "🤝🏼",
-  "🤝🏽",
-  "🤝🏾",
-  "🤝🏿",
-  "🤝",
-  "🤞🏻",
-  "🤞🏼",
-  "🤞🏽",
-  "🤞🏾",
-  "🤞🏿",
-  "🤞",
-  "🤠",
-  "🤡",
-  "🤢",
-  "🤣",
-  "🤤",
-  "🤥",
-  "🤦🏻‍♀️",
-  "🤦🏻‍♂️",
-  "🤦🏻",
-  "🤦🏼‍♀️",
-  "🤦🏼‍♂️",
-  "🤦🏼",
-  "🤦🏽‍♀️",
-  "🤦🏽‍♂️",
-  "🤦🏽",
-  "🤦🏾‍♀️",
-  "🤦🏾‍♂️",
-  "🤦🏾",
-  "🤦🏿‍♀️",
-  "🤦🏿‍♂️",
-  "🤦🏿",
-  "🤦‍♀️",
-  "🤦‍♂️",
-  "🤦",
-  "🤧",
-  "🤰🏻",
-  "🤰🏼",
-  "🤰🏽",
-  "🤰🏾",
-  "🤰🏿",
-  "🤰",
-  "🤳🏻",
-  "🤳🏼",
-  "🤳🏽",
-  "🤳🏾",
-  "🤳🏿",
-  "🤳",
-  "🤴🏻",
-  "🤴🏼",
-  "🤴🏽",
-  "🤴🏾",
-  "🤴🏿",
-  "🤴",
-  "🤵🏻",
-  "🤵🏼",
-  "🤵🏽",
-  "🤵🏾",
-  "🤵🏿",
-  "🤵",
-  "🤶🏻",
-  "🤶🏼",
-  "🤶🏽",
-  "🤶🏾",
-  "🤶🏿",
-  "🤶",
-  "🤷🏻‍♀️",
-  "🤷🏻‍♂️",
-  "🤷🏻",
-  "🤷🏼‍♀️",
-  "🤷🏼‍♂️",
-  "🤷🏼",
-  "🤷🏽‍♀️",
-  "🤷🏽‍♂️",
-  "🤷🏽",
-  "🤷🏾‍♀️",
-  "🤷🏾‍♂️",
-  "🤷🏾",
-  "🤷🏿‍♀️",
-  "🤷🏿‍♂️",
-  "🤷🏿",
-  "🤷‍♀️",
-  "🤷‍♂️",
-  "🤷",
-  "🤸🏻‍♀️",
-  "🤸🏻‍♂️",
-  "🤸🏻",
-  "🤸🏼‍♀️",
-  "🤸🏼‍♂️",
-  "🤸🏼",
-  "🤸🏽‍♀️",
-  "🤸🏽‍♂️",
-  "🤸🏽",
-  "🤸🏾‍♀️",
-  "🤸🏾‍♂️",
-  "🤸🏾",
-  "🤸🏿‍♀️",
-  "🤸🏿‍♂️",
-  "🤸🏿",
-  "🤸‍♀️",
-  "🤸‍♂️",
-  "🤸",
-  "🤹🏻‍♀️",
-  "🤹🏻‍♂️",
-  "🤹🏻",
-  "🤹🏼‍♀️",
-  "🤹🏼‍♂️",
-  "🤹🏼",
-  "🤹🏽‍♀️",
-  "🤹🏽‍♂️",
-  "🤹🏽",
-  "🤹🏾‍♀️",
-  "🤹🏾‍♂️",
-  "🤹🏾",
-  "🤹🏿‍♀️",
-  "🤹🏿‍♂️",
-  "🤹🏿",
-  "🤹‍♀️",
-  "🤹‍♂️",
-  "🤹",
-  "🤺",
-  "🤼🏻‍♀️",
-  "🤼🏻‍♂️",
-  "🤼🏻",
-  "🤼🏼‍♀️",
-  "🤼🏼‍♂️",
-  "🤼🏼",
-  "🤼🏽‍♀️",
-  "🤼🏽‍♂️",
-  "🤼🏽",
-  "🤼🏾‍♀️",
-  "🤼🏾‍♂️",
-  "🤼🏾",
-  "🤼🏿‍♀️",
-  "🤼🏿‍♂️",
-  "🤼🏿",
-  "🤼‍♀️",
-  "🤼‍♂️",
-  "🤼",
-  "🤽🏻‍♀️",
-  "🤽🏻‍♂️",
-  "🤽🏻",
-  "🤽🏼‍♀️",
-  "🤽🏼‍♂️",
-  "🤽🏼",
-  "🤽🏽‍♀️",
-  "🤽🏽‍♂️",
-  "🤽🏽",
-  "🤽🏾‍♀️",
-  "🤽🏾‍♂️",
-  "🤽🏾",
-  "🤽🏿‍♀️",
-  "🤽🏿‍♂️",
-  "🤽🏿",
-  "🤽‍♀️",
-  "🤽‍♂️",
-  "🤽",
-  "🤾🏻‍♀️",
-  "🤾🏻‍♂️",
-  "🤾🏻",
-  "🤾🏼‍♀️",
-  "🤾🏼‍♂️",
-  "🤾🏼",
-  "🤾🏽‍♀️",
-  "🤾🏽‍♂️",
-  "🤾🏽",
-  "🤾🏾‍♀️",
-  "🤾🏾‍♂️",
-  "🤾🏾",
-  "🤾🏿‍♀️",
-  "🤾🏿‍♂️",
-  "🤾🏿",
-  "🤾‍♀️",
-  "🤾‍♂️",
-  "🤾",
-  "🥀",
-  "🥁",
-  "🥂",
-  "🥃",
-  "🥄",
-  "🥅",
-  "🥇",
-  "🥈",
-  "🥉",
-  "🥊",
-  "🥋",
-  "🥐",
-  "🥑",
-  "🥒",
-  "🥓",
-  "🥔",
-  "🥕",
-  "🥖",
-  "🥗",
-  "🥘",
-  "🥙",
-  "🥚",
-  "🥛",
-  "🥜",
-  "🥝",
-  "🥞",
-  "🦀",
-  "🦁",
-  "🦂",
-  "🦃",
-  "🦄",
-  "🦅",
-  "🦆",
-  "🦇",
-  "🦈",
-  "🦉",
-  "🦊",
-  "🦋",
-  "🦌",
-  "🦍",
-  "🦎",
-  "🦏",
-  "🦐",
-  "🦑",
-  "🧀",
-  "‼",
-  "⁉",
-  "™",
-  "ℹ",
-  "↔",
-  "↕",
-  "↖",
-  "↗",
-  "↘",
-  "↙",
-  "↩",
-  "↪",
-  "#⃣",
-  "⌚",
-  "⌛",
-  "⌨",
-  "⏏",
-  "⏩",
-  "⏪",
-  "⏫",
-  "⏬",
-  "⏭",
-  "⏮",
-  "⏯",
-  "⏰",
-  "⏱",
-  "⏲",
-  "⏳",
-  "⏸",
-  "⏹",
-  "⏺",
-  "Ⓜ",
-  "▪",
-  "▫",
-  "▶",
-  "◀",
-  "◻",
-  "◼",
-  "◽",
-  "◾",
-  "☀",
-  "☁",
-  "☂",
-  "☃",
-  "☄",
-  "☎",
-  "☑",
-  "☔",
-  "☕",
-  "☘",
-  "☝🏻",
-  "☝🏼",
-  "☝🏽",
-  "☝🏾",
-  "☝🏿",
-  "☝",
-  "☠",
-  "☢",
-  "☣",
-  "☦",
-  "☪",
-  "☮",
-  "☯",
-  "☸",
-  "☹",
-  "☺",
-  "♀",
-  "♂",
-  "♈",
-  "♉",
-  "♊",
-  "♋",
-  "♌",
-  "♍",
-  "♎",
-  "♏",
-  "♐",
-  "♑",
-  "♒",
-  "♓",
-  "♠",
-  "♣",
-  "♥",
-  "♦",
-  "♨",
-  "♻",
-  "♿",
-  "⚒",
-  "⚓",
-  "⚔",
-  "⚕",
-  "⚖",
-  "⚗",
-  "⚙",
-  "⚛",
-  "⚜",
-  "⚠",
-  "⚡",
-  "⚪",
-  "⚫",
-  "⚰",
-  "⚱",
-  "⚽",
-  "⚾",
-  "⛄",
-  "⛅",
-  "⛈",
-  "⛎",
-  "⛏",
-  "⛑",
-  "⛓",
-  "⛔",
-  "⛩",
-  "⛪",
-  "⛰",
-  "⛱",
-  "⛲",
-  "⛳",
-  "⛴",
-  "⛵",
-  "⛷🏻",
-  "⛷🏼",
-  "⛷🏽",
-  "⛷🏾",
-  "⛷🏿",
-  "⛷",
-  "⛸",
-  "⛹🏻‍♀️",
-  "⛹🏻‍♂️",
-  "⛹🏻",
-  "⛹🏼‍♀️",
-  "⛹🏼‍♂️",
-  "⛹🏼",
-  "⛹🏽‍♀️",
-  "⛹🏽‍♂️",
-  "⛹🏽",
-  "⛹🏾‍♀️",
-  "⛹🏾‍♂️",
-  "⛹🏾",
-  "⛹🏿‍♀️",
-  "⛹🏿‍♂️",
-  "⛹🏿",
-  "⛹️‍♀️",
-  "⛹️‍♂️",
-  "⛹",
-  "⛺",
-  "⛽",
-  "✂",
-  "✅",
-  "✈",
-  "✉",
-  "✊🏻",
-  "✊🏼",
-  "✊🏽",
-  "✊🏾",
-  "✊🏿",
-  "✊",
-  "✋🏻",
-  "✋🏼",
-  "✋🏽",
-  "✋🏾",
-  "✋🏿",
-  "✋",
-  "✌🏻",
-  "✌🏼",
-  "✌🏽",
-  "✌🏾",
-  "✌🏿",
-  "✌",
-  "✍🏻",
-  "✍🏼",
-  "✍🏽",
-  "✍🏾",
-  "✍🏿",
-  "✍",
-  "✏",
-  "✒",
-  "✔",
-  "✖",
-  "✝",
-  "✡",
-  "✨",
-  "✳",
-  "✴",
-  "❄",
-  "❇",
-  "❌",
-  "❎",
-  "❓",
-  "❔",
-  "❕",
-  "❗",
-  "❣",
-  "❤",
-  "➕",
-  "➖",
-  "➗",
-  "➡",
-  "➰",
-  "➿",
-  "⤴",
-  "⤵",
-  "*⃣",
-  "⬅",
-  "⬆",
-  "⬇",
-  "⬛",
-  "⬜",
-  "⭐",
-  "⭕",
-  "0⃣",
-  "〰",
-  "〽",
-  "1⃣",
-  "2⃣",
-  "㊗",
-  "㊙",
-  "3⃣",
-  "4⃣",
-  "5⃣",
-  "6⃣",
-  "7⃣",
-  "8⃣",
-  "9⃣",
-  "©",
-  "®",
-  ""
-]
 
 /***/ }),
 
@@ -43716,7 +41267,7 @@ var render = function() {
                   [
                     _c("div", { staticClass: "card p-0" }, [
                       _c("div", { staticClass: "card-header" }, [
-                        _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "row text-center" }, [
                           _c("label", [
                             _vm._v(
                               "\n\t\t                            \t\tAseguradoras\n\t\t                        \t\t"
@@ -43791,6 +41342,82 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "card-body" }, [
                         _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "div",
+                            { staticClass: "form-check form-check-inline" },
+                            [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.cliente.gnp,
+                                    expression: "cliente.gnp"
+                                  }
+                                ],
+                                staticClass: "form-check-input",
+                                attrs: {
+                                  type: "checkbox",
+                                  id: "checkbox-gnp",
+                                  "true-value": "1",
+                                  "false-value": "0"
+                                },
+                                domProps: {
+                                  checked: Array.isArray(_vm.cliente.gnp)
+                                    ? _vm._i(_vm.cliente.gnp, null) > -1
+                                    : _vm._q(_vm.cliente.gnp, "1")
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$a = _vm.cliente.gnp,
+                                      $$el = $event.target,
+                                      $$c = $$el.checked ? "1" : "0"
+                                    if (Array.isArray($$a)) {
+                                      var $$v = null,
+                                        $$i = _vm._i($$a, $$v)
+                                      if ($$el.checked) {
+                                        $$i < 0 &&
+                                          _vm.$set(
+                                            _vm.cliente,
+                                            "gnp",
+                                            $$a.concat([$$v])
+                                          )
+                                      } else {
+                                        $$i > -1 &&
+                                          _vm.$set(
+                                            _vm.cliente,
+                                            "gnp",
+                                            $$a
+                                              .slice(0, $$i)
+                                              .concat($$a.slice($$i + 1))
+                                          )
+                                      }
+                                    } else {
+                                      _vm.$set(_vm.cliente, "gnp", $$c)
+                                    }
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "form-check-label",
+                                  attrs: { for: "checkbox-gnp" }
+                                },
+                                [
+                                  _c("img", {
+                                    attrs: {
+                                      src: _vm.img.gnpImage,
+                                      width: "120",
+                                      height: "50"
+                                    }
+                                  })
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
                           _vm.cliente.uso_auto == "Servicio Particular"
                             ? _c(
                                 "div",
@@ -51134,6 +48761,25 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
+                              _vm.cliente.gnp
+                                ? _c(
+                                    "th",
+                                    {
+                                      staticClass: "text-center",
+                                      attrs: { scope: "row" }
+                                    },
+                                    [
+                                      _c("img", {
+                                        attrs: {
+                                          width: "150",
+                                          height: "70",
+                                          src: _vm.img.gnpImage
+                                        }
+                                      })
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
                               _vm.cliente.gs
                                 ? _c(
                                     "th",
@@ -51205,6 +48851,75 @@ var render = function() {
                                   )
                                 ]
                               ),
+                              _vm._v(" "),
+                              _vm.cliente.gnp
+                                ? _c("td", { staticClass: "text-center" }, [
+                                    _c(
+                                      "select",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.desc_gnp,
+                                            expression: "desc_gnp"
+                                          }
+                                        ],
+                                        staticClass: "form-control",
+                                        on: {
+                                          change: function($event) {
+                                            var $$selectedVal = Array.prototype.filter
+                                              .call(
+                                                $event.target.options,
+                                                function(o) {
+                                                  return o.selected
+                                                }
+                                              )
+                                              .map(function(o) {
+                                                var val =
+                                                  "_value" in o
+                                                    ? o._value
+                                                    : o.value
+                                                return val
+                                              })
+                                            _vm.desc_gnp = $event.target
+                                              .multiple
+                                              ? $$selectedVal
+                                              : $$selectedVal[0]
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("option", { attrs: { value: "" } }, [
+                                          _vm._v("Seleccionar")
+                                        ]),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.descripciones_gnp, function(
+                                          descripcion
+                                        ) {
+                                          return _c(
+                                            "option",
+                                            {
+                                              domProps: {
+                                                value: JSON.stringify(
+                                                  descripcion.ELEMENTO
+                                                )
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  descripcion.ELEMENTO[4].VALOR
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        })
+                                      ],
+                                      2
+                                    )
+                                  ])
+                                : _vm._e(),
                               _vm._v(" "),
                               _vm.cliente.gs
                                 ? _c("td", { staticClass: "text-center" }, [
@@ -51408,6 +49123,30 @@ var render = function() {
                                 [_vm._v("Prima Total")]
                               ),
                               _vm._v(" "),
+                              _vm.cliente.gnp
+                                ? _c("td", { staticClass: "text-center" }, [
+                                    _vm.cotizacionesGNP.PAQUETE
+                                      ? _c("div", { staticStyle: {} }, [
+                                          _c("div", { staticClass: "border" }, [
+                                            _vm._v("Contado: $")
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("div", { staticClass: "border" }, [
+                                            _vm._v("Semestral: $")
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("div", { staticClass: "border" }, [
+                                            _vm._v("Trimestral: $")
+                                          ])
+                                        ])
+                                      : _c("div", [
+                                          _vm._v(
+                                            "\n                                                        Seleccione una descripción\n                                                    "
+                                          )
+                                        ])
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
                               _vm.cliente.gs
                                 ? _c("td", { staticClass: "text-center" }, [
                                     _vm.cotizacionesGS.id
@@ -51527,6 +49266,39 @@ var render = function() {
                               _vm._v(" "),
                               _vm.cliente.gs
                                 ? _c("td", { staticClass: "text-center" }, [
+                                    _vm.cotizacionesGNP.PAQUETE
+                                      ? _c("div", [
+                                          _c(
+                                            "button",
+                                            {
+                                              staticClass:
+                                                "btn btn-primary seleccionador",
+                                              attrs: {
+                                                type: "button",
+                                                id: "9_1"
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  _vm.emitirgs(
+                                                    _vm.cotizacionesGNP.PAQUETE,
+                                                    _vm.cotizacionesGNP.PAQUETE
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [_vm._v("Elegir")]
+                                          )
+                                        ])
+                                      : _c("div", [
+                                          _vm._v(
+                                            "\n                                                        Seleccione una descripción\n                                                    "
+                                          )
+                                        ])
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.cliente.gs
+                                ? _c("td", { staticClass: "text-center" }, [
                                     _vm.cotizacionesGS.id
                                       ? _c("div", [
                                           _c(
@@ -51640,6 +49412,27 @@ var render = function() {
                                       )
                                     ]
                                   ),
+                                  _vm._v(" "),
+                                  _vm.cliente.gnp
+                                    ? _c("td", { staticClass: "text-center" }, [
+                                        _vm.desc_gnp &&
+                                        _vm.tipo_poliza &&
+                                        _vm.cotizacionesGNP.PAQUETE
+                                          ? _c("div", {
+                                              staticClass: "text-center",
+                                              staticStyle: { padding: "0" }
+                                            })
+                                          : _c(
+                                              "div",
+                                              { staticClass: "text-center" },
+                                              [
+                                                _vm._v(
+                                                  "\n                                                        Seleccione una descripción\n                                                    "
+                                                )
+                                              ]
+                                            )
+                                      ])
+                                    : _vm._e(),
                                   _vm._v(" "),
                                   _vm.cliente.gs
                                     ? _c("td", { staticClass: "text-center" }, [
@@ -51893,6 +49686,26 @@ var render = function() {
                                     ]
                                   ),
                                   _vm._v(" "),
+                                  _vm.cliente.gnp
+                                    ? _c("td", { staticClass: "text-center" }, [
+                                        _vm.desc_gnp &&
+                                        _vm.tipo_poliza &&
+                                        _vm.cotizacionesGNP.PAQUETE
+                                          ? _c("div", {
+                                              staticClass: "text-center"
+                                            })
+                                          : _c(
+                                              "div",
+                                              { staticClass: "text-center" },
+                                              [
+                                                _vm._v(
+                                                  "\n                                                        Seleccione una descripción\n                                                    "
+                                                )
+                                              ]
+                                            )
+                                      ])
+                                    : _vm._e(),
+                                  _vm._v(" "),
                                   _vm.cliente.gs
                                     ? _c("td", { staticClass: "text-center" }, [
                                         _vm.desc_gs &&
@@ -52097,6 +49910,27 @@ var render = function() {
                                   )
                                 ]
                               ),
+                              _vm._v(" "),
+                              _vm.cliente.gnp
+                                ? _c("td", { staticClass: "text-center" }, [
+                                    _vm.desc_gnp &&
+                                    _vm.tipo_poliza &&
+                                    _vm.cotizacionesGNP.PAQUETE
+                                      ? _c("div", {
+                                          staticClass: "text-center",
+                                          staticStyle: { padding: "0" }
+                                        })
+                                      : _c(
+                                          "div",
+                                          { staticClass: "text-center" },
+                                          [
+                                            _vm._v(
+                                              "\n                                                        Seleccione una descripción\n                                                    "
+                                            )
+                                          ]
+                                        )
+                                  ])
+                                : _vm._e(),
                               _vm._v(" "),
                               _vm.cliente.gs
                                 ? _c("td", { staticClass: "text-center" }, [
@@ -52634,6 +50468,26 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
+                              _vm.cliente.gnp
+                                ? _c("td", { staticClass: "text-center" }, [
+                                    _vm.desc_gnp &&
+                                    _vm.tipo_poliza &&
+                                    _vm.cotizacionesGNP.PAQUETE
+                                      ? _c("div", {
+                                          staticClass: "text-center"
+                                        })
+                                      : _c(
+                                          "div",
+                                          { staticClass: "text-center" },
+                                          [
+                                            _vm._v(
+                                              "\n                                                        Seleccione una descripción\n                                                    "
+                                            )
+                                          ]
+                                        )
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
                               _vm.cliente.gs
                                 ? _c("td", { staticClass: "text-center" }, [
                                     _vm.desc_gs &&
@@ -52817,6 +50671,26 @@ var render = function() {
                                   )
                                 ]
                               ),
+                              _vm._v(" "),
+                              _vm.cliente.gnp
+                                ? _c("td", { staticClass: "text-center" }, [
+                                    _vm.desc_gnp &&
+                                    _vm.tipo_poliza &&
+                                    _vm.cotizacionesGNP.PAQUETE
+                                      ? _c("div", {
+                                          staticClass: "text-center"
+                                        })
+                                      : _c(
+                                          "div",
+                                          { staticClass: "text-center" },
+                                          [
+                                            _vm._v(
+                                              "\n                                                        Seleccione una descripción\n                                                    "
+                                            )
+                                          ]
+                                        )
+                                  ])
+                                : _vm._e(),
                               _vm._v(" "),
                               _vm.cliente.gs
                                 ? _c("td", { staticClass: "text-center" }, [
@@ -53003,6 +50877,26 @@ var render = function() {
                                   )
                                 ]
                               ),
+                              _vm._v(" "),
+                              _vm.cliente.gnp
+                                ? _c("td", { staticClass: "text-center" }, [
+                                    _vm.desc_gnp &&
+                                    _vm.tipo_poliza &&
+                                    _vm.cotizacionesGNP.PAQUETE
+                                      ? _c("div", {
+                                          staticClass: "text-center"
+                                        })
+                                      : _c(
+                                          "div",
+                                          { staticClass: "text-center" },
+                                          [
+                                            _vm._v(
+                                              "\n                                                        Seleccione una descripción\n                                                    "
+                                            )
+                                          ]
+                                        )
+                                  ])
+                                : _vm._e(),
                               _vm._v(" "),
                               _vm.cliente.gs
                                 ? _c("td", { staticClass: "text-center" }, [
@@ -53191,6 +51085,25 @@ var render = function() {
                                   )
                                 ]
                               ),
+                              _vm._v(" "),
+                              _vm.cliente.gnp
+                                ? _c("td", { staticClass: "text-center" }, [
+                                    _vm.cotizacionesGNP.PAQUETE
+                                      ? _c("div", {
+                                          staticClass: "text-center",
+                                          staticStyle: { padding: "0" }
+                                        })
+                                      : _c(
+                                          "div",
+                                          { staticClass: "text-center" },
+                                          [
+                                            _vm._v(
+                                              "\n                                                        Seleccione una descripción\n                                                    "
+                                            )
+                                          ]
+                                        )
+                                  ])
+                                : _vm._e(),
                               _vm._v(" "),
                               _vm.cliente.gs
                                 ? _c("td", { staticClass: "text-center" }, [
@@ -64731,11 +62644,9 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.component('cotizacion', __webpack_require__(/*! ./components/CotizacionComponent.vue */ "./resources/assets/js/components/CotizacionComponent.vue").default);
 Vue.component('formulario', __webpack_require__(/*! ./components/FormComponent.vue */ "./resources/assets/js/components/FormComponent.vue").default);
-Vue.component('polizas', __webpack_require__(/*! ./components/PolizasComponent.vue */ "./resources/assets/js/components/PolizasComponent.vue").default);
+Vue.component('polizas', __webpack_require__(/*! ./components/PolizasComponent.vue */ "./resources/assets/js/components/PolizasComponent.vue").default); // var emojis = require('emojis-list');
+// console.log("emoji",emojis[26]);
 
-var emojis = __webpack_require__(/*! emojis-list */ "./node_modules/emojis-list/index.js");
-
-console.log("emoji", emojis[26]);
 var app = new Vue({
   el: '#app',
   data: {
@@ -64757,7 +62668,8 @@ var app = new Vue({
       'f_nac': "",
       'ana': "",
       'qualitas': "",
-      'gs': ""
+      'gs': "",
+      'gnp': ""
     },
     img: {
       anaImage: "./img/ana_logo.png",
@@ -64766,7 +62678,8 @@ var app = new Vue({
       gsImageForm: "./img/general_seguros_form.png",
       quaImage: "./img/AgenteCertificado.png",
       quaImageForm: "./img/Imagotipo_Banner_SitioWebQuálitas.svg",
-      quaImageBG: "./img/qualitas_form.png"
+      quaImageBG: "./img/qualitas_form.png",
+      gnpImage: "./img/gnp.png"
     },
     getcotizacion: {
       type: Boolean,
