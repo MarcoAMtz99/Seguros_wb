@@ -516,18 +516,20 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			if (!this.checkall) {
     				this.cliente.qualitas = 1;
     				if (this.cliente.uso_auto == 'Servicio Particular') {
-	    				this.cliente.ana = 1,
-	    				this.cliente.gs = 1
+	    				this.cliente.ana = 1;
+	    				this.cliente.gs = 1;
+	    				this.cliente.gnp = 1;
     				}
     				else{
-    					this.cliente.ana = 0,
-	    				this.cliente.gs = 0
+    					this.cliente.ana = 0;
+	    				this.cliente.gs = 0;
     				}
     			}
     			else{
-    				this.cliente.ana = 0,
+    				this.cliente.ana = 0;
     				this.cliente.qualitas = 0;
-    				this.cliente.gs = 0
+    				this.cliente.gs = 0;
+    				this.cliente.gnp = 0;
     			}
     		},
     		getMarcas(){
@@ -540,34 +542,6 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 
     			})
     		},
-    // 		getSubmarcas(marca){
-    // 			this.loader_tipo=true;
-    // 			let url = `./api/getSubmarcas/${marca}`;
-    // 			$('#descripcion').append('<div class="loader"></div>');
-    // 			axios.get(url).then(res=>{
-    // 				this.loader_tipo = false;
-    // 				console.log('res submarcas',res);
-    // 				if (res.data.submarcas) {
-    // 					this.submarcas = res.data.submarcas.sort();
-    // 				}
-    // 			}).catch(error=>{
-    // 				console.log('error submarcas',error);
-				// });
-    // 		},
-    // 		getModelos(submarca){
-    // 			this.loader_modelo=true;
-    // 			let url = `./api/getModelos/${submarca}`;
-    // 			axios.get(url).then(res=>{
-    // 				console.log('res modelos',res);
-    // 				this.loader_modelo=false;
-    // 				if (res.data.modelos) {
-    // 					this.modelos = res.data.modelos;
-    // 					this.modelos = this.modelos.reverse();
-    // 				}
-    // 			}).catch(error=>{
-    // 				console.log('error modelos',error);
-				// });
-    // 		},
     		getMarcas(modelo){
     			this.loader_marca=true;
     			let url = `./api/marcasANA/${modelo}`;

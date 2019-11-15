@@ -87,10 +87,10 @@
                                             <tr>
                                                 <th scope="row" class="text-center">Prima Total</th>
                                                 <td class="text-center" v-if="cliente.gnp">
-                                                    <div v-if="cotizacionesGNP.PAQUETE" style="padding">
-                                                        <div class="border">Contado: $</div>
-                                                        <div class="border">Semestral: $</div>
-                                                        <div class="border">Trimestral: $</div>
+                                                    <div v-if="cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" style="padding">
+                                                        <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[0].DESC_PERIODICIDAD }}: ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[0].CONCEPTO_ECONOMICO[10].MONTO | int }}</div>
+                                                        <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].DESC_PERIODICIDAD }}: ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].CONCEPTO_ECONOMICO[11].MONTO | int }}</div>
+                                                        <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].DESC_PERIODICIDAD }}: ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].CONCEPTO_ECONOMICO[11].MONTO | int }}</div>
                                                     </div>
                                                     <div v-else>
                                                         Seleccione una descripción
@@ -108,9 +108,9 @@
                                                 </td>
                                                 <td class="text-center" v-if="cliente.ana">
                                                     <div v-if="cotizacionesANA.length" style="padding">
-                                                        <div class="border">Contado: ${{cotizacionesANA[0]['CONTADO']['prima']['primatotal']}}</div>
-                                                        <div class="border">Semestral: ${{cotizacionesANA[1]['SEMESTRAL']['prima']['primatotal']}}</div>
-                                                        <div class="border">Trimestral: ${{cotizacionesANA[2]['TRIMESTRAL']['prima']['primatotal']}}</div>
+                                                        <div class="border">Contado: ${{cotizacionesANA[0]['CONTADO']['prima']['primatotal'] | int }}</div>
+                                                        <div class="border">Semestral: ${{cotizacionesANA[1]['SEMESTRAL']['prima']['primatotal'] | int }}</div>
+                                                        <div class="border">Trimestral: ${{cotizacionesANA[2]['TRIMESTRAL']['prima']['primatotal'] | int }}</div>
                                                     </div>
                                                     <div v-else>
                                                         Seleccione una descripción
@@ -118,18 +118,19 @@
                                                 </td>
                                                 <td class="text-center" v-if="cliente.qualitas">
                                                     <div v-if="cotizacionesQualitas.Primas">
-                                                        <div class="border">Contado: ${{cotizacionesQualitas.Primas.PrimaTotal}}</div>
+                                                        <div class="border">Contado: ${{cotizacionesQualitas.Primas.PrimaTotal | int }}</div>
                                                     </div>
                                                     <div v-else>
                                                         Seleccione una descripción
                                                     </div>
                                                 </td>
                                             </tr>
+                                            <!-- SELECCIONAR -->
                                             <tr>
                                                 <th scope="row" class="text-center">Seleccionar</th>
-                                                <td class="text-center" v-if="cliente.gs">
-                                                    <div v-if="cotizacionesGNP.PAQUETE">
-                                                        <button type="button" id="9_1" class="btn btn-primary seleccionador" @click="emitirgs(cotizacionesGNP.PAQUETE, cotizacionesGNP.PAQUETE)">Elegir</button>
+                                                <td class="text-center" v-if="cliente.gnp">
+                                                    <div v-if="cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined">
+                                                        <button type="button" id="9_1" class="btn btn-primary seleccionador" @click="emitirGNP(cotizacionesGNP, tipo_poliza)">Elegir</button>
                                                     </div>
                                                     <div v-else>
                                                         Seleccione una descripción
@@ -166,13 +167,13 @@
                                                     Daños Materiales
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
-                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP.PAQUETE" style="padding:0">
-                                                        <!-- <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Daños Materiales Pérdida Parcial'">
-                                                            <div class="border"><strong>{{cobertura.descripcion}}:</strong> {{cobertura.monto}}</div>
+                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" style="padding:0">
+                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'Daños Materiales Pérdida Total'">
+                                                            <div class="border"><strong>{{cobertura.NOMBRE}}:</strong> {{cobertura.DEDUCIBLE}}</div>
                                                         </div>
-                                                        <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Daños Materiales Pérdida Total'">
-                                                            <div class="border"><strong>{{cobertura.descripcion}}:</strong> {{cobertura.monto}}</div>
-                                                        </div> -->
+                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'Daños Materiales Pérdida Parcial'">
+                                                            <div class="border"><strong>{{cobertura.NOMBRE}}:</strong> {{cobertura.DEDUCIBLE}}</div>
+                                                        </div>
                                                     </div>
                                                     <div v-else class="text-center">
                                                         Seleccione una descripción
@@ -220,12 +221,12 @@
                                                     Robo Total
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
-                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP.PAQUETE">
-                                                        <!-- <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Robo Total'">
+                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined">
+                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'Robo Total'">
                                                             <span>
-                                                                <strong>{{cobertura.descripcion}}:</strong> {{cobertura.monto}}
+                                                                <strong>{{cobertura.NOMBRE}}:</strong> {{cobertura.DEDUCIBLE}}
                                                             </span>
-                                                        </div> -->
+                                                        </div>
                                                     </div>
                                                     <div v-else class="text-center">
                                                         Seleccione una descripción
@@ -272,13 +273,15 @@
                                                     Responsabilidad Civil
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
-                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP.PAQUETE" style="padding:0">
-                                                        <!-- <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Responsabilidad Civil por Daños a Terceros (LUC)'">
-                                                            <div class="border"><strong>{{cobertura.descripcion}}:</strong> ${{cobertura.monto}}</div>
+                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" style="padding:0">
+                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'Responsabilidad Civil por Daños a Terceros'">
+                                                            <div class="border" v-if="cobertura.DEDUCIBLE.length != 0"><strong>{{cobertura.NOMBRE}}:</strong> ${{cobertura.DEDUCIBLE}}</div>
+                                                            <div v-else class="text-center"><strong>{{cobertura.NOMBRE}}:</strong> - </div>
                                                         </div>
-                                                        <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Responsabilidad Civil por Fallecimiento'">
-                                                            <div class="border"><strong>{{cobertura.descripcion}}:</strong> ${{cobertura.monto}}</div>
-                                                        </div> -->
+                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'Extensión Cobertura Resp. Civil'">
+                                                            <div v-if="cobertura.DEDUCIBLE != 'No aplica'" class="border"><strong>{{cobertura.NOMBRE}}:</strong> ${{cobertura.DEDUCIBLE}}</div>
+                                                            <div v-else><strong>{{cobertura.NOMBRE}}:</strong> {{cobertura.DEDUCIBLE}} </div>
+                                                        </div>
                                                     </div>
                                                     <div v-else class="text-center">
                                                         Seleccione una descripción
@@ -350,10 +353,11 @@
                                                     Gastos Médicos
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
-                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP.PAQUETE" >
-                                                        <!-- <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Gastos Médicos'">
-                                                             <span><strong>{{cobertura.descripcion}}:</strong> ${{cobertura.monto}} </span>
-                                                        </div> -->
+                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" >
+                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'Gastos Médicos Ocupantes'">
+                                                             <div v-if="cobertura.DEDUCIBLE != 'No aplica'"><span><strong>{{cobertura.NOMBRE}}:</strong> ${{cobertura.DEEDUCIBLE}} </span></div>
+                                                            <div v-else><strong>{{cobertura.NOMBRE}}:</strong> {{cobertura.DEEDUCIBLE}}</div>
+                                                        </div>
                                                     </div>
                                                     <div v-else class="text-center">
                                                         Seleccione una descripción
@@ -397,10 +401,10 @@
                                                     Legal
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
-                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP.PAQUETE" >
-                                                        <!-- <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Asistencia Jurídica GS'">
-                                                             <span><strong>{{cobertura.descripcion}}:</strong> {{cobertura.monto}} </span>
-                                                        </div> -->
+                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" >
+                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'Protección Legal'">
+                                                             <span><strong>{{cobertura.NOMBRE}}:</strong> {{cobertura.DEDUCIBLE}} </span>
+                                                        </div>
                                                     </div>
                                                     <div v-else class="text-center">
                                                         Seleccione una descripción
@@ -444,16 +448,10 @@
                                                     Vial
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
-                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP.PAQUETE" >
-                                                        <!-- <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Asistencia Vial y en Viajes GS'">
-                                                             <span>
-                                                                <strong>
-                                                                    {{cobertura.descripcion}}: 
-
-                                                                </strong>
-                                                                {{cobertura.monto}} 
-                                                            </span>
-                                                        </div> -->
+                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" >
+                                                        <div >
+                                                             <span><strong>No aplica</strong></span>
+                                                        </div>
                                                     </div>
                                                     <div v-else class="text-center">
                                                         Seleccione una descripción
@@ -504,15 +502,15 @@
                                                     Otras Coberturas
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
-                                                    <div  class="text-center" v-if="cotizacionesGNP.PAQUETE" style="padding:0;">
-                                                        <!-- <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="(['Daños Materiales Pérdida Parcial','Daños Materiales Pérdida Total','Robo Total','Responsabilidad Civil por Daños a Terceros (LUC)','Responsabilidad Civil por Fallecimiento','Gastos Médicos','Asistencia Jurídica GS','Asistencia Vial y en Viajes GS'].indexOf(cobertura.tipo) != -1)">
+                                                    <div  class="text-center" v-if="cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" style="padding:0;">
+                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="(['Daños Materiales Pérdida Parcial','Daños Materiales Pérdida Total','Robo Total','Responsabilidad Civil por Daños a Terceros','Extensión Cobertura Resp. Civil','Gastos Médicos Ocupantes','Protección Legal'].indexOf(cobertura.NOMBRE) == -1)">
                                                             <span class="border">
                                                                 <strong>
-                                                                    {{cobertura.descripcion}}:
+                                                                    {{cobertura.NOMBRE}}:
                                                                 </strong> 
-                                                                ${{cobertura.monto}}
+                                                                ${{cobertura.DEDUCIBLE}}
                                                             </span>
-                                                        </div> -->
+                                                        </div>
                                                     </div>
                                                     <div v-else class="text-center">
                                                         Seleccione una descripción
@@ -798,14 +796,14 @@
                     descripcionGNP: descripcion,
                     poliza: poliza
                 };
-                this.cotizacionesGNP = [];
+                this.cotizacionesGNP = {};
                 axios.post(url,params).then(res=>{
-                    console.log(res);
                     this.cotizacionesGNP=res.data.cotizacionGNP;
+                    // console.log(this.cotizacionesGNP);
                     this.loader=false;
                 }).catch(err=>{
                     this.loader=false;
-                    console.log(err);
+                    console.log('GNP error', err);
                 });
             },
             getCoberturasGS(cotizacion){
@@ -863,6 +861,14 @@
                 // console.log(this.gs);
                 $("#paso3-tab").removeClass("disabled");
                 $("#paso3-tab").click();
+            },
+            emitirGNP(cotizacion, tipo_poliza){
+                this.setCotizacion = {
+                    nombre: 'GNP',
+                    descripcionAuto: this.desc_gnp,
+                    tipo_poliza: tipo_poliza,
+                    paquete: this.cotizacionesGNP.PAQUETES.PAQUETE,
+                };
             }
     	},
     	filters:{

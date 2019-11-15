@@ -22,6 +22,7 @@ window.Vue = require('vue');
 Vue.component('cotizacion', require('./components/CotizacionComponent.vue').default);
 Vue.component('formulario',require('./components/FormComponent.vue').default);
 Vue.component('polizas',require('./components/PolizasComponent.vue').default);
+Vue.component('formulariognp',require('./components/FormGNPComponent.vue').default);
 // var emojis = require('emojis-list');
 // console.log("emoji",emojis[26]);
 const app = new Vue({

@@ -2286,13 +2286,18 @@ function Cliente(_ref) {
         this.cliente.qualitas = 1;
 
         if (this.cliente.uso_auto == 'Servicio Particular') {
-          this.cliente.ana = 1, this.cliente.gs = 1;
+          this.cliente.ana = 1;
+          this.cliente.gs = 1;
+          this.cliente.gnp = 1;
         } else {
-          this.cliente.ana = 0, this.cliente.gs = 0;
+          this.cliente.ana = 0;
+          this.cliente.gs = 0;
         }
       } else {
-        this.cliente.ana = 0, this.cliente.qualitas = 0;
+        this.cliente.ana = 0;
+        this.cliente.qualitas = 0;
         this.cliente.gs = 0;
+        this.cliente.gnp = 0;
       }
     },
     getMarcas: function getMarcas() {
@@ -2481,6 +2486,10 @@ function Cliente(_ref) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -3774,6 +3783,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     'sendANA': function sendANA() {// TODO
     },
+    'sendGNP': function sendGNP() {
+      console.log('enviado');
+    },
     'formaPago': function formaPago() {
       var _this9 = this;
 
@@ -4053,6 +4065,39 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/FormGNPComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/FormGNPComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/PolizasComponent.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/PolizasComponent.vue?vue&type=script&lang=js& ***!
@@ -4062,8 +4107,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -4869,14 +4912,14 @@ __webpack_require__.r(__webpack_exports__);
         descripcionGNP: descripcion,
         poliza: poliza
       };
-      this.cotizacionesGNP = [];
+      this.cotizacionesGNP = {};
       axios.post(url, params).then(function (res) {
-        console.log(res);
-        _this8.cotizacionesGNP = res.data.cotizacionGNP;
+        _this8.cotizacionesGNP = res.data.cotizacionGNP; // console.log(this.cotizacionesGNP);
+
         _this8.loader = false;
       }).catch(function (err) {
         _this8.loader = false;
-        console.log(err);
+        console.log('GNP error', err);
       });
     },
     getCoberturasGS: function getCoberturasGS(cotizacion) {
@@ -4948,6 +4991,14 @@ __webpack_require__.r(__webpack_exports__);
 
       $("#paso3-tab").removeClass("disabled");
       $("#paso3-tab").click();
+    },
+    emitirGNP: function emitirGNP(cotizacion, tipo_poliza) {
+      this.setCotizacion = {
+        nombre: 'GNP',
+        descripcionAuto: this.desc_gnp,
+        tipo_poliza: tipo_poliza,
+        paquete: this.cotizacionesGNP.PAQUETES.PAQUETE
+      };
     }
   },
   filters: {
@@ -41890,6 +41941,8 @@ var render = function() {
   return _c("div", [
     _c("div", { staticClass: "row m-3" }, [
       _c("div", { staticClass: "col-12 m-2 p-2" }, [
+        _c("h6", [_vm._v(_vm._s(_vm.cotizacion))]),
+        _vm._v(" "),
         _vm.cotizacion.nombre === "GS"
           ? _c(
               "form",
@@ -47339,6 +47392,25 @@ var render = function() {
                 _vm._m(108)
               ]
             )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.cotizacion.nombre === "GNP"
+          ? _c(
+              "form",
+              {
+                attrs: { method: "POST", action: "./sendGNP" },
+                on: { submit: _vm.sendGNP }
+              },
+              [
+                _c("input", {
+                  attrs: { type: "hidden", name: "_token" },
+                  domProps: { value: _vm.csrf }
+                }),
+                _vm._v(" "),
+                _c("formulariognp")
+              ],
+              1
+            )
           : _vm._e()
       ])
     ])
@@ -48555,6 +48627,53 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/FormGNPComponent.vue?vue&type=template&id=070e40a2&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/FormGNPComponent.vue?vue&type=template&id=070e40a2& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row justify-content-center" }, [
+        _c("div", { staticClass: "col-md-8" }, [
+          _c("div", { staticClass: "card card-default" }, [
+            _c("div", { staticClass: "card-header" }, [
+              _vm._v("Example Component")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _vm._v(
+                "\n                    I'm an example component.\n                "
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/PolizasComponent.vue?vue&type=template&id=b139bcb8&":
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/PolizasComponent.vue?vue&type=template&id=b139bcb8& ***!
@@ -49125,18 +49244,70 @@ var render = function() {
                               _vm._v(" "),
                               _vm.cliente.gnp
                                 ? _c("td", { staticClass: "text-center" }, [
-                                    _vm.cotizacionesGNP.PAQUETE
+                                    _vm.cotizacionesGNP &&
+                                    _vm.cotizacionesGNP.PAQUETES !== undefined
                                       ? _c("div", { staticStyle: {} }, [
                                           _c("div", { staticClass: "border" }, [
-                                            _vm._v("Contado: $")
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.cotizacionesGNP.PAQUETES
+                                                  .PAQUETE.TOTALES
+                                                  .TOTAL_PRIMA[0]
+                                                  .DESC_PERIODICIDAD
+                                              ) +
+                                                ": $" +
+                                                _vm._s(
+                                                  _vm._f("int")(
+                                                    _vm.cotizacionesGNP.PAQUETES
+                                                      .PAQUETE.TOTALES
+                                                      .TOTAL_PRIMA[0]
+                                                      .CONCEPTO_ECONOMICO[10]
+                                                      .MONTO
+                                                  )
+                                                )
+                                            )
                                           ]),
                                           _vm._v(" "),
                                           _c("div", { staticClass: "border" }, [
-                                            _vm._v("Semestral: $")
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.cotizacionesGNP.PAQUETES
+                                                  .PAQUETE.TOTALES
+                                                  .TOTAL_PRIMA[1]
+                                                  .DESC_PERIODICIDAD
+                                              ) +
+                                                ": $" +
+                                                _vm._s(
+                                                  _vm._f("int")(
+                                                    _vm.cotizacionesGNP.PAQUETES
+                                                      .PAQUETE.TOTALES
+                                                      .TOTAL_PRIMA[1]
+                                                      .CONCEPTO_ECONOMICO[11]
+                                                      .MONTO
+                                                  )
+                                                )
+                                            )
                                           ]),
                                           _vm._v(" "),
                                           _c("div", { staticClass: "border" }, [
-                                            _vm._v("Trimestral: $")
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.cotizacionesGNP.PAQUETES
+                                                  .PAQUETE.TOTALES
+                                                  .TOTAL_PRIMA[2]
+                                                  .DESC_PERIODICIDAD
+                                              ) +
+                                                ": $" +
+                                                _vm._s(
+                                                  _vm._f("int")(
+                                                    _vm.cotizacionesGNP.PAQUETES
+                                                      .PAQUETE.TOTALES
+                                                      .TOTAL_PRIMA[2]
+                                                      .CONCEPTO_ECONOMICO[11]
+                                                      .MONTO
+                                                  )
+                                                )
+                                            )
                                           ])
                                         ])
                                       : _c("div", [
@@ -49194,9 +49365,11 @@ var render = function() {
                                             _vm._v(
                                               "Contado: $" +
                                                 _vm._s(
-                                                  _vm.cotizacionesANA[0][
-                                                    "CONTADO"
-                                                  ]["prima"]["primatotal"]
+                                                  _vm._f("int")(
+                                                    _vm.cotizacionesANA[0][
+                                                      "CONTADO"
+                                                    ]["prima"]["primatotal"]
+                                                  )
                                                 )
                                             )
                                           ]),
@@ -49205,9 +49378,11 @@ var render = function() {
                                             _vm._v(
                                               "Semestral: $" +
                                                 _vm._s(
-                                                  _vm.cotizacionesANA[1][
-                                                    "SEMESTRAL"
-                                                  ]["prima"]["primatotal"]
+                                                  _vm._f("int")(
+                                                    _vm.cotizacionesANA[1][
+                                                      "SEMESTRAL"
+                                                    ]["prima"]["primatotal"]
+                                                  )
                                                 )
                                             )
                                           ]),
@@ -49216,9 +49391,11 @@ var render = function() {
                                             _vm._v(
                                               "Trimestral: $" +
                                                 _vm._s(
-                                                  _vm.cotizacionesANA[2][
-                                                    "TRIMESTRAL"
-                                                  ]["prima"]["primatotal"]
+                                                  _vm._f("int")(
+                                                    _vm.cotizacionesANA[2][
+                                                      "TRIMESTRAL"
+                                                    ]["prima"]["primatotal"]
+                                                  )
                                                 )
                                             )
                                           ])
@@ -49239,8 +49416,10 @@ var render = function() {
                                             _vm._v(
                                               "Contado: $" +
                                                 _vm._s(
-                                                  _vm.cotizacionesQualitas
-                                                    .Primas.PrimaTotal
+                                                  _vm._f("int")(
+                                                    _vm.cotizacionesQualitas
+                                                      .Primas.PrimaTotal
+                                                  )
                                                 )
                                             )
                                           ])
@@ -49264,9 +49443,10 @@ var render = function() {
                                 [_vm._v("Seleccionar")]
                               ),
                               _vm._v(" "),
-                              _vm.cliente.gs
+                              _vm.cliente.gnp
                                 ? _c("td", { staticClass: "text-center" }, [
-                                    _vm.cotizacionesGNP.PAQUETE
+                                    _vm.cotizacionesGNP &&
+                                    _vm.cotizacionesGNP.PAQUETES !== undefined
                                       ? _c("div", [
                                           _c(
                                             "button",
@@ -49279,9 +49459,9 @@ var render = function() {
                                               },
                                               on: {
                                                 click: function($event) {
-                                                  _vm.emitirgs(
-                                                    _vm.cotizacionesGNP.PAQUETE,
-                                                    _vm.cotizacionesGNP.PAQUETE
+                                                  _vm.emitirGNP(
+                                                    _vm.cotizacionesGNP,
+                                                    _vm.tipo_poliza
                                                   )
                                                 }
                                               }
@@ -49417,11 +49597,88 @@ var render = function() {
                                     ? _c("td", { staticClass: "text-center" }, [
                                         _vm.desc_gnp &&
                                         _vm.tipo_poliza &&
-                                        _vm.cotizacionesGNP.PAQUETE
-                                          ? _c("div", {
-                                              staticClass: "text-center",
-                                              staticStyle: { padding: "0" }
-                                            })
+                                        _vm.cotizacionesGNP &&
+                                        _vm.cotizacionesGNP.PAQUETES !==
+                                          undefined
+                                          ? _c(
+                                              "div",
+                                              {
+                                                staticClass: "text-center",
+                                                staticStyle: { padding: "0" }
+                                              },
+                                              [
+                                                _vm._l(
+                                                  _vm.cotizacionesGNP.PAQUETES
+                                                    .PAQUETE.COBERTURAS
+                                                    .COBERTURA,
+                                                  function(cobertura, index) {
+                                                    return cobertura.NOMBRE ==
+                                                      "Daños Materiales Pérdida Total"
+                                                      ? _c("div", [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "border"
+                                                            },
+                                                            [
+                                                              _c("strong", [
+                                                                _vm._v(
+                                                                  _vm._s(
+                                                                    cobertura.NOMBRE
+                                                                  ) + ":"
+                                                                )
+                                                              ]),
+                                                              _vm._v(
+                                                                " " +
+                                                                  _vm._s(
+                                                                    cobertura.DEDUCIBLE
+                                                                  )
+                                                              )
+                                                            ]
+                                                          )
+                                                        ])
+                                                      : _vm._e()
+                                                  }
+                                                ),
+                                                _vm._v(" "),
+                                                _vm._l(
+                                                  _vm.cotizacionesGNP.PAQUETES
+                                                    .PAQUETE.COBERTURAS
+                                                    .COBERTURA,
+                                                  function(cobertura, index) {
+                                                    return cobertura.NOMBRE ==
+                                                      "Daños Materiales Pérdida Parcial"
+                                                      ? _c("div", [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "border"
+                                                            },
+                                                            [
+                                                              _c("strong", [
+                                                                _vm._v(
+                                                                  _vm._s(
+                                                                    cobertura.NOMBRE
+                                                                  ) + ":"
+                                                                )
+                                                              ]),
+                                                              _vm._v(
+                                                                " " +
+                                                                  _vm._s(
+                                                                    cobertura.DEDUCIBLE
+                                                                  )
+                                                              )
+                                                            ]
+                                                          )
+                                                        ])
+                                                      : _vm._e()
+                                                  }
+                                                )
+                                              ],
+                                              2
+                                            )
                                           : _c(
                                               "div",
                                               { staticClass: "text-center" },
@@ -49690,10 +49947,41 @@ var render = function() {
                                     ? _c("td", { staticClass: "text-center" }, [
                                         _vm.desc_gnp &&
                                         _vm.tipo_poliza &&
-                                        _vm.cotizacionesGNP.PAQUETE
-                                          ? _c("div", {
-                                              staticClass: "text-center"
-                                            })
+                                        _vm.cotizacionesGNP &&
+                                        _vm.cotizacionesGNP.PAQUETES !==
+                                          undefined
+                                          ? _c(
+                                              "div",
+                                              { staticClass: "text-center" },
+                                              _vm._l(
+                                                _vm.cotizacionesGNP.PAQUETES
+                                                  .PAQUETE.COBERTURAS.COBERTURA,
+                                                function(cobertura, index) {
+                                                  return cobertura.NOMBRE ==
+                                                    "Robo Total"
+                                                    ? _c("div", [
+                                                        _c("span", [
+                                                          _c("strong", [
+                                                            _vm._v(
+                                                              _vm._s(
+                                                                cobertura.NOMBRE
+                                                              ) + ":"
+                                                            )
+                                                          ]),
+                                                          _vm._v(
+                                                            " " +
+                                                              _vm._s(
+                                                                cobertura.DEDUCIBLE
+                                                              ) +
+                                                              "\n                                                            "
+                                                          )
+                                                        ])
+                                                      ])
+                                                    : _vm._e()
+                                                }
+                                              ),
+                                              0
+                                            )
                                           : _c(
                                               "div",
                                               { staticClass: "text-center" },
@@ -49915,11 +50203,122 @@ var render = function() {
                                 ? _c("td", { staticClass: "text-center" }, [
                                     _vm.desc_gnp &&
                                     _vm.tipo_poliza &&
-                                    _vm.cotizacionesGNP.PAQUETE
-                                      ? _c("div", {
-                                          staticClass: "text-center",
-                                          staticStyle: { padding: "0" }
-                                        })
+                                    _vm.cotizacionesGNP &&
+                                    _vm.cotizacionesGNP.PAQUETES !== undefined
+                                      ? _c(
+                                          "div",
+                                          {
+                                            staticClass: "text-center",
+                                            staticStyle: { padding: "0" }
+                                          },
+                                          [
+                                            _vm._l(
+                                              _vm.cotizacionesGNP.PAQUETES
+                                                .PAQUETE.COBERTURAS.COBERTURA,
+                                              function(cobertura, index) {
+                                                return cobertura.NOMBRE ==
+                                                  "Responsabilidad Civil por Daños a Terceros"
+                                                  ? _c("div", [
+                                                      cobertura.DEDUCIBLE
+                                                        .length != 0
+                                                        ? _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "border"
+                                                            },
+                                                            [
+                                                              _c("strong", [
+                                                                _vm._v(
+                                                                  _vm._s(
+                                                                    cobertura.NOMBRE
+                                                                  ) + ":"
+                                                                )
+                                                              ]),
+                                                              _vm._v(
+                                                                " $" +
+                                                                  _vm._s(
+                                                                    cobertura.DEDUCIBLE
+                                                                  )
+                                                              )
+                                                            ]
+                                                          )
+                                                        : _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "text-center"
+                                                            },
+                                                            [
+                                                              _c("strong", [
+                                                                _vm._v(
+                                                                  _vm._s(
+                                                                    cobertura.NOMBRE
+                                                                  ) + ":"
+                                                                )
+                                                              ]),
+                                                              _vm._v(" - ")
+                                                            ]
+                                                          )
+                                                    ])
+                                                  : _vm._e()
+                                              }
+                                            ),
+                                            _vm._v(" "),
+                                            _vm._l(
+                                              _vm.cotizacionesGNP.PAQUETES
+                                                .PAQUETE.COBERTURAS.COBERTURA,
+                                              function(cobertura, index) {
+                                                return cobertura.NOMBRE ==
+                                                  "Extensión Cobertura Resp. Civil"
+                                                  ? _c("div", [
+                                                      cobertura.DEDUCIBLE !=
+                                                      "No aplica"
+                                                        ? _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "border"
+                                                            },
+                                                            [
+                                                              _c("strong", [
+                                                                _vm._v(
+                                                                  _vm._s(
+                                                                    cobertura.NOMBRE
+                                                                  ) + ":"
+                                                                )
+                                                              ]),
+                                                              _vm._v(
+                                                                " $" +
+                                                                  _vm._s(
+                                                                    cobertura.DEDUCIBLE
+                                                                  )
+                                                              )
+                                                            ]
+                                                          )
+                                                        : _c("div", [
+                                                            _c("strong", [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  cobertura.NOMBRE
+                                                                ) + ":"
+                                                              )
+                                                            ]),
+                                                            _vm._v(
+                                                              " " +
+                                                                _vm._s(
+                                                                  cobertura.DEDUCIBLE
+                                                                ) +
+                                                                " "
+                                                            )
+                                                          ])
+                                                    ])
+                                                  : _vm._e()
+                                              }
+                                            )
+                                          ],
+                                          2
+                                        )
                                       : _c(
                                           "div",
                                           { staticClass: "text-center" },
@@ -50472,10 +50871,59 @@ var render = function() {
                                 ? _c("td", { staticClass: "text-center" }, [
                                     _vm.desc_gnp &&
                                     _vm.tipo_poliza &&
-                                    _vm.cotizacionesGNP.PAQUETE
-                                      ? _c("div", {
-                                          staticClass: "text-center"
-                                        })
+                                    _vm.cotizacionesGNP &&
+                                    _vm.cotizacionesGNP.PAQUETES !== undefined
+                                      ? _c(
+                                          "div",
+                                          { staticClass: "text-center" },
+                                          _vm._l(
+                                            _vm.cotizacionesGNP.PAQUETES.PAQUETE
+                                              .COBERTURAS.COBERTURA,
+                                            function(cobertura, index) {
+                                              return cobertura.NOMBRE ==
+                                                "Gastos Médicos Ocupantes"
+                                                ? _c("div", [
+                                                    cobertura.DEDUCIBLE !=
+                                                    "No aplica"
+                                                      ? _c("div", [
+                                                          _c("span", [
+                                                            _c("strong", [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  cobertura.NOMBRE
+                                                                ) + ":"
+                                                              )
+                                                            ]),
+                                                            _vm._v(
+                                                              " $" +
+                                                                _vm._s(
+                                                                  cobertura.DEEDUCIBLE
+                                                                ) +
+                                                                " "
+                                                            )
+                                                          ])
+                                                        ])
+                                                      : _c("div", [
+                                                          _c("strong", [
+                                                            _vm._v(
+                                                              _vm._s(
+                                                                cobertura.NOMBRE
+                                                              ) + ":"
+                                                            )
+                                                          ]),
+                                                          _vm._v(
+                                                            " " +
+                                                              _vm._s(
+                                                                cobertura.DEEDUCIBLE
+                                                              )
+                                                          )
+                                                        ])
+                                                  ])
+                                                : _vm._e()
+                                            }
+                                          ),
+                                          0
+                                        )
                                       : _c(
                                           "div",
                                           { staticClass: "text-center" },
@@ -50676,10 +51124,40 @@ var render = function() {
                                 ? _c("td", { staticClass: "text-center" }, [
                                     _vm.desc_gnp &&
                                     _vm.tipo_poliza &&
-                                    _vm.cotizacionesGNP.PAQUETE
-                                      ? _c("div", {
-                                          staticClass: "text-center"
-                                        })
+                                    _vm.cotizacionesGNP &&
+                                    _vm.cotizacionesGNP.PAQUETES !== undefined
+                                      ? _c(
+                                          "div",
+                                          { staticClass: "text-center" },
+                                          _vm._l(
+                                            _vm.cotizacionesGNP.PAQUETES.PAQUETE
+                                              .COBERTURAS.COBERTURA,
+                                            function(cobertura, index) {
+                                              return cobertura.NOMBRE ==
+                                                "Protección Legal"
+                                                ? _c("div", [
+                                                    _c("span", [
+                                                      _c("strong", [
+                                                        _vm._v(
+                                                          _vm._s(
+                                                            cobertura.NOMBRE
+                                                          ) + ":"
+                                                        )
+                                                      ]),
+                                                      _vm._v(
+                                                        " " +
+                                                          _vm._s(
+                                                            cobertura.DEDUCIBLE
+                                                          ) +
+                                                          " "
+                                                      )
+                                                    ])
+                                                  ])
+                                                : _vm._e()
+                                            }
+                                          ),
+                                          0
+                                        )
                                       : _c(
                                           "div",
                                           { staticClass: "text-center" },
@@ -50882,10 +51360,13 @@ var render = function() {
                                 ? _c("td", { staticClass: "text-center" }, [
                                     _vm.desc_gnp &&
                                     _vm.tipo_poliza &&
-                                    _vm.cotizacionesGNP.PAQUETE
-                                      ? _c("div", {
-                                          staticClass: "text-center"
-                                        })
+                                    _vm.cotizacionesGNP &&
+                                    _vm.cotizacionesGNP.PAQUETES !== undefined
+                                      ? _c(
+                                          "div",
+                                          { staticClass: "text-center" },
+                                          [_vm._m(0)]
+                                        )
                                       : _c(
                                           "div",
                                           { staticClass: "text-center" },
@@ -51088,11 +51569,56 @@ var render = function() {
                               _vm._v(" "),
                               _vm.cliente.gnp
                                 ? _c("td", { staticClass: "text-center" }, [
-                                    _vm.cotizacionesGNP.PAQUETE
-                                      ? _c("div", {
-                                          staticClass: "text-center",
-                                          staticStyle: { padding: "0" }
-                                        })
+                                    _vm.cotizacionesGNP &&
+                                    _vm.cotizacionesGNP.PAQUETES !== undefined
+                                      ? _c(
+                                          "div",
+                                          {
+                                            staticClass: "text-center",
+                                            staticStyle: { padding: "0" }
+                                          },
+                                          _vm._l(
+                                            _vm.cotizacionesGNP.PAQUETES.PAQUETE
+                                              .COBERTURAS.COBERTURA,
+                                            function(cobertura, index) {
+                                              return [
+                                                "Daños Materiales Pérdida Parcial",
+                                                "Daños Materiales Pérdida Total",
+                                                "Robo Total",
+                                                "Responsabilidad Civil por Daños a Terceros",
+                                                "Extensión Cobertura Resp. Civil",
+                                                "Gastos Médicos Ocupantes",
+                                                "Protección Legal"
+                                              ].indexOf(cobertura.NOMBRE) == -1
+                                                ? _c("div", [
+                                                    _c(
+                                                      "span",
+                                                      { staticClass: "border" },
+                                                      [
+                                                        _c("strong", [
+                                                          _vm._v(
+                                                            "\n                                                                    " +
+                                                              _vm._s(
+                                                                cobertura.NOMBRE
+                                                              ) +
+                                                              ":\n                                                                "
+                                                          )
+                                                        ]),
+                                                        _vm._v(
+                                                          " \n                                                                $" +
+                                                            _vm._s(
+                                                              cobertura.DEDUCIBLE
+                                                            ) +
+                                                            "\n                                                            "
+                                                        )
+                                                      ]
+                                                    )
+                                                  ])
+                                                : _vm._e()
+                                            }
+                                          ),
+                                          0
+                                        )
                                       : _c(
                                           "div",
                                           { staticClass: "text-center" },
@@ -51346,7 +51872,14 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("span", [_c("strong", [_vm._v("No aplica")])])])
+  }
+]
 render._withStripped = true
 
 
@@ -62644,7 +63177,8 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.component('cotizacion', __webpack_require__(/*! ./components/CotizacionComponent.vue */ "./resources/assets/js/components/CotizacionComponent.vue").default);
 Vue.component('formulario', __webpack_require__(/*! ./components/FormComponent.vue */ "./resources/assets/js/components/FormComponent.vue").default);
-Vue.component('polizas', __webpack_require__(/*! ./components/PolizasComponent.vue */ "./resources/assets/js/components/PolizasComponent.vue").default); // var emojis = require('emojis-list');
+Vue.component('polizas', __webpack_require__(/*! ./components/PolizasComponent.vue */ "./resources/assets/js/components/PolizasComponent.vue").default);
+Vue.component('formulariognp', __webpack_require__(/*! ./components/FormGNPComponent.vue */ "./resources/assets/js/components/FormGNPComponent.vue").default); // var emojis = require('emojis-list');
 // console.log("emoji",emojis[26]);
 
 var app = new Vue({
@@ -62894,6 +63428,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FormComponent_vue_vue_type_template_id_70be8f72___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FormComponent_vue_vue_type_template_id_70be8f72___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/FormGNPComponent.vue":
+/*!*************************************************************!*\
+  !*** ./resources/assets/js/components/FormGNPComponent.vue ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _FormGNPComponent_vue_vue_type_template_id_070e40a2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FormGNPComponent.vue?vue&type=template&id=070e40a2& */ "./resources/assets/js/components/FormGNPComponent.vue?vue&type=template&id=070e40a2&");
+/* harmony import */ var _FormGNPComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FormGNPComponent.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/FormGNPComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _FormGNPComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FormGNPComponent_vue_vue_type_template_id_070e40a2___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _FormGNPComponent_vue_vue_type_template_id_070e40a2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/components/FormGNPComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/FormGNPComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************!*\
+  !*** ./resources/assets/js/components/FormGNPComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FormGNPComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./FormGNPComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/FormGNPComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FormGNPComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/FormGNPComponent.vue?vue&type=template&id=070e40a2&":
+/*!********************************************************************************************!*\
+  !*** ./resources/assets/js/components/FormGNPComponent.vue?vue&type=template&id=070e40a2& ***!
+  \********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FormGNPComponent_vue_vue_type_template_id_070e40a2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./FormGNPComponent.vue?vue&type=template&id=070e40a2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/FormGNPComponent.vue?vue&type=template&id=070e40a2&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FormGNPComponent_vue_vue_type_template_id_070e40a2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FormGNPComponent_vue_vue_type_template_id_070e40a2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
