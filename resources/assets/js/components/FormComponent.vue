@@ -3,7 +3,7 @@
 		<div class="row m-3">
 			<div class="col-12 m-2 p-2">
 				<!-- <form> -->
-				<h6>{{cotizacion}}</h6>
+				<!-- <h6>{{cotizacion}}</h6> -->
 				<form v-if="cotizacion.nombre === 'GS'" @submit="sendGS" method="POST" action="./sendGS">
 					<input type="hidden" name="_token" :value="csrf" />
 					<div class="row">
@@ -902,10 +902,9 @@
 						</div>
 					</div>
 				</form>
-				<form v-if="cotizacion.nombre === 'GNP'" @submit="sendGNP" method="POST" action="./sendGNP">
-					<input type="hidden" name="_token" :value="csrf" />
-					<formulariognp></formulariognp>
-				</form>
+				<template v-if="cotizacion.nombre === 'GNP'">
+					<formulariognp :cotizacion="cotizacion" :img="img" :cliente="cliente"></formulariognp>
+				</template>
 			</div>
 		</div>
 		<!-- <pre>
@@ -1285,9 +1284,6 @@
 			},
 			'sendANA':function(){
 				// TODO
-			},
-			'sendGNP':function(){
-				console.log('enviado');
 			},
 			'formaPago':function(){
 				if (this.generalseguro.cotizacion.id_pago == "" ) {

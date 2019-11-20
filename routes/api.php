@@ -70,3 +70,7 @@ Route::get('/catVehANA/{modeloMin}/{modeloMax}','API\AnaController@catalogoVehi'
 // GNP
 Route::get('/modelos-gnp/{marca}/{submarca}/{modelo}', 'GNPController@modelos');
 Route::post('/get-cotizacion-gnp', 'GNPController@getCotizacion');
+Route::get('/domicilio-gnp/{cp}', 'GNPController@getDatosDomicilio');
+Route::get('/usos-vehiculo-gnp', 'GNPController@getUsosVehiculo');
+Route::get('/estados-circulacion-gnp', 'GNPController@getEstadosCirculacion');
+Route::get('/tipos-via-gnp', 'GNPController@getTiposVia');

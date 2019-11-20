@@ -44,7 +44,7 @@ class GNPController extends Controller
  	public function prueba()
  	{
  		//return view('prueba');
- 		dd($this->getCotizacion("dasd"));
+ 		dd($this->getTiposVia());
  		dd($this->modelos("Ford", "fiesta", "2015"));
 		try {
 			
@@ -194,7 +194,7 @@ class GNPController extends Controller
 					   <USUARIO>$this->user</USUARIO>
 					   <PASSWORD>$this->pass</PASSWORD>
 					   <TIPO_CATALOGO>ARMADORA_VEHICULO</TIPO_CATALOGO>
-					   <ID_UNIDAD_OPERABLE/>
+					   <ID_UNIDAD_OPERABLE>$this->unidadOperable</ID_UNIDAD_OPERABLE>
 					   <FECHA>$fecha</FECHA> 
 					   <ELEMENTOS>
 					   	<ELEMENTO>
@@ -226,7 +226,7 @@ class GNPController extends Controller
 					   <USUARIO>$this->user</USUARIO>
 					   <PASSWORD>$this->pass</PASSWORD>
 					   <TIPO_CATALOGO>VEHICULOS</TIPO_CATALOGO>
-					   <ID_UNIDAD_OPERABLE/>
+					   <ID_UNIDAD_OPERABLE>$this->unidadOperable</ID_UNIDAD_OPERABLE>
 					   <FECHA>$fecha</FECHA> 
 					   <ELEMENTOS>
 					      <ELEMENTO>
@@ -287,7 +287,7 @@ class GNPController extends Controller
 					   <USUARIO>$this->user</USUARIO>
 					   <PASSWORD>$this->pass</PASSWORD>
 					   <TIPO_CATALOGO>CARROCERIA_VEHICULO</TIPO_CATALOGO>
-					   <ID_UNIDAD_OPERABLE/>
+					   <ID_UNIDAD_OPERABLE>$this->unidadOperable</ID_UNIDAD_OPERABLE>
 					   <FECHA>$fecha</FECHA> 
 					   <ELEMENTOS>
 					    <ELEMENTO>
@@ -361,6 +361,142 @@ class GNPController extends Controller
 		}
 
  		
+ 	}
+
+ 	/**
+ 	 * Obtiene los estados que tiene cobertura de GNP
+ 	 * @param $cp - Código postal para obtener el estado, municipio y las colonias.
+ 	 * 
+ 	 * @return string[] arreglo de clave, nombre para cada estado
+ 	 */
+ 	public function getDatosDomicilio($cp)
+ 	{
+ 		$fecha = date('d/m/Y');
+ 		$xmlBodyEstado = "<SOLICITUD_CATALOGO>
+						   <USUARIO>$this->user</USUARIO>
+						   <PASSWORD>$this->pass</PASSWORD>
+						   <TIPO_CATALOGO>ESTADO</TIPO_CATALOGO>
+						   <ID_UNIDAD_OPERABLE>$this->unidadOperable</ID_UNIDAD_OPERABLE>
+						   <FECHA>$fecha</FECHA> 
+						   <ELEMENTOS>
+						     <ELEMENTO>
+						       <CLAVE>$cp</CLAVE>
+						       <NOMBRE>CODIGO_POSTAL</NOMBRE>
+						       <VALOR></VALOR>
+						     </ELEMENTO>
+						   </ELEMENTOS>  
+						</SOLICITUD_CATALOGO>";
+
+		$estado =  $this->buscarEnCatalogo($xmlBodyEstado)["ELEMENTOS"]["ELEMENTO"];
+
+		$xmlBodyMunicipio = "<SOLICITUD_CATALOGO>
+							   <USUARIO>$this->user</USUARIO>
+							   <PASSWORD>$this->pass</PASSWORD>
+							   <TIPO_CATALOGO>MUNICIPIO</TIPO_CATALOGO>
+							   <ID_UNIDAD_OPERABLE>$this->unidadOperable</ID_UNIDAD_OPERABLE>
+							   <FECHA>$fecha</FECHA> 
+							   <ELEMENTOS>
+							     <ELEMENTO>
+							       <CLAVE>$cp</CLAVE>
+							       <NOMBRE>CODIGO_POSTAL</NOMBRE>
+							       <VALOR></VALOR>
+							     </ELEMENTO>
+							   </ELEMENTOS>  
+							</SOLICITUD_CATALOGO>";
+
+		$municipio =  $this->buscarEnCatalogo($xmlBodyMunicipio)["ELEMENTOS"]["ELEMENTO"];
+
+		$xmlBodyColonias = "<SOLICITUD_CATALOGO>
+							   <USUARIO>$this->user</USUARIO>
+							   <PASSWORD>$this->pass</PASSWORD>
+							   <TIPO_CATALOGO>COLONIA</TIPO_CATALOGO>
+							   <ID_UNIDAD_OPERABLE>$this->unidadOperable</ID_UNIDAD_OPERABLE>
+							   <FECHA>$fecha</FECHA> 
+							   <ELEMENTOS>
+							     <ELEMENTO>
+							       <CLAVE>$cp</CLAVE>
+							       <NOMBRE>CODIGO_POSTAL</NOMBRE>
+							       <VALOR></VALOR>
+							     </ELEMENTO>
+							   </ELEMENTOS>  
+							</SOLICITUD_CATALOGO>";
+
+		$colonias =  $this->buscarEnCatalogo($xmlBodyColonias)["ELEMENTOS"]["ELEMENTO"];
+
+		return response()->json(['estadoGNP'=>$estado, 'municipioGNP'=>$municipio, 'colonias'=>$colonias],201);
+ 	}
+
+ 	/**
+ 	 * Obtiene un arreglo con los usos que se le puede dar al vehiculo
+ 	 * 
+ 	 * @return string[] arreglo de clave, nombre para cada uso del vehiculo.
+ 	 */
+ 	public function getUsosVehiculo()
+ 	{
+ 		$fecha = date('d/m/Y');
+ 		$xmlBody = "<SOLICITUD_CATALOGO>
+					   <USUARIO>$this->user</USUARIO>
+					   <PASSWORD>$this->pass</PASSWORD>
+					   <TIPO_CATALOGO>USO_VEHICULO</TIPO_CATALOGO>
+					   <ID_UNIDAD_OPERABLE>$this->unidadOperable</ID_UNIDAD_OPERABLE>
+					   <FECHA>$fecha</FECHA> 
+					   <ELEMENTOS>
+					   </ELEMENTOS>  
+					</SOLICITUD_CATALOGO>";
+
+		return response()->json(['usos'=>$this->buscarEnCatalogo($xmlBody)["ELEMENTOS"]["ELEMENTO"]], 201);
+ 	}
+
+ 	/**
+ 	 * Obtiene los estados que tiene cobertura de GNP
+ 	 * 
+ 	 * @return string[] arreglo de clave, nombre para cada estado
+ 	 */
+ 	public function getEstadosCirculacion()
+ 	{
+ 		$fecha = date('d/m/Y');
+ 		$xmlBody = "<SOLICITUD_CATALOGO>
+					   <USUARIO>$this->user</USUARIO>
+					   <PASSWORD>$this->pass</PASSWORD>
+					   <TIPO_CATALOGO>ESTADO_CIRCULACION</TIPO_CATALOGO>
+					   <ID_UNIDAD_OPERABLE>$this->unidadOperable</ID_UNIDAD_OPERABLE>
+					   <FECHA>$fecha</FECHA> 
+					   <ELEMENTOS>
+					   </ELEMENTOS>  
+					</SOLICITUD_CATALOGO>";
+
+		return response()->json(['estadosCirculacion'=>$this->buscarEnCatalogo($xmlBody)["ELEMENTOS"]["ELEMENTO"]], 201);
+ 	}
+
+ 	/**
+ 	 * Obtiene los tipos de via para la direccion
+ 	 * 
+ 	 * @return string[] arreglo de clave, nombre para cada tipo de via
+ 	 */
+ 	public function getTiposVia()
+ 	{
+ 		$fecha = date('d/m/Y');
+ 		$xmlBody = "<SOLICITUD_CATALOGO>
+					   <USUARIO>$this->user</USUARIO>
+					   <PASSWORD>$this->pass</PASSWORD>
+					   <TIPO_CATALOGO>TIPO_VIA</TIPO_CATALOGO>
+					   <ID_UNIDAD_OPERABLE>$this->unidadOperable</ID_UNIDAD_OPERABLE>
+					   <FECHA>$fecha</FECHA> 
+					   <ELEMENTOS>
+					   </ELEMENTOS>  
+					</SOLICITUD_CATALOGO>";
+
+		return response()->json(['tiposVia'=>$this->buscarEnCatalogo($xmlBody)["ELEMENTOS"]["ELEMENTO"]], 201);
+ 	}
+
+ 	/**
+ 	 * Construye el XML para emitir una poliza a GNP y recibe los datos de la poliza creada.
+ 	 * 
+ 	 * @return string[] - .....
+ 	 */
+ 	public function emitirPoliza(Request $request)
+ 	{
+ 		# code...
  	}
 }
 

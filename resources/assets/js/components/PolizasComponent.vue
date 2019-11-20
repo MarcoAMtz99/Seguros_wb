@@ -130,7 +130,7 @@
                                                 <th scope="row" class="text-center">Seleccionar</th>
                                                 <td class="text-center" v-if="cliente.gnp">
                                                     <div v-if="cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined">
-                                                        <button type="button" id="9_1" class="btn btn-primary seleccionador" @click="emitirGNP(cotizacionesGNP, tipo_poliza)">Elegir</button>
+                                                        <button type="button" id="9_1" class="btn btn-primary seleccionador" @click="emitirgnp(cotizacionesGNP, tipo_poliza)">Elegir</button>
                                                     </div>
                                                     <div v-else>
                                                         Seleccione una descripción
@@ -508,7 +508,7 @@
                                                                 <strong>
                                                                     {{cobertura.NOMBRE}}:
                                                                 </strong> 
-                                                                ${{cobertura.DEDUCIBLE}}
+                                                                {{cobertura.DEDUCIBLE}}
                                                             </span>
                                                         </div>
                                                     </div>
@@ -862,13 +862,17 @@
                 $("#paso3-tab").removeClass("disabled");
                 $("#paso3-tab").click();
             },
-            emitirGNP(cotizacion, tipo_poliza){
+            emitirgnp(cotizacion, tipo_poliza){
                 this.setCotizacion = {
                     nombre: 'GNP',
                     descripcionAuto: this.desc_gnp,
                     tipo_poliza: tipo_poliza,
                     paquete: this.cotizacionesGNP.PAQUETES.PAQUETE,
                 };
+                console.log('Cotizacion GNP: ', this.setCotizacion);
+                this.$emit("emitirgnp" , this.setCotizacion);
+                $("#paso3-tab").removeClass("disabled");
+                $("#paso3-tab").click();
             }
     	},
     	filters:{
