@@ -1,6 +1,11 @@
 <template>
     <form  @submit="sendGNP" method="POST" action="./sendGNP">
         <input type="hidden" name="_token" :value="csrf" />
+        <input type="hidden" name="paquete" :value="JSON.stringify(cotizacion.paquete)">
+        <input type="hidden" name="numCotizacion" :value="cotizacion.numCotizacion">
+        <input type="hidden" name="descripcionAuto" :value="cotizacion.descripcionAuto">
+        <input type="hidden" name="tipoPoliza" :value="cotizacion.tipo_poliza">
+        <input type="hidden" name="cliente" :value="cliente.cotizacion">
         <div class="row">
             <div class="offset-2 col-5 offset-md-2 col-md-4 w-md-150" >
                 <img width="100%" height="100%" :src="img.gnpImage">
@@ -13,20 +18,20 @@
             <div class="form-group col-6">
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Tipo de persona:</label>
                 <div class="form-check col-12">
-                    <input class="form-check-input" type="radio" name="tipo_persona" id="radioF" v-model="gnp.cliente.tipo_persona" value="1" required="" checked>
+                    <input class="form-check-input" type="radio" name="tipo_persona" id="radioF" v-model="gnp.cliente.tipo_persona" value="F" required="" checked>
                     <label class="form-check-label" for="radioF">
                      Fisica
                     </label>
                 </div>
                 <div class="form-check col-12">
-                    <input class="form-check-input" type="radio" name="tipo_persona" id="radioM" v-model="gnp.cliente.tipo_persona" value="2">
+                    <input class="form-check-input" type="radio" name="tipo_persona" id="radioM" v-model="gnp.cliente.tipo_persona" value="M">
                     <label class="form-check-label" for="radioM">
                      Moral
                     </label>
                 </div>
             </div>
         </div>
-        <div class="row" v-if="gnp.cliente.tipo_persona == '1'">
+        <div class="row" v-if="gnp.cliente.tipo_persona == 'F'">
             <div class="form-group col-12 col-md-4">
                 <label class="control-label">
                     <i class="fa fa-asterisk" aria-hidden="true"></i> Nombre(s)
@@ -46,7 +51,7 @@
                 <input type="text" name="apemat" class="form-control" v-model="gnp.cliente.apemat">
             </div>
         </div>
-        <div class="row" v-if="gnp.cliente.tipo_persona == '2'">
+        <div class="row" v-if="gnp.cliente.tipo_persona == 'M'">
             <div class="form-group col-12">
                 <label class="control-label">
                     <i class="fa fa-asterisk" aria-hidden="true"></i> Razón Social
@@ -63,19 +68,20 @@
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Telefono</label>
                 <input class="form-control" type="text" name="telefono" v-model="gnp.cliente.telefono" required>
             </div>
-            <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == '1'">
+            <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == 'F'">
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Fecha de nacimiento:</label>
-                <input class="form-control" type="date" name="f_nac" v-model="gnp.cliente.f_nac" required>
+                <input class="form-control" type="date" name="f_nac" v-model="gnp.cliente.f_nac" :max="maxDate" required>
             </div>
-            <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == '1'">
+            <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == 'F'">
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Edad:</label>
-                <input class="form-control" type="text" name="edad" v-model="edad" required disabled="">
+                <input class="form-control" type="text" v-model="edad" disabled>
+                <input class="form-control" type="hidden" name="edad" :value="edad" required>
             </div>
             <div class="form-group col-12 col-md-4">
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C.:</label>
                 <input class="form-control" type="text" name="rfc" v-model="gnp.cliente.rfc" required>
             </div>
-            <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == '1'">
+            <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == 'F'">
                 <label for="sexo" class="control-label"><i class="fas fa-asterisk"></i> Sexo</label>
                 <select name="sexo" class="form-control" v-model="gnp.cliente.sexo" required>
                     <option value="">Seleccione su sexo</option>
@@ -84,16 +90,26 @@
                 </select>
             </div>
             <div class="form-group col-12 col-md-4">
+                <label for="estadoCivil" class="control-label"><i class="fas fa-asterisk"></i> Estado Civil:</label>
+                <select name="estadoCivil" class="form-control" v-model="gnp.cliente.estadoCivil" required>
+                    <option value="">Seleccione el estado civil</option>
+                    <option value="C">Casado</option>
+                    <option value="S">Soltero</option>
+                </select>
+            </div>
+            <div class="form-group col-12 col-md-4">
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Código Postal:</label>
                 <input type="text" name="codigo_postal" class="form-control" v-model="gnp.cliente.codigo_postal" required maxlength="5">
             </div>
             <div class="form-group col-12 col-md-4">
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Estado:</label>
-                <input type="text" name="estado" class="form-control" v-model="gnp.cliente.estadoNombre" required disabled="">
+                <input type="text" class="form-control" v-model="gnp.cliente.estadoNombre" disabled>
+                <input type="hidden" name="estado" :value="gnp.cliente.estadoNombre" required>
             </div>
             <div class="form-group col-12 col-md-4">
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Alcaldía o Municipio:</label>
-                <input type="text" class="form-control" name="municipio_id" v-model="gnp.cliente.municipioNombre" required disabled="">
+                <input type="text" class="form-control" v-model="gnp.cliente.municipioNombre" disabled>
+                <input type="hidden" name="municipio" :value="gnp.cliente.municipioNombre" required>
             </div>
             <div class="form-group col-12 col-md-4">
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Colonia:</label>
@@ -119,7 +135,7 @@
                 <select name="tipoVia" class="form-control" v-model="gnp.cliente.tipoVia" required>
                     <option value="">Seleccione el tipo de Via</option>
                     <template v-for="tipo in tiposVia">
-                        <option v-if="tipo.NOMBRE != ''" value="tipo.CLAVE">{{ tipo.NOMBRE }}</option>
+                        <option v-if="tipo.NOMBRE != ''" :value="tipo.CLAVE">{{ tipo.NOMBRE }}</option>
                     </template>
                 </select>
             </div>
@@ -134,7 +150,7 @@
             </div>
             <div class="form-group col-4">
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Número de serie</label>
-                <input class="form-control" type="text" name="serie" pattern="[A-Z0-9]{13,13}[0-9]{4,4}" title="El número de serie debe ser de 17 caracteres y los ultimos 4 deben ser numericos" v-model="gnp.vehiculo.serie" required>
+                <input class="form-control" type="text" name="serie" pattern="[A-Z0-9]{13,13}[0-9]{4,4}" maxlength="17" title="El número de serie debe ser de 17 caracteres y los ultimos 4 deben ser numericos" v-model="gnp.vehiculo.serie" required>
             </div>
             <div class="form-group col-4">
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Placas</label>
@@ -156,42 +172,29 @@
             </div>
             <div class="form-group col-12 col-md-4">
                 <label for="uso" class="control-label"><i class="fas fa-asterisk"></i> Estado de circulación</label>
-                <select name="uso" class="form-control" v-model="gnp.vehiculo.uso" required>
+                <select name="estadoCirculacion" class="form-control" v-model="gnp.vehiculo.estadoCirculacion" required>
                     <option value="">Seleccione un estado</option>
                     <option v-for="estadoCirculacion in estadosCirculacion" :value="estadoCirculacion.CLAVE">{{estadoCirculacion.NOMBRE}}</option>
                 </select>
             </div>
-            <input type="hidden" name="cotizacion" :value="cotizacion">
         </div>
         <div class="row">
             <div class="col-12 mt-3">
-                <h4>Datos del Contratante:</h4>
+                <h4>Datos de pago:</h4>
             </div>
-            <div class="form-group col-4">
-                <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Motor</label>
-                <input class="form-control" type="text" name="motor" v-model="gnp.vehiculo.motor" required maxlength="20">
-            </div>
-            <div class="form-group col-4">
-                <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Número de serie</label>
-                <input class="form-control" type="text" name="serie" pattern="[A-Z0-9]{13,13}[0-9]{4,4}" title="El número de serie debe ser de 17 caracteres y los ultimos 4 deben ser numericos" v-model="gnp.vehiculo.serie" required>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 mt-3">
-                <h4>Datos del Conductor:</h4>
-            </div>
-            <div class="form-group col-4">
-                <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Motor</label>
-                <input class="form-control" type="text" name="motor" v-model="gnp.vehiculo.motor" required maxlength="20">
-            </div>
-            <div class="form-group col-4">
-                <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Número de serie</label>
-                <input class="form-control" type="text" name="serie" pattern="[A-Z0-9]{13,13}[0-9]{4,4}" title="El número de serie debe ser de 17 caracteres y los ultimos 4 deben ser numericos" v-model="gnp.vehiculo.serie" required>
+            <div class="form-group col-12 col-md-4">
+                <label for="periodicidad" class="control-label"><i class="fas fa-asterisk"></i> Periodicidad de Pago:</label>
+                <select name="periodicidad" class="form-control" v-model="gnp.pago.periodicidad" required>
+                    <option value="">Seleccione la periodicidad</option>
+                    <option value="A">Anual</option>
+                    <option value="S">Semestral</option>
+                    <option value="T">Trimestral</option>
+                </select>
             </div>
         </div>
         <div class="row">
             <div class="col d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+                <button type="submit" class="btn btn-primary btn-md">Enviar</button>
             </div>
             <div class="m-2 ml-2 flex-shrink-1 d-flex justify-content-right">
                 <i class="fa fa-asterisk" aria-hidden="true"></i> Campos Obligatorios
@@ -219,6 +222,7 @@
                         curp:"",
                         f_nac:"",
                         sexo: "",
+                        estadoCivil: "",
                         calle:"",
                         num_int:"",
                         num_ext:"",
@@ -234,6 +238,7 @@
                         nacionalidad:"MEX",
                         tipoVia: "",
                         tipo_pago:'Referenciado',
+                        estadoCirculacion: "",
                     },
                     vehiculo:{
                         placas: "",
@@ -242,12 +247,16 @@
                         modelo: "",
                         uso: "",
                     },
+                    pago: {
+                        periodicidad: ""   ,
+                    },
                 },
                 colonias: [],
                 usos: [],
                 estadosCirculacion: [],
                 tiposVia: [],
                 csrf: "",
+                maxDate: null,
             }
         },
         watch: {
@@ -310,15 +319,15 @@
             this.getUsoVehiculos();
             this.getEstadosCirculacion();
             this.getTiposVia();
+            this.maxDate = new Date().toISOString().split('T')[0];
         },
         computed:{
             'edad':function(){
                 let fecha = this.gnp.cliente.f_nac.split('-');
                 let edad = 0;
-                if (fecha.length){
+                if (fecha.length > 1){
                     const hoy = new Date();
                     fecha = new Date(fecha[0], fecha[1] - 1, fecha[2]);
-                    console.log('FECHA', fecha);
                     edad = hoy.getFullYear() - fecha.getFullYear();
                     const m = hoy.getMonth() - fecha.getMonth();
 

@@ -4272,6 +4272,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'cotizacion', 'img'],
   data: function data() {
@@ -4286,6 +4289,7 @@ __webpack_require__.r(__webpack_exports__);
           curp: "",
           f_nac: "",
           sexo: "",
+          estadoCivil: "",
           calle: "",
           num_int: "",
           num_ext: "",
@@ -4300,7 +4304,8 @@ __webpack_require__.r(__webpack_exports__);
           correo: "",
           nacionalidad: "MEX",
           tipoVia: "",
-          tipo_pago: 'Referenciado'
+          tipo_pago: 'Referenciado',
+          estadoCirculacion: ""
         },
         vehiculo: {
           placas: "",
@@ -4308,13 +4313,17 @@ __webpack_require__.r(__webpack_exports__);
           motor: "",
           modelo: "",
           uso: ""
+        },
+        pago: {
+          periodicidad: ""
         }
       },
       colonias: [],
       usos: [],
       estadosCirculacion: [],
       tiposVia: [],
-      csrf: ""
+      csrf: "",
+      maxDate: null
     };
   },
   watch: {
@@ -4381,16 +4390,16 @@ __webpack_require__.r(__webpack_exports__);
     this.getUsoVehiculos();
     this.getEstadosCirculacion();
     this.getTiposVia();
+    this.maxDate = new Date().toISOString().split('T')[0];
   },
   computed: {
     'edad': function edad() {
       var fecha = this.gnp.cliente.f_nac.split('-');
       var edad = 0;
 
-      if (fecha.length) {
+      if (fecha.length > 1) {
         var hoy = new Date();
         fecha = new Date(fecha[0], fecha[1] - 1, fecha[2]);
-        console.log('FECHA', fecha);
         edad = hoy.getFullYear() - fecha.getFullYear();
         var m = hoy.getMonth() - fecha.getMonth();
 
@@ -5305,7 +5314,8 @@ __webpack_require__.r(__webpack_exports__);
         nombre: 'GNP',
         descripcionAuto: this.desc_gnp,
         tipo_poliza: tipo_poliza,
-        paquete: this.cotizacionesGNP.PAQUETES.PAQUETE
+        paquete: this.cotizacionesGNP.PAQUETES.PAQUETE,
+        numCotizacion: this.cotizacionesGNP.SOLICITUD.NUM_COTIZACION
       };
       console.log('Cotizacion GNP: ', this.setCotizacion);
       this.$emit("emitirgnp", this.setCotizacion);
@@ -49294,6 +49304,31 @@ var render = function() {
         domProps: { value: _vm.csrf }
       }),
       _vm._v(" "),
+      _c("input", {
+        attrs: { type: "hidden", name: "paquete" },
+        domProps: { value: JSON.stringify(_vm.cotizacion.paquete) }
+      }),
+      _vm._v(" "),
+      _c("input", {
+        attrs: { type: "hidden", name: "numCotizacion" },
+        domProps: { value: _vm.cotizacion.numCotizacion }
+      }),
+      _vm._v(" "),
+      _c("input", {
+        attrs: { type: "hidden", name: "descripcionAuto" },
+        domProps: { value: _vm.cotizacion.descripcionAuto }
+      }),
+      _vm._v(" "),
+      _c("input", {
+        attrs: { type: "hidden", name: "tipoPoliza" },
+        domProps: { value: _vm.cotizacion.tipo_poliza }
+      }),
+      _vm._v(" "),
+      _c("input", {
+        attrs: { type: "hidden", name: "cliente" },
+        domProps: { value: _vm.cliente.cotizacion }
+      }),
+      _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c(
           "div",
@@ -49327,14 +49362,14 @@ var render = function() {
                 type: "radio",
                 name: "tipo_persona",
                 id: "radioF",
-                value: "1",
+                value: "F",
                 required: "",
                 checked: ""
               },
-              domProps: { checked: _vm._q(_vm.gnp.cliente.tipo_persona, "1") },
+              domProps: { checked: _vm._q(_vm.gnp.cliente.tipo_persona, "F") },
               on: {
                 change: function($event) {
-                  _vm.$set(_vm.gnp.cliente, "tipo_persona", "1")
+                  _vm.$set(_vm.gnp.cliente, "tipo_persona", "F")
                 }
               }
             }),
@@ -49361,12 +49396,12 @@ var render = function() {
                 type: "radio",
                 name: "tipo_persona",
                 id: "radioM",
-                value: "2"
+                value: "M"
               },
-              domProps: { checked: _vm._q(_vm.gnp.cliente.tipo_persona, "2") },
+              domProps: { checked: _vm._q(_vm.gnp.cliente.tipo_persona, "M") },
               on: {
                 change: function($event) {
-                  _vm.$set(_vm.gnp.cliente, "tipo_persona", "2")
+                  _vm.$set(_vm.gnp.cliente, "tipo_persona", "M")
                 }
               }
             }),
@@ -49380,7 +49415,7 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _vm.gnp.cliente.tipo_persona == "1"
+      _vm.gnp.cliente.tipo_persona == "F"
         ? _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "form-group col-12 col-md-4" }, [
               _vm._m(2),
@@ -49464,7 +49499,7 @@ var render = function() {
           ])
         : _vm._e(),
       _vm._v(" "),
-      _vm.gnp.cliente.tipo_persona == "2"
+      _vm.gnp.cliente.tipo_persona == "M"
         ? _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "form-group col-12" }, [
               _vm._m(4),
@@ -49547,7 +49582,7 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _vm.gnp.cliente.tipo_persona == "1"
+        _vm.gnp.cliente.tipo_persona == "F"
           ? _c("div", { staticClass: "form-group col-12 col-md-4" }, [
               _vm._m(7),
               _vm._v(" "),
@@ -49561,7 +49596,12 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control",
-                attrs: { type: "date", name: "f_nac", required: "" },
+                attrs: {
+                  type: "date",
+                  name: "f_nac",
+                  max: _vm.maxDate,
+                  required: ""
+                },
                 domProps: { value: _vm.gnp.cliente.f_nac },
                 on: {
                   input: function($event) {
@@ -49575,7 +49615,7 @@ var render = function() {
             ])
           : _vm._e(),
         _vm._v(" "),
-        _vm.gnp.cliente.tipo_persona == "1"
+        _vm.gnp.cliente.tipo_persona == "F"
           ? _c("div", { staticClass: "form-group col-12 col-md-4" }, [
               _vm._m(8),
               _vm._v(" "),
@@ -49589,12 +49629,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  name: "edad",
-                  required: "",
-                  disabled: ""
-                },
+                attrs: { type: "text", disabled: "" },
                 domProps: { value: _vm.edad },
                 on: {
                   input: function($event) {
@@ -49604,6 +49639,12 @@ var render = function() {
                     _vm.edad = $event.target.value
                   }
                 }
+              }),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { type: "hidden", name: "edad", required: "" },
+                domProps: { value: _vm.edad }
               })
             ])
           : _vm._e(),
@@ -49634,7 +49675,7 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _vm.gnp.cliente.tipo_persona == "1"
+        _vm.gnp.cliente.tipo_persona == "F"
           ? _c("div", { staticClass: "form-group col-12 col-md-4" }, [
               _vm._m(10),
               _vm._v(" "),
@@ -49689,6 +49730,52 @@ var render = function() {
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
           _vm._m(11),
           _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.gnp.cliente.estadoCivil,
+                  expression: "gnp.cliente.estadoCivil"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { name: "estadoCivil", required: "" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.gnp.cliente,
+                    "estadoCivil",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "" } }, [
+                _vm._v("Seleccione el estado civil")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "C" } }, [_vm._v("Casado")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "S" } }, [_vm._v("Soltero")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group col-12 col-md-4" }, [
+          _vm._m(12),
+          _vm._v(" "),
           _c("input", {
             directives: [
               {
@@ -49718,7 +49805,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(12),
+          _vm._m(13),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -49730,7 +49817,7 @@ var render = function() {
               }
             ],
             staticClass: "form-control",
-            attrs: { type: "text", name: "estado", required: "", disabled: "" },
+            attrs: { type: "text", disabled: "" },
             domProps: { value: _vm.gnp.cliente.estadoNombre },
             on: {
               input: function($event) {
@@ -49740,11 +49827,16 @@ var render = function() {
                 _vm.$set(_vm.gnp.cliente, "estadoNombre", $event.target.value)
               }
             }
+          }),
+          _vm._v(" "),
+          _c("input", {
+            attrs: { type: "hidden", name: "estado", required: "" },
+            domProps: { value: _vm.gnp.cliente.estadoNombre }
           })
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(13),
+          _vm._m(14),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -49756,12 +49848,7 @@ var render = function() {
               }
             ],
             staticClass: "form-control",
-            attrs: {
-              type: "text",
-              name: "municipio_id",
-              required: "",
-              disabled: ""
-            },
+            attrs: { type: "text", disabled: "" },
             domProps: { value: _vm.gnp.cliente.municipioNombre },
             on: {
               input: function($event) {
@@ -49775,11 +49862,16 @@ var render = function() {
                 )
               }
             }
+          }),
+          _vm._v(" "),
+          _c("input", {
+            attrs: { type: "hidden", name: "municipio", required: "" },
+            domProps: { value: _vm.gnp.cliente.municipioNombre }
           })
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(14),
+          _vm._m(15),
           _vm._v(" "),
           _c(
             "select",
@@ -49828,7 +49920,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(15),
+          _vm._m(16),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -49854,7 +49946,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(16),
+          _vm._m(17),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -49908,7 +50000,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(17),
+          _vm._m(18),
           _vm._v(" "),
           _c(
             "select",
@@ -49949,7 +50041,7 @@ var render = function() {
               _vm._l(_vm.tiposVia, function(tipo) {
                 return [
                   tipo.NOMBRE != ""
-                    ? _c("option", { attrs: { value: "tipo.CLAVE" } }, [
+                    ? _c("option", { domProps: { value: tipo.CLAVE } }, [
                         _vm._v(_vm._s(tipo.NOMBRE))
                       ])
                     : _vm._e()
@@ -49962,10 +50054,10 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
-        _vm._m(18),
+        _vm._m(19),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-4" }, [
-          _vm._m(19),
+          _vm._m(20),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -49996,7 +50088,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-4" }, [
-          _vm._m(20),
+          _vm._m(21),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -50012,6 +50104,7 @@ var render = function() {
               type: "text",
               name: "serie",
               pattern: "[A-Z0-9]{13,13}[0-9]{4,4}",
+              maxlength: "17",
               title:
                 "El número de serie debe ser de 17 caracteres y los ultimos 4 deben ser numericos",
               required: ""
@@ -50029,7 +50122,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-4" }, [
-          _vm._m(21),
+          _vm._m(22),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -50061,7 +50154,7 @@ var render = function() {
         _vm._v(" "),
         _vm.cliente.uso_auto == "Servicio Particular"
           ? _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-              _vm._m(22),
+              _vm._m(23),
               _vm._v(" "),
               _c(
                 "select",
@@ -50108,7 +50201,7 @@ var render = function() {
               )
             ])
           : _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-              _vm._m(23),
+              _vm._m(24),
               _vm._v(" "),
               _c(
                 "select",
@@ -50159,7 +50252,7 @@ var render = function() {
             ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(24),
+          _vm._m(25),
           _vm._v(" "),
           _c(
             "select",
@@ -50168,12 +50261,12 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.gnp.vehiculo.uso,
-                  expression: "gnp.vehiculo.uso"
+                  value: _vm.gnp.vehiculo.estadoCirculacion,
+                  expression: "gnp.vehiculo.estadoCirculacion"
                 }
               ],
               staticClass: "form-control",
-              attrs: { name: "uso", required: "" },
+              attrs: { name: "estadoCirculacion", required: "" },
               on: {
                 change: function($event) {
                   var $$selectedVal = Array.prototype.filter
@@ -50186,7 +50279,7 @@ var render = function() {
                     })
                   _vm.$set(
                     _vm.gnp.vehiculo,
-                    "uso",
+                    "estadoCirculacion",
                     $event.target.multiple ? $$selectedVal : $$selectedVal[0]
                   )
                 }
@@ -50207,151 +50300,62 @@ var render = function() {
             ],
             2
           )
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "hidden", name: "cotizacion" },
-          domProps: { value: _vm.cotizacion }
-        })
+        ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
-        _vm._m(25),
+        _vm._m(26),
         _vm._v(" "),
-        _c("div", { staticClass: "form-group col-4" }, [
-          _vm._m(26),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.gnp.vehiculo.motor,
-                expression: "gnp.vehiculo.motor"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              name: "motor",
-              required: "",
-              maxlength: "20"
-            },
-            domProps: { value: _vm.gnp.vehiculo.motor },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.gnp.vehiculo, "motor", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group col-4" }, [
+        _c("div", { staticClass: "form-group col-12 col-md-4" }, [
           _vm._m(27),
           _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.gnp.vehiculo.serie,
-                expression: "gnp.vehiculo.serie"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              name: "serie",
-              pattern: "[A-Z0-9]{13,13}[0-9]{4,4}",
-              title:
-                "El número de serie debe ser de 17 caracteres y los ultimos 4 deben ser numericos",
-              required: ""
-            },
-            domProps: { value: _vm.gnp.vehiculo.serie },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.gnp.pago.periodicidad,
+                  expression: "gnp.pago.periodicidad"
                 }
-                _vm.$set(_vm.gnp.vehiculo, "serie", $event.target.value)
+              ],
+              staticClass: "form-control",
+              attrs: { name: "periodicidad", required: "" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.gnp.pago,
+                    "periodicidad",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
               }
-            }
-          })
+            },
+            [
+              _c("option", { attrs: { value: "" } }, [
+                _vm._v("Seleccione la periodicidad")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "A" } }, [_vm._v("Anual")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "S" } }, [_vm._v("Semestral")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "T" } }, [_vm._v("Trimestral")])
+            ]
+          )
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _vm._m(28),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group col-4" }, [
-          _vm._m(29),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.gnp.vehiculo.motor,
-                expression: "gnp.vehiculo.motor"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              name: "motor",
-              required: "",
-              maxlength: "20"
-            },
-            domProps: { value: _vm.gnp.vehiculo.motor },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.gnp.vehiculo, "motor", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group col-4" }, [
-          _vm._m(30),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.gnp.vehiculo.serie,
-                expression: "gnp.vehiculo.serie"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              name: "serie",
-              pattern: "[A-Z0-9]{13,13}[0-9]{4,4}",
-              title:
-                "El número de serie debe ser de 17 caracteres y los ultimos 4 deben ser numericos",
-              required: ""
-            },
-            domProps: { value: _vm.gnp.vehiculo.serie },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.gnp.vehiculo, "serie", $event.target.value)
-              }
-            }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _vm._m(31)
+      _vm._m(28)
     ]
   )
 }
@@ -50480,6 +50484,16 @@ var staticRenderFns = [
       "label",
       { staticClass: "control-label", attrs: { for: "sexo" } },
       [_c("i", { staticClass: "fas fa-asterisk" }), _vm._v(" Sexo")]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "control-label", attrs: { for: "estadoCivil" } },
+      [_c("i", { staticClass: "fas fa-asterisk" }), _vm._v(" Estado Civil:")]
     )
   },
   function() {
@@ -50646,64 +50660,21 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12 mt-3" }, [
-      _c("h4", [_vm._v("Datos del Contratante:")])
+      _c("h4", [_vm._v("Datos de pago:")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "control-label" }, [
-      _c("i", {
-        staticClass: "fa fa-asterisk",
-        attrs: { "aria-hidden": "true" }
-      }),
-      _vm._v(" Motor")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "control-label" }, [
-      _c("i", {
-        staticClass: "fa fa-asterisk",
-        attrs: { "aria-hidden": "true" }
-      }),
-      _vm._v(" Número de serie")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 mt-3" }, [
-      _c("h4", [_vm._v("Datos del Conductor:")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "control-label" }, [
-      _c("i", {
-        staticClass: "fa fa-asterisk",
-        attrs: { "aria-hidden": "true" }
-      }),
-      _vm._v(" Motor")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "control-label" }, [
-      _c("i", {
-        staticClass: "fa fa-asterisk",
-        attrs: { "aria-hidden": "true" }
-      }),
-      _vm._v(" Número de serie")
-    ])
+    return _c(
+      "label",
+      { staticClass: "control-label", attrs: { for: "periodicidad" } },
+      [
+        _c("i", { staticClass: "fas fa-asterisk" }),
+        _vm._v(" Periodicidad de Pago:")
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -50713,7 +50684,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "col d-flex justify-content-center" }, [
         _c(
           "button",
-          { staticClass: "btn btn-primary btn-lg", attrs: { type: "submit" } },
+          { staticClass: "btn btn-primary btn-md", attrs: { type: "submit" } },
           [_vm._v("Enviar")]
         )
       ]),

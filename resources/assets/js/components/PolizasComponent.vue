@@ -868,6 +868,7 @@
                     descripcionAuto: this.desc_gnp,
                     tipo_poliza: tipo_poliza,
                     paquete: this.cotizacionesGNP.PAQUETES.PAQUETE,
+                    numCotizacion: this.cotizacionesGNP.SOLICITUD.NUM_COTIZACION,
                 };
                 console.log('Cotizacion GNP: ', this.setCotizacion);
                 this.$emit("emitirgnp" , this.setCotizacion);
