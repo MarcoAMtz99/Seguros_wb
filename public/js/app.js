@@ -49569,7 +49569,13 @@ var render = function() {
               }
             ],
             staticClass: "form-control",
-            attrs: { type: "text", name: "telefono", required: "" },
+            attrs: {
+              type: "text",
+              name: "telefono",
+              maxlength: "10",
+              minlength: "10",
+              required: ""
+            },
             domProps: { value: _vm.gnp.cliente.telefono },
             on: {
               input: function($event) {
@@ -49831,7 +49837,7 @@ var render = function() {
           _vm._v(" "),
           _c("input", {
             attrs: { type: "hidden", name: "estado", required: "" },
-            domProps: { value: _vm.gnp.cliente.estadoNombre }
+            domProps: { value: _vm.gnp.cliente.estadoClave }
           })
         ]),
         _vm._v(" "),

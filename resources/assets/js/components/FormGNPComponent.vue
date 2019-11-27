@@ -66,7 +66,7 @@
             </div>
             <div class="form-group col-12 col-md-4">
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Telefono</label>
-                <input class="form-control" type="text" name="telefono" v-model="gnp.cliente.telefono" required>
+                <input class="form-control" type="text" name="telefono" v-model="gnp.cliente.telefono" maxlength="10" minlength="10" required>
             </div>
             <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == 'F'">
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Fecha de nacimiento:</label>
@@ -104,7 +104,7 @@
             <div class="form-group col-12 col-md-4">
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Estado:</label>
                 <input type="text" class="form-control" v-model="gnp.cliente.estadoNombre" disabled>
-                <input type="hidden" name="estado" :value="gnp.cliente.estadoNombre" required>
+                <input type="hidden" name="estado" :value="gnp.cliente.estadoClave" required>
             </div>
             <div class="form-group col-12 col-md-4">
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Alcaldía o Municipio:</label>
