@@ -658,7 +658,7 @@ class GNPController extends Controller
 
  		$data = $this->getXMLPoliza($request);
  		try {
-			dd($data);
+			dd($data);k
 			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/emisor/emisor/emitir", $data);
 	        //convert the XML result into array
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);

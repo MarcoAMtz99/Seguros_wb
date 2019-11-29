@@ -57,7 +57,7 @@ const app = new Vue({
             quaImage : "./img/AgenteCertificado.png",
             quaImageForm: "./img/Imagotipo_Banner_SitioWebQuálitas.svg",
             quaImageBG: "./img/qualitas_form.png",
-            gnpImage: "./img/gnp.png"
+            gnpImage: "/img/gnp.png"
         },
     	getcotizacion:{
     		type: Boolean,
