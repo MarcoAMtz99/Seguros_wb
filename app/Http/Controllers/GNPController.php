@@ -108,7 +108,7 @@ class GNPController extends Controller
  	 * @param string $poliza
  	 * @return string Cadena con la estructura para hacer la cotizacion ya con los datos necesarios.
  	 */
- 	public function getXMLCotizacion($cliente, $fecha_inicio, $fecha_fin,  $modelo, $armadora,
+ 	private function getXMLCotizacion($cliente, $fecha_inicio, $fecha_fin,  $modelo, $armadora,
  		$carroceria, $version, $nacimiento, $sexo, $edad, $clavePaquete, $poliza)
  	{
  		return  "<COTIZACION>
@@ -355,6 +355,7 @@ class GNPController extends Controller
 			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/cotizador/cotizar", $data);
 	        //convert the XML result into array
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
+	        // dd($array_data);
 	        return response()->json(['cotizacionGNP'=>$array_data],201);
 		} catch (Exception $e) {
 			return response()->json(['error'=>"Fallo la peticion"],400);
@@ -494,7 +495,7 @@ class GNPController extends Controller
  	 * 
  	 * @return string[] - Estructura para la poliza de GNP
  	 */
- 	public function getXMLPoliza($datos)
+ 	private function getXMLPoliza($datos)
  	{
  		$fecha_inicio      = Carbon::now()->format('Ymd');
  		$fecha_fin         = Carbon::now()->addYear()->format('Ymd');
@@ -653,12 +654,13 @@ class GNPController extends Controller
  	 */
  	public function emitirPoliza(Request $request)
  	{
+ 		dd($request->all());
  		$request->paquete = json_decode($request->paquete);
  		$request->descripcionAuto = json_decode($request->descripcionAuto);
 
  		$data = $this->getXMLPoliza($request);
  		try {
-			dd($data);k
+			// dd($data);
 			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/emisor/emisor/emitir", $data);
 	        //convert the XML result into array
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);

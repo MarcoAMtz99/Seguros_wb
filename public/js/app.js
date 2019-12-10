@@ -49573,7 +49573,7 @@ var render = function() {
               type: "text",
               name: "telefono",
               maxlength: "10",
-              minlength: "10",
+              minlength: "10frfc",
               required: ""
             },
             domProps: { value: _vm.gnp.cliente.telefono },
@@ -49668,7 +49668,12 @@ var render = function() {
               }
             ],
             staticClass: "form-control",
-            attrs: { type: "text", name: "rfc", required: "" },
+            attrs: {
+              type: "text",
+              name: "rfc",
+              pattern: "[a-zA-Z]{4,4}[0-9]{6,6}[a-zA-Z0-9]{3,3}",
+              required: ""
+            },
             domProps: { value: _vm.gnp.cliente.rfc },
             on: {
               input: function($event) {
