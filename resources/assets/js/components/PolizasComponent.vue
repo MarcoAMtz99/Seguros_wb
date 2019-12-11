@@ -277,6 +277,7 @@
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'Responsabilidad Civil por Daños a Terceros'">
                                                             <div class="border" v-if="cobertura.DEDUCIBLE.length != 0"><strong>{{cobertura.NOMBRE}}:</strong> ${{cobertura.DEDUCIBLE}}</div>
                                                             <div v-else class="text-center"><strong>{{cobertura.NOMBRE}}:</strong> - </div>
+                                                            <div class="border" v-if="cobertura.SUMA_ASEGURADA != ''"><strong>Suma asegurada:</strong> {{cobertura.SUMA_ASEGURADA}}</div>
                                                         </div>
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'Extensión Cobertura Resp. Civil'">
                                                             <div v-if="cobertura.DEDUCIBLE != 'No aplica'" class="border"><strong>{{cobertura.NOMBRE}}:</strong> ${{cobertura.DEDUCIBLE}}</div>
@@ -403,7 +404,7 @@
                                                 <td class="text-center" v-if="cliente.gnp">
                                                     <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" >
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'Protección Legal'">
-                                                             <span><strong>{{cobertura.NOMBRE}}:</strong> {{cobertura.DEDUCIBLE}} </span>
+                                                             <span><strong>{{cobertura.NOMBRE}}</strong>Deducible: {{cobertura.DEDUCIBLE}} Suma Asegurada: {{cobertura.SUMA_ASEGURADA}}</span>
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">

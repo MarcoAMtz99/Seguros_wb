@@ -23,16 +23,15 @@
             			<h3 class="mt-3 ml-3">Gracias por utilizar GNP Seguros</h3>
             		</div>
                     <div class="col-12 col-md-5 m-2 p-2">
-                        <img src="{{ asset('./img/gnp.png') }}" height="100%" width="100%">
+                        <img src="{{ asset('./img/gnp.png') }}" height="80%" width="100%">
                     </div>
 					<div class="col-6">
-						<h5>Su poliza se guardo con la siguiente información:</h5>
+						<h4>Su poliza se guardo con la siguiente información:</h4>
 					</div>
-					{{ dd($response) }}
-					{{-- <div class="col-6">
+					<div class="col-6">
 						<label class="control-label">Número de poliza:</label>
-						@if( isset($response['EMISION']) )
-							<p>{{ $response['EMISION']["SOLICITUD"]["NUM_POLIZA"] }}</p>
+						@if( isset($response['SOLICITUD']) )
+							<p>{{ $response['SOLICITUD']["NUM_POLIZA"] }}</p>
 						@else
 							0000000
 						@endif
@@ -40,21 +39,58 @@
 					<div class="col-6">
 						<label class="control-label">Adicionalmente le llegara al correo proporcionado documentos anexos con más información</label>
 					</div>
-					@if($response['EMISION'])
+					@if(isset($response['SOLICITUD']))
 					<div class="col-12">
 						<div class="d-flex justify-content-center mt-4">
-							<a class="btn btn-primary btn-lg" href="{{$response['EMISION']["SOLICITUD"]["DOCUMENTOS"]["DOCUMENTO"]["URL_DOCUMENTO"]}}" target="_blank" role="button">
+							<a class="btn btn-primary btn-lg" href="{{ $response["SOLICITUD"]["DOCUMENTOS"]["DOCUMENTO"]["URL_DOCUMENTO"] }}" target="_blank" role="button">
 								Poliza
                             </a>
 						</div>
 					</div>
-					@else
+					@endif
+					@if(isset($response['CONCEPTOS_ECONOMICOS']))
 					<div class="col-12">
-						<div class="d-flex justify-content-center mt-4">
-							{{ dd($response) }}
+						<div class="justify-content-center mt-4">
+							<h3>Monto a pagar:</h3>
+							<table class="table">
+							  <thead class="thead-dark">
+							    <tr>
+							      <th scope="col">#</th>
+							      <th scope="col">CONCEPTO_ECONOMICO</th>
+							      <th scope="col">MONTO</th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    <tr>
+							      <th scope="row">1</th>
+							      <td>Prima Neta</td>
+							      <td>${{ number_format($response['CONCEPTOS_ECONOMICOS']["CONCEPTO_ECONOMICO"][5]["MONTO"], 2) }}</td>
+							    </tr>
+							    <tr>
+							      <th scope="row">2</th>
+							      <td>Recargo por Pago Fraccionado</td>
+							      <td>${{ number_format($response['CONCEPTOS_ECONOMICOS']["CONCEPTO_ECONOMICO"][7]["MONTO"], 2) }}</td>
+							    </tr>
+							    <tr>
+							      <th scope="row">3</th>
+							      <td>Derecho de Póliza</td>
+							      <td>${{ number_format($response['CONCEPTOS_ECONOMICOS']["CONCEPTO_ECONOMICO"][9]["MONTO"], 2) }}</td>
+							    </tr>
+							    <tr>
+							      <th scope="row">4</th>
+							      <td>I.V.A. </td>
+							      <td>${{ number_format($response['CONCEPTOS_ECONOMICOS']["CONCEPTO_ECONOMICO"][8]["MONTO"], 2) }}</td>
+							    </tr>
+							    <tr>
+							      <th scope="row">4</th>
+							      <td>Tota a Pagar </td>
+							      <td>${{ number_format($response['CONCEPTOS_ECONOMICOS']["CONCEPTO_ECONOMICO"][0]["MONTO"], 2) }}</td>
+							    </tr>
+							  </tbody>
+							</table>
 						</div>
 					</div>
-					@endif --}}
+					@endif	
             	</div>
             </div>
         </div>

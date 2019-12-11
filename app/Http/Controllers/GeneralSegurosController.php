@@ -110,14 +110,18 @@ class GeneralSegurosController extends Controller
             // dd($marca);
             $client = $this->getClient($this->urlCatAuto);
             $res = $client->wsListarSubMarcas(['arg0'=>['token'=>$this->token,'idMarca'=>$marca_id]]);
+
             if ($res->return->exito) {
+
                 foreach ($res->return->submarcas as $submarca_gs) {
+
                     if($submarca_gs->nombre == $submarca->nombre){
                         $submarca->id_gs = $submarca_gs->id;
                         $submarca->id_seg_gs = $submarca_gs->idSegmento;
                         $submarca->save();
                         return $submarca->id_gs;
                     }
+
                 }
             }
             // dd($res);
@@ -135,11 +139,13 @@ class GeneralSegurosController extends Controller
             if ($res->return->exito) {
                 $porc_piv = 0;
                 foreach ($res->return->versiones as $version_gs) {
+
                     similar_text($version->descripcion, $version_gs->descripcion,$porcentaje);
                     if($porcentaje>=$porc_piv){
                         $porc_piv = $porcentaje;
                         $version->amis_gs = $version_gs->amis;
                     }
+
                 }
                 $version->save();
                 return $version_gs->amis;
@@ -180,10 +186,24 @@ class GeneralSegurosController extends Controller
             $soapClient = $this->getClient($this->urlCotiza);
             // return $soapClient->__getTypes();
         try{
-            // dd($cliente->tipoServicio);
-            // dd($modelo);
+
             ini_set('default_socket_timeout', 600); 
-            $res = $soapClient->generarCotizacion(['arg0'=>['token'=>$this->token,'configuracionProducto'=>"RESIDENTE_INDIVIDUAL",'cp'=>$cliente->cp,'descuento'=>0,'vigencia'=>"ANUAL",'inciso'=>['claveGs'=>$claveGs,"conductorMenor30"=>$cliente->menor30,'modelo'=>$modelo,'tipoServicio'=>$cliente->tipoServicio,'tipoValor'=>"VALOR_COMERCIAL","tipoVehiculo"=>"AUTO_PICKUP","valorVehiculo"=>""]]]);
+            $res = $soapClient->generarCotizacion(['arg0'=>[
+                                                        'token'=>$this->token,
+                                                        'configuracionProducto' => "RESIDENTE_INDIVIDUAL",
+                                                        'cp'                    => $cliente->cp,
+                                                        'descuento'             => 0,
+                                                        'vigencia'              => "ANUAL",
+                                                        'inciso' => [
+                                                            'claveGs'          => $claveGs,
+                                                            "conductorMenor30" => $cliente->menor30,
+                                                            'modelo'           => $modelo,
+                                                            'tipoServicio'     => $cliente->tipoServicio,
+                                                            'tipoValor'        => "VALOR_COMERCIAL",
+                                                            "tipoVehiculo"     => "AUTO_PICKUP",
+                                                            "valorVehiculo"    => ""
+                                                        ]
+                                                    ]]);
             $response = json_decode(json_encode($res),true);
             // return $response;
             // dd($response);

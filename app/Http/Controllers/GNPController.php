@@ -94,7 +94,7 @@ class GNPController extends Controller
 
  	/**
  	 * Metodo usado para obtener la cadena XML necesaria para el WebService y hacer una cotizacion
- 	 * @param string $cliente
+ 	 * @param string $cp
  	 * @param string $fecha_inicio
  	 * @param string $fecha_fin
  	 * @param string $modelo
@@ -108,7 +108,7 @@ class GNPController extends Controller
  	 * @param string $poliza
  	 * @return string Cadena con la estructura para hacer la cotizacion ya con los datos necesarios.
  	 */
- 	private function getXMLCotizacion($cliente, $fecha_inicio, $fecha_fin,  $modelo, $armadora,
+ 	private function getXMLCotizacion($cp, $fecha_inicio, $fecha_fin,  $modelo, $armadora,
  		$carroceria, $version, $nacimiento, $sexo, $edad, $clavePaquete, $poliza)
  	{
  		return  "<COTIZACION>
@@ -141,13 +141,13 @@ class GNPController extends Controller
 				  </VEHICULO>
 				  <CONTRATANTE>
 				    <TIPO_PERSONA>F</TIPO_PERSONA>
-				    <CODIGO_POSTAL>$cliente->cp</CODIGO_POSTAL>
+				    <CODIGO_POSTAL>$cp</CODIGO_POSTAL>
 				  </CONTRATANTE>
 				  <CONDUCTOR>
 				    <FCH_NACIMIENTO>$nacimiento</FCH_NACIMIENTO>
 				    <SEXO>$sexo</SEXO>
 				    <EDAD>$edad</EDAD>
-				    <CODIGO_POSTAL>$cliente->cp</CODIGO_POSTAL>
+				    <CODIGO_POSTAL>$cp</CODIGO_POSTAL>
 				  </CONDUCTOR>
 				  <PAQUETES>
 				    <PAQUETE>
@@ -347,7 +347,7 @@ class GNPController extends Controller
  			? $paquetesPersonaFisica[$request->poliza]
  			: $paquetesPersonaMoral[$request->poliza];
 
- 		$data = $this->getXMLCotizacion($cliente, $fecha_inicio, $fecha_fin, $modelo, $armadora,
+ 		$data = $this->getXMLCotizacion($cliente->cp, $fecha_inicio, $fecha_fin, $modelo, $armadora,
  				$carroceria, $version, $nacimiento, $sexo, $edad, $clavePaquete, $request->poliza);
  		// dd($data);
  		try {
@@ -501,41 +501,58 @@ class GNPController extends Controller
  		$fecha_fin         = Carbon::now()->addYear()->format('Ymd');
  		$num_int           = $datos->num_int != null ? $datos->num_int : '';
  		$clavePaquete      = $datos->paquete->CVE_PAQUETE;
+ 		$poliza  		   = $datos->paquete->DESC_PAQUETE;
  		$estadoCirculacion = substr($datos->estadoCirculacion, 1);
  		$datos->f_nac = str_replace("-", '', $datos->f_nac);
  		$telefono = substr($datos->telefono, 2);
  		$lada = substr($datos->telefono, 0, 2);
  		$datos->municipio = str_replace([".", ",", ";", ":", "-", "_"], "", $datos->municipio);
 
- 		switch ($datos->periodicidad) {
- 			case 'A':
- 				$primaNeta  = $datos->paquete->TOTALES->TOTAL_PRIMA[0]->CONCEPTO_ECONOMICO[1]->MONTO;
- 				$importeIVA = $datos->paquete->TOTALES->TOTAL_PRIMA[0]->CONCEPTO_ECONOMICO[7]->MONTO;
- 				$primaTotal = $datos->paquete->TOTALES->TOTAL_PRIMA[0]->CONCEPTO_ECONOMICO[9]->MONTO;
- 				break;
- 			case 'S':
- 				$primaNeta  = $datos->paquete->TOTALES->TOTAL_PRIMA[1]->CONCEPTO_ECONOMICO[1]->MONTO;
- 				$importeIVA = $datos->paquete->TOTALES->TOTAL_PRIMA[1]->CONCEPTO_ECONOMICO[7]->MONTO;
- 				$primaTotal = $datos->paquete->TOTALES->TOTAL_PRIMA[0]->CONCEPTO_ECONOMICO[9]->MONTO;
- 				break;
- 			case 'T':
- 				$primaNeta  = $datos->paquete->TOTALES->TOTAL_PRIMA[2]->CONCEPTO_ECONOMICO[1]->MONTO;
- 				$importeIVA = $datos->paquete->TOTALES->TOTAL_PRIMA[2]->CONCEPTO_ECONOMICO[7]->MONTO;
- 				$primaTotal = $datos->paquete->TOTALES->TOTAL_PRIMA[0]->CONCEPTO_ECONOMICO[9]->MONTO;
- 				break;
- 		}
 
  		$armadora   = $datos->descripcionAuto[1]->CLAVE;
  		$modelo     = $datos->descripcionAuto[2]->CLAVE;
  		$carroceria = $datos->descripcionAuto[3]->CLAVE;
  		$version    = $datos->descripcionAuto[4]->CLAVE;
 
+ 		// Obtenemos la cotizacion con los datos del formulario.
+ 		$data = $this->getXMLCotizacion($datos->codigo_postal, $fecha_inicio, $fecha_fin, $modelo, $armadora,
+ 				$carroceria, $version, $datos->f_nac, $datos->sexo, $datos->edad, $clavePaquete, $poliza);
+
+ 		try {
+			
+			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/cotizador/cotizar", $data);
+	        //convert the XML result into array
+	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
+		} catch (Exception $e) {
+			return back()->with("Error", "Ocurrio un error al enviar la información");
+		}
+
+		$num_cotizacion = $array_data["SOLICITUD"]["NUM_COTIZACION"];
+
+ 		switch ($datos->periodicidad) {
+ 			case 'A':
+ 				$primaNeta  = $array_data["PAQUETES"]["PAQUETE"]["TOTALES"]["TOTAL_PRIMA"][0]["CONCEPTO_ECONOMICO"][1]["MONTO"];
+ 				$importeIVA = $array_data["PAQUETES"]["PAQUETE"]["TOTALES"]["TOTAL_PRIMA"][0]["CONCEPTO_ECONOMICO"][7]["MONTO"];
+ 				$primaTotal = $array_data["PAQUETES"]["PAQUETE"]["TOTALES"]["TOTAL_PRIMA"][0]["CONCEPTO_ECONOMICO"][9]["MONTO"];
+ 				break;
+ 			case 'S':
+ 				$primaNeta  = $array_data["PAQUETES"]["PAQUETE"]["TOTALES"]["TOTAL_PRIMA"][1]["CONCEPTO_ECONOMICO"][1]["MONTO"];
+ 				$importeIVA = $array_data["PAQUETES"]["PAQUETE"]["TOTALES"]["TOTAL_PRIMA"][1]["CONCEPTO_ECONOMICO"][7]["MONTO"];
+ 				$primaTotal = $array_data["PAQUETES"]["PAQUETE"]["TOTALES"]["TOTAL_PRIMA"][1]["CONCEPTO_ECONOMICO"][9]["MONTO"];
+ 				break;
+ 			case 'T':
+ 				$primaNeta  = $array_data["PAQUETES"]["PAQUETE"]["TOTALES"]["TOTAL_PRIMA"][2]["CONCEPTO_ECONOMICO"][1]["MONTO"];
+ 				$importeIVA = $array_data["PAQUETES"]["PAQUETE"]["TOTALES"]["TOTAL_PRIMA"][2]["CONCEPTO_ECONOMICO"][7]["MONTO"];
+ 				$primaTotal = $array_data["PAQUETES"]["PAQUETE"]["TOTALES"]["TOTAL_PRIMA"][2]["CONCEPTO_ECONOMICO"][9]["MONTO"];
+ 				break;
+ 		}
+
  		return  "<EMISION>
 				  <SOLICITUD>
 				    <USUARIO>$this->user</USUARIO>
 				    <PASSWORD>$this->pass</PASSWORD>
 				    <ID_UNIDAD_OPERABLE>$this->unidadOperable</ID_UNIDAD_OPERABLE>
-				    <NUM_COTIZACION>$datos->numCotizacion</NUM_COTIZACION>
+				    <NUM_COTIZACION>$num_cotizacion</NUM_COTIZACION>
 				    <FCH_INICIO_VIGENCIA>$fecha_inicio</FCH_INICIO_VIGENCIA>
 				    <FCH_FIN_VIGENCIA>$fecha_fin</FCH_FIN_VIGENCIA>
 				    <FCH_EFECTO_MOVIMIENTO>$fecha_inicio</FCH_EFECTO_MOVIMIENTO>
@@ -586,7 +603,7 @@ class GNPController extends Controller
 				      <PLACAS>$datos->placas</PLACAS>
 				      <ALTO_RIESGO>0</ALTO_RIESGO>
 				      <TIPO_CARGA></TIPO_CARGA>
-				      <ESTADO_CIRCULACION>$estadoCirculacion</ESTADO_CIRCULACION>
+				      <ESTADO_CIRCULACION>$datos->estado</ESTADO_CIRCULACION>
 				      <MOTOR>$datos->motor</MOTOR>
 				      <SERIE>$datos->serie</SERIE>
 				      <CODIGO_POSTAL>$datos->codigo_postal</CODIGO_POSTAL>
@@ -654,7 +671,6 @@ class GNPController extends Controller
  	 */
  	public function emitirPoliza(Request $request)
  	{
- 		dd($request->all());
  		$request->paquete = json_decode($request->paquete);
  		$request->descripcionAuto = json_decode($request->descripcionAuto);
 
@@ -667,7 +683,7 @@ class GNPController extends Controller
 	        return view('gnp.poliza',['response'=>$array_data]);
 	        // return response()->json(['cotizacionGNP'=>$array_data],201);
 		} catch (Exception $e) {
-			return response()->json(['error'=>"Fallo la peticion"],400);
+			return response()->json(['error'=>"Fallo la petición"],400);
 		}
  	}
 }

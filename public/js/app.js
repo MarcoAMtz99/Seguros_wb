@@ -5000,6 +5000,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -52305,7 +52306,31 @@ var render = function() {
                                                               ]),
                                                               _vm._v(" - ")
                                                             ]
+                                                          ),
+                                                      _vm._v(" "),
+                                                      cobertura.SUMA_ASEGURADA !=
+                                                      ""
+                                                        ? _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "border"
+                                                            },
+                                                            [
+                                                              _c("strong", [
+                                                                _vm._v(
+                                                                  "Suma asegurada:"
+                                                                )
+                                                              ]),
+                                                              _vm._v(
+                                                                " " +
+                                                                  _vm._s(
+                                                                    cobertura.SUMA_ASEGURADA
+                                                                  )
+                                                              )
+                                                            ]
                                                           )
+                                                        : _vm._e()
                                                     ])
                                                   : _vm._e()
                                               }
@@ -53187,15 +53212,18 @@ var render = function() {
                                                         _vm._v(
                                                           _vm._s(
                                                             cobertura.NOMBRE
-                                                          ) + ":"
+                                                          )
                                                         )
                                                       ]),
                                                       _vm._v(
-                                                        " " +
+                                                        "Deducible: " +
                                                           _vm._s(
                                                             cobertura.DEDUCIBLE
                                                           ) +
-                                                          " "
+                                                          " Suma Asegurada: " +
+                                                          _vm._s(
+                                                            cobertura.SUMA_ASEGURADA
+                                                          )
                                                       )
                                                     ])
                                                   ])
