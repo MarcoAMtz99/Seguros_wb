@@ -26,7 +26,7 @@ class AnaController extends Controller
             'encoding'=>'UTF-8',
             'verifypeer'=>false,
             'verifyhost'=>false,
-            'soap_version'=>'SOAP_1_1',
+            'soap_version'=>SOAP_1_1,
             'trace'=>1,
             'exceptions'=>1,
             'connection_timeout'=>5000,

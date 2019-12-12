@@ -18,7 +18,7 @@ class GeneralSegurosController extends Controller
     	$this->opts = array(
 		  'http'=> array('header'=>array('Content-Type:application/soap+xml; charset=utf-8'))
 		);
-		$this->params = array ('encoding' => 'UTF-8', 'trace' => true, 'keep_alive' => false, 'soap_version' => 'SOAP_1_1','stream_context' => stream_context_create($this->opts) );
+		$this->params = array ('encoding' => 'UTF-8', 'trace' => true, 'keep_alive' => false, 'soap_version' => SOAP_1_1,'stream_context' => stream_context_create($this->opts) );
     	 // DATOS GENERAL DE SEGUROS
         // ******************************************************
 		// $this->urlAuth = "https://gdswas.mx/gsautos-ws/soap/autenticacionWS?wsdl";
