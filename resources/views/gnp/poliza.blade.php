@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="row justify-content-center">
-	<div class="col-10 col-sm-6 my-5 mx-0 p-0 bg-light rounded shadow-lg">
+	<div class="col-10 col-sm-8 my-5 mx-0 p-0 bg-light rounded shadow-lg">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
                 <a class="nav-link disabled" id="paso1-tab" data-toggle="tab" href="#paso1" role="tab" aria-controls="paso1" aria-selected="true">Datos</a>
@@ -50,44 +50,28 @@
 					@endif
 					@if(isset($response['CONCEPTOS_ECONOMICOS']))
 					<div class="col-12">
-						<div class="justify-content-center mt-4">
+						<div class="text-center mt-4">
 							<h3>Monto a pagar:</h3>
-							<table class="table">
-							  <thead class="thead-dark">
-							    <tr>
-							      <th scope="col">#</th>
-							      <th scope="col">CONCEPTO_ECONOMICO</th>
-							      <th scope="col">MONTO</th>
-							    </tr>
-							  </thead>
-							  <tbody>
-							    <tr>
-							      <th scope="row">1</th>
-							      <td>Prima Neta</td>
-							      <td>${{ number_format($response['CONCEPTOS_ECONOMICOS']["CONCEPTO_ECONOMICO"][5]["MONTO"], 2) }}</td>
-							    </tr>
-							    <tr>
-							      <th scope="row">2</th>
-							      <td>Recargo por Pago Fraccionado</td>
-							      <td>${{ number_format($response['CONCEPTOS_ECONOMICOS']["CONCEPTO_ECONOMICO"][7]["MONTO"], 2) }}</td>
-							    </tr>
-							    <tr>
-							      <th scope="row">3</th>
-							      <td>Derecho de Póliza</td>
-							      <td>${{ number_format($response['CONCEPTOS_ECONOMICOS']["CONCEPTO_ECONOMICO"][9]["MONTO"], 2) }}</td>
-							    </tr>
-							    <tr>
-							      <th scope="row">4</th>
-							      <td>I.V.A. </td>
-							      <td>${{ number_format($response['CONCEPTOS_ECONOMICOS']["CONCEPTO_ECONOMICO"][8]["MONTO"], 2) }}</td>
-							    </tr>
-							    <tr>
-							      <th scope="row">4</th>
-							      <td>Tota a Pagar </td>
-							      <td>${{ number_format($response['CONCEPTOS_ECONOMICOS']["CONCEPTO_ECONOMICO"][0]["MONTO"], 2) }}</td>
-							    </tr>
-							  </tbody>
-							</table>
+							<div class="row text-justify">
+								<div class="col-md-4 text-light bg-dark">#</div>
+								<div class="col-md-4 text-light bg-dark">CONCEPTO ECONOMICO</div>
+								<div class="col-md-4 text-light bg-dark">MONTO</div>
+								<div class="col-md-4">1</div>
+								<div class="col-md-4">Prima Neta</div>
+								<div class="col-md-4">${{ number_format($response['CONCEPTOS_ECONOMICOS']["CONCEPTO_ECONOMICO"][5]["MONTO"], 2) }}</div>
+								<div class="col-md-4">2</div>
+								<div class="col-md-4">Recargo por Pago Fraccionado</div>
+								<div class="col-md-4">${{ number_format($response['CONCEPTOS_ECONOMICOS']["CONCEPTO_ECONOMICO"][7]["MONTO"], 2) }}</div>
+								<div class="col-md-4">3</div>
+								<div class="col-md-4">Derecho de Póliza</div>
+								<div class="col-md-4">${{ number_format($response['CONCEPTOS_ECONOMICOS']["CONCEPTO_ECONOMICO"][9]["MONTO"], 2) }}</div>
+								<div class="col-md-4">4</div>
+								<div class="col-md-4">I.V.A.</div>
+								<div class="col-md-4">${{ number_format($response['CONCEPTOS_ECONOMICOS']["CONCEPTO_ECONOMICO"][8]["MONTO"], 2) }}</div>
+								<div class="col-md-4">5</div>
+								<div class="col-md-4">Tota a Pagar</div>
+								<div class="col-md-4">${{ number_format($response['CONCEPTOS_ECONOMICOS']["CONCEPTO_ECONOMICO"][0]["MONTO"], 2) }}</div>
+							</div>				
 						</div>
 					</div>
 					@endif	
