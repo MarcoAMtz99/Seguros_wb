@@ -49,7 +49,6 @@ class GNPController extends Controller
 		try {
 			
 			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/cotizador/cotizar", $this->getXMLCotizacion());
-			// dd($curl->response);
 	        //convert the XML result into array
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
 
