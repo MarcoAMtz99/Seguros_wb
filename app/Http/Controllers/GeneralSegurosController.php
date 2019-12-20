@@ -31,7 +31,7 @@ class GeneralSegurosController extends Controller
         $this->urlCotiza = "https://serviciosgs.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
         $this->urlCat = "https://gdswas.mx/gsautos-ws/soap/catalogosWS?wsdl";
         $this->urlCatAuto = "https://gdswas.mx/gsautos-ws/soap/catalogoAutosWS?wsdl";
-        $this->urlCober = "https://gdswas.mx/gsautos-ws/soap/catalogoCoberturasWS?wsdl";
+        $this->urlCober = "https://serviciosgs.mx/gsautos-ws/soap/catalogoCoberturasWS?wsdl";
 		try{
 			$this->clientAuthGS = $this->getClient($this->urlAuth);
 			
