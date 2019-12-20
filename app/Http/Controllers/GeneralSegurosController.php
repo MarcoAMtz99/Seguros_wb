@@ -27,8 +27,8 @@ class GeneralSegurosController extends Controller
 		// $this->urlCatAuto = "https://gdswas.mx/gsautos-ws/soap/catalogoAutosWS?wsdl";
 		// $this->urlCober = "https://gdswas.mx/gsautos-ws/soap/catalogoCoberturasWS?wsdl";
         // *******************************************************
-        $this->urlAuth = "https://gdswas.mx/gsautos-ws/soap/autenticacionWS?wsdl";
-        $this->urlCotiza = "https://gdswas.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
+        $this->urlAuth = "https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl";
+        $this->urlCotiza = "https://serviciosgs.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
         $this->urlCat = "https://gdswas.mx/gsautos-ws/soap/catalogosWS?wsdl";
         $this->urlCatAuto = "https://gdswas.mx/gsautos-ws/soap/catalogoAutosWS?wsdl";
         $this->urlCober = "https://gdswas.mx/gsautos-ws/soap/catalogoCoberturasWS?wsdl";
@@ -241,6 +241,7 @@ class GeneralSegurosController extends Controller
     	$soapClient = $this->getClient($this->urlCober);
     	$coberturas = $soapClient->wsObtenerCoberturasCotizacion(['arg0'=>['token'=>$this->token,'cotizacion'=>$cotizacion,'paquete'=>$paquete]]);
     	$response = json_decode(json_encode($coberturas),true);
+        
     	if ($response['return']['exito']){
     		return $response['return']['coberturas'];
     		// return response()->json(['coberturas'=>$response['return']['coberturas']]);

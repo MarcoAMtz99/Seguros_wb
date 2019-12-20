@@ -160,8 +160,8 @@
         <!--FOOTER-->
         <div class="row bg-info text-white p-4 footer">
             <a class="botonF1" href="https://wa.me/525611763726?text=Hola%20Autosegurodirecto.com.%20Estoy%20interesado%20en%20contratar%20un%20seguro%20con%20ustedes.">
-                  <i class="fab fa-whatsapp"></i><span> Whatsapp</span>
-                </a>
+              <i class="fab fa-whatsapp"></i><span> Whatsapp</span>
+            </a>
             <div class="col-12 col-sm-4">
                 <p class="font-weight-bold text-center">Autosegurodirecto.com.mx</p>
                 <p class="text-center">"A un click de tu Seguro"</p>

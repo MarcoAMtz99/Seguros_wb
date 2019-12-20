@@ -9,7 +9,6 @@
 		              <a class="nav-link disabled" id="v-pills-Modelo-tab" data-toggle="pill"  href="#v-pills-Modelo" role="tab" aria-controls="v-pills-Modelo" aria-selected="false">Modelo: {{cliente.modelo_auto}}</a>
 		              <a class="nav-link disabled" id="v-pills-Marca-tab" data-toggle="pill" href="#v-pills-Marca" role="tab" aria-controls="v-pills-Marca" aria-selected="false">Marca: {{cliente.marca_auto.descripcion}}</a>
 		              <a class="nav-link disabled" id="v-pills-Submarca-tab" data-toggle="pill" href="#v-pills-Submarca" role="tab" aria-controls="v-pills-Submarca" aria-selected="false">Tipo: {{cliente.submarca_auto.descripcion}}</a>
-		              <!-- <a class="nav-link disabled" id="v-pills-Descripcion-tab" data-toggle="pill" href="#v-pills-Descripcion"  role="tab" aria-controls="v-pills-Descripcion" aria-selected="false">Descripción:  {{cliente.descripcion_auto.descripcion}}</a> -->
 		              <a class="nav-link disabled" id="v-pills-CP-tab" data-toggle="pill"  href="#v-pills-CP" role="tab" aria-controls="v-pills-CP" aria-selected="false">CP: {{cliente.cp}}</a>
 		              <a class="nav-link disabled" id="v-pills-Nombre-tab" data-toggle="pill" href="#v-pills-Nombre"  role="tab" aria-controls="v-pills-Nombre" aria-selected="false">Nombre: {{cliente.nombre}} {{cliente.appaterno}} {{cliente.apmaterno}}</a>
 		              <a class="nav-link disabled" id="v-pills-Celular-tab" data-toggle="pill"  href="#v-pills-Celular" role="tab" aria-controls="v-pills-Celular" aria-selected="false">Celular: {{cliente.telefono}}</a>
@@ -121,30 +120,6 @@
 		                        </div>
 		                    </div>
 		                </div>
-		                  <!--Descripcion-->
-		               	<!--  <div class="tab-pane fade" v-show="descripcion" id="v-pills-Descripcion" role="tabpanel" aria-albelledby="v-pills-Descripcion-tab" >
-		                    <div class="card p-0">
-		                        <div class="card-header">
-		                            Descripcion
-		                        </div>
-		                        <div class="card-body">
-		                        	<div v-show="loader_desc" class="loader"></div>
-		                        	<div v-show="!loader_desc && this.descripciones.length == 0">
-		                        		<label>No se encontraron resultados</label>
-		                        	</div>
-		                            <select v-show="!loader_desc && this.descripciones.length != 0" class="list-group list-group-flush col" v-model="cliente.descripcion_auto" size="3">
-		                            	<option value="" class="list-group-item text-center text-dark seleccionador" style="white-space: normal;">Seleccione la descripcion de su auto</option>
-		                            	<option v-for="descripcion in descripciones" :value="descripcion" class="list-group-item text-center text-dark seleccionador" style="white-space: normal;">{{descripcion.descripcion}}</option>
-		                            </select>
-		                            <div class="row">
-										<div class="col-12 mt-3 d-block d-sm-none">
-											<button class="btn btn-primary" type="button" onclick="$('#v-pills-Modelo-tab').click();">Atras</button>
-										</div>
-									</div>
-		                        </div>
-		                    </div>
-		                </div> -->
-		                <!--CP-->
 		                <div class="tab-pane fade" v-show="cp" id="v-pills-CP" role="tabpanel" aria-albelledby="v-pills-CP-tab">
 		                    <div class="card p-0">
 		                        <div class="card-header">
