@@ -42,14 +42,14 @@ class GeneralSegurosController extends Controller
 		}
 		// get token
 		$this->token = $this->getToken();
-		$this->middleware(function ($request,$next){
-			if ($this->token) {
-				return $next($request);
-			}
-			else{
-				return response()->json(['error'=>'token is null']);
-			}
-		});
+		// $this->middleware(function ($request,$next){
+		// 	if ($this->token) {
+		// 		return $next($request);
+		// 	}
+		// 	else{
+		// 		return response()->json(['error'=>'token is null']);
+		// 	}
+		// });
     }
 
     public function getClient($url)

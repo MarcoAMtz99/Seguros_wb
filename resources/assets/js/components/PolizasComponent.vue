@@ -621,6 +621,7 @@
                     this.getDescripcionesQualitas(this.cliente.marca_auto.descripcion,this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio)
                 }
                 if(this.cliente.gs){
+                    console.log('ESTA ACTIVO DESCRIPCIONES GS');
                     this.getDescripcionesGS(this.cliente.marca_auto.descripcion,this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio);
                 }
                 if(this.cliente.gnp){
@@ -756,10 +757,10 @@
             getDescripcionesGS(marca,submarca,modelo){
                 let url=`./api/versionesGS/${marca}/${submarca}/${modelo}`;
                 axios.get(url).then(res=>{
-                    console.log(res);
+                    console.log('RESULTADO GENERAL DE SEGUROS',res);
                     this.descripciones_gs = res.data.versiones_gs;
                 }).catch(err=>{
-                    console.log(err);
+                    console.log('ERROR GENERAL DE SEGUROS',err);
                 })
             },
             sendCotizacionGS(descripcion,poliza){

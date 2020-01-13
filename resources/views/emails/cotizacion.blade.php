@@ -143,7 +143,7 @@ La cotización de tú auto {{$cliente->auto->marca->descripcion}} {{$cliente->au
 Los datos de tu cotizacion son los siguientes:
 
 <table class="table-fill">
-	<thea>
+	<thead>
 		<tr>
 			<th class="text-center">Prima Total</th>
 			<th class="text-center">Daños Materiales</th>
