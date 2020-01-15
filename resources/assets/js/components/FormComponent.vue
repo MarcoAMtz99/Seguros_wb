@@ -21,12 +21,14 @@
 						</div>
 						<div class="form-group col-12">
 							<label class="control-label"><i class="fas fa-asterisk"></i> Tipo de persona:</label>
+							<!-- INPUT TIPO PERSONA (FISICA) -->
 	                        <div class="form-check col-12">
 	                            <input class="form-check-input" type="radio" name="tipo_persona" id="radioF" v-model="generalseguro.cliente.tipo_persona" value="F" required="" checked>
 	                            <label class="form-check-label" for="radioF">
 	                             Fisica
 	                            </label>
 	                        </div>
+							<!-- INPUT TIPO PERSONAL (MORAL) -->
 	                        <div class="form-check col-12">
 	                            <input class="form-check-input" type="radio" name="tipo_persona" id="radioM" v-model="generalseguro.cliente.tipo_persona" value="M">
 	                            <label class="form-check-label" for="radioM">

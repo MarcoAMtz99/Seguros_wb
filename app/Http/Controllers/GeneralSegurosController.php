@@ -11,155 +11,149 @@ class GeneralSegurosController extends Controller
 {
     //
 
-    protected $opts,$params,$urlAuth,$urlCotiza,$token,$urlCat,$urlCatAuto,$urlCober;
+    protected $opts, $params, $urlAuth, $urlCotiza, $token, $urlCat, $urlCatAuto, $urlCober;
 
-    public function __construct(){
+    public function __construct()
+    {
 
-    	$this->opts = array(
-		  'http'=> array('header'=>array('Content-Type:application/soap+xml; charset=utf-8'))
-		);
-		$this->params = array ('encoding' => 'UTF-8', 'trace' => true, 'keep_alive' => false, 'soap_version' => SOAP_1_1,'stream_context' => stream_context_create($this->opts) );
-    	 // DATOS GENERAL DE SEGUROS
+        $this->opts = array(
+            'http' => array('header' => array('Content-Type:application/soap+xml; charset=utf-8'))
+        );
+        $this->params = array('encoding' => 'UTF-8', 'trace' => true, 'keep_alive' => false, 'soap_version' => SOAP_1_1, 'stream_context' => stream_context_create($this->opts));
+        // DATOS GENERAL DE SEGUROS
         // ******************************************************
-		// $this->urlAuth = "https://gdswas.mx/gsautos-ws/soap/autenticacionWS?wsdl";
-		// $this->urlCotiza = "https://gdswas.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
-		// $this->urlCat = "https://gdswas.mx/gsautos-ws/soap/catalogosWS?wsdl";
-		// $this->urlCatAuto = "https://gdswas.mx/gsautos-ws/soap/catalogoAutosWS?wsdl";
-		// $this->urlCober = "https://gdswas.mx/gsautos-ws/soap/catalogoCoberturasWS?wsdl";
+        // $this->urlAuth = "https://gdswas.mx/gsautos-ws/soap/autenticacionWS?wsdl";
+        // $this->urlCotiza = "https://gdswas.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
+        // $this->urlCat = "https://gdswas.mx/gsautos-ws/soap/catalogosWS?wsdl";
+        // $this->urlCatAuto = "https://gdswas.mx/gsautos-ws/soap/catalogoAutosWS?wsdl";
+        // $this->urlCober = "https://gdswas.mx/gsautos-ws/soap/catalogoCoberturasWS?wsdl";
         // *******************************************************
-        $this->urlAuth = "https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl";
-        $this->urlCotiza = "https://serviciosgs.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
+        $this->urlAuth = "https://gdswas.mx/gsautos-ws/soap/autenticacionWS?wsdl";
+        $this->urlCotiza = "https://gdswas.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
         $this->urlCat = "https://gdswas.mx/gsautos-ws/soap/catalogosWS?wsdl";
         $this->urlCatAuto = "https://gdswas.mx/gsautos-ws/soap/catalogoAutosWS?wsdl";
         $this->urlCober = "https://serviciosgs.mx/gsautos-ws/soap/catalogoCoberturasWS?wsdl";
-		try{
-			$this->clientAuthGS = $this->getClient($this->urlAuth);
-			
-			// $this->clientCotGS = new SoapClient($this->urlCotiza,$this->params);
-		}
-		catch(SoapFault $fault){
-			dd($fault);
-		}
-		// get token
-		$this->token = $this->getToken();
-		// $this->middleware(function ($request,$next){
-		// 	if ($this->token) {
-		// 		return $next($request);
-		// 	}
-		// 	else{
-		// 		return response()->json(['error'=>'token is null']);
-		// 	}
-		// });
+        try {
+            $this->clientAuthGS = $this->getClient($this->urlAuth);
+
+            // $this->clientCotGS = new SoapClient($this->urlCotiza,$this->params);
+        } catch (SoapFault $fault) {
+            dd($fault);
+        }
+        // get token
+        $this->token = $this->getToken();
+        $this->middleware(function ($request, $next) {
+            if ($this->token) {
+                return $next($request);
+            } else {
+                return response()->json(['error' => 'token is null']);
+            }
+        });
     }
 
     public function getClient($url)
     {
-        try{
-            $client = new SoapClient($url,$this->params);
-    	   return $client;
-
-        }
-        catch(FatalErrorException $error){
+        try {
+            $client = new SoapClient($url, $this->params);
+            return $client;
+        } catch (FatalErrorException $error) {
             dd($error);
         }
     }
 
     public function getToken()
     {
-
-    	// dd($this->clientAuthGS->__getTypes());
-    	$result = $this->clientAuthGS->obtenerToken(['arg0'=>["usuario"=>'ATC0','password'=>'2r2kGdeUA0']]);
-    	$response = json_decode(json_encode($result),true);
-    	if ($response['return']['exito']) {
-    		return $response['return']['token'];
-    		
-    	}
-    	else{
-    		return null;
-    	}
+        // dd($this->clientAuthGS->__getTypes());
+        $result = $this->clientAuthGS->obtenerToken([
+            'arg0' => [
+                "usuario" => 'ATC0',
+                'password' => '2r2kGdeUA0'
+            ]
+        ]);
+        // return $result;
+        $response = json_decode(json_encode($result), true);
+        if ($response['return']['exito']) {
+            // dd($response);
+            return $response['return']['token'];
+        } else {
+            return null;
+        }
     }
 
     public function setMarca($marca)
     {
         // dd($marca);
-        try{
+        try {
 
             $client = $this->getClient($this->urlCatAuto);
-            $res = $client->wsListarMarcas(['arg0'=>["token"=>$this->token]]);
+            $res = $client->wsListarMarcas(['arg0' => ["token" => $this->token]]);
             if ($res->return->exito) {
                 foreach ($res->return->marcas as $marca_gs) {
-                    if($marca_gs->nombre == $marca->nombre){
+                    if ($marca_gs->nombre == $marca->nombre) {
                         $marca->id_gs = $marca_gs->id;
                         $marca->save();
                         return $marca_gs->id;
                     }
                 }
-                
             } else {
-                
             }
-
-        }catch(SoapFault $fault){
+        } catch (SoapFault $fault) {
             dd($fault);
         }
     }
 
-    public function setSubMarca($marca_id,$submarca)
+    public function setSubMarca($marca_id, $submarca)
     {
-        try{
+        try {
             // dd($marca);
             $client = $this->getClient($this->urlCatAuto);
-            $res = $client->wsListarSubMarcas(['arg0'=>['token'=>$this->token,'idMarca'=>$marca_id]]);
+            $res = $client->wsListarSubMarcas(['arg0' => ['token' => $this->token, 'idMarca' => $marca_id]]);
 
             if ($res->return->exito) {
 
                 foreach ($res->return->submarcas as $submarca_gs) {
 
-                    if($submarca_gs->nombre == $submarca->nombre){
+                    if ($submarca_gs->nombre == $submarca->nombre) {
                         $submarca->id_gs = $submarca_gs->id;
                         $submarca->id_seg_gs = $submarca_gs->idSegmento;
                         $submarca->save();
                         return $submarca->id_gs;
                     }
-
                 }
             }
             // dd($res);
-        }
-        catch(SoapFault $fault){
-
+        } catch (SoapFault $fault) {
         }
     }
 
-    public function setVersion($submarca_id,$modelo, $version)
+    public function setVersion($submarca_id, $modelo, $version)
     {
-        try{
+        try {
             $client = $this->getClient($this->urlCatAuto);
-            $res = $client->wsListarVersiones(['arg0'=>['idSubmarca'=>$submarca_id,'modelo'=>$modelo]]);
+            $res = $client->wsListarVersiones(['arg0' => ['idSubmarca' => $submarca_id, 'modelo' => $modelo]]);
             if ($res->return->exito) {
                 $porc_piv = 0;
                 foreach ($res->return->versiones as $version_gs) {
 
-                    similar_text($version->descripcion, $version_gs->descripcion,$porcentaje);
-                    if($porcentaje>=$porc_piv){
+                    similar_text($version->descripcion, $version_gs->descripcion, $porcentaje);
+                    if ($porcentaje >= $porc_piv) {
                         $porc_piv = $porcentaje;
                         $version->amis_gs = $version_gs->amis;
                     }
-
                 }
                 $version->save();
                 return $version_gs->amis;
             }
-        }
-        catch(SoapFault $fault){
+        } catch (SoapFault $fault) {
             dd($fault);
         }
     }
 
-    public function getCotizacion(Request $request){
-    	$cliente = Cliente::where('cotizacion',$request->cotizacion)->first();
-        $input =$request->all();
-        $claveGs=$input['descripcion_gs']['amis'];
+    public function getCotizacion(Request $request)
+    {
+        $cliente = Cliente::where('cotizacion', $request->cotizacion)->first();
+        $input = $request->all();
+        $claveGs = $input['descripcion_gs']['amis'];
         $modelo = $input['descripcion_gs']['modelo'];
         $poliza = $input['poliza'];
         // dd($poliza);
@@ -167,98 +161,92 @@ class GeneralSegurosController extends Controller
             case 'Amplia':
                 $poliza_gs = "CONFORT AMPLIA";
                 break;
-            
+
             case 'Limitada':
                 $poliza_gs = "CONFORT LIMITADA";
                 break;
-            
+
             case 'RC':
                 $poliza_gs = "CONFORT BASICA";
                 break;
-            
+
             default:
                 $poliza_gs = "CONFORT BASICA";
                 break;
         }
         // dd($modelo);
 
-    	// dd($cliente['tipoServicio']);
-            $soapClient = $this->getClient($this->urlCotiza);
-            // return $soapClient->__getTypes();
-        try{
+        // dd($cliente['tipoServicio']);
+        $soapClient = $this->getClient($this->urlCotiza);
+        // return $soapClient->__getTypes();
+        try {
 
-            ini_set('default_socket_timeout', 600); 
-            $res = $soapClient->generarCotizacion(['arg0'=>[
-                                                        'token'=>$this->token,
-                                                        'configuracionProducto' => "RESIDENTE_INDIVIDUAL",
-                                                        'cp'                    => $cliente->cp,
-                                                        'descuento'             => 0,
-                                                        'vigencia'              => "ANUAL",
-                                                        'inciso' => [
-                                                            'claveGs'          => $claveGs,
-                                                            "conductorMenor30" => $cliente->menor30,
-                                                            'modelo'           => $modelo,
-                                                            'tipoServicio'     => $cliente->tipoServicio,
-                                                            'tipoValor'        => "VALOR_COMERCIAL",
-                                                            "tipoVehiculo"     => "AUTO_PICKUP",
-                                                            "valorVehiculo"    => ""
-                                                        ]
-                                                    ]]);
-            $response = json_decode(json_encode($res),true);
+            ini_set('default_socket_timeout', 600);
+            $res = $soapClient->generarCotizacion(['arg0' => [
+                'token' => $this->token,
+                'configuracionProducto' => "RESIDENTE_INDIVIDUAL",
+                'cp'                    => $cliente->cp,
+                'descuento'             => 0,
+                'vigencia'              => "ANUAL",
+                'inciso' => [
+                    'claveGs'          => $claveGs,
+                    "conductorMenor30" => $cliente->menor30,
+                    'modelo'           => $modelo,
+                    'tipoServicio'     => $cliente->tipoServicio,
+                    'tipoValor'        => "VALOR_COMERCIAL",
+                    "tipoVehiculo"     => "AUTO_PICKUP",
+                    "valorVehiculo"    => ""
+                ]
+            ]]);
+            $response = json_decode(json_encode($res), true);
             // return $response;
             // dd($response);
-            if($response['return']['exito'] && isset($response['return']['paquetes'])){
+            if ($response['return']['exito'] && isset($response['return']['paquetes'])) {
                 $paquete_gs = [];
                 foreach ($response['return']['paquetes'] as $paquete) {
-                    if($paquete['nombre'] == $poliza_gs){
+                    if ($paquete['nombre'] == $poliza_gs) {
                         $paquete['coberturas'] = $this->getCoberturas($response['return']['idCotizacion'], $paquete['id']);
-                        array_push($paquete_gs,$paquete);
-
+                        array_push($paquete_gs, $paquete);
                     }
                 }
                 // dd($paquetes);
-                $cotizacion = ['id'=>$response['return']['idCotizacion'],'paquete'=>$paquete_gs];
-                return response()->json(['cotizacion'=>$cotizacion]);
-                
+                $cotizacion = ['id' => $response['return']['idCotizacion'], 'paquete' => $paquete_gs];
+                return response()->json(['cotizacion' => $cotizacion]);
+            } elseif (!$response['return']['exito']) {
+
+                return response()->json(['error' => $response['return']['mensaje']], 500);
+            } else {
+                return response()->json(['error' => "No hay paquetes"], 404);
             }
-            elseif(!$response['return']['exito']){
-            
-                return response()->json(['error'=>$response['return']['mensaje']],500);
-            }
-            else{
-                return response()->json(['error'=>"No hay paquetes"],404);
-            }
-            
-        }
-        catch(SoapFault $error){
+        } catch (SoapFault $error) {
             var_dump($error);
-        }    	
+        }
     }
 
-    public function getCoberturas($cotizacion,$paquete)
+    public function getCoberturas($cotizacion, $paquete)
     {
-    	// dd($paquete);
-    	$soapClient = $this->getClient($this->urlCober);
-    	$coberturas = $soapClient->wsObtenerCoberturasCotizacion(['arg0'=>['token'=>$this->token,'cotizacion'=>$cotizacion,'paquete'=>$paquete]]);
-    	$response = json_decode(json_encode($coberturas),true);
-        
-    	if ($response['return']['exito']){
-    		return $response['return']['coberturas'];
-    		// return response()->json(['coberturas'=>$response['return']['coberturas']]);
-    	}
-    	// dd($response);
+        // dd($paquete);
+        $soapClient = $this->getClient($this->urlCober);
+        $coberturas = $soapClient->wsObtenerCoberturasCotizacion(['arg0' => ['token' => $this->token, 'cotizacion' => $cotizacion, 'paquete' => $paquete]]);
+        $response = json_decode(json_encode($coberturas), true);
 
-    	// dd($soapClient->__getTypes());
-    	
+        if ($response['return']['exito']) {
+            return $response['return']['coberturas'];
+            // return response()->json(['coberturas'=>$response['return']['coberturas']]);
+        }
+        // dd($response);
+
+        // dd($soapClient->__getTypes());
+
     }
 
-    public function versiones($marca,$submarca,$modelo)
+    public function versiones($marca, $submarca, $modelo)
     {
         $marca_gs = $this->searchMarca($marca);
-        if($marca_gs){
-            $submarca_gs =$this->searchSubMarca($marca_gs,$submarca);
+        if ($marca_gs) {
+            $submarca_gs = $this->searchSubMarca($marca_gs, $submarca);
             if ($submarca_gs) {
-                $modelo_gs = $this->searchModelos($submarca_gs,$modelo);
+                $modelo_gs = $this->searchModelos($submarca_gs, $modelo);
                 if ($modelo_gs) {
                     $versiones_gs = $this->searchVersiones($submarca_gs, $modelo_gs);
                     $versiones = [];
@@ -266,9 +254,9 @@ class GeneralSegurosController extends Controller
                         $version->marca = $marca_gs;
                         $version->submarca = $submarca_gs;
                         $version->modelo = $modelo_gs;
-                        array_push($versiones,$version);
+                        array_push($versiones, $version);
                     }
-                    return response()->json(['versiones_gs'=>$versiones],201);
+                    return response()->json(['versiones_gs' => $versiones], 201);
                 }
             }
         }
@@ -277,11 +265,11 @@ class GeneralSegurosController extends Controller
     public function searchMarca($marca)
     {
         $client = $this->getClient($this->urlCatAuto);
-        $res = $client->wsListarMarcas(['arg0'=>["token"=>$this->token]]);
+        $res = $client->wsListarMarcas(['arg0' => ["token" => $this->token]]);
         if ($res->return->exito) {
             $marcas = $res->return->marcas;
             foreach ($marcas as $marca_gs) {
-                if($marca_gs->nombre == $marca){
+                if ($marca_gs->nombre == $marca) {
                     return $marca_gs;
                 }
             }
@@ -290,15 +278,15 @@ class GeneralSegurosController extends Controller
         }
     }
 
-    public function searchSubMarca($marca_gs,$submarca)
+    public function searchSubMarca($marca_gs, $submarca)
     {
         $client = $this->getClient($this->urlCatAuto);
-        $res = $client->wsListarSubMarcas(['arg0'=>['token'=>$this->token,'idMarca'=>$marca_gs->id]]);
+        $res = $client->wsListarSubMarcas(['arg0' => ['token' => $this->token, 'idMarca' => $marca_gs->id]]);
         if ($res->return->exito) {
             $submarcas = $res->return->submarcas;
             // return $submarcas;
             foreach ($submarcas as $submarca_gs) {
-                if($submarca_gs->nombre == $submarca){
+                if ($submarca_gs->nombre == $submarca) {
                     return $submarca_gs;
                 }
             }
@@ -306,14 +294,14 @@ class GeneralSegurosController extends Controller
             return false;
         }
     }
-    public function searchModelos($submarca_gs,$modelo)
+    public function searchModelos($submarca_gs, $modelo)
     {
         $client = $this->getClient($this->urlCatAuto);
-        $res = $client->wsListarModelos(['arg0'=>['idSubmarca'=>$submarca_gs->id]]);
+        $res = $client->wsListarModelos(['arg0' => ['idSubmarca' => $submarca_gs->id]]);
         if ($res->return->exito) {
             $modelos = $res->return->modelos;
             foreach ($modelos as $modelo_gs) {
-                if((int)$modelo_gs == (int)$modelo){
+                if ((int) $modelo_gs == (int) $modelo) {
                     return $modelo_gs;
                 }
             }
@@ -321,10 +309,10 @@ class GeneralSegurosController extends Controller
             return false;
         }
     }
-    public function searchVersiones($submarca_gs,$modelo)
+    public function searchVersiones($submarca_gs, $modelo)
     {
         $client = $this->getClient($this->urlCatAuto);
-        $res = $client->wsListarVersiones(['arg0'=>['idSubmarca'=>$submarca_gs->id,'modelo'=>$modelo]]);
+        $res = $client->wsListarVersiones(['arg0' => ['idSubmarca' => $submarca_gs->id, 'modelo' => $modelo]]);
         if ($res->return->exito) {
             $versiones_gs = $res->return->versiones;
             return $versiones_gs;
@@ -333,162 +321,155 @@ class GeneralSegurosController extends Controller
         }
     }
 
-    public function getMarcas(){
-    	$client = $this->getClient($this->urlCatAuto);
-    	$res = $client->wsListarMarcas(['arg0'=>["token"=>$this->token]]);
-    	return $this->responseJson('marcas',$res);
+    public function getMarcas()
+    {
+        $client = $this->getClient($this->urlCatAuto);
+        $res = $client->wsListarMarcas(['arg0' => ["token" => $this->token]]);
+        return $this->responseJson('marcas', $res);
     }
 
-    public function getSubmarcas($marca_id){
-    	// dd($marca_id);
-    	$client = $this->getClient($this->urlCatAuto);
-    	$res = $client->wsListarSubMarcas(['arg0'=>['token'=>$this->token,'idMarca'=>$marca_id]]);
-    	return $this->responseJson('submarcas',$res);
+    public function getSubmarcas($marca_id)
+    {
+        // dd($marca_id);
+        $client = $this->getClient($this->urlCatAuto);
+        $res = $client->wsListarSubMarcas(['arg0' => ['token' => $this->token, 'idMarca' => $marca_id]]);
+        return $this->responseJson('submarcas', $res);
     }
     public function getModelos($submarca_id)
     {
-    	$client = $this->getClient($this->urlCatAuto);
-    	$res = $client->wsListarModelos(['arg0'=>['idSubmarca'=>$submarca_id]]);
-    	return $this->responseJson('modelos',$res);
+        $client = $this->getClient($this->urlCatAuto);
+        $res = $client->wsListarModelos(['arg0' => ['idSubmarca' => $submarca_id]]);
+        return $this->responseJson('modelos', $res);
     }
-    public function getVersiones($submarca_id,$modelo)
+    public function getVersiones($submarca_id, $modelo)
     {
-    	$client = $this->getClient($this->urlCatAuto);
-    	$res = $client->wsListarVersiones(['arg0'=>['idSubmarca'=>$submarca_id,'modelo'=>$modelo]]);
-    	return $this->responseJson('versiones',$res);
+        $client = $this->getClient($this->urlCatAuto);
+        $res = $client->wsListarVersiones(['arg0' => ['idSubmarca' => $submarca_id, 'modelo' => $modelo]]);
+        return $this->responseJson('versiones', $res);
     }
 
     public function getContactos()
     {
-    	$client = $this->getClient($this->urlCat);
-    	$res = $client->wsListarTiposContacto(['arg0'=>['token'=>$this->token]]);
-    	return $this->responseJson('tiposContacto',$res);
+        $client = $this->getClient($this->urlCat);
+        $res = $client->wsListarTiposContacto(['arg0' => ['token' => $this->token]]);
+        return $this->responseJson('tiposContacto', $res);
     }
 
     public function getGiros()
     {
-    	$client = $this->getClient($this->urlCat);
-    	$res = $client->wsListarGiros(['arg0'=>['token'=>$this->token]]);
-    	return $this->responseJson('giros',$res);
-    }	
+        $client = $this->getClient($this->urlCat);
+        $res = $client->wsListarGiros(['arg0' => ['token' => $this->token]]);
+        return $this->responseJson('giros', $res);
+    }
 
     public function getEstadoCivil()
     {
-    	$client = $this->getClient($this->urlCat);
-    	$res = $client->wsListarEstadosCivil(['arg0'=>['token'=>$this->token]]);
-    	return $this->responseJson('estadosCivil',$res);
+        $client = $this->getClient($this->urlCat);
+        $res = $client->wsListarEstadosCivil(['arg0' => ['token' => $this->token]]);
+        return $this->responseJson('estadosCivil', $res);
     }
 
     public function getTitulos()
     {
-    	$client = $this->getClient($this->urlCat);
-    	$res = $client->wsListarTitulos(['arg0'=>['token'=>$this->token]]);
-    	return $this->responseJson('titulos',$res);
-    	
+        $client = $this->getClient($this->urlCat);
+        $res = $client->wsListarTitulos(['arg0' => ['token' => $this->token]]);
+        return $this->responseJson('titulos', $res);
     }
 
-    public function responseJson($key,$res)
+    public function responseJson($key, $res)
     {
-    	$response = json_decode(json_encode($res),true);
-    	if($response['return']['exito']){
-    		if ($key == "paquetes" && $response['return']['idCotizacion']) {
-    			$value = $response['return'][$key];
-    			return response()->json(['cotizacion_id'=>$response['return']['idCotizacion'],$key=>$value ]);
-    		}
-    		else{
-    			if(array_key_exists(0,$response['return'][$key])){
-    			     $value = $response['return'][$key];
-    			     return response()->json([$key=>$value]);
-                }
-                else{
+        $response = json_decode(json_encode($res), true);
+        if ($response['return']['exito']) {
+            if ($key == "paquetes" && $response['return']['idCotizacion']) {
+                $value = $response['return'][$key];
+                return response()->json(['cotizacion_id' => $response['return']['idCotizacion'], $key => $value]);
+            } else {
+                if (array_key_exists(0, $response['return'][$key])) {
+                    $value = $response['return'][$key];
+                    return response()->json([$key => $value]);
+                } else {
                     $value = [$response['return'][$key]];
-                    return response()->json([$key=>$value]);
+                    return response()->json([$key => $value]);
                 }
-    		}
-    	}
+            }
+        }
     }
     public function sendGS(Request $request)
     {
-        
+
         ini_set('default_socket_timeout', 600);
         $clientSOAP = $this->getClient($this->urlCotiza);
         $emitir = $clientSOAP->emitirCotizacion([
-                'arg0'=>[
-                    'token'=>$this->token,
-                    'cliente'=>[
-                        'cve_cli' =>0,
-                        'suc_emi'=>0,
-                        'fis_mor'=>$request->tipo_persona,
-                        'nom_cli'=>$request->nombre,
-                        'ape_pat'=>$request->apepat,
-                        'ape_mat'=>$request->apemat,
-                        'raz_soc'=>$request->razsoc,
-                        'ane_cli'=>"",
-                        'rfc_cli'=>$request->rfc,
-                        'cve_ele'=>$request->elector,
-                        'curpcli'=>$request->curp,
-                        'sexocli'=>$request->sexo,
-                        'edo_civ'=>$request->edoCivil,
-                        'cal_cli'=>$request->calle,
-                        'num_cli'=>$request->num,
-                        'cod_pos'=>$request->cp,
-                        'colonia'=>$request->colonia,
-                        'municip'=>$request->municip,
-                        'poblaci'=>$request->poblaci,
-                        'cve_est'=>"1",
-                        'fec_nac'=>$request->fnac,
-                        'nac_ext'=>$request->nacionalidad,
-                        'ocu_pro'=>$request->ocupacion,
-                        'act_gir'=>$request->giro,
-                        'telefo1'=>$request->telefono1,
-                        'telefo2'=>$request->telefono2,
-                        'telefo3'=>$request->telefono3,
-                        'cor_ele'=>$request->email,
-                        'pag_web'=>$request->web,
-                        'can_con'=>$request->contacto,
-                        'fue_ing'=>$request->ingresos,
-                        'adm_con'=>$request->administrador,
-                        'car_pub'=>$request->cargo_pub,
-                        'nom_car'=>$request->nombre_cargo,
-                        'per_car'=>$request->periodo_cargo,
-                        'apo_cli'=>$request->apoderado,
-                        'dom_ori'=>$request->domicilio_original,
-                        'num_pas'=>$request->pasaporte,
-                        'usu_cap'=>"",
-                        'usu_aut'=>"",
-                        'fec_alt'=>"",
-                        'fec_act'=>"",
-                        'sta_cli'=>"",
-                        'descuento'=>""
-                    ],
-                    'datosIncisoEmision'=>[
-                        'numeroMotor'=>$request->num_motor,
-                        'numeroPlacas'=>$request->num_placas,
-                        'numeroSerie'=>$request->num_serie
-                    ],
-                    'idAgenteCompartido'=>0,
-                    'idCliente'=>0,
-                    'idCotizacion'=>(int)$request->cotizacion_id,
-                    'idFormaPago'=>(int)$request->id_pago,
-                    'idPaquete'=>(int)$request->idpaquete,
-                    'inicioVigencia'=>date("Y-m-d"),
-                    'porcenComisionAgente2'=>""
-                ]
-            ]);
-        
-        $arr = json_decode(json_encode($emitir),true);
+            'arg0' => [
+                'token' => $this->token,
+                'cliente' => [
+                    'cve_cli' => 0,
+                    'suc_emi' => 0,
+                    'fis_mor' => $request->tipo_persona,
+                    'nom_cli' => $request->nombre,
+                    'ape_pat' => $request->apepat,
+                    'ape_mat' => $request->apemat,
+                    'raz_soc' => $request->razsoc,
+                    'ane_cli' => "",
+                    'rfc_cli' => $request->rfc,
+                    'cve_ele' => $request->elector,
+                    'curpcli' => $request->curp,
+                    'sexocli' => $request->sexo,
+                    'edo_civ' => $request->edoCivil,
+                    'cal_cli' => $request->calle,
+                    'num_cli' => $request->num,
+                    'cod_pos' => $request->cp,
+                    'colonia' => $request->colonia,
+                    'municip' => $request->municip,
+                    'poblaci' => $request->poblaci,
+                    'cve_est' => "1",
+                    'fec_nac' => $request->fnac,
+                    'nac_ext' => $request->nacionalidad,
+                    'ocu_pro' => $request->ocupacion,
+                    'act_gir' => $request->giro,
+                    'telefo1' => $request->telefono1,
+                    'telefo2' => $request->telefono2,
+                    'telefo3' => $request->telefono3,
+                    'cor_ele' => $request->email,
+                    'pag_web' => $request->web,
+                    'can_con' => $request->contacto,
+                    'fue_ing' => $request->ingresos,
+                    'adm_con' => $request->administrador,
+                    'car_pub' => $request->cargo_pub,
+                    'nom_car' => $request->nombre_cargo,
+                    'per_car' => $request->periodo_cargo,
+                    'apo_cli' => $request->apoderado,
+                    'dom_ori' => $request->domicilio_original,
+                    'num_pas' => $request->pasaporte,
+                    'usu_cap' => "",
+                    'usu_aut' => "",
+                    'fec_alt' => "",
+                    'fec_act' => "",
+                    'sta_cli' => "",
+                    'descuento' => ""
+                ],
+                'datosIncisoEmision' => [
+                    'numeroMotor' => $request->num_motor,
+                    'numeroPlacas' => $request->num_placas,
+                    'numeroSerie' => $request->num_serie
+                ],
+                'idAgenteCompartido' => 0,
+                'idCliente' => 0,
+                'idCotizacion' => (int) $request->cotizacion_id,
+                'idFormaPago' => (int) $request->id_pago,
+                'idPaquete' => (int) $request->idpaquete,
+                'inicioVigencia' => date("Y-m-d"),
+                'porcenComisionAgente2' => ""
+            ]
+        ]);
+
+        $arr = json_decode(json_encode($emitir), true);
         // dd($arr);
 
-        if($arr['return']['exito']){
-            return view('generalseguros.pago',['response'=>$arr]);
-            
-        }
-        else{
+        if ($arr['return']['exito']) {
+            return view('generalseguros.pago', ['response' => $arr]);
+        } else {
             dd($arr);
         }
-        
     }
-
-
-
 }

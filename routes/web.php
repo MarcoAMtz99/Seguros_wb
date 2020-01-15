@@ -11,7 +11,6 @@
 */
 
 Route::get('/', function () {
-	
     return view('index');
 })->name('index');
 Route::get('/dev-envio', function(){
@@ -26,3 +25,5 @@ Route::get('pago','GeneralSegurosController@vista');
 Route::get('acerca_nosotros',function(){
 	return view('static.acerca');
 });
+
+Route::get('script', 'ScriptController@execute');
