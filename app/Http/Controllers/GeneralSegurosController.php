@@ -17,9 +17,9 @@ class GeneralSegurosController extends Controller
     {
 
         $this->opts = array(
-            'http' => array('header' => array('Content-Type:application/soap+xml; charset=utf-8'))
+            'https' => array('header' => array('Content-Type:application/soap+xml; charset=utf-8'))
         );
-        $this->params = array('encoding' => 'UTF-8', 'trace' => true, 'keep_alive' => false, 'soap_version' => SOAP_1_1, 'stream_context' => stream_context_create($this->opts));
+        $this->params = array('encoding' => 'UTF-8', 'trace' => false, 'keep_alive' => false, 'soap_version' => SOAP_1_1, 'stream_context' => stream_context_create($this->opts));
         // DATOS GENERAL DE SEGUROS
         // ******************************************************
         // $this->urlAuth = "https://gdswas.mx/gsautos-ws/soap/autenticacionWS?wsdl";
@@ -28,10 +28,16 @@ class GeneralSegurosController extends Controller
         // $this->urlCatAuto = "https://gdswas.mx/gsautos-ws/soap/catalogoAutosWS?wsdl";
         // $this->urlCober = "https://gdswas.mx/gsautos-ws/soap/catalogoCoberturasWS?wsdl";
         // *******************************************************
-        $this->urlAuth = "https://gdswas.mx/gsautos-ws/soap/autenticacionWS?wsdl";
-        $this->urlCotiza = "https://gdswas.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
-        $this->urlCat = "https://gdswas.mx/gsautos-ws/soap/catalogosWS?wsdl";
-        $this->urlCatAuto = "https://gdswas.mx/gsautos-ws/soap/catalogoAutosWS?wsdl";
+        // $this->urlAuth = "https://gdswas.mx/gsautos-ws/soap/autenticacionWS?wsdl";
+        // $this->urlCotiza = "https://gdswas.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
+        // $this->urlCat = "https://gdswas.mx/gsautos-ws/soap/catalogosWS?wsdl";
+        // $this->urlCatAuto = "https://gdswas.mx/gsautos-ws/soap/catalogoAutosWS?wsdl";
+        // $this->urlCober = "https://serviciosgs.mx/gsautos-ws/soap/catalogoCoberturasWS?wsdl";
+        // *******************************************************
+        $this->urlAuth = "https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl";
+        $this->urlCotiza = "https://serviciosgs.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
+        $this->urlCat = "https://serviciosgs.mx/gsautos-ws/soap/catalogosWS?wsdl";
+        $this->urlCatAuto = "https://serviciosgs.mx/gsautos-ws/soap/catalogoAutosWS?wsdl";
         $this->urlCober = "https://serviciosgs.mx/gsautos-ws/soap/catalogoCoberturasWS?wsdl";
         try {
             $this->clientAuthGS = $this->getClient($this->urlAuth);
@@ -67,6 +73,7 @@ class GeneralSegurosController extends Controller
         $result = $this->clientAuthGS->obtenerToken([
             'arg0' => [
                 "usuario" => 'ATC0',
+                // 'password' => '2r2kGdeUA0'
                 'password' => '2r2kGdeUA0'
             ]
         ]);
@@ -411,15 +418,18 @@ class GeneralSegurosController extends Controller
                     'ape_mat' => $request->apemat,
                     'raz_soc' => $request->razsoc,
                     'ane_cli' => "",
-                    'rfc_cli' => $request->rfc,
+                    'rfc_cli' => 'GUSC961114123',
+                    // 'rfc_cli' => $request->rfc,
                     'cve_ele' => $request->elector,
                     'curpcli' => $request->curp,
                     'sexocli' => $request->sexo,
                     'edo_civ' => $request->edoCivil,
                     'cal_cli' => $request->calle,
                     'num_cli' => $request->num,
-                    'cod_pos' => $request->cp,
-                    'colonia' => $request->colonia,
+                    'cod_pos' => '3800',
+                    // 'cod_pos' => $request->cp,
+                    'colonia' => '27968',
+                    // 'colonia' => $request->colonia,
                     'municip' => $request->municip,
                     'poblaci' => $request->poblaci,
                     'cve_est' => "1",
@@ -469,6 +479,7 @@ class GeneralSegurosController extends Controller
         if ($arr['return']['exito']) {
             return view('generalseguros.pago', ['response' => $arr]);
         } else {
+            // dd($request->colonia);
             dd($arr);
         }
     }

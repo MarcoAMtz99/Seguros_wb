@@ -326,10 +326,10 @@ class GNPController extends Controller
  		$nacimiento   = Carbon::parse($cliente->f_nac)->format('Ymd');
  		$edad 		  = Carbon::parse($cliente->f_nac)->age;
  		$sexo 		  = $cliente->sexo === "Hombre" ? 'M' : 'F';
- 		$modelo 	  = $vehiculo[2]->VALOR;
- 		$armadora 	  = $vehiculo[1]->CLAVE;
- 		$carroceria   = $vehiculo[3]->CLAVE;
- 		$version 	  = $vehiculo[4]->CLAVE;
+ 		$modelo 	  = !is_null($vehiculo) ? $vehiculo[2]->VALOR : null;
+ 		$armadora 	  = !is_null($vehiculo) ? $vehiculo[1]->CLAVE : null;
+ 		$carroceria   = !is_null($vehiculo) ? $vehiculo[3]->CLAVE : null;
+ 		$version 	  = !is_null($vehiculo) ? $vehiculo[4]->CLAVE : null;
 
  		$paquetesPersonaFisica = [
  			'Amplia'   => 'PRP0000287',
