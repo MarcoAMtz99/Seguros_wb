@@ -282,27 +282,9 @@ class EmitirPolizaService
             }
         }
         try {
-            // dd($xml);
             $client = new SoapClient($this->urlPHP, $this->params);
-            // dd($client);
             $res = $client->TransaccionText(["XML" => $xml, "Tipo" => "Emision", "Usuario" => "14275", "Clave" => "kdEDyC9F"]);
-            // dd($res);
-            // dd($res);
             $array = json_decode(json_encode(simplexml_load_string($res->TransaccionTextResult)), true);
-            // dd('array');
-            // dd($array);
-            // dd(is_string($array["transaccion"]["error"]));
-            //             $xmlImpr=<<<XML
-            // <transacciones xmlns="">
-            //     <transaccion version="1" tipotransaccion="I" negocio="1195">
-            //         <poliza id="011932765" endoso="000000" inciso="1" link=""/>
-            //         <error/>
-            //     </transaccion>
-            // </transacciones>
-            // XML;
-            //             $resImp =$client->TransaccionText(["XML"=>$xmlImpr,"Tipo"=>"Impresion","Usuario"=>"14275","Clave"=>"kdEDyC9F"]);
-            //             // dd($res);
-            //             $array= json_decode(json_encode(simplexml_load_string($resImp->TransaccionTextResult)),true);
             if (!is_string($array["transaccion"]["error"])) {
                 // dd('primer if');
                 $poliza_id = $array["transaccion"]["poliza"]["@attributes"]["id"];
