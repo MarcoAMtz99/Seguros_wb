@@ -35,6 +35,7 @@
                                 <div class="row m-2 no-gutters">
                                     <table class="table table-bordered table-striped table-responsive">
                                         <tbody>
+                                            <span>Prueba de cambio</span>
                                             <!-- HEADERS -->
                                             <tr>
                                                 <th scope="row" class="text-center w-150">
@@ -56,12 +57,12 @@
                                             <!-- TODAS LAS DESCRIPCIONES DE LAS ASEGURADORAS -->
                                             <tr>
                                                 <th scope="row" class="text-center">
-                                                    Descripción
+                                                    descripción
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
                                                     <select class="form-control" v-model="desc_gnp">
-                                                        <option value="">Seleccionar</option>
-                                                        <option v-for="descripcion in descripciones_gnp" :value="JSON.stringify(descripcion.ELEMENTO)">{{descripcion.ELEMENTO[4].VALOR}}</option>
+                                                        <option value="">Seleccionar GNP</option>
+                                                        <option v-for="descripcion in descripciones_gnp" :value="JSON.stringify(descripcion.ELEMENTO)">{{descripcion}}</option>
                                                     </select>
                                                 </td>
                                                 <td class="text-center" v-if="cliente.gs">
@@ -73,6 +74,7 @@
                                                 <td class="text-center" v-if="cliente.ana">
                                                     <select class="form-control" v-model="desc_ana">
                                                         <option value="">Seleccionar</option>
+                                                         <option value="2">Opcion 2</option>
                                                         <option v-for="descripcion in descripciones_ana" :value="descripcion.clave">{{descripcion.descripcion}}</option>
                                                     </select>
                                                 </td>
@@ -642,6 +644,7 @@
             },
             'desc_gnp': function(value) {
                 this.loader = true;
+                console.log('PRIMER PASO GNP');
                 this.sendCotizacionGNP(this.desc_gnp,this.tipo_poliza);
             },
             'tipo_poliza':function (newVal,oldVal) {
@@ -657,9 +660,10 @@
                 let url = `./api/vehiculoANA/${marca_id}/${submarca_id}/${modelo}`;
 
                 axios.get(url).then(res=>{
-                    //console.log('descripcion ana',res.data)
+                    console.log('descripcion ana',res.data)
                     this.descripciones_ana = res.data.vehiculos;
                     console.log('Get Descripcion ANA');
+                    console.log('Funciona el controlador ANA EN VUE');
                 }).catch(err=>{
                     console.log('err',err)
                 })
@@ -694,7 +698,9 @@
                 this.alert.class = '';
                 axios.post(url,params).then(res=>{
                     console.log('res:');
+                    console.log('Metodo sendCotizacion');
                     console.log(res);
+                     console.log('ESTA ACTIVO DESCRIPCIONES GS en sencotizacion');
                     // this.cliente.cotizacion =res.data.cotizacion.cotizacion;
                     // this.cliente.uso_auto =res.data.cotizacion.uso_auto;
                     // this.cliente.descripcion_auto = res.data.cotizacion.auto.version;
@@ -729,7 +735,7 @@
                 let uso = this.cliente.uso_auto
                 let url=`./api/modelos/${uso}/${marca}/${submarca}/${modelo}`;
                 axios.get(url).then(res=>{
-                    // console.log("descripcion qualitas",res.data);
+                     console.log("descripcion qualitas",res.data);
                     this.descripciones_qualitas = res.data.descripciones;
                 }).catch(err=>{
                     console.log(err);
@@ -784,9 +790,11 @@
             getDescripcionesGNP(marca,submarca,modelo){
                 let url=`./api/modelos-gnp/${marca}/${submarca}/${modelo}`;
                 axios.get(url).then(res=>{
-                    // console.log('DESCRIPCIONES GNP', res);
+                     console.log('DESCRIPCIONES GNP', res);
                     this.descripciones_gnp = res.data.modelosGNP.ELEMENTOS;
+                    console.log("Hola esto es GNP RESULTADO",this.descripciones_gnp);
                 }).catch(err=>{
+                     console.log("Error en GNP");
                     console.log(err);
                 })
 

@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 <!--CONTENIDO-->
     <!--PASOS-->
     <div class="row justify-content-center">

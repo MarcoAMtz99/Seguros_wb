@@ -1,0 +1,5 @@
+[11-Dec-2019 20:21:45 UTC] PHP Parse error:  syntax error, unexpected end of file in Command line code on line 1
+[11-Dec-2019 20:21:49 UTC] PHP Parse error:  syntax error, unexpected end of file in Command line code on line 1
+[11-Dec-2019 20:21:53 UTC] PHP Parse error:  syntax error, unexpected end of file in Command line code on line 1
+[12-Dec-2019 16:51:43 UTC] PHP Parse error:  syntax error, unexpected end of file in Command line code on line 1
+[22-Sep-2020 22:28:57 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 79 bytes) in phar:///home2/autoseg1/bin/composer.phar/src/Composer/Json/JsonFile.php on line 270

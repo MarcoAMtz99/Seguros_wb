@@ -43,9 +43,9 @@ class GNPController extends Controller
  	 */
  	public function prueba()
  	{
- 		//return view('prueba');
- 		dd($this->getTiposVia());
- 		dd($this->modelos("Ford", "fiesta", "2015"));
+ 		return view('prueba');
+ 		/* dd($this->getTiposVia()); */
+ 		/* dd($this->modelos("Ford", "focus", "2015")); */
 		try {
 			
 			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/cotizador/cotizar", $this->getXMLCotizacion());
@@ -75,6 +75,7 @@ class GNPController extends Controller
  		$armadora   = $this->getArmadora($modelo, $marca);
  		$carroceria = $this->getCarroceria($armadora, $submarca);
  		$modelos    = $this->getModelos($modelo, $armadora, $carroceria);
+ 		
  		return response()->json(['modelosGNP'=>$modelos],201);
  	}
 
@@ -85,6 +86,7 @@ class GNPController extends Controller
 			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/catalogos/catalogo", $xmlBody);
 	        //convert the XML result into array
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
+	       // var_dump($array_data); 
 	        return $array_data;
 		} catch (Exception $e) {
 			dd($e);
@@ -246,6 +248,7 @@ class GNPController extends Controller
 					      </ELEMENTO>
 					   </ELEMENTOS>  
 					</SOLICITUD_CATALOGO>";
+					 
 
  		return $this->buscarEnCatalogo($xmlBody);
  	}

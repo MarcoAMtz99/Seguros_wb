@@ -527,7 +527,7 @@
 							<img width="100%" height="100%" :src="img.anaImageForm">
 						</div>
 						<div class="offset-1 col-5 col-md-3">
-							<h5 class="mt-3 ml-3">ANA Seguros</h5>
+							<h5 class="mt-3 ml-3">ANA Seguros 13/01</h5>
 						</div>
 					</div>
 					<div class="row">
