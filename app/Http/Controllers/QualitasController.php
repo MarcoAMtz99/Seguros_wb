@@ -424,7 +424,7 @@ XML;
 	  </DatosGenerales>
 	  <Primas>
 		<PrimaNeta/>
-		<Derecho>500</Derecho>
+		<Derecho>520</Derecho>
 		<Recargo/>
 		<Impuesto/>
 		<PrimaTotal/>
@@ -557,7 +557,7 @@ XML;
 	  </DatosGenerales>
 	  <Primas>
 		<PrimaNeta/>
-		<Derecho>500</Derecho>
+		<Derecho>520</Derecho>
 		<Recargo/>
 		<Impuesto/>
 		<PrimaTotal/>

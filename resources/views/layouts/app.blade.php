@@ -138,6 +138,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" style="color: white;" href="#">Noticias</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" style="color: white;" href="#">Prueba</a>
+                            </li>
                         </ul>
                     </div>
                     <div class="col-sm-1 col-md-1 text-right m-auto p-auto d-flex justify-content-around">
@@ -191,7 +194,9 @@
 
     </body>
     <!--BOOTSTRAP.JS-->
-        <script src="{{ asset('js/app.js') }}"></script>
+        <!-- <script src="{{ asset('js/app.js') }}"></script> -->
+        <!-- <script src="{{asset('js/app.js?v=1.1')}}"></script> -->
+         <script src="{{mix('js/app.js')}}"></script>
         <script src="{{ asset('js/modernizr-custom.js') }}"></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>

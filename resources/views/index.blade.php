@@ -42,10 +42,10 @@
                 </div>
                 
                 
-                {{-- @include('pasos.paso1') --}}
-                {{-- @include('pasos.paso2') --}}
-                {{-- @include('pasos.paso3') --}}
-                {{-- @include('pasos.paso4') --}}
+               {{--  @include('pasos.paso1')
+                @include('pasos.paso2')
+                @include('pasos.paso3') 
+                @include('pasos.paso4') --}}
             </div>
         </div>
     </div>
@@ -54,7 +54,7 @@
 <!--TRANSITIONS-->
     <script>
         $(document).ready(function($) {
-
+              console.log("Hola 56");
             if(!Modernizr.inputtypes.date) {
                 console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
                 $("#p").datepicker();
@@ -241,6 +241,7 @@
             $("#f-correo").val(correo);
             $("#f-celular").val(celular);
             $("#f-cp").val(cp);
+              console.log("Hola 243");
         }   
 
         function eso(){
@@ -286,7 +287,7 @@
                         $(from).text("Modelo: "+$("#"+e.target.id).text());
                         $('li.datos-modal#datosm_4').text("Modelo: "+$("#"+e.target.id).text());
                         modelo = $("#"+e.target.id).text();
-                        // console.log(modelo);
+                         console.log(modelo);
                         getDescripcion(marca,modelo);
                         break;
 
@@ -350,10 +351,10 @@
                 url: "{{ url('/api/marcas') }}",
                 type:"GET",
                 success: function(res){
-                    // console.log(res);
+                     console.log(res);
                     $('#marcasul').empty();
                     for (var i = 0; i < res.marcas.length; i++) {
-                        // console.log(res.marcas[i]);
+                         console.log(res.marcas[i]);
                         $('#marcasul').append(`<li id="3_${res.marcas[i]['cMarca']}" class="list-group-item text-center marca seleccionador" >${res.marcas[i]['cMarcaLarga']}</li>`)
                     }
                 }

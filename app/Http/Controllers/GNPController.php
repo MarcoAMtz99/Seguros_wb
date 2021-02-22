@@ -21,10 +21,10 @@ class GNPController extends Controller
  	public function __construct(){
 
 		// DATOS GNP
-		$this->user = env('GNP_USER', '');
-		$this->pass = env('GNP_PASSWORD', '');
-		$this->unidadOperable = env('GNP_UNIDAD_OPERABLE', '');
-		$this->intermediario = env('GNP_INTERMEDIARIO', '');
+		$this->user = env('GNP_USER', true);
+		$this->pass = env('GNP_PASSWORD', true);
+		$this->unidadOperable = env('GNP_UNIDAD_OPERABLE', true);
+		$this->intermediario = env('GNP_INTERMEDIARIO', true);
 		try {
 			$this->curl = new Curl();
 			$this->curl->setHeader('Content-Type', 'application/xml');
@@ -46,20 +46,61 @@ class GNPController extends Controller
  		return view('prueba');
  		/* dd($this->getTiposVia()); */
  		/* dd($this->modelos("Ford", "focus", "2015")); */
+
+ 		/* return view('prueba'); */
+ 		/* dd($this->getTiposVia());
+		 dd($this->modelos("Ford", "fiesta", "2015")); */
+		 $cp ="56334" ;
+		  $fecha_inicio= "20210111";
+		  $fecha_fin = "20220111"; 
+		$modelo = "2015";
+		$armadora ="HO";
+		 $carroceria="06"; 
+		 $version="14"; 
+		 $nacimiento="19840101"; 
+		 $sexo="M";
+		  $edad="22"; 
+		 $clavePaquete="PRS0009355"; 
+		 $poliza="Amplia";
+
 		try {
-			
-			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/cotizador/cotizar", $this->getXMLCotizacion());
+			$modelos    = $this->getModelos($modelo, $armadora, $carroceria);
+ 		/*  return response()->json(['modelosGNP'=>$modelos],201); 
+		 	$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/cotizador/cotizar", $this->getXMLCotizacion($cp, $fecha_inicio, $fecha_fin,  $modelo, $armadora,
+			$carroceria, $version, $nacimiento, $sexo, $edad, $clavePaquete, $poliza)); 
 	        //convert the XML result into array
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
-
+			$prueba =  json_encode($modelos); */
+			$xml="  <SOLICITUD_CATALOGO>
+			<USUARIO>EMOREN927586</USUARIO>
+			<PASSWORD>Moreno2021</PASSWORD>
+		   <TIPO_CATALOGO>ARMADORA_VEHICULO</TIPO_CATALOGO>
+		   <ID_UNIDAD_OPERABLE>NOP0000016</ID_UNIDAD_OPERABLE>
+			<FECHA>24/01/2021</FECHA> 
+		   <ELEMENTOS>
+		   <ELEMENTO>
+			  <CLAVE>AUT</CLAVE>
+			<NOMBRE>TIPO_VEHICULO</NOMBRE>
+		  </ELEMENTO>
+		   <ELEMENTO>
+		 <NOMBRE>MODELO</NOMBRE>
+		 <CLAVE>2015</CLAVE> 
+		 </ELEMENTO>
+		 </ELEMENTOS>  
+		 </SOLICITUD_CATALOGO>";
+			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/catalogos/catalogo", $xml);
+	        //convert the XML result into array
+	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
+	        return $array_data;
+			
 	        print_r('<pre>');
-	        print_r($array_data);
+	        print_r($prueba);
 	        print_r('</pre>');
 
 		} catch (Exception $e) {
 			dd($e);
 		}
- 		return 'Hola';
+ 		/* return 'Hola hay cambio'; */
 
  	}
 
@@ -73,9 +114,16 @@ class GNPController extends Controller
  	public function modelos($marca, $submarca, $modelo)
  	{
  		$armadora   = $this->getArmadora($modelo, $marca);
+
  		$carroceria = $this->getCarroceria($armadora, $submarca);
  		$modelos    = $this->getModelos($modelo, $armadora, $carroceria);
  		
+
+		 $carroceria = $this->getCarroceria($armadora, $submarca);
+		 /* dd($carroceria); */
+		 $modelos    = $this->getModelos($modelo, $armadora, $carroceria);
+		 /* dd($modelos); */
+
  		return response()->json(['modelosGNP'=>$modelos],201);
  	}
 
@@ -90,6 +138,8 @@ class GNPController extends Controller
 	        return $array_data;
 		} catch (Exception $e) {
 			dd($e);
+			/* dd($xmlBody); */
+
 		}
  	}
 
@@ -208,7 +258,7 @@ class GNPController extends Controller
 					   	</ELEMENTO>
 					   </ELEMENTOS>  
 					</SOLICITUD_CATALOGO>";
-
+/* 		dd($xmlBody); */
  		return  $this->buscarEnCatalogo($xmlBody);
  		
  	}
@@ -230,10 +280,6 @@ class GNPController extends Controller
 					   <ID_UNIDAD_OPERABLE>$this->unidadOperable</ID_UNIDAD_OPERABLE>
 					   <FECHA>$fecha</FECHA> 
 					   <ELEMENTOS>
-					      <ELEMENTO>
-					         <CLAVE>AUT</CLAVE>
-					         <NOMBRE>TIPO_VEHICULO</NOMBRE>
-					      </ELEMENTO>
 					      <ELEMENTO>
 					         <CLAVE>$modelo</CLAVE>
 					         <NOMBRE>MODELO</NOMBRE>
@@ -262,17 +308,24 @@ class GNPController extends Controller
  	 */
  	public function getCarroceria($armadora, $submarca)
  	{
- 		$carrocerias = $this->getCarrocerias($armadora);
- 		$carroceria = '';
+		 $carrocerias = $this->getCarrocerias($armadora);
+		 /* dd($this->getCarrocerias($armadora)); */
+		 $carroceria = '';
+		 $aux="";
 
- 		if (isset($carrocerias['ELEMENTOS'])) {
+ 		/* if (isset($carrocerias['ELEMENTOS'])) { */
  			foreach ($carrocerias['ELEMENTOS']['ELEMENTO'] as $value) {
- 				if (stripos($value['NOMBRE'], $submarca)){
- 					$carroceria = $value['CLAVE'];
- 				}
+ 				if ($value['NOMBRE'] == $submarca){
+					 $carroceria = $value['CLAVE'];
+					 /* dd("Si se encontro"); */
+				 }
+				 if (strcmp($value['NOMBRE'], $submarca) === 0){
+					$aux= $value['CLAVE'];
+					$carroceria =$aux;
+				}
  			}
- 		}
-
+ 		/* } */
+		/*  dd($carroceria,$submarca,$aux); */
  		return $carroceria;
  	}
 
@@ -302,7 +355,7 @@ class GNPController extends Controller
 					   	</ELEMENTO>
 					   </ELEMENTOS>  
 					</SOLICITUD_CATALOGO>";
-
+		/* dd($xmlBody); */
 		return $this->buscarEnCatalogo($xmlBody);
  	}
 
@@ -335,14 +388,14 @@ class GNPController extends Controller
  		$version 	  = !is_null($vehiculo) ? $vehiculo[4]->CLAVE : null;
 
  		$paquetesPersonaFisica = [
- 			'Amplia'   => 'PRP0000287',
- 			'Limitada' => 'PRP0000288',
+ 			'Amplia'   => 'PRS0009355',
+ 			'Limitada' => 'PRS0009356',
  			'RC' 	   => 'PRP0000289'
  		];
 
  		$paquetesPersonaMoral = [
  			'Amplia'   => 'PRP0000347',
- 			'Limitada' => 'PRP0000348',
+ 			'Limitada' => 'PRS0009361',
  			'RC' 	   => 'PRP0000349'
  		];
  		$clavePaquete = $cliente->uso_auto === "Servicio Particular"
@@ -530,25 +583,25 @@ class GNPController extends Controller
 		}
 
 		$num_cotizacion = $array_data["SOLICITUD"]["NUM_COTIZACION"];
-
+		
  		switch ($datos->periodicidad) {
  			case 'A':
  				$primaNeta  = $array_data["PAQUETES"]["PAQUETE"]["TOTALES"]["TOTAL_PRIMA"][0]["CONCEPTO_ECONOMICO"][1]["MONTO"];
  				$importeIVA = $array_data["PAQUETES"]["PAQUETE"]["TOTALES"]["TOTAL_PRIMA"][0]["CONCEPTO_ECONOMICO"][7]["MONTO"];
- 				$primaTotal = $array_data["PAQUETES"]["PAQUETE"]["TOTALES"]["TOTAL_PRIMA"][0]["CONCEPTO_ECONOMICO"][9]["MONTO"];
+ 				$primaTotal = $array_data["PAQUETES"]["PAQUETE"]["TOTALES"]["TOTAL_PRIMA"][0]["CONCEPTO_ECONOMICO"][10]["MONTO"];
  				break;
  			case 'S':
  				$primaNeta  = $array_data["PAQUETES"]["PAQUETE"]["TOTALES"]["TOTAL_PRIMA"][1]["CONCEPTO_ECONOMICO"][1]["MONTO"];
  				$importeIVA = $array_data["PAQUETES"]["PAQUETE"]["TOTALES"]["TOTAL_PRIMA"][1]["CONCEPTO_ECONOMICO"][7]["MONTO"];
- 				$primaTotal = $array_data["PAQUETES"]["PAQUETE"]["TOTALES"]["TOTAL_PRIMA"][1]["CONCEPTO_ECONOMICO"][9]["MONTO"];
+ 				$primaTotal = $array_data["PAQUETES"]["PAQUETE"]["TOTALES"]["TOTAL_PRIMA"][1]["CONCEPTO_ECONOMICO"][10]["MONTO"];
  				break;
  			case 'T':
  				$primaNeta  = $array_data["PAQUETES"]["PAQUETE"]["TOTALES"]["TOTAL_PRIMA"][2]["CONCEPTO_ECONOMICO"][1]["MONTO"];
  				$importeIVA = $array_data["PAQUETES"]["PAQUETE"]["TOTALES"]["TOTAL_PRIMA"][2]["CONCEPTO_ECONOMICO"][7]["MONTO"];
- 				$primaTotal = $array_data["PAQUETES"]["PAQUETE"]["TOTALES"]["TOTAL_PRIMA"][2]["CONCEPTO_ECONOMICO"][9]["MONTO"];
+ 				$primaTotal = $array_data["PAQUETES"]["PAQUETE"]["TOTALES"]["TOTAL_PRIMA"][2]["CONCEPTO_ECONOMICO"][10]["MONTO"];
  				break;
  		}
-
+		/*  dd($array_data); */
  		return  "<EMISION>
 				  <SOLICITUD>
 				    <USUARIO>$this->user</USUARIO>
@@ -664,6 +717,7 @@ class GNPController extends Controller
 				    <PRIMA_NETA>$primaNeta</PRIMA_NETA>
 				  </IMPORTES>
 				</EMISION>";
+			
  	}
 
  	/**
@@ -681,7 +735,8 @@ class GNPController extends Controller
 			// dd($data);
 			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/emisor/emisor/emitir", $data);
 	        //convert the XML result into array
-	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
+			$array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
+			/* dd($array_data); */
 	        return view('gnp.poliza',['response'=>$array_data]);
 	        // return response()->json(['cotizacionGNP'=>$array_data],201);
 		} catch (Exception $e) {

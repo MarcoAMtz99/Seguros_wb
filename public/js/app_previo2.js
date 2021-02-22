@@ -2022,7 +2022,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -2157,7 +2156,7 @@ function Cliente(_ref) {
       this.alert.message = '';
       this.alert["class"] = '';
       axios.post(url, params).then(function (res) {
-        // console.log("res cot",res);
+         console.log("res cot",res);
         if (res.data.cotizacion) {
           _this.searchOption = true; // this.cliente = new Cliente(res.data.cotizacion);
 
@@ -4275,6 +4274,7 @@ __webpack_require__.r(__webpack_exports__);
   watch: {
     'gnp.cliente.codigo_postal': function gnpClienteCodigo_postal(new_value, old_value) {
       if (new_value.length === 5) this.getDatosDomicilio(new_value);
+
     }
   },
   methods: {
@@ -4948,6 +4948,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -5026,6 +5027,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getDescripcionesANA: function getDescripcionesANA(marca_id, submarca_id, modelo) {
       var _this = this;
+      console.log('Cambio en la linea 5059');
 
       var url = "./api/vehiculoANA/".concat(marca_id, "/").concat(submarca_id, "/").concat(modelo);
       axios.get(url).then(function (res) {
@@ -5186,8 +5188,8 @@ __webpack_require__.r(__webpack_exports__);
       };
       this.cotizacionesGNP = {};
       axios.post(url, params).then(function (res) {
-        _this8.cotizacionesGNP = res.data.cotizacionGNP;
-        console.log('Cotizacion GNP arreglo', _this8.cotizacionesGNP);
+        _this8.cotizacionesGNP = res.data.cotizacionGNP; // console.log(this.cotizacionesGNP);
+
         _this8.loader = false;
       })["catch"](function (err) {
         _this8.loader = false;
@@ -20663,15 +20665,14 @@ return jQuery;
   var undefined;
 
   /** Used as the semantic version number. */
-  var VERSION = '4.17.21';
+  var VERSION = '4.17.20';
 
   /** Used as the size to enable large array optimizations. */
   var LARGE_ARRAY_SIZE = 200;
 
   /** Error message constants. */
   var CORE_ERROR_TEXT = 'Unsupported core-js use. Try https://npms.io/search?q=ponyfill.',
-      FUNC_ERROR_TEXT = 'Expected a function',
-      INVALID_TEMPL_VAR_ERROR_TEXT = 'Invalid `variable` option passed into `_.template`';
+      FUNC_ERROR_TEXT = 'Expected a function';
 
   /** Used to stand-in for `undefined` hash values. */
   var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -20804,11 +20805,10 @@ return jQuery;
   var reRegExpChar = /[\\^$.*+?()[\]{}|]/g,
       reHasRegExpChar = RegExp(reRegExpChar.source);
 
-  /** Used to match leading whitespace. */
-  var reTrimStart = /^\s+/;
-
-  /** Used to match a single whitespace character. */
-  var reWhitespace = /\s/;
+  /** Used to match leading and trailing whitespace. */
+  var reTrim = /^\s+|\s+$/g,
+      reTrimStart = /^\s+/,
+      reTrimEnd = /\s+$/;
 
   /** Used to match wrap detail comments. */
   var reWrapComment = /\{(?:\n\/\* \[wrapped with .+\] \*\/)?\n?/,
@@ -20817,18 +20817,6 @@ return jQuery;
 
   /** Used to match words composed of alphanumeric characters. */
   var reAsciiWord = /[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g;
-
-  /**
-   * Used to validate the `validate` option in `_.template` variable.
-   *
-   * Forbids characters which could potentially change the meaning of the function argument definition:
-   * - "()," (modification of function parameters)
-   * - "=" (default value)
-   * - "[]{}" (destructuring of function parameters)
-   * - "/" (beginning of a comment)
-   * - whitespace
-   */
-  var reForbiddenIdentifierChars = /[()=,{}\[\]\/\s]/;
 
   /** Used to match backslashes in property paths. */
   var reEscapeChar = /\\(\\)?/g;
@@ -21659,19 +21647,6 @@ return jQuery;
   }
 
   /**
-   * The base implementation of `_.trim`.
-   *
-   * @private
-   * @param {string} string The string to trim.
-   * @returns {string} Returns the trimmed string.
-   */
-  function baseTrim(string) {
-    return string
-      ? string.slice(0, trimmedEndIndex(string) + 1).replace(reTrimStart, '')
-      : string;
-  }
-
-  /**
    * The base implementation of `_.unary` without support for storing metadata.
    *
    * @private
@@ -22002,21 +21977,6 @@ return jQuery;
     return hasUnicode(string)
       ? unicodeToArray(string)
       : asciiToArray(string);
-  }
-
-  /**
-   * Used by `_.trim` and `_.trimEnd` to get the index of the last non-whitespace
-   * character of `string`.
-   *
-   * @private
-   * @param {string} string The string to inspect.
-   * @returns {number} Returns the index of the last non-whitespace character.
-   */
-  function trimmedEndIndex(string) {
-    var index = string.length;
-
-    while (index-- && reWhitespace.test(string.charAt(index))) {}
-    return index;
   }
 
   /**
@@ -33187,7 +33147,7 @@ return jQuery;
       if (typeof value != 'string') {
         return value === 0 ? value : +value;
       }
-      value = baseTrim(value);
+      value = value.replace(reTrim, '');
       var isBinary = reIsBinary.test(value);
       return (isBinary || reIsOctal.test(value))
         ? freeParseInt(value.slice(2), isBinary ? 2 : 8)
@@ -35559,12 +35519,6 @@ return jQuery;
       if (!variable) {
         source = 'with (obj) {\n' + source + '\n}\n';
       }
-      // Throw an error if a forbidden character was found in `variable`, to prevent
-      // potential command injection attacks.
-      else if (reForbiddenIdentifierChars.test(variable)) {
-        throw new Error(INVALID_TEMPL_VAR_ERROR_TEXT);
-      }
-
       // Cleanup code by stripping empty strings.
       source = (isEvaluating ? source.replace(reEmptyStringLeading, '') : source)
         .replace(reEmptyStringMiddle, '$1')
@@ -35678,7 +35632,7 @@ return jQuery;
     function trim(string, chars, guard) {
       string = toString(string);
       if (string && (guard || chars === undefined)) {
-        return baseTrim(string);
+        return string.replace(reTrim, '');
       }
       if (!string || !(chars = baseToString(chars))) {
         return string;
@@ -35713,7 +35667,7 @@ return jQuery;
     function trimEnd(string, chars, guard) {
       string = toString(string);
       if (string && (guard || chars === undefined)) {
-        return string.slice(0, trimmedEndIndex(string) + 1);
+        return string.replace(reTrimEnd, '');
       }
       if (!string || !(chars = baseToString(chars))) {
         return string;
@@ -40996,7 +40950,7 @@ var render = function() {
                     "aria-selected": "true"
                   }
                 },
-                [_vm._v("XUso: " + _vm._s(_vm.cliente.uso_auto))]
+                [_vm._v("Uso: xd " + _vm._s(_vm.cliente.uso_auto))]
               ),
               _vm._v(" "),
               _c(
@@ -42281,7 +42235,7 @@ var render = function() {
                                   "list-group-item text-center text-dark seleccionador",
                                 attrs: { value: "Hombre" }
                               },
-                              [_vm._v("Masculino ")]
+                              [_vm._v("Hombre")]
                             ),
                             _vm._v(" "),
                             _c(
@@ -42291,7 +42245,7 @@ var render = function() {
                                   "list-group-item text-center text-dark seleccionador",
                                 attrs: { value: "Mujer" }
                               },
-                              [_vm._v("Femenino")]
+                              [_vm._v("Mujer")]
                             ),
                             _vm._v(" "),
                             _c(
@@ -51759,6 +51713,8 @@ var render = function() {
                         },
                         [
                           _c("tbody", [
+                            _c("span", [_vm._v("Prueba de cambio")]),
+                            _vm._v(" "),
                             _c("tr", [
                               _c(
                                 "th",
@@ -51859,7 +51815,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                                    Descripción\n                                                "
+                                    "\n                                                    descripción\n                                                "
                                   )
                                 ]
                               ),
@@ -51918,13 +51874,7 @@ var render = function() {
                                                 )
                                               }
                                             },
-                                            [
-                                              _vm._v(
-                                                _vm._s(
-                                                  descripcion.ELEMENTO[4].VALOR
-                                                )
-                                              )
-                                            ]
+                                            [_vm._v(_vm._s(descripcion))]
                                           )
                                         })
                                       ],
@@ -52034,6 +51984,12 @@ var render = function() {
                                         _c("option", { attrs: { value: "" } }, [
                                           _vm._v("Seleccionar")
                                         ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "option",
+                                          { attrs: { value: "2" } },
+                                          [_vm._v("Opcion 2")]
+                                        ),
                                         _vm._v(" "),
                                         _vm._l(_vm.descripciones_ana, function(
                                           descripcion
@@ -52506,7 +52462,7 @@ var render = function() {
                                                     .COBERTURA,
                                                   function(cobertura, index) {
                                                     return cobertura.NOMBRE ==
-                                                      "DM Pérdida Total"
+                                                      "Daños Materiales Pérdida Total"
                                                       ? _c("div", [
                                                           _c(
                                                             "div",
@@ -52541,7 +52497,7 @@ var render = function() {
                                                     .COBERTURA,
                                                   function(cobertura, index) {
                                                     return cobertura.NOMBRE ==
-                                                      "DM Pérdida Parcial"
+                                                      "Daños Materiales Pérdida Parcial"
                                                       ? _c("div", [
                                                           _c(
                                                             "div",
@@ -52601,7 +52557,7 @@ var render = function() {
                                                     .coberturas,
                                                   function(cobertura, index) {
                                                     return cobertura.descripcion ==
-                                                      "DM Pérdida Parcial"
+                                                      "Daños Materiales Pérdida Parcial"
                                                       ? _c("div", [
                                                           _c(
                                                             "div",
@@ -52635,7 +52591,7 @@ var render = function() {
                                                     .coberturas,
                                                   function(cobertura, index) {
                                                     return cobertura.descripcion ==
-                                                      "DM Pérdida Total"
+                                                      "Daños Materiales Pérdida Total"
                                                       ? _c("div", [
                                                           _c(
                                                             "div",
@@ -52660,24 +52616,21 @@ var render = function() {
                                                             ]
                                                           )
                                                         ])
-                                                      : _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "text-center"
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "\n                                                        Seleccione una descripción\n                                                    "
-                                                            )
-                                                          ]
-                                                        )
+                                                      : _vm._e()
                                                   }
                                                 )
                                               ],
                                               2
                                             )
-                                          : _vm._e()
+                                          : _c(
+                                              "div",
+                                              { staticClass: "text-center" },
+                                              [
+                                                _vm._v(
+                                                  "\n                                                        Seleccione una descripción\n                                                    "
+                                                )
+                                              ]
+                                            )
                                       ])
                                     : _vm._e(),
                                   _vm._v(" "),
@@ -53113,7 +53066,7 @@ var render = function() {
                                                 .PAQUETE.COBERTURAS.COBERTURA,
                                               function(cobertura, index) {
                                                 return cobertura.NOMBRE ==
-                                                  "RESPONSABILIDAD CIVIL POR DA#OS  A TERCEROS"
+                                                  "Responsabilidad Civil por Daños a Terceros"
                                                   ? _c("div", [
                                                       cobertura.DEDUCIBLE
                                                         .length != 0
@@ -53801,7 +53754,7 @@ var render = function() {
                                               .COBERTURAS.COBERTURA,
                                             function(cobertura, index) {
                                               return cobertura.NOMBRE ==
-                                                "GASTOS MEDICOS OCUP"
+                                                "Gastos Médicos Ocupantes"
                                                 ? _c("div", [
                                                     cobertura.DEDUCIBLE !=
                                                     "No aplica"
@@ -54054,7 +54007,7 @@ var render = function() {
                                               .COBERTURAS.COBERTURA,
                                             function(cobertura, index) {
                                               return cobertura.NOMBRE ==
-                                                "PROTECCION LEGAL                                  "
+                                                "Protección Legal"
                                                 ? _c("div", [
                                                     _c("span", [
                                                       _c("strong", [
@@ -54505,7 +54458,13 @@ var render = function() {
                                               .COBERTURAS.COBERTURA,
                                             function(cobertura, index) {
                                               return [
-                                                "Extensión Cobertura Resp. Civil"
+                                                "Daños Materiales Pérdida Parcial",
+                                                "Daños Materiales Pérdida Total",
+                                                "Robo Total",
+                                                "Responsabilidad Civil por Daños a Terceros",
+                                                "Extensión Cobertura Resp. Civil",
+                                                "Gastos Médicos Ocupantes",
+                                                "Protección Legal"
                                               ].indexOf(cobertura.NOMBRE) == -1
                                                 ? _c("div", [
                                                     _c(
@@ -67475,8 +67434,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\USUARIO\Desktop\Prueba 1\seguros_cotiza\resources\assets\js\app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\USUARIO\Desktop\Prueba 1\seguros_cotiza\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
+__webpack_require__(/*! C:\Users\USUARIO\Desktop\seguros_cotiza\resources\assets\js\app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\USUARIO\Desktop\seguros_cotiza\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
 
 
 /***/ })
