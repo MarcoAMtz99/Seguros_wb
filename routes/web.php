@@ -37,5 +37,6 @@ Route::get('noticias',function(){
 Route::get('aviso',function(){
 	return view('static.aviso');
 });
+//Rutas
 
 Route::get('script', 'ScriptController@execute');
