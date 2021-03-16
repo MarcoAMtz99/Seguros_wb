@@ -25,5 +25,17 @@ Route::get('pago','GeneralSegurosController@vista');
 Route::get('acerca_nosotros',function(){
 	return view('static.acerca');
 });
+Route::get('contacto',function(){
+	return view('static.contacto');
+});
+Route::get('preguntas',function(){
+	return view('static.preguntas');
+});
+Route::get('noticias',function(){
+	return view('static.noticias');
+});
+Route::get('aviso',function(){
+	return view('static.aviso');
+});
 
 Route::get('script', 'ScriptController@execute');

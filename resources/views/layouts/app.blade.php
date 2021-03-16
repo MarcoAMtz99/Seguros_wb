@@ -13,6 +13,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
         <!--BOOTSTRAP.CSS-->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+       <!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
 
         
         <!--FONT-AWESOME.CSS-->
@@ -75,6 +76,20 @@
               margin: 0;
               height: 140px;
             }
+             /*FAQS*/
+        
+        .faq_question {
+            margin: 0px;
+            padding: 0px 0px 5px 0px;
+            display: inline-block;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .faq_answer_container {
+            display: none;
+        }
+
         </style>
     </head>
     <body>
@@ -130,16 +145,16 @@
                                 <a class="nav-link" style="color: white;" href="{{ url('/acerca_nosotros') }}">Acerca de Nosotros</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" style="color: white;" href="#">Preguntas Frecuentes</a>
+                                <a class="nav-link" style="color: white;" href="{{ url('/preguntas') }}">Preguntas Frecuentes</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" style="color: white;" href="#">Contacto</a>
+                                <a class="nav-link" style="color: white;" href="{{ url('/contacto') }}">Contacto</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" style="color: white;" href="#">Noticias</a>
+                                <a class="nav-link" style="color: white;" href="{{ url('/noticias') }}">Noticias</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" style="color: white;" href="#">Prueba</a>
+                                <a class="nav-link" style="color: white;" href="{{ url('/aviso') }}">Aviso de privacidad</a>
                             </li>
                         </ul>
                     </div>
@@ -193,11 +208,31 @@
         </div>
 
     </body>
+                <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('.faq_question').click(function() {
+
+                if ($(this).parent().is('.open')) {
+                    $(this).closest('.faq').find('.faq_answer_container').slideUp();
+                    $(this).closest('.faq').removeClass('open');
+                } else {
+                    $('.faq_answer_container').slideUp();
+                    $('.faq').removeClass('open');
+                    $(this).closest('.faq').find('.faq_answer_container').slideDown();
+                    $(this).closest('.faq').addClass('open');
+                }
+
+            });
+        });
+    </script>
     <!--BOOTSTRAP.JS-->
         <!-- <script src="{{ asset('js/app.js') }}"></script> -->
         <!-- <script src="{{asset('js/app.js?v=1.1')}}"></script> -->
          <script src="{{mix('js/app.js')}}"></script>
         <script src="{{ asset('js/modernizr-custom.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <script>
@@ -208,5 +243,6 @@
               $('.btn').removeClass('animacionVer');
             })
         </script>
+
     @yield('scripts')
 </html>
