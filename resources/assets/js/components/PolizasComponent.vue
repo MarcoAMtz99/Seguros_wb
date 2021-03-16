@@ -60,25 +60,25 @@
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
                                                     <select class="form-control" v-model="desc_gnp">
-                                                        <option value="">Seleccionar GNP</option>
+                                                        <option value="">COBERTURAS</option>
                                                         <option v-for="descripcion in descripciones_gnp" :value="JSON.stringify(descripcion.ELEMENTO)">{{descripcion.ELEMENTO[4].VALOR}}</option>
                                                     </select>
                                                 </td>
                                                 <td class="text-center" v-if="cliente.gs">
                                                     <select class="form-control" v-model="desc_gs">
-                                                        <option value="">Seleccionar</option>
+                                                        <option value="">COBERTURAS</option>
                                                         <option v-for="version in descripciones_gs" :value="version">{{version.descripcion}}</option>
                                                     </select>
                                                 </td>
                                                 <td class="text-center" v-if="cliente.ana">
                                                     <select class="form-control" v-model="desc_ana">
-                                                        <option value="">Seleccionar</option>
+                                                        <option value="">COBERTURAS</option>
                                                         <option v-for="descripcion in descripciones_ana" :value="descripcion.clave">{{descripcion.descripcion}}</option>
                                                     </select>
                                                 </td>
                                                 <td class="text-center" v-if="cliente.qualitas">
                                                     <select class="form-control" v-model="desc_qualitas">
-                                                        <option value="">Seleccionar</option>
+                                                        <option value="">COBERTURAS</option>
                                                         <option v-for="descripcion in descripciones_qualitas" :value="descripcion.CAMIS">{{descripcion.cVersion}}</option>
                                                     </select>
                                                 </td>
@@ -91,6 +91,8 @@
                                                         <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[0].DESC_PERIODICIDAD }}: ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[0].CONCEPTO_ECONOMICO[10].MONTO | int }}</div>
                                                         <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].DESC_PERIODICIDAD }}: ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].CONCEPTO_ECONOMICO[11].MONTO | int }}</div>
                                                         <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].DESC_PERIODICIDAD }}: ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].CONCEPTO_ECONOMICO[11].MONTO | int }}</div>
+
+                                                        <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].DESC_PERIODICIDAD }}: ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].CONCEPTO_ECONOMICO[11].MONTO | int }}</div>
                                                     </div>
                                                     <div v-else>
                                                         Seleccione una descripción
@@ -168,10 +170,10 @@
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
                                                     <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" style="padding:0">
-                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'DM Pérdida Total'">
+                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'DM PERDIDA TOTAL                                  '">
                                                             <div class="border"><strong>{{cobertura.NOMBRE}}:</strong> {{cobertura.DEDUCIBLE}}</div>
                                                         </div>
-                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'DM Pérdida Parcial'">
+                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'DM PERDIDA PARCIAL                                '">
                                                             <div class="border"><strong>{{cobertura.NOMBRE}}:</strong> {{cobertura.DEDUCIBLE}}</div>
                                                         </div>
                                                     </div>
@@ -223,7 +225,7 @@
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
                                                     <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined">
-                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'Robo Total'">
+                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'ROBO TOTAL                                        '">
                                                             <span>
                                                                 <strong>{{cobertura.NOMBRE}}:</strong> {{cobertura.DEDUCIBLE}}
                                                             </span>
@@ -275,12 +277,12 @@
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
                                                     <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" style="padding:0">
-                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'RESPONSABILIDAD CIVIL POR DA#OS  A TERCEROS'">
+                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'RESPONSABILIDAD CIVIL POR DA#OS  A TERCEROS       '">
                                                             <div class="border" v-if="cobertura.DEDUCIBLE.length != 0"><strong>{{cobertura.NOMBRE}}:</strong> ${{cobertura.DEDUCIBLE}}</div>
                                                             <div v-else class="text-center"><strong>{{cobertura.NOMBRE}}:</strong> - </div>
                                                             <div class="border" v-if="cobertura.SUMA_ASEGURADA != ''"><strong>Suma asegurada:</strong> {{cobertura.SUMA_ASEGURADA}}</div>
                                                         </div>
-                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'Extensión Cobertura Resp. Civil'">
+                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'EXTENSION DE RC                                   '">
                                                             <div v-if="cobertura.DEDUCIBLE != 'No aplica'" class="border"><strong>{{cobertura.NOMBRE}}:</strong> ${{cobertura.DEDUCIBLE}}</div>
                                                             <div v-else><strong>{{cobertura.NOMBRE}}:</strong> {{cobertura.DEDUCIBLE}} </div>
                                                         </div>
@@ -356,9 +358,9 @@
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
                                                     <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" >
-                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'GASTOS MEDICOS OCUP'">
-                                                             <div v-if="cobertura.DEDUCIBLE != 'No aplica'"><span><strong>{{cobertura.NOMBRE}}:</strong> ${{cobertura.DEEDUCIBLE}} </span></div>
-                                                            <div v-else><strong>{{cobertura.NOMBRE}}:</strong> {{cobertura.DEEDUCIBLE}}</div>
+                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'GASTOS MEDICOS OCUP       '">
+                                                             <div v-if="cobertura.DEDUCIBLE != 'No aplica'"><span><strong>{{cobertura.NOMBRE}}:</strong> ${{cobertura.DEDUCIBLE}} </span></div>
+                                                            <div v-else><strong>{{cobertura.NOMBRE}}:</strong> {{cobertura.DEDUCIBLE}}</div>
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">
@@ -505,7 +507,7 @@
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
                                                     <div  class="text-center" v-if="cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" style="padding:0;">
-                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="(['Extensión Cobertura Resp. Civil'].indexOf(cobertura.NOMBRE) == -1)">
+                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="(['EXTENSION DE RC                                   ','CLUB GNP                                          '].indexOf(cobertura.NOMBRE) == -1)">
                                                             <span class="border">
                                                                 <strong>
                                                                     {{cobertura.NOMBRE}}:
@@ -661,7 +663,7 @@
                 axios.get(url).then(res=>{
                     console.log('descripcion ana',res.data)
                     this.descripciones_ana = res.data.vehiculos;
-                    console.log('Get Descripcion ANA');
+                    console.log('Get Descripcion ANA',this.descripciones_ana);
                     console.log('Funciona el controlador ANA EN VUE');
                 }).catch(err=>{
                     console.log('err',err)

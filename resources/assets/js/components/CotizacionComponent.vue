@@ -5,7 +5,7 @@
     		<div class="row m-0 p-1 no-gutters">
     			<div class="col-sm-6 d-none d-sm-block p-2">
     				<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-		              <a class="nav-link active" id="v-pills-Uso-tab"  data-toggle="pill" href="#v-pills-Uso" role="tab" aria-controls="v-pills-Uso" aria-selected="true">XUso: {{cliente.uso_auto}}</a>
+		              <a class="nav-link active" id="v-pills-Uso-tab"  data-toggle="pill" href="#v-pills-Uso" role="tab" aria-controls="v-pills-Uso" aria-selected="true">Uso: {{cliente.uso_auto}}</a>
 		              <a class="nav-link disabled" id="v-pills-Modelo-tab" data-toggle="pill"  href="#v-pills-Modelo" role="tab" aria-controls="v-pills-Modelo" aria-selected="false">Modelo: {{cliente.modelo_auto}}</a>
 		              <a class="nav-link disabled" id="v-pills-Marca-tab" data-toggle="pill" href="#v-pills-Marca" role="tab" aria-controls="v-pills-Marca" aria-selected="false">Marca: {{cliente.marca_auto.descripcion}}</a>
 		              <a class="nav-link disabled" id="v-pills-Submarca-tab" data-toggle="pill" href="#v-pills-Submarca" role="tab" aria-controls="v-pills-Submarca" aria-selected="false">Tipo: {{cliente.submarca_auto.descripcion}}</a>
@@ -41,7 +41,7 @@
     								<div class="col-12 p-0 my-4">
     									<div class="card">
     										<div class="card-header">
-    											Tipo de Uso:
+    											Uso:
     										</div>
     										<div class="card-body">
     											<select v-model="cliente.uso_auto" size="3" class="list-group list-group-flush col mr-0 ml-0"  style="overflow-y: hidden;">
@@ -536,7 +536,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			$('#descripcion').append('<div class="loader"></div>');
     			axios.get(url).then(res=>{
     				this.loader_tipo = false;
-    				//console.log('res submarcas',res);
+    				console.log('res submarcas',res);
     				if (res.data.submarcas) {
     					this.submarcas = res.data.submarcas.sort();
     				}
@@ -547,7 +547,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     		getModelos(){
     			let url = `./api/modelosANA`;
     			axios.get(url).then(res=>{
-    				//console.log('res modelos',res);
+    				console.log('res modelos',res);
     				this.loader_modelo=false;
     				if (res.data.modelos) {
     					this.modelos = res.data.modelos;
