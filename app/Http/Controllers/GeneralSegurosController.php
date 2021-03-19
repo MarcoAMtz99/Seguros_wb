@@ -28,6 +28,7 @@ class GeneralSegurosController extends Controller
         // $this->urlCatAuto = "https://gdswas.mx/gsautos-ws/soap/catalogoAutosWS?wsdl";
         // $this->urlCober = "https://gdswas.mx/gsautos-ws/soap/catalogoCoberturasWS?wsdl";
         // *******************************************************
+        //                https://serviciosgs.mx/gsautos-ws/soap/catalogoAutosWS?wsdl
         $this->urlAuth = "https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl";
         $this->urlCotiza = "https://serviciosgs.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
         $this->urlCat = "https://serviciosgs.mx/gsautos-ws/soap/catalogosWS?wsdl";
@@ -54,6 +55,7 @@ class GeneralSegurosController extends Controller
     public function getClient($url)
     {
         try {
+            dd($url, $this->params);
             $client = new SoapClient($url, $this->params);
             return $client;
         } catch (FatalErrorException $error) {
