@@ -36,10 +36,10 @@ class GeneralSegurosController extends Controller
         $this->urlCober = "https://serviciosgs.mx/gsautos-ws/soap/catalogoCoberturasWS?wsdl";
         try {
             $this->clientAuthGS = $this->getClient($this->urlAuth);
-
+            dd($this->clientAuthGS);
             // $this->clientCotGS = new SoapClient($this->urlCotiza,$this->params);
         } catch (SoapFault $fault) {
-            dd($fault);
+            dd("Fallo",$fault);
         }
         // get token
         $this->token = $this->getToken();
@@ -57,7 +57,7 @@ class GeneralSegurosController extends Controller
         try {
 
             $client = new SoapClient($url, $this->params);
-            dd($client);
+            // dd($client);
             return $client;
         } catch (FatalErrorException $error) {
             dd($error);
