@@ -4993,7 +4993,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (this.cliente.gs) {
-        console.log('ESTA ACTIVO DESCRIPCIONES GS');
+        console.log("Datos del auto: ", this.cliente.marca_auto.descripcion, this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio);
         this.getDescripcionesGS(this.cliente.marca_auto.descripcion, this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio);
       }
 
@@ -5054,6 +5054,7 @@ __webpack_require__.r(__webpack_exports__);
         if (res.data.ANASeguros) {
           _this2.loader = false;
           _this2.cotizacionesANA = res.data.ANASeguros;
+          console.log('Cotizacion Ana:', _this2.cotizacionesANA);
 
           _this2.sendCotizacion(_this2.cliente, _this2.cotizacionesANA[0], "ANA");
         }
@@ -5127,8 +5128,8 @@ __webpack_require__.r(__webpack_exports__);
       this.cotizacionesQualitas = []; // this.loader = true;
 
       axios.post(url, params).then(function (res) {
-        _this4.loader = false;
-        console.log("Descripcion qa: ", res.data);
+        _this4.loader = false; // console.log("Descripcion qa: ",res.data);
+
         _this4.cotizacionesQualitas = res.data.Qualitas;
         console.log('Cotizacion QA:', _this4.cotizacionesQualitas);
       })["catch"](function (err) {
