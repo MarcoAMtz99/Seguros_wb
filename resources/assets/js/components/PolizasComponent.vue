@@ -378,8 +378,8 @@
                                                 <td class="text-center" v-if="cliente.gnp">
                                                     <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" >
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'GASTOS MEDICOS OCUP                               '">
-                                                             <div v-if="cobertura.DEDUCIBLE != 'No aplica'"><span><strong>{{cobertura.NOMBRE}}:</strong> ${{cobertura.DEDUCIBLE}} </span></div>
-                                                            <div v-else><strong>{{cobertura.NOMBRE}}:</strong> {{cobertura.DEDUCIBLE}}</div>
+                                                             <div v-if="cobertura.DEDUCIBLE != 'No aplica'"><span><strong>{{cobertura.NOMBRE}}:</strong> ${{cobertura.SUMA_ASEGURADA}} </span></div>
+                                                            <div v-else><strong>{{cobertura.NOMBRE}}:</strong> {{cobertura.SUMA_ASEGURADA}}</div>
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">
@@ -473,7 +473,9 @@
                                                 <td class="text-center" v-if="cliente.gnp">
                                                     <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" >
                                                         <div >
-                                                             <span><strong>No aplica</strong></span>
+                                                             <span><strong>{{cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA[8].NOMBRE}}</strong></span> <br>
+                                                             {{cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA[8].SUMA_ASEGURADA}}
+
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">
@@ -525,7 +527,7 @@
                                                     Otras Coberturas
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
-                                                    <div  class="text-center" v-if="cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" style="padding:0;">
+                                                    <!-- <div  class="text-center" v-if="cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" style="padding:0;">
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="(['EXTENSION DE RC                                   ','CLUB GNP                                          '].indexOf(cobertura.NOMBRE) == -1)">
                                                             <span class="border">
                                                                 <strong>
@@ -537,7 +539,7 @@
                                                     </div>
                                                     <div v-else class="text-center">
                                                         Seleccione una descripción
-                                                    </div>
+                                                    </div> -->
                                                 </td>
                                                 <td class="text-center" v-if="cliente.gs">
                                                     <div  class="text-center" v-if="cotizacionesGS.id" style="padding:0;">

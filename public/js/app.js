@@ -4970,6 +4970,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -53953,7 +53955,7 @@ var render = function() {
                                                             _vm._v(
                                                               " $" +
                                                                 _vm._s(
-                                                                  cobertura.DEDUCIBLE
+                                                                  cobertura.SUMA_ASEGURADA
                                                                 ) +
                                                                 " "
                                                             )
@@ -53970,7 +53972,7 @@ var render = function() {
                                                           _vm._v(
                                                             " " +
                                                               _vm._s(
-                                                                cobertura.DEDUCIBLE
+                                                                cobertura.SUMA_ASEGURADA
                                                               )
                                                           )
                                                         ])
@@ -54424,7 +54426,34 @@ var render = function() {
                                       ? _c(
                                           "div",
                                           { staticClass: "text-center" },
-                                          [_vm._m(0)]
+                                          [
+                                            _c("div", [
+                                              _c("span", [
+                                                _c("strong", [
+                                                  _vm._v(
+                                                    _vm._s(
+                                                      _vm.cotizacionesGNP
+                                                        .PAQUETES.PAQUETE
+                                                        .COBERTURAS.COBERTURA[8]
+                                                        .NOMBRE
+                                                    )
+                                                  )
+                                                ])
+                                              ]),
+                                              _vm._v(" "),
+                                              _c("br"),
+                                              _vm._v(
+                                                "\n                                                             " +
+                                                  _vm._s(
+                                                    _vm.cotizacionesGNP.PAQUETES
+                                                      .PAQUETE.COBERTURAS
+                                                      .COBERTURA[8]
+                                                      .SUMA_ASEGURADA
+                                                  ) +
+                                                  "\n\n                                                        "
+                                              )
+                                            ])
+                                          ]
                                         )
                                       : _c(
                                           "div",
@@ -54627,62 +54656,7 @@ var render = function() {
                               ),
                               _vm._v(" "),
                               _vm.cliente.gnp
-                                ? _c("td", { staticClass: "text-center" }, [
-                                    _vm.cotizacionesGNP &&
-                                    _vm.cotizacionesGNP.PAQUETES !== undefined
-                                      ? _c(
-                                          "div",
-                                          {
-                                            staticClass: "text-center",
-                                            staticStyle: { padding: "0" }
-                                          },
-                                          _vm._l(
-                                            _vm.cotizacionesGNP.PAQUETES.PAQUETE
-                                              .COBERTURAS.COBERTURA,
-                                            function(cobertura, index) {
-                                              return [
-                                                "EXTENSION DE RC                                   ",
-                                                "CLUB GNP                                          "
-                                              ].indexOf(cobertura.NOMBRE) == -1
-                                                ? _c("div", [
-                                                    _c(
-                                                      "span",
-                                                      { staticClass: "border" },
-                                                      [
-                                                        _c("strong", [
-                                                          _vm._v(
-                                                            "\n                                                                    " +
-                                                              _vm._s(
-                                                                cobertura.NOMBRE
-                                                              ) +
-                                                              ":\n                                                                "
-                                                          )
-                                                        ]),
-                                                        _vm._v(
-                                                          " \n                                                                " +
-                                                            _vm._s(
-                                                              cobertura.DEDUCIBLE
-                                                            ) +
-                                                            "\n                                                            "
-                                                        )
-                                                      ]
-                                                    )
-                                                  ])
-                                                : _vm._e()
-                                            }
-                                          ),
-                                          0
-                                        )
-                                      : _c(
-                                          "div",
-                                          { staticClass: "text-center" },
-                                          [
-                                            _vm._v(
-                                              "\n                                                        Seleccione una descripción\n                                                    "
-                                            )
-                                          ]
-                                        )
-                                  ])
+                                ? _c("td", { staticClass: "text-center" })
                                 : _vm._e(),
                               _vm._v(" "),
                               _vm.cliente.gs
@@ -54926,14 +54900,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("span", [_c("strong", [_vm._v("No aplica")])])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
