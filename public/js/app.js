@@ -52190,8 +52190,11 @@ var render = function() {
                                                       .CONCEPTO_ECONOMICO[11]
                                                       .MONTO
                                                   )
-                                                ) +
-                                                "Subsecuentes(2):" +
+                                                )
+                                            ),
+                                            _c("br"),
+                                            _vm._v(
+                                              "Subsecuentes(2):" +
                                                 _vm._s(
                                                   _vm.cotizacionesGNP.PAQUETES
                                                     .PAQUETE.TOTALES
@@ -52221,7 +52224,11 @@ var render = function() {
                                                       .MONTO
                                                   )
                                                 ) +
-                                                "Subsecuentes(3):" +
+                                                " "
+                                            ),
+                                            _c("br"),
+                                            _vm._v(
+                                              " Subsecuentes(3):" +
                                                 _vm._s(
                                                   _vm.cotizacionesGNP.PAQUETES
                                                     .PAQUETE.TOTALES
@@ -52250,7 +52257,11 @@ var render = function() {
                                                       .MONTO
                                                   )
                                                 ) +
-                                                " Subsecuentes(11): " +
+                                                " "
+                                            ),
+                                            _c("br"),
+                                            _vm._v(
+                                              " Subsecuentes(11): " +
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesGNP.PAQUETES
