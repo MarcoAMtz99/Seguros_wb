@@ -5127,8 +5127,8 @@ __webpack_require__.r(__webpack_exports__);
       this.cotizacionesQualitas = []; // this.loader = true;
 
       axios.post(url, params).then(function (res) {
-        _this4.loader = false; // console.log(res.data);
-
+        _this4.loader = false;
+        console.log("Descripcion qa: ", res.data);
         _this4.cotizacionesQualitas = res.data.Qualitas;
       })["catch"](function (err) {
         _this4.loader = false;

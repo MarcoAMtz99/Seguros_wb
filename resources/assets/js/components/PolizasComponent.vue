@@ -753,7 +753,7 @@
                 // this.loader = true;
                 axios.post(url,params).then(res=>{
                     this.loader=false;
-                    // console.log(res.data);
+                    console.log("Descripcion qa: ",res.data);
                     this.cotizacionesQualitas = res.data.Qualitas;
                 }).catch(err=>{
                     this.loader=false;
