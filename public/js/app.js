@@ -52194,7 +52194,7 @@ var render = function() {
                                             ),
                                             _c("br"),
                                             _vm._v(
-                                              "Subsecuentes(2):" +
+                                              "Subsecuentes(2): $" +
                                                 _vm._s(
                                                   _vm.cotizacionesGNP.PAQUETES
                                                     .PAQUETE.TOTALES
@@ -52261,7 +52261,7 @@ var render = function() {
                                             ),
                                             _c("br"),
                                             _vm._v(
-                                              " Subsecuentes(11): " +
+                                              " Subsecuentes(11): $" +
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesGNP.PAQUETES
