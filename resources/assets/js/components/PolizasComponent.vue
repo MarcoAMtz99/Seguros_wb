@@ -755,6 +755,7 @@
                     this.loader=false;
                     console.log("Descripcion qa: ",res.data);
                     this.cotizacionesQualitas = res.data.Qualitas;
+                    console.log('Cotizacion QA:', this.cotizacionesQualitas);
                 }).catch(err=>{
                     this.loader=false;
                     console.log(err)
