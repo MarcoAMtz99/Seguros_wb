@@ -52223,7 +52223,7 @@ var render = function() {
                                                   .TOTAL_PRIMA[3]
                                                   .DESC_PERIODICIDAD
                                               ) +
-                                                ':"1er pago ".$' +
+                                                ":1er pago .$" +
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesGNP.PAQUETES
@@ -52233,7 +52233,7 @@ var render = function() {
                                                       .MONTO
                                                   )
                                                 ) +
-                                                " " +
+                                                " Subsecuentes(11): " +
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesGNP.PAQUETES
