@@ -193,7 +193,7 @@
                                                             Reparacion en Agencia<br>
 
                                                             Para Vehículos de hasta 2 años de antiguedad <br>
-                                                            
+
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">
@@ -246,7 +246,7 @@
                                                     <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined">
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'ROBO TOTAL                                        '">
                                                             <span>
-                                                                <strong>{{cobertura.NOMBRE}}:</strong> {{cobertura.DEDUCIBLE}}
+                                                                <strong>{{cobertura.NOMBRE}}:</strong> 10% de la Suma Asegurada
                                                             </span>
                                                         </div>
                                                     </div>
@@ -377,7 +377,7 @@
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
                                                     <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" >
-                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'GASTOS MEDICOS OCUP       '">
+                                                        <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'GASTOS MEDICOS OCUP                               '">
                                                              <div v-if="cobertura.DEDUCIBLE != 'No aplica'"><span><strong>{{cobertura.NOMBRE}}:</strong> ${{cobertura.DEDUCIBLE}} </span></div>
                                                             <div v-else><strong>{{cobertura.NOMBRE}}:</strong> {{cobertura.DEDUCIBLE}}</div>
                                                         </div>

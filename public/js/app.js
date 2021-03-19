@@ -53005,11 +53005,7 @@ var render = function() {
                                                             )
                                                           ]),
                                                           _vm._v(
-                                                            " " +
-                                                              _vm._s(
-                                                                cobertura.DEDUCIBLE
-                                                              ) +
-                                                              "\n                                                            "
+                                                            " 10% de la Suma Asegurada\n                                                            "
                                                           )
                                                         ])
                                                       ])
@@ -53941,7 +53937,7 @@ var render = function() {
                                               .COBERTURAS.COBERTURA,
                                             function(cobertura, index) {
                                               return cobertura.NOMBRE ==
-                                                "GASTOS MEDICOS OCUP       "
+                                                "GASTOS MEDICOS OCUP                               "
                                                 ? _c("div", [
                                                     cobertura.DEDUCIBLE !=
                                                     "No aplica"
