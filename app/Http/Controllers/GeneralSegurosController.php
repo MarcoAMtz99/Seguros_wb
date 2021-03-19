@@ -39,7 +39,7 @@ class GeneralSegurosController extends Controller
             dd($this->clientAuthGS);
             // $this->clientCotGS = new SoapClient($this->urlCotiza,$this->params);
         } catch (SoapFault $fault) {
-            dd("Fallo",$fault);
+            // dd("Fallo",$fault);
         }
         // get token
         $this->token = $this->getToken();
@@ -262,6 +262,7 @@ class GeneralSegurosController extends Controller
                         $version->submarca = $submarca_gs;
                         $version->modelo = $modelo_gs;
                         array_push($versiones, $version);
+                        dd($versiones, $version);
                     }
                     return response()->json(['versiones_gs' => $versiones], 201);
                 }
