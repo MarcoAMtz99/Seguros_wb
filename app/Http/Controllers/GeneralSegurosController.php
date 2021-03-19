@@ -55,8 +55,9 @@ class GeneralSegurosController extends Controller
     public function getClient($url)
     {
         try {
-            dd($url, $this->params);
+
             $client = new SoapClient($url, $this->params);
+            dd($client);
             return $client;
         } catch (FatalErrorException $error) {
             dd($error);
