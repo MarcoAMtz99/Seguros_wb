@@ -52218,12 +52218,12 @@ var render = function() {
                                           _c("div", { staticClass: "border" }, [
                                             _vm._v(
                                               _vm._s(
-                                                "1er pago ".cotizacionesGNP
-                                                  .PAQUETES.PAQUETE.TOTALES
+                                                _vm.cotizacionesGNP.PAQUETES
+                                                  .PAQUETE.TOTALES
                                                   .TOTAL_PRIMA[3]
                                                   .DESC_PERIODICIDAD
                                               ) +
-                                                ": $" +
+                                                ':"1er pago ".$' +
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesGNP.PAQUETES
@@ -52236,8 +52236,7 @@ var render = function() {
                                                 " " +
                                                 _vm._s(
                                                   _vm._f("int")(
-                                                    "Subsecuentes: "
-                                                      .cotizacionesGNP.PAQUETES
+                                                    _vm.cotizacionesGNP.PAQUETES
                                                       .PAQUETE.TOTALES
                                                       .TOTAL_PRIMA[3]
                                                       .CONCEPTO_ECONOMICO[12]

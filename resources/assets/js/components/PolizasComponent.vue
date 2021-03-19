@@ -92,7 +92,7 @@
                                                         <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].DESC_PERIODICIDAD }}: ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].CONCEPTO_ECONOMICO[11].MONTO | int }}</div>
                                                         <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].DESC_PERIODICIDAD }}: ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].CONCEPTO_ECONOMICO[11].MONTO | int }}</div>
 
-                                                        <div class="border">{{ "1er pago ".cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].DESC_PERIODICIDAD }}: ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].CONCEPTO_ECONOMICO[11].MONTO | int }} {{"Subsecuentes: ". cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].CONCEPTO_ECONOMICO[12].MONTO | int}} </div>
+                                                        <div class="border">{{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].DESC_PERIODICIDAD }}:"1er pago ".${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].CONCEPTO_ECONOMICO[11].MONTO | int }} {{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].CONCEPTO_ECONOMICO[12].MONTO | int}} </div>
                                                     </div>
                                                     <div v-else>
                                                         Seleccione una descripción
