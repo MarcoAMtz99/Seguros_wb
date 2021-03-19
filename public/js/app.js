@@ -54197,9 +54197,7 @@ var render = function() {
                                                     _c("span", [
                                                       _c("strong", [
                                                         _vm._v(
-                                                          _vm._s(
-                                                            cobertura.NOMBRE
-                                                          )
+                                                          "RESPONSABILIDAD CIVIL POR DAÑOS A TERCEROS :"
                                                         )
                                                       ]),
                                                       _vm._v(
@@ -54207,7 +54205,11 @@ var render = function() {
                                                           _vm._s(
                                                             cobertura.DEDUCIBLE
                                                           ) +
-                                                          " Suma Asegurada: " +
+                                                          " "
+                                                      ),
+                                                      _c("br"),
+                                                      _vm._v(
+                                                        " Suma Asegurada: " +
                                                           _vm._s(
                                                             cobertura.SUMA_ASEGURADA
                                                           )

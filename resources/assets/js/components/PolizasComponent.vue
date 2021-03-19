@@ -426,7 +426,7 @@
                                                 <td class="text-center" v-if="cliente.gnp">
                                                     <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" >
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'PROTECCION LEGAL                                  '">
-                                                             <span><strong>{{cobertura.NOMBRE}}</strong>Deducible: {{cobertura.DEDUCIBLE}} Suma Asegurada: {{cobertura.SUMA_ASEGURADA}}</span>
+                                                             <span><strong>RESPONSABILIDAD CIVIL POR DAÑOS A TERCEROS :</strong>Deducible: {{cobertura.DEDUCIBLE}} <br> Suma Asegurada: {{cobertura.SUMA_ASEGURADA}}</span>
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">
