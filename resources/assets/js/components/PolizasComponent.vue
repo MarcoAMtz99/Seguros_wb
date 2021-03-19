@@ -89,7 +89,7 @@
                                                 <td class="text-center" v-if="cliente.gnp">
                                                     <div v-if="cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" style="padding">
                                                         <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[0].DESC_PERIODICIDAD }}:1er pago ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[0].CONCEPTO_ECONOMICO[10].MONTO | int }}</div>
-                                                        <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].DESC_PERIODICIDAD }}:1er pago ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].CONCEPTO_ECONOMICO[11].MONTO | int }}<br>Subsecuentes(2): .${{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].CONCEPTO_ECONOMICO[12].MONTO}} </div>
+                                                        <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].DESC_PERIODICIDAD }}:1er pago ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].CONCEPTO_ECONOMICO[11].MONTO | int }}<br>Subsecuentes(1): .${{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].CONCEPTO_ECONOMICO[12].MONTO}} </div>
                                                         <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].DESC_PERIODICIDAD }}:1er pago ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].CONCEPTO_ECONOMICO[11].MONTO | int }} <br> Subsecuentes(3): .${{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].CONCEPTO_ECONOMICO[12].MONTO}}</div>
 
                                                         <div class="border">{{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].DESC_PERIODICIDAD }}:1er pago .${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].CONCEPTO_ECONOMICO[11].MONTO | int }} <br> Subsecuentes(11): .${{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].CONCEPTO_ECONOMICO[12].MONTO | int}} </div>
@@ -171,10 +171,29 @@
                                                 <td class="text-center" v-if="cliente.gnp">
                                                     <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" style="padding:0">
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'DM PERDIDA TOTAL                                  '">
-                                                            <div class="border"><strong>{{cobertura.NOMBRE}}:</strong> {{cobertura.DEDUCIBLE}}</div>
+                                                            <div class="border"><strong>{{cobertura.NOMBRE}}:</strong> 5%</div>
                                                         </div>
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'DM PERDIDA PARCIAL                                '">
-                                                            <div class="border"><strong>{{cobertura.NOMBRE}}:</strong> {{cobertura.DEDUCIBLE}}</div>
+                                                            <div class="border"><strong>{{cobertura.NOMBRE}}:</strong> 5%</div>
+                                                            <br>
+                                                            <strong>Suma Asegurada:</strong> <br>
+                                                            Valor Factura: Para Vehículos de hasta 12 meses de antigüedad Valor Comercial: Para vehículos de mas de 12 meses de antigüedad
+                                                            <br>
+                                                        
+                                                        
+                                                            <strong>Riesgos cubiertos:</strong><br>
+
+                                                            Colisiones y Vuelcos <br>
+                                                            Rotura de Cristales<br>
+                                                            Incendio, Rayo y explosion<br>
+                                                            Catástrofes naturales<br>
+                                                            Paros, mítines, huelga o disturbios<br>
+                                                            Daños al transportar el vehículo asegurado<br> Penetración accidental de agua al motor<br>
+
+                                                            Reparacion en Agencia<br>
+
+                                                            Para Vehículos de hasta 2 años de antiguedad <br>
+                                                            
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">
