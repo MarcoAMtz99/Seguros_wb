@@ -52434,7 +52434,7 @@ var render = function() {
                               _vm.cliente.gnp
                                 ? _c("td", { staticClass: "text-center" }, [
                                     _vm.cotizacionesGNP &&
-                                    _vm.cotizacionesGNP.PAQUETES !== undefined
+                                    _vm.cotizacionesGNP.PAQUETES != undefined
                                       ? _c("div", [
                                           _c(
                                             "button",
@@ -53238,7 +53238,7 @@ var render = function() {
                                     _vm.desc_gnp &&
                                     _vm.tipo_poliza &&
                                     _vm.cotizacionesGNP &&
-                                    _vm.cotizacionesGNP.PAQUETES !== undefined
+                                    _vm.cotizacionesGNP.PAQUETES != undefined
                                       ? _c(
                                           "div",
                                           {

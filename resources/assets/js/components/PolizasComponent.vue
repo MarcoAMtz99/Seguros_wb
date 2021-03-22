@@ -131,7 +131,7 @@
                                             <tr>
                                                 <th scope="row" class="text-center">Seleccionar</th>
                                                 <td class="text-center" v-if="cliente.gnp">
-                                                    <div v-if="cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined">
+                                                    <div v-if="cotizacionesGNP && cotizacionesGNP.PAQUETES != undefined">
                                                         <button type="button" id="9_1" class="btn btn-primary seleccionador" @click="emitirgnp(cotizacionesGNP, tipo_poliza)">Elegir</button>
                                                     </div>
                                                     <div v-else>
@@ -295,7 +295,7 @@
                                                     Responsabilidad Civil
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
-                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" style="padding:0">
+                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES != undefined" style="padding:0">
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'RESPONSABILIDAD CIVIL POR DA#OS  A TERCEROS       '">
                                                             <div class="border" v-if="cobertura.DEDUCIBLE.length != 0"><strong>{{cobertura.NOMBRE}}:</strong> ${{cobertura.DEDUCIBLE}}</div>
                                                             <div v-else class="text-center"><strong>{{cobertura.NOMBRE}}:</strong> - </div>
