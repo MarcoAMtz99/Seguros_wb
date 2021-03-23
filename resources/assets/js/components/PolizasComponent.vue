@@ -131,7 +131,7 @@
                                             <tr>
                                                 <th scope="row" class="text-center">Seleccionar</th>
                                                 <td class="text-center" v-if="cliente.gnp">
-                                                    <div v-if="cotizacionesGNP && cotizacionesGNP.PAQUETES != undefined">
+                                                    <div v-if="cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined">
                                                         <button type="button" id="9_1" class="btn btn-primary seleccionador" @click="emitirgnp(cotizacionesGNP, tipo_poliza)">Elegir</button>
                                                     </div>
                                                     <div v-else>
@@ -169,7 +169,7 @@
                                                     Daños Materiales
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
-                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" style="padding:0">
+                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== 'undefined'" style="padding:0">
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'DM PERDIDA TOTAL                                  '">
                                                             <div class="border"><strong>{{cobertura.NOMBRE}}:</strong> 5%</div>
                                                         </div>
@@ -243,7 +243,7 @@
                                                     Robo Total
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
-                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined">
+                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== 'undefined'">
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'ROBO TOTAL                                        '">
                                                             <span>
                                                                 <strong>{{cobertura.NOMBRE}}:</strong> 10% de la Suma Asegurada
@@ -295,7 +295,7 @@
                                                     Responsabilidad Civil
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
-                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES != undefined" style="padding:0">
+                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== 'undefined'" style="padding:0">
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'RESPONSABILIDAD CIVIL POR DA#OS  A TERCEROS       '">
                                                             <div class="border" v-if="cobertura.DEDUCIBLE.length != 0"><strong>{{cobertura.NOMBRE}}:</strong> ${{cobertura.DEDUCIBLE}}</div>
                                                             <div v-else class="text-center"><strong>{{cobertura.NOMBRE}}:</strong> - </div>
@@ -376,7 +376,7 @@
                                                     Gastos Médicos
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
-                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" >
+                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== 'undefined'" >
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'GASTOS MEDICOS OCUP                               '">
                                                              <div v-if="cobertura.DEDUCIBLE != 'No aplica'"><span><strong>{{cobertura.NOMBRE}}:</strong> ${{cobertura.SUMA_ASEGURADA}} </span></div>
                                                             <div v-else><strong>{{cobertura.NOMBRE}}:</strong> {{cobertura.SUMA_ASEGURADA}}</div>
@@ -424,7 +424,7 @@
                                                     Legal
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
-                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" >
+                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== 'undefined'" >
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'PROTECCION LEGAL                                  '">
                                                              <span><strong>RESPONSABILIDAD CIVIL POR DAÑOS A TERCEROS :</strong>Deducible: {{cobertura.DEDUCIBLE}} <br> Suma Asegurada: {{cobertura.SUMA_ASEGURADA}}</span>
                                                         </div>
