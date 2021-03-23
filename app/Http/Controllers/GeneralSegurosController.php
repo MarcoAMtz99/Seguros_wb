@@ -29,6 +29,7 @@ class GeneralSegurosController extends Controller
         // $this->urlCober = "https://gdswas.mx/gsautos-ws/soap/catalogoCoberturasWS?wsdl";
         // *******************************************************
         //                https://serviciosgs.mx/gsautos-ws/soap/catalogoAutosWS?wsdl
+        //                https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl
         $this->urlAuth = "https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl";
         $this->urlCotiza = "https://serviciosgs.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
         $this->urlCat = "https://serviciosgs.mx/gsautos-ws/soap/catalogosWS?wsdl";
@@ -70,11 +71,11 @@ class GeneralSegurosController extends Controller
         $result = $this->clientAuthGS->obtenerToken([
             'arg0' => [
                 // //produccion
-                 // "usuario" => 'ATC0', 
-                 // 'password' => '2r2kGdeUA0' 
+                 "usuario" => 'ATC0', 
+                 'password' => '2r2kGdeUA0' 
                 //pruebas
-                "usuario" => 'ATC891',
-                'password' => '2HFeACQo1O'
+                // "usuario" => 'ATC891',
+                // 'password' => '2HFeACQo1O'
             ]
         ]);
         // return $result;
