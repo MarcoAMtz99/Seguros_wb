@@ -318,7 +318,7 @@ class GNPController extends Controller
 
  		 // if (!empty($carrocerias['ELEMENTOS'])) { 
  			foreach ($carrocerias['ELEMENTOS']['ELEMENTO'] as $value) {
- 				if ($value['NOMBRE'] ===  strtoupper($submarca) ){
+ 				if (strcmp ($value['NOMBRE'] ,$submarca)=== 0){
 					 $carroceria = $value['NOMBRE'];
 					 /* dd("Si se encontro"); */
 				 }
