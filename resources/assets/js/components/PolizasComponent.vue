@@ -209,10 +209,10 @@
                                                             <div class="border"><strong>{{cobertura.descripcion}}:</strong> {{cobertura.monto}}</div>
                  
                                                     </div>
-                                                    <div v-else class="text-center">
+                                                </div>
+                                                <div v-else class="text-center">
                                                         Seleccione una descripción
                                                     </div>
-                                                </div>
                                                 </td>
                                                 <td class="text-center" v-if="cliente.ana">
                                                     <div class="text-center" v-if="desc_ana && tipo_poliza && cotizacionesANA.length != 0">

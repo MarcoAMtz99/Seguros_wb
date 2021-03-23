@@ -52802,24 +52802,21 @@ var render = function() {
                                                             ]
                                                           )
                                                         ])
-                                                      : _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "text-center"
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "\n                                                        Seleccione una descripción\n                                                    "
-                                                            )
-                                                          ]
-                                                        )
+                                                      : _vm._e()
                                                   }
                                                 )
                                               ],
                                               2
                                             )
-                                          : _vm._e()
+                                          : _c(
+                                              "div",
+                                              { staticClass: "text-center" },
+                                              [
+                                                _vm._v(
+                                                  "\n                                                        Seleccione una descripción\n                                                    "
+                                                )
+                                              ]
+                                            )
                                       ])
                                     : _vm._e(),
                                   _vm._v(" "),
