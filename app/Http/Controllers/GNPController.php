@@ -220,7 +220,7 @@ class GNPController extends Controller
  	public function getArmadora($modelo, $marca)
  	{
  		$armadoras = $this->getArmadoras($modelo);
- 		dd($armadoras);
+ 		// dd($armadoras);
  		$armadora = '';
  		if (isset($armadoras['ELEMENTOS'])) {
  			foreach ($armadoras['ELEMENTOS']['ELEMENTO'] as $value) {
