@@ -298,7 +298,7 @@ class GNPController extends Controller
 					   </ELEMENTOS>  
 					</SOLICITUD_CATALOGO>";
 					 
-					dd($xmlBody);
+					// dd($xmlBody);
  		return $this->buscarEnCatalogo($xmlBody);
  	}
 
