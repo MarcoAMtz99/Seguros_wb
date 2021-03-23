@@ -114,18 +114,15 @@ class GNPController extends Controller
  	public function modelos($marca, $submarca, $modelo)
  	{
  		$armadora   = $this->getArmadora($modelo, $marca);
- 		// dd($armadora);
+
  		$carroceria = $this->getCarroceria($armadora, $submarca);
  		$modelos    = $this->getModelos($modelo, $armadora, $carroceria);
  		
 
 		 $carroceria = $this->getCarroceria($armadora, $submarca);
-
-
-		  // dd($carroceria,$modelos,$armadora); 
+		 /* dd($carroceria); */
 		 $modelos    = $this->getModelos($modelo, $armadora, $carroceria);
-
-		  // dd($modelos,$carroceria,$armadora,$marca, $submarca, $modelo); 
+		 /* dd($modelos); */
 
  		return response()->json(['modelosGNP'=>$modelos],201);
  	}
@@ -133,7 +130,7 @@ class GNPController extends Controller
  	private function buscarEnCatalogo($xmlBody)
  	{
  		try {
-							
+			
 			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/catalogos/catalogo", $xmlBody);
 	        //convert the XML result into array
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
@@ -223,7 +220,6 @@ class GNPController extends Controller
  	public function getArmadora($modelo, $marca)
  	{
  		$armadoras = $this->getArmadoras($modelo);
- 		// dd($armadoras);
  		$armadora = '';
  		if (isset($armadoras['ELEMENTOS'])) {
  			foreach ($armadoras['ELEMENTOS']['ELEMENTO'] as $value) {
@@ -299,7 +295,7 @@ class GNPController extends Controller
 					   </ELEMENTOS>  
 					</SOLICITUD_CATALOGO>";
 					 
-					// dd($xmlBody);
+
  		return $this->buscarEnCatalogo($xmlBody);
  	}
 
@@ -313,31 +309,23 @@ class GNPController extends Controller
  	public function getCarroceria($armadora, $submarca)
  	{
 		 $carrocerias = $this->getCarrocerias($armadora);
-		  // dd($this->getCarrocerias($armadora)); 
+		 /* dd($this->getCarrocerias($armadora)); */
 		 $carroceria = '';
 		 $aux="";
 
- 		 if (isset($carrocerias['ELEMENTOS'])) { 
+ 		/* if (isset($carrocerias['ELEMENTOS'])) { */
  			foreach ($carrocerias['ELEMENTOS']['ELEMENTO'] as $value) {
- 					if ($value['NOMBRE'] =='CROSS FOX' && $submarca=='CROSSFOX') {
- 						# code...
- 						 $carroceria = $value['NOMBRE'];
- 						 $aux= $value['NOMBRE'];
-						 $carroceria =$aux;
- 					}
-
-
- 				if (strcmp (trim($value['NOMBRE'] ) ,$submarca)=== 0){
-					 $carroceria = $value['NOMBRE'];
+ 				if ($value['NOMBRE'] == $submarca){
+					 $carroceria = $value['CLAVE'];
 					 /* dd("Si se encontro"); */
 				 }
-				 if (strcmp(trim($value['NOMBRE'] ), $submarca) === 0){
-					$aux= $value['NOMBRE'];
+				 if (strcmp($value['NOMBRE'], $submarca) === 0){
+					$aux= $value['CLAVE'];
 					$carroceria =$aux;
 				}
  			}
- 		 } 
-		  // dd($carroceria,$submarca,$aux); 
+ 		/* } */
+		/*  dd($carroceria,$submarca,$aux); */
  		return $carroceria;
  	}
 
