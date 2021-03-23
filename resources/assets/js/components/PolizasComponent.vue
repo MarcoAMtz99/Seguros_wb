@@ -169,7 +169,7 @@
                                                     Daños Materiales
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
-                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" style="padding:0">
+                            <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" style="padding:0">
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'DM PERDIDA TOTAL                                  '">
                                                             <div class="border"><strong>{{cobertura.NOMBRE}}:</strong> 5%</div>
                                                         </div>
@@ -472,7 +472,9 @@
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
                                                     <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" >
-                                                        <div >
+                                                        <div v-if="cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA[8].NOMBRE!==undefined">
+                                                            
+
                                                              <span><strong>{{cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA[8].NOMBRE}}</strong></span> <br>
                                                              {{cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA[8].SUMA_ASEGURADA}}
 

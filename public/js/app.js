@@ -4972,6 +4972,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -54428,32 +54430,37 @@ var render = function() {
                                           "div",
                                           { staticClass: "text-center" },
                                           [
-                                            _c("div", [
-                                              _c("span", [
-                                                _c("strong", [
+                                            _vm.cotizacionesGNP.PAQUETES.PAQUETE
+                                              .COBERTURAS.COBERTURA[8]
+                                              .NOMBRE !== undefined
+                                              ? _c("div", [
+                                                  _c("span", [
+                                                    _c("strong", [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          _vm.cotizacionesGNP
+                                                            .PAQUETES.PAQUETE
+                                                            .COBERTURAS
+                                                            .COBERTURA[8].NOMBRE
+                                                        )
+                                                      )
+                                                    ])
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  _c("br"),
                                                   _vm._v(
-                                                    _vm._s(
-                                                      _vm.cotizacionesGNP
-                                                        .PAQUETES.PAQUETE
-                                                        .COBERTURAS.COBERTURA[8]
-                                                        .NOMBRE
-                                                    )
+                                                    "\n                                                             " +
+                                                      _vm._s(
+                                                        _vm.cotizacionesGNP
+                                                          .PAQUETES.PAQUETE
+                                                          .COBERTURAS
+                                                          .COBERTURA[8]
+                                                          .SUMA_ASEGURADA
+                                                      ) +
+                                                      "\n\n                                                        "
                                                   )
                                                 ])
-                                              ]),
-                                              _vm._v(" "),
-                                              _c("br"),
-                                              _vm._v(
-                                                "\n                                                             " +
-                                                  _vm._s(
-                                                    _vm.cotizacionesGNP.PAQUETES
-                                                      .PAQUETE.COBERTURAS
-                                                      .COBERTURA[8]
-                                                      .SUMA_ASEGURADA
-                                                  ) +
-                                                  "\n\n                                                        "
-                                              )
-                                            ])
+                                              : _vm._e()
                                           ]
                                         )
                                       : _c(
