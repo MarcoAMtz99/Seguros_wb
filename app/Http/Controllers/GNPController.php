@@ -122,9 +122,9 @@ class GNPController extends Controller
 		 $carroceria = $this->getCarroceria($armadora, $submarca);
 
 
-		  dd($carroceria,$modelos,$armadora); 
+		  // dd($carroceria,$modelos,$armadora); 
 		 $modelos    = $this->getModelos($modelo, $armadora, $carroceria);
-		  // dd($modelos); 
+		  dd($modelos); 
 
  		return response()->json(['modelosGNP'=>$modelos],201);
  	}
@@ -298,7 +298,7 @@ class GNPController extends Controller
 					   </ELEMENTOS>  
 					</SOLICITUD_CATALOGO>";
 					 
-					// dd($xmlBody);
+					dd($xmlBody);
  		return $this->buscarEnCatalogo($xmlBody);
  	}
 
