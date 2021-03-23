@@ -5020,6 +5020,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.cliente.gnp) {
         this.getDescripcionesGNP(this.cliente.marca_auto.descripcion, this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio);
+        console.log("Datos cliente", this.cliente);
       }
     },
     'desc_ana': function desc_ana(newVal, oldVal) {
