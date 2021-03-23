@@ -5199,6 +5199,7 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         console.log("Error en GNP");
         console.log(err);
+        _this7.descripciones_gnp = undefined;
       });
     },
     sendCotizacionGNP: function sendCotizacionGNP(descripcion, poliza) {
@@ -52587,7 +52588,7 @@ var render = function() {
                                         _vm.tipo_poliza &&
                                         _vm.cotizacionesGNP &&
                                         _vm.cotizacionesGNP.PAQUETES !==
-                                          "undefined"
+                                          undefined
                                           ? _c(
                                               "div",
                                               {
@@ -52984,7 +52985,7 @@ var render = function() {
                                         _vm.tipo_poliza &&
                                         _vm.cotizacionesGNP &&
                                         _vm.cotizacionesGNP.PAQUETES !==
-                                          "undefined"
+                                          undefined
                                           ? _c(
                                               "div",
                                               { staticClass: "text-center" },
@@ -53235,7 +53236,7 @@ var render = function() {
                                     _vm.desc_gnp &&
                                     _vm.tipo_poliza &&
                                     _vm.cotizacionesGNP &&
-                                    _vm.cotizacionesGNP.PAQUETES !== "undefined"
+                                    _vm.cotizacionesGNP.PAQUETES !== undefined
                                       ? _c(
                                           "div",
                                           {
@@ -53927,7 +53928,7 @@ var render = function() {
                                     _vm.desc_gnp &&
                                     _vm.tipo_poliza &&
                                     _vm.cotizacionesGNP &&
-                                    _vm.cotizacionesGNP.PAQUETES !== "undefined"
+                                    _vm.cotizacionesGNP.PAQUETES !== undefined
                                       ? _c(
                                           "div",
                                           { staticClass: "text-center" },
@@ -54180,7 +54181,7 @@ var render = function() {
                                     _vm.desc_gnp &&
                                     _vm.tipo_poliza &&
                                     _vm.cotizacionesGNP &&
-                                    _vm.cotizacionesGNP.PAQUETES !== "undefined"
+                                    _vm.cotizacionesGNP.PAQUETES !== undefined
                                       ? _c(
                                           "div",
                                           { staticClass: "text-center" },
