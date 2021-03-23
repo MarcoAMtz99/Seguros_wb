@@ -124,7 +124,8 @@ class GNPController extends Controller
 
 		  // dd($carroceria,$modelos,$armadora); 
 		 $modelos    = $this->getModelos($modelo, $armadora, $carroceria);
-		  dd($modelos); 
+
+		  dd($modelos,$carroceria,$armadora,$marca, $submarca, $modelo); 
 
  		return response()->json(['modelosGNP'=>$modelos],201);
  	}
@@ -132,7 +133,7 @@ class GNPController extends Controller
  	private function buscarEnCatalogo($xmlBody)
  	{
  		try {
-			
+							
 			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/catalogos/catalogo", $xmlBody);
 	        //convert the XML result into array
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
