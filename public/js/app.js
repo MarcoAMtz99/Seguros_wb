@@ -51938,7 +51938,7 @@ var render = function() {
                                       },
                                       [
                                         _c("option", { attrs: { value: "" } }, [
-                                          _vm._v("COBERTURAS")
+                                          _vm._v("COBERTURAS:")
                                         ]),
                                         _vm._v(" "),
                                         _vm._l(_vm.descripciones_gnp, function(
@@ -52006,7 +52006,7 @@ var render = function() {
                                       },
                                       [
                                         _c("option", { attrs: { value: "" } }, [
-                                          _vm._v("COBERTURAS")
+                                          _vm._v("COBERTURAS:")
                                         ]),
                                         _vm._v(" "),
                                         _vm._l(_vm.descripciones_gs, function(
@@ -52067,7 +52067,7 @@ var render = function() {
                                       },
                                       [
                                         _c("option", { attrs: { value: "" } }, [
-                                          _vm._v("COBERTURAS")
+                                          _vm._v("COBERTURAS:")
                                         ]),
                                         _vm._v(" "),
                                         _vm._l(_vm.descripciones_ana, function(
@@ -52132,7 +52132,7 @@ var render = function() {
                                       },
                                       [
                                         _c("option", { attrs: { value: "" } }, [
-                                          _vm._v("COBERTURAS")
+                                          _vm._v("COBERTURAS:")
                                         ]),
                                         _vm._v(" "),
                                         _vm._l(

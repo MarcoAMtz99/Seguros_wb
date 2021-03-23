@@ -60,25 +60,25 @@
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
                                                     <select class="form-control" v-model="desc_gnp">
-                                                        <option value="">COBERTURAS</option>
+                                                        <option value="">COBERTURAS:</option>
                                                         <option v-for="descripcion in descripciones_gnp" :value="JSON.stringify(descripcion.ELEMENTO)">{{descripcion.ELEMENTO[4].VALOR}}</option>
                                                     </select>
                                                 </td>
                                                 <td class="text-center" v-if="cliente.gs">
                                                     <select class="form-control" v-model="desc_gs">
-                                                        <option value="">COBERTURAS</option>
+                                                        <option value="">COBERTURAS:</option>
                                                         <option v-for="version in descripciones_gs" :value="version">{{version.descripcion}}</option>
                                                     </select>
                                                 </td>
                                                 <td class="text-center" v-if="cliente.ana">
                                                     <select class="form-control" v-model="desc_ana">
-                                                        <option value="">COBERTURAS</option>
+                                                        <option value="">COBERTURAS:</option>
                                                         <option v-for="descripcion in descripciones_ana" :value="descripcion.clave">{{descripcion.descripcion}}</option>
                                                     </select>
                                                 </td>
                                                 <td class="text-center" v-if="cliente.qualitas">
                                                     <select class="form-control" v-model="desc_qualitas">
-                                                        <option value="">COBERTURAS</option>
+                                                        <option value="">COBERTURAS:</option>
                                                         <option v-for="descripcion in descripciones_qualitas" :value="descripcion.CAMIS">{{descripcion.cVersion}}</option>
                                                     </select>
                                                 </td>
