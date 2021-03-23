@@ -114,7 +114,7 @@ class GNPController extends Controller
  	public function modelos($marca, $submarca, $modelo)
  	{
  		$armadora   = $this->getArmadora($modelo, $marca);
-
+ 		dd($armadora);
  		$carroceria = $this->getCarroceria($armadora, $submarca);
  		$modelos    = $this->getModelos($modelo, $armadora, $carroceria);
  		
@@ -220,6 +220,7 @@ class GNPController extends Controller
  	public function getArmadora($modelo, $marca)
  	{
  		$armadoras = $this->getArmadoras($modelo);
+ 		dd($armadoras);
  		$armadora = '';
  		if (isset($armadoras['ELEMENTOS'])) {
  			foreach ($armadoras['ELEMENTOS']['ELEMENTO'] as $value) {
