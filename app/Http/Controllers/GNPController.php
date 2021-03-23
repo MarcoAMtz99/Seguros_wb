@@ -316,7 +316,7 @@ class GNPController extends Controller
 		 $carroceria = '';
 		 $aux="";
 
- 		 if (!empty($carrocerias['ELEMENTOS'])) { 
+ 		 // if (!empty($carrocerias['ELEMENTOS'])) { 
  			foreach ($carrocerias['ELEMENTOS']['ELEMENTO'] as $value) {
  				if ($value['NOMBRE'] ===  strtoupper($submarca) ){
 					 $carroceria = $value['NOMBRE'];
@@ -327,7 +327,7 @@ class GNPController extends Controller
 					$carroceria =$aux;
 				}
  			}
- 		 } 
+ 		 // } 
 		  dd($carroceria,$submarca,$aux); 
  		return $carroceria;
  	}
