@@ -63,7 +63,7 @@
 
                                                     <select class="form-control" v-model="desc_gnp">
                                                         <option value="">COBERTURAS:</option>
-                                                        <option v-for="descripcion in descripciones_gnp" :value="descripcion.ELEMENTO">{{descripcion[4]}}</option>
+                                                        <option v-for="descripcion in descripciones_gnp" :value="descripcion[4].VALOR">{{descripcion[4].VALOR}}</option>
                                                     </select>
 
                                                 </td>

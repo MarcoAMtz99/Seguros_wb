@@ -51962,10 +51962,14 @@ var render = function() {
                                             "option",
                                             {
                                               domProps: {
-                                                value: descripcion.ELEMENTO
+                                                value: descripcion[4].VALOR
                                               }
                                             },
-                                            [_vm._v(_vm._s(descripcion[4]))]
+                                            [
+                                              _vm._v(
+                                                _vm._s(descripcion[4].VALOR)
+                                              )
+                                            ]
                                           )
                                         })
                                       ],
