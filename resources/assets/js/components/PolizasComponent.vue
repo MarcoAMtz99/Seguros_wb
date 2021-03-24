@@ -480,9 +480,9 @@
 
                                                         </div>
                                                     </div> -->
-                                                    <div v-else class="text-center">
+                                                    <!-- <div v-else class="text-center">
                                                         Seleccione una descripción
-                                                    </div>
+                                                    </div> -->
                                                 </td>
                                                 <td class="text-center" v-if="cliente.gs">
                                                     <div class="text-center" v-if="desc_gs && tipo_poliza && cotizacionesGS.id" >
