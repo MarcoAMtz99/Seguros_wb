@@ -54421,7 +54421,24 @@ var render = function() {
                               ),
                               _vm._v(" "),
                               _vm.cliente.gnp
-                                ? _c("td", { staticClass: "text-center" })
+                                ? _c("td", { staticClass: "text-center" }, [
+                                    _vm.desc_gnp &&
+                                    _vm.tipo_poliza &&
+                                    _vm.cotizacionesGNP &&
+                                    _vm.cotizacionesGNP.PAQUETES !== undefined
+                                      ? _c("div", {
+                                          staticClass: "text-center"
+                                        })
+                                      : _c(
+                                          "div",
+                                          { staticClass: "text-center" },
+                                          [
+                                            _vm._v(
+                                              "\n                                                        Seleccione una descripción\n                                                    "
+                                            )
+                                          ]
+                                        )
+                                  ])
                                 : _vm._e(),
                               _vm._v(" "),
                               _vm.cliente.gs

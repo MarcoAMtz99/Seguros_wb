@@ -471,18 +471,18 @@
                                                     Vial
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
-                                                   <!--  <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" >
-                                                        <div v-if="cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA[8].NOMBRE!==undefined">
+                                                   <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined">
+                                                        <!-- <div v-if="cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA[8].NOMBRE!==undefined">
                                                             
 
                                                              <span><strong>{{cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA[8].NOMBRE}}</strong></span> <br>
                                                              {{cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA[8].SUMA_ASEGURADA}}
 
-                                                        </div>
-                                                    </div> -->
-                                                    <!-- <div v-else class="text-center">
+                                                        </div> -->
+                                                    </div> 
+                                                    <div v-else class="text-center">
                                                         Seleccione una descripción
-                                                    </div> -->
+                                                    </div>
                                                 </td>
                                                 <td class="text-center" v-if="cliente.gs">
                                                     <div class="text-center" v-if="desc_gs && tipo_poliza && cotizacionesGS.id" >
