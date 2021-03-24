@@ -261,8 +261,8 @@ class GeneralSegurosController extends Controller
                     foreach ($versiones_gs as $version) {
                         // dd($version);
                         $versiones = array(
-                        marca => $marca_gs
-                        submarca => $submarca_gs
+                        marca => $marca_gs,
+                        submarca => $submarca_gs,
                         modelo => $modelo_gs
                         );
                         dd($versiones);
