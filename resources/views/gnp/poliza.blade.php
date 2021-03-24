@@ -35,7 +35,7 @@
 						@if( isset($response['SOLICITUD']) )
 							<p>{{ $response['SOLICITUD']["NUM_POLIZA"] }}</p>
 
-						@elseif(isset({{$data['SOLICITUD']['NUM_COTIZACION'] }}))
+						@elseif(isset($data['SOLICITUD']['NUM_COTIZACION']))
 							<p>{{$data['SOLICITUD']['NUM_COTIZACION'] }}</p>
 						@else
 							0000000
