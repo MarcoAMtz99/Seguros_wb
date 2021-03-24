@@ -801,6 +801,7 @@
                 axios.get(url).then(res=>{
                     console.log('RESULTADO GENERAL DE SEGUROS',res);
                     this.descripciones_gs = res.data.versiones_gs;
+                    console.log('Descripcion General de seguros:',this.descripciones_gs);
                 }).catch(err=>{
                     console.log('ERROR GENERAL DE SEGUROS',err);
                 })
