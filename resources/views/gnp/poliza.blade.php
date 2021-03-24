@@ -29,7 +29,7 @@
 						<h4>Su poliza se guardo con la siguiente información:</h4>
 					</div>
 					<SPAN>{{$response['DESCRIPCION']}}</SPAN>
-					{{$data['SOLICITUD'].NUM_COTIZACION}}
+					{{$data['SOLICITUD']['NUM_COTIZACION'] }}
 					<div class="col-6">
 						<label class="control-label">Número de poliza:</label>
 						@if( isset($response['SOLICITUD']) )
