@@ -51962,13 +51962,22 @@ var render = function() {
                                             {
                                               domProps: {
                                                 value: JSON.stringify(
-                                                  descripcion.ELEMENTO
+                                                  descripcion.ELEMENTO ===
+                                                    undefined
+                                                    ? descripcion
+                                                    : descripcion.ELEMENTO
                                                 )
                                               }
                                             },
                                             [
                                               _vm._v(
-                                                _vm._s(descripcion[4].VALOR)
+                                                _vm._s(
+                                                  descripcion.ELEMENTO ===
+                                                    undefined
+                                                    ? descripcion[4].VALOR
+                                                    : descripcion.ELEMENTO[4]
+                                                        .VALOR
+                                                )
                                               )
                                             ]
                                           )
