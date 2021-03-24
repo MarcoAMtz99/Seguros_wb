@@ -745,7 +745,7 @@ class GNPController extends Controller
 			// DB::table('xml')->insert(
    //  	array('xml' =>$data , 'request' => $array_data));
 
-			// dd($data,$array_data);
+			dd($data,$this->curl->response);
 			/* dd($array_data); */
 	        return view('gnp.poliza',['response'=>$array_data ,'data'=>$data]);
 	        // return response()->json(['cotizacionGNP'=>$array_data],201);
