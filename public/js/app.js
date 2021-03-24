@@ -51965,7 +51965,7 @@ var render = function() {
                                                 value: descripcion.ELEMENTO
                                               }
                                             },
-                                            [_vm._v(_vm._s(descripcion))]
+                                            [_vm._v(_vm._s(descripcion[4]))]
                                           )
                                         })
                                       ],
