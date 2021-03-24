@@ -513,6 +513,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			axios.get(url).then(res=>{
     				console.log("res",res);
     				this.marcas = res.data.marcas.sort();
+    				console.log('marcas',this.marcas );
     			}).catch(error=>{
     				console.log('error',error);
 
@@ -525,6 +526,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				this.loader_marca = false;
     				//console.log("res marcas",res);
     				this.marcas = res.data.marcas.sort();
+    				console.log('marcas m',this.marcas );
     			}).catch(error=>{
     				console.log('error',error);
 

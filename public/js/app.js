@@ -2217,6 +2217,7 @@ function Cliente(_ref) {
       axios.get(url).then(function (res) {
         console.log("res", res);
         _this2.marcas = res.data.marcas.sort();
+        console.log('marcas', _this2.marcas);
       })["catch"](function (error) {
         console.log('error', error);
       });
@@ -2230,6 +2231,7 @@ function Cliente(_ref) {
       _this3.loader_marca = false; //console.log("res marcas",res);
 
       _this3.marcas = res.data.marcas.sort();
+      console.log('marcas m', _this3.marcas);
     })["catch"](function (error) {
       console.log('error', error);
     });
