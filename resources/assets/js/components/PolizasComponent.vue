@@ -471,7 +471,7 @@
                                                     Vial
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
-                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" >
+                                                   <!--  <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" >
                                                         <div v-if="cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA[8].NOMBRE!==undefined">
                                                             
 
@@ -479,7 +479,7 @@
                                                              {{cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA[8].SUMA_ASEGURADA}}
 
                                                         </div>
-                                                    </div>
+                                                    </div> -->
                                                     <div v-else class="text-center">
                                                         Seleccione una descripción
                                                     </div>
