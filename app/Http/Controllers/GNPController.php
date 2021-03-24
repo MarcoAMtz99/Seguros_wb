@@ -739,7 +739,7 @@ class GNPController extends Controller
 			$array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
 			
 			
-			$data = serialize(json_decode(json_encode(simplexml_load_string($data)), true));
+			$data = json_decode(json_encode(simplexml_load_string($data)), true);
 
 
 			// DB::table('xml')->insert(
@@ -747,7 +747,7 @@ class GNPController extends Controller
 
 			dd($data,$array_data);
 			/* dd($array_data); */
-	        return view('gnp.poliza',['response'=>$array_data]);
+	        return view('gnp.poliza',['response'=>$array_data ,'data'=>$data]);
 	        // return response()->json(['cotizacionGNP'=>$array_data],201);
 		} catch (Exception $e) {
 			return response()->json(['error'=>"Fallo la petición"],400);
