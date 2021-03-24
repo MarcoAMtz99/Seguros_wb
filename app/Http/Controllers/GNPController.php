@@ -737,7 +737,7 @@ class GNPController extends Controller
 			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/emisor/emisor/emitir", $data);
 	        //convert the XML result into array
 			$array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
-			// dd($data,$array_data);
+			dd(json_decode(json_encode(simplexml_load_string($data)), true),$array_data);
 			
 			DB::table('xml')->insert(
     	array('xml' => json_decode(json_encode(simplexml_load_string($data)), true), 'request' => $array_data));
