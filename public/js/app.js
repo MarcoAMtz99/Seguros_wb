@@ -2217,7 +2217,6 @@ function Cliente(_ref) {
       axios.get(url).then(function (res) {
         console.log("res", res);
         _this2.marcas = res.data.marcas.sort();
-        console.log('marcas', _this2.marcas);
       })["catch"](function (error) {
         console.log('error', error);
       });
@@ -2228,10 +2227,9 @@ function Cliente(_ref) {
     this.loader_marca = true;
     var url = "./api/marcasANA/".concat(modelo);
     axios.get(url).then(function (res) {
-      _this3.loader_marca = false;
-      console.log("res marcas", res);
+      _this3.loader_marca = false; //console.log("res marcas",res);
+
       _this3.marcas = res.data.marcas.sort();
-      console.log('marcas m', _this3.marcas);
     })["catch"](function (error) {
       console.log('error', error);
     });
@@ -5099,8 +5097,6 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     sendCotizacion: function sendCotizacion(cliente, cotizacion, aseguradora) {
-      var _this3 = this;
-
       var params = {
         "cliente": cliente,
         "cotizacion": cotizacion,
@@ -5113,49 +5109,48 @@ __webpack_require__.r(__webpack_exports__);
         console.log('res:');
         console.log('Metodo sendCotizacion');
         console.log(res); // console.log('ESTA ACTIVO DESCRIPCIONES GS en sencotizacion');
-
-        _this3.cliente.cotizacion = res.data.cotizacion.cotizacion;
-        _this3.cliente.uso_auto = res.data.cotizacion.uso_auto;
-        _this3.cliente.descripcion_auto = res.data.cotizacion.auto.version;
-        _this3.cliente.marca_auto = res.data.cotizacion.auto.marca;
-        _this3.cliente.modelo_auto = res.data.cotizacion.auto.submarca.anio;
-        _this3.cliente.submarca_auto = res.data.cotizacion.auto.submarca; // this.cliente.auto = res.data.cotizacion.auto;
-
-        _this3.cliente.cp = res.data.cotizacion.cp;
-        _this3.cliente.nombre = res.data.cotizacion.nombre;
-        _this3.cliente.appaterno = res.data.cotizacion.appaterno;
-        _this3.cliente.apmaterno = res.data.cotizacion.apmaterno;
-        _this3.cliente.telefono = res.data.cotizacion.telefono;
-        _this3.cliente.email = res.data.cotizacion.email;
-        _this3.cliente.sexo = res.data.cotizacion.sexo;
-        _this3.cliente.f_nac = res.data.cotizacion.f_nac;
-        _this3.cliente.ana = res.data.cotizacion.ana;
-        _this3.cliente.gs = res.data.cotizacion.gs;
-        _this3.cliente.qualitas = res.data.cotizacion.qualitas;
-        _this3.getcotizacion.value = !_this3.getcotizacion.value;
-        _this3.alert.message = "".concat(_this3.cliente.nombre, " ").concat(_this3.cliente.appaterno, " ").concat(_this3.cliente.apmaterno, " su cotizaci\xF3n se guardo con el folio ").concat(_this3.cliente.cotizacion);
-        _this3.alert["class"] = "alert alert-success alert-dismissible fade show";
-        $("#paso2-tab").removeClass("disabled");
-        $("#paso2-tab").click();
-        $('#cotizar').modal('show');
+        // this.cliente.cotizacion =res.data.cotizacion.cotizacion;
+        // this.cliente.uso_auto =res.data.cotizacion.uso_auto;
+        // this.cliente.descripcion_auto = res.data.cotizacion.auto.version;
+        // this.cliente.marca_auto = res.data.cotizacion.auto.marca;
+        // this.cliente.modelo_auto = res.data.cotizacion.auto.submarca.anio;
+        // this.cliente.submarca_auto = res.data.cotizacion.auto.submarca;
+        // // this.cliente.auto = res.data.cotizacion.auto;
+        // this.cliente.cp =res.data.cotizacion.cp;
+        // this.cliente.nombre=res.data.cotizacion.nombre;
+        // this.cliente.appaterno =res.data.cotizacion.appaterno;
+        // this.cliente.apmaterno =res.data.cotizacion.apmaterno;
+        // this.cliente.telefono =res.data.cotizacion.telefono;
+        // this.cliente.email =res.data.cotizacion.email;
+        // this.cliente.sexo =res.data.cotizacion.sexo;
+        // this.cliente.f_nac =res.data.cotizacion.f_nac;
+        // this.cliente.ana = res.data.cotizacion.ana;
+        // this.cliente.gs=res.data.cotizacion.gs;
+        // this.cliente.qualitas = res.data.cotizacion.qualitas;
+        // this.getcotizacion.value = !this.getcotizacion.value;
+        //this.alert.message = `${this.cliente.nombre} ${this.cliente.appaterno} ${this.cliente.apmaterno} su cotización se guardo con el folio ${this.cliente.cotizacion}`;
+        //this.alert.class = "alert alert-success alert-dismissible fade show";
+        //$("#paso2-tab").removeClass("disabled");
+        //$("#paso2-tab").click();
+        // $('#cotizar').modal('show');
       })["catch"](function (err) {
         console.log('err', err);
       });
     },
     getDescripcionesQualitas: function getDescripcionesQualitas(marca, submarca, modelo) {
-      var _this4 = this;
+      var _this3 = this;
 
       var uso = this.cliente.uso_auto;
       var url = "./api/modelos/".concat(uso, "/").concat(marca, "/").concat(submarca, "/").concat(modelo);
       axios.get(url).then(function (res) {
         console.log("descripcion qualitas", res.data);
-        _this4.descripciones_qualitas = res.data.descripciones;
+        _this3.descripciones_qualitas = res.data.descripciones;
       })["catch"](function (err) {
         console.log(err);
       });
     },
     sendCotizacionQualitas: function sendCotizacionQualitas(camis, poliza) {
-      var _this5 = this;
+      var _this4 = this;
 
       var url = "./api/getCoberturasQ";
       var params = {
@@ -5166,29 +5161,29 @@ __webpack_require__.r(__webpack_exports__);
       this.cotizacionesQualitas = []; // this.loader = true;
 
       axios.post(url, params).then(function (res) {
-        _this5.loader = false; // console.log("Descripcion qa: ",res.data);
+        _this4.loader = false; // console.log("Descripcion qa: ",res.data);
 
-        _this5.cotizacionesQualitas = res.data.Qualitas;
-        console.log('Cotizacion QA:', _this5.cotizacionesQualitas);
+        _this4.cotizacionesQualitas = res.data.Qualitas;
+        console.log('Cotizacion QA:', _this4.cotizacionesQualitas);
       })["catch"](function (err) {
-        _this5.loader = false;
+        _this4.loader = false;
         console.log(err);
       });
     },
     getDescripcionesGS: function getDescripcionesGS(marca, submarca, modelo) {
-      var _this6 = this;
+      var _this5 = this;
 
       var url = "./api/versionesGS/".concat(marca, "/").concat(submarca, "/").concat(modelo);
       axios.get(url).then(function (res) {
         console.log('RESULTADO GENERAL DE SEGUROS', res);
-        _this6.descripciones_gs = res.data.versiones_gs;
-        console.log('Descripcion General de seguros:', _this6.descripciones_gs);
+        _this5.descripciones_gs = res.data.versiones_gs;
+        console.log('Descripcion General de seguros:', _this5.descripciones_gs);
       })["catch"](function (err) {
         console.log('ERROR GENERAL DE SEGUROS', err);
       });
     },
     sendCotizacionGS: function sendCotizacionGS(descripcion, poliza) {
-      var _this7 = this;
+      var _this6 = this;
 
       var url = "./api/getCotizacionGS";
       var params = {
@@ -5199,29 +5194,29 @@ __webpack_require__.r(__webpack_exports__);
       this.cotizacionesGS = [];
       axios.post(url, params).then(function (res) {
         console.log(res);
-        _this7.loader = false;
-        _this7.cotizacionesGS = res.data.cotizacion;
+        _this6.loader = false;
+        _this6.cotizacionesGS = res.data.cotizacion;
       })["catch"](function (err) {
-        _this7.loader = false;
+        _this6.loader = false;
         console.log(err);
       });
     },
     getDescripcionesGNP: function getDescripcionesGNP(marca, submarca, modelo) {
-      var _this8 = this;
+      var _this7 = this;
 
       var url = "./api/modelos-gnp/".concat(marca, "/").concat(submarca, "/").concat(modelo);
       axios.get(url).then(function (res) {
         console.log('DESCRIPCIONES GNP', res);
-        _this8.descripciones_gnp = res.data.modelosGNP.ELEMENTOS;
-        console.log("Hola esto es GNP RESULTADO", _this8.descripciones_gnp);
+        _this7.descripciones_gnp = res.data.modelosGNP.ELEMENTOS;
+        console.log("Hola esto es GNP RESULTADO", _this7.descripciones_gnp);
       })["catch"](function (err) {
         console.log("Error en GNP");
         console.log(err);
-        _this8.descripciones_gnp = undefined;
+        _this7.descripciones_gnp = undefined;
       });
     },
     sendCotizacionGNP: function sendCotizacionGNP(descripcion, poliza) {
-      var _this9 = this;
+      var _this8 = this;
 
       var url = "./api/get-cotizacion-gnp";
       var params = {
@@ -5231,16 +5226,16 @@ __webpack_require__.r(__webpack_exports__);
       };
       this.cotizacionesGNP = {};
       axios.post(url, params).then(function (res) {
-        _this9.cotizacionesGNP = res.data.cotizacionGNP;
-        console.log('Cotizacion GNP arreglo', _this9.cotizacionesGNP);
-        _this9.loader = false;
+        _this8.cotizacionesGNP = res.data.cotizacionGNP;
+        console.log('Cotizacion GNP arreglo', _this8.cotizacionesGNP);
+        _this8.loader = false;
       })["catch"](function (err) {
-        _this9.loader = false;
+        _this8.loader = false;
         console.log('GNP error', err);
       });
     },
     getCoberturasGS: function getCoberturasGS(cotizacion) {
-      var _this10 = this;
+      var _this9 = this;
 
       var url = "./api/getCotizacionGS";
       var params = {
@@ -5249,14 +5244,14 @@ __webpack_require__.r(__webpack_exports__);
       axios.post(url, params).then(function (res) {
         // console.log("general res",res.data)
         if (res.data.cotizacion) {
-          _this10.cotizacionesGS = {
+          _this9.cotizacionesGS = {
             "img": './img/GENERAL-DE-SEGUROS-LOGO.png',
             'cotizacion': res.data.cotizacion
           };
-          _this10.loader = false;
+          _this9.loader = false;
         }
       })["catch"](function (error) {
-        _this10.loaderGS = false;
+        _this9.loaderGS = false;
         console.log('general err', error);
       });
     },

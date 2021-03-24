@@ -731,6 +731,7 @@ class GNPController extends Controller
  		$request->descripcionAuto = json_decode($request->descripcionAuto);
 
  		$data = $this->getXMLPoliza($request);
+ 		dd($data);
  		try {
 			// dd($data);
 			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/emisor/emisor/emitir", $data);
