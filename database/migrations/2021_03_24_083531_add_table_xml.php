@@ -13,10 +13,10 @@ class AddTableXml extends Migration
      */
     public function up()
     {
-        //
         $table->increments('id');
         $table->string('xml',9999)->nullable();
         $table->string('request',1000)->nullable();
+        $table->timestamps();
 
     }
 
