@@ -58,17 +58,16 @@
                                                 <th scope="row" class="text-center">
                                                     Descripción
                                                 </th>
-
                                                 <td class="text-center" v-if="cliente.gnp">
-
-                                                    <select class="form-control" v-model="desc_gnp">
+                                                    <!-- <select class="form-control" v-model="desc_gnp">
                                                         <option value="">COBERTURAS:</option>
-                                                        <option v-for="descripcion in descripciones_gnp" :value="descripcion[4].VALOR">{{descripcion[4].VALOR}}</option>
+                                                        <option v-for="descripcion in descripciones_gnp" :value="JSON.stringify(descripcion.ELEMENTO)">{{descripcion.ELEMENTO[4].VALOR}}</option>
+                                                    </select> -->
+                                                     <select class="form-control" v-model="desc_gnp">
+                                                        <option value="">COBERTURAS:</option>
+                                                        <option v-for="descripcion in descripciones_gnp" :value="JSON.stringify(descripcion.ELEMENTO)">{{descripcion[4].VALOR}}</option>
                                                     </select>
-
                                                 </td>
-
-
                                                 <td class="text-center" v-if="cliente.gs">
                                                     <select class="form-control" v-model="desc_gs">
                                                         <option value="">COBERTURAS:</option>
