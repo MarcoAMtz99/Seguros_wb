@@ -4979,6 +4979,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -51960,13 +51965,7 @@ var render = function() {
                                                 value: descripcion.ELEMENTO
                                               }
                                             },
-                                            [
-                                              _vm._v(
-                                                _vm._s(
-                                                  descripcion.ELEMENTO[4].VALOR
-                                                )
-                                              )
-                                            ]
+                                            [_vm._v(_vm._s(descripcion))]
                                           )
                                         })
                                       ],
