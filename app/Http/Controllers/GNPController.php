@@ -742,8 +742,8 @@ class GNPController extends Controller
 			$data = serialize(json_decode(json_encode(simplexml_load_string($data)), true));
 
 
-			DB::table('xml')->insert(
-    	array('xml' =>$data , 'request' => $array_data));
+			// DB::table('xml')->insert(
+   //  	array('xml' =>$data , 'request' => $array_data));
 
 			dd($data,$array_data);
 			/* dd($array_data); */
