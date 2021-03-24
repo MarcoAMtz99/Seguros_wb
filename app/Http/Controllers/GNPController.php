@@ -737,10 +737,15 @@ class GNPController extends Controller
 			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/emisor/emisor/emitir", $data);
 	        //convert the XML result into array
 			$array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
-			dd(json_decode(json_encode(simplexml_load_string($data)), true),$array_data);
 			
+			
+			$data = serialize(json_decode(json_encode(simplexml_load_string($data)), true));
+
+
 			DB::table('xml')->insert(
-    	array('xml' => json_decode(json_encode(simplexml_load_string($data)), true), 'request' => $array_data));
+    	array('xml' =>$data , 'request' => $array_data));
+
+			dd($data,$array_data);
 			/* dd($array_data); */
 	        return view('gnp.poliza',['response'=>$array_data]);
 	        // return response()->json(['cotizacionGNP'=>$array_data],201);
