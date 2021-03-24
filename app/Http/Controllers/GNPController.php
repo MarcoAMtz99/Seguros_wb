@@ -740,7 +740,7 @@ class GNPController extends Controller
 			// dd($data,$array_data);
 			
 			DB::table('xml')->insert(
-    	array('xml' => json_decode(json_encode(simplexml_load_string($data)), true);, 'request' => $array_data));
+    	array('xml' => json_decode(json_encode(simplexml_load_string($data)), true), 'request' => $array_data));
 			/* dd($array_data); */
 	        return view('gnp.poliza',['response'=>$array_data]);
 	        // return response()->json(['cotizacionGNP'=>$array_data],201);
