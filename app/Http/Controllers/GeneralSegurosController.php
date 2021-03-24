@@ -251,7 +251,9 @@ class GeneralSegurosController extends Controller
     public function versiones($marca, $submarca, $modelo)
     {
         $marca_gs = $this->searchMarca($marca);
+        dd($marca_gs);
         if ($marca_gs) {
+
             $submarca_gs = $this->searchSubMarca($marca_gs, $submarca);
             if ($submarca_gs) {
                 $modelo_gs = $this->searchModelos($submarca_gs, $modelo);
