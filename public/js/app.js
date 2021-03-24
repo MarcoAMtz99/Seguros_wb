@@ -4978,6 +4978,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -54436,13 +54437,29 @@ var render = function() {
                                           [
                                             _c("div", [
                                               _vm._v(
-                                                "\n                                                            " +
+                                                "\n\n                                " +
                                                   _vm._s(
                                                     _vm.cotizacionesGNP.PAQUETES
                                                       .PAQUETE.COBERTURAS
-                                                      .COBERTURA.length
+                                                      .COBERTURA[
+                                                      _vm.cotizacionesGNP
+                                                        .PAQUETES.PAQUETE
+                                                        .COBERTURAS.COBERTURA
+                                                        .length - 1
+                                                    ].NOMBRE
                                                   ) +
-                                                  "\n                                "
+                                                  "\n                                " +
+                                                  _vm._s(
+                                                    _vm.cotizacionesGNP.PAQUETES
+                                                      .PAQUETE.COBERTURAS
+                                                      .COBERTURA[
+                                                      _vm.cotizacionesGNP
+                                                        .PAQUETES.PAQUETE
+                                                        .COBERTURAS.COBERTURA
+                                                        .length - 1
+                                                    ].SUMA_ASEGURADA
+                                                  ) +
+                                                  "\n                                                        "
                                               )
                                             ])
                                           ]

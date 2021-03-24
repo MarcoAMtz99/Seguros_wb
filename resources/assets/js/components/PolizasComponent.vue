@@ -480,8 +480,9 @@
 
                                                         </div> -->
                                                         <div>
-                                                            {{cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA.length}}
-                                <!-- {{cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA[cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA.length].NOMBRE}} -->
+
+                                {{cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA[cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA.length-1].NOMBRE}}
+                                {{cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA[cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA.length-1].SUMA_ASEGURADA}}
                                                         </div>
                                                     </div> 
                                                     <div v-else class="text-center">
