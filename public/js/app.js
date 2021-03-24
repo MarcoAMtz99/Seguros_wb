@@ -51957,9 +51957,7 @@ var render = function() {
                                             "option",
                                             {
                                               domProps: {
-                                                value: JSON.stringify(
-                                                  descripcion.ELEMENTO
-                                                )
+                                                value: descripcion.ELEMENTO
                                               }
                                             },
                                             [
