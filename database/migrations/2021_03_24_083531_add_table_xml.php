@@ -28,5 +28,6 @@ class AddTableXml extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('versions');
     }
 }

@@ -9,7 +9,7 @@ use App\Cliente;
 use SoapClient;
 use GuzzleHttp\Client;
 use \Curl\Curl;
-
+use DB;
 class GNPController extends Controller
 {
     protected $opts;
@@ -731,12 +731,16 @@ class GNPController extends Controller
  		$request->descripcionAuto = json_decode($request->descripcionAuto);
 
  		$data = $this->getXMLPoliza($request);
- 		dd($data);
+ 		// dd($data);
  		try {
 			// dd($data);
 			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/emisor/emisor/emitir", $data);
 	        //convert the XML result into array
 			$array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
+			dd($array_data);
+			
+			DB::table('xml')->insert(
+    	array('xml' => $data, 'request' => $array_data);
 			/* dd($array_data); */
 	        return view('gnp.poliza',['response'=>$array_data]);
 	        // return response()->json(['cotizacionGNP'=>$array_data],201);
