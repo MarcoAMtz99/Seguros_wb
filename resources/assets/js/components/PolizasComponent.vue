@@ -480,8 +480,8 @@
 
                                                         </div> -->
                                                         <div>
-
-                                {{cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA[cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA.length].NOMBRE}}
+                                                            {{cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA.length}}
+                                <!-- {{cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA[cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA.length].NOMBRE}} -->
                                                         </div>
                                                     </div> 
                                                     <div v-else class="text-center">

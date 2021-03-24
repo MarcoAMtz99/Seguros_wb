@@ -54436,18 +54436,13 @@ var render = function() {
                                           [
                                             _c("div", [
                                               _vm._v(
-                                                "\n\n                                " +
+                                                "\n                                                            " +
                                                   _vm._s(
                                                     _vm.cotizacionesGNP.PAQUETES
                                                       .PAQUETE.COBERTURAS
-                                                      .COBERTURA[
-                                                      _vm.cotizacionesGNP
-                                                        .PAQUETES.PAQUETE
-                                                        .COBERTURAS.COBERTURA
-                                                        .length
-                                                    ].NOMBRE
+                                                      .COBERTURA.length
                                                   ) +
-                                                  "\n                                                        "
+                                                  "\n                                "
                                               )
                                             ])
                                           ]
