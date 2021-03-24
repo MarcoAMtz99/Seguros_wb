@@ -4974,6 +4974,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -54426,9 +54430,28 @@ var render = function() {
                                     _vm.tipo_poliza &&
                                     _vm.cotizacionesGNP &&
                                     _vm.cotizacionesGNP.PAQUETES !== undefined
-                                      ? _c("div", {
-                                          staticClass: "text-center"
-                                        })
+                                      ? _c(
+                                          "div",
+                                          { staticClass: "text-center" },
+                                          [
+                                            _c("div", [
+                                              _vm._v(
+                                                "\n\n                                " +
+                                                  _vm._s(
+                                                    _vm.cotizacionesGNP.PAQUETES
+                                                      .PAQUETE.COBERTURAS
+                                                      .COBERTURA[
+                                                      _vm.cotizacionesGNP
+                                                        .PAQUETES.PAQUETE
+                                                        .COBERTURAS.COBERTURA
+                                                        .length
+                                                    ].NOMBRE
+                                                  ) +
+                                                  "\n                                                        "
+                                              )
+                                            ])
+                                          ]
+                                        )
                                       : _c(
                                           "div",
                                           { staticClass: "text-center" },

@@ -479,6 +479,10 @@
                                                              {{cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA[8].SUMA_ASEGURADA}}
 
                                                         </div> -->
+                                                        <div>
+
+                                {{cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA[cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA.length].NOMBRE}}
+                                                        </div>
                                                     </div> 
                                                     <div v-else class="text-center">
                                                         Seleccione una descripción
