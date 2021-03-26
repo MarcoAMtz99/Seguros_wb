@@ -49,11 +49,13 @@
 					</div>
 					@if(isset($response['SOLICITUD']))
 					<div class="col-12">
+						@if(isset($response["SOLICITUD"]["DOCUMENTOS"]["DOCUMENTO"]["URL_DOCUMENTO"]))
 						<div class="d-flex justify-content-center mt-4">
 							<a class="btn btn-primary btn-lg" href="{{ $response["SOLICITUD"]["DOCUMENTOS"]["DOCUMENTO"]["URL_DOCUMENTO"] }}" target="_blank" role="button">
 								Poliza
                             </a>
 						</div>
+						@endif
 					</div>
 					@endif
 					{{dd($response)}}
