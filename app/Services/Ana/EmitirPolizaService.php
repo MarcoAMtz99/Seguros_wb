@@ -33,7 +33,7 @@ class EmitirPolizaService
         // dd($fecha_hoy);
         $fecha_t = Carbon::parse($fecha);
         $fecha_t = $fecha_t->addYears(1)->format('d/m/Y');
-        dd($request->all());
+        // dd($request->all());
         if ($request->plan == "Amplia") {
             if ($request->tipo_pago == "Tarjeta") {
                 $vencimiento = $request->expiracionMM . substr($request->expiracionYY, 2, 2);

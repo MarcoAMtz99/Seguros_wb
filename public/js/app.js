@@ -52448,7 +52448,7 @@ var render = function() {
                                               "1er Pago: $" +
                                                 _vm._s(
                                                   _vm._f("int")(
-                                                    _vm.cotizacionesANA[1][
+                                                    _vm.cotizacionesANA[2][
                                                       "TRIMESTRAL"
                                                     ]["recibos"][0][
                                                       "primatotal"
@@ -52463,7 +52463,7 @@ var render = function() {
                                               "Subsecuente(2): $" +
                                                 _vm._s(
                                                   _vm._f("int")(
-                                                    _vm.cotizacionesANA[1][
+                                                    _vm.cotizacionesANA[2][
                                                       "TRIMESTRAL"
                                                     ]["recibos"][1][
                                                       "primatotal"
