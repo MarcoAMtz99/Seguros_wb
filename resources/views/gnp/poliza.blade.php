@@ -28,7 +28,10 @@
 					<div class="col-6">
 						<h4>Su poliza se guardo con la siguiente información:</h4>
 					</div>
+					@if(isset($response['DESCRIPCION']))
 					<SPAN>{{$response['DESCRIPCION']}}</SPAN>
+					@endif
+					
 					
 					<div class="col-6">
 						<label class="control-label">Número de poliza:</label>
