@@ -286,7 +286,8 @@ class EmitirPolizaService
             $res = $client->TransaccionText(["XML" => $xml, "Tipo" => "Emision", "Usuario" => "14275", "Clave" => "kdEDyC9F"]);
             $array = json_decode(json_encode(simplexml_load_string($res->TransaccionTextResult)), true);
             dd($array);
-            $error = is_string($array['transaccion']['error']);
+            $error =true;
+            // $error = is_string($array['transaccion']['error']);
             if (!$error) {
                 // dd('primer if');
                 $poliza_id = $array["transaccion"]["poliza"]["@attributes"]["id"];
