@@ -116,8 +116,8 @@
                                                     <div v-if="cotizacionesANA.length" style="padding">
                                                         <div class="border">Contado: ${{cotizacionesANA[0]['CONTADO']['prima']['primatotal'] | int }}</div>
                                                         <div class="border">Semestral: ${{cotizacionesANA[1]['SEMESTRAL']['prima']['primatotal'] | int }}</div>
-                                                         <div class="border">1er Pago: ${{cotizacionesANA[1]['SEMESTRAL']['recibos']['primatotal'] | int }}</div>
-                                                          <div class="border">Subsecuente(1): ${{cotizacionesANA[1]['SEMESTRAL']['recibos'][2]['primatotal'] | int }}</div>
+                                                         <div class="border">1er Pago: ${{cotizacionesANA[1]['SEMESTRAL']['recibos'][0]['primatotal'] | int }}</div>
+                                                          <div class="border">Subsecuente(1): ${{cotizacionesANA[1]['SEMESTRAL']['recibos'][1]['primatotal'] | int }}</div>
                                                         <div class="border">Trimestral: ${{cotizacionesANA[2]['TRIMESTRAL']['prima']['primatotal'] | int }}</div>
                                                     </div>
                                                     <div v-else>

@@ -52405,7 +52405,9 @@ var render = function() {
                                                   _vm._f("int")(
                                                     _vm.cotizacionesANA[1][
                                                       "SEMESTRAL"
-                                                    ]["recibos"]["primatotal"]
+                                                    ]["recibos"][0][
+                                                      "primatotal"
+                                                    ]
                                                   )
                                                 )
                                             )
@@ -52418,7 +52420,7 @@ var render = function() {
                                                   _vm._f("int")(
                                                     _vm.cotizacionesANA[1][
                                                       "SEMESTRAL"
-                                                    ]["recibos"][2][
+                                                    ]["recibos"][1][
                                                       "primatotal"
                                                     ]
                                                   )
