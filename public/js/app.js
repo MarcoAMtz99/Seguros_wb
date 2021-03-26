@@ -4985,6 +4985,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -52436,6 +52438,36 @@ var render = function() {
                                                     _vm.cotizacionesANA[2][
                                                       "TRIMESTRAL"
                                                     ]["prima"]["primatotal"]
+                                                  )
+                                                )
+                                            )
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("div", { staticClass: "border" }, [
+                                            _vm._v(
+                                              "1er Pago: $" +
+                                                _vm._s(
+                                                  _vm._f("int")(
+                                                    _vm.cotizacionesANA[1][
+                                                      "TRIMESTRAL"
+                                                    ]["recibos"][0][
+                                                      "primatotal"
+                                                    ]
+                                                  )
+                                                )
+                                            )
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("div", { staticClass: "border" }, [
+                                            _vm._v(
+                                              "Subsecuente(2): $" +
+                                                _vm._s(
+                                                  _vm._f("int")(
+                                                    _vm.cotizacionesANA[1][
+                                                      "TRIMESTRAL"
+                                                    ]["recibos"][1][
+                                                      "primatotal"
+                                                    ]
                                                   )
                                                 )
                                             )

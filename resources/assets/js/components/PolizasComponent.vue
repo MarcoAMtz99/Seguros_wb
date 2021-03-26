@@ -119,6 +119,8 @@
                                                          <div class="border">1er Pago: ${{cotizacionesANA[1]['SEMESTRAL']['recibos'][0]['primatotal'] | int }}</div>
                                                           <div class="border">Subsecuente(1): ${{cotizacionesANA[1]['SEMESTRAL']['recibos'][1]['primatotal'] | int }}</div>
                                                         <div class="border">Trimestral: ${{cotizacionesANA[2]['TRIMESTRAL']['prima']['primatotal'] | int }}</div>
+                                                        <div class="border">1er Pago: ${{cotizacionesANA[1]['TRIMESTRAL']['recibos'][0]['primatotal'] | int }}</div>
+                                                          <div class="border">Subsecuente(2): ${{cotizacionesANA[1]['TRIMESTRAL']['recibos'][1]['primatotal'] | int }}</div>
                                                     </div>
                                                     <div v-else>
                                                         Seleccione una descripción
