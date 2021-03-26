@@ -4983,6 +4983,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -52398,6 +52400,34 @@ var render = function() {
                                           _vm._v(" "),
                                           _c("div", { staticClass: "border" }, [
                                             _vm._v(
+                                              "1er Pago: $" +
+                                                _vm._s(
+                                                  _vm._f("int")(
+                                                    _vm.cotizacionesANA[1][
+                                                      "SEMESTRAL"
+                                                    ]["recibos"]["primatotal"]
+                                                  )
+                                                )
+                                            )
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("div", { staticClass: "border" }, [
+                                            _vm._v(
+                                              "Subsecuente(1): $" +
+                                                _vm._s(
+                                                  _vm._f("int")(
+                                                    _vm.cotizacionesANA[1][
+                                                      "SEMESTRAL"
+                                                    ]["recibos"][2][
+                                                      "primatotal"
+                                                    ]
+                                                  )
+                                                )
+                                            )
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("div", { staticClass: "border" }, [
+                                            _vm._v(
                                               "Trimestral: $" +
                                                 _vm._s(
                                                   _vm._f("int")(
@@ -54448,19 +54478,24 @@ var render = function() {
                                           { staticClass: "text-center" },
                                           [
                                             _c("div", [
-                                              _vm._v(
-                                                "\n\n                                " +
-                                                  _vm._s(
-                                                    _vm.cotizacionesGNP.PAQUETES
-                                                      .PAQUETE.COBERTURAS
-                                                      .COBERTURA[
+                                              _c("strong", [
+                                                _vm._v(
+                                                  "\n\n                                " +
+                                                    _vm._s(
                                                       _vm.cotizacionesGNP
                                                         .PAQUETES.PAQUETE
-                                                        .COBERTURAS.COBERTURA
-                                                        .length - 1
-                                                    ].NOMBRE
-                                                  ) +
-                                                  "\n                                " +
+                                                        .COBERTURAS.COBERTURA[
+                                                        _vm.cotizacionesGNP
+                                                          .PAQUETES.PAQUETE
+                                                          .COBERTURAS.COBERTURA
+                                                          .length - 1
+                                                      ].NOMBRE
+                                                    ) +
+                                                    " "
+                                                )
+                                              ]),
+                                              _vm._v(
+                                                "\n                                " +
                                                   _vm._s(
                                                     _vm.cotizacionesGNP.PAQUETES
                                                       .PAQUETE.COBERTURAS
