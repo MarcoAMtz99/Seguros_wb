@@ -58,7 +58,7 @@
 						@endif
 					</div>
 					@endif
-					<!-- {{dd($response)}} -->
+					
 					@if(isset($response['CONCEPTOS_ECONOMICOS']))
 					<div class="col-12">
 						<div class="text-center mt-4">
