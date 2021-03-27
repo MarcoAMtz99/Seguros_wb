@@ -209,7 +209,7 @@ class GeneralSegurosController extends Controller
             ]]);
             $response = json_decode(json_encode($res), true);
             // return $response;
-            // dd($response);
+            dd($response);
             if ($response['return']['exito'] && isset($response['return']['paquetes'])) {
                 $paquete_gs = [];
                 foreach ($response['return']['paquetes'] as $paquete) {
