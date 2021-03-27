@@ -77,7 +77,10 @@
                                                 <td class="text-center" v-if="cliente.ana">
                                                     <select class="form-control" v-model="desc_ana">
                                                         <option value="">COBERTURAS:</option>
-                                                        <option v-for="descripcion in descripciones_ana" :value="descripcion.clave">{{descripcion.descripcion}}</option>
+                                                    <option v-for="descripcion in descripciones_ana" :value="descripcion.clave">{{descripcion.clave}}</option>
+                                                    <div>
+                                                        {{descripcion}}
+                                                    </div>
                                                     </select>
                                                 </td>
                                                 <td class="text-center" v-if="cliente.qualitas">
