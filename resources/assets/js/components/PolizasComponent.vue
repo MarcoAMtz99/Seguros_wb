@@ -71,16 +71,14 @@
                                                 <td class="text-center" v-if="cliente.gs">
                                                     <select class="form-control" v-model="desc_gs">
                                                         <option value="">COBERTURAS:</option>
-                                                        <option v-for="version in descripciones_gs" :value="version">{{version.descripcion}}</option>
+                                                        <option v-for="version in descripciones_gs" :value="version">{{version.descripcion}}
+                                                        {{version.descripcion}}</option>
                                                     </select>
                                                 </td>
                                                 <td class="text-center" v-if="cliente.ana">
                                                     <select class="form-control" v-model="desc_ana">
                                                         <option value="">COBERTURAS:</option>
-                                                    <option v-for="descripcion in descripciones_ana" :value="descripcion.clave">{{descripcion.clave}}</option>
-                                                    <div>
-                                                        {{descripcion}}
-                                                    </div>
+                                                        <option v-for="descripcion in descripciones_ana" :value="descripcion.clave">{{descripcion.descripcion}}</option>
                                                     </select>
                                                 </td>
                                                 <td class="text-center" v-if="cliente.qualitas">
