@@ -72,7 +72,7 @@
                                                     <select class="form-control" v-model="desc_gs">
                                                         <option value="">COBERTURAS:</option>
                                                         <option v-for="version in descripciones_gs" :value="version">{{version.descripcion}}
-                                                        {{version}}</option>
+                                                        </option>
                                                     </select>
                                                 </td>
                                                 <td class="text-center" v-if="cliente.ana">

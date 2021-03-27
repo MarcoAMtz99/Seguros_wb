@@ -52044,8 +52044,7 @@ var render = function() {
                                             [
                                               _vm._v(
                                                 _vm._s(version.descripcion) +
-                                                  "\n                                                        " +
-                                                  _vm._s(version)
+                                                  "\n                                                        "
                                               )
                                             ]
                                           )

@@ -161,6 +161,7 @@ class GeneralSegurosController extends Controller
     {
         $cliente = Cliente::where('cotizacion', $request->cotizacion)->first();
         $input = $request->all();
+        dd($request->all());
         $claveGs = $input['descripcion_gs']['amis'];
         $modelo = $input['descripcion_gs']['modelo'];
         $poliza = $input['poliza'];
