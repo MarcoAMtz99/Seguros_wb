@@ -74,7 +74,7 @@ class GeneralSegurosController extends Controller
                  // "usuario" => 'ATC0', 
                  // 'password' => '2r2kGdeUA0' 
                 //pruebas
-                "usuario" => 'ATC891',
+                'usuario' => 'ATC891',
                 'password' => '2HFeACQo1O'
             ]
         ]);
