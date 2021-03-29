@@ -824,6 +824,7 @@
                     console.log(res);
                     this.loader=false;
                     this.cotizacionesGS=res.data.cotizacion;
+                    console.log('Cotizacion General de seguros',this.cotizacionesGS);
                 }).catch(err=>{
                     this.loader=false;
                     console.log(err);

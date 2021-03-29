@@ -5202,6 +5202,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(res);
         _this6.loader = false;
         _this6.cotizacionesGS = res.data.cotizacion;
+        console.log('Cotizacion General de seguros', _this6.cotizacionesGS);
       })["catch"](function (err) {
         _this6.loader = false;
         console.log(err);
