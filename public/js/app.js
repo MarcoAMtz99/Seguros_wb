@@ -5194,7 +5194,8 @@ __webpack_require__.r(__webpack_exports__);
       var params = {
         cotizacion: this.cliente.cotizacion,
         descripcion_gs: descripcion,
-        poliza: poliza
+        poliza: poliza,
+        anio: this.cliente.submarca_auto.anio
       };
       this.cotizacionesGS = [];
       axios.post(url, params).then(function (res) {
