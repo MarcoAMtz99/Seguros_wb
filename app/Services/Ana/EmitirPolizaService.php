@@ -80,6 +80,7 @@ class EmitirPolizaService
                             </transaccion>
                         </transacciones>
                     XML;
+                    dd($xml);
             } else {
 
                 $xml =
