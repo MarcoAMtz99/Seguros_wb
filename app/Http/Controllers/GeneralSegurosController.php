@@ -209,22 +209,22 @@ class GeneralSegurosController extends Controller
             ]]);
             $response = json_decode(json_encode($res), true);
             // return $response;
-            dd($response,$res,['arg0' => [
-                'token' => $this->token,
-                'configuracionProducto' => "RESIDENTE_INDIVIDUAL",
-                'cp'                    => $cliente->cp,
-                'descuento'             => 0,
-                'vigencia'              => "ANUAL",
-                'inciso' => [
-                    'claveGs'          => $claveGs,
-                    "conductorMenor30" => $cliente->menor30,
-                    'modelo'           => $modelo,
-                    'tipoServicio'     => $cliente->tipoServicio,
-                    'tipoValor'        => "VALOR_COMERCIAL",
-                    "tipoVehiculo"     => "AUTO_PICKUP",
-                    "valorVehiculo"    => ""
-                ]
-            ]] );
+            // dd($response,$res,['arg0' => [
+            //     'token' => $this->token,
+            //     'configuracionProducto' => "RESIDENTE_INDIVIDUAL",
+            //     'cp'                    => $cliente->cp,
+            //     'descuento'             => 0,
+            //     'vigencia'              => "ANUAL",
+            //     'inciso' => [
+            //         'claveGs'          => $claveGs,
+            //         "conductorMenor30" => $cliente->menor30,
+            //         'modelo'           => $modelo,
+            //         'tipoServicio'     => $cliente->tipoServicio,
+            //         'tipoValor'        => "VALOR_COMERCIAL",
+            //         "tipoVehiculo"     => "AUTO_PICKUP",
+            //         "valorVehiculo"    => ""
+            //     ]
+            // ]] );
             if ($response['return']['exito'] && isset($response['return']['paquetes'])) {
                 $paquete_gs = [];
                 foreach ($response['return']['paquetes'] as $paquete) {
