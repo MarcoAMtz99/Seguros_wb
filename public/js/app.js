@@ -4988,6 +4988,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -52359,7 +52364,28 @@ var render = function() {
                                                         )
                                                       ) +
                                                       "\n                                                        "
-                                                  )
+                                                  ),
+                                                  _c("div", [
+                                                    _vm._v(
+                                                      "\n                                                            1er pago: $" +
+                                                        _vm._s(
+                                                          _vm._f("int")(
+                                                            pago.reciboini
+                                                          )
+                                                        ) +
+                                                        " "
+                                                    ),
+                                                    _c("br"),
+                                                    _vm._v(
+                                                      "\n                                                            Subsecuente : $" +
+                                                        _vm._s(
+                                                          _vm._f("int")(
+                                                            pago.recibosub
+                                                          )
+                                                        ) +
+                                                        "\n                                                        "
+                                                    )
+                                                  ])
                                                 ]
                                               )
                                             }
