@@ -216,10 +216,10 @@
                                                 </td>
                                                 <td class="text-center" v-if="cliente.gs">
                                                     <div class="text-center" v-if="desc_gs && tipo_poliza && cotizacionesGS.id" style="padding:0">
-                                                        <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'DM Pérdida Parcial'">
+                                                        <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Daños Materiales Pérdida Parcial'">
                                                             <div class="border"><strong>{{cobertura.descripcion}}:</strong> {{cobertura.monto}}</div>
                                                         </div>
-                                                        <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'DM Pérdida Total'">
+                                                        <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Daños Materiales Pérdida Total'">
                                                             <div class="border"><strong>{{cobertura.descripcion}}:</strong> {{cobertura.monto}}</div>
                  
                                                     </div>

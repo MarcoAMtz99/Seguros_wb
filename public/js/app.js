@@ -52858,7 +52858,7 @@ var render = function() {
                                                     .coberturas,
                                                   function(cobertura, index) {
                                                     return cobertura.descripcion ==
-                                                      "DM Pérdida Parcial"
+                                                      "Daños Materiales Pérdida Parcial"
                                                       ? _c("div", [
                                                           _c(
                                                             "div",
@@ -52892,7 +52892,7 @@ var render = function() {
                                                     .coberturas,
                                                   function(cobertura, index) {
                                                     return cobertura.descripcion ==
-                                                      "DM Pérdida Total"
+                                                      "Daños Materiales Pérdida Total"
                                                       ? _c("div", [
                                                           _c(
                                                             "div",
