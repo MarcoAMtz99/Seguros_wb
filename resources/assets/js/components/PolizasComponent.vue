@@ -51,7 +51,7 @@
                                                 </th>
                                                 <th scope="row" class="text-center" v-if="cliente.qualitas">
                                                     <img width="150" height="70" :src="img.quaImage">
-                                                </th>
+                                                </th>   
                                             </tr>
                                             <!-- TODAS LAS DESCRIPCIONES DE LAS ASEGURADORAS -->
                                             <tr>
@@ -107,6 +107,11 @@
                                                     <div v-if="cotizacionesGS.id" style="padding:0">
                                                         <div class="border" v-for="pago in cotizacionesGS.paquete[0].formasPagoDTO">
                                                             {{pago.nombre}}:  ${{pago.primaTotal | int}}
+                                                        <div>
+                                                            1er pago: ${{pago.reciboini | int}} <br>
+                                                            Subsecuente : ${{pago.recibosub | int}}
+                                                        </div>
+                                                       
                                                         </div>
                                                     </div>
                                                     <div v-else>
