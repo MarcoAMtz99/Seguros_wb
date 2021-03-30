@@ -221,7 +221,7 @@ class GNPController extends Controller
  	{
  		$armadoras = $this->getArmadoras($modelo);
  		$armadora = '';
- 		dd($armadoras);
+ 		// dd($armadoras);
  		if (isset($armadoras['ELEMENTOS'])) {
  			foreach ($armadoras['ELEMENTOS']['ELEMENTO'] as $value) {
  				if ($value['NOMBRE'] === strtoupper($marca)){
@@ -310,7 +310,7 @@ class GNPController extends Controller
  	public function getCarroceria($armadora, $submarca)
  	{
 		 $carrocerias = $this->getCarrocerias($armadora);
-		 /* dd($this->getCarrocerias($armadora)); */
+		  dd($carrocerias, $submarca); 
 		 $carroceria = '';
 		 $aux="";
 
