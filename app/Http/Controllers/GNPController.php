@@ -221,6 +221,7 @@ class GNPController extends Controller
  	{
  		$armadoras = $this->getArmadoras($modelo);
  		$armadora = '';
+ 		dd($armadoras);
  		if (isset($armadoras['ELEMENTOS'])) {
  			foreach ($armadoras['ELEMENTOS']['ELEMENTO'] as $value) {
  				if ($value['NOMBRE'] === strtoupper($marca)){
