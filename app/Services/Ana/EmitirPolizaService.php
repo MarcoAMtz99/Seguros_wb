@@ -69,7 +69,7 @@ class EmitirPolizaService
                                     <argumento id="11" tipo="" campo="" valor="$request->administrador"/>
                                    
                                     <argumento id="13" tipo="" campo="" valor="$request->representante"/>
-                                    <argumento id="14" tipo="" campo="" valor="$request->nacionalidad_representante"/>
+                                    
                                 </asegurado>
                                 <poliza id="" tipo="A" endoso="" fecemision="" feciniciovig="$fecha_hoy" fecterminovig="$fecha_t" moneda="0" bonificacion="0" formapago="C" agente="14275" tarifacuotas="1804" tarifavalores="1804" tarifaderechos="1804" beneficiario="" politicacancelacion="1"/>
                                 <prima primaneta="" derecho="" recargo="" impuesto="" primatotal="" comision=""/>
