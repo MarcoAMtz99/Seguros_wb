@@ -114,7 +114,7 @@ class EmitirPolizaService
                                 <argumento id="10" tipo="" campo="" valor="$request->giro"/>
                                 <argumento id="11" tipo="" campo="" valor="$request->administrador"/>
                                 
-                                <argumento id="13" tipo="" campo="" valor="$request->representante"/>
+                                
                               
                             </asegurado>
                             <poliza id="" tipo="A" endoso="" fecemision="" feciniciovig="$fecha_hoy" fecterminovig="$fecha_t" moneda="0" bonificacion="0" formapago="C" agente="14275" tarifacuotas="1804" tarifavalores="1804" tarifaderechos="1804" beneficiario="" politicacancelacion="1"/>
