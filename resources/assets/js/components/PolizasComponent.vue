@@ -97,7 +97,7 @@
                                                         <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].DESC_PERIODICIDAD }}:1er pago ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].CONCEPTO_ECONOMICO[11].MONTO | int }}<br>Subsecuentes x 1: .${{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].CONCEPTO_ECONOMICO[12].MONTO}} </div>
                                                         <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].DESC_PERIODICIDAD }}:1er pago ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].CONCEPTO_ECONOMICO[11].MONTO | int }} <br> Subsecuentes x 3: .${{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].CONCEPTO_ECONOMICO[12].MONTO}}</div>
 
-                                                        <div class="border">{{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].DESC_PERIODICIDAD }}:1er pago .${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].CONCEPTO_ECONOMICO[11].MONTO | int }} <br> Subsecuentes x 11): .${{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].CONCEPTO_ECONOMICO[12].MONTO | int}} </div>
+                                                        <div class="border">{{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].DESC_PERIODICIDAD }}:1er pago .${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].CONCEPTO_ECONOMICO[11].MONTO | int }} <br> Subsecuentes x 11: .${{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].CONCEPTO_ECONOMICO[12].MONTO | int}} </div>
                                                     </div>
                                                     <div v-else>
                                                         Seleccione una descripción
@@ -313,7 +313,7 @@
                                                     <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" style="padding:0">
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'RESPONSABILIDAD CIVIL POR DA#OS  A TERCEROS       '">
                                                             <div class="border" v-if="cobertura.DEDUCIBLE.length != 0"> ${{cobertura.DEDUCIBLE}}</div>
-                                                            <div v-else class="text-center"><strong>{{cobertura.NOMBRE}}:</strong> - </div>
+                                                            
                                                             <div class="border" v-if="cobertura.SUMA_ASEGURADA != ''"><strong>Suma asegurada:</strong> {{cobertura.SUMA_ASEGURADA}}</div>
                                                         </div>
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'EXTENSION DE RC                                   '">

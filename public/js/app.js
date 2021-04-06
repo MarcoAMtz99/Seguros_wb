@@ -52319,7 +52319,7 @@ var render = function() {
                                             ),
                                             _c("br"),
                                             _vm._v(
-                                              " Subsecuentes x 11): .$" +
+                                              " Subsecuentes x 11: .$" +
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesGNP.PAQUETES
@@ -53391,23 +53391,7 @@ var render = function() {
                                                               )
                                                             ]
                                                           )
-                                                        : _c(
-                                                            "div",
-                                                            {
-                                                              staticClass:
-                                                                "text-center"
-                                                            },
-                                                            [
-                                                              _c("strong", [
-                                                                _vm._v(
-                                                                  _vm._s(
-                                                                    cobertura.NOMBRE
-                                                                  ) + ":"
-                                                                )
-                                                              ]),
-                                                              _vm._v(" - ")
-                                                            ]
-                                                          ),
+                                                        : _vm._e(),
                                                       _vm._v(" "),
                                                       cobertura.SUMA_ASEGURADA !=
                                                       ""
