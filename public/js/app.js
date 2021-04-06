@@ -4993,6 +4993,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -51964,7 +51965,7 @@ var render = function() {
                                       },
                                       [
                                         _c("option", { attrs: { value: "" } }, [
-                                          _vm._v("COBERTURAS:")
+                                          _vm._v("Elegir:")
                                         ]),
                                         _vm._v(" "),
                                         _vm._l(_vm.descripciones_gnp, function(
@@ -52039,7 +52040,7 @@ var render = function() {
                                       },
                                       [
                                         _c("option", { attrs: { value: "" } }, [
-                                          _vm._v("COBERTURAS:")
+                                          _vm._v("Elegir:")
                                         ]),
                                         _vm._v(" "),
                                         _vm._l(_vm.descripciones_gs, function(
@@ -52101,7 +52102,7 @@ var render = function() {
                                       },
                                       [
                                         _c("option", { attrs: { value: "" } }, [
-                                          _vm._v("COBERTURAS:")
+                                          _vm._v("Elegir:")
                                         ]),
                                         _vm._v(" "),
                                         _vm._l(_vm.descripciones_ana, function(
@@ -52166,7 +52167,7 @@ var render = function() {
                                       },
                                       [
                                         _c("option", { attrs: { value: "" } }, [
-                                          _vm._v("COBERTURAS:")
+                                          _vm._v("Elegir:")
                                         ]),
                                         _vm._v(" "),
                                         _vm._l(
@@ -52217,7 +52218,7 @@ var render = function() {
                                                   .TOTAL_PRIMA[0]
                                                   .DESC_PERIODICIDAD
                                               ) +
-                                                ":1er pago $" +
+                                                ":Unico pago $" +
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesGNP.PAQUETES
@@ -52251,7 +52252,7 @@ var render = function() {
                                             ),
                                             _c("br"),
                                             _vm._v(
-                                              "Subsecuentes(1): .$" +
+                                              "Subsecuentes x 1: .$" +
                                                 _vm._s(
                                                   _vm.cotizacionesGNP.PAQUETES
                                                     .PAQUETE.TOTALES
@@ -52285,7 +52286,7 @@ var render = function() {
                                             ),
                                             _c("br"),
                                             _vm._v(
-                                              " Subsecuentes(3): .$" +
+                                              " Subsecuentes x 3: .$" +
                                                 _vm._s(
                                                   _vm.cotizacionesGNP.PAQUETES
                                                     .PAQUETE.TOTALES
@@ -52318,7 +52319,7 @@ var render = function() {
                                             ),
                                             _c("br"),
                                             _vm._v(
-                                              " Subsecuentes(11): .$" +
+                                              " Subsecuentes x 11): .$" +
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesGNP.PAQUETES
@@ -52367,7 +52368,7 @@ var render = function() {
                                                   ),
                                                   _c("div", [
                                                     _vm._v(
-                                                      "\n                                                            1er pago: $" +
+                                                      "\n                                                            Unico pago: $" +
                                                         _vm._s(
                                                           _vm._f("int")(
                                                             pago.reciboini
@@ -52432,7 +52433,7 @@ var render = function() {
                                           _vm._v(" "),
                                           _c("div", { staticClass: "border" }, [
                                             _vm._v(
-                                              "1er Pago: $" +
+                                              "Unico Pago: $" +
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesANA[1][
@@ -52447,7 +52448,7 @@ var render = function() {
                                           _vm._v(" "),
                                           _c("div", { staticClass: "border" }, [
                                             _vm._v(
-                                              "Subsecuente(1): $" +
+                                              "Subsecuente x 1: $" +
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesANA[1][
@@ -52490,7 +52491,7 @@ var render = function() {
                                           _vm._v(" "),
                                           _c("div", { staticClass: "border" }, [
                                             _vm._v(
-                                              "Subsecuente(2): $" +
+                                              "Subsecuente x 2: $" +
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesANA[2][
@@ -52732,7 +52733,9 @@ var render = function() {
                                                                   ) + ":"
                                                                 )
                                                               ]),
-                                                              _vm._v(" 5%")
+                                                              _vm._v(
+                                                                " 5% de la suma asegurada"
+                                                              )
                                                             ]
                                                           )
                                                         ])
@@ -52762,7 +52765,9 @@ var render = function() {
                                                                   ) + ":"
                                                                 )
                                                               ]),
-                                                              _vm._v(" 5%")
+                                                              _vm._v(
+                                                                " 5% de la suma asegurada"
+                                                              )
                                                             ]
                                                           ),
                                                           _vm._v(" "),
@@ -52776,7 +52781,11 @@ var render = function() {
                                                           _vm._v(" "),
                                                           _c("br"),
                                                           _vm._v(
-                                                            "\n                                                            Valor Factura: Para Vehículos de hasta 12 meses de antigüedad Valor Comercial: Para vehículos de mas de 12 meses de antigüedad\n                                                            "
+                                                            "\n                                                            Valor Factura: Para Vehículos de hasta 12 meses de antigüedad. "
+                                                          ),
+                                                          _c("br"),
+                                                          _vm._v(
+                                                            "\n                                                             Valor Comercial: Para vehículos de mas de 12 meses de antigüedad.\n                                                            "
                                                           ),
                                                           _c("br"),
                                                           _vm._v(" "),
@@ -53340,7 +53349,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                                    Responsabilidad Civil\n                                                "
+                                    "\n                                                    Responsabilidad Civil Por Daños A Terceros\n                                                "
                                   )
                                 ]
                               ),
@@ -53374,13 +53383,6 @@ var render = function() {
                                                                 "border"
                                                             },
                                                             [
-                                                              _c("strong", [
-                                                                _vm._v(
-                                                                  _vm._s(
-                                                                    cobertura.NOMBRE
-                                                                  ) + ":"
-                                                                )
-                                                              ]),
                                                               _vm._v(
                                                                 " $" +
                                                                   _vm._s(
@@ -54032,7 +54034,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                                    Gastos Médicos\n                                                "
+                                    "\n                                                    Gastos Médicos A Ocupantes\n                                                "
                                   )
                                 ]
                               ),
@@ -54059,9 +54061,7 @@ var render = function() {
                                                           _c("span", [
                                                             _c("strong", [
                                                               _vm._v(
-                                                                _vm._s(
-                                                                  cobertura.NOMBRE
-                                                                ) + ":"
+                                                                "Hasta por :"
                                                               )
                                                             ]),
                                                             _vm._v(
@@ -54069,7 +54069,7 @@ var render = function() {
                                                                 _vm._s(
                                                                   cobertura.SUMA_ASEGURADA
                                                                 ) +
-                                                                " "
+                                                                " (LUC)"
                                                             )
                                                           ])
                                                         ])
@@ -54285,7 +54285,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                                    Legal\n                                                "
+                                    "\n                                                    Asistencia Legal\n                                                "
                                   )
                                 ]
                               ),
@@ -54309,23 +54309,12 @@ var render = function() {
                                                     _c("span", [
                                                       _c("strong", [
                                                         _vm._v(
-                                                          "RESPONSABILIDAD CIVIL POR DAÑOS A TERCEROS :"
+                                                          " " +
+                                                            _vm._s(
+                                                              cobertura.SUMA_ASEGURADA
+                                                            )
                                                         )
-                                                      ]),
-                                                      _vm._v(
-                                                        "Deducible: " +
-                                                          _vm._s(
-                                                            cobertura.DEDUCIBLE
-                                                          ) +
-                                                          " "
-                                                      ),
-                                                      _c("br"),
-                                                      _vm._v(
-                                                        " Suma Asegurada: " +
-                                                          _vm._s(
-                                                            cobertura.SUMA_ASEGURADA
-                                                          )
-                                                      )
+                                                      ])
                                                     ])
                                                   ])
                                                 : _vm._e()
@@ -54526,7 +54515,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                                    Vial\n                                                "
+                                    "\n                                                    Asistencia Vial\n                                                "
                                   )
                                 ]
                               ),

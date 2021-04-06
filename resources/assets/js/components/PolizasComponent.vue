@@ -64,26 +64,26 @@
                                                         <option v-for="descripcion in descripciones_gnp" :value="JSON.stringify(descripcion.ELEMENTO)">{{descripcion.ELEMENTO[4].VALOR}}</option>
                                                     </select> -->
                                                      <select class="form-control" v-model="desc_gnp">
-                                                        <option value="">COBERTURAS:</option>
+                                                        <option value="">Elegir:</option>
                                                         <option v-for="descripcion in descripciones_gnp" :value="JSON.stringify(descripcion.ELEMENTO === undefined ? descripcion:descripcion.ELEMENTO )">{{descripcion.ELEMENTO===undefined?descripcion[4].VALOR :descripcion.ELEMENTO[4].VALOR}}</option>
                                                     </select>
                                                 </td>
                                                 <td class="text-center" v-if="cliente.gs">
                                                     <select class="form-control" v-model="desc_gs">
-                                                        <option value="">COBERTURAS:</option>
+                                                        <option value="">Elegir:</option>
                                                         <option v-for="version in descripciones_gs" :value="version">{{version.descripcion}}
                                                         </option>
                                                     </select>
                                                 </td>
                                                 <td class="text-center" v-if="cliente.ana">
                                                     <select class="form-control" v-model="desc_ana">
-                                                        <option value="">COBERTURAS:</option>
+                                                        <option value="">Elegir:</option>
                                                         <option v-for="descripcion in descripciones_ana" :value="descripcion.clave">{{descripcion.descripcion}}</option>
                                                     </select>
                                                 </td>
                                                 <td class="text-center" v-if="cliente.qualitas">
                                                     <select class="form-control" v-model="desc_qualitas">
-                                                        <option value="">COBERTURAS:</option>
+                                                        <option value="">Elegir:</option>
                                                         <option v-for="descripcion in descripciones_qualitas" :value="descripcion.CAMIS">{{descripcion.cVersion}}</option>
                                                     </select>
                                                 </td>
@@ -93,11 +93,11 @@
                                                 <th scope="row" class="text-center">Prima Total</th>
                                                 <td class="text-center" v-if="cliente.gnp">
                                                     <div v-if="cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" style="padding">
-                                                        <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[0].DESC_PERIODICIDAD }}:1er pago ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[0].CONCEPTO_ECONOMICO[10].MONTO | int }}</div>
-                                                        <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].DESC_PERIODICIDAD }}:1er pago ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].CONCEPTO_ECONOMICO[11].MONTO | int }}<br>Subsecuentes(1): .${{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].CONCEPTO_ECONOMICO[12].MONTO}} </div>
-                                                        <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].DESC_PERIODICIDAD }}:1er pago ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].CONCEPTO_ECONOMICO[11].MONTO | int }} <br> Subsecuentes(3): .${{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].CONCEPTO_ECONOMICO[12].MONTO}}</div>
+                                                        <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[0].DESC_PERIODICIDAD }}:Unico pago ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[0].CONCEPTO_ECONOMICO[10].MONTO | int }}</div>
+                                                        <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].DESC_PERIODICIDAD }}:1er pago ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].CONCEPTO_ECONOMICO[11].MONTO | int }}<br>Subsecuentes x 1: .${{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].CONCEPTO_ECONOMICO[12].MONTO}} </div>
+                                                        <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].DESC_PERIODICIDAD }}:1er pago ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].CONCEPTO_ECONOMICO[11].MONTO | int }} <br> Subsecuentes x 3: .${{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].CONCEPTO_ECONOMICO[12].MONTO}}</div>
 
-                                                        <div class="border">{{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].DESC_PERIODICIDAD }}:1er pago .${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].CONCEPTO_ECONOMICO[11].MONTO | int }} <br> Subsecuentes(11): .${{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].CONCEPTO_ECONOMICO[12].MONTO | int}} </div>
+                                                        <div class="border">{{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].DESC_PERIODICIDAD }}:1er pago .${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].CONCEPTO_ECONOMICO[11].MONTO | int }} <br> Subsecuentes x 11): .${{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].CONCEPTO_ECONOMICO[12].MONTO | int}} </div>
                                                     </div>
                                                     <div v-else>
                                                         Seleccione una descripción
@@ -108,7 +108,7 @@
                                                         <div class="border" v-for="pago in cotizacionesGS.paquete[0].formasPagoDTO">
                                                             {{pago.nombre}}:  ${{pago.primaTotal | int}}
                                                         <div>
-                                                            1er pago: ${{pago.reciboini | int}} <br>
+                                                            Unico pago: ${{pago.reciboini | int}} <br>
                                                             Subsecuente : ${{pago.recibosub | int}}
                                                         </div>
                                                        
@@ -122,11 +122,11 @@
                                                     <div v-if="cotizacionesANA.length" style="padding">
                                                         <div class="border">Contado: ${{cotizacionesANA[0]['CONTADO']['prima']['primatotal'] | int }}</div>
                                                         <div class="border">Semestral: ${{cotizacionesANA[1]['SEMESTRAL']['prima']['primatotal'] | int }}</div>
-                                                         <div class="border">1er Pago: ${{cotizacionesANA[1]['SEMESTRAL']['recibos'][0]['primatotal'] | int }}</div>
-                                                          <div class="border">Subsecuente(1): ${{cotizacionesANA[1]['SEMESTRAL']['recibos'][1]['primatotal'] | int }}</div>
+                                                         <div class="border">Unico Pago: ${{cotizacionesANA[1]['SEMESTRAL']['recibos'][0]['primatotal'] | int }}</div>
+                                                          <div class="border">Subsecuente x 1: ${{cotizacionesANA[1]['SEMESTRAL']['recibos'][1]['primatotal'] | int }}</div>
                                                         <div class="border">Trimestral: ${{cotizacionesANA[2]['TRIMESTRAL']['prima']['primatotal'] | int }}</div>
                                                         <div class="border">1er Pago: ${{cotizacionesANA[2]['TRIMESTRAL']['recibos'][0]['primatotal'] | int }}</div>
-                                                          <div class="border">Subsecuente(2): ${{cotizacionesANA[2]['TRIMESTRAL']['recibos'][1]['primatotal'] | int }}</div>
+                                                          <div class="border">Subsecuente x 2: ${{cotizacionesANA[2]['TRIMESTRAL']['recibos'][1]['primatotal'] | int }}</div>
                                                     </div>
                                                     <div v-else>
                                                         Seleccione una descripción
@@ -185,13 +185,14 @@
                                                 <td class="text-center" v-if="cliente.gnp">
                             <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" style="padding:0">
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'DM PERDIDA TOTAL                                  '">
-                                                            <div class="border"><strong>{{cobertura.NOMBRE}}:</strong> 5%</div>
+                                                            <div class="border"><strong>{{cobertura.NOMBRE}}:</strong> 5% de la suma asegurada</div>
                                                         </div>
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'DM PERDIDA PARCIAL                                '">
-                                                            <div class="border"><strong>{{cobertura.NOMBRE}}:</strong> 5%</div>
+                                                            <div class="border"><strong>{{cobertura.NOMBRE}}:</strong> 5% de la suma asegurada</div>
                                                             <br>
                                                             <strong>Suma Asegurada:</strong> <br>
-                                                            Valor Factura: Para Vehículos de hasta 12 meses de antigüedad Valor Comercial: Para vehículos de mas de 12 meses de antigüedad
+                                                            Valor Factura: Para Vehículos de hasta 12 meses de antigüedad. <br>
+                                                             Valor Comercial: Para vehículos de mas de 12 meses de antigüedad.
                                                             <br>
                                                         
                                                         
@@ -306,12 +307,12 @@
                                             <!-- RESPONSABILIDAD CIVIL TODOS -->
                                             <tr>
                                                 <th scope="row" class="text-center">
-                                                    Responsabilidad Civil
+                                                    Responsabilidad Civil Por Daños A Terceros
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
                                                     <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" style="padding:0">
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'RESPONSABILIDAD CIVIL POR DA#OS  A TERCEROS       '">
-                                                            <div class="border" v-if="cobertura.DEDUCIBLE.length != 0"><strong>{{cobertura.NOMBRE}}:</strong> ${{cobertura.DEDUCIBLE}}</div>
+                                                            <div class="border" v-if="cobertura.DEDUCIBLE.length != 0"> ${{cobertura.DEDUCIBLE}}</div>
                                                             <div v-else class="text-center"><strong>{{cobertura.NOMBRE}}:</strong> - </div>
                                                             <div class="border" v-if="cobertura.SUMA_ASEGURADA != ''"><strong>Suma asegurada:</strong> {{cobertura.SUMA_ASEGURADA}}</div>
                                                         </div>
@@ -387,12 +388,12 @@
                                             <!-- GASTOS MEDICOS -->
                                             <tr>
                                                 <th scope="row" class="text-center">
-                                                    Gastos Médicos
+                                                    Gastos Médicos A Ocupantes
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
                                                     <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" >
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'GASTOS MEDICOS OCUP                               '">
-                                                             <div v-if="cobertura.DEDUCIBLE != 'No aplica'"><span><strong>{{cobertura.NOMBRE}}:</strong> ${{cobertura.SUMA_ASEGURADA}} </span></div>
+                                                             <div v-if="cobertura.DEDUCIBLE != 'No aplica'"><span><strong>Hasta por :</strong> ${{cobertura.SUMA_ASEGURADA}} (LUC)</span></div>
                                                             <div v-else><strong>{{cobertura.NOMBRE}}:</strong> {{cobertura.SUMA_ASEGURADA}}</div>
                                                         </div>
                                                     </div>
@@ -435,12 +436,12 @@
                                             <!-- ASISTENCIA JURIDICA -->
                                             <tr>
                                                 <th scope="row" class="text-center">
-                                                    Legal
+                                                    Asistencia Legal
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
                                                     <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" >
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'PROTECCION LEGAL                                  '">
-                                                             <span><strong>RESPONSABILIDAD CIVIL POR DAÑOS A TERCEROS :</strong>Deducible: {{cobertura.DEDUCIBLE}} <br> Suma Asegurada: {{cobertura.SUMA_ASEGURADA}}</span>
+                                                             <span><strong> {{cobertura.SUMA_ASEGURADA}}</strong></span>
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">
@@ -482,7 +483,7 @@
                                             <!-- VIAL -->
                                             <tr>
                                                 <th class="text-center" scope="row">
-                                                    Vial
+                                                    Asistencia Vial
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
                                                    <div class="text-center" v-if="desc_gnp && tipo_poliza && cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined">
