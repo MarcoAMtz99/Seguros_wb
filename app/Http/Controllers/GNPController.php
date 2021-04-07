@@ -411,7 +411,7 @@ class GNPController extends Controller
 			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/cotizador/cotizar", $data);
 	        //convert the XML result into array
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
-	        // dd($array_data);
+	        dd($array_data,$data);
 	        return response()->json(['cotizacionGNP'=>$array_data],201);
 		} catch (Exception $e) {
 			return response()->json(['error'=>"Fallo la peticion"],400);
