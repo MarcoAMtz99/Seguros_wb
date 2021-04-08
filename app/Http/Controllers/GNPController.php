@@ -83,6 +83,10 @@ class GNPController extends Controller
 				    <CLAVE>AUT</CLAVE>
 				    </ELEMENTO>
 				    <ELEMENTO>
+    				<NOMBRE>MODELO</NOMBRE>
+    				<CLAVE>2019</CLAVE>
+    				</ELEMENTO>
+				    <ELEMENTO>
 				   <NOMBRE>ARMADORA</NOMBRE>
     				<CLAVE>CH</CLAVE>
 				    </ELEMENTO>
