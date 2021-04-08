@@ -52368,7 +52368,7 @@ var render = function() {
                                                   ),
                                                   _c("div", [
                                                     _vm._v(
-                                                      "\n                                                            Unico pago: $" +
+                                                      "\n                                                            1er pago: $" +
                                                         _vm._s(
                                                           _vm._f("int")(
                                                             pago.reciboini
@@ -52378,7 +52378,7 @@ var render = function() {
                                                     ),
                                                     _c("br"),
                                                     _vm._v(
-                                                      "\n                                                            Subsecuente : $" +
+                                                      "\n                                                            Subsecuente x : $" +
                                                         _vm._s(
                                                           _vm._f("int")(
                                                             pago.recibosub

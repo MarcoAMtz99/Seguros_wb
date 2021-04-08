@@ -108,8 +108,8 @@
                                                         <div class="border" v-for="pago in cotizacionesGS.paquete[0].formasPagoDTO">
                                                             {{pago.nombre}}:  ${{pago.primaTotal | int}}
                                                         <div>
-                                                            Unico pago: ${{pago.reciboini | int}} <br>
-                                                            Subsecuente : ${{pago.recibosub | int}}
+                                                            1er pago: ${{pago.reciboini | int}} <br>
+                                                            Subsecuente x : ${{pago.recibosub | int}}
                                                         </div>
                                                        
                                                         </div>
