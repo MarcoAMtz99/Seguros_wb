@@ -71,6 +71,24 @@ class GNPController extends Controller
 	        //convert the XML result into array
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
 			$prueba =  json_encode($modelos); */
+				// $xml2="	<SOLICITUD_CATALOGO>
+				//  <USUARIO>USUARIO</USUARIO>
+				//  <PASSWORD>CONTRASEÑA</PASSWORD>
+				//  <TIPO_CATALOGO>VEHICULOS</TIPO_CATALOGO>
+				//  <ID_UNIDAD_OPERABLE/>
+				//  <FECHA>21/01/2020</FECHA>
+				//    <ELEMENTOS>
+				//     <ELEMENTO>
+				//     <NOMBRE>TIPO_VEHICULO</NOMBRE>
+				//     <CLAVE>AUT</CLAVE>
+				//     </ELEMENTO>
+				//     <ELEMENTO>
+				//     <NOMBRE>MODELO</NOMBRE>
+				//     <CLAVE>2019</CLAVE>
+				//     </ELEMENTO>
+				//    </ELEMENTOS>  
+				// </SOLICITUD_CATALOGO> ";
+
 			$xml="  <SOLICITUD_CATALOGO>
 			<USUARIO>EMOREN927586</USUARIO>
 			<PASSWORD>Moreno2021</PASSWORD>
@@ -84,7 +102,7 @@ class GNPController extends Controller
 		  </ELEMENTO>
 		   <ELEMENTO>
 		 <NOMBRE>MODELO</NOMBRE>
-		 <CLAVE>2015</CLAVE> 
+		 <CLAVE>2016</CLAVE> 
 		 </ELEMENTO>
 		 </ELEMENTOS>  
 		 </SOLICITUD_CATALOGO>";
@@ -93,9 +111,9 @@ class GNPController extends Controller
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
 	        return $array_data;
 			
-	        print_r('<pre>');
-	        print_r($prueba);
-	        print_r('</pre>');
+	        // print_r('<pre>');
+	        // print_r($prueba);
+	        // print_r('</pre>');
 
 		} catch (Exception $e) {
 			dd($e);
