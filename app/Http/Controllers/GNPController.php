@@ -102,7 +102,7 @@ class GNPController extends Controller
 		  </ELEMENTO>
 		   <ELEMENTO>
 		 <NOMBRE>MODELO</NOMBRE>
-		 <CLAVE>2016</CLAVE> 
+		 <CLAVE>2020</CLAVE> 
 		 </ELEMENTO>
 		 </ELEMENTOS>  
 		 </SOLICITUD_CATALOGO>";
