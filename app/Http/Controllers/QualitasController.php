@@ -605,7 +605,7 @@ XML;
 	   //  }
 	   //  dd($digito);
 		$cotizacion = $this->getQualitas($xml);
-		dd($xml,$cotizacion);
+		// dd($xml,$cotizacion);
 		return response()->json(['Qualitas'=>$cotizacion],200);
 
 		
