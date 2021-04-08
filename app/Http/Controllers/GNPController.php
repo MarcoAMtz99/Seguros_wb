@@ -71,44 +71,44 @@ class GNPController extends Controller
 	        //convert the XML result into array
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
 			$prueba =  json_encode($modelos); */
-				// $xml2="	<SOLICITUD_CATALOGO>
-				//  <USUARIO>USUARIO</USUARIO>
-				//  <PASSWORD>CONTRASEÑA</PASSWORD>
-				//  <TIPO_CATALOGO>VEHICULOS</TIPO_CATALOGO>
-				//  <ID_UNIDAD_OPERABLE/>
-				//  <FECHA>21/01/2020</FECHA>
-				//    <ELEMENTOS>
-				//     <ELEMENTO>
-				//     <NOMBRE>TIPO_VEHICULO</NOMBRE>
-				//     <CLAVE>AUT</CLAVE>
-				//     </ELEMENTO>
-				//     <ELEMENTO>
-				//     <NOMBRE>MODELO</NOMBRE>
-				//     <CLAVE>2019</CLAVE>
-				//     </ELEMENTO>
-				//    </ELEMENTOS>  
-				// </SOLICITUD_CATALOGO> ";
+				$xml="	<SOLICITUD_CATALOGO>
+				 <USUARIO>EMOREN927586</USUARIO>
+				<PASSWORD>Moreno2021</PASSWORD>
+				 <TIPO_CATALOGO>VEHICULOS</TIPO_CATALOGO>
+				 <ID_UNIDAD_OPERABLE>NOP0000016</ID_UNIDAD_OPERABLE>
+				 <FECHA>24/01/2021</FECHA>
+				   <ELEMENTOS>
+				    <ELEMENTO>
+				    <NOMBRE>TIPO_VEHICULO</NOMBRE>
+				    <CLAVE>AUT</CLAVE>
+				    </ELEMENTO>
+				    <ELEMENTO>
+				   <NOMBRE>ARMADORA</NOMBRE>
+    				<CLAVE>CH</CLAVE>
+				    </ELEMENTO>
+				   </ELEMENTOS>  
+				</SOLICITUD_CATALOGO> ";
 
-			$xml="  <SOLICITUD_CATALOGO>
-			<USUARIO>EMOREN927586</USUARIO>
-			<PASSWORD>Moreno2021</PASSWORD>
-		   <TIPO_CATALOGO>VEHICULOS</TIPO_CATALOGO>
-		   <ID_UNIDAD_OPERABLE>NOP0000016</ID_UNIDAD_OPERABLE>
-			<FECHA>24/01/2021</FECHA> 
-		   <ELEMENTOS>
-		   <ELEMENTO>
-			  <CLAVE>AUT</CLAVE>
-			<NOMBRE>TIPO_VEHICULO</NOMBRE>
-		  </ELEMENTO>
-		   <ELEMENTO>
-		 <ELEMENTO>
-    		<NOMBRE>ARMADORA</NOMBRE>
-    		<CLAVE>CH</CLAVE>
-    		</ELEMENTO>
+			// $xml="  <SOLICITUD_CATALOGO>
+			// <USUARIO>EMOREN927586</USUARIO>
+			// <PASSWORD>Moreno2021</PASSWORD>
+		 //   <TIPO_CATALOGO>VEHICULOS</TIPO_CATALOGO>
+		 //   <ID_UNIDAD_OPERABLE>NOP0000016</ID_UNIDAD_OPERABLE>
+			// <FECHA>24/01/2021</FECHA> 
+		 //   <ELEMENTOS>
+		 //   <ELEMENTO>
+			//   <CLAVE>AUT</CLAVE>
+			// <NOMBRE>TIPO_VEHICULO</NOMBRE>
+		 //  </ELEMENTO>
+		 //   <ELEMENTO>
+		 // <ELEMENTO>
+   //  		<NOMBRE>ARMADORA</NOMBRE>
+   //  		<CLAVE>CH</CLAVE>
+   //  		</ELEMENTO>
 
-		 </ELEMENTO>
-		 </ELEMENTOS>  
-		 </SOLICITUD_CATALOGO>";
+		 // </ELEMENTO>
+		 // </ELEMENTOS>  
+		 // </SOLICITUD_CATALOGO>";
 			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/catalogos/catalogo", $xml);
 	        //convert the XML result into array
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
