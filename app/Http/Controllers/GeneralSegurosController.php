@@ -70,8 +70,10 @@ class GeneralSegurosController extends Controller
        
         $result = $this->clientAuthGS->obtenerToken([
             'arg0' => [
-                'usuario' => 'ATC891',
-                'password' => '2HFeACQo1O'
+                "usuario" => 'ATC0', 
+                 'password' => '2r2kGdeUA0' 
+                // 'usuario' => 'ATC891',
+                // 'password' => '2HFeACQo1O'
             ]
         ]);
         // return $result;
