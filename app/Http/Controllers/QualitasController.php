@@ -288,6 +288,10 @@ class QualitasController extends Controller
 		  <TipoRegla>1</TipoRegla>
 		  <ValorRegla>0</ValorRegla>
 		</ConsideracionesAdicionalesDG>
+		<ConsideracionesAdicionalesDA NoConsideracion="40">
+		<TipoRegla>41</TipoRegla>
+		<ValorRegla>1</ValorRegla>
+		</ConsideracionesAdicionalesDA>
 	  </DatosGenerales>
 	  <Primas>
 		<PrimaNeta/>
@@ -421,6 +425,10 @@ XML;
 		  <TipoRegla>1</TipoRegla>
 		  <ValorRegla>0</ValorRegla>
 		</ConsideracionesAdicionalesDG>
+		<ConsideracionesAdicionalesDA NoConsideracion="40">
+		<TipoRegla>41</TipoRegla>
+		<ValorRegla>1</ValorRegla>
+		</ConsideracionesAdicionalesDA>
 	  </DatosGenerales>
 	  <Primas>
 		<PrimaNeta/>
@@ -554,6 +562,10 @@ XML;
 		  <TipoRegla>1</TipoRegla>
 		  <ValorRegla>0</ValorRegla>
 		</ConsideracionesAdicionalesDG>
+		<ConsideracionesAdicionalesDA NoConsideracion="40">
+		<TipoRegla>41</TipoRegla>
+		<ValorRegla>1</ValorRegla>
+		</ConsideracionesAdicionalesDA>
 	  </DatosGenerales>
 	  <Primas>
 		<PrimaNeta/>
