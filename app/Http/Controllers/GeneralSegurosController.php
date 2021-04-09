@@ -156,8 +156,9 @@ class GeneralSegurosController extends Controller
     public function getCotizacion(Request $request)
     {
         $cliente = Cliente::where('cotizacion', $request->cotizacion)->first();
+        dd($request);
         $input = $request->all();
-        // dd($request->all());
+        
         $claveGs = $input['descripcion_gs']['amis'];
         $modelo = $input['anio'];
         $poliza = $input['poliza'];
