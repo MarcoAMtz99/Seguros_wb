@@ -937,6 +937,10 @@ XML;
 			<TipoRegla>41</TipoRegla>
 			<ValorRegla>1</ValorRegla>
 			</ConsideracionesAdicionalesDG>
+			<ConsideracionesAdicionalesDG NoConsideracion="40">
+			<TipoRegla>9</TipoRegla>
+			<ValorRegla>2</ValorRegla>
+			</ConsideracionesAdicionalesDG>
 		</DatosGenerales>
 		<Primas>
 			<PrimaNeta/>
