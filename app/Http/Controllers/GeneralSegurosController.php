@@ -67,11 +67,7 @@ class GeneralSegurosController extends Controller
 
     public function getToken()
     {
-        // dd($this->clientAuthGS->__getTypes());
-        // // //produccion
-                 // "usuario" => 'ATC0', 
-                 // 'password' => '2r2kGdeUA0' 
-                //pruebas
+       
         $result = $this->clientAuthGS->obtenerToken([
             'arg0' => [
                 'usuario' => 'ATC891',
@@ -165,7 +161,7 @@ class GeneralSegurosController extends Controller
         $claveGs = $input['descripcion_gs']['amis'];
         $modelo = $input['anio'];
         $poliza = $input['poliza'];
-        // dd($poliza);
+        dd($poliza,$request->all(),$claveGs, $modelo);
         switch ($poliza) {
             case 'Amplia':
                 $poliza_gs = "CONFORT AMPLIA";
