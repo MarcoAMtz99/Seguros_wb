@@ -295,6 +295,7 @@ class GeneralSegurosController extends Controller
     {
         $client = $this->getClient($this->urlCatAuto);
         $res = $client->wsListarMarcas(['arg0' => ["token" => $this->token]]);
+        dd($res);
         if ($res->return->exito) {
             $marcas = $res->return->marcas;
             foreach ($marcas as $marca_gs) {
