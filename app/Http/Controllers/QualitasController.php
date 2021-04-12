@@ -273,6 +273,8 @@ class QualitasController extends Controller
 		<Moneda>0</Moneda>
 		<Agente>74285</Agente>
 		<FormaPago>C</FormaPago>
+		<FormaPago>S</FormaPago>
+		<FormaPago>M</FormaPago>
 		<TarifaValores>LINEA</TarifaValores>
 		<TarifaCuotas>LINEA</TarifaCuotas>
 		<TarifaDerechos>LINEA</TarifaDerechos>
