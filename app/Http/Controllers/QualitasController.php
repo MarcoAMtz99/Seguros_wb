@@ -293,33 +293,6 @@ class QualitasController extends Controller
 		<ValorRegla>1</ValorRegla>
 		</ConsideracionesAdicionalesDA>
 	  </DatosGenerales>
-	  <DatosGenerales>
-		<FechaEmision>$fecha</FechaEmision>
-		<FechaInicio>$fecha</FechaInicio>
-		<FechaTermino>$fecha_t</FechaTermino>
-		<Moneda>0</Moneda>
-		<Agente>74285</Agente>
-		<FormaPago>S</FormaPago>
-		<TarifaValores>LINEA</TarifaValores>
-		<TarifaCuotas>LINEA</TarifaCuotas>
-		<TarifaDerechos>LINEA</TarifaDerechos>
-		<Plazo/>
-		<Agencia/>
-		<Contrato/>
-		<PorcentajeDescuento>20</PorcentajeDescuento>
-		<ConsideracionesAdicionalesDG NoConsideracion="1">
-		  <TipoRegla>1</TipoRegla>
-		  <ValorRegla>$dig</ValorRegla>
-		</ConsideracionesAdicionalesDG>
-		<ConsideracionesAdicionalesDG NoConsideracion="4">
-		  <TipoRegla>1</TipoRegla>
-		  <ValorRegla>0</ValorRegla>
-		</ConsideracionesAdicionalesDG>
-		<ConsideracionesAdicionalesDA NoConsideracion="40">
-		<TipoRegla>41</TipoRegla>
-		<ValorRegla>1</ValorRegla>
-		</ConsideracionesAdicionalesDA>
-	  </DatosGenerales>
 	  <Primas>
 		<PrimaNeta/>
 		<Derecho>520</Derecho>
@@ -952,7 +925,7 @@ XML;
 			<FechaTermino>$vencimiento</FechaTermino>
 			<Moneda>0</Moneda>
 			<Agente>74285</Agente>
-			<FormaPago>S</FormaPago>
+			<FormaPago>C</FormaPago>
 			<TarifaValores>LINEA</TarifaValores>
 			<TarifaCuotas>LINEA</TarifaCuotas>
 			<TarifaDerechos>LINEA</TarifaDerechos>
