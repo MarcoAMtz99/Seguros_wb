@@ -900,6 +900,14 @@ XML;
         		<TipoRegla>70</TipoRegla>
         		<ValorRegla>$request->telefono</ValorRegla>
       		</ConsideracionesAdicionalesDA>
+      		<ConsideracionesAdicionalesDA NoConsideracion="40">
+			<TipoRegla>41</TipoRegla>
+			<ValorRegla>1</ValorRegla>
+			</ConsideracionesAdicionalesDG>
+			<ConsideracionesAdicionalesDA NoConsideracion="40">
+			<TipoRegla>39</TipoRegla>
+			<ValorRegla>2</ValorRegla>
+			</ConsideracionesAdicionalesDG>
 		</DatosAsegurado>
 		<DatosVehiculo NoInciso="1">
 			<ClaveAmis>$camis</ClaveAmis>
@@ -933,14 +941,7 @@ XML;
 			  <TipoRegla>1</TipoRegla>
 			  <ValorRegla>0</ValorRegla>
 			</ConsideracionesAdicionalesDG>
-			<ConsideracionesAdicionalesDG NoConsideracion="40">
-			<TipoRegla>41</TipoRegla>
-			<ValorRegla>1</ValorRegla>
-			</ConsideracionesAdicionalesDG>
-			<ConsideracionesAdicionalesDG NoConsideracion="40">
-			<TipoRegla>39</TipoRegla>
-			<ValorRegla>2</ValorRegla>
-			</ConsideracionesAdicionalesDG>
+	
 		</DatosGenerales>
 		<Primas>
 			<PrimaNeta/>
