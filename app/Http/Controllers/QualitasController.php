@@ -925,7 +925,7 @@ XML;
 			<FechaTermino>$vencimiento</FechaTermino>
 			<Moneda>0</Moneda>
 			<Agente>74285</Agente>
-			<FormaPago>C</FormaPago>
+			<FormaPago>M</FormaPago>
 			<TarifaValores>LINEA</TarifaValores>
 			<TarifaCuotas>LINEA</TarifaCuotas>
 			<TarifaDerechos>LINEA</TarifaDerechos>
