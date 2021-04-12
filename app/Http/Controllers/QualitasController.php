@@ -903,11 +903,11 @@ XML;
       		<ConsideracionesAdicionalesDA NoConsideracion="40">
 			<TipoRegla>41</TipoRegla>
 			<ValorRegla>1</ValorRegla>
-			</ConsideracionesAdicionalesDG>
+			</ConsideracionesAdicionalesDA>
 			<ConsideracionesAdicionalesDA NoConsideracion="40">
 			<TipoRegla>39</TipoRegla>
 			<ValorRegla>2</ValorRegla>
-			</ConsideracionesAdicionalesDG>
+			</ConsideracionesAdicionalesDA>
 		</DatosAsegurado>
 		<DatosVehiculo NoInciso="1">
 			<ClaveAmis>$camis</ClaveAmis>
@@ -941,7 +941,6 @@ XML;
 			  <TipoRegla>1</TipoRegla>
 			  <ValorRegla>0</ValorRegla>
 			</ConsideracionesAdicionalesDG>
-	
 		</DatosGenerales>
 		<Primas>
 			<PrimaNeta/>
