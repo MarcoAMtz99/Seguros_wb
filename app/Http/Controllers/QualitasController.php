@@ -273,8 +273,33 @@ class QualitasController extends Controller
 		<Moneda>0</Moneda>
 		<Agente>74285</Agente>
 		<FormaPago>C</FormaPago>
+		<TarifaValores>LINEA</TarifaValores>
+		<TarifaCuotas>LINEA</TarifaCuotas>
+		<TarifaDerechos>LINEA</TarifaDerechos>
+		<Plazo/>
+		<Agencia/>
+		<Contrato/>
+		<PorcentajeDescuento>20</PorcentajeDescuento>
+		<ConsideracionesAdicionalesDG NoConsideracion="1">
+		  <TipoRegla>1</TipoRegla>
+		  <ValorRegla>$dig</ValorRegla>
+		</ConsideracionesAdicionalesDG>
+		<ConsideracionesAdicionalesDG NoConsideracion="4">
+		  <TipoRegla>1</TipoRegla>
+		  <ValorRegla>0</ValorRegla>
+		</ConsideracionesAdicionalesDG>
+		<ConsideracionesAdicionalesDA NoConsideracion="40">
+		<TipoRegla>41</TipoRegla>
+		<ValorRegla>1</ValorRegla>
+		</ConsideracionesAdicionalesDA>
+	  </DatosGenerales>
+	  <DatosGenerales>
+		<FechaEmision>$fecha</FechaEmision>
+		<FechaInicio>$fecha</FechaInicio>
+		<FechaTermino>$fecha_t</FechaTermino>
+		<Moneda>0</Moneda>
+		<Agente>74285</Agente>
 		<FormaPago>S</FormaPago>
-		<FormaPago>M</FormaPago>
 		<TarifaValores>LINEA</TarifaValores>
 		<TarifaCuotas>LINEA</TarifaCuotas>
 		<TarifaDerechos>LINEA</TarifaDerechos>
