@@ -152,6 +152,11 @@ class GNPController extends Controller
  	{
  		$armadora   = $this->getArmadora($modelo, $marca);
  		dd($armadora);
+ 		if($armadora===""){
+ 		$modelos = $this->BusquedaMedelo($modelo, $submarca);
+ 		dd($modelos);
+
+ 		}
  		$carroceria = $this->getCarroceria($armadora, $submarca);
  		// dd($carroceria);
  		$modelos    = $this->getModelos($modelo, $armadora, $carroceria);
@@ -163,6 +168,47 @@ class GNPController extends Controller
 		 /* dd($modelos); */
 
  		return response()->json(['modelosGNP'=>$modelos],201);
+ 	}
+
+ 	public function BusquedaMedelos($modelo, $submarca){
+ 		$fecha = date('d/m/Y');
+ 		$xml="	<SOLICITUD_CATALOGO>
+				   <USUARIO>$this->user</USUARIO>
+				   <PASSWORD>$this->pass</PASSWORD>    
+				   <TIPO_CATALOGO>VEHICULOS</TIPO_CATALOGO>
+				   <ID_UNIDAD_OPERABLE>$this->unidadOperable</ID_UNIDAD_OPERABLE>
+				 	<FECHA>$fecha</FECHA>
+				    <ELEMENTOS>
+				    <ELEMENTO>
+				    <NOMBRE>TIPO_VEHICULO</NOMBRE>
+				    <CLAVE>AUT</CLAVE>
+				    </ELEMENTO>
+				    <ELEMENTO>
+    				<NOMBRE>MODELO</NOMBRE>
+    				<CLAVE>$modelo</CLAVE>
+    				</ELEMENTO>
+    				<ELEMENTO>
+    				<NOMBRE>MODELO</NOMBRE>
+    				<CLAVE>$modelo</CLAVE>
+    				</ELEMENTO>   
+				   </ELEMENTOS>  
+				</SOLICITUD_CATALOGO> ";
+			return  $this->buscarEnCatalogo($xml);
+ 	}
+ 		public function BusquedaMedelo($modelo, $submarca)
+ 	{
+ 		$Modelos = $this->BusquedaMedelos($modelo,$submarca);
+ 		$Modelo = '';
+ 		// dd($armadoras);
+ 		if (isset($Modelos['ELEMENTOS'])) {
+ 			foreach ($Modelos['ELEMENTOS']['ELEMENTO'] as $value) {
+ 				if ($value['NOMBRE'] === strtoupper($submarca)){
+ 					$Modelo = $value['CLAVE'];
+ 				}
+ 			}
+ 		}
+
+ 		return $Modelo;
  	}
 
  	private function buscarEnCatalogo($xmlBody)
