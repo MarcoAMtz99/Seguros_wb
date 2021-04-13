@@ -189,6 +189,7 @@
                     <option value="A">Anual</option>
                     <option value="S">Semestral</option>
                     <option value="T">Trimestral</option>
+                     <option value="M">Mensual</option>
                 </select>
             </div>
         </div>

@@ -339,7 +339,7 @@
 	                            </label>
 	                         </div>
 	                          <div class="form-check col-12">
-	                            <input class="form-check-input" type="radio" name="tipo_persona" id="radioMe" v-model="qualitas.cliente.tipo_pago" value="M">
+	                            <input class="form-check-input" type="radio" name="tipo_pago" id="radioMe" v-model="qualitas.cliente.tipo_pago" value="M">
 	                            <label class="form-check-label" for="radioMe">
 	                             Mensual
 	                            </label>

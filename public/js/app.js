@@ -4247,6 +4247,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'cotizacion', 'img'],
   data: function data() {
@@ -45594,7 +45595,7 @@ var render = function() {
                           staticClass: "form-check-input",
                           attrs: {
                             type: "radio",
-                            name: "tipo_persona",
+                            name: "tipo_pago",
                             id: "radioMe",
                             value: "M"
                           },
@@ -51468,7 +51469,9 @@ var render = function() {
               _vm._v(" "),
               _c("option", { attrs: { value: "S" } }, [_vm._v("Semestral")]),
               _vm._v(" "),
-              _c("option", { attrs: { value: "T" } }, [_vm._v("Trimestral")])
+              _c("option", { attrs: { value: "T" } }, [_vm._v("Trimestral")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "M" } }, [_vm._v("Mensual")])
             ]
           )
         ])
