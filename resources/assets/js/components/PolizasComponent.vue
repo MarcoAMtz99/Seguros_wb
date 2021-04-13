@@ -804,6 +804,7 @@
                      this.cotizacionesQualitasS = res.data.QualitasS;
                     console.log('Cotizacion QA:', this.cotizacionesQualitas);
                     console.log('Cotizacion QAS:', this.cotizacionesQualitasS);
+                    //Prueba QA
                 }).catch(err=>{
                     this.loader=false;
                     console.log(err)

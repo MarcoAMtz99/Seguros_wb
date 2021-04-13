@@ -5178,7 +5178,7 @@ __webpack_require__.r(__webpack_exports__);
         _this4.cotizacionesQualitas = res.data.Qualitas;
         _this4.cotizacionesQualitasS = res.data.QualitasS;
         console.log('Cotizacion QA:', _this4.cotizacionesQualitas);
-        console.log('Cotizacion QAS:', _this4.cotizacionesQualitasS);
+        console.log('Cotizacion QAS:', _this4.cotizacionesQualitasS); //Prueba QA
       })["catch"](function (err) {
         _this4.loader = false;
         console.log(err);
