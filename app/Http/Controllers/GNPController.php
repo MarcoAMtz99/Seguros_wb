@@ -86,10 +86,7 @@ class GNPController extends Controller
     				<NOMBRE>MODELO</NOMBRE>
     				<CLAVE>2019</CLAVE>
     				</ELEMENTO>
-				    <ELEMENTO>
-				   <NOMBRE>ARMADORA</NOMBRE>
-    				<CLAVE>CH</CLAVE>
-				    </ELEMENTO>
+				   
 				   </ELEMENTOS>  
 				</SOLICITUD_CATALOGO> ";
 
@@ -106,6 +103,10 @@ class GNPController extends Controller
 		 //  </ELEMENTO>
 		 //   <ELEMENTO>
 		 // <ELEMENTO>
+		 //  <ELEMENTO>
+				   // <NOMBRE>ARMADORA</NOMBRE>
+    			// 	<CLAVE>CH</CLAVE>
+				   //  </ELEMENTO>
    //  		<NOMBRE>ARMADORA</NOMBRE>
    //  		<CLAVE>CH</CLAVE>
    //  		</ELEMENTO>
@@ -116,6 +117,16 @@ class GNPController extends Controller
 			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/catalogos/catalogo", $xml);
 	        //convert the XML result into array
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
+	        $armadora="";
+	        $marca="SPARK"
+	        if (isset($array_data['ELEMENTOS'])) {
+ 			foreach ($array_data['ELEMENTOS']['ELEMENTO'] as $value) {
+ 				if ($value['NOMBRE'] === strtoupper("CARROCERIA")){
+ 					$armadora = $value['CLAVE'];
+ 				}
+ 			}
+ 		}
+ 			DD($armadora);
 	        return $array_data;
 			
 	        // print_r('<pre>');
