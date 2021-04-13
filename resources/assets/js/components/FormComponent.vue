@@ -337,13 +337,13 @@
 	                            <label class="form-check-label" for="radioS">
 	                             Semestral
 	                            </label>
-	                        </div>
+	                         </div>
 	                          <div class="form-check col-12">
 	                            <input class="form-check-input" type="radio" name="tipo_persona" id="radioMe" v-model="qualitas.cliente.tipo_pago" value="M">
 	                            <label class="form-check-label" for="radioMe">
 	                             Mensual
 	                            </label>
-	                        </div>
+	                           </div>
 						</div>
 						<div class="form-group col-4">
 							<label class="control-label"><i class="fas fa-asterisk"></i> El asegurado y el contratante son la misma persona:</label>

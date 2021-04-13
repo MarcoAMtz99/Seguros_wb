@@ -3369,6 +3369,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'alert', 'cotizacion', 'img'],
   data: function data() {
@@ -45374,6 +45377,10 @@ var render = function() {
                     _vm._m(34)
                   ]),
                   _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _vm._m(35),
                     _vm._v(" "),
@@ -45571,55 +45578,52 @@ var render = function() {
                               "\n\t                             Semestral\n\t                            "
                             )
                           ]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-check col-12" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.qualitas.cliente.tipo_pago,
-                                expression: "qualitas.cliente.tipo_pago"
-                              }
-                            ],
-                            staticClass: "form-check-input",
-                            attrs: {
-                              type: "radio",
-                              name: "tipo_persona",
-                              id: "radioMe",
-                              value: "M"
-                            },
-                            domProps: {
-                              checked: _vm._q(
-                                _vm.qualitas.cliente.tipo_pago,
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-check col-12" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.qualitas.cliente.tipo_pago,
+                              expression: "qualitas.cliente.tipo_pago"
+                            }
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "radio",
+                            name: "tipo_persona",
+                            id: "radioMe",
+                            value: "M"
+                          },
+                          domProps: {
+                            checked: _vm._q(_vm.qualitas.cliente.tipo_pago, "M")
+                          },
+                          on: {
+                            change: function($event) {
+                              return _vm.$set(
+                                _vm.qualitas.cliente,
+                                "tipo_pago",
                                 "M"
                               )
-                            },
-                            on: {
-                              change: function($event) {
-                                return _vm.$set(
-                                  _vm.qualitas.cliente,
-                                  "tipo_pago",
-                                  "M"
-                                )
-                              }
                             }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "label",
-                            {
-                              staticClass: "form-check-label",
-                              attrs: { for: "radioMe" }
-                            },
-                            [
-                              _vm._v(
-                                "\n\t                             Mensual\n\t                            "
-                              )
-                            ]
-                          )
-                        ])
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "radioMe" }
+                          },
+                          [
+                            _vm._v(
+                              "\n\t                             Mensual\n\t                            "
+                            )
+                          ]
+                        )
                       ])
                     ]),
                     _vm._v(" "),
@@ -45721,6 +45725,8 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("br"),
+                  _vm._v(" "),
+                  _c("hr"),
                   _vm._v(" "),
                   _vm.qualitas.cliente.tipo_persona == "1"
                     ? _c("div", { staticClass: "row" }, [
