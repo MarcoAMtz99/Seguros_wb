@@ -201,8 +201,8 @@ class GNPController extends Controller
  		$Modelo = '';
  		// dd($armadoras);
  		if (isset($Modelos['ELEMENTOS'])) {
- 			dd($Modelos);
- 			foreach ($Modelos['ELEMENTOS']['ELEMENTO'] as $value) {
+ 			// dd($Modelos);
+ 			foreach ($Modelos['ELEMENTOS'][0] as $value) {
  				if ($value['NOMBRE'] === strtoupper($submarca)){
  					$Modelo = $value['CLAVE'];
  				}
