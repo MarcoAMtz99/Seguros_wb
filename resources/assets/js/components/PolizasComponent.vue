@@ -136,6 +136,9 @@
                                                     <div v-if="cotizacionesQualitas.Primas">
                                                         <div class="border">Contado: ${{cotizacionesQualitas.Primas.PrimaTotal | int }}</div>
                                                     </div>
+                                                    <div v-if="cotizacionesQualitasS.Primas">
+                                                        <div class="border">Semestral: ${{cotizacionesQualitasS.Primas.PrimaTotal | int }}</div>
+                                                    </div>
                                                     <div v-else>
                                                         Seleccione una descripción
                                                     </div>
@@ -796,6 +799,7 @@
                     poliza : poliza
                 };
                 this.cotizacionesQualitas=[];
+                this.cotizacionesQualitasS=[];
                 // this.loader = true;
                 axios.post(url,params).then(res=>{
                     this.loader=false;

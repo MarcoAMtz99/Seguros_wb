@@ -4994,6 +4994,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -5170,7 +5173,8 @@ __webpack_require__.r(__webpack_exports__);
         camis: camis,
         poliza: poliza
       };
-      this.cotizacionesQualitas = []; // this.loader = true;
+      this.cotizacionesQualitas = [];
+      this.cotizacionesQualitasS = []; // this.loader = true;
 
       axios.post(url, params).then(function (res) {
         _this4.loader = false;
@@ -52525,6 +52529,22 @@ var render = function() {
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesQualitas
+                                                      .Primas.PrimaTotal
+                                                  )
+                                                )
+                                            )
+                                          ])
+                                        ])
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _vm.cotizacionesQualitasS.Primas
+                                      ? _c("div", [
+                                          _c("div", { staticClass: "border" }, [
+                                            _vm._v(
+                                              "Semestral: $" +
+                                                _vm._s(
+                                                  _vm._f("int")(
+                                                    _vm.cotizacionesQualitasS
                                                       .Primas.PrimaTotal
                                                   )
                                                 )
