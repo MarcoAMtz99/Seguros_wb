@@ -164,7 +164,7 @@ class GeneralSegurosController extends Controller
         $claveGs = $input['descripcion_gs']['amis'];
         $modelo = $input['anio'];
         $poliza = $input['poliza'];
-        dd($poliza,$request->all(),$claveGs, $modelo);
+        // dd($poliza,$request->all(),$claveGs, $modelo);
         switch ($poliza) {
             case 'Amplia':
                 $poliza_gs = "CONFORT AMPLIA";
