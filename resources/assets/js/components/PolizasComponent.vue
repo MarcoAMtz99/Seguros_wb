@@ -139,6 +139,9 @@
                                                     <div v-if="cotizacionesQualitasS.Primas">
                                                         <div class="border">Semestral: ${{cotizacionesQualitasS.Primas.PrimaTotal | int }}</div>
                                                     </div>
+                                                    <div v-if="cotizacionesQualitasM.Primas">
+                                                        <div class="border">Mensual: ${{cotizacionesQualitasS.Primas.PrimaTotal | int }}</div>
+                                                    </div>
                                                     <div v-else>
                                                         Seleccione una descripción
                                                     </div>
@@ -642,6 +645,7 @@
     			cotizacion:null,
     			cotizacionesQualitas:[],
                 cotizacionesQualitasS:[],
+                 cotizacionesQualitasM:[],
                 cotizacionesGS:[],
                 cotizacionesANA:[],
                 cotizacionesGNP:[],
@@ -800,14 +804,17 @@
                 };
                 this.cotizacionesQualitas=[];
                 this.cotizacionesQualitasS=[];
+                this.cotizacionesQualitasM=[];
                 // this.loader = true;
                 axios.post(url,params).then(res=>{
                     this.loader=false;
                     console.log("Descripcion qa: ",res.data);
                     this.cotizacionesQualitas = res.data.Qualitas;
                      this.cotizacionesQualitasS = res.data.QualitasS;
+                      this.cotizacionesQualitasM = res.data.QualitasM;
                     console.log('Cotizacion QA:', this.cotizacionesQualitas);
                     console.log('Cotizacion QAS:', this.cotizacionesQualitasS);
+                    console.log('Cotizacion QAM:', this.cotizacionesQualitasM);
                     //Prueba QA
                 }).catch(err=>{
                     this.loader=false;
