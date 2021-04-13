@@ -120,8 +120,8 @@ class GNPController extends Controller
 	        $armadora="";
 	        $marca="SPARK";
 	        if (isset($array_data['ELEMENTOS'])) {
- 			foreach ($array_data['ELEMENTOS']['ELEMENTO'] as $value) {
- 				if ($value['NOMBRE'] === strtoupper("CARROCERIA")){
+ 			foreach ($array_data['ELEMENTOS'] as $value) {
+ 				if ($value['ELEMENTO']['NOMBRE'] === strtoupper("CARROCERIA")){
  					$armadora = $value['CLAVE'];
  				}
  			}
