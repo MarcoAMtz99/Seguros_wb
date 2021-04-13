@@ -153,6 +153,7 @@ class GNPController extends Controller
  		$armadora   = $this->getArmadora($modelo, $marca);
 
  		$carroceria = $this->getCarroceria($armadora, $submarca);
+ 		dd($carroceria);
  		$modelos    = $this->getModelos($modelo, $armadora, $carroceria);
  		
 
