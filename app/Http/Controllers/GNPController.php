@@ -119,14 +119,14 @@ class GNPController extends Controller
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
 	        $armadora="";
 	        $marca="SPARK";
-	        if (isset($array_data['ELEMENTOS'])) {
- 			foreach ($array_data['ELEMENTOS']['ELEMENTO'] as $value) {
- 				if ($value['NOMBRE'] === strtoupper("CARROCERIA")){
- 					$armadora = $value['CLAVE'];
- 				}
- 			}
- 		}
- 			DD($armadora);
+	  //       if (isset($array_data['ELEMENTOS'])) {
+ 		// 	foreach ($array_data['ELEMENTOS']['ELEMENTO'] as $value) {
+ 		// 		if ($value['NOMBRE'] === strtoupper("CARROCERIA")){
+ 		// 			$armadora = $value['CLAVE'];
+ 		// 		}
+ 		// 	}
+ 		// }
+ 		// 	DD($armadora);
 	        return $array_data;
 			
 	        // print_r('<pre>');
