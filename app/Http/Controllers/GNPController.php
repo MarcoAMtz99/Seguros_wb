@@ -151,7 +151,7 @@ class GNPController extends Controller
  	public function modelos($marca, $submarca, $modelo)
  	{
  		$armadora   = $this->getArmadora($modelo, $marca);
- 		dd($armadora);
+ 		// dd($armadora);
  		if($armadora===""){
  		$modelos = $this->BusquedaMedelo($modelo, $submarca);
  		dd($modelos);
