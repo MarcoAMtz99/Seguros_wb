@@ -307,7 +307,7 @@
 						<div class="col-12 mt-3">
 							<h6>Datos del asegurado:</h6>
 						</div>
-						<div class="form-group col-6">
+						<div class="form-group col-4">
 							<label class="control-label"><i class="fas fa-asterisk"></i> Tipo de persona:</label>
 	                        <div class="form-check col-12">
 	                            <input class="form-check-input" type="radio" name="tipo_persona" id="radioF" v-model="qualitas.cliente.tipo_persona" value="1" required="" checked>
@@ -322,7 +322,28 @@
 	                            </label>
 	                        </div>
 						</div>
-						<div class="form-group col-6">
+						<div class="form-group col-4">
+							<label class="control-label"><i class="fas fa-asterisk"></i> Tipo de pago:</label>
+	                        <div class="form-check col-12">
+	                            <input class="form-check-input" type="radio" name="tipo_pago" id="radioC" v-model="qualitas.cliente.tipo_pago" value="C" required="" checked>
+	                            <label class="form-check-label" for="radioC">
+	                             Contado
+	                            </label>
+	                        </div>
+	                        <div class="form-check col-12">
+	                            <input class="form-check-input" type="radio" name="tipo_pago" id="radioS" v-model="qualitas.cliente.tipo_pago" value="S">
+	                            <label class="form-check-label" for="radioS">
+	                             Semestral
+	                            </label>
+	                            <div class="form-check col-12">
+	                            <input class="form-check-input" type="radio" name="tipo_persona" id="radioM" v-model="qualitas.cliente.tipo_pago" value="M">
+	                            <label class="form-check-label" for="radioM">
+	                             Mensual
+	                            </label>
+	                        </div>
+	                        </div>
+						</div>
+						<div class="form-group col-4">
 							<label class="control-label"><i class="fas fa-asterisk"></i> El asegurado y el contratante son la misma persona:</label>
 	                        <div class="form-check col-12">
 	                            <input class="form-check-input" type="radio" id="radioCS" v-model="qualitas.cliente.contratante" value="1" required="" checked>
