@@ -124,10 +124,10 @@ class GNPController extends Controller
  				// if ($value['ELEMENTO']['NOMBRE'] === strtoupper("CARROCERIA")){
  				// 	$armadora = $value['CLAVE'];
  				// }
- 				print_r($value);
+ 				dd($value);
  			}
  		}
- 			dd($armadora);
+ 			// dd($armadora);
 	        return $array_data;
 			
 	        // print_r('<pre>');
