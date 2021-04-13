@@ -3368,6 +3368,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'alert', 'cotizacion', 'img'],
   data: function data() {
@@ -45586,7 +45587,7 @@ var render = function() {
                             attrs: {
                               type: "radio",
                               name: "tipo_persona",
-                              id: "radioM",
+                              id: "radioMe",
                               value: "M"
                             },
                             domProps: {
@@ -45610,7 +45611,7 @@ var render = function() {
                             "label",
                             {
                               staticClass: "form-check-label",
-                              attrs: { for: "radioM" }
+                              attrs: { for: "radioMe" }
                             },
                             [
                               _vm._v(
@@ -45718,6 +45719,8 @@ var render = function() {
                       ])
                     ])
                   ]),
+                  _vm._v(" "),
+                  _c("br"),
                   _vm._v(" "),
                   _vm.qualitas.cliente.tipo_persona == "1"
                     ? _c("div", { staticClass: "row" }, [

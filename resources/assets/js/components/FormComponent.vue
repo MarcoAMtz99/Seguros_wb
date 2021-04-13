@@ -336,8 +336,8 @@
 	                             Semestral
 	                            </label>
 	                            <div class="form-check col-12">
-	                            <input class="form-check-input" type="radio" name="tipo_persona" id="radioM" v-model="qualitas.cliente.tipo_pago" value="M">
-	                            <label class="form-check-label" for="radioM">
+	                            <input class="form-check-input" type="radio" name="tipo_persona" id="radioMe" v-model="qualitas.cliente.tipo_pago" value="M">
+	                            <label class="form-check-label" for="radioMe">
 	                             Mensual
 	                            </label>
 	                        </div>
@@ -359,6 +359,8 @@
 	                        </div>
 						</div>
 					</div>
+					<br>
+					<hr>
 					<div class="row" v-if="qualitas.cliente.tipo_persona == '1'">
 						<div class="form-group col-12 col-md-4">
 							<label class="control-label">
