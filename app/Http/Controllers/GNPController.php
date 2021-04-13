@@ -118,7 +118,7 @@ class GNPController extends Controller
 	        //convert the XML result into array
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
 	        $armadora="";
-	        $marca="SPARK"
+	        $marca="SPARK";
 	        if (isset($array_data['ELEMENTOS'])) {
  			foreach ($array_data['ELEMENTOS']['ELEMENTO'] as $value) {
  				if ($value['NOMBRE'] === strtoupper("CARROCERIA")){
