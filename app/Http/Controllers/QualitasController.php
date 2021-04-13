@@ -1233,7 +1233,7 @@ $xmlS=<<<XML
 		<FechaTermino>$fecha_t</FechaTermino>
 		<Moneda>0</Moneda>
 		<Agente>74285</Agente>
-		<FormaPago>C</FormaPago>
+		<FormaPago>S</FormaPago>
 		<TarifaValores>LINEA</TarifaValores>
 		<TarifaCuotas>LINEA</TarifaCuotas>
 		<TarifaDerechos>LINEA</TarifaDerechos>
@@ -1368,7 +1368,7 @@ $xmlM=<<<XML
 		<FechaTermino>$fecha_t</FechaTermino>
 		<Moneda>0</Moneda>
 		<Agente>74285</Agente>
-		<FormaPago>C</FormaPago>
+		<FormaPago>M</FormaPago>
 		<TarifaValores>LINEA</TarifaValores>
 		<TarifaCuotas>LINEA</TarifaCuotas>
 		<TarifaDerechos>LINEA</TarifaDerechos>
