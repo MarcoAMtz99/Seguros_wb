@@ -5005,6 +5005,7 @@ __webpack_require__.r(__webpack_exports__);
       loaderGNP: true,
       cotizacion: null,
       cotizacionesQualitas: [],
+      cotizacionesQualitasS: [],
       cotizacionesGS: [],
       cotizacionesANA: [],
       cotizacionesGNP: [],
@@ -5172,10 +5173,12 @@ __webpack_require__.r(__webpack_exports__);
       this.cotizacionesQualitas = []; // this.loader = true;
 
       axios.post(url, params).then(function (res) {
-        _this4.loader = false; // console.log("Descripcion qa: ",res.data);
-
+        _this4.loader = false;
+        console.log("Descripcion qa: ", res.data);
         _this4.cotizacionesQualitas = res.data.Qualitas;
+        _this4.cotizacionesQualitasS = res.data.QualitasS;
         console.log('Cotizacion QA:', _this4.cotizacionesQualitas);
+        console.log('Cotizacion QAS:', _this4.cotizacionesQualitasS);
       })["catch"](function (err) {
         _this4.loader = false;
         console.log(err);

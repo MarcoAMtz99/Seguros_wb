@@ -638,6 +638,7 @@
                 loaderGNP:true,
     			cotizacion:null,
     			cotizacionesQualitas:[],
+                cotizacionesQualitasS:[],
                 cotizacionesGS:[],
                 cotizacionesANA:[],
                 cotizacionesGNP:[],
@@ -798,9 +799,11 @@
                 // this.loader = true;
                 axios.post(url,params).then(res=>{
                     this.loader=false;
-                    // console.log("Descripcion qa: ",res.data);
+                    console.log("Descripcion qa: ",res.data);
                     this.cotizacionesQualitas = res.data.Qualitas;
+                     this.cotizacionesQualitasS = res.data.QualitasS;
                     console.log('Cotizacion QA:', this.cotizacionesQualitas);
+                    console.log('Cotizacion QAS:', this.cotizacionesQualitasS);
                 }).catch(err=>{
                     this.loader=false;
                     console.log(err)
