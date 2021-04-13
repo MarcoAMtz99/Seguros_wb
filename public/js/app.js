@@ -5000,6 +5000,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -52357,56 +52359,64 @@ var render = function() {
                               _vm._v(" "),
                               _vm.cliente.gs
                                 ? _c("td", { staticClass: "text-center" }, [
-                                    _vm.cotizacionesGS.id
-                                      ? _c(
-                                          "div",
-                                          { staticStyle: { padding: "0" } },
-                                          _vm._l(
-                                            _vm.cotizacionesGS.paquete[0]
-                                              .formasPagoDTO,
-                                            function(pago) {
-                                              return _c(
+                                    _vm.cotizacionesGS != undefined
+                                      ? _c("div", [
+                                          _vm.cotizacionesGS.id
+                                            ? _c(
                                                 "div",
-                                                { staticClass: "border" },
-                                                [
-                                                  _vm._v(
-                                                    "\n                                                            " +
-                                                      _vm._s(pago.nombre) +
-                                                      ":  $" +
-                                                      _vm._s(
-                                                        _vm._f("int")(
-                                                          pago.primaTotal
-                                                        )
-                                                      ) +
-                                                      "\n                                                        "
-                                                  ),
-                                                  _c("div", [
-                                                    _vm._v(
-                                                      "\n                                                            1er pago: $" +
-                                                        _vm._s(
-                                                          _vm._f("int")(
-                                                            pago.reciboini
+                                                {
+                                                  staticStyle: { padding: "0" }
+                                                },
+                                                _vm._l(
+                                                  _vm.cotizacionesGS.paquete[0]
+                                                    .formasPagoDTO,
+                                                  function(pago) {
+                                                    return _c(
+                                                      "div",
+                                                      { staticClass: "border" },
+                                                      [
+                                                        _vm._v(
+                                                          "\n                                                            " +
+                                                            _vm._s(
+                                                              pago.nombre
+                                                            ) +
+                                                            ":  $" +
+                                                            _vm._s(
+                                                              _vm._f("int")(
+                                                                pago.primaTotal
+                                                              )
+                                                            ) +
+                                                            "\n                                                        "
+                                                        ),
+                                                        _c("div", [
+                                                          _vm._v(
+                                                            "\n                                                            1er pago: $" +
+                                                              _vm._s(
+                                                                _vm._f("int")(
+                                                                  pago.reciboini
+                                                                )
+                                                              ) +
+                                                              " "
+                                                          ),
+                                                          _c("br"),
+                                                          _vm._v(
+                                                            "\n                                                            Subsecuente x : $" +
+                                                              _vm._s(
+                                                                _vm._f("int")(
+                                                                  pago.recibosub
+                                                                )
+                                                              ) +
+                                                              "\n                                                        "
                                                           )
-                                                        ) +
-                                                        " "
-                                                    ),
-                                                    _c("br"),
-                                                    _vm._v(
-                                                      "\n                                                            Subsecuente x : $" +
-                                                        _vm._s(
-                                                          _vm._f("int")(
-                                                            pago.recibosub
-                                                          )
-                                                        ) +
-                                                        "\n                                                        "
+                                                        ])
+                                                      ]
                                                     )
-                                                  ])
-                                                ]
+                                                  }
+                                                ),
+                                                0
                                               )
-                                            }
-                                          ),
-                                          0
-                                        )
+                                            : _vm._e()
+                                        ])
                                       : _c("div", [
                                           _vm._v(
                                             "\n                                                        Seleccione una descripción\n                                                    "
@@ -52567,7 +52577,7 @@ var render = function() {
                                               "Mensual: $" +
                                                 _vm._s(
                                                   _vm._f("int")(
-                                                    _vm.cotizacionesQualitasS
+                                                    _vm.cotizacionesQualitasM
                                                       .Primas.PrimaTotal
                                                   )
                                                 )

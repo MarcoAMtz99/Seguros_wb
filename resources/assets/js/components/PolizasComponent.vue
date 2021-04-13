@@ -104,6 +104,7 @@
                                                     </div>
                                                 </td>
                                                 <td class="text-center" v-if="cliente.gs">
+                                                    <div v-if="cotizacionesGS != undefined">
                                                     <div v-if="cotizacionesGS.id" style="padding:0">
                                                         <div class="border" v-for="pago in cotizacionesGS.paquete[0].formasPagoDTO">
                                                             {{pago.nombre}}:  ${{pago.primaTotal | int}}
@@ -113,6 +114,7 @@
                                                         </div>
                                                        
                                                         </div>
+                                                    </div>
                                                     </div>
                                                     <div v-else>
                                                         Seleccione una descripción
@@ -140,7 +142,7 @@
                                                         <div class="border">Semestral: ${{cotizacionesQualitasS.Primas.PrimaTotal | int }}</div>
                                                     </div>
                                                     <div v-if="cotizacionesQualitasM.Primas">
-                                                        <div class="border">Mensual: ${{cotizacionesQualitasS.Primas.PrimaTotal | int }}</div>
+                                                        <div class="border">Mensual: ${{cotizacionesQualitasM.Primas.PrimaTotal | int }}</div>
                                                     </div>
                                                     <div v-else>
                                                         Seleccione una descripción
