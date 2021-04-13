@@ -303,6 +303,8 @@
 							<h5 class="mt-3 ml-3">Qualitas</h5>
 						</div>
 					</div>
+					<br>
+					<hr>
 					<div class="row">
 						<div class="col-12 mt-3">
 							<h6>Datos del asegurado:</h6>
@@ -335,12 +337,12 @@
 	                            <label class="form-check-label" for="radioS">
 	                             Semestral
 	                            </label>
-	                            <div class="form-check col-12">
+	                        </div>
+	                          <div class="form-check col-12">
 	                            <input class="form-check-input" type="radio" name="tipo_persona" id="radioMe" v-model="qualitas.cliente.tipo_pago" value="M">
 	                            <label class="form-check-label" for="radioMe">
 	                             Mensual
 	                            </label>
-	                        </div>
 	                        </div>
 						</div>
 						<div class="form-group col-4">
