@@ -213,7 +213,8 @@ class GNPController extends Controller
  								'NOMBRE' =>$object_3->NOMBRE,
  								'VALOR' =>$object_3->VALOR
  							);
- 						if ($object_3->VALOR == "CARROCERIA") {
+ 						if ($object_3->NOMBRE == "CARROCERIA") {
+
  							dd($object_3->VALOR,$submarca);
  						}
  							// dd($Mods,"Mods interno");
