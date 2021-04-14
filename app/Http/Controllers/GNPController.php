@@ -213,13 +213,13 @@ class GNPController extends Controller
  								'NOMBRE' =>$object_3->NOMBRE,
  								'VALOR' =>$object_3->VALOR
  							);
- 							
+ 							$bandera =false;
  							break;
  						}
  						if ($object_3->VALOR === $submarca) {
  								$bandera = true;
  						}
- 					print_r($object_3->VALOR);
+ 					// print_r($object_3->VALOR);
  				}
  			}
  			# code...
