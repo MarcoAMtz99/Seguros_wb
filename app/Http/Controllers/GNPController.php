@@ -202,10 +202,12 @@ class GNPController extends Controller
  		// dd($armadoras);
  		if (isset($Modelos['ELEMENTOS'])) {
  			// dd($Modelos['ELEMENTOS']['Array']['ELEMENTO']);
- 			for ($i=0; $i <10 ; $i++) { 
- 				$longitud = count($Modelos['ELEMENTOS']);
- 				if ($Modelos['ELEMENTOS'][$i]['ELEMENTO']) {
- 					# code...
+ 			// La longitud de todos los modelos que existen de ese año
+ 			$longitud = count($Modelos['ELEMENTOS']);
+ 			for ($i=0; $i <$longitud ; $i++) { 
+ 				
+ 				if ($Modelos['ELEMENTOS'][$i]['ELEMENTO'][3]['VALOR'] == $submarca) {
+ 					dd($Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['VALOR'] ,$longitud);
  				}
  				//VERSION DEL MODELO ESTE DATO ES LA DESCRIPCION QUE VOY A MOSTRAR 
  				dd($Modelos['ELEMENTOS'][$i]['ELEMENTO'],$longitud);
