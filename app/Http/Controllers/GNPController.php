@@ -215,7 +215,7 @@ class GNPController extends Controller
  							);
  							dd($Mods,"Mods interno");
  							$bandera =false;
- 							break;
+ 							
  						}
  						if ($object_3->VALOR === $submarca) {
  								$bandera = true;
