@@ -210,7 +210,7 @@ class GNPController extends Controller
  					dd($Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['VALOR'] ,$longitud);
  				}
  				//VERSION DEL MODELO ESTE DATO ES LA DESCRIPCION QUE VOY A MOSTRAR 
- 				dd($Modelos['ELEMENTOS'][$i]['ELEMENTO'],$longitud);
+ 				dd($Modelos['ELEMENTOS'][$i]['ELEMENTO'],$longitud,$submarca);
  			}
  			// var_dump($Modelos);
  			dd($Modelos);
