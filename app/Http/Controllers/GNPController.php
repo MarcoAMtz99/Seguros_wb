@@ -217,7 +217,9 @@ class GNPController extends Controller
  							$bandera =false;
  							
  						}
+ 							dd($object_3->VALOR,$submarca);
  						if ($object_3->VALOR === $submarca) {
+ 							
  								$bandera = true;
  						}
  					// print_r($object_3->VALOR);
