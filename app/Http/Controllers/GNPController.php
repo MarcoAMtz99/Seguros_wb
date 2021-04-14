@@ -213,6 +213,7 @@ class GNPController extends Controller
  								'NOMBRE' =>$object_3->NOMBRE,
  								'VALOR' =>$object_3->VALOR
  							);
+ 							dd($Mods,"Mods interno");
  							$bandera =false;
  							break;
  						}
