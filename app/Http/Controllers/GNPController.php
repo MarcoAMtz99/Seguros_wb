@@ -213,7 +213,7 @@ class GNPController extends Controller
  				// 	$Modelo = $value['VALOR'];
  				// }
  			}
- 			for ($i=0; $i < ; $i++) { 
+ 			for ($i=0; $i <10 ; $i++) { 
  				# code...
  			}
  		}
