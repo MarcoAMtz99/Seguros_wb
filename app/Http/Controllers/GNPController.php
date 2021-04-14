@@ -203,7 +203,8 @@ class GNPController extends Controller
  		if (isset($Modelos['ELEMENTOS'])) {
  			// dd($Modelos['ELEMENTOS']['Array']['ELEMENTO']);
  			for ($i=0; $i <10 ; $i++) { 
- 				print_r($Modelos['ELEMENTOS'][$i]);
+ 				$longitud = count($Modelos['ELEMENTOS'][$i]);
+ 				print_r($Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]);
  			}
  			// var_dump($Modelos);
  			dd($Modelos);
