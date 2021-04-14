@@ -110,10 +110,10 @@ class GNPController extends Controller
    //  		<NOMBRE>ARMADORA</NOMBRE>
    //  		<CLAVE>CH</CLAVE>
    //  		</ELEMENTO>
-				// $modelos = $this->BusquedaMedelo('2019', 'SWIFT');
-				$carroceria = $this->getCarroceria("HO", "CIVIC");
-				$modelos    = $this->getModelos("HO", "CIVIC", "07");
-				dd($carroceria,$modelos);
+				$modelos = $this->BusquedaMedelo('2019', 'SWIFT');
+				// $carroceria = $this->getCarroceria("HO", "CIVIC");
+				// $modelos    = $this->getModelos($modelo, $armadora, $carroceria);
+				dd($modelos);
 		 // </ELEMENTO>
 		 // </ELEMENTOS>  
 		 // </SOLICITUD_CATALOGO>";
@@ -189,7 +189,11 @@ class GNPController extends Controller
 				    <ELEMENTO>
     				<NOMBRE>MODELO</NOMBRE>
     				<CLAVE>$modelo</CLAVE>
-    				</ELEMENTO>  
+    				</ELEMENTO>
+    				<ELEMENTO>
+					         <CLAVE>07</CLAVE>
+					         <NOMBRE>CARROCERIA</NOMBRE>
+					      </ELEMENTO> 
 				   </ELEMENTOS>  
 				</SOLICITUD_CATALOGO> ";
 			return  $this->buscarEnCatalogo($xml);
@@ -201,7 +205,7 @@ class GNPController extends Controller
  		$Modelo = '';
  		// dd($armadoras);
  		if (isset($Modelos['ELEMENTOS'])) {
- 			// dd($Modelos);$carrocerias
+ 			dd($Modelos);
  			foreach ($Modelos['ELEMENTOS']['ELEMENTO'] as $value) {
  				// dd($value[2]['VALOR']);
  				print_r($value['VALOR']);
