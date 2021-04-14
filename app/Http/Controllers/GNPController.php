@@ -223,7 +223,7 @@ class GNPController extends Controller
  				}
  			}
  			# code...
- 			dd($Mods);
+ 			dd($Mods,$submarca,$modelo);
  			// $AUX = json_encode($object)
  			// print_r($object);
  		}
