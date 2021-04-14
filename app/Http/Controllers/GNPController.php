@@ -190,10 +190,6 @@ class GNPController extends Controller
     				<NOMBRE>MODELO</NOMBRE>
     				<CLAVE>$modelo</CLAVE>
     				</ELEMENTO>
-    				<ELEMENTO>
-					         <CLAVE>07</CLAVE>
-					         <NOMBRE>CARROCERIA</NOMBRE>
-					      </ELEMENTO> 
 				   </ELEMENTOS>  
 				</SOLICITUD_CATALOGO> ";
 			return  $this->buscarEnCatalogo($xml);
@@ -206,12 +202,16 @@ class GNPController extends Controller
  		// dd($armadoras);
  		if (isset($Modelos['ELEMENTOS'])) {
  			dd($Modelos);
- 			foreach ($Modelos['ELEMENTOS']['ELEMENTO'] as $value) {
+ 			foreach ($Modelos['ELEMENTOS'] as $value) {
  				// dd($value[2]['VALOR']);
- 				print_r($value['VALOR']);
- 				if ($value['VALOR'] === strtoupper($submarca)){
- 					$Modelo = $value['VALOR'];
- 				}
+ 				// print_r($value['VALOR']);
+ 				dd(strpos($value, "SWIFT"));
+ 				if(strpos($value, $buscar) != FALSE) {
+        			$resultados[$ciudad['id']] = $ciudad['name'];
+    				}
+ 				// if ($value['VALOR'] === strtoupper($submarca)){
+ 				// 	$Modelo = $value['VALOR'];
+ 				// }
  			}
  		}
 
