@@ -208,7 +208,12 @@ class GNPController extends Controller
  				//Buscamos que coincida la submarca para obtener la descripcion del auto
  				if ($Modelos['ELEMENTOS'][$i]['ELEMENTO'][3]['VALOR'] === $submarca) {
  					//Aqui debo guardarlo en un array
- 					echo $Modelos['ELEMENTOS'][$i]['ELEMENTO'][4];
+ 					echo $Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['CLAVE'];
+ 					echo '<br>';
+ 					echo '<br>';
+ 					echo $Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['NOMBRE'];
+ 					echo '<br>';
+ 					echo $Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['VALOR'];
  					echo '<br>';
  				}
  				//VERSION DEL MODELO ESTE DATO ES LA DESCRIPCION QUE VOY A MOSTRAR 
