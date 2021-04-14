@@ -187,11 +187,7 @@ class GNPController extends Controller
 				    <ELEMENTO>
     				<NOMBRE>MODELO</NOMBRE>
     				<CLAVE>$modelo</CLAVE>
-    				</ELEMENTO>
-    				<ELEMENTO>
-    				<NOMBRE>CARROCERIA</NOMBRE>
-    				<CLAVE>$submarca</CLAVE>
-    				</ELEMENTO>   
+    				</ELEMENTO>  
 				   </ELEMENTOS>  
 				</SOLICITUD_CATALOGO> ";
 			return  $this->buscarEnCatalogo($xml);
