@@ -201,7 +201,7 @@ class GNPController extends Controller
  		$Modelo = '';
  		// dd($armadoras);
  		if (isset($Modelos['ELEMENTOS'])) {
- 			dd(print_r($Modelos));
+ 			dd($Modelos['ELEMENTOS']['Array']['ELEMENTO']);
  			foreach ($Modelos['ELEMENTOS'] as $value) {
  				// dd($value[2]['VALOR']);
  				// print_r($value['VALOR']);
