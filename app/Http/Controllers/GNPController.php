@@ -110,7 +110,8 @@ class GNPController extends Controller
    //  		<NOMBRE>ARMADORA</NOMBRE>
    //  		<CLAVE>CH</CLAVE>
    //  		</ELEMENTO>
-
+				$modelos = $this->BusquedaMedelo(2019, SWIFT);
+				dd($modelos)
 		 // </ELEMENTO>
 		 // </ELEMENTOS>  
 		 // </SOLICITUD_CATALOGO>";
@@ -203,10 +204,10 @@ class GNPController extends Controller
  		if (isset($Modelos['ELEMENTOS'])) {
  			// dd($Modelos);
  			foreach ($Modelos['ELEMENTOS'][0] as $value) {
- 				dd($value[2]['VALOR']);
- 				// if ($value[2] === strtoupper($submarca)){
- 				// 	$Modelo = $value[0];
- 				// }
+ 				// dd($value[2]['VALOR']);
+ 				if ($value[2]['VALOR'] === strtoupper(SWIFT)){
+ 					$Modelo = $value[3]['VALOR'];
+ 				}
  			}
  		}
 
