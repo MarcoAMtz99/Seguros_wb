@@ -198,6 +198,8 @@ class GNPController extends Controller
  	{
  		$Modelos = json_encode($this->BusquedaMedelos($modelo,$submarca));
  		$json_mod = json_decode($Modelos);
+ 		$bandera = false;
+ 		$Mods = array();
  		
  		// dd($json_mod->ELEMENTOS);
  		foreach ($json_mod->ELEMENTOS as $object) {
@@ -205,10 +207,23 @@ class GNPController extends Controller
  				
  				foreach ($object_2 as $object_3) {
  					// print_r($object_3['VALOR'] );
+ 						if ($bandera) {
+ 							$Mods = array(
+ 								'CLAVE'=> $object_3->CLAVE,
+ 								'NOMBRE' =>$object_3->NOMBRE,
+ 								'VALOR' =>$object_3->VALOR
+ 							);
+ 							
+ 							break;
+ 						}
+ 						if ($object_3->VALOR === $submarca) {
+ 								$bandera = true;
+ 						}
  					print_r($object_3->VALOR);
  				}
  			}
  			# code...
+ 			dd($Mods);
  			// $AUX = json_encode($object)
  			// print_r($object);
  		}
