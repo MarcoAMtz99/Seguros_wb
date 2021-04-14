@@ -202,7 +202,7 @@ class GNPController extends Controller
  			// dd($Modelos);
  			foreach ($Modelos['ELEMENTOS'] as $value) {
  				// dd($value[2]['VALOR']);
- 				print_r($value['VALOR']);
+ 				print_r($value['ELEMENTO']['VALOR']);
  				if ($value['VALOR'] === strtoupper($submarca)){
  					$Modelo = $value['VALOR'];
  				}
