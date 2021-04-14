@@ -199,7 +199,11 @@ class GNPController extends Controller
  		$Modelos = json_encode($this->BusquedaMedelos($modelo,$submarca));
  		$json_mod = json_decode($Modelos);
 
- 		dd($json_mod->ELEMENTOS);
+ 		// dd($json_mod->ELEMENTOS);
+ 		foreach ($json_mod->ELEMENTOS as $object) {
+ 			# code...
+ 			print_r($object->NOMBRE);
+ 		}
  		$Modelo = '';
  		// dd($armadoras);
  		if (isset($Modelos['ELEMENTOS'])) {
