@@ -204,7 +204,7 @@ class GNPController extends Controller
  			foreach ($object as $object_2) {
  				
  				foreach ($object_2 as $object_3) {
- 					print_r($object_3['VALOR'] );
+ 					// print_r($object_3['VALOR'] );
  					print_r($object_3->VALOR);
  				}
  			}
