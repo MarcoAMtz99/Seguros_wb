@@ -200,7 +200,7 @@ class GNPController extends Controller
  		$json_mod = json_decode($Modelos);
 
  		// dd($json_mod->ELEMENTOS);
- 		foreach ($json_mod->ELEMENTOS as $object) {
+ 		foreach ($json_mod->ELEMENTOS->ELEMENTO as $object) {
  			# code...
  			print_r($object->NOMBRE);
  		}
