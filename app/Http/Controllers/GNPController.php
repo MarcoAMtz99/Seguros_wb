@@ -205,7 +205,7 @@ class GNPController extends Controller
  			foreach ($Modelos['ELEMENTOS'] as $value) {
  				// dd($value[2]['VALOR']);
  				// print_r($value['VALOR']);
- 				dd(strpos($value, "SWIFT"));
+ 				dd(strpos($value['VALOR'], "SWIFT"));
  				if(strpos($value, $buscar) != FALSE) {
         			$resultados[$ciudad['id']] = $ciudad['name'];
     				}
