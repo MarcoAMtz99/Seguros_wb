@@ -197,13 +197,15 @@ class GNPController extends Controller
  		public function BusquedaMedelo($modelo, $submarca)
  	{
  		$Modelos = $this->BusquedaMedelos($modelo,$submarca);
- 		// dd($Modelos);
+ 		dd(json_decode($Modelos));
  		$Modelo = '';
  		// dd($armadoras);
  		if (isset($Modelos['ELEMENTOS'])) {
  			// dd($Modelos['ELEMENTOS']['Array']['ELEMENTO']);
  			// La longitud de todos los modelos que existen de ese año
  			$longitud = count($Modelos['ELEMENTOS']);
+
+
  			for ($i=0; $i <$longitud ; $i++) { 
  				//Buscamos que coincida la submarca para obtener la descripcion del auto
  				if ($Modelos['ELEMENTOS'][$i]['ELEMENTO'][3]['VALOR'] === $submarca) {
@@ -224,6 +226,7 @@ class GNPController extends Controller
  			foreach ($Modelos['ELEMENTOS'] as $value) {
  				// dd($value[2]['VALOR']);
  				// print_r($value['VALOR']);
+ 				
  				dd(strpos($value['VALOR'], "SWIFT"));
  				if(strpos($value, $buscar) != FALSE) {
         			$resultados[$ciudad['id']] = $ciudad['name'];
