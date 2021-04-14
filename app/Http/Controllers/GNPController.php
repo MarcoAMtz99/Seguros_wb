@@ -207,7 +207,7 @@ class GNPController extends Controller
  			for ($i=0; $i <$longitud ; $i++) { 
  				
  				if ($Modelos['ELEMENTOS'][$i]['ELEMENTO'][3]['VALOR'] == $submarca) {
- 					dd($Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['VALOR'] ,$longitud);
+ 					echo $Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['VALOR'];
  				}
  				//VERSION DEL MODELO ESTE DATO ES LA DESCRIPCION QUE VOY A MOSTRAR 
  				dd($Modelos['ELEMENTOS'][$i]['ELEMENTO'],$longitud,$submarca);
