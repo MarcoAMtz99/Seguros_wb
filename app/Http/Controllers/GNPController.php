@@ -197,7 +197,7 @@ class GNPController extends Controller
  		public function BusquedaMedelo($modelo, $submarca)
  	{
  		$Modelos = $this->BusquedaMedelos($modelo,$submarca);
- 		dd(json_decode($Modelos));
+ 		dd(json_encode($Modelos));
  		$Modelo = '';
  		// dd($armadoras);
  		if (isset($Modelos['ELEMENTOS'])) {
