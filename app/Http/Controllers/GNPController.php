@@ -189,8 +189,8 @@ class GNPController extends Controller
     				<CLAVE>$modelo</CLAVE>
     				</ELEMENTO>
     				<ELEMENTO>
-    				<NOMBRE>MODELO</NOMBRE>
-    				<CLAVE>$modelo</CLAVE>
+    				<NOMBRE>CARROCERIA</NOMBRE>
+    				<CLAVE>$submarca</CLAVE>
     				</ELEMENTO>   
 				   </ELEMENTOS>  
 				</SOLICITUD_CATALOGO> ";
@@ -199,6 +199,7 @@ class GNPController extends Controller
  		public function BusquedaMedelo($modelo, $submarca)
  	{
  		$Modelos = $this->BusquedaMedelos($modelo,$submarca);
+ 		dd($Modelos);
  		$Modelo = '';
  		// dd($armadoras);
  		if (isset($Modelos['ELEMENTOS'])) {
