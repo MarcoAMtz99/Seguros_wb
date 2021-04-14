@@ -205,7 +205,7 @@ class GNPController extends Controller
  			// dd($Modelos);
  			foreach ($Modelos['ELEMENTOS'][0] as $value) {
  				// dd($value[2]['VALOR']);
- 				if ($value[2]['VALOR'] === strtoupper(SWIFT)){
+ 				if ($value[2]['VALOR'] === strtoupper($submarca)){
  					$Modelo = $value[3]['VALOR'];
  				}
  			}
