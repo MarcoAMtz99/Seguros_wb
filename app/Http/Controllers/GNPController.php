@@ -208,6 +208,7 @@ class GNPController extends Controller
  				
  				if ($Modelos['ELEMENTOS'][$i]['ELEMENTO'][3]['VALOR'] === $submarca) {
  					echo $Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['VALOR'];
+ 					echo '<br>';
  				}
  				//VERSION DEL MODELO ESTE DATO ES LA DESCRIPCION QUE VOY A MOSTRAR 
  				// dd($Modelos['ELEMENTOS'][$i]['ELEMENTO'],$longitud,$submarca);
