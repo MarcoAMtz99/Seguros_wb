@@ -156,8 +156,8 @@ class GNPController extends Controller
  		$armadora   = $this->getArmadora($modelo, $marca);
  		// dd($armadora);
  		if($armadora===""){
- 		$modelos = $this->BusquedaMedelo($modelo, $submarca);
- 		dd($modelos);
+ 		$modelosS = $this->BusquedaMedelo($modelo, $submarca);
+ 		dd($modelosS);
 
  		}
  		$carroceria = $this->getCarroceria($armadora, $submarca);
@@ -168,7 +168,7 @@ class GNPController extends Controller
 		 $carroceria = $this->getCarroceria($armadora, $submarca);
 		 /* dd($carroceria); */
 		 $modelos    = $this->getModelos($modelo, $armadora, $carroceria);
-		  dd($modelos,$carroceria,$armadora); 
+		  // dd($modelos,$carroceria,$armadora); 
 
  		return response()->json(['modelosGNP'=>$modelos],201);
  	}
@@ -205,8 +205,9 @@ class GNPController extends Controller
  			// La longitud de todos los modelos que existen de ese año
  			$longitud = count($Modelos['ELEMENTOS']);
  			for ($i=0; $i <$longitud ; $i++) { 
- 				
+ 				//Buscamos que coincida la submarca para obtener la descripcion del auto
  				if ($Modelos['ELEMENTOS'][$i]['ELEMENTO'][3]['VALOR'] === $submarca) {
+ 					//Aqui debo guardarlo en un array
  					echo $Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['VALOR'];
  					echo '<br>';
  				}
