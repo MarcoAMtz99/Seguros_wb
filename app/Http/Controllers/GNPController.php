@@ -204,7 +204,8 @@ class GNPController extends Controller
  			// dd($Modelos['ELEMENTOS']['Array']['ELEMENTO']);
  			for ($i=0; $i <10 ; $i++) { 
  				$longitud = count($Modelos['ELEMENTOS'][$i]);
- 				dd($Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]);
+ 				//VERSION DEL MODELO ESTE DATO ES LA DESCRIPCION QUE VOY A MOSTRAR 
+ 				dd($Modelos['ELEMENTOS'][$i]['ELEMENTO'][4],$longitud);
  			}
  			// var_dump($Modelos);
  			dd($Modelos);
