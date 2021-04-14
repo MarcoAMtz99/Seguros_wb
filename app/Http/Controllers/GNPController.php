@@ -210,7 +210,7 @@ class GNPController extends Controller
  			}
  			# code...
  			// $AUX = json_encode($object)
- 			print_r($object);
+ 			// print_r($object);
  		}
  		$Modelo = '';
  		// dd($armadoras);
