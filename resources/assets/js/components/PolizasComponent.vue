@@ -67,7 +67,7 @@
                                                         <option value="">Elegir:</option>
                                                         <option v-for="descripcion in descripciones_gnp" :value="JSON.stringify(descripcion.ELEMENTO === undefined ? descripcion:descripcion.ELEMENTO )">{{descripcion.ELEMENTO===undefined?descripcion[4].VALOR :descripcion.ELEMENTO[4].VALOR}}</option>
 
-                                                            <option value="">{{descripciones_gnp2}} </option>
+                                                            <option value="">{{descripciones_gnp2.VALOR}}</option>
 
                                                         <!-- <option v-for"descripcion2 in descripciones_gnp2":value="descripcion.CLAVE">
                                                           {{descripcion2}}  

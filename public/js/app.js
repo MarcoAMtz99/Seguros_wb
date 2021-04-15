@@ -52209,7 +52209,7 @@ var render = function() {
                                         _vm._v(" "),
                                         _c("option", { attrs: { value: "" } }, [
                                           _vm._v(
-                                            _vm._s(_vm.descripciones_gnp2) + " "
+                                            _vm._s(_vm.descripciones_gnp2.VALOR)
                                           )
                                         ])
                                       ],
