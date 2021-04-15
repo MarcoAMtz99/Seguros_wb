@@ -5272,10 +5272,11 @@ __webpack_require__.r(__webpack_exports__);
       var url = "./api/modelos-gnp/".concat(marca, "/").concat(submarca, "/").concat(modelo);
       axios.get(url).then(function (res) {
         console.log('DESCRIPCIONES GNP', res);
-        _this7.descripciones_gnp = res.data.modelosGNP2; // console.log('data: ',res.data );
+        _this7.descripciones_gnp2 = res.data.modelosGNP2; // console.log('data: ',res.data );
 
-        console.log('Nuevas descripciones', _this7.descripciones_gnp); // this.descripciones_gnp = res.data.modelosGNP.ELEMENTOS;
-        // console.log("Hola esto es GNP RESULTADO",this.descripciones_gnp);
+        console.log('Nuevas descripciones', _this7.descripciones_gnp2);
+        _this7.descripciones_gnp = res.data.modelosGNP.ELEMENTOS;
+        console.log("Hola esto es GNP RESULTADO", _this7.descripciones_gnp);
       })["catch"](function (err) {
         console.log("Error en GNP");
         console.log(err); // this.descripciones_gnp = undefined;
@@ -52190,18 +52191,22 @@ var render = function() {
                                             {
                                               domProps: {
                                                 value: JSON.stringify(
-                                                  descripcion.CLAVE ===
+                                                  descripcion.ELEMENTO ===
                                                     undefined
                                                     ? descripcion
-                                                    : descripcion
+                                                    : descripcion.ELEMENTO
                                                 )
                                               }
                                             },
                                             [
                                               _vm._v(
-                                                "\n                                                        " +
-                                                  _vm._s(descripcion.VALOR) +
-                                                  "\n                                                    "
+                                                _vm._s(
+                                                  descripcion.ELEMENTO ===
+                                                    undefined
+                                                    ? descripcion[4].VALOR
+                                                    : descripcion.ELEMENTO[4]
+                                                        .VALOR
+                                                )
                                               )
                                             ]
                                           )
