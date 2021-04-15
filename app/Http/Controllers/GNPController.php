@@ -220,13 +220,14 @@ class GNPController extends Controller
  						}
  						if ($object_3->NOMBRE == "CARROCERIA") {
 
- 							dd($object_3->VALOR,$submarca);
- 						}
- 							
- 						if ($object_3->VALOR === $submarca) {
-
+ 							// dd($object_3->VALOR,$submarca);
+ 							if ($object_3->VALOR == $submarca) {
+ 								dd($object_3->VALOR,$submarca);
  								$bandera = true;
  						}
+ 						}
+ 							
+ 						
  					// print_r($object_3->VALOR);
  				}
  			}
