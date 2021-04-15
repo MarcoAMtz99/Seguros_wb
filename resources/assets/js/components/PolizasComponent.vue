@@ -59,13 +59,9 @@
                                                     Descripción
                                                 </th>
                                                 <td class="text-center" v-if="cliente.gnp">
-                                                    <!-- <select class="form-control" v-model="desc_gnp">
-                                                        <option value="">COBERTURAS:</option>
-                                                        <option v-for="descripcion in descripciones_gnp" :value="JSON.stringify(descripcion.ELEMENTO)">{{descripcion.ELEMENTO[4].VALOR}}</option>
-                                                    </select> -->
+                                                  
                                                      <select class="form-control" v-model="desc_gnp">
                                                         <option value="">Elegir:</option>
-                                                       <!--  <option v-for="descripcion in descripciones_gnp" :value="JSON.stringify(descripcion.ELEMENTO === undefined ? descripcion:descripcion.ELEMENTO )">{{descripcion.ELEMENTO===undefined?descripcion[4].VALOR :descripcion.ELEMENTO[4].VALOR}}</option> -->
 
                                                     <option v-for="descripcion in descripciones_gnp" :value="JSON.stringify(descripcion.CLAVE === undefined ? descripcion.VALOR:descripcion.NOMBRE )">
                                                         {{descripcion.VALOR}}
