@@ -205,7 +205,7 @@ class GNPController extends Controller
  	
  		$Modelo = '';
  		// dd($armadoras);
- 			print_r($Modelos);
+ 			// print_r($Modelos);
  			// dd($Modelos['ELEMENTOS']['Array']['ELEMENTO']);
  			// La longitud de todos los modelos que existen de ese año
  			$longitud = count($Modelos['ELEMENTOS']);
