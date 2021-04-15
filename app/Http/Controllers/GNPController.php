@@ -491,7 +491,7 @@ class GNPController extends Controller
  	{
  		$cliente = Cliente::where('cotizacion',$request->cotizacion)->first();
  		$vehiculo = json_decode($request->descripcionGNP);
- 		// dd($vehiculo[2]);
+ 		dd($vehiculo,$$request);
         if($cliente == null){
             return response()->json(['error'=>"datos no encontrado"],404);
 
