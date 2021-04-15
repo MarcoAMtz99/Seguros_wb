@@ -222,7 +222,7 @@ class GNPController extends Controller
  								'VALOR' =>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['VALOR'],
  								'CARROCERIA'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][3]['VALOR'],
  								'MODELO'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][2]['VALOR'],
- 								'ARMADORA'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][1]['VALOR']
+ 								'ARMADORA'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][1]['CLAVE']
  							);
  					array_push($Mods, $Mods2);
 
@@ -234,7 +234,7 @@ class GNPController extends Controller
  								'VALOR' =>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['VALOR'],
  								'CARROCERIA'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][3]['VALOR'],
  								'MODELO'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][2]['VALOR'],
- 								'ARMADORA'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][1]['VALOR']
+ 								'ARMADORA'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][1]['CLAVE']
  							);
  					array_push($Mods, $Mods2);
  				}
