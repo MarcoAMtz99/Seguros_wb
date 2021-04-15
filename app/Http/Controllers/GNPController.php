@@ -199,7 +199,7 @@ class GNPController extends Controller
  		$Modelos = json_encode($this->BusquedaMedelos($modelo,$submarca));
  		$json_mod = json_decode($Modelos);
  		$bandera = false;
- 		$Mods = array();
+ 		$Mods = [];
  		
  		// dd($json_mod->ELEMENTOS);
  		// foreach ($json_mod->ELEMENTOS as $object) {
@@ -238,7 +238,7 @@ class GNPController extends Controller
  		// }
  		$Modelo = '';
  		// dd($armadoras);
- 		if (isset($Modelos['ELEMENTOS'])) {
+ 
  			// dd($Modelos['ELEMENTOS']['Array']['ELEMENTO']);
  			// La longitud de todos los modelos que existen de ese año
  			$longitud = count($Modelos['ELEMENTOS']);
@@ -264,25 +264,15 @@ class GNPController extends Controller
 
 
  				}
+
  				//VERSION DEL MODELO ESTE DATO ES LA DESCRIPCION QUE VOY A MOSTRAR 
  				// dd($Modelos['ELEMENTOS'][$i]['ELEMENTO'],$longitud,$submarca);
  			}
  			// var_dump($Modelos);
- 			dd($Mods);
- 			foreach ($Modelos['ELEMENTOS'] as $value) {
- 				// dd($value[2]['VALOR']);
- 				// print_r($value['VALOR']);
- 				
- 				dd(strpos($value['VALOR'], "SWIFT"));
- 				if(strpos($value, $buscar) != FALSE) {
-        			$resultados[$ciudad['id']] = $ciudad['name'];
-    				}
- 				// if ($value['VALOR'] === strtoupper($submarca)){
- 				// 	$Modelo = $value['VALOR'];
- 				// }
- 			}
+ 			dd($Mods,$submarca);
+
  			
- 		}
+ 
 
  		return $Modelo;
  	}
