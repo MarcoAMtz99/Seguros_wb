@@ -156,11 +156,11 @@ class GNPController extends Controller
  		$armadora   = $this->getArmadora($modelo, $marca);
  		// dd($armadora);
  		$modelosS="";
- 		// if($armadora===""){
+ 		if($armadora===""){
  		$modelosS = $this->BusquedaModelo($modelo, $submarca);
  		// dd($modelosS);
 
- 		// }
+ 		}
  		$carroceria = $this->getCarroceria($armadora, $submarca);
  		// dd($carroceria);
  		$modelos    = $this->getModelos($modelo, $armadora, $carroceria);
@@ -220,7 +220,7 @@ class GNPController extends Controller
  								'CLAVE'=> $Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['CLAVE'],
  								'NOMBRE' =>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['NOMBRE'],
  								'VALOR' =>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['VALOR'],
- 								'CARROCERIA'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][3]['VALOR'],
+ 								'CARROCERIA'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][3]['CLAVE'],
  								'MODELO'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][2]['VALOR'],
  								'ARMADORA'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][1]['CLAVE']
  							);
@@ -232,7 +232,7 @@ class GNPController extends Controller
  								'CLAVE'=> $Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['CLAVE'],
  								'NOMBRE' =>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['NOMBRE'],
  								'VALOR' =>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['VALOR'],
- 								'CARROCERIA'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][3]['VALOR'],
+ 								'CARROCERIA'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][3]['CLAVE'],
  								'MODELO'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][2]['VALOR'],
  								'ARMADORA'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][1]['CLAVE']
  							);
@@ -497,7 +497,7 @@ class GNPController extends Controller
  	{
  		$cliente = Cliente::where('cotizacion',$request->cotizacion)->first();
  		$vehiculo = json_decode($request->descripcionGNP);
- 		// dd($vehiculo,$request);
+ 		dd($vehiculo,$request);
         if($cliente == null){
             return response()->json(['error'=>"datos no encontrado"],404);
 
@@ -517,6 +517,7 @@ class GNPController extends Controller
  		//descripcion completa del auto 
  		$version 	  = !is_null($vehiculo) ? $vehiculo->VALOR : null;
  		// dd($version,$carroceria,$armadora ,$modelo);
+
  		$paquetesPersonaFisica = [
  			'Amplia'   => 'PRS0009355',
  			'Limitada' => 'PRS0009356',
