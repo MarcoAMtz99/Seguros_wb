@@ -509,21 +509,21 @@ class GNPController extends Controller
  		$edad 		  = Carbon::parse($cliente->f_nac)->age;
  		$sexo 		  = $cliente->sexo === "Hombre" ? 'M' : 'F';
  		//año
- 		$modelo 	  = !is_null($vehiculo) ? $vehiculo[2]->VALOR : null;
- 		//marca
- 		$armadora 	  = !is_null($vehiculo) ? $vehiculo[1]->CLAVE : null;
- 		//submarca o nombre del modelo
- 		$carroceria   = !is_null($vehiculo) ? $vehiculo[3]->CLAVE : null;
- 		//descripcion completa del auto 
- 		$version 	  = !is_null($vehiculo) ? $vehiculo[4]->CLAVE : null;
- 		//año
- 		// $modelo 	  = !is_null($vehiculo) ? $vehiculo->MODELO : null;
+ 		// $modelo 	  = !is_null($vehiculo) ? $vehiculo[2]->VALOR : null;
  		// //marca
- 		// $armadora 	  = !is_null($vehiculo) ? $vehiculo->ARMADORA : null;
+ 		// $armadora 	  = !is_null($vehiculo) ? $vehiculo[1]->CLAVE : null;
  		// //submarca o nombre del modelo
- 		// $carroceria   = !is_null($vehiculo) ? $vehiculo->CARROCERIA : null;
+ 		// $carroceria   = !is_null($vehiculo) ? $vehiculo[3]->CLAVE : null;
  		// //descripcion completa del auto 
- 		// $version 	  = !is_null($vehiculo) ? $vehiculo->VALOR : null;
+ 		// $version 	  = !is_null($vehiculo) ? $vehiculo[4]->CLAVE : null;
+ 		// año
+ 		$modelo 	  = !is_null($vehiculo) ? $vehiculo->MODELO : null;
+ 		//marca
+ 		$armadora 	  = !is_null($vehiculo) ? $vehiculo->ARMADORA : null;
+ 		//submarca o nombre del modelo
+ 		$carroceria   = !is_null($vehiculo) ? $vehiculo->CARROCERIA : null;
+ 		//descripcion completa del auto 
+ 		$version 	  = !is_null($vehiculo) ? $vehiculo->CLAVE : null;
  		// // dd($version,$carroceria,$armadora ,$modelo);
 
  		$paquetesPersonaFisica = [

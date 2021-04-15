@@ -5276,6 +5276,7 @@ __webpack_require__.r(__webpack_exports__);
 
         console.log('Nuevas descripciones', _this7.descripciones_gnp2);
         _this7.descripciones_gnp = res.data.modelosGNP.ELEMENTOS;
+        _this7.descripciones_gnp2 = res.data.modelosGNP2;
         console.log("Hola esto es GNP RESULTADO", _this7.descripciones_gnp);
       })["catch"](function (err) {
         console.log("Error en GNP");
@@ -52207,6 +52208,31 @@ var render = function() {
                                                     : descripcion.ELEMENTO[4]
                                                         .VALOR
                                                 )
+                                              )
+                                            ]
+                                          )
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.descripciones_gnp2, function(
+                                          descripcion
+                                        ) {
+                                          return _c(
+                                            "option",
+                                            {
+                                              domProps: {
+                                                value: JSON.stringify(
+                                                  descripcion.CLAVE ===
+                                                    undefined
+                                                    ? descripcion
+                                                    : descripcion
+                                                )
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                                                        " +
+                                                  _vm._s(descripcion.VALOR) +
+                                                  "\n                                                    "
                                               )
                                             ]
                                           )

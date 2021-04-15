@@ -67,9 +67,9 @@
                                                         <option value="">Elegir:</option>
                                                         <option v-for="descripcion in descripciones_gnp" :value="JSON.stringify(descripcion.ELEMENTO === undefined ? descripcion:descripcion.ELEMENTO )">{{descripcion.ELEMENTO===undefined?descripcion[4].VALOR :descripcion.ELEMENTO[4].VALOR}}</option>
 
-                                                   <!--  <option v-for="descripcion in descripciones_gnp" :value="JSON.stringify(descripcion.CLAVE === undefined ? descripcion:descripcion)">
+                                                    <option v-for="descripcion in descripciones_gnp2" :value="JSON.stringify(descripcion.CLAVE === undefined ? descripcion:descripcion)">
                                                         {{descripcion.VALOR}}
-                                                    </option> -->
+                                                    </option>
                                                        <!--  <option v-for"descripcion2 in descripciones_gnp2":value="descripcion.CLAVE">
                                                           {{descripcion2}}  
                                                         </option> -->
@@ -872,6 +872,7 @@
                      // console.log('data: ',res.data );
                      console.log('Nuevas descripciones',this.descripciones_gnp2);
                     this.descripciones_gnp = res.data.modelosGNP.ELEMENTOS;
+                    this.descripciones_gnp2 = res.data.modelosGNP2;
                     console.log("Hola esto es GNP RESULTADO",this.descripciones_gnp);
                 }).catch(err=>{
                      console.log("Error en GNP");
