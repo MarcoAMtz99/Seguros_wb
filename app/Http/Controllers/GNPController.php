@@ -692,6 +692,7 @@ class GNPController extends Controller
  	 */
  	private function getXMLPoliza($datos)
  	{
+ 		dd($datos);
  		$fecha_inicio      = Carbon::now()->format('Ymd');
  		$fecha_fin         = Carbon::now()->addYear()->format('Ymd');
  		$num_int           = $datos->num_int != null ? $datos->num_int : '';
