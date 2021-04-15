@@ -70,7 +70,6 @@
                                                     <option v-for="descripcion in descripciones_gnp" :value="JSON.stringify(descripcion.CLAVE === undefined ? descripcion.VALOR:descripcion.NOMBRE )">
                                                         {{descripcion.VALOR}}
                                                     </option>
-
                                                        <!--  <option v-for"descripcion2 in descripciones_gnp2":value="descripcion.CLAVE">
                                                           {{descripcion2}}  
                                                         </option> -->
