@@ -110,7 +110,7 @@ class GNPController extends Controller
    //  		<NOMBRE>ARMADORA</NOMBRE>
    //  		<CLAVE>CH</CLAVE>
    //  		</ELEMENTO>
-				$modelos = $this->BusquedaMedelo('2017', 'CHALLENGER');
+				$modelos = $this->BusquedaModelo('2017', 'CHALLENGER');
 				// $carroceria = $this->getCarroceria("HO", "CIVIC");
 				// $modelos    = $this->getModelos($modelo, $armadora, $carroceria);
 				dd($modelos);
@@ -155,9 +155,10 @@ class GNPController extends Controller
  	{
  		$armadora   = $this->getArmadora($modelo, $marca);
  		// dd($armadora);
+ 		$modelosS="";
  		if($armadora===""){
- 		$modelosS = $this->BusquedaMedelo($modelo, $submarca);
- 		dd($modelosS);
+ 		$modelosS = $this->BusquedaModelo($modelo, $submarca);
+ 		// dd($modelosS);
 
  		}
  		$carroceria = $this->getCarroceria($armadora, $submarca);
@@ -165,15 +166,15 @@ class GNPController extends Controller
  		$modelos    = $this->getModelos($modelo, $armadora, $carroceria);
  		
 
-		 $carroceria = $this->getCarroceria($armadora, $submarca);
-		 /* dd($carroceria); */
-		 $modelos    = $this->getModelos($modelo, $armadora, $carroceria);
+		 // $carroceria = $this->getCarroceria($armadora, $submarca);
+		 //  dd($carroceria); 
+		 // $modelos    = $this->getModelos($modelo, $armadora, $carroceria);
 		  dd($modelos,$carroceria,$armadora,$marca, $submarca, $modelo); 
 
- 		return response()->json(['modelosGNP'=>$modelos],201);
+ 		return response()->json(['modelosGNP'=>$modelos,'modelosGNP2'=>$modelosS],201);
  	}
 
- 	public function BusquedaMedelos($modelo, $submarca){
+ 	public function BusquedaModelos($modelo, $submarca){
  		$fecha = date('d/m/Y');
  		$xml="	<SOLICITUD_CATALOGO>
 				   <USUARIO>$this->user</USUARIO>
@@ -194,49 +195,14 @@ class GNPController extends Controller
 				</SOLICITUD_CATALOGO> ";
 			return  $this->buscarEnCatalogo($xml);
  	}
- 		public function BusquedaMedelo($modelo, $submarca)
+ 		public function BusquedaModelo($modelo, $submarca)
  	{
- 		$Modelos = $this->BusquedaMedelos($modelo,$submarca);
+ 		$Modelos = $this->BusquedaModelos($modelo,$submarca);
  		// $json_mod = json_decode($Modelos);
  		// $bandera = false;
  		$Mods = [];
  		// dd($Modelos);
- 		
- 		// dd($json_mod->ELEMENTOS);
- 		// foreach ($json_mod->ELEMENTOS as $object) {
- 		// 	foreach ($object as $object_2) {
- 				
- 		// 		foreach ($object_2 as $object_3) {
- 		// 			// print_r($object_3['VALOR'] );
- 		// 				if ($bandera) {
- 		// 					$Mods = array(
- 		// 						'CLAVE'=> $object_3->CLAVE,
- 		// 						'NOMBRE' =>$object_3->NOMBRE,
- 		// 						'VALOR' =>$object_3->VALOR
- 		// 					);
- 						
- 		// 					// dd($Mods,"Mods interno");
- 		// 					$bandera = false;
- 							
- 		// 				}
- 		// 				if ($object_3->NOMBRE == "CARROCERIA") {
-
- 		// 					// dd($object_3->VALOR,$submarca);
- 						
- 		// 				}
- 		// 				if ($object_3->VALOR == $submarca) {
- 		// 						dd($object_3->VALOR,$submarca);
- 		// 						$bandera = true;
- 		// 				}	
- 						
- 		// 			// print_r($object_3->VALOR);
- 		// 		}
- 		// 	}
- 		// 	# code...
- 			
- 		// 	// $AUX = json_encode($object)
- 		// 	// print_r($object);
- 		// }
+ 	
  		$Modelo = '';
  		// dd($armadoras);
  
@@ -249,13 +215,7 @@ class GNPController extends Controller
  				//Buscamos que coincida la submarca para obtener la descripcion del auto
  				if ($Modelos['ELEMENTOS'][$i]['ELEMENTO'][3]['VALOR'] === $submarca) {
  					//Aqui debo guardarlo en un array
- 					// echo $Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['CLAVE'];
- 					// echo '<br>';
- 					// echo '<br>';
- 					// echo $Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['NOMBRE'];
- 					// echo '<br>';
- 					// echo $Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['VALOR'];
- 					// echo '<br>';
+ 					
  					$Mods2 = array(
  								'CLAVE'=> $Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['CLAVE'],
  								'NOMBRE' =>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['NOMBRE'],
