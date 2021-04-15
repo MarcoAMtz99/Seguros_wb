@@ -5034,6 +5034,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -52207,13 +52208,14 @@ var render = function() {
                                           )
                                         }),
                                         _vm._v(" "),
-                                        _c("option", { attrs: { value: "" } }, [
-                                          _vm._v(
-                                            _vm._s(_vm.descripciones_gnp2.VALOR)
-                                          )
-                                        ])
+                                        _c("option", { attrs: { value: "" } })
                                       ],
                                       2
+                                    ),
+                                    _vm._v(
+                                      "\n                                                    " +
+                                        _vm._s(_vm.descripciones_gnp2) +
+                                        "\n                                                "
                                     )
                                   ])
                                 : _vm._e(),
