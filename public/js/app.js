@@ -5266,8 +5266,9 @@ __webpack_require__.r(__webpack_exports__);
         console.log("Hola esto es GNP RESULTADO", _this7.descripciones_gnp);
       })["catch"](function (err) {
         console.log("Error en GNP");
-        console.log(err);
-        _this7.descripciones_gnp = undefined;
+        _this7.descripciones_gnp = res.data.modelosGNP2;
+        console.log('Nuevas descripciones', _this7.descripciones_gnp);
+        console.log(err); // this.descripciones_gnp = undefined;
       });
     },
     sendCotizacionGNP: function sendCotizacionGNP(descripcion, poliza) {

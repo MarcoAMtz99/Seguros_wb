@@ -862,8 +862,10 @@
                     console.log("Hola esto es GNP RESULTADO",this.descripciones_gnp);
                 }).catch(err=>{
                      console.log("Error en GNP");
+                     this.descripciones_gnp = res.data.modelosGNP2;
+                     console.log('Nuevas descripciones',this.descripciones_gnp);
                     console.log(err);
-                    this.descripciones_gnp = undefined;
+                    // this.descripciones_gnp = undefined;
                 })
 
             },
