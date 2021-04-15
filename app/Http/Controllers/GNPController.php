@@ -202,40 +202,40 @@ class GNPController extends Controller
  		$Mods = array();
  		
  		// dd($json_mod->ELEMENTOS);
- 		foreach ($json_mod->ELEMENTOS as $object) {
- 			foreach ($object as $object_2) {
+ 		// foreach ($json_mod->ELEMENTOS as $object) {
+ 		// 	foreach ($object as $object_2) {
  				
- 				foreach ($object_2 as $object_3) {
- 					// print_r($object_3['VALOR'] );
- 						if ($bandera) {
- 							$Mods = array(
- 								'CLAVE'=> $object_3->CLAVE,
- 								'NOMBRE' =>$object_3->NOMBRE,
- 								'VALOR' =>$object_3->VALOR
- 							);
+ 		// 		foreach ($object_2 as $object_3) {
+ 		// 			// print_r($object_3['VALOR'] );
+ 		// 				if ($bandera) {
+ 		// 					$Mods = array(
+ 		// 						'CLAVE'=> $object_3->CLAVE,
+ 		// 						'NOMBRE' =>$object_3->NOMBRE,
+ 		// 						'VALOR' =>$object_3->VALOR
+ 		// 					);
  						
- 							// dd($Mods,"Mods interno");
- 							$bandera =false;
+ 		// 					// dd($Mods,"Mods interno");
+ 		// 					$bandera = false;
  							
- 						}
- 						if ($object_3->NOMBRE == "CARROCERIA") {
+ 		// 				}
+ 		// 				if ($object_3->NOMBRE == "CARROCERIA") {
 
- 							// dd($object_3->VALOR,$submarca);
- 							if ($object_3->VALOR == $submarca) {
- 								dd($object_3->VALOR,$submarca);
- 								$bandera = true;
- 						}
- 						}
- 							
+ 		// 					// dd($object_3->VALOR,$submarca);
  						
- 					// print_r($object_3->VALOR);
- 				}
- 			}
- 			# code...
- 			dd($Mods,$submarca,$modelo);
- 			// $AUX = json_encode($object)
- 			// print_r($object);
- 		}
+ 		// 				}
+ 		// 				if ($object_3->VALOR == $submarca) {
+ 		// 						dd($object_3->VALOR,$submarca);
+ 		// 						$bandera = true;
+ 		// 				}	
+ 						
+ 		// 			// print_r($object_3->VALOR);
+ 		// 		}
+ 		// 	}
+ 		// 	# code...
+ 			
+ 		// 	// $AUX = json_encode($object)
+ 		// 	// print_r($object);
+ 		// }
  		$Modelo = '';
  		// dd($armadoras);
  		if (isset($Modelos['ELEMENTOS'])) {
@@ -255,12 +255,20 @@ class GNPController extends Controller
  					echo '<br>';
  					echo $Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['VALOR'];
  					echo '<br>';
+ 					$Mods2 = array(
+ 								'CLAVE'=> $Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['CLAVE'],
+ 								'NOMBRE' =>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['NOMBRE'],
+ 								'VALOR' =>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['VALOR']
+ 							);
+ 					array_push($Mods, $Mods2);
+
+
  				}
  				//VERSION DEL MODELO ESTE DATO ES LA DESCRIPCION QUE VOY A MOSTRAR 
  				// dd($Modelos['ELEMENTOS'][$i]['ELEMENTO'],$longitud,$submarca);
  			}
  			// var_dump($Modelos);
- 			dd($Modelos);
+ 			dd($Mods);
  			foreach ($Modelos['ELEMENTOS'] as $value) {
  				// dd($value[2]['VALOR']);
  				// print_r($value['VALOR']);
