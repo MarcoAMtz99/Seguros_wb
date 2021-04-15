@@ -223,7 +223,14 @@ class GNPController extends Controller
  							);
  					array_push($Mods, $Mods2);
 
-
+ 					//Con esta validacion verificamos si la submarca se enceuntra en carroceria con marca
+ 				}elseif (str_contains($Modelos['ELEMENTOS'][$i]['ELEMENTO'][3]['VALOR'],$submarca)) {
+ 					$Mods2 = array(
+ 								'CLAVE'=> $Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['CLAVE'],
+ 								'NOMBRE' =>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['NOMBRE'],
+ 								'VALOR' =>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['VALOR']
+ 							);
+ 					array_push($Mods, $Mods2);
  				}
 
  				//VERSION DEL MODELO ESTE DATO ES LA DESCRIPCION QUE VOY A MOSTRAR 
