@@ -230,7 +230,7 @@ class GNPController extends Controller
  				// dd($Modelos['ELEMENTOS'][$i]['ELEMENTO'],$longitud,$submarca);
  			}
  			// var_dump($Modelos);
- 			dd($Mods,$submarca);
+ 			// dd($Mods,$submarca);
 
  			
  
