@@ -516,7 +516,7 @@ class GNPController extends Controller
  		$carroceria   = !is_null($vehiculo) ? $vehiculo->CARROCERIA : null;
  		//descripcion completa del auto 
  		$version 	  = !is_null($vehiculo) ? $vehiculo->VALOR : null;
- 		dd($version,$carroceria,$armadora ,$modelo);
+ 		// dd($version,$carroceria,$armadora ,$modelo);
  		$paquetesPersonaFisica = [
  			'Amplia'   => 'PRS0009355',
  			'Limitada' => 'PRS0009356',
