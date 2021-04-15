@@ -5264,9 +5264,9 @@ __webpack_require__.r(__webpack_exports__);
       axios.get(url).then(function (res) {
         console.log('DESCRIPCIONES GNP', res);
         _this7.descripciones_gnp2 = res.data.modelosGNP2;
-        console.log('Nuevas descripciones', _this7.descripciones_gnp2);
-        _this7.descripciones_gnp = res.data.modelosGNP.ELEMENTOS;
-        console.log("Hola esto es GNP RESULTADO", _this7.descripciones_gnp);
+        console.log('data: ', res.data);
+        console.log('Nuevas descripciones', _this7.descripciones_gnp2); // this.descripciones_gnp = res.data.modelosGNP.ELEMENTOS;
+        // console.log("Hola esto es GNP RESULTADO",this.descripciones_gnp);
       })["catch"](function (err) {
         console.log("Error en GNP");
         console.log(err); // this.descripciones_gnp = undefined;
