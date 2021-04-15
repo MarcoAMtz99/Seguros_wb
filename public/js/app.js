@@ -5054,6 +5054,7 @@ __webpack_require__.r(__webpack_exports__);
       descripciones_gs: [],
       descripciones_qualitas: [],
       descripciones_gnp: [],
+      descripciones_gnp2: [],
       desc_ana: "",
       desc_gs: "",
       desc_qualitas: "",
@@ -5262,12 +5263,12 @@ __webpack_require__.r(__webpack_exports__);
       var url = "./api/modelos-gnp/".concat(marca, "/").concat(submarca, "/").concat(modelo);
       axios.get(url).then(function (res) {
         console.log('DESCRIPCIONES GNP', res);
+        _this7.descripciones_gnp2 = res.data.modelosGNP2;
+        console.log('Nuevas descripciones', _this7.descripciones_gnp2);
         _this7.descripciones_gnp = res.data.modelosGNP.ELEMENTOS;
         console.log("Hola esto es GNP RESULTADO", _this7.descripciones_gnp);
       })["catch"](function (err) {
         console.log("Error en GNP");
-        _this7.descripciones_gnp = res.data.modelosGNP2;
-        console.log('Nuevas descripciones', _this7.descripciones_gnp);
         console.log(err); // this.descripciones_gnp = undefined;
       });
     },
