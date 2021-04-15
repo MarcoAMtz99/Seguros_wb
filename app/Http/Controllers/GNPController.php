@@ -110,7 +110,7 @@ class GNPController extends Controller
    //  		<NOMBRE>ARMADORA</NOMBRE>
    //  		<CLAVE>CH</CLAVE>
    //  		</ELEMENTO>
-				$modelos = $this->BusquedaMedelo('2017', 'CROSS FOX');
+				$modelos = $this->BusquedaMedelo('2017', 'TLX');
 				// $carroceria = $this->getCarroceria("HO", "CIVIC");
 				// $modelos    = $this->getModelos($modelo, $armadora, $carroceria);
 				dd($modelos);
