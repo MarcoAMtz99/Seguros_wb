@@ -52205,8 +52205,8 @@ var render = function() {
                                         }),
                                         _vm._v(" "),
                                         _vm._v(
-                                          '" descripcion in descripciones_gnp2">\n                                                          ' +
-                                            _vm._s(_vm.descripcion.VALOR) +
+                                          '"descripcion2 in descripciones_gnp2">\n                                                          ' +
+                                            _vm._s(_vm.descripcion2) +
                                             "  \n                                                        "
                                         )
                                       ],
