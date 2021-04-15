@@ -170,8 +170,8 @@ class GNPController extends Controller
 		 //  dd($carroceria); 
 		 // $modelos    = $this->getModelos($modelo, $armadora, $carroceria);
 		  // dd($modelos,$carroceria,$armadora,$marca, $submarca, $modelo); 
- 		dd($modelos,$modelosS);
- 		return response()->json(['modelosGNP2'=>$modelosS],201);
+ 		// dd($modelos,$modelosS);
+ 		return response()->json(['modelosGNP'=>$modelos,'modelosGNP2'=>$modelosS],201);
  	}
 
  	public function BusquedaModelos($modelo, $submarca){
