@@ -110,7 +110,7 @@ class GNPController extends Controller
    //  		<NOMBRE>ARMADORA</NOMBRE>
    //  		<CLAVE>CH</CLAVE>
    //  		</ELEMENTO>
-				$modelos = $this->BusquedaModelo('2017', 'AVEO');
+				$modelos = $this->BusquedaModelo('2017', 'MALIBU');
 				// $carroceria = $this->getCarroceria("HO", "CIVIC");
 				// $modelos    = $this->getModelos($modelo, $armadora, $carroceria);
 				dd($modelos);
@@ -205,7 +205,7 @@ class GNPController extends Controller
  	
  		$Modelo = '';
  		// dd($armadoras);
- 
+ 			print_r($Modelos);
  			// dd($Modelos['ELEMENTOS']['Array']['ELEMENTO']);
  			// La longitud de todos los modelos que existen de ese año
  			$longitud = count($Modelos['ELEMENTOS']);
