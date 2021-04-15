@@ -5028,6 +5028,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -5263,8 +5266,8 @@ __webpack_require__.r(__webpack_exports__);
       var url = "./api/modelos-gnp/".concat(marca, "/").concat(submarca, "/").concat(modelo);
       axios.get(url).then(function (res) {
         console.log('DESCRIPCIONES GNP', res);
-        _this7.descripciones_gnp2 = res.data.modelosGNP2;
-        console.log('data: ', res.data);
+        _this7.descripciones_gnp2 = res.data.modelosGNP2; // console.log('data: ',res.data );
+
         console.log('Nuevas descripciones', _this7.descripciones_gnp2); // this.descripciones_gnp = res.data.modelosGNP.ELEMENTOS;
         // console.log("Hola esto es GNP RESULTADO",this.descripciones_gnp);
       })["catch"](function (err) {
@@ -52199,7 +52202,13 @@ var render = function() {
                                               )
                                             ]
                                           )
-                                        })
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._v(
+                                          '" descripcion in descripciones_gnp2">\n                                                          ' +
+                                            _vm._s(_vm.descripcion.VALOR) +
+                                            "  \n                                                        "
+                                        )
                                       ],
                                       2
                                     )

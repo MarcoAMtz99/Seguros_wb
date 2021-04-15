@@ -66,6 +66,9 @@
                                                      <select class="form-control" v-model="desc_gnp">
                                                         <option value="">Elegir:</option>
                                                         <option v-for="descripcion in descripciones_gnp" :value="JSON.stringify(descripcion.ELEMENTO === undefined ? descripcion:descripcion.ELEMENTO )">{{descripcion.ELEMENTO===undefined?descripcion[4].VALOR :descripcion.ELEMENTO[4].VALOR}}</option>
+                                                        <option v-for" descripcion in descripciones_gnp2">
+                                                          {{descripcion.VALOR}}  
+                                                        </option>
                                                     </select>
                                                 </td>
                                                 <td class="text-center" v-if="cliente.gs">
@@ -860,7 +863,7 @@
                 axios.get(url).then(res=>{
                      console.log('DESCRIPCIONES GNP', res);
                      this.descripciones_gnp2 = res.data.modelosGNP2;
-                     console.log('data: ',res.data );
+                     // console.log('data: ',res.data );
                      console.log('Nuevas descripciones',this.descripciones_gnp2);
                     // this.descripciones_gnp = res.data.modelosGNP.ELEMENTOS;
                     // console.log("Hola esto es GNP RESULTADO",this.descripciones_gnp);
