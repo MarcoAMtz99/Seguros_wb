@@ -52221,8 +52221,8 @@ var render = function() {
                                                 value: JSON.stringify(
                                                   descripcion.CLAVE ===
                                                     undefined
-                                                    ? descripcion.VALOR
-                                                    : descripcion.NOMBRE
+                                                    ? descripcion
+                                                    : descripcion
                                                 )
                                               }
                                             },
