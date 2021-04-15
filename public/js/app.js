@@ -5033,9 +5033,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -52189,39 +52186,21 @@ var render = function() {
                                             {
                                               domProps: {
                                                 value: JSON.stringify(
-                                                  descripcion.ELEMENTO ===
+                                                  descripcion.CLAVE ===
                                                     undefined
-                                                    ? descripcion
-                                                    : descripcion.ELEMENTO
+                                                    ? descripcion.VALOR
+                                                    : descripcion.NOMBRE
                                                 )
                                               }
                                             },
                                             [
                                               _vm._v(
-                                                _vm._s(
-                                                  descripcion.ELEMENTO ===
-                                                    undefined
-                                                    ? descripcion[4].VALOR
-                                                    : descripcion.ELEMENTO[4]
-                                                        .VALOR
-                                                )
+                                                "\n                                                        " +
+                                                  _vm._s(descripcion.VALOR) +
+                                                  "\n                                                    "
                                               )
                                             ]
                                           )
-                                        }),
-                                        _vm._v(" "),
-                                        _vm._l(_vm.descripciones_gnp, function(
-                                          descripcion
-                                        ) {
-                                          return _c("option", {
-                                            domProps: {
-                                              value: JSON.stringify(
-                                                descripcion.CLAVE === undefined
-                                                  ? descripcion.VALOR
-                                                  : descripcion.NOMBRE
-                                              )
-                                            }
-                                          })
                                         })
                                       ],
                                       2
