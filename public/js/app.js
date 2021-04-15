@@ -5035,6 +5035,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -5270,9 +5271,9 @@ __webpack_require__.r(__webpack_exports__);
       var url = "./api/modelos-gnp/".concat(marca, "/").concat(submarca, "/").concat(modelo);
       axios.get(url).then(function (res) {
         console.log('DESCRIPCIONES GNP', res);
-        _this7.descripciones_gnp2 = res.data.modelosGNP2; // console.log('data: ',res.data );
+        _this7.descripciones_gnp = res.data.modelosGNP2; // console.log('data: ',res.data );
 
-        console.log('Nuevas descripciones', _this7.descripciones_gnp2); // this.descripciones_gnp = res.data.modelosGNP.ELEMENTOS;
+        console.log('Nuevas descripciones', _this7.descripciones_gnp); // this.descripciones_gnp = res.data.modelosGNP.ELEMENTOS;
         // console.log("Hola esto es GNP RESULTADO",this.descripciones_gnp);
       })["catch"](function (err) {
         console.log("Error en GNP");
@@ -5376,6 +5377,7 @@ __webpack_require__.r(__webpack_exports__);
         paquete: this.cotizacionesGNP.PAQUETES.PAQUETE,
         numCotizacion: this.cotizacionesGNP.SOLICITUD.NUM_COTIZACION
       };
+      console.log('descripcionAuto:', this.desc_gnp);
       console.log('Cotizacion GNP: ', this.setCotizacion);
       this.$emit("emitirgnp", this.setCotizacion);
       $("#paso3-tab").removeClass("disabled");
@@ -52208,14 +52210,21 @@ var render = function() {
                                           )
                                         }),
                                         _vm._v(" "),
-                                        _c("option", { attrs: { value: "" } })
+                                        _vm._l(_vm.descripciones_gnp, function(
+                                          descripcion
+                                        ) {
+                                          return _c("option", {
+                                            domProps: {
+                                              value: JSON.stringify(
+                                                descripcion.CLAVE === undefined
+                                                  ? descripcion.VALOR
+                                                  : descripcion.NOMBRE
+                                              )
+                                            }
+                                          })
+                                        })
                                       ],
                                       2
-                                    ),
-                                    _vm._v(
-                                      "\n                                                    " +
-                                        _vm._s(_vm.descripciones_gnp2) +
-                                        "\n                                                "
                                     )
                                   ])
                                 : _vm._e(),

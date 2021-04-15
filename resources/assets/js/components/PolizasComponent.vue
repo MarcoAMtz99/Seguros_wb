@@ -65,15 +65,18 @@
                                                     </select> -->
                                                      <select class="form-control" v-model="desc_gnp">
                                                         <option value="">Elegir:</option>
-                                                        <option v-for="descripcion in descripciones_gnp" :value="JSON.stringify(descripcion.ELEMENTO === undefined ? descripcion:descripcion.ELEMENTO )">{{descripcion.ELEMENTO===undefined?descripcion[4].VALOR :descripcion.ELEMENTO[4].VALOR}}</option>
+                                                       <!--  <option v-for="descripcion in descripciones_gnp" :value="JSON.stringify(descripcion.ELEMENTO === undefined ? descripcion:descripcion.ELEMENTO )">{{descripcion.ELEMENTO===undefined?descripcion[4].VALOR :descripcion.ELEMENTO[4].VALOR}}</option> -->
 
-                                                    <option value=""></option>
+                                                    <option v-for="descripcion in descripciones_gnp" :value="JSON.stringify(descripcion.CLAVE === undefined ? descripcion.VALOR:descripcion.NOMBRE )">
+                                                        {{descripcion.VALOR}}
+                                                    </option>
 
-                                                        <!-- <option v-for"descripcion2 in descripciones_gnp2":value="descripcion.CLAVE">
+                                                       <!--  <option v-for"descripcion2 in descripciones_gnp2":value="descripcion.CLAVE">
                                                           {{descripcion2}}  
                                                         </option> -->
+
                                                     </select>
-                                                    {{descripciones_gnp2}}
+                                                    
                                                 </td>
                                                 <td class="text-center" v-if="cliente.gs">
                                                     <select class="form-control" v-model="desc_gs">
@@ -866,9 +869,9 @@
                 let url=`./api/modelos-gnp/${marca}/${submarca}/${modelo}`;
                 axios.get(url).then(res=>{
                      console.log('DESCRIPCIONES GNP', res);
-                     this.descripciones_gnp2 = res.data.modelosGNP2;
+                     this.descripciones_gnp = res.data.modelosGNP2;
                      // console.log('data: ',res.data );
-                     console.log('Nuevas descripciones',this.descripciones_gnp2);
+                     console.log('Nuevas descripciones',this.descripciones_gnp);
                     // this.descripciones_gnp = res.data.modelosGNP.ELEMENTOS;
                     // console.log("Hola esto es GNP RESULTADO",this.descripciones_gnp);
                 }).catch(err=>{
@@ -959,6 +962,7 @@
                     paquete: this.cotizacionesGNP.PAQUETES.PAQUETE,
                     numCotizacion: this.cotizacionesGNP.SOLICITUD.NUM_COTIZACION,
                 };
+                console.log('descripcionAuto:',this.desc_gnp);
                 console.log('Cotizacion GNP: ', this.setCotizacion);
                 this.$emit("emitirgnp" , this.setCotizacion);
                 $("#paso3-tab").removeClass("disabled");
