@@ -219,7 +219,10 @@ class GNPController extends Controller
  					$Mods2 = array(
  								'CLAVE'=> $Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['CLAVE'],
  								'NOMBRE' =>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['NOMBRE'],
- 								'VALOR' =>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['VALOR']
+ 								'VALOR' =>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['VALOR'],
+ 								'CARROCERIA'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][3]['VALOR'],
+ 								'MODELO'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][2]['VALOR'],
+ 								'ARMADORA'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][1]['VALOR']
  							);
  					array_push($Mods, $Mods2);
 
@@ -228,7 +231,10 @@ class GNPController extends Controller
  					$Mods2 = array(
  								'CLAVE'=> $Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['CLAVE'],
  								'NOMBRE' =>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['NOMBRE'],
- 								'VALOR' =>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['VALOR']
+ 								'VALOR' =>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['VALOR'],
+ 								'CARROCERIA'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][3]['VALOR'],
+ 								'MODELO'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][2]['VALOR'],
+ 								'ARMADORA'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][1]['VALOR']
  							);
  					array_push($Mods, $Mods2);
  				}
@@ -502,9 +508,13 @@ class GNPController extends Controller
  		$nacimiento   = Carbon::parse($cliente->f_nac)->format('Ymd');
  		$edad 		  = Carbon::parse($cliente->f_nac)->age;
  		$sexo 		  = $cliente->sexo === "Hombre" ? 'M' : 'F';
+ 		//año
  		$modelo 	  = !is_null($vehiculo) ? $vehiculo[2]->VALOR : null;
+ 		//marca
  		$armadora 	  = !is_null($vehiculo) ? $vehiculo[1]->CLAVE : null;
+ 		//submarca o nombre del modelo
  		$carroceria   = !is_null($vehiculo) ? $vehiculo[3]->CLAVE : null;
+ 		//descripcion completa del auto 
  		$version 	  = !is_null($vehiculo) ? $vehiculo[4]->CLAVE : null;
 
  		$paquetesPersonaFisica = [
