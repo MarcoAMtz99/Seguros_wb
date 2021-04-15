@@ -497,7 +497,7 @@ class GNPController extends Controller
  	{
  		$cliente = Cliente::where('cotizacion',$request->cotizacion)->first();
  		$vehiculo = json_decode($request->descripcionGNP);
- 		dd($vehiculo,$request);
+ 		// dd($vehiculo,$request);
         if($cliente == null){
             return response()->json(['error'=>"datos no encontrado"],404);
 
@@ -509,14 +509,14 @@ class GNPController extends Controller
  		$edad 		  = Carbon::parse($cliente->f_nac)->age;
  		$sexo 		  = $cliente->sexo === "Hombre" ? 'M' : 'F';
  		//año
- 		$modelo 	  = !is_null($vehiculo) ? $vehiculo[2]->VALOR : null;
+ 		$modelo 	  = !is_null($vehiculo) ? $vehiculo->MODELO : null;
  		//marca
- 		$armadora 	  = !is_null($vehiculo) ? $vehiculo[1]->CLAVE : null;
+ 		$armadora 	  = !is_null($vehiculo) ? $vehiculo->ARMADORA : null;
  		//submarca o nombre del modelo
- 		$carroceria   = !is_null($vehiculo) ? $vehiculo[3]->CLAVE : null;
+ 		$carroceria   = !is_null($vehiculo) ? $vehiculo->CARROCERIA : null;
  		//descripcion completa del auto 
- 		$version 	  = !is_null($vehiculo) ? $vehiculo[4]->CLAVE : null;
-
+ 		$version 	  = !is_null($vehiculo) ? $vehiculo->VALOR : null;
+ 		dd($version,$carroceria,$armadora ,$modelo);
  		$paquetesPersonaFisica = [
  			'Amplia'   => 'PRS0009355',
  			'Limitada' => 'PRS0009356',
