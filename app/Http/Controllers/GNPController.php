@@ -235,7 +235,7 @@ class GNPController extends Controller
  			
  
 
- 		return $Mods2;
+ 		return $Mods;
  	}
 
  	private function buscarEnCatalogo($xmlBody)
