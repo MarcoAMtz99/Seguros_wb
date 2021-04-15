@@ -5033,6 +5033,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -52177,6 +52181,35 @@ var render = function() {
                                         _c("option", { attrs: { value: "" } }, [
                                           _vm._v("Elegir:")
                                         ]),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.descripciones_gnp, function(
+                                          descripcion
+                                        ) {
+                                          return _c(
+                                            "option",
+                                            {
+                                              domProps: {
+                                                value: JSON.stringify(
+                                                  descripcion.ELEMENTO ===
+                                                    undefined
+                                                    ? descripcion
+                                                    : descripcion.ELEMENTO
+                                                )
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  descripcion.ELEMENTO ===
+                                                    undefined
+                                                    ? descripcion[4].VALOR
+                                                    : descripcion.ELEMENTO[4]
+                                                        .VALOR
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        }),
                                         _vm._v(" "),
                                         _vm._l(_vm.descripciones_gnp, function(
                                           descripcion
