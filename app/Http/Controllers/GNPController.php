@@ -704,17 +704,19 @@ class GNPController extends Controller
  		$lada = substr($datos->telefono, 0, 2);
  		$datos->municipio = str_replace([".", ",", ";", ":", "-", "_"], "", $datos->municipio);
 
- 		if ($datos->descripcionAuto[1]->CLAVE == undefined) {
+ 		if ($datos->descripcionAuto->ARMADORA) {
  			# code...
- 		$armadora   = $datos->descripcionAuto[1]->CLAVE;
- 		$modelo     = $datos->descripcionAuto[2]->CLAVE;
- 		$carroceria = $datos->descripcionAuto[3]->CLAVE;
- 		$version    = $datos->descripcionAuto[4]->CLAVE;
- 		}else{
- 		$armadora   = $datos->descripcionAuto->ARMADORA;
+ 			$armadora   = $datos->descripcionAuto->ARMADORA;
  		$modelo     = $datos->descripcionAuto->MODELO;
  		$carroceria = $datos->descripcionAuto->CARROCERIA;
  		$version    = $datos->descripcionAuto->CLAVE;
+ 	
+ 		}else{
+ 		
+ 			$armadora   = $datos->descripcionAuto[1]->CLAVE;
+ 		$modelo     = $datos->descripcionAuto[2]->CLAVE;
+ 		$carroceria = $datos->descripcionAuto[3]->CLAVE;
+ 		$version    = $datos->descripcionAuto[4]->CLAVE;
  		}
  		
  		dd($version,$carroceria,$modelo,$armadora);
