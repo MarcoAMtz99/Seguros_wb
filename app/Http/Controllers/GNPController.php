@@ -706,20 +706,20 @@ class GNPController extends Controller
 
  		if ($datos->descripcionAuto->ARMADORA) {
  			# code...
- 			$armadora   = $datos->descripcionAuto->ARMADORA;
+ 		$armadora   = $datos->descripcionAuto->ARMADORA;
  		$modelo     = $datos->descripcionAuto->MODELO;
  		$carroceria = $datos->descripcionAuto->CARROCERIA;
  		$version    = $datos->descripcionAuto->CLAVE;
  	
  		}else{
  		
- 			$armadora   = $datos->descripcionAuto[1]->CLAVE;
+ 		$armadora   = $datos->descripcionAuto[1]->CLAVE;
  		$modelo     = $datos->descripcionAuto[2]->CLAVE;
  		$carroceria = $datos->descripcionAuto[3]->CLAVE;
  		$version    = $datos->descripcionAuto[4]->CLAVE;
  		}
  		
- 		dd($version,$carroceria,$modelo,$armadora);
+ 		// dd($version,$carroceria,$modelo,$armadora);
  		// Obtenemos la cotizacion con los datos del formulario.
  		$data = $this->getXMLCotizacion($datos->codigo_postal, $fecha_inicio, $fecha_fin, $modelo, $armadora,
  				$carroceria, $version, $datos->f_nac, $datos->sexo, $datos->edad, $clavePaquete, $poliza);
