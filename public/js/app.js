@@ -5037,6 +5037,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -52644,7 +52650,7 @@ var render = function() {
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesANA[1][
-                                                      "SEMESTRAL"
+                                                      "MENSUAL"
                                                     ]["prima"]["primatotal"]
                                                   )
                                                 )
@@ -52657,7 +52663,7 @@ var render = function() {
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesANA[1][
-                                                      "SEMESTRAL"
+                                                      "MENSUAL"
                                                     ]["recibos"][0][
                                                       "primatotal"
                                                     ]
@@ -52672,6 +52678,49 @@ var render = function() {
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesANA[1][
+                                                      "MENSUAL"
+                                                    ]["recibos"][1][
+                                                      "primatotal"
+                                                    ]
+                                                  )
+                                                )
+                                            )
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("div", { staticClass: "border" }, [
+                                            _vm._v(
+                                              "Semestral: $" +
+                                                _vm._s(
+                                                  _vm._f("int")(
+                                                    _vm.cotizacionesANA[2][
+                                                      "SEMESTRAL"
+                                                    ]["prima"]["primatotal"]
+                                                  )
+                                                )
+                                            )
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("div", { staticClass: "border" }, [
+                                            _vm._v(
+                                              "Unico Pago: $" +
+                                                _vm._s(
+                                                  _vm._f("int")(
+                                                    _vm.cotizacionesANA[2][
+                                                      "SEMESTRAL"
+                                                    ]["recibos"][0][
+                                                      "primatotal"
+                                                    ]
+                                                  )
+                                                )
+                                            )
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("div", { staticClass: "border" }, [
+                                            _vm._v(
+                                              "Subsecuente x 1: $" +
+                                                _vm._s(
+                                                  _vm._f("int")(
+                                                    _vm.cotizacionesANA[2][
                                                       "SEMESTRAL"
                                                     ]["recibos"][1][
                                                       "primatotal"
@@ -52686,7 +52735,7 @@ var render = function() {
                                               "Trimestral: $" +
                                                 _vm._s(
                                                   _vm._f("int")(
-                                                    _vm.cotizacionesANA[2][
+                                                    _vm.cotizacionesANA[3][
                                                       "TRIMESTRAL"
                                                     ]["prima"]["primatotal"]
                                                   )
@@ -52699,7 +52748,7 @@ var render = function() {
                                               "1er Pago: $" +
                                                 _vm._s(
                                                   _vm._f("int")(
-                                                    _vm.cotizacionesANA[2][
+                                                    _vm.cotizacionesANA[3][
                                                       "TRIMESTRAL"
                                                     ]["recibos"][0][
                                                       "primatotal"
@@ -52714,7 +52763,7 @@ var render = function() {
                                               "Subsecuente x 2: $" +
                                                 _vm._s(
                                                   _vm._f("int")(
-                                                    _vm.cotizacionesANA[2][
+                                                    _vm.cotizacionesANA[3][
                                                       "TRIMESTRAL"
                                                     ]["recibos"][1][
                                                       "primatotal"

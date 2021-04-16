@@ -692,7 +692,7 @@ class GNPController extends Controller
  	 */
  	private function getXMLPoliza($datos)
  	{
- 		dd($datos);
+ 		// dd($datos);
  		$fecha_inicio      = Carbon::now()->format('Ymd');
  		$fecha_fin         = Carbon::now()->addYear()->format('Ymd');
  		$num_int           = $datos->num_int != null ? $datos->num_int : '';
@@ -704,12 +704,20 @@ class GNPController extends Controller
  		$lada = substr($datos->telefono, 0, 2);
  		$datos->municipio = str_replace([".", ",", ";", ":", "-", "_"], "", $datos->municipio);
 
-
+ 		if ($datos->descripcionAuto[1]->CLAVE == undefined) {
+ 			# code...
  		$armadora   = $datos->descripcionAuto[1]->CLAVE;
  		$modelo     = $datos->descripcionAuto[2]->CLAVE;
  		$carroceria = $datos->descripcionAuto[3]->CLAVE;
  		$version    = $datos->descripcionAuto[4]->CLAVE;
-
+ 		}else{
+ 		$armadora   = $datos->descripcionAuto->ARMADORA;
+ 		$modelo     = $datos->descripcionAuto->MODELO;
+ 		$carroceria = $datos->descripcionAuto->CARROCERIA;
+ 		$version    = $datos->descripcionAuto->CLAVE;
+ 		}
+ 		
+ 		dd($version,$carroceria,$modelo,$armadora);
  		// Obtenemos la cotizacion con los datos del formulario.
  		$data = $this->getXMLCotizacion($datos->codigo_postal, $fecha_inicio, $fecha_fin, $modelo, $armadora,
  				$carroceria, $version, $datos->f_nac, $datos->sexo, $datos->edad, $clavePaquete, $poliza);
