@@ -52437,7 +52437,7 @@ var render = function() {
                                                   .TOTAL_PRIMA[0]
                                                   .DESC_PERIODICIDAD
                                               ) +
-                                                ":Unico pago $" +
+                                                ": Unico pago $" +
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesGNP.PAQUETES
@@ -52458,7 +52458,7 @@ var render = function() {
                                                   .TOTAL_PRIMA[1]
                                                   .DESC_PERIODICIDAD
                                               ) +
-                                                ":1er pago $" +
+                                                ": 1er pago $" +
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesGNP.PAQUETES
@@ -52471,7 +52471,7 @@ var render = function() {
                                             ),
                                             _c("br"),
                                             _vm._v(
-                                              "Subsecuentes x 1: .$" +
+                                              "Subsecuentes x 1: $" +
                                                 _vm._s(
                                                   _vm.cotizacionesGNP.PAQUETES
                                                     .PAQUETE.TOTALES
@@ -52491,7 +52491,7 @@ var render = function() {
                                                   .TOTAL_PRIMA[2]
                                                   .DESC_PERIODICIDAD
                                               ) +
-                                                ":1er pago $" +
+                                                ": 1er pago $" +
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesGNP.PAQUETES
@@ -52505,7 +52505,7 @@ var render = function() {
                                             ),
                                             _c("br"),
                                             _vm._v(
-                                              " Subsecuentes x 3: .$" +
+                                              " Subsecuentes x 3: $" +
                                                 _vm._s(
                                                   _vm.cotizacionesGNP.PAQUETES
                                                     .PAQUETE.TOTALES
@@ -52538,7 +52538,7 @@ var render = function() {
                                             ),
                                             _c("br"),
                                             _vm._v(
-                                              " Subsecuentes x 11: .$" +
+                                              " Subsecuentes x 11: $" +
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesGNP.PAQUETES
@@ -53765,7 +53765,7 @@ var render = function() {
                                                             _vm._v(
                                                               " " +
                                                                 _vm._s(
-                                                                  cobertura.DEDUCIBLE
+                                                                  cobertura.SUMA_ASEGURADA
                                                                 ) +
                                                                 " "
                                                             )
@@ -54360,13 +54360,7 @@ var render = function() {
                                                           ])
                                                         ])
                                                       : _c("div", [
-                                                          _c("strong", [
-                                                            _vm._v(
-                                                              _vm._s(
-                                                                cobertura.NOMBRE
-                                                              ) + ":"
-                                                            )
-                                                          ]),
+                                                          _c("strong"),
                                                           _vm._v(
                                                             " " +
                                                               _vm._s(
