@@ -5067,6 +5067,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -52857,7 +52861,9 @@ var render = function() {
                                                   ],
                                                   function(cobertura, index) {
                                                     return _c("div", [
-                                                      cobertura
+                                                      cobertura["@attributes"][
+                                                        "NoRecibo"
+                                                      ] == 1
                                                         ? _c(
                                                             "div",
                                                             {
@@ -52866,7 +52872,7 @@ var render = function() {
                                                             },
                                                             [
                                                               _vm._v(
-                                                                "\n                                                                1er pago:\n                                                                "
+                                                                "\n                                                               1er pago:\n                                                                "
                                                               ),
                                                               _c("span", [
                                                                 _vm._v(
