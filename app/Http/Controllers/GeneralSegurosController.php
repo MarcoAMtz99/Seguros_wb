@@ -30,6 +30,8 @@ class GeneralSegurosController extends Controller
         // *******************************************************
         //                https://serviciosgs.mx/gsautos-ws/soap/catalogoAutosWS?wsdl
         //                https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl
+        //                
+        $this->urlCatD = "https://serviciosgs.mx/gsautos-ws/DescargaCatalogo?"
         $this->urlAuth = "https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl";
         $this->urlCotiza = "https://serviciosgs.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
         $this->urlCat = "https://serviciosgs.mx/gsautos-ws/soap/catalogosWS?wsdl";
@@ -51,6 +53,12 @@ class GeneralSegurosController extends Controller
                 return response()->json(['error' => 'token is null']);
             }
         });
+    }
+
+    public function prueba(){
+            $token = $this->getToken();
+
+            return $token;
     }
 
     public function getClient($url)
