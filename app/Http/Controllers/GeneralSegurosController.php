@@ -31,7 +31,7 @@ class GeneralSegurosController extends Controller
         //                https://serviciosgs.mx/gsautos-ws/soap/catalogoAutosWS?wsdl
         //                https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl
         //                
-        $this->urlCatD = "https://serviciosgs.mx/gsautos-ws/DescargaCatalogo?"
+        $this->urlCatD = "https://serviciosgs.mx/gsautos-ws/DescargaCatalogo?";
         $this->urlAuth = "https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl";
         $this->urlCotiza = "https://serviciosgs.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
         $this->urlCat = "https://serviciosgs.mx/gsautos-ws/soap/catalogosWS?wsdl";
