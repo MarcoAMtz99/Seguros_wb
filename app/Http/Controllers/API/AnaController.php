@@ -534,10 +534,11 @@ XML;
                             array_push($recibos,$recibo);
                         } else {
                             // dd($recibo);
-                            if(!$recibo["@attributes"]){
-                                array_push($recibos,$recibo);
+                            if($recibo["@attributes"]){
+                              array_push($recibos,$recibo["@attributes"]);
                             } else{
-                                array_push($recibos,$recibo["@attributes"]);
+                                
+                                  array_push($recibos,$recibo);
                             }
                             // array_push($recibos,$recibo["@attributes"]);
                         }
