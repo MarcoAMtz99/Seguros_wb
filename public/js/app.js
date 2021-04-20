@@ -52690,7 +52690,7 @@ var render = function() {
                                       ? _c("div", { staticStyle: {} }, [
                                           _c("div", { staticClass: "border" }, [
                                             _vm._v(
-                                              "Contado: $" +
+                                              "Contado:Unico pago  $" +
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesANA[0][
@@ -52702,16 +52702,7 @@ var render = function() {
                                           ]),
                                           _vm._v(" "),
                                           _c("div", { staticClass: "border" }, [
-                                            _vm._v(
-                                              "Semestral: $" +
-                                                _vm._s(
-                                                  _vm._f("int")(
-                                                    _vm.cotizacionesANA[2][
-                                                      "SEMESTRAL"
-                                                    ]["prima"]["primatotal"]
-                                                  )
-                                                )
-                                            )
+                                            _vm._v("Semestral: ")
                                           ]),
                                           _vm._v(" "),
                                           _c("div", { staticClass: "border" }, [
@@ -52745,16 +52736,7 @@ var render = function() {
                                           ]),
                                           _vm._v(" "),
                                           _c("div", { staticClass: "border" }, [
-                                            _vm._v(
-                                              "Trimestral: $" +
-                                                _vm._s(
-                                                  _vm._f("int")(
-                                                    _vm.cotizacionesANA[3][
-                                                      "TRIMESTRAL"
-                                                    ]["prima"]["primatotal"]
-                                                  )
-                                                )
-                                            )
+                                            _vm._v("Trimestral: ")
                                           ]),
                                           _vm._v(" "),
                                           _c("div", { staticClass: "border" }, [
@@ -52788,16 +52770,7 @@ var render = function() {
                                           ]),
                                           _vm._v(" "),
                                           _c("div", { staticClass: "border" }, [
-                                            _vm._v(
-                                              "Mensual: $" +
-                                                _vm._s(
-                                                  _vm._f("int")(
-                                                    _vm.cotizacionesANA[1][
-                                                      "MENSUAL"
-                                                    ]["prima"]["primatotal"]
-                                                  )
-                                                )
-                                            )
+                                            _vm._v("Mensual: ")
                                           ]),
                                           _vm._v(" "),
                                           _c("div", { staticClass: "border" }, [
@@ -52989,7 +52962,7 @@ var render = function() {
                                                             },
                                                             [
                                                               _vm._v(
-                                                                "\n                                                                subsecuente x 1:\n                                                                "
+                                                                "\n                                                                subsecuente x 3:\n                                                                "
                                                               ),
                                                               _c("span", [
                                                                 _vm._v(
@@ -53067,7 +53040,7 @@ var render = function() {
                                                             },
                                                             [
                                                               _vm._v(
-                                                                "\n                                                                subsecuente x 1:\n                                                                "
+                                                                "\n                                                                subsecuente x 11:\n                                                                "
                                                               ),
                                                               _c("span", [
                                                                 _vm._v(

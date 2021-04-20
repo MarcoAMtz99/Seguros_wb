@@ -131,18 +131,18 @@
                                                 </td>
                                                 <td class="text-center" v-if="cliente.ana">
                                                     <div v-if="cotizacionesANA.length" style="padding">
-                                                        <div class="border">Contado: ${{cotizacionesANA[0]['CONTADO']['prima']['primatotal'] | int }}</div>
+                                                        <div class="border">Contado:Unico pago  ${{cotizacionesANA[0]['CONTADO']['prima']['primatotal'] | int }}</div>
                                                         
                                                           <!-- SEMESTRAL -->
-                                                        <div class="border">Semestral: ${{cotizacionesANA[2]['SEMESTRAL']['prima']['primatotal'] | int }}</div>
+                                                        <div class="border">Semestral: <!-- ${{cotizacionesANA[2]['SEMESTRAL']['prima']['primatotal'] | int }} --></div>
                                                          <div class="border">1er Pago: ${{cotizacionesANA[2]['SEMESTRAL']['recibos'][0]['primatotal'] | int }}</div>
                                                           <div class="border">Subsecuente x 1: ${{cotizacionesANA[2]['SEMESTRAL']['recibos'][1]['primatotal'] | int }}</div>
                                                           <!-- TRMIESTRAL -->
-                                                        <div class="border">Trimestral: ${{cotizacionesANA[3]['TRIMESTRAL']['prima']['primatotal'] | int }}</div>
+                                                        <div class="border">Trimestral: <!-- ${{cotizacionesANA[3]['TRIMESTRAL']['prima']['primatotal'] | int }} --></div>
                                                         <div class="border">1er Pago: ${{cotizacionesANA[3]['TRIMESTRAL']['recibos'][0]['primatotal'] | int }}</div>
                                                           <div class="border">Subsecuente x 2: ${{cotizacionesANA[3]['TRIMESTRAL']['recibos'][1]['primatotal'] | int }}</div>
                                                           <!-- MENSUAL -->
-                                                        <div class="border">Mensual: ${{cotizacionesANA[1]['MENSUAL']['prima']['primatotal'] | int }}</div>
+                                                        <div class="border">Mensual: <!-- ${{cotizacionesANA[1]['MENSUAL']['prima']['primatotal'] | int }} --></div>
                                                          <div class="border">1er Pago: ${{cotizacionesANA[1]['MENSUAL']['recibos'][0]['primatotal'] | int }}</div>
                                                           <div class="border">Subsecuente x 11: ${{cotizacionesANA[1]['MENSUAL']['recibos'][1]['primatotal'] | int }}</div>
                                                     </div>
@@ -185,7 +185,7 @@
                                                                 <span>$ {{cobertura.PrimaTotal}} </span> 
                                                               </div>
                                                                 <div class="text-center" v-if="cobertura['@attributes']['NoRecibo'] ==2 ">
-                                                                subsecuente x 1:
+                                                                subsecuente x 3:
                                                                 <span>${{cobertura.PrimaTotal}} </span> 
                                                               </div>
                                     
@@ -203,7 +203,7 @@
                                                                 <span>${{cobertura.PrimaTotal}} </span> 
                                                               </div>
                                                                 <div class="text-center" v-if="cobertura['@attributes']['NoRecibo'] ==2 ">
-                                                                subsecuente x 1:
+                                                                subsecuente x 11:
                                                                 <span>${{cobertura.PrimaTotal}} </span> 
                                                               </div>
                                     
