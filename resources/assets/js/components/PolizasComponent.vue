@@ -162,11 +162,11 @@
                                                         <div class="text-center" v-if="cotizacionesQualitasS['Recibos'][0]">
                                                         <div v-for="(cobertura,index) in cotizacionesQualitasS['Recibos']" >
                                                               <!--   v-if="cobertura.tipo == 'Daños Materiales'" -->
-                                                              <div class="text-center" v-if="cobertura">
+                                                            <div class="text-center" v-if="cobertura">
                                                                 1er pago:
                                                                 <span>{{cobertura}} </span> 
                                                               </div>
-                                                                <div class="text-center" v-if="cobertura[1].PrimaTotal">
+                                                                <div class="text-center" v-if="cobertura[1]">
                                                                 subsecuente x 1:
                                                                 <span>{{cobertura}} </span> 
                                                               </div>

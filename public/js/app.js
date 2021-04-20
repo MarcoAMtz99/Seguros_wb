@@ -52879,7 +52879,7 @@ var render = function() {
                                                           )
                                                         : _vm._e(),
                                                       _vm._v(" "),
-                                                      cobertura[1].PrimaTotal
+                                                      cobertura[1]
                                                         ? _c(
                                                             "div",
                                                             {
