@@ -5081,6 +5081,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -52829,7 +52844,7 @@ var render = function() {
                                       ? _c("div", [
                                           _c("div", { staticClass: "border" }, [
                                             _vm._v(
-                                              "Contado: $" +
+                                              "Anual: Unico pago $" +
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesQualitas
@@ -53001,7 +53016,77 @@ var render = function() {
                                       ? _c("div", [
                                           _c("div", { staticClass: "border" }, [
                                             _vm._v("Mensual: ")
-                                          ])
+                                          ]),
+                                          _vm._v(" "),
+                                          _vm.cotizacionesQualitasM[
+                                            "Recibos"
+                                          ][0]
+                                            ? _c(
+                                                "div",
+                                                { staticClass: "text-center" },
+                                                _vm._l(
+                                                  _vm.cotizacionesQualitasM[
+                                                    "Recibos"
+                                                  ],
+                                                  function(cobertura, index) {
+                                                    return _c("div", [
+                                                      cobertura["@attributes"][
+                                                        "NoRecibo"
+                                                      ] == 1
+                                                        ? _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "text-center"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                                               1er pago:\n                                                                "
+                                                              ),
+                                                              _c("span", [
+                                                                _vm._v(
+                                                                  "$" +
+                                                                    _vm._s(
+                                                                      cobertura.PrimaTotal
+                                                                    ) +
+                                                                    " "
+                                                                )
+                                                              ])
+                                                            ]
+                                                          )
+                                                        : _vm._e(),
+                                                      _vm._v(" "),
+                                                      cobertura["@attributes"][
+                                                        "NoRecibo"
+                                                      ] == 2
+                                                        ? _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "text-center"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                                                subsecuente x 1:\n                                                                "
+                                                              ),
+                                                              _c("span", [
+                                                                _vm._v(
+                                                                  "$" +
+                                                                    _vm._s(
+                                                                      cobertura.PrimaTotal
+                                                                    ) +
+                                                                    " "
+                                                                )
+                                                              ])
+                                                            ]
+                                                          )
+                                                        : _vm._e()
+                                                    ])
+                                                  }
+                                                ),
+                                                0
+                                              )
+                                            : _vm._e()
                                         ])
                                       : _c("div", [
                                           _vm._v(

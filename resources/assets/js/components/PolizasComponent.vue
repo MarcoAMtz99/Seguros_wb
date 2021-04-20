@@ -152,7 +152,7 @@
                                                 </td>
                                                 <td class="text-center" v-if="cliente.qualitas">
                                                     <div v-if="cotizacionesQualitas.Primas">
-                                                        <div class="border">Contado: ${{cotizacionesQualitas.Primas.PrimaTotal | int }}</div>
+                                                        <div class="border">Anual: Unico pago ${{cotizacionesQualitas.Primas.PrimaTotal | int }}</div>
                                                     </div>
                                                     <div v-if="cotizacionesQualitasS.Primas">
                                                         <div class="border">Semestral:</div>
@@ -195,8 +195,23 @@
                                                     </div>
                                                     <div v-if="cotizacionesQualitasM.Primas">
                                                         <div class="border">Mensual: </div>
-                                                    </div>
+                                                        <div class="text-center" v-if="cotizacionesQualitasM['Recibos'][0]">
+                                                        <div v-for="(cobertura,index) in cotizacionesQualitasM['Recibos']" >
                                                     
+                                                              <div class="text-center" v-if="cobertura['@attributes']['NoRecibo'] ==1 ">
+                                                               1er pago:
+                                                                <span>${{cobertura.PrimaTotal}} </span> 
+                                                              </div>
+                                                                <div class="text-center" v-if="cobertura['@attributes']['NoRecibo'] ==2 ">
+                                                                subsecuente x 1:
+                                                                <span>${{cobertura.PrimaTotal}} </span> 
+                                                              </div>
+                                    
+                                                        </div>
+                                                    </div>
+
+                                                    </div>
+
                                                     <div v-else>
                                                         Seleccione una descripción
                                                     </div>
