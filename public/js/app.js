@@ -5044,6 +5044,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -5057,6 +5060,7 @@ __webpack_require__.r(__webpack_exports__);
       cotizacionesQualitas: [],
       cotizacionesQualitasS: [],
       cotizacionesQualitasM: [],
+      cotizacionesQualitasT: [],
       cotizacionesGS: [],
       cotizacionesANA: [],
       cotizacionesGNP: [],
@@ -5224,7 +5228,8 @@ __webpack_require__.r(__webpack_exports__);
       };
       this.cotizacionesQualitas = [];
       this.cotizacionesQualitasS = [];
-      this.cotizacionesQualitasM = []; // this.loader = true;
+      this.cotizacionesQualitasM = [];
+      this.cotizacionesQualitasT = []; // this.loader = true;
 
       axios.post(url, params).then(function (res) {
         _this4.loader = false;
@@ -5232,9 +5237,11 @@ __webpack_require__.r(__webpack_exports__);
         _this4.cotizacionesQualitas = res.data.Qualitas;
         _this4.cotizacionesQualitasS = res.data.QualitasS;
         _this4.cotizacionesQualitasM = res.data.QualitasM;
+        _this4.cotizacionesQualitasT = res.data.QualitasT;
         console.log('Cotizacion QA:', _this4.cotizacionesQualitas);
         console.log('Cotizacion QAS:', _this4.cotizacionesQualitasS);
-        console.log('Cotizacion QAM:', _this4.cotizacionesQualitasM); //Prueba QA
+        console.log('Cotizacion QAM:', _this4.cotizacionesQualitasM);
+        console.log('Cotizacion QAT:', _this4.cotizacionesQualitasT); //Prueba QA
       })["catch"](function (err) {
         _this4.loader = false;
         console.log(err);
@@ -52808,6 +52815,22 @@ var render = function() {
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesQualitasS
+                                                      .Primas.PrimaTotal
+                                                  )
+                                                )
+                                            )
+                                          ])
+                                        ])
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _vm.cotizacionesQualitasT.Primas
+                                      ? _c("div", [
+                                          _c("div", { staticClass: "border" }, [
+                                            _vm._v(
+                                              "Trimestral: $" +
+                                                _vm._s(
+                                                  _vm._f("int")(
+                                                    _vm.cotizacionesQualitasT
                                                       .Primas.PrimaTotal
                                                   )
                                                 )

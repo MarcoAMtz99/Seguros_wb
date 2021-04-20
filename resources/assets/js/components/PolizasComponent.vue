@@ -157,6 +157,9 @@
                                                     <div v-if="cotizacionesQualitasS.Primas">
                                                         <div class="border">Semestral: ${{cotizacionesQualitasS.Primas.PrimaTotal | int }}</div>
                                                     </div>
+                                                     <div v-if="cotizacionesQualitasT.Primas">
+                                                        <div class="border">Trimestral: ${{cotizacionesQualitasT.Primas.PrimaTotal | int }}</div>
+                                                    </div>
                                                     <div v-if="cotizacionesQualitasM.Primas">
                                                         <div class="border">Mensual: ${{cotizacionesQualitasM.Primas.PrimaTotal | int }}</div>
                                                     </div>
@@ -664,6 +667,7 @@
     			cotizacionesQualitas:[],
                 cotizacionesQualitasS:[],
                  cotizacionesQualitasM:[],
+                 cotizacionesQualitasT:[],
                 cotizacionesGS:[],
                 cotizacionesANA:[],
                 cotizacionesGNP:[],
@@ -824,6 +828,7 @@
                 this.cotizacionesQualitas=[];
                 this.cotizacionesQualitasS=[];
                 this.cotizacionesQualitasM=[];
+                 this.cotizacionesQualitasT=[];
                 // this.loader = true;
                 axios.post(url,params).then(res=>{
                     this.loader=false;
@@ -831,9 +836,11 @@
                     this.cotizacionesQualitas = res.data.Qualitas;
                      this.cotizacionesQualitasS = res.data.QualitasS;
                       this.cotizacionesQualitasM = res.data.QualitasM;
+                      this.cotizacionesQualitasT = res.data.QualitasT;
                     console.log('Cotizacion QA:', this.cotizacionesQualitas);
                     console.log('Cotizacion QAS:', this.cotizacionesQualitasS);
                     console.log('Cotizacion QAM:', this.cotizacionesQualitasM);
+                     console.log('Cotizacion QAT:', this.cotizacionesQualitasT);
                     //Prueba QA
                 }).catch(err=>{
                     this.loader=false;
