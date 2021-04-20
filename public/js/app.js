@@ -5063,6 +5063,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -52848,14 +52852,12 @@ var render = function() {
                                                 "div",
                                                 { staticClass: "text-center" },
                                                 _vm._l(
-                                                  _vm.cotizacionesQualitas[
+                                                  _vm.cotizacionesQualitasS[
                                                     "Recibos"
                                                   ],
                                                   function(cobertura, index) {
                                                     return _c("div", [
-                                                      _vm.cotizacionesQualitasS[
-                                                        "Recibos"
-                                                      ][0]
+                                                      cobertura.PrimaTotal
                                                         ? _c(
                                                             "div",
                                                             {
@@ -52865,6 +52867,28 @@ var render = function() {
                                                             [
                                                               _vm._v(
                                                                 "\n                                                                1er pago:\n                                                                "
+                                                              ),
+                                                              _c("span", [
+                                                                _vm._v(
+                                                                  _vm._s(
+                                                                    cobertura
+                                                                  ) + " "
+                                                                )
+                                                              ])
+                                                            ]
+                                                          )
+                                                        : _vm._e(),
+                                                      _vm._v(" "),
+                                                      cobertura[1].PrimaTotal
+                                                        ? _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "text-center"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                                                subsecuente x 1:\n                                                                "
                                                               ),
                                                               _c("span", [
                                                                 _vm._v(
