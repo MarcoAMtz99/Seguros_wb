@@ -168,7 +168,7 @@ class GeneralSegurosController extends Controller
         // dd($request);
         $input = $request->all();
         // dd($input);
-        if ($input['descripcion_gs']['amis']) {
+        if (isset($input['descripcion_gs']['amis'])) {
             # code...
              $claveGs = $input['descripcion_gs']['amis'];
         }else{
