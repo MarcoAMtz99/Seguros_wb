@@ -182,7 +182,7 @@
                                                     
                                                               <div class="text-center" v-if="cobertura['@attributes']['NoRecibo'] ==1 ">
                                                                1er pago:
-                                                                <span>${{cobertura.PrimaTotal}} </span> 
+                                                                <span>$ {{cobertura.PrimaTotal}} </span> 
                                                               </div>
                                                                 <div class="text-center" v-if="cobertura['@attributes']['NoRecibo'] ==2 ">
                                                                 subsecuente x 1:
@@ -196,20 +196,7 @@
                                                     <div v-if="cotizacionesQualitasM.Primas">
                                                         <div class="border">Mensual: </div>
                                                     </div>
-                                                    <div class="text-center" v-if="cotizacionesQualitasM['Recibos'][0]">
-                                                        <div v-for="(cobertura,index) in cotizacionesQualitasM['Recibos']" >
                                                     
-                                                              <div class="text-center" v-if="cobertura['@attributes']['NoRecibo'] ==1 ">
-                                                               1er pago:
-                                                                <span>${{cobertura.PrimaTotal}} </span> 
-                                                              </div>
-                                                                <div class="text-center" v-if="cobertura['@attributes']['NoRecibo'] ==2 ">
-                                                                subsecuente x 1:
-                                                                <span>${{cobertura.PrimaTotal}} </span> 
-                                                              </div>
-                                    
-                                                        </div>
-                                                    </div>
                                                     <div v-else>
                                                         Seleccione una descripción
                                                     </div>
