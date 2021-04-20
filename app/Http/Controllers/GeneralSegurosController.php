@@ -31,7 +31,7 @@ class GeneralSegurosController extends Controller
         //                https://serviciosgs.mx/gsautos-ws/soap/catalogoAutosWS?wsdl
         //                https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl
         //                
-        $this->urlCatD = "https://serviciosgs.mx/gsautos-ws/DescargaCatalogo?";
+        $this->urlCatD = "https://serviciosgs.mx/gsautos-ws/DescargaCatalogo?6424687fddcef5216829292a0a172332";
         $this->urlAuth = "https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl";
         $this->urlCotiza = "https://serviciosgs.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
         $this->urlCat = "https://serviciosgs.mx/gsautos-ws/soap/catalogosWS?wsdl";
@@ -57,7 +57,6 @@ class GeneralSegurosController extends Controller
 
     public function prueba(){
             $token = $this->getToken();
-
             return $token;
     }
 
@@ -168,7 +167,7 @@ class GeneralSegurosController extends Controller
         $cliente = Cliente::where('cotizacion', $request->cotizacion)->first();
         // dd($request);
         $input = $request->all();
-        
+        dd($input);
         $claveGs = $input['descripcion_gs']['amis'];
         $modelo = $input['anio'];
         $poliza = $input['poliza'];
