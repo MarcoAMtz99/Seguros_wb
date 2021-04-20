@@ -167,8 +167,14 @@ class GeneralSegurosController extends Controller
         $cliente = Cliente::where('cotizacion', $request->cotizacion)->first();
         // dd($request);
         $input = $request->all();
-        dd($input);
-        $claveGs = $input['descripcion_gs']['amis'];
+        // dd($input);
+        if ($input['descripcion_gs']['amis']) {
+            # code...
+             $claveGs = $input['descripcion_gs']['amis'];
+        }else{
+             $claveGs = $input['descripcion_gs'];
+        }
+        
         $modelo = $input['anio'];
         $poliza = $input['poliza'];
         // dd($poliza,$request->all(),$claveGs, $modelo);
