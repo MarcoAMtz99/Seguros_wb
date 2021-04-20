@@ -166,7 +166,7 @@
                                                                 1er pago:
                                                                 <span>{{cobertura.PrimaTotal}} </span> 
                                                               </div>
-                                                                <div class="text-center" v-if="cobertura[1]">
+                                                                <div class="text-center" v-if="cobertura['@attributes']['NoRecibo'] ==2 ">
                                                                 subsecuente x 1:
                                                                 <span>{{cobertura.PrimaTotal}} </span> 
                                                               </div>

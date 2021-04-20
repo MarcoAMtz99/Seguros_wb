@@ -52879,7 +52879,9 @@ var render = function() {
                                                           )
                                                         : _vm._e(),
                                                       _vm._v(" "),
-                                                      cobertura[1]
+                                                      cobertura["@attributes"][
+                                                        "NoRecibo"
+                                                      ] == 2
                                                         ? _c(
                                                             "div",
                                                             {
