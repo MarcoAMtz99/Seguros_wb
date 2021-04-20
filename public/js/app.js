@@ -5051,6 +5051,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -52829,29 +52841,71 @@ var render = function() {
                                     _vm._v(" "),
                                     _vm.cotizacionesQualitasS.Recibos
                                       ? _c("div", [
-                                          _c("div", { staticClass: "border" }, [
-                                            _vm._v(
-                                              "1er pago: $" +
-                                                _vm._s(
-                                                  _vm._f("int")(
-                                                    _vm.cotizacionesQualitasS
-                                                      .Recibos.PrimaTotal
-                                                  )
-                                                )
-                                            )
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("div", { staticClass: "border" }, [
-                                            _vm._v(
-                                              "1er pago: $" +
-                                                _vm._s(
-                                                  _vm._f("int")(
-                                                    _vm.cotizacionesQualitasS
-                                                      .Recibos.PrimaTotal
-                                                  )
-                                                )
-                                            )
-                                          ])
+                                          _vm.cotizacionesQualitasS[
+                                            "Recibos"
+                                          ][0]
+                                            ? _c(
+                                                "div",
+                                                { staticClass: "text-center" },
+                                                _vm._l(
+                                                  _vm.cotizacionesQualitas[
+                                                    "Recibos"
+                                                  ],
+                                                  function(cobertura, index) {
+                                                    return _c("div", [
+                                                      _vm.cotizacionesQualitasS[
+                                                        "Recibos"
+                                                      ][0]
+                                                        ? _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "text-center"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                                                1er pago:\n                                                                "
+                                                              ),
+                                                              _c("span", [
+                                                                _vm._v(
+                                                                  _vm._s(
+                                                                    cobertura.PrimaTotal
+                                                                  ) + " "
+                                                                )
+                                                              ])
+                                                            ]
+                                                          )
+                                                        : _vm._e(),
+                                                      _vm._v(" "),
+                                                      _vm.cotizacionesQualitasS[
+                                                        "Recibos"
+                                                      ][1]
+                                                        ? _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "text-center"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "\n                                                                Subsecuente x 1:\n                                                                "
+                                                              ),
+                                                              _c("span", [
+                                                                _vm._v(
+                                                                  _vm._s(
+                                                                    cobertura.PrimaTotal
+                                                                  ) + " "
+                                                                )
+                                                              ])
+                                                            ]
+                                                          )
+                                                        : _vm._e()
+                                                    ])
+                                                  }
+                                                ),
+                                                0
+                                              )
+                                            : _vm._e()
                                         ])
                                       : _vm._e(),
                                     _vm._v(" "),

@@ -158,8 +158,20 @@
                                                         <div class="border">Semestral: ${{cotizacionesQualitasS.Primas.PrimaTotal | int }}</div>
                                                     </div>
                                                     <div v-if="cotizacionesQualitasS.Recibos">
-                                                        <div class="border">1er pago: ${{cotizacionesQualitasS.Recibos.PrimaTotal | int }}</div>
-                                                         <div class="border">1er pago: ${{cotizacionesQualitasS.Recibos.PrimaTotal | int }}</div>
+                                                        <!-- <div class="border">1er pago: ${{cotizacionesQualitasS.Recibos.PrimaTotal | int }}</div> -->
+                                                        <div class="text-center" v-if="cotizacionesQualitasS['Recibos'][0]">
+                                                        <div v-for="(cobertura,index) in cotizacionesQualitas['Recibos']" >
+                                                              <!--   v-if="cobertura.tipo == 'Daños Materiales'" -->
+                                                              <div class="text-center" v-if="cotizacionesQualitasS['Recibos'][0] ">
+                                                                1er pago:
+                                                                <span>{{cobertura.PrimaTotal}} </span> 
+                                                              </div>
+                                                               <div class="text-center" v-if="cotizacionesQualitasS['Recibos'][1] ">
+                                                                Subsecuente x 1:
+                                                                <span>{{cobertura.PrimaTotal}} </span> 
+                                                              </div>
+                                                              </div>
+                                                    </div>
                                                     </div>
                                                      <div v-if="cotizacionesQualitasT.Primas">
                                                         <div class="border">Trimestral: ${{cotizacionesQualitasT.Primas.PrimaTotal | int }}</div>
