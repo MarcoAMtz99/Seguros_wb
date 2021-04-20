@@ -1456,7 +1456,7 @@ XML;
 	public function getQualitas($xml){
 		$client = $this->clientCotiza->obtenerNuevaEmision(array('xmlEmision'=>$xml));
 		$xmlR = simplexml_load_string($client->obtenerNuevaEmisionResult);
-		dd($xmlR);
+		// dd($xmlR);
 		$response = json_decode(json_encode($xmlR), true);
 		
 
