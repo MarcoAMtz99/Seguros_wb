@@ -52871,7 +52871,7 @@ var render = function() {
                                                               _c("span", [
                                                                 _vm._v(
                                                                   _vm._s(
-                                                                    cobertura
+                                                                    cobertura.PrimaTotal
                                                                   ) + " "
                                                                 )
                                                               ])
@@ -52893,7 +52893,7 @@ var render = function() {
                                                               _c("span", [
                                                                 _vm._v(
                                                                   _vm._s(
-                                                                    cobertura
+                                                                    cobertura.PrimaTotal
                                                                   ) + " "
                                                                 )
                                                               ])
