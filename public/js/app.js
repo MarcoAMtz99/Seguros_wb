@@ -52690,7 +52690,7 @@ var render = function() {
                                       ? _c("div", { staticStyle: {} }, [
                                           _c("div", { staticClass: "border" }, [
                                             _vm._v(
-                                              "Contado:Unico pago  $" +
+                                              "Anual:Unico pago  $" +
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesANA[0][

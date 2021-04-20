@@ -131,7 +131,7 @@
                                                 </td>
                                                 <td class="text-center" v-if="cliente.ana">
                                                     <div v-if="cotizacionesANA.length" style="padding">
-                                                        <div class="border">Contado:Unico pago  ${{cotizacionesANA[0]['CONTADO']['prima']['primatotal'] | int }}</div>
+                                                        <div class="border">Anual:Unico pago  ${{cotizacionesANA[0]['CONTADO']['prima']['primatotal'] | int }}</div>
                                                         
                                                           <!-- SEMESTRAL -->
                                                         <div class="border">Semestral: <!-- ${{cotizacionesANA[2]['SEMESTRAL']['prima']['primatotal'] | int }} --></div>
