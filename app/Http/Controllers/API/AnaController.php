@@ -533,6 +533,7 @@ XML;
                         if ($pago->descripcion == "CONTADO") {
                             array_push($recibos,$recibo);
                         } else {
+                            dd($recibo);
                             if($recibo["@attributes"] != undefined){
                                 array_push($recibos,$recibo["@attributes"]);
                             } 
