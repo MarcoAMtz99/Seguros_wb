@@ -534,7 +534,7 @@ XML;
                             array_push($recibos,$recibo);
                         } else {
                             // dd($recibo);
-                            if($recibo["@attributes"]){
+                            if(isset($recibo["@attributes"])){
                               array_push($recibos,$recibo["@attributes"]);
                             } else{
                                 
