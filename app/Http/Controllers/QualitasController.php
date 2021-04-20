@@ -1438,8 +1438,8 @@ XML;
 	   //    $digito = 10-$et5;
 	   //  }
 	   //  dd($digito);
-		// $cotizacion = $this->getQualitas($xml);
-		// $cotizacionS = $this->getQualitas($xmlS);
+		$cotizacion = $this->getQualitas($xml);
+		$cotizacionS = $this->getQualitas($xmlS);
 		$cotizacionM = $this->getQualitas($xmlM);
 		// dd($xml,$cotizacion);
 		return response()->json(['Qualitas'=>$cotizacion,'QualitasS'=>$cotizacionS,'QualitasM'=>$cotizacionM],200);
@@ -1456,7 +1456,7 @@ XML;
 	public function getQualitas($xml){
 		$client = $this->clientCotiza->obtenerNuevaEmision(array('xmlEmision'=>$xml));
 		$xmlR = simplexml_load_string($client->obtenerNuevaEmisionResult);
-		dd($xmlR);
+		// dd($xmlR);
 		$response = json_decode(json_encode($xmlR), true);
 		
 
