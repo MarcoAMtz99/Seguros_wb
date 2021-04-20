@@ -1439,7 +1439,7 @@ XML;
 	   //  }
 	   //  dd($digito);
 		// $cotizacion = $this->getQualitas($xml);
-		$cotizacionS = $this->getQualitas($xmlS);
+		// $cotizacionS = $this->getQualitas($xmlS);
 		$cotizacionM = $this->getQualitas($xmlM);
 		// dd($xml,$cotizacion);
 		return response()->json(['Qualitas'=>$cotizacion,'QualitasS'=>$cotizacionS,'QualitasM'=>$cotizacionM],200);
