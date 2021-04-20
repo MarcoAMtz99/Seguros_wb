@@ -135,7 +135,7 @@
                                                         
                                                           <!-- SEMESTRAL -->
                                                         <div class="border">Semestral: ${{cotizacionesANA[2]['SEMESTRAL']['prima']['primatotal'] | int }}</div>
-                                                         <div class="border">Unico Pago: ${{cotizacionesANA[2]['SEMESTRAL']['recibos'][0]['primatotal'] | int }}</div>
+                                                         <div class="border">1er Pago: ${{cotizacionesANA[2]['SEMESTRAL']['recibos'][0]['primatotal'] | int }}</div>
                                                           <div class="border">Subsecuente x 1: ${{cotizacionesANA[2]['SEMESTRAL']['recibos'][1]['primatotal'] | int }}</div>
                                                           <!-- TRMIESTRAL -->
                                                         <div class="border">Trimestral: ${{cotizacionesANA[3]['TRIMESTRAL']['prima']['primatotal'] | int }}</div>
@@ -143,7 +143,7 @@
                                                           <div class="border">Subsecuente x 2: ${{cotizacionesANA[3]['TRIMESTRAL']['recibos'][1]['primatotal'] | int }}</div>
                                                           <!-- MENSUAL -->
                                                         <div class="border">Mensual: ${{cotizacionesANA[1]['MENSUAL']['prima']['primatotal'] | int }}</div>
-                                                         <div class="border">Unico Pago: ${{cotizacionesANA[1]['MENSUAL']['recibos'][0]['primatotal'] | int }}</div>
+                                                         <div class="border">1er Pago: ${{cotizacionesANA[1]['MENSUAL']['recibos'][0]['primatotal'] | int }}</div>
                                                           <div class="border">Subsecuente x 11: ${{cotizacionesANA[1]['MENSUAL']['recibos'][1]['primatotal'] | int }}</div>
                                                     </div>
                                                     <div v-else>
@@ -156,6 +156,10 @@
                                                     </div>
                                                     <div v-if="cotizacionesQualitasS.Primas">
                                                         <div class="border">Semestral: ${{cotizacionesQualitasS.Primas.PrimaTotal | int }}</div>
+                                                    </div>
+                                                    <div v-if="cotizacionesQualitasS.Recibos">
+                                                        <div class="border">1er pago: ${{cotizacionesQualitasS.Recibos.PrimaTotal | int }}</div>
+                                                         <div class="border">1er pago: ${{cotizacionesQualitasS.Recibos.PrimaTotal | int }}</div>
                                                     </div>
                                                      <div v-if="cotizacionesQualitasT.Primas">
                                                         <div class="border">Trimestral: ${{cotizacionesQualitasT.Primas.PrimaTotal | int }}</div>

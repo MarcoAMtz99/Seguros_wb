@@ -5047,6 +5047,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -52667,7 +52671,7 @@ var render = function() {
                                           _vm._v(" "),
                                           _c("div", { staticClass: "border" }, [
                                             _vm._v(
-                                              "Unico Pago: $" +
+                                              "1er Pago: $" +
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesANA[2][
@@ -52753,7 +52757,7 @@ var render = function() {
                                           _vm._v(" "),
                                           _c("div", { staticClass: "border" }, [
                                             _vm._v(
-                                              "Unico Pago: $" +
+                                              "1er Pago: $" +
                                                 _vm._s(
                                                   _vm._f("int")(
                                                     _vm.cotizacionesANA[1][
@@ -52816,6 +52820,34 @@ var render = function() {
                                                   _vm._f("int")(
                                                     _vm.cotizacionesQualitasS
                                                       .Primas.PrimaTotal
+                                                  )
+                                                )
+                                            )
+                                          ])
+                                        ])
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _vm.cotizacionesQualitasS.Recibos
+                                      ? _c("div", [
+                                          _c("div", { staticClass: "border" }, [
+                                            _vm._v(
+                                              "1er pago: $" +
+                                                _vm._s(
+                                                  _vm._f("int")(
+                                                    _vm.cotizacionesQualitasS
+                                                      .Recibos.PrimaTotal
+                                                  )
+                                                )
+                                            )
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("div", { staticClass: "border" }, [
+                                            _vm._v(
+                                              "1er pago: $" +
+                                                _vm._s(
+                                                  _vm._f("int")(
+                                                    _vm.cotizacionesQualitasS
+                                                      .Recibos.PrimaTotal
                                                   )
                                                 )
                                             )
