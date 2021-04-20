@@ -1588,6 +1588,7 @@ XML;
 		  		'Nombre'=>"Qualitas",
 		  		'NoCotizacion'=>$response['Movimiento']['@attributes']['NoCotizacion'],
 				'Primas'=>$response['Movimiento']['Primas'],
+				'Recibos'=>$response['Movimiento']['Recibos'],
 				'Coberturas'=>$coberturas
 		  	];
 		  	return $cobertura;
