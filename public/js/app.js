@@ -52857,7 +52857,7 @@ var render = function() {
                                                   ],
                                                   function(cobertura, index) {
                                                     return _c("div", [
-                                                      cobertura.PrimaTotal
+                                                      cobertura
                                                         ? _c(
                                                             "div",
                                                             {
