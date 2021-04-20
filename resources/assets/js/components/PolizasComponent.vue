@@ -164,12 +164,12 @@
                                                               <!--   v-if="cobertura.tipo == 'Daños Materiales'" -->
                                                               <div class="text-center" v-if="cotizacionesQualitasS['Recibos'][0] ">
                                                                 1er pago:
-                                                                <span>{{cobertura.PrimaTotal}} </span> 
+                                                                <span>{{cobertura}} </span> 
                                                               </div>
-                                                               <div class="text-center" v-if="cotizacionesQualitasS['Recibos'][1] ">
+                                                              <!--  <div class="text-center" v-if="cotizacionesQualitasS['Recibos'][1] ">
                                                                 Subsecuente x 1:
                                                                 <span>{{cobertura.PrimaTotal}} </span> 
-                                                              </div>
+                                                              </div> -->
                                                               </div>
                                                     </div>
                                                     </div>

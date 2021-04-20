@@ -52869,31 +52869,7 @@ var render = function() {
                                                               _c("span", [
                                                                 _vm._v(
                                                                   _vm._s(
-                                                                    cobertura.PrimaTotal
-                                                                  ) + " "
-                                                                )
-                                                              ])
-                                                            ]
-                                                          )
-                                                        : _vm._e(),
-                                                      _vm._v(" "),
-                                                      _vm.cotizacionesQualitasS[
-                                                        "Recibos"
-                                                      ][1]
-                                                        ? _c(
-                                                            "div",
-                                                            {
-                                                              staticClass:
-                                                                "text-center"
-                                                            },
-                                                            [
-                                                              _vm._v(
-                                                                "\n                                                                Subsecuente x 1:\n                                                                "
-                                                              ),
-                                                              _c("span", [
-                                                                _vm._v(
-                                                                  _vm._s(
-                                                                    cobertura.PrimaTotal
+                                                                    cobertura
                                                                   ) + " "
                                                                 )
                                                               ])
