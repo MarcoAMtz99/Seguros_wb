@@ -558,7 +558,7 @@ XML;
                     dd($fault);
                 }
             }
-            dd($coberturas,$respuestas);
+            // dd($coberturas,$respuestas);
             return response()->json(['ANASeguros'=>$respuestas],201);
         }
        
