@@ -519,11 +519,11 @@ XML;
                 try{
                     $client = new SoapClient($this->urlPHP,$this->params);
                     // $transaccionXML = ;
-                    dd($xml);
+                    // dd($xml);
                     $respText=$client->TransaccionText(["XML"=>$xml,"Tipo"=>"Cotizacion","Usuario"=>"14275","Clave"=>"kdEDyC9F"]);
                     // TODO
                     $arrayResp = json_decode(json_encode(simplexml_load_string($respText->TransaccionTextResult)),true);
-                        // dd($xml);
+                        dd($arrayResp['transaccion']);
                     $coberturas=[];
                     foreach ($arrayResp['transaccion']['vehiculo']['cobertura'] as $cobertura) {
                         // dd($cobertura);
