@@ -523,7 +523,7 @@ XML;
                     $respText=$client->TransaccionText(["XML"=>$xml,"Tipo"=>"Cotizacion","Usuario"=>"14275","Clave"=>"kdEDyC9F"]);
                     // TODO
                     $arrayResp = json_decode(json_encode(simplexml_load_string($respText->TransaccionTextResult)),true);
-                        dd($arrayResp);
+                        dd($xml);
                     $coberturas=[];
                     foreach ($arrayResp['transaccion']['vehiculo']['cobertura'] as $cobertura) {
                         // dd($cobertura);
