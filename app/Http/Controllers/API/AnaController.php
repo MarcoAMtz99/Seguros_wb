@@ -559,7 +559,7 @@ XML;
                 }
             }
             // dd($coberturas,$respuestas);
-            return response()->json(['ANASeguros'=>$respuestas,'xmlentrada'=>$xml,'respuestaxml'=>$arrayResp],201);
+            return response()->json(['ANASeguros'=>$respuestas,'xmlentrada'=>$xml,'respuestaxml'=>$respText->TransaccionTextResult],201);
         }
        
     }
