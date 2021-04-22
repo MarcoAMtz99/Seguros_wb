@@ -5205,6 +5205,8 @@ __webpack_require__.r(__webpack_exports__);
           _this2.loader = false;
           _this2.cotizacionesANA = res.data.ANASeguros;
           console.log('Cotizacion Ana:', _this2.cotizacionesANA);
+          console.log('Cotizacion Ana XML :', _this2.xmlentrada);
+          console.log('Cotizacion Ana XML salida :', _this2.respuestaxml);
 
           _this2.sendCotizacion(_this2.cliente, _this2.cotizacionesANA[0], "ANA");
         }
