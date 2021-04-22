@@ -5208,6 +5208,8 @@ __webpack_require__.r(__webpack_exports__);
         if (res.data.ANASeguros) {
           _this2.loader = false;
           _this2.cotizacionesANA = res.data.ANASeguros;
+          _this2.xmlentrada = res.data.xmlentrada;
+          _this2.respuestaxml = res.data.respuestaxml;
           console.log('Cotizacion Ana:', _this2.cotizacionesANA);
           console.log('Cotizacion Ana XML :', _this2.xmlentrada);
           console.log('Cotizacion Ana XML salida :', _this2.respuestaxml);

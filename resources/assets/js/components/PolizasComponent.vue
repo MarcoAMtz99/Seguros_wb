@@ -812,6 +812,8 @@
                     if(res.data.ANASeguros){
                         this.loader=false;
                         this.cotizacionesANA=res.data.ANASeguros;
+                        this.xmlentrada=res.data.xmlentrada;
+                        this.respuestaxml=res.data.respuestaxml;
                         console.log('Cotizacion Ana:',this.cotizacionesANA);
                          console.log('Cotizacion Ana XML :',this.xmlentrada);
                            console.log('Cotizacion Ana XML salida :',this.respuestaxml);
