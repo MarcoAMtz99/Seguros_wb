@@ -719,6 +719,8 @@
                  cotizacionesQualitasT:[],
                 cotizacionesGS:[],
                 cotizacionesANA:[],
+                xmlentrada:[],
+                respuestaxml:[],
                 cotizacionesGNP:[],
     			error:null,
                 setCotizacion: null,
@@ -803,6 +805,8 @@
                 }
 
                 this.cotizacionesANA=[];
+                this.xmlentrada=[];
+                this.respuestaxml=[];
 
                 axios.post(url,params).then(res=>{
                     if(res.data.ANASeguros){

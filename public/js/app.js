@@ -5112,6 +5112,8 @@ __webpack_require__.r(__webpack_exports__);
       cotizacionesQualitasT: [],
       cotizacionesGS: [],
       cotizacionesANA: [],
+      xmlentrada: [],
+      respuestaxml: [],
       cotizacionesGNP: [],
       error: null,
       setCotizacion: null,
@@ -5200,6 +5202,8 @@ __webpack_require__.r(__webpack_exports__);
         poliza: poliza
       };
       this.cotizacionesANA = [];
+      this.xmlentrada = [];
+      this.respuestaxml = [];
       axios.post(url, params).then(function (res) {
         if (res.data.ANASeguros) {
           _this2.loader = false;
