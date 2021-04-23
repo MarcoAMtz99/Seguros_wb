@@ -52730,7 +52730,7 @@ var render = function() {
                                           _vm._v(" "),
                                           _vm.cotizacionesANA[2]["SEMESTRAL"][
                                             "recibos"
-                                          ][0]["primatotal"] != undefined
+                                          ][0] != undefined
                                             ? _c("div", [
                                                 _c(
                                                   "div",
@@ -52782,7 +52782,7 @@ var render = function() {
                                           _vm._v(" "),
                                           _vm.cotizacionesANA[3]["TRIMESTRAL"][
                                             "recibos"
-                                          ][0]["primatotal"] != undefined
+                                          ][0] != undefined
                                             ? _c("div", [
                                                 _c(
                                                   "div",
@@ -52834,7 +52834,7 @@ var render = function() {
                                           _vm._v(" "),
                                           _vm.cotizacionesANA[1]["MENSUAL"][
                                             "recibos"
-                                          ][0]["primatotal"] != undefined
+                                          ][0] != undefined
                                             ? _c("div", [
                                                 _c(
                                                   "div",
