@@ -135,25 +135,25 @@
                                                         <div class="border">Anual:Unico pago  ${{cotizacionesANA[0]['CONTADO']['prima']['primatotal'] | int }}</div>
                                                         </div>
                                                           <!-- SEMESTRAL -->
-                                                          <div v-if="cotizacionesANA[2]['SEMESTRAL']['recibos'][0] != undefined">
+                                                          <div v-if="cotizacionesANA[2]['SEMESTRAL']['recibos'][0] !== undefined">
                                                               
                                                          
                                                         <div class="border">Semestral: <!-- ${{cotizacionesANA[2]['SEMESTRAL']['prima']['primatotal'] | int }} --></div>
                                                          <div class="border">1er Pago: ${{cotizacionesANA[2]['SEMESTRAL']['recibos'][0]['primatotal'] | int }}</div>
-                                                          <div class="border">Subsecuente x 1: ${{cotizacionesANA[2]['SEMESTRAL']['recibos'][1]['primatotal'] | int }}</div>
+                                                          <div class="border">Subsecuente x 1: <!-- ${{cotizacionesANA[2]['SEMESTRAL']['recibos'][1]['primatotal'] | int }} --></div>
                                                            </div>
                                                           <!-- TRMIESTRAL -->
-                                                        <div v-if="cotizacionesANA[3]['TRIMESTRAL']['recibos'][0] !=undefined">
+                                                        <div v-if="cotizacionesANA[3]['TRIMESTRAL']['recibos'][0] !==undefined">
                                                         <div class="border">Trimestral: <!-- ${{cotizacionesANA[3]['TRIMESTRAL']['prima']['primatotal'] | int }} --></div>
                                                         <div class="border">1er Pago: ${{cotizacionesANA[3]['TRIMESTRAL']['recibos'][0]['primatotal'] | int }}</div>
-                                                          <div class="border">Subsecuente x 2: ${{cotizacionesANA[3]['TRIMESTRAL']['recibos'][1]['primatotal'] | int }}</div>
+                                                          <div class="border">Subsecuente x 2: <!-- ${{cotizacionesANA[3]['TRIMESTRAL']['recibos'][1]['primatotal'] | int }} --></div>
 
                                                           </div>
-                                                         <div v-if="cotizacionesANA[1]['MENSUAL']['recibos'][0] != undefined">
+                                                         <div v-if="cotizacionesANA[1]['MENSUAL']['recibos'][0] !== undefined">
                                                           <!-- MENSUAL -->
                                                         <div class="border">Mensual: <!-- ${{cotizacionesANA[1]['MENSUAL']['prima']['primatotal'] | int }} --></div>
                                                          <div class="border">1er Pago: ${{cotizacionesANA[1]['MENSUAL']['recibos'][0]['primatotal'] | int }}</div>
-                                                          <div class="border">Subsecuente x 11: ${{cotizacionesANA[1]['MENSUAL']['recibos'][1]['primatotal'] | int }}</div>
+                                                          <div class="border">Subsecuente x 11: <!-- ${{cotizacionesANA[1]['MENSUAL']['recibos'][1]['primatotal'] | int }} --></div>
 
 
                                                         </div>
