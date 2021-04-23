@@ -5096,6 +5096,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -52696,120 +52709,180 @@ var render = function() {
                                 ? _c("td", { staticClass: "text-center" }, [
                                     _vm.cotizacionesANA.length
                                       ? _c("div", { staticStyle: {} }, [
-                                          _c("div", { staticClass: "border" }, [
-                                            _vm._v(
-                                              "Anual:Unico pago  $" +
-                                                _vm._s(
-                                                  _vm._f("int")(
-                                                    _vm.cotizacionesANA[0][
-                                                      "CONTADO"
-                                                    ]["prima"]["primatotal"]
-                                                  )
+                                          _c("div", [
+                                            _c(
+                                              "div",
+                                              { staticClass: "border" },
+                                              [
+                                                _vm._v(
+                                                  "Anual:Unico pago  $" +
+                                                    _vm._s(
+                                                      _vm._f("int")(
+                                                        _vm.cotizacionesANA[0][
+                                                          "CONTADO"
+                                                        ]["prima"]["primatotal"]
+                                                      )
+                                                    )
                                                 )
+                                              ]
                                             )
                                           ]),
                                           _vm._v(" "),
-                                          _c("div", { staticClass: "border" }, [
-                                            _vm._v("Semestral: ")
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("div", { staticClass: "border" }, [
-                                            _vm._v(
-                                              "1er Pago: $" +
-                                                _vm._s(
-                                                  _vm._f("int")(
-                                                    _vm.cotizacionesANA[2][
-                                                      "SEMESTRAL"
-                                                    ]["recibos"][0][
-                                                      "primatotal"
-                                                    ]
-                                                  )
+                                          _vm.cotizacionesANA[2]["SEMESTRAL"][
+                                            "recibos"
+                                          ][0]["primatotal"] != undefined
+                                            ? _c("div", [
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "border" },
+                                                  [_vm._v("Semestral: ")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "border" },
+                                                  [
+                                                    _vm._v(
+                                                      "1er Pago: $" +
+                                                        _vm._s(
+                                                          _vm._f("int")(
+                                                            _vm
+                                                              .cotizacionesANA[2][
+                                                              "SEMESTRAL"
+                                                            ]["recibos"][0][
+                                                              "primatotal"
+                                                            ]
+                                                          )
+                                                        )
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "border" },
+                                                  [
+                                                    _vm._v(
+                                                      "Subsecuente x 1: $" +
+                                                        _vm._s(
+                                                          _vm._f("int")(
+                                                            _vm
+                                                              .cotizacionesANA[2][
+                                                              "SEMESTRAL"
+                                                            ]["recibos"][1][
+                                                              "primatotal"
+                                                            ]
+                                                          )
+                                                        )
+                                                    )
+                                                  ]
                                                 )
-                                            )
-                                          ]),
+                                              ])
+                                            : _vm._e(),
                                           _vm._v(" "),
-                                          _c("div", { staticClass: "border" }, [
-                                            _vm._v(
-                                              "Subsecuente x 1: $" +
-                                                _vm._s(
-                                                  _vm._f("int")(
-                                                    _vm.cotizacionesANA[2][
-                                                      "SEMESTRAL"
-                                                    ]["recibos"][1][
-                                                      "primatotal"
-                                                    ]
-                                                  )
+                                          _vm.cotizacionesANA[3]["TRIMESTRAL"][
+                                            "recibos"
+                                          ][0]["primatotal"] != undefined
+                                            ? _c("div", [
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "border" },
+                                                  [_vm._v("Trimestral: ")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "border" },
+                                                  [
+                                                    _vm._v(
+                                                      "1er Pago: $" +
+                                                        _vm._s(
+                                                          _vm._f("int")(
+                                                            _vm
+                                                              .cotizacionesANA[3][
+                                                              "TRIMESTRAL"
+                                                            ]["recibos"][0][
+                                                              "primatotal"
+                                                            ]
+                                                          )
+                                                        )
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "border" },
+                                                  [
+                                                    _vm._v(
+                                                      "Subsecuente x 2: $" +
+                                                        _vm._s(
+                                                          _vm._f("int")(
+                                                            _vm
+                                                              .cotizacionesANA[3][
+                                                              "TRIMESTRAL"
+                                                            ]["recibos"][1][
+                                                              "primatotal"
+                                                            ]
+                                                          )
+                                                        )
+                                                    )
+                                                  ]
                                                 )
-                                            )
-                                          ]),
+                                              ])
+                                            : _vm._e(),
                                           _vm._v(" "),
-                                          _c("div", { staticClass: "border" }, [
-                                            _vm._v("Trimestral: ")
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("div", { staticClass: "border" }, [
-                                            _vm._v(
-                                              "1er Pago: $" +
-                                                _vm._s(
-                                                  _vm._f("int")(
-                                                    _vm.cotizacionesANA[3][
-                                                      "TRIMESTRAL"
-                                                    ]["recibos"][0][
-                                                      "primatotal"
-                                                    ]
-                                                  )
+                                          _vm.cotizacionesANA[1]["MENSUAL"][
+                                            "recibos"
+                                          ][0]["primatotal"] != undefined
+                                            ? _c("div", [
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "border" },
+                                                  [_vm._v("Mensual: ")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "border" },
+                                                  [
+                                                    _vm._v(
+                                                      "1er Pago: $" +
+                                                        _vm._s(
+                                                          _vm._f("int")(
+                                                            _vm
+                                                              .cotizacionesANA[1][
+                                                              "MENSUAL"
+                                                            ]["recibos"][0][
+                                                              "primatotal"
+                                                            ]
+                                                          )
+                                                        )
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "border" },
+                                                  [
+                                                    _vm._v(
+                                                      "Subsecuente x 11: $" +
+                                                        _vm._s(
+                                                          _vm._f("int")(
+                                                            _vm
+                                                              .cotizacionesANA[1][
+                                                              "MENSUAL"
+                                                            ]["recibos"][1][
+                                                              "primatotal"
+                                                            ]
+                                                          )
+                                                        )
+                                                    )
+                                                  ]
                                                 )
-                                            )
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("div", { staticClass: "border" }, [
-                                            _vm._v(
-                                              "Subsecuente x 2: $" +
-                                                _vm._s(
-                                                  _vm._f("int")(
-                                                    _vm.cotizacionesANA[3][
-                                                      "TRIMESTRAL"
-                                                    ]["recibos"][1][
-                                                      "primatotal"
-                                                    ]
-                                                  )
-                                                )
-                                            )
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("div", { staticClass: "border" }, [
-                                            _vm._v("Mensual: ")
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("div", { staticClass: "border" }, [
-                                            _vm._v(
-                                              "1er Pago: $" +
-                                                _vm._s(
-                                                  _vm._f("int")(
-                                                    _vm.cotizacionesANA[1][
-                                                      "MENSUAL"
-                                                    ]["recibos"][0][
-                                                      "primatotal"
-                                                    ]
-                                                  )
-                                                )
-                                            )
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("div", { staticClass: "border" }, [
-                                            _vm._v(
-                                              "Subsecuente x 11: $" +
-                                                _vm._s(
-                                                  _vm._f("int")(
-                                                    _vm.cotizacionesANA[1][
-                                                      "MENSUAL"
-                                                    ]["recibos"][1][
-                                                      "primatotal"
-                                                    ]
-                                                  )
-                                                )
-                                            )
-                                          ])
+                                              ])
+                                            : _vm._e()
                                         ])
                                       : _c("div", [
                                           _vm._v(
