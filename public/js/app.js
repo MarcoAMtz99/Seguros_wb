@@ -5327,6 +5327,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log('RESULTADO GENERAL DE SEGUROS', res);
         _this5.descripciones_gs = res.data.versiones_gs;
         console.log('Descripcion General de seguros:', _this5.descripciones_gs);
+        console.log('JSON GENERAL DE SEGUROS', JSON.parse(_this5.descripciones_gs));
       })["catch"](function (err) {
         console.log('ERROR GENERAL DE SEGUROS', err);
       });
