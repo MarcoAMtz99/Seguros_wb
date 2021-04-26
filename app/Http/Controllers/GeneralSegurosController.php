@@ -144,6 +144,7 @@ class GeneralSegurosController extends Controller
         try {
             $client = $this->getClient($this->urlCatAuto);
             $res = $client->wsListarVersiones(['arg0' => ['idSubmarca' => $submarca_id, 'modelo' => $modelo]]);
+            dd($res);
             if ($res->return->exito) {
                 $porc_piv = 0;
                 foreach ($res->return->versiones as $version_gs) {
