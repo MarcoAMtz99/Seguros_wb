@@ -280,7 +280,7 @@ class GeneralSegurosController extends Controller
     public function versiones($marca, $submarca, $modelo)
     {
         $marca_gs = $this->searchMarca($marca);
-        dd($marca_gs);
+        // dd($marca_gs);
         if ($marca_gs) {
             $submarca_gs = $this->searchSubMarca($marca_gs, $submarca);
             if ($submarca_gs) {
@@ -309,7 +309,7 @@ class GeneralSegurosController extends Controller
     {
         $client = $this->getClient($this->urlCatAuto);
         $res = $client->wsListarMarcas(['arg0' => ["token" => $this->token]]);
-        dd($res);
+        // dd($res);
         if ($res->return->exito) {
             if ($marca ="CHEVROLET") {
                 
