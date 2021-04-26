@@ -5109,6 +5109,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -52730,7 +52732,10 @@ var render = function() {
                                           _vm._v(" "),
                                           _vm.cotizacionesANA[2]["SEMESTRAL"][
                                             "recibos"
-                                          ][0] !== undefined
+                                          ][0] !== undefined &&
+                                          _vm.cotizacionesANA[2]["SEMESTRAL"][
+                                            "recibos"
+                                          ][0] !== ""
                                             ? _c("div", [
                                                 _c(
                                                   "div",
@@ -52761,14 +52766,31 @@ var render = function() {
                                                 _c(
                                                   "div",
                                                   { staticClass: "border" },
-                                                  [_vm._v("Subsecuente x 1: ")]
+                                                  [
+                                                    _vm._v(
+                                                      "Subsecuente x 1: $" +
+                                                        _vm._s(
+                                                          _vm._f("int")(
+                                                            _vm
+                                                              .cotizacionesANA[2][
+                                                              "SEMESTRAL"
+                                                            ]["recibos"][1][
+                                                              "primatotal"
+                                                            ]
+                                                          )
+                                                        )
+                                                    )
+                                                  ]
                                                 )
                                               ])
                                             : _vm._e(),
                                           _vm._v(" "),
                                           _vm.cotizacionesANA[3]["TRIMESTRAL"][
                                             "recibos"
-                                          ][0] !== undefined
+                                          ][0] !== undefined &&
+                                          _vm.cotizacionesANA[3]["TRIMESTRAL"][
+                                            "recibos"
+                                          ][0] !== ""
                                             ? _c("div", [
                                                 _c(
                                                   "div",
@@ -52799,14 +52821,31 @@ var render = function() {
                                                 _c(
                                                   "div",
                                                   { staticClass: "border" },
-                                                  [_vm._v("Subsecuente x 2: ")]
+                                                  [
+                                                    _vm._v(
+                                                      "Subsecuente x 2: $" +
+                                                        _vm._s(
+                                                          _vm._f("int")(
+                                                            _vm
+                                                              .cotizacionesANA[3][
+                                                              "TRIMESTRAL"
+                                                            ]["recibos"][1][
+                                                              "primatotal"
+                                                            ]
+                                                          )
+                                                        )
+                                                    )
+                                                  ]
                                                 )
                                               ])
                                             : _vm._e(),
                                           _vm._v(" "),
                                           _vm.cotizacionesANA[1]["MENSUAL"][
                                             "recibos"
-                                          ][0] !== undefined
+                                          ][0] !== undefined &&
+                                          _vm.cotizacionesANA[1]["MENSUAL"][
+                                            "recibos"
+                                          ][0] !== ""
                                             ? _c("div", [
                                                 _c(
                                                   "div",
@@ -52837,7 +52876,21 @@ var render = function() {
                                                 _c(
                                                   "div",
                                                   { staticClass: "border" },
-                                                  [_vm._v("Subsecuente x 11: ")]
+                                                  [
+                                                    _vm._v(
+                                                      "Subsecuente x 11: $" +
+                                                        _vm._s(
+                                                          _vm._f("int")(
+                                                            _vm
+                                                              .cotizacionesANA[1][
+                                                              "MENSUAL"
+                                                            ]["recibos"][1][
+                                                              "primatotal"
+                                                            ]
+                                                          )
+                                                        )
+                                                    )
+                                                  ]
                                                 )
                                               ])
                                             : _vm._e()
