@@ -311,6 +311,10 @@ class GeneralSegurosController extends Controller
         $res = $client->wsListarMarcas(['arg0' => ["token" => $this->token]]);
         dd($res);
         if ($res->return->exito) {
+            if ($marca ="CHEVROLET") {
+                
+                $marca ="GENERAL MOTORS";
+            }
             $marcas = $res->return->marcas;
             foreach ($marcas as $marca_gs) {
                 if ($marca_gs->nombre == $marca) {
