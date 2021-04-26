@@ -144,7 +144,7 @@ class GeneralSegurosController extends Controller
         try {
             $client = $this->getClient($this->urlCatAuto);
             $res = $client->wsListarVersiones(['arg0' => ['idSubmarca' => $submarca_id, 'modelo' => $modelo]]);
-            dd($res);
+            // dd($res);
             if ($res->return->exito) {
                 $porc_piv = 0;
                 foreach ($res->return->versiones as $version_gs) {
@@ -178,7 +178,7 @@ class GeneralSegurosController extends Controller
         
         $modelo = $input['anio'];
         $poliza = $input['poliza'];
-        // dd($poliza,$request->all(),$claveGs, $modelo);
+        dd($poliza,$request->all(),$claveGs, $modelo);
         switch ($poliza) {
             case 'Amplia':
                 $poliza_gs = "CONFORT AMPLIA";
