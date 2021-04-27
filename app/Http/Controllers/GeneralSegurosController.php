@@ -280,7 +280,7 @@ class GeneralSegurosController extends Controller
     public function versiones($marca, $submarca, $modelo)
     {
         $marca_gs = $this->searchMarca($marca);
-        dd($marca_gs);
+        // dd($marca_gs);
         if ($marca_gs) {
             $submarca_gs = $this->searchSubMarca($marca_gs, $submarca);
             if ($submarca_gs) {
@@ -311,14 +311,14 @@ class GeneralSegurosController extends Controller
         $res = $client->wsListarMarcas(['arg0' => ["token" => $this->token]]);
         // dd($res);
         if ($res->return->exito) {
-            
+               if ($marca =='CHEVROLET'){
+                         $marca ='GENERAL MOTORS';}
+                     if ($marca =='DODGE'){             
+                         $marca ='CHRYSLER';}
            
             $marcas = $res->return->marcas;
             foreach ($marcas as $marca_gs) {
-                     // if ($marca =="CHEVROLET"){
-                     //     $marca ="GENERAL MOTORS";}
-                     // if ($marca =="DODGE"){             
-                     //     $marca ="CHRYSLER";}
+                  
 
                 if ($marca_gs->nombre == $marca) {
                     return $marca_gs;
