@@ -114,7 +114,7 @@ class GNPController extends Controller
 				$modelosAño = $this->BusquedaModelos('2015','SERIE301');
 				// $carroceria = $this->getCarroceria("HO", "CIVIC");
 				// $modelos    = $this->getModelos($modelo, $armadora, $carroceria);
-				dd($modelos,$modelosAño);
+				dd($modelos,json_encode($modelosAño));
 		 // </ELEMENTO>
 		 // </ELEMENTOS>  
 		 // </SOLICITUD_CATALOGO>";
