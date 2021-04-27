@@ -348,9 +348,11 @@ class GeneralSegurosController extends Controller
     public function searchModelos($submarca_gs, $modelo)
     {
         $client = $this->getClient($this->urlCatAuto);
+        $modelos=[];
         $res = $client->wsListarModelos(['arg0' => ['idSubmarca' => $submarca_gs->id]]);
-        dd($res);
+       
         if ($res->return->exito) {
+            dd($res->return->modelos);
             $modelos = $res->return->modelos;
             foreach ($modelos as $modelo_gs) {
                 if ((int) $modelo_gs == (int) $modelo) {
