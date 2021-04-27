@@ -5138,6 +5138,7 @@ __webpack_require__.r(__webpack_exports__);
       gnpImage: null,
       descripciones_ana: [],
       descripciones_gs: [],
+      json_gs: [],
       descripciones_qualitas: [],
       descripciones_gnp: [],
       descripciones_gnp2: [],
@@ -5326,8 +5327,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.get(url).then(function (res) {
         console.log('RESULTADO GENERAL DE SEGUROS', res);
         _this5.descripciones_gs = res.data.versiones_gs;
-        console.log('Descripcion General de seguros:', _this5.descripciones_gs);
-        console.log('JSON GENERAL DE SEGUROS', JSON.parse(_this5.descripciones_gs));
+        console.log('Descripcion General de seguros:', _this5.descripciones_gs); // console.log('JSON GENERAL DE SEGUROS',JSON.parse(this.descripciones_gs));
       })["catch"](function (err) {
         console.log('ERROR GENERAL DE SEGUROS', err);
       });

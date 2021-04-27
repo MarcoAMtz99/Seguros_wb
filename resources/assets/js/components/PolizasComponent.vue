@@ -745,6 +745,7 @@
                 gnpImage:null,
                 descripciones_ana:[],
                 descripciones_gs:[],
+                json_gs:[],
                 descripciones_qualitas:[],
                 descripciones_gnp:[],
                 descripciones_gnp2:[],
@@ -926,7 +927,7 @@
                     console.log('RESULTADO GENERAL DE SEGUROS',res);
                     this.descripciones_gs = res.data.versiones_gs;
                     console.log('Descripcion General de seguros:',this.descripciones_gs);
-                    console.log('JSON GENERAL DE SEGUROS',JSON.parse(this.descripciones_gs));
+                    // console.log('JSON GENERAL DE SEGUROS',JSON.parse(this.descripciones_gs));
                 }).catch(err=>{
                     console.log('ERROR GENERAL DE SEGUROS',err);
                 })
