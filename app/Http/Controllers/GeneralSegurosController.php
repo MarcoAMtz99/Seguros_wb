@@ -353,7 +353,7 @@ class GeneralSegurosController extends Controller
        
         if ($res->return->exito) {
             $modelos = $res->return->modelos;
-            // dd($res->return->modelos,count($modelos));
+            dd(count($modelos));
             foreach ($modelos as $modelo_gs) {
                 if ((int) $modelo_gs == (int) $modelo) {
                     return $modelo_gs;
