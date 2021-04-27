@@ -349,6 +349,7 @@ class GeneralSegurosController extends Controller
     {
         $client = $this->getClient($this->urlCatAuto);
         $res = $client->wsListarModelos(['arg0' => ['idSubmarca' => $submarca_gs->id]]);
+        dd($res);
         if ($res->return->exito) {
             $modelos = $res->return->modelos;
             foreach ($modelos as $modelo_gs) {
