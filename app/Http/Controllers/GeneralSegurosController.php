@@ -352,8 +352,8 @@ class GeneralSegurosController extends Controller
         $res = $client->wsListarModelos(['arg0' => ['idSubmarca' => $submarca_gs->id]]);
        
         if ($res->return->exito) {
-            dd($res->return->modelos);
             $modelos = $res->return->modelos;
+            dd($res->return->modelos,$modelos);
             foreach ($modelos as $modelo_gs) {
                 if ((int) $modelo_gs == (int) $modelo) {
                     return $modelo_gs;
