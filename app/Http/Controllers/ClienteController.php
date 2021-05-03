@@ -93,7 +93,7 @@ class ClienteController extends Controller
     {
 
         $cliente = $request->cliente;
-        dd($request,$cliente['cotizacion']);
+        // dd($request,$cliente['cotizacion']);
         $cliente = Cliente::where('cotizacion', $cliente['cotizacion'])->first();
         $cotizacion = $request->cotizacion;
         $cliente->emailCotizacion($cotizacion, $request->aseguradora);
