@@ -158,14 +158,14 @@ Los datos de tu cotizacion son los siguientes:
 	<tbody class="table-hover">
 		<tr>
 			<td class="text-center">ANUAL:{{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][0]['CONCEPTO_ECONOMICO'][10]['MONTO'] }} <br> 
-			SEMESTRAL:{{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][1]['CONCEPTO_ECONOMICO'][10]['MONTO'] }} <br> 
-			TRIMESTRAL:{{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][2]['CONCEPTO_ECONOMICO'][10]['MONTO'] }} <br> 
-			MENSUAL:{{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][3]['CONCEPTO_ECONOMICO'][10]['MONTO'] }} <br> 
+			SEMESTRAL:${{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][1]['CONCEPTO_ECONOMICO'][10]['MONTO'] }} <br> 
+			TRIMESTRAL: ${{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][2]['CONCEPTO_ECONOMICO'][10]['MONTO'] }} <br> 
+			MENSUAL:${{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][3]['CONCEPTO_ECONOMICO'][10]['MONTO'] }} <br> 
 			</td>
 			<td class="text-center">DM PERDIDA TOTAL : 5% de la suma asegurada <br>
 			DM PERDIDA PARCIAL : 5% de la suma asegurada</td>
 			<td class="text-center">10% de la Suma Asegurada</td>
-			<td class="text-center">Suma asegurada: {{$cotizacion['PAQUETES']['PAQUETE']['COBERTURAS']['COBERTURA'][4]['SUMA_ASEGURADA'] }} <br> EXTENSION DE RC : {{$cotizacion['PAQUETES']['PAQUETE']['COBERTURAS']['COBERTURA'][7]['SUMA_ASEGURADA'] }} </td>
+			<td class="text-center">Suma asegurada: <br>{{$cotizacion['PAQUETES']['PAQUETE']['COBERTURAS']['COBERTURA'][4]['SUMA_ASEGURADA'] }} <br> EXTENSION DE RC : {{$cotizacion['PAQUETES']['PAQUETE']['COBERTURAS']['COBERTURA'][7]['SUMA_ASEGURADA'] }} </td>
 			<td class="text-center"> {{$cotizacion['PAQUETES']['PAQUETE']['COBERTURAS']['COBERTURA'][6]['SUMA_ASEGURADA'] }}</td>
 			<td class="text-center"> {{$cotizacion['PAQUETES']['PAQUETE']['COBERTURAS']['COBERTURA'][5]['SUMA_ASEGURADA'] }}</td>
 			<td class="text-center"> CLUB GNP:{{$cotizacion['PAQUETES']['PAQUETE']['COBERTURAS']['COBERTURA'][8]['SUMA_ASEGURADA'] }}</td>
