@@ -91,8 +91,9 @@ class ClienteController extends Controller
 
     public function sendEmail(Request $request)
     {
-        dd($request);
+
         $cliente = $request->cliente;
+        dd($request,$cliente->cotizacion);
         $cliente = Cliente::where('cotizacion', $cliente['cotizacion'])->first();
         $cotizacion = $request->cotizacion;
         $cliente->emailCotizacion($cotizacion, $request->aseguradora);
