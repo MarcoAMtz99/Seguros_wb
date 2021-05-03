@@ -28,7 +28,7 @@
 	/*** Table Styles **/
 
 	.table-fill {
-	  background: white;
+	  background: red;
 	  border-radius:3px;
 	  border-collapse: collapse;
 	  height: 320px;
@@ -157,7 +157,11 @@ Los datos de tu cotizacion son los siguientes:
 	</thead>
 	<tbody class="table-hover">
 		<tr>
-			<td class="text-center">{{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][0]['CONCEPTO_ECONOMICO'][0]['MONTO'] }}</td>
+			<td class="text-center">ANUAL:{{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][0]['CONCEPTO_ECONOMICO'][10]['MONTO'] }} <br> 
+			SEMESTRAL:{{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][1]['CONCEPTO_ECONOMICO'][10]['MONTO'] }} <br> 
+			TRIMESTRAL:{{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][2]['CONCEPTO_ECONOMICO'][10]['MONTO'] }} <br> 
+			MENSUAL:{{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][3]['CONCEPTO_ECONOMICO'][10]['MONTO'] }} <br> 
+			</td>
 			<td class="text-center">DM PERDIDA TOTAL : 5% de la suma asegurada <br>
 			DM PERDIDA PARCIAL : 5% de la suma asegurada</td>
 			<td class="text-center">10% de la Suma Asegurada</td>
