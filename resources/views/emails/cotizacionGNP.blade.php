@@ -157,7 +157,7 @@ Los datos de tu cotizacion son los siguientes:
 	</thead>
 	<tbody class="table-hover">
 		<tr>
-			<td class="text-center">{{number_format($cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][10])}}</td>
+			<td class="text-center">{{number_format($cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'])}}</td>
 			<td class="text-center"></td>
 			<td class="text-center"></td>
 			<td class="text-center"></td>
