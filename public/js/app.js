@@ -5382,6 +5382,9 @@ __webpack_require__.r(__webpack_exports__);
       this.cotizacionesGNP = {};
       axios.post(url, params).then(function (res) {
         _this8.cotizacionesGNP = res.data.cotizacionGNP;
+
+        _this8.sendCotizacion(_this8.cliente, _this8.cotizacionesGNP, "GNP");
+
         console.log('Cotizacion GNP arreglo', _this8.cotizacionesGNP);
         _this8.loader = false;
       })["catch"](function (err) {

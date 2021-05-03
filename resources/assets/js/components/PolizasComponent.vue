@@ -961,6 +961,7 @@
                      console.log('Nuevas descripciones',this.descripciones_gnp2);
                     this.descripciones_gnp = res.data.modelosGNP.ELEMENTOS;
                     this.descripciones_gnp2 = res.data.modelosGNP2;
+
                     console.log("Hola esto es GNP RESULTADO",this.descripciones_gnp);
                 }).catch(err=>{
                      console.log("Error en GNP");
@@ -979,6 +980,7 @@
                 this.cotizacionesGNP = {};
                 axios.post(url,params).then(res=>{
                     this.cotizacionesGNP=res.data.cotizacionGNP;
+                    this.sendCotizacion(this.cliente, this.cotizacionesGNP, "GNP");
                     console.log('Cotizacion GNP arreglo',this.cotizacionesGNP);
                     this.loader=false;
                 }).catch(err=>{

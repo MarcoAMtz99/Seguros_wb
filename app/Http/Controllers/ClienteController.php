@@ -91,13 +91,23 @@ class ClienteController extends Controller
 
     public function sendEmail(Request $request)
     {
-
-        $codigo = $request->cliente;
-        // dd($cliente,$cliente['cotizacion']);
+        if ($request->aseguradora == "ANA") {
+          // dd($cliente,$cliente['cotizacion']);
         $cliente = Cliente::where('cotizacion', $codigo['cotizacion'])->first();
         $cotizacion = $request->cotizacion;
         $cliente->emailCotizacion($cotizacion, $request->aseguradora);
         dd($request->aseguradora);
+    }
+        }
+        if ($request->aseguradora == "GNP") {
+             dd($request);
+        }
+        // $codigo = $request->cliente;
+        // // dd($cliente,$cliente['cotizacion']);
+        // $cliente = Cliente::where('cotizacion', $codigo['cotizacion'])->first();
+        // $cotizacion = $request->cotizacion;
+        // $cliente->emailCotizacion($cotizacion, $request->aseguradora);
+        // dd($request->aseguradora);
     }
 
     public function search(Request $request){
