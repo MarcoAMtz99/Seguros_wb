@@ -51,8 +51,8 @@ class Cliente extends Model
 
     public function emailCotizacion($cotizacion, $aseguradora){
         $email = new CreateCotizacion($this, $cotizacion, $aseguradora);
-        dd($email,$cotizacion, $aseguradora);
-        Mail::to($this->email)->send(new CreateCotizacion($this, $cotizacion, $aseguradora));
+        // dd($email,$cotizacion, $aseguradora);
+        Mail::to($this->email)->send($email);
         //return (new CreateCotizacion($this, $cotizacion));
     }
 
