@@ -1,4 +1,12 @@
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<style>
 	body {
 	  font-family: "Roboto", helvetica, arial, sans-serif;
 	  font-size: 16px;
@@ -176,3 +184,6 @@ Los datos de tu cotizacion son los siguientes:
 
 Gracias,<br>
 {{ config('app.name') }}
+
+</body>
+</html>
