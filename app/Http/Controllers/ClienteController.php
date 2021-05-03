@@ -92,7 +92,9 @@ class ClienteController extends Controller
     public function sendEmail(Request $request)
     {
         if ($request->aseguradora == "ANA") {
+
           // dd($cliente,$cliente['cotizacion']);
+        $codigo = $request->cliente;
         $cliente = Cliente::where('cotizacion', $codigo['cotizacion'])->first();
         $cotizacion = $request->cotizacion;
         $cliente->emailCotizacion($cotizacion, $request->aseguradora);
@@ -100,7 +102,12 @@ class ClienteController extends Controller
     }
         
         if ($request->aseguradora == "GNP") {
-             dd($request);
+        $codigo = $request->cliente;
+        $cliente = Cliente::where('cotizacion', $codigo['cotizacion'])->first();
+        $cotizacion = $request->cotizacion;
+        $cliente->emailCotizacion($cotizacion, $request->aseguradora);
+        dd($request->aseguradora);
+             // dd($request);
         }
         // $codigo = $request->cliente;
         // // dd($cliente,$cliente['cotizacion']);
