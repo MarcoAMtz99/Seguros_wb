@@ -38,6 +38,9 @@ class CreateCotizacion extends Mailable
         if ($this->aseguradora == "ANA") {
             return $this->subject('Gracias por usar Autosegurodirecto')->view('emails.cotizacionAna');
         }
+        if ($this->aseguradora == "GNP") {
+            return $this->subject('Gracias por usar Autosegurodirecto')->view('emails.cotizacionGNP');
+        }
         else
             return $this->subject('Gracias por usar Autosegurodirecto')->view('emails.cotizacion');
     }
