@@ -98,7 +98,7 @@ class ClienteController extends Controller
         $cliente->emailCotizacion($cotizacion, $request->aseguradora);
         dd($request->aseguradora);
     }
-        }
+        
         if ($request->aseguradora == "GNP") {
              dd($request);
         }
