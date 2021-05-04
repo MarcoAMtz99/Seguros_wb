@@ -902,7 +902,7 @@
                 this.cotizacionesQualitasS=[];
                 this.cotizacionesQualitasM=[];
                  this.cotizacionesQualitasT=[];
-                this.loader = true;
+                // this.loader = true;
                 axios.post(url,params).then(res=>{
                     this.loader=false;
                     console.log("Descripcion qa: ",res.data);

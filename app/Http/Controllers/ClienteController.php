@@ -114,7 +114,7 @@ class ClienteController extends Controller
         $cliente = Cliente::where('cotizacion', $codigo['cotizacion'])->first();
         $cotizacion = $request->cotizacion;
         $cliente->emailCotizacion($cotizacion, $request->aseguradora);
-        dd($request->aseguradora,$request->cotizacion);
+        dd($request->aseguradora);
              // dd($request);
         }
          if ($request->aseguradora == "QA") {
@@ -122,7 +122,7 @@ class ClienteController extends Controller
         $cliente = Cliente::where('cotizacion', $codigo['cotizacion'])->first();
         $cotizacion = $request->cotizacion;
         $cliente->emailCotizacion($cotizacion, $request->aseguradora);
-        dd($request->aseguradora,$request->cotizacion);
+        dd($request->aseguradora);
              // dd($request);
         }
         // $codigo = $request->cliente;
