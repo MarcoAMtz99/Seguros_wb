@@ -902,7 +902,7 @@
                 this.cotizacionesQualitasS=[];
                 this.cotizacionesQualitasM=[];
                  this.cotizacionesQualitasT=[];
-                // this.loader = true;
+                this.loader = true;
                 axios.post(url,params).then(res=>{
                     this.loader=false;
                     console.log("Descripcion qa: ",res.data);
@@ -910,6 +910,7 @@
                      this.cotizacionesQualitasS = res.data.QualitasS;
                       this.cotizacionesQualitasM = res.data.QualitasM;
                       this.cotizacionesQualitasT = res.data.QualitasT;
+                       this.sendCotizacion(this.cliente, this.cotizacionesQualitas, "QA");
                     console.log('Cotizacion QA:', this.cotizacionesQualitas);
                     console.log('Cotizacion QAS:', this.cotizacionesQualitasS);
                     console.log('Cotizacion QAM:', this.cotizacionesQualitasM);
@@ -945,6 +946,7 @@
                     console.log(res);
                     this.loader=false;
                     this.cotizacionesGS=res.data.cotizacion;
+                     this.sendCotizacion(this.cliente, this.cotizacionesGS, "GS");
                     console.log('Cotizacion General de seguros',this.cotizacionesGS);
                 }).catch(err=>{
                     this.loader=false;

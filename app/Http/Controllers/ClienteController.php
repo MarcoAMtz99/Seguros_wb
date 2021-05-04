@@ -109,6 +109,22 @@ class ClienteController extends Controller
         dd($request->aseguradora);
              // dd($request);
         }
+         if ($request->aseguradora == "GS") {
+        $codigo = $request->cliente;
+        $cliente = Cliente::where('cotizacion', $codigo['cotizacion'])->first();
+        $cotizacion = $request->cotizacion;
+        $cliente->emailCotizacion($cotizacion, $request->aseguradora);
+        dd($request->aseguradora,$request->cotizacion);
+             // dd($request);
+        }
+         if ($request->aseguradora == "QA") {
+        $codigo = $request->cliente;
+        $cliente = Cliente::where('cotizacion', $codigo['cotizacion'])->first();
+        $cotizacion = $request->cotizacion;
+        $cliente->emailCotizacion($cotizacion, $request->aseguradora);
+        dd($request->aseguradora,$request->cotizacion);
+             // dd($request);
+        }
         // $codigo = $request->cliente;
         // // dd($cliente,$cliente['cotizacion']);
         // $cliente = Cliente::where('cotizacion', $codigo['cotizacion'])->first();
