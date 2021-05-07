@@ -157,14 +157,23 @@ Los datos de tu cotizacion con General de Seguros son los siguientes:
 	</thead>
 	<tbody class="table-hover">
 		<tr>
-			<td class="text-center">ANUAL: {{$cotizacion['paquete'][0]['formasPagoDTO'][0]['primaTotal'] }} </td>
-			<td class="text-center"></td>
-			<td class="text-center"></td>
-			<td class="text-center"></td>
-			<td class="text-center"></td>
-			<td class="text-center"></td>
-			<td class="text-center"></td>
-			<td class="text-center"></td>
+			<td class="text-center">ANUAL: {{$cotizacion['paquete'][0]['formasPagoDTO'][0]['primaTotal'] }}
+			SEMESTRAL: {{$cotizacion['paquete'][0]['formasPagoDTO'][1]['primaTotal'] }}
+			TRIMESTRAL: {{$cotizacion['paquete'][0]['formasPagoDTO'][2]['primaTotal'] }}
+			MENSUAL: {{$cotizacion['paquete'][0]['formasPagoDTO'][3]['primaTotal'] }} </td>
+			<td class="text-center">{{$cotizacion['paquete'][0]['coberturas'][0]['monto'] }} </td>
+			<td class="text-center"> {{$cotizacion['paquete'][0]['coberturas'][2]['monto'] }}</td>
+			<td class="text-center"> {{$cotizacion['paquete'][0]['coberturas'][3]['monto'] }}</td>
+			<td class="text-center"> {{$cotizacion['paquete'][0]['coberturas'][5]['monto'] }}</td>
+			<td class="text-center"> {{$cotizacion['paquete'][0]['coberturas'][6]['monto'] }}</td>
+			<td class="text-center">{{$cotizacion['paquete'][0]['coberturas'][7]['monto'] }}</td>
+			@if($cotizacion['paquete'][0]['coberturas'][8]['descripcion'] != null )
+			<td class="text-center">{{$cotizacion['paquete'][0]['coberturas'][8]['descripcion'] }} : {{$cotizacion['paquete'][0]['coberturas'][8]['monto'] }} </td>
+			@endif
+			@if($cotizacion['paquete'][0]['coberturas'][9]['descripcion'] != null )
+			<td class="text-center">{{$cotizacion['paquete'][0]['coberturas'][9]['descripcion'] }} : {{$cotizacion['paquete'][0]['coberturas'][9]['monto'] }} </td>
+			@endif
+			
 		</tr>
 	</tbody>
 </table> 
