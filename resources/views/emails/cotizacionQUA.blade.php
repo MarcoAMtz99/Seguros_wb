@@ -140,7 +140,7 @@ La cotización de tú auto {{$cliente->auto->marca->descripcion}} {{$cliente->au
 
 <a href="url('/')?"cotizacion=".$cliente->cotizacion" class="btn btn-primary">Ver cotización</a>
 
-Los datos de tu cotizacion son los siguientes:
+Los datos de tu cotizacion con QUALITAS son los siguientes:
 
 <table class="table-fill">
 	<thead>
@@ -157,14 +157,14 @@ Los datos de tu cotizacion son los siguientes:
 	</thead>
 	<tbody class="table-hover">
 		<tr>
-			<td class="text-center"></td>
-			<td class="text-center"></td>
-			<td class="text-center"></td>
-			<td class="text-center"></td>
-			<td class="text-center"></td>
-			<td class="text-center"></td>
-			<td class="text-center"></td>
-			<td class="text-center"></td>
+			<td class="text-center">ANUAL: {{$cotizacion['primas']['PrimaTotal'] }} </td>
+			<td class="text-center"> {{$cotizacion['Coberturas'][0]['Prima'] }}</td>
+			<td class="text-center"> {{$cotizacion['Coberturas'][1]['Prima'] }}</td>
+			<td class="text-center">{{$cotizacion['Coberturas'][2]['Prima'] }}</td>
+			<td class="text-center">{{$cotizacion['Coberturas'][3]['Prima'] }}</td>
+			<td class="text-center">{{$cotizacion['Coberturas'][5]['SumaAsegurada'] }}</td>
+			<td class="text-center">{{$cotizacion['Coberturas'][7]['SumaAsegurada'] }}</td>
+			<td class="text-center">{{$cotizacion['Coberturas'][4]['Tipo'] }} : {{$cotizacion['Coberturas'][4]['SumaAsegurada'] }}</td>
 		</tr>
 	</tbody>
 </table> 
