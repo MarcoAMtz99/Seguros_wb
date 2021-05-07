@@ -157,7 +157,7 @@ Los datos de tu cotizacion con QUALITAS son los siguientes:
 	</thead>
 	<tbody class="table-hover">
 		<tr>
-			<td class="text-center">ANUAL: {{$cotizacion['primas']['PrimaTotal'] }} </td>
+			<td class="text-center">ANUAL: {{$cotizacion['Primas']['PrimaTotal'] }} </td>
 			<td class="text-center"> {{$cotizacion['Coberturas'][0]['Prima'] }}</td>
 			<td class="text-center"> {{$cotizacion['Coberturas'][1]['Prima'] }}</td>
 			<td class="text-center">{{$cotizacion['Coberturas'][2]['Prima'] }}</td>
