@@ -140,7 +140,7 @@ La cotización de tú auto {{$cliente->auto->marca->descripcion}} {{$cliente->au
 
 <a href="url('/')?"cotizacion=".$cliente->cotizacion" class="btn btn-primary">Ver cotización</a>
 
-Los datos de tu cotizacion son los siguientes:
+Los datos de tu cotizacion con General de Seguros son los siguientes:
 
 <table class="table-fill">
 	<thead>
@@ -157,7 +157,7 @@ Los datos de tu cotizacion son los siguientes:
 	</thead>
 	<tbody class="table-hover">
 		<tr>
-			<td class="text-center"></td>
+			<td class="text-center">ANUAL: {{$cotizacion[paquete][0][formasPagoDTO][0][primaTotal] }} </td>
 			<td class="text-center"></td>
 			<td class="text-center"></td>
 			<td class="text-center"></td>
