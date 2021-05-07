@@ -140,7 +140,7 @@ La cotización de tú auto {{$cliente->auto->marca->descripcion}} {{$cliente->au
 
 <a href="url('/')?"cotizacion=".$cliente->cotizacion" class="btn btn-primary">Ver cotización</a>
 
-Los datos de tu cotizacion son los siguientes:
+Los datos de tu cotizacion con <strong>ANA</strong> son los siguientes:
 
 <table class="table-fill">
 	<thea>

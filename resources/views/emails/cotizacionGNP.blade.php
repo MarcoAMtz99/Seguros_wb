@@ -148,7 +148,7 @@ La cotización de tú auto {{$cliente->auto->marca->descripcion}} {{$cliente->au
 
 <a href="url('/api/searchCliente')?"cotizacion=".$cliente->cotizacion" class="btn btn-primary">Ver cotización</a>
 
-Los datos de tu cotizacion con GNP son los siguientes:
+Los datos de tu cotizacion con <strong>GNP</strong> son los siguientes:
 
 <table class="table table-dark">
 	<thead class="thead-dark">
