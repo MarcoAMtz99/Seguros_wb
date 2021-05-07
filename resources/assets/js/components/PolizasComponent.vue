@@ -732,6 +732,7 @@
                 cotizacionesQualitasS:[],
                  cotizacionesQualitasM:[],
                  cotizacionesQualitasT:[],
+                 cotizacionQualitas:[],
                 cotizacionesGS:[],
                 cotizacionesANA:[],
                 xmlentrada:[],
@@ -897,7 +898,8 @@
                     cotizacion : this.cliente.cotizacion,
                     camis : camis,
                     poliza : poliza
-                };
+                };     
+                this.cotizacionQualitas=[];
                 this.cotizacionesQualitas=[];
                 this.cotizacionesQualitasS=[];
                 this.cotizacionesQualitasM=[];
@@ -910,6 +912,12 @@
                      this.cotizacionesQualitasS = res.data.QualitasS;
                       this.cotizacionesQualitasM = res.data.QualitasM;
                       this.cotizacionesQualitasT = res.data.QualitasT;
+
+                       this.cotizacionQualitas.push(this.cotizacionesQualitas);
+                       this.cotizacionQualitas.push(this.cotizacionesQualitasS);
+                       this.cotizacionQualitas.push(this.cotizacionesQualitasM);
+                       this.cotizacionQualitas.push(this.cotizacionesQualitasT);
+                       console.log('COTIZACION COMPLETA QA: ',this.cotizacionQualitas);
                        this.sendCotizacion(this.cliente, this.cotizacionesQualitas, "QA");
                     console.log('Cotizacion QA:', this.cotizacionesQualitas);
                     console.log('Cotizacion QAS:', this.cotizacionesQualitasS);

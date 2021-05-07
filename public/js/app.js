@@ -5125,6 +5125,7 @@ __webpack_require__.r(__webpack_exports__);
       cotizacionesQualitasS: [],
       cotizacionesQualitasM: [],
       cotizacionesQualitasT: [],
+      cotizacionQualitas: [],
       cotizacionesGS: [],
       cotizacionesANA: [],
       xmlentrada: [],
@@ -5299,6 +5300,7 @@ __webpack_require__.r(__webpack_exports__);
         camis: camis,
         poliza: poliza
       };
+      this.cotizacionQualitas = [];
       this.cotizacionesQualitas = [];
       this.cotizacionesQualitasS = [];
       this.cotizacionesQualitasM = [];
@@ -5311,6 +5313,16 @@ __webpack_require__.r(__webpack_exports__);
         _this4.cotizacionesQualitasS = res.data.QualitasS;
         _this4.cotizacionesQualitasM = res.data.QualitasM;
         _this4.cotizacionesQualitasT = res.data.QualitasT;
+
+        _this4.cotizacionQualitas.push(_this4.cotizacionesQualitas);
+
+        _this4.cotizacionQualitas.push(_this4.cotizacionesQualitasS);
+
+        _this4.cotizacionQualitas.push(_this4.cotizacionesQualitasM);
+
+        _this4.cotizacionQualitas.push(_this4.cotizacionesQualitasT);
+
+        console.log('COTIZACION COMPLETA QA: ', _this4.cotizacionQualitas);
 
         _this4.sendCotizacion(_this4.cliente, _this4.cotizacionesQualitas, "QA");
 
