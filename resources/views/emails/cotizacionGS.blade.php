@@ -157,7 +157,7 @@ Los datos de tu cotizacion con General de Seguros son los siguientes:
 	</thead>
 	<tbody class="table-hover">
 		<tr>
-			<td class="text-center">ANUAL: {{$cotizacion[paquete][0][formasPagoDTO][0][primaTotal] }} </td>
+			<td class="text-center">ANUAL: {{$cotizacion['PAQUETE'][0]['formasPagoDTO'][0]['primaTotal'] }} </td>
 			<td class="text-center"></td>
 			<td class="text-center"></td>
 			<td class="text-center"></td>
