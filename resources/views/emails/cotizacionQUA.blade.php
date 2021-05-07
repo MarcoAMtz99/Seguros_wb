@@ -161,13 +161,13 @@ Los datos de tu cotizacion con  <strong>QUALITAS</strong> son los siguientes:
 			SEMESTRAL: {{$cotizacion[1]['Primas']['PrimaTotal'] }}
 			TRIMESTRAL: {{$cotizacion[3]['Primas']['PrimaTotal'] }}
 			MENSUAL: {{$cotizacion[2]['Primas']['PrimaTotal'] }} </td>
-			<td class="text-center"> {{$cotizacion[0] ['Coberturas'][0]['SumaAsegurada'] }}</td>
-			<td class="text-center"> {{$cotizacion[0] ['Coberturas'][1]['SumaAsegurada'] }}</td>
-			<td class="text-center">{{$cotizacion[0] ['Coberturas'][2]['SumaAsegurada'] }}</td>
-			<td class="text-center">{{$cotizacion[0] ['Coberturas'][3]['SumaAsegurada'] }}</td>
-			<td class="text-center">{{$cotizacion[0] ['Coberturas'][5]['SumaAsegurada'] }}</td>
-			<td class="text-center">{{$cotizacion[0] ['Coberturas'][7]['SumaAsegurada'] }}</td>
-			<td class="text-center">{{$cotizacion[0] ['Coberturas'][4]['tipo'] }} : {{$cotizacion[0]['Coberturas'][4]['SumaAsegurada'] }}</td>
+			<td class="text-center"> {{$cotizacion[0]['Coberturas'][0]['SumaAsegurada'] }}</td>
+			<td class="text-center"> {{$cotizacion[0]['Coberturas'][1]['SumaAsegurada'] }}</td>
+			<td class="text-center">{{$cotizacion[0]['Coberturas'][2]['SumaAsegurada'] }}</td>
+			<td class="text-center">{{$cotizacion[0]['Coberturas'][3]['SumaAsegurada'] }}</td>
+			<td class="text-center">{{$cotizacion[0]['Coberturas'][5]['SumaAsegurada'] }}</td>
+			<td class="text-center">{{$cotizacion[0]['Coberturas'][7]['SumaAsegurada'] }}</td>
+			<td class="text-center">{{$cotizacion[0]['Coberturas'][4]['tipo'] }} : {{$cotizacion[0]['Coberturas'][4]['SumaAsegurada'] }}</td>
 		</tr>
 	</tbody>
 </table> 
