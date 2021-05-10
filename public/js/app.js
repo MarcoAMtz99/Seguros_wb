@@ -52379,7 +52379,7 @@ var render = function() {
                                             { domProps: { value: version } },
                                             [
                                               version.descripcion !== "" &&
-                                              version.clave !== ""
+                                              version.amis == ""
                                                 ? _c("div", [
                                                     _vm._v(
                                                       "\n                                                                 " +

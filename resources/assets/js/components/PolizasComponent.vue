@@ -81,7 +81,7 @@
                                                     <select class="form-control" v-model="desc_gs">
                                                         <option value="">Elegir:</option>
                                                         <option v-for="version in descripciones_gs" :value="version">
-                                                            <div v-if="version.descripcion !=='' &&  version.clave !=='' ">
+                                                            <div v-if="version.descripcion !=='' &&  version.amis =='' ">
                                                                  {{version}}
                                                             </div>
                                                             <div v-else>
