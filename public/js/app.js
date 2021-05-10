@@ -52378,7 +52378,8 @@ var render = function() {
                                             "option",
                                             { domProps: { value: version } },
                                             [
-                                              version.descripcion == ""
+                                              version.descripcion == "" ||
+                                              !_vm.isNan(version)
                                                 ? _c("div", [
                                                     _vm._v(
                                                       "\n                                                                 " +
