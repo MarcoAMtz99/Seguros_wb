@@ -66,11 +66,15 @@
                                                      <select class="form-control" v-model="desc_gnp">
                                                         <option value="">Elegir:</option>
                                                       <!--   <option v-for="descripcion in descripciones_gnp" :value="JSON.stringify(descripcion.ELEMENTO === undefined ? descripcion:descripcion.ELEMENTO )">{{descripcion.ELEMENTO===undefined?descripcion[4].VALOR :descripcion.ELEMENTO[4].VALOR}}</option> -->
-
-                                                    <option v-for="descripcion in descripciones_gnp2" :value="JSON.stringify(descripcion.CLAVE === undefined ? descripcion:descripcion)">
+                                                    
+                                                    <option v-for="descripcion in descripciones_gnp2" :value="JSON.stringify(descripcion.CLAVE === undefined ? descripcion:descripcion)" >
+                                                        @if(descripcion.CLAVE == "")
+                                                        {{descripcion.CLAVE}}
+                                                        @else
                                                         {{descripcion.VALOR}}
                                                     </option>
-                                                       <!--  <option v-for"descripcion2 in descripciones_gnp2":value="descripcion.CLAVE">
+                                                 
+                                                       <!--  <option v-for"descripcion2 in descripciones_gnp2":value="descripcion.CLAVE" v-if="descripcion.CLAVE ==">
                                                           {{descripcion2}}  
                                                         </option> -->
 
