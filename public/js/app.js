@@ -5113,8 +5113,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -52313,21 +52311,13 @@ var render = function() {
                                             },
                                             [
                                               _vm._v(
-                                                '\n                                                        @if(descripcion.CLAVE == "")\n                                                        ' +
-                                                  _vm._s(descripcion.CLAVE) +
-                                                  "\n                                                        @else\n                                                        " +
+                                                "\n                                                        " +
                                                   _vm._s(descripcion.VALOR) +
                                                   "\n                                                    "
                                               )
                                             ]
                                           )
-                                        }),
-                                        _vm._v(" "),
-                                        _vm._v(
-                                          '"descripcion2 in descripciones_gnp2":value="descripcion.CLAVE" v-if="descripcion.CLAVE ==">\n                                                          ' +
-                                            _vm._s(_vm.descripcion2) +
-                                            "  \n                                                        "
-                                        )
+                                        })
                                       ],
                                       2
                                     )
@@ -52378,16 +52368,40 @@ var render = function() {
                                         _vm._l(_vm.descripciones_gs, function(
                                           version
                                         ) {
-                                          return _c(
-                                            "option",
-                                            { domProps: { value: version } },
-                                            [
-                                              _vm._v(
-                                                _vm._s(version.descripcion) +
-                                                  "\n                                                        "
+                                          return version.descripcion == ""
+                                            ? _c(
+                                                "option",
+                                                {
+                                                  domProps: { value: version }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    _vm._s(version) +
+                                                      "\n                                                        "
+                                                  )
+                                                ]
                                               )
-                                            ]
-                                          )
+                                            : _vm._l(
+                                                _vm.descripciones_gs,
+                                                function(version) {
+                                                  return _c(
+                                                    "option",
+                                                    {
+                                                      domProps: {
+                                                        value: version
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(
+                                                          version.descripcion
+                                                        ) +
+                                                          "\n                                                        "
+                                                      )
+                                                    ]
+                                                  )
+                                                }
+                                              )
                                         })
                                       ],
                                       2

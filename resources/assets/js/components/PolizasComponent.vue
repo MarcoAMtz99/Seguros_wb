@@ -66,17 +66,13 @@
                                                      <select class="form-control" v-model="desc_gnp">
                                                         <option value="">Elegir:</option>
                                                       <!--   <option v-for="descripcion in descripciones_gnp" :value="JSON.stringify(descripcion.ELEMENTO === undefined ? descripcion:descripcion.ELEMENTO )">{{descripcion.ELEMENTO===undefined?descripcion[4].VALOR :descripcion.ELEMENTO[4].VALOR}}</option> -->
-                                                    
-                                                    <option v-for="descripcion in descripciones_gnp2" :value="JSON.stringify(descripcion.CLAVE === undefined ? descripcion:descripcion)" >
-                                                        @if(descripcion.CLAVE == "")
-                                                        {{descripcion.CLAVE}}
-                                                        @else
+
+                                                    <option v-for="descripcion in descripciones_gnp2" :value="JSON.stringify(descripcion.CLAVE === undefined ? descripcion:descripcion)">
                                                         {{descripcion.VALOR}}
                                                     </option>
-                                                 
-                                                        <option v-for"descripcion2 in descripciones_gnp2":value="descripcion.CLAVE" v-if="descripcion.CLAVE ==">
+                                                       <!--  <option v-for"descripcion2 in descripciones_gnp2":value="descripcion.CLAVE">
                                                           {{descripcion2}}  
-                                                        </option>
+                                                        </option> -->
 
                                                     </select>
                                                     
@@ -84,7 +80,9 @@
                                                 <td class="text-center" v-if="cliente.gs">
                                                     <select class="form-control" v-model="desc_gs">
                                                         <option value="">Elegir:</option>
-                                                        <option v-for="version in descripciones_gs" :value="version">{{version.descripcion}}
+                                                        <option v-for="version in descripciones_gs" :value="version" v-if="version.descripcion ==''">{{version}}
+                                                        </option>
+                                                        <option v-for="version in descripciones_gs" :value="version" v-else>{{version.descripcion}}
                                                         </option>
                                                     </select>
                                                 </td>
