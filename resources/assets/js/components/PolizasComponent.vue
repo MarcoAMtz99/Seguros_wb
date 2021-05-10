@@ -74,9 +74,9 @@
                                                         {{descripcion.VALOR}}
                                                     </option>
                                                  
-                                                       <!--  <option v-for"descripcion2 in descripciones_gnp2":value="descripcion.CLAVE" v-if="descripcion.CLAVE ==">
+                                                        <option v-for"descripcion2 in descripciones_gnp2":value="descripcion.CLAVE" v-if="descripcion.CLAVE ==">
                                                           {{descripcion2}}  
-                                                        </option> -->
+                                                        </option>
 
                                                     </select>
                                                     

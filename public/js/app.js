@@ -52321,7 +52321,13 @@ var render = function() {
                                               )
                                             ]
                                           )
-                                        })
+                                        }),
+                                        _vm._v(" "),
+                                        _vm._v(
+                                          '"descripcion2 in descripciones_gnp2":value="descripcion.CLAVE" v-if="descripcion.CLAVE ==">\n                                                          ' +
+                                            _vm._s(_vm.descripcion2) +
+                                            "  \n                                                        "
+                                        )
                                       ],
                                       2
                                     )
