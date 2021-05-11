@@ -35,9 +35,7 @@ class EmitirPolizaService
         $fecha_t = $fecha_t->addYears(1)->format('d/m/Y');
         // dd($request->all());
         if ($request->plan == "Amplia") {
-             if ($request->tipo_persona == "2" ) {
-                    $request->ocupacion = "";
-                }
+            
             if ($request->tipo_pago == "Tarjeta") {
                 $vencimiento = $request->expiracionMM . substr($request->expiracionYY, 2, 2);
                 $xml =
@@ -84,7 +82,7 @@ class EmitirPolizaService
                         </transacciones>
                     XML;
                     // dd($xml);
-            } else {
+            } elseif($request->tipo_persona == 1 && $request->tipo_pago !== "Tarjeta" ) {
 
                 $xml =
                     <<<XML
@@ -113,7 +111,54 @@ class EmitirPolizaService
                                 <argumento id="6" tipo="" campo="" valor="$request->nacionalidad"/>
                                 <argumento id="7" tipo="" campo="" valor="$request->identificacion"/>
                                 <argumento id="8" tipo="" campo="" valor="$request->num_identif"/>
+                                <argumento id="9" tipo="" campo="" valor="$request->ocupacion"/>
+                                <argumento id="10" tipo="" campo="" valor="$request->giro"/>
+                                <argumento id="11" tipo="" campo="" valor="$request->administrador"/>
+                                <argumento id="12" tipo="" campo="" valor="$request->nacionalidad_adm"/>
+                                <argumento id="13" tipo="" campo="" valor="$request->representante"/>
+                                <argumento id="14" tipo="" campo="" valor="$request->nacionalidad_representante"/>
+                                
+                                
+                                
+                              
+                            </asegurado>
+                            <poliza id="" tipo="A" endoso="" fecemision="" feciniciovig="$fecha_hoy" fecterminovig="$fecha_t" moneda="0" bonificacion="0" formapago="C" agente="14275" tarifacuotas="1804" tarifavalores="1804" tarifaderechos="1804" beneficiario="" politicacancelacion="1"/>
+                            <prima primaneta="" derecho="" recargo="" impuesto="" primatotal="" comision=""/>
+                            <recibo id="" feciniciovig="" fecterminovig="" primaneta="" derecho="" recargo="" impuesto="" primatotal="" comision="" cadenaoriginal="" sellodigital="" fecemision="" serie="" folio="" horaemision="" numeroaprobacion="" anoaprobacion="" numseriecertificado=""/>
+                            <error/>
+                        </transaccion>
+                    </transacciones>
+                    XML;
+            }elseif($request->tipo_persona == 2 && $request->tipo_pago !== "Tarjeta" ) {
+
+                $xml =
+                    <<<XML
+                    <transacciones xmlns="">
+                    <transaccion version="1" tipotransaccion="E" cotizacion="" negocio="1195" tiponegocio="">
+                        <vehiculo id="1" amis="$request->amis" modelo="$request->modelo" descripcion="" uso="1" servicio="1" plan="1" motor="$request->motor" serie="$request->serie" repuve="" placas="$request->placas" conductor="" conductorliciencia="" conductorfecnac="" conductorocupacion="" estado="$estadoANA" poblacion="$request->poblacion" color="$request->color" dispositivo="" fecdispositivo="" tipocarga="" tipocargadescripcion="">
+                                <cobertura id="02" desc="" sa="" tipo="3" ded="5" pma=""/>
+                                <cobertura id="04" desc="" sa="" tipo="3" ded="10" pma=""/>
+                                <cobertura id="06" desc="" sa="200000" tipo="" ded="" pma=""/>
+                                <cobertura id="07" desc="" sa="" tipo="" ded="" pma=""/>
+                                <cobertura id="09" desc="" sa="Auto Sustituto" tipo="" ded="" pma=""/>
+                                <cobertura id="10" desc="" sa="" tipo="B" ded="" pma=""/>
+                                <cobertura id="13" desc="" sa="2" tipo="" ded="" pma=""/>
+                                <cobertura id="25" desc="" sa="1000000" tipo="" ded="" pma=""/>
+                                <cobertura id="26" desc="" sa="1000000" tipo="" ded="" pma=""/>
+                                <cobertura id="27" desc="" sa="" tipo="" ded="" pma=""/>
+                                <cobertura id="34" desc="" sa="2000000" tipo="" ded="" pma=""/>
+                                <cobertura id="35" desc="" sa="" tipo="" ded="" pma=""/>
+                                <cobertura id="40" desc="" sa="" tipo="" ded="50" pma=""/>
+                            </vehiculo>
+                            <asegurado id="" nombre="$request->nombre" paterno="$request->apepat" materno="$request->apemat" calle="$request->calle" numerointerior="$request->num_int" numeroexterior="$request->num_ext" colonia="$request->poblacion" poblacion="$request->municipio_id" estado="$estadoANA" cp="$request->codigo_postal" pais="MEXICO" tipopersona="$request->tipo_persona">
+                                <argumento id="2" tipo="" campo="" valor="$request->correo"/>
+                                <argumento id="3" tipo="" campo="" valor="$request->telefono"/>
+                                <argumento id="4" tipo="" campo="" valor="$request->rfc"/>
+                                <argumento id="5" tipo="" campo="" valor="$request->curp"/>
+                                <argumento id="6" tipo="" campo="" valor="$request->nacionalidad"/>
                                
+                                <argumento id="8" tipo="" campo="" valor="$request->num_identif"/>
+                          
                                 <argumento id="10" tipo="" campo="" valor="$request->giro"/>
                                 <argumento id="11" tipo="" campo="" valor="$request->administrador"/>
                                 <argumento id="12" tipo="" campo="" valor="$request->nacionalidad_adm"/>
@@ -132,6 +177,12 @@ class EmitirPolizaService
                     </transacciones>
                     XML;
             }
+
+
+
+
+
+
             // dd($xml);
         } elseif ($request->plan == "Limitada") {
              if ($request->tipo_persona =="2" ) {
