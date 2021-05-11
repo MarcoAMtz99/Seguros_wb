@@ -527,7 +527,7 @@ class GeneralSegurosController extends Controller
             return view('generalseguros.pago', ['response' => $arr]);
         } else {
             // dd($request->colonia);
-            dd($arr);
+            dd($arr,$emitir,$request);
         }
     }
 }
