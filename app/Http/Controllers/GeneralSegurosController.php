@@ -279,6 +279,7 @@ class GeneralSegurosController extends Controller
 
     public function versiones($marca, $submarca, $modelo)
     {
+         $versiones = [];
         $marca_gs = $this->searchMarca($marca);
         // dd($marca_gs);
         if ($marca_gs) {
@@ -290,18 +291,16 @@ class GeneralSegurosController extends Controller
                 // dd($submarca_gs,$modelo_gs,$marca_gs);
                 if ($modelo_gs) {
                     $versiones_gs = $this->searchVersiones($submarca_gs, $modelo_gs);
-                    var_dump($versiones_gs);
-                    dd($versiones_gs);
+                    // var_dump($versiones_gs);
+                    // dd($versiones_gs);
                     if (count(array($versiones_gs)) == 1 ) {
-                        $aux = array( 
-                            "amis" =>$versiones_gs[0],
-                            "descripcion"=>$versiones_gs[1]
-                        );
+                        // $aux = array( 
+                        //     "amis" =>$versiones_gs[0],
+                        //     "descripcion"=>$versiones_gs[1]
+                        // );
+                        array_push($versiones, $versiones_gs);
 
-                    }else{}
-                    dd($aux);
-                    $versiones = [];
-                    foreach ($versiones_gs as $version) {
+                    }else{ foreach ($versiones_gs as $version) {
                         // dd($version);
                         // $version->marca = $marca_gs;
                         // $version->submarca = $submarca_gs;
@@ -309,6 +308,10 @@ class GeneralSegurosController extends Controller
                         array_push($versiones, $version);
                         // dd($versiones, $version);
                     }
+                }
+                    // dd($aux);
+                   
+                   
                     return response()->json(['versiones_gs' => $versiones], 201);
                 }
             }
