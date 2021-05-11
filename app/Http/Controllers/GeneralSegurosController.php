@@ -457,9 +457,9 @@ class GeneralSegurosController extends Controller
             'arg0' => [
                 'token' => $this->token,
                 'cliente' => [
-                    'cve_cli' => "",
-                    'suc_emi' => "",
-                    'fis_mor' => $request->tipo_persona,
+                    'cve_cli' => 0,
+                    'suc_emi' => 0,
+                    'fis_mor' => 3,
                     'nom_cli' => $request->nombre,
                     'ape_pat' => $request->apepat,
                     'ape_mat' => $request->apemat,
