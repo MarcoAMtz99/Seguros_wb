@@ -290,7 +290,15 @@ class GeneralSegurosController extends Controller
                 // dd($submarca_gs,$modelo_gs,$marca_gs);
                 if ($modelo_gs) {
                     $versiones_gs = $this->searchVersiones($submarca_gs, $modelo_gs);
-                    dd(count(array($versiones_gs)));
+                    // dd();
+                    if (count(array($versiones_gs)) == 1 ) {
+                        $aux = array( 
+                            "amis" =>$versiones_gs[0],
+                            "descripcion"=>$versiones_gs[1]
+                        );
+
+                    }else{}
+                    dd($aux);
                     $versiones = [];
                     foreach ($versiones_gs as $version) {
                         // dd($version);
