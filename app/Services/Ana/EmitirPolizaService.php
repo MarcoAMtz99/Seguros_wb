@@ -157,7 +157,7 @@ class EmitirPolizaService
                                 <argumento id="5" tipo="" campo="" valor="$request->curp"/>
                                 <argumento id="6" tipo="" campo="" valor="$request->nacionalidad"/>
                                
-                                <argumento id="8" tipo="" campo="" valor="$request->num_identif"/>
+                                
                           
                                 <argumento id="10" tipo="" campo="" valor="$request->giro"/>
                                 <argumento id="11" tipo="" campo="" valor="$request->administrador"/>
