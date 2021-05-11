@@ -300,8 +300,10 @@ class GeneralSegurosController extends Controller
                         // );
                         array_push($versiones, $versiones_gs);
 
-                    }else{
-                         foreach ($versiones_gs as $version) {
+                    }else{}
+                    // dd($aux);
+                   
+                    foreach ($versiones_gs as $version) {
                         // dd($version);
                         // $version->marca = $marca_gs;
                         // $version->submarca = $submarca_gs;
@@ -309,10 +311,6 @@ class GeneralSegurosController extends Controller
                         array_push($versiones, $version);
                         // dd($versiones, $version);
                     }
-                    }
-                    // dd($aux);
-                   
-                   
                     return response()->json(['versiones_gs' => $versiones], 201);
                 }
             }
