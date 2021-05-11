@@ -35,7 +35,7 @@ class EmitirPolizaService
         $fecha_t = $fecha_t->addYears(1)->format('d/m/Y');
         // dd($request->all());
         if ($request->plan == "Amplia") {
-             if ($request->tipo_persona ==2 ) {
+             if ($request->tipo_persona == "2" ) {
                     $request->ocupacion = "";
                 }
             if ($request->tipo_pago == "Tarjeta") {
@@ -134,7 +134,7 @@ class EmitirPolizaService
             }
             // dd($xml);
         } elseif ($request->plan == "Limitada") {
-             if ($request->tipo_persona ==2 ) {
+             if ($request->tipo_persona =="2" ) {
                     $request->ocupacion = "";
                 }
             if ($request->tipo_pago == "Tarjeta") {
@@ -216,7 +216,7 @@ class EmitirPolizaService
                     XML;
             }
         } elseif ($request->plan == "RC") {
-                if ($request->tipo_persona ==2 ) {
+                if ($request->tipo_persona =="2" ) {
                     $request->ocupacion = "";
                 }
             if ($request->tipo_pago == "Tarjeta") {
