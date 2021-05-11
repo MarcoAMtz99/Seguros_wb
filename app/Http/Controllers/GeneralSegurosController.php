@@ -315,6 +315,8 @@ class GeneralSegurosController extends Controller
                          $marca ='GENERAL MOTORS';}
                      if ($marca =='DODGE'){             
                          $marca ='CHRYSLER';}
+                    if ($marca =='GMC'){             
+                         $marca ='GENERAL MOTORS';}
            
             $marcas = $res->return->marcas;
             foreach ($marcas as $marca_gs) {
@@ -451,6 +453,10 @@ class GeneralSegurosController extends Controller
     public function sendGS(Request $request)
     {
 
+        if ($request->tipo_persona = "M") {
+           $request->nombre = $request->apepat;
+           $request->tipo_persona = 3;
+        }
         ini_set('default_socket_timeout', 600);
         $clientSOAP = $this->getClient($this->urlCotiza);
         $emitir = $clientSOAP->emitirCotizacion([
@@ -459,8 +465,8 @@ class GeneralSegurosController extends Controller
                 'cliente' => [
                     'cve_cli' => 0,
                     'suc_emi' => 0,
-                    'fis_mor' => 3,
-                    'nom_cli' => "MARCO ANTONIO",
+                    'fis_mor' => $request->tipo_persona,
+                    'nom_cli' => $request->nombre,
                     'ape_pat' => $request->apepat,
                     'ape_mat' => $request->apemat,
                     'raz_soc' => $request->razsoc,
