@@ -291,8 +291,8 @@ class GeneralSegurosController extends Controller
                 // dd($submarca_gs,$modelo_gs,$marca_gs);
                 if ($modelo_gs) {
                     $versiones_gs = $this->searchVersiones($submarca_gs, $modelo_gs);
-                    // var_dump($versiones_gs);
-                    // dd(count(array($versiones_gs)));
+                    var_dump($versiones_gs);
+                    dd(count(array($versiones_gs)));
                     // if (count(array($versiones_gs)) == 1 ) {
                     //     // $aux = array( 
                     //     //     "amis" =>$versiones_gs[0],
@@ -305,7 +305,7 @@ class GeneralSegurosController extends Controller
                    
                     foreach ($versiones_gs as $version) {
                         // dd($version);
-                        dd(count(array_values($version)));
+                        // dd(count(array($versiones_gs)));
                         // $version->marca = $marca_gs;
                         // $version->submarca = $submarca_gs;
                         // $version->modelo = $modelo_gs;
