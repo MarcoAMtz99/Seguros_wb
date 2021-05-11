@@ -155,7 +155,7 @@ class EmitirPolizaService
                                 <argumento id="3" tipo="" campo="" valor="$request->telefono"/>
                                 <argumento id="4" tipo="" campo="" valor="$request->rfc"/>
                                 <argumento id="5" tipo="" campo="" valor="$request->curp"/>
-                                <argumento id="6" tipo="" campo="" valor="$request->nacionalidad"/>
+                             
                                
                                 
                           
