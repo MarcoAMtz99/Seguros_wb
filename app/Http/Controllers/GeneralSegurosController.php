@@ -460,7 +460,7 @@ class GeneralSegurosController extends Controller
                     'cve_cli' => 0,
                     'suc_emi' => 0,
                     'fis_mor' => 3,
-                    'nom_cli' => $request->nombre,
+                    'nom_cli' => "MARCO ANTONIO",
                     'ape_pat' => $request->apepat,
                     'ape_mat' => $request->apemat,
                     'raz_soc' => $request->razsoc,
