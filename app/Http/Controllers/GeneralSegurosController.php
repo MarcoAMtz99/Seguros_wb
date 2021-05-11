@@ -344,7 +344,7 @@ class GeneralSegurosController extends Controller
             $submarcas = $res->return->submarcas;
             // return $submarcas;
             foreach ($submarcas as $submarca_gs) {
-                if ($submarca_gs->nombre == $submarca) {
+                if ($submarca_gs->nombre == $submarca || strpos($$submarca_gs->nombre, $submarca) !== false ) {
                     return $submarca_gs;
                 }
             }
