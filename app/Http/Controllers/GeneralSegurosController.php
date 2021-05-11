@@ -305,7 +305,7 @@ class GeneralSegurosController extends Controller
                    
                     foreach ($versiones_gs as $version) {
                         // dd($version);
-                        dd(count(array($version)));
+                        dd(count(array_values($version)));
                         // $version->marca = $marca_gs;
                         // $version->submarca = $submarca_gs;
                         // $version->modelo = $modelo_gs;
