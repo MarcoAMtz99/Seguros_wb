@@ -111,6 +111,7 @@ class EmitirPolizaService
                                 <argumento id="7" tipo="" campo="" valor="$request->identificacion"/>
                                 <argumento id="8" tipo="" campo="" valor="$request->num_identif"/>
                                 <argumento id="9" tipo="" campo="" valor="$request->ocupacion"/>
+                                <argumento id="10" tipo="" campo="" valor="$request->giro"/>
                                 <argumento id="11" tipo="" campo="" valor="$request->administrador"/>
                                 <argumento id="12" tipo="" campo="" valor="$request->nacionalidad_adm"/>
                                 <argumento id="13" tipo="" campo="" valor="$request->representante"/>
