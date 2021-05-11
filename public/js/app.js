@@ -5111,14 +5111,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -52378,24 +52370,10 @@ var render = function() {
                                             "option",
                                             { domProps: { value: version } },
                                             [
-                                              version.descripcion !== "" ||
-                                              version.amis == ""
-                                                ? _c("div", [
-                                                    _vm._v(
-                                                      "\n                                                                 " +
-                                                        _vm._s(version) +
-                                                        "\n                                                            "
-                                                    )
-                                                  ])
-                                                : _c("div", [
-                                                    _vm._v(
-                                                      "\n                                                                 " +
-                                                        _vm._s(
-                                                          version.descripcion
-                                                        ) +
-                                                        "\n                                                            "
-                                                    )
-                                                  ])
+                                              _vm._v(
+                                                _vm._s(version.descripcion) +
+                                                  "\n                                                        "
+                                              )
                                             ]
                                           )
                                         })

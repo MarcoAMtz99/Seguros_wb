@@ -66,7 +66,7 @@
                                                      <select class="form-control" v-model="desc_gnp">
                                                         <option value="">Elegir:</option>
                                                       <!--   <option v-for="descripcion in descripciones_gnp" :value="JSON.stringify(descripcion.ELEMENTO === undefined ? descripcion:descripcion.ELEMENTO )">{{descripcion.ELEMENTO===undefined?descripcion[4].VALOR :descripcion.ELEMENTO[4].VALOR}}</option> -->
-
+                                                      
                                                     <option v-for="descripcion in descripciones_gnp2" :value="JSON.stringify(descripcion.CLAVE === undefined ? descripcion:descripcion)">
                                                         {{descripcion.VALOR}}
                                                     </option>
@@ -80,16 +80,8 @@
                                                 <td class="text-center" v-if="cliente.gs">
                                                     <select class="form-control" v-model="desc_gs">
                                                         <option value="">Elegir:</option>
-                                                        <option v-for="version in descripciones_gs" :value="version">
-                                                            <div v-if="version.descripcion !=='' || version.amis =='' ">
-                                                                 {{version}}
-                                                            </div>
-                                                            <div v-else>
-                                                                 {{version.descripcion}}
-                                                            </div>
-                                                           
+                                                        <option v-for="version in descripciones_gs" :value="version">{{version.descripcion}}
                                                         </option>
-
                                                     </select>
                                                 </td>
                                                 <td class="text-center" v-if="cliente.ana">
