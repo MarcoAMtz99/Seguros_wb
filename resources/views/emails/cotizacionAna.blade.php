@@ -172,21 +172,21 @@ Los datos de tu cotizacion con <strong>ANA</strong> son los siguientes:
 
 			</td>
 			<td class="text-center">
-				@foreach($cotizacion['CONTADO']['coberturas'] as $cobertura)
+				@foreach($cotizacion[0]['CONTADO']['coberturas'] as $cobertura)
 				@if($cobertura['desc'] == "DAÑOS MATERIALES")
 					{{ $cobertura['desc'] }}: {{ $cobertura['sa'] }} @if($cobertura['ded'])Deducible por daños: {{ $cobertura['ded'] }} @endif <br>
 				@endif
 				@endforeach
 			</td>
 			<td class="text-center">
-				@foreach($cotizacion['CONTADO']['coberturas'] as $cobertura)
+				@foreach($cotizacion[0]['CONTADO']['coberturas'] as $cobertura)
 				@if($cobertura['desc'] == "ROBO TOTAL")
 					{{ $cobertura['desc'] }}: {{ $cobertura['sa'] }} @if($cobertura['ded'])Deducible por daños: {{ $cobertura['ded'] }} @endif <br>
                 @endif
 				@endforeach
 			</td>
 			<td class="text-center">
-				@foreach($cotizacion['CONTADO']['coberturas'] as $cobertura)
+				@foreach($cotizacion[0]['CONTADO']['coberturas'] as $cobertura)
 					@if($cobertura['desc'] == "RESPONSABILIDAD CIVIL")
 	                	{{ $cobertura['desc'] }}: {{ $cobertura['sa'] }} @if($cobertura['ded'])Deducible por daños: {{ $cobertura['ded'] }} @endif <br>
 	                @endif
@@ -211,28 +211,28 @@ Los datos de tu cotizacion con <strong>ANA</strong> son los siguientes:
 				@endforeach
 			</td>
 			<td class="text-center">
-				@foreach($cotizacion['CONTADO']['coberturas'] as $cobertura)
+				@foreach($cotizacion[0]['CONTADO']['coberturas'] as $cobertura)
 				@if($cobertura['desc'] == "GASTOS MEDICOS")
 					{{ $cobertura['desc'] }}: {{ $cobertura['sa'] }} @if($cobertura['ded'])Deducible por daños: {{ $cobertura['ded'] }} @endif <br>
                 @endif
 				@endforeach
 			</td>
 			<td class="text-center">
-				@foreach($cotizacion['CONTADO']['coberturas'] as $cobertura)
+				@foreach($cotizacion[0]['CONTADO']['coberturas'] as $cobertura)
 				@if($cobertura['desc'] == "DEF. JUD. Y ASIS. LEGAL")
 					{{ $cobertura['desc'] }}: {{ $cobertura['sa'] }} @if($cobertura['ded'])Deducible por daños: {{ $cobertura['ded'] }} @endif <br>
                 @endif
 				@endforeach
 			</td>
 			<td class="text-center">
-				@foreach($cotizacion['CONTADO']['coberturas'] as $cobertura)
+				@foreach($cotizacion[0]['CONTADO']['coberturas'] as $cobertura)
 				@if($cobertura['desc'] == "ANA ASISTENCIA")
 					{{ $cobertura['desc'] }}: {{ $cobertura['sa'] }} @if($cobertura['ded'])Deducible por daños: {{ $cobertura['ded'] }} @endif <br>
                 @endif
 				@endforeach
 			</td>
 			<td class="text-center">
-				@foreach($cotizacion['CONTADO']['coberturas'] as $cobertura)
+				@foreach($cotizacion[0]['CONTADO']['coberturas'] as $cobertura)
 				@if(!in_array($cobertura['desc'], ['DAÑOS MATERIALES','ROBO TOTAL','RESPONSABILIDAD CIVIL','RC BIENES','RC PERSONAS','EXTENSION RC','RC DEL HIJO MENOR','RC POR REMOLQUES','RC CATASTROFICA POR MUERTE','GASTOS MEDICOS','DEF. JUD. Y ASIS. LEGAL','ANA ASISTENCIA'] ))
 					{{ $cobertura['desc'] }}: {{ $cobertura['sa'] }} @if($cobertura['ded'])Deducible por daños: {{ $cobertura['ded'] }} @endif <br>
                 @endif
