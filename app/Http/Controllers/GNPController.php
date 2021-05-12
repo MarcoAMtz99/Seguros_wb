@@ -534,8 +534,8 @@ class GNPController extends Controller
  		];
 
  		$paquetesPersonaMoral = [
- 			'Amplia'   => 'PRP0000347',
- 			'Limitada' => 'PRS0009361',
+ 			'Amplia'   => 'PRS0009361',
+ 			'Limitada' => 'PRS0009362',
  			'RC' 	   => 'PRP0000349'
  		];
  		$clavePaquete = $cliente->uso_auto === "Servicio Particular"
