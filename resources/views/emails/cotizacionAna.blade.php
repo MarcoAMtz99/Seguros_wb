@@ -141,7 +141,8 @@ La cotización de tú auto {{$cliente->auto->marca->descripcion}} {{$cliente->au
 <a href="url('/')?"cotizacion=".$cliente->cotizacion" class="btn btn-primary">Ver cotización</a>
 
 Los datos de tu cotizacion con <strong>ANA</strong> son los siguientes:
-
+				{{dd($cotizacion)}}
+	
 <table class="table-fill">
 	<thea>
 		<tr>
@@ -160,7 +161,6 @@ Los datos de tu cotizacion con <strong>ANA</strong> son los siguientes:
 			<td class="text-center">
 				<div class="border">Contado: {{  number_format($cotizacion['CONTADO']['prima']['primatotal']) }}</div>
 				<br>
-				{{dd($cotizacion)}}
 				Semestral: 1er pago:  ${{ $cotizacion['SEMESTRAL']['recibos'][0]['primatotal'] }} <br>
 				Subsecuentes x 1: ${{$cotizacion['SEMESTRAL']['recibos'][1]['primatotal'] }} <br>
 				<br>
