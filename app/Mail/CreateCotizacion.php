@@ -36,18 +36,18 @@ class CreateCotizacion extends Mailable
     public function build()
     {
         if ($this->aseguradora == "ANA") {
-            return $this->subject('Gracias por usar Autosegurodirecto')->view('emails.cotizacionAna');
+            return $this->subject('Gracias por cotizar en Autosegurodirecto ANA SEGUROS')->view('emails.cotizacionAna');
         }
         if ($this->aseguradora == "GNP") {
-            return $this->subject('Gracias por usar Autosegurodirecto')->view('emails.cotizacionGNP');
+            return $this->subject('Gracias por cotizar en Autosegurodirecto GNP SEGUROS')->view('emails.cotizacionGNP');
         }
         if ($this->aseguradora == "GS") {
             // dd( $this->cotizacion);
-            return $this->subject('Gracias por usar Autosegurodirecto')->view('emails.cotizacionGS');
+            return $this->subject('Gracias por cotizar en Autosegurodirecto GENERAL DE SEGUROS')->view('emails.cotizacionGS');
         }
         if ($this->aseguradora == "QA") {
              // dd( $this->cotizacion);
-            return $this->subject('Gracias por usar Autosegurodirecto')->view('emails.cotizacionQUA');
+            return $this->subject('Gracias por cotizar en Autosegurodirecto QUALITAS SEGUROS')->view('emails.cotizacionQUA');
         }
         else
             return $this->subject('Gracias por usar Autosegurodirecto')->view('emails.cotizacion');

@@ -334,6 +334,56 @@ class GNPController extends Controller
 				  </PAQUETES>
 				</COTIZACION>";
  	}
+ 	private function getXMLCotizacionM($cp, $fecha_inicio, $fecha_fin,  $modelo, $armadora,
+ 		$carroceria, $version, $nacimiento, $sexo, $edad, $clavePaquete, $poliza)
+ 	{
+ 		return  "<COTIZACION>
+				  <SOLICITUD>
+				    <USUARIO>$this->user</USUARIO>
+				    <PASSWORD>$this->pass</PASSWORD>
+				    <ID_UNIDAD_OPERABLE>$this->unidadOperable</ID_UNIDAD_OPERABLE>
+				    <FCH_INICIO_VIGENCIA>$fecha_inicio</FCH_INICIO_VIGENCIA>
+				    <FCH_FIN_VIGENCIA>$fecha_fin</FCH_FIN_VIGENCIA>
+				    <VIA_PAGO>IN</VIA_PAGO>
+				    <PERIODICIDAD></PERIODICIDAD>
+				    <ELEMENTOS>
+				      <ELEMENTO>
+				        <NOMBRE>INTERMEDIARIO</NOMBRE>
+				        <CLAVE>$this->intermediario</CLAVE>
+				        <VALOR>$this->intermediario</VALOR>
+				      </ELEMENTO>
+				    </ELEMENTOS>
+				  </SOLICITUD>
+				  <VEHICULO>
+				    <SUB_RAMO>01</SUB_RAMO>
+				    <TIPO_VEHICULO>AUT</TIPO_VEHICULO>
+				    <MODELO>$modelo</MODELO>
+				    <ARMADORA>$armadora</ARMADORA>
+				    <CARROCERIA>$carroceria</CARROCERIA>
+				    <VERSION>$version</VERSION>
+				    <USO>01</USO>
+				    <FORMA_INDEMNIZACION>03</FORMA_INDEMNIZACION>
+				    <VALOR_FACTURA></VALOR_FACTURA>
+				  </VEHICULO>
+				  <CONTRATANTE>
+				    <TIPO_PERSONA>M</TIPO_PERSONA>
+				    <CODIGO_POSTAL>$cp</CODIGO_POSTAL>
+				  </CONTRATANTE>
+				  <CONDUCTOR>
+				    <FCH_NACIMIENTO>$nacimiento</FCH_NACIMIENTO>
+				    <SEXO>$sexo</SEXO>
+				    <EDAD>$edad</EDAD>
+				    <CODIGO_POSTAL>$cp</CODIGO_POSTAL>
+				  </CONDUCTOR>
+				  <PAQUETES>
+				    <PAQUETE>
+				      <CVE_PAQUETE>$clavePaquete</CVE_PAQUETE>
+				      <DESC_PAQUETE>$poliza</DESC_PAQUETE>
+				      <COBERTURAS/>
+				    </PAQUETE>
+				  </PAQUETES>
+				</COTIZACION>";
+ 	}
 
  	/**
  	 * Metodo para obtener la clave de una armadora por modelo (año) y el nombre de la armadora.
@@ -722,9 +772,17 @@ class GNPController extends Controller
  		
  		// dd($version,$carroceria,$modelo,$armadora);
  		// Obtenemos la cotizacion con los datos del formulario.
- 		$data = $this->getXMLCotizacion($datos->codigo_postal, $fecha_inicio, $fecha_fin, $modelo, $armadora,
+ 		if ($datos->tipo_persona =="F") {
+ 			
+ 			$data = $this->getXMLCotizacion($datos->codigo_postal, $fecha_inicio, $fecha_fin, $modelo, $armadora,
  				$carroceria, $version, $datos->f_nac, $datos->sexo, $datos->edad, $clavePaquete, $poliza);
 
+ 		}else{
+ 			$data = $this->getXMLCotizacionM($datos->codigo_postal, $fecha_inicio, $fecha_fin, $modelo, $armadora,
+ 				$carroceria, $version, $datos->f_nac, $datos->sexo, $datos->edad, $clavePaquete, $poliza);
+
+ 		}
+ 		
  		try {
 			
 			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/cotizador/cotizar", $data);
