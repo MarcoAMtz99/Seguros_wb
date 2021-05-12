@@ -834,7 +834,7 @@
                         console.log('Cotizacion Ana:',this.cotizacionesANA);
                          console.log('Cotizacion Ana XML :',this.xmlentrada);
                            console.log('Cotizacion Ana XML salida :',this.respuestaxml);
-                        this.sendCotizacion(this.cliente, this.cotizacionesANA[0], "ANA");
+                        this.sendCotizacion(this.cliente, this.cotizacionesANA, "ANA");
                     }
                 }).catch(err=>{
                     this.loader = false;

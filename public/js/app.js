@@ -5231,7 +5231,7 @@ __webpack_require__.r(__webpack_exports__);
           console.log('Cotizacion Ana XML :', _this2.xmlentrada);
           console.log('Cotizacion Ana XML salida :', _this2.respuestaxml);
 
-          _this2.sendCotizacion(_this2.cliente, _this2.cotizacionesANA[0], "ANA");
+          _this2.sendCotizacion(_this2.cliente, _this2.cotizacionesANA, "ANA");
         }
       })["catch"](function (err) {
         _this2.loader = false;
