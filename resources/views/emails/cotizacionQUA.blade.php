@@ -158,9 +158,16 @@ Los datos de tu cotizacion con  <strong>QUALITAS</strong> son los siguientes:
 	<tbody class="table-hover">
 		<tr>
 			<td class="text-center">ANUAL: {{$cotizacion[0]['Primas']['PrimaTotal'] }} <br>
-			SEMESTRAL: {{$cotizacion[1]['Primas']['PrimaTotal'] }} <br>
-			TRIMESTRAL: {{$cotizacion[3]['Primas']['PrimaTotal'] }}<br>
-			MENSUAL: {{$cotizacion[2]['Primas']['PrimaTotal'] }} </td>
+			SEMESTRAL: 1er pago: {{$cotizacion[1]['Recibos'][0]['PrimaTotal'] }}  <br>
+			Subsecuente x 1:{{$cotizacion[1]['Recibos'][1]['PrimaTotal'] }} <br>
+
+
+			TRIMESTRAL: 1er pago: {{$cotizacion[3]['Recibos'][0]['PrimaTotal'] }}<br>
+			Subsecuente x 3: {{$cotizacion[3]['Recibos'][1]['PrimaTotal'] }}<br>
+
+
+			MENSUAL: 1er pago: {{$cotizacion[2]['Recibos'][0]['PrimaTotal'] }}<br>
+			Subsecuente x 11: {{$cotizacion[2]['Recibos'][1]['PrimaTotal'] }} </td>
 			<td class="text-center"> {{$cotizacion[0]['Coberturas'][0]['SumaAsegurada'] }}</td>
 			<td class="text-center"> {{$cotizacion[0]['Coberturas'][1]['SumaAsegurada'] }}</td>
 			<td class="text-center">{{$cotizacion[0]['Coberturas'][2]['SumaAsegurada'] }}</td>
