@@ -156,11 +156,18 @@ Los datos de tu cotizacion con <strong> General de Seguros</strong> son los sigu
 		</tr>
 	</thead>
 	<tbody class="table-hover">
-		<tr>
-			<td class="text-center">ANUAL: {{$cotizacion['paquete'][0]['formasPagoDTO'][0]['primaTotal'] }}
-			SEMESTRAL: {{$cotizacion['paquete'][0]['formasPagoDTO'][1]['primaTotal'] }}
-			TRIMESTRAL: {{$cotizacion['paquete'][0]['formasPagoDTO'][2]['primaTotal'] }}
-			MENSUAL: {{$cotizacion['paquete'][0]['formasPagoDTO'][3]['primaTotal'] }} </td>
+		<tr>recibosub
+			<td class="text-center">ANUAL: Unico pago: {{$cotizacion['paquete'][0]['formasPagoDTO'][0]['primaTotal'] }} <br>
+			SEMESTRAL: 1er pago: {{$cotizacion['paquete'][0]['formasPagoDTO'][1]['reciboini'] }} <br>
+			Subsecuente x 1 : {{$cotizacion['paquete'][0]['formasPagoDTO'][1]['recibosub'] }} <br>
+
+			TRIMESTRAL: 1er pago: {{$cotizacion['paquete'][0]['formasPagoDTO'][2]['reciboini'] }} <br>
+			Subsecuente x 3 : {{$cotizacion['paquete'][0]['formasPagoDTO'][2]['recibosub'] }} <br>
+
+			MENSUAL: 1er pago: {{$cotizacion['paquete'][0]['formasPagoDTO'][3]['reciboini'] }} <br>
+			Subsecuente x 11 : {{$cotizacion['paquete'][0]['formasPagoDTO'][3]['recibosub'] }} <br>
+
+			 </td>
 			<td class="text-center">{{$cotizacion['paquete'][0]['coberturas'][0]['monto'] }} </td>
 			<td class="text-center"> {{$cotizacion['paquete'][0]['coberturas'][2]['monto'] }}</td>
 			<td class="text-center"> {{$cotizacion['paquete'][0]['coberturas'][3]['monto'] }}</td>
