@@ -165,10 +165,23 @@ Los datos de tu cotizacion con <strong>GNP</strong> son los siguientes:
 	</thead>
 	<tbody class="table-hover">
 		<tr>
-			<td class="text-center">ANUAL:${{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][0]['CONCEPTO_ECONOMICO'][10]['MONTO'] }} <br> 
-			SEMESTRAL:${{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][1]['CONCEPTO_ECONOMICO'][10]['MONTO'] }} <br> 
-			TRIMESTRAL: ${{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][2]['CONCEPTO_ECONOMICO'][10]['MONTO'] }} <br> 
-			MENSUAL:${{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][3]['CONCEPTO_ECONOMICO'][10]['MONTO'] }} <br> 
+			<td class="text-center">ANUAL: Unico pago: ${{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][0]['CONCEPTO_ECONOMICO'][10]['MONTO'] }} <br> 
+
+			SEMESTRAL:1er pago: 
+				${{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][1]['CONCEPTO_ECONOMICO'][11]['MONTO'] }}
+				<br>
+				subsecuente x 1 : ${{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][1]['CONCEPTO_ECONOMICO'][12]['MONTO'] }}
+				<br>
+			TRIMESTRAL:1er pago: 
+				${{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][2]['CONCEPTO_ECONOMICO'][11]['MONTO'] }}
+				<br>
+				subsecuente x 3 : ${{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][2]['CONCEPTO_ECONOMICO'][12]['MONTO'] }}
+				<br>
+			MENSUAL:1er pago: 
+				${{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][3]['CONCEPTO_ECONOMICO'][11]['MONTO'] }}
+				<br>
+				subsecuente x 11 : ${{$cotizacion['PAQUETES']['PAQUETE']['TOTALES']['TOTAL_PRIMA'][3]['CONCEPTO_ECONOMICO'][12]['MONTO'] }}
+				<br> 
 			</td>
 			<td class="text-center">DM PERDIDA TOTAL : 5% de la suma asegurada <br>
 			DM PERDIDA PARCIAL : 5% de la suma asegurada</td>
