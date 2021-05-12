@@ -165,7 +165,7 @@ Los datos de tu cotizacion con <strong>ANA</strong> son los siguientes:
 				Subsecuentes x 1: ${{$cotizacion[2]['SEMESTRAL']['recibos'][1]['primatotal'] }} <br>
 				<br>
 				Trimestral: 1er pago: 1er Pago: ${{$cotizacion[3]['TRIMESTRAL']['recibos'][0]['primatotal']}} <br>
-				Subsecuentes x 3: ${{cotizacion[3]['TRIMESTRAL']['recibos'][1]['primatotal'] }} <br>
+				Subsecuentes x 3: ${{$cotizacion[3]['TRIMESTRAL']['recibos'][1]['primatotal'] }} <br>
 				<br>
 				Mensual: 1er pago: 1er Pago: ${{$cotizacion[1]['MENSUAL']['recibos'][0]['primatotal']}} <br>
 				Subsecuentes x 11: ${{$cotizacion[1]['MENSUAL']['recibos'][1]['primatotal'] }} <br>
