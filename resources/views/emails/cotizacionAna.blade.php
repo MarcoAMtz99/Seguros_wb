@@ -160,14 +160,14 @@ Los datos de tu cotizacion con <strong>ANA</strong> son los siguientes:
 			<td class="text-center">
 				<div class="border">Contado: {{  number_format($cotizacion['CONTADO']['prima']['primatotal']) }}</div>
 				<br>
-				Semestral: 1er pago: 1er Pago: ${{cotizacion['SEMESTRAL']['recibos'][0]['primatotal']}} <br>
-				Subsecuentes x 1: ${{cotizacion['SEMESTRAL']['recibos'][1]['primatotal'] }} <br>
+				Semestral: 1er pago: 1er Pago: ${{ number_format($cotizacion['SEMESTRAL']['recibos'][0]['primatotal']) }} <br>
+				Subsecuentes x 1: ${{$cotizacion['SEMESTRAL']['recibos'][1]['primatotal'] }} <br>
 				<br>
-				Trimestral: 1er pago: 1er Pago: ${{cotizacion['TRIMESTRAL']['recibos'][0]['primatotal']}} <br>
+				Trimestral: 1er pago: 1er Pago: ${{$cotizacion['TRIMESTRAL']['recibos'][0]['primatotal']}} <br>
 				Subsecuentes x 3: ${{cotizacion['TRIMESTRAL']['recibos'][1]['primatotal'] }} <br>
 				<br>
-				Mensual: 1er pago: 1er Pago: ${{cotizacion['MENSUAL']['recibos'][0]['primatotal']}} <br>
-				Subsecuentes x 11: ${{cotizacion['MENSUAL']['recibos'][1]['primatotal'] }} <br>
+				Mensual: 1er pago: 1er Pago: ${{$cotizacion['MENSUAL']['recibos'][0]['primatotal']}} <br>
+				Subsecuentes x 11: ${{$cotizacion['MENSUAL']['recibos'][1]['primatotal'] }} <br>
 
 			</td>
 			<td class="text-center">
