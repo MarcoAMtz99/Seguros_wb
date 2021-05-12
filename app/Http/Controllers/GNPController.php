@@ -733,7 +733,7 @@ class GNPController extends Controller
 		} catch (Exception $e) {
 			return back()->with("Error", "Ocurrio un error al enviar la información");
 		}
-
+		dd($array_data,$data);
 		$num_cotizacion = $array_data["SOLICITUD"]["NUM_COTIZACION"];
 		
  		switch ($datos->periodicidad) {
