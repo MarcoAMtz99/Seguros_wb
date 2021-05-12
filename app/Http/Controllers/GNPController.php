@@ -316,7 +316,7 @@ class GNPController extends Controller
 				    <VALOR_FACTURA></VALOR_FACTURA>
 				  </VEHICULO>
 				  <CONTRATANTE>
-				    <TIPO_PERSONA>M</TIPO_PERSONA>
+				    <TIPO_PERSONA>F</TIPO_PERSONA>
 				    <CODIGO_POSTAL>$cp</CODIGO_POSTAL>
 				  </CONTRATANTE>
 				  <CONDUCTOR>
