@@ -316,7 +316,7 @@ class GNPController extends Controller
 				    <VALOR_FACTURA></VALOR_FACTURA>
 				  </VEHICULO>
 				  <CONTRATANTE>
-				    <TIPO_PERSONA>F</TIPO_PERSONA>
+				    <TIPO_PERSONA>M</TIPO_PERSONA>
 				    <CODIGO_POSTAL>$cp</CODIGO_POSTAL>
 				  </CONTRATANTE>
 				  <CONDUCTOR>
@@ -733,7 +733,7 @@ class GNPController extends Controller
 		} catch (Exception $e) {
 			return back()->with("Error", "Ocurrio un error al enviar la información");
 		}
-		dd($array_data,$data);
+		dd($array_data,$data,$datos);
 		$num_cotizacion = $array_data["SOLICITUD"]["NUM_COTIZACION"];
 		
  		switch ($datos->periodicidad) {
