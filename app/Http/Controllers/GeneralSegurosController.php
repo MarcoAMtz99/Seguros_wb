@@ -356,7 +356,7 @@ class GeneralSegurosController extends Controller
             $submarcas = $res->return->submarcas;
             // return $submarcas;
             foreach ($submarcas as $submarca_gs) {
-                if ($submarca_gs->nombre == $submarca || strpos($submarca_gs->nombre, $submarca) !== false ) {
+                if ($submarca_gs->nombre == $submarca || strpos($submarca_gs->nombre, $submarca) !=== false ) {
                     return $submarca_gs;
                 }
             }
@@ -488,18 +488,18 @@ class GeneralSegurosController extends Controller
                     'ape_mat' => $request->apemat,
                     'raz_soc' => $request->razsoc,
                     'ane_cli' => "",
-                    'rfc_cli' => 'GUSC961114123',
-                    // 'rfc_cli' => $request->rfc,
+                    // 'rfc_cli' => 'GUSC961114123',
+                    'rfc_cli' => $request->rfc,
                     'cve_ele' => $request->elector,
                     'curpcli' => $request->curp,
                     'sexocli' => $request->sexo,
                     'edo_civ' => $request->edoCivil,
                     'cal_cli' => $request->calle,
                     'num_cli' => $request->num,
-                    'cod_pos' => '3800',
-                    // 'cod_pos' => $request->cp,
-                    'colonia' => '27968',
-                    // 'colonia' => $request->colonia,
+                    // 'cod_pos' => '3800',
+                    'cod_pos' => $request->cp,
+                    // 'colonia' => '27968',
+                    'colonia' => $request->colonia,
                     'municip' => $request->municip,
                     'poblaci' => $request->poblaci,
                     'cve_est' => "1",

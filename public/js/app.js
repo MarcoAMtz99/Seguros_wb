@@ -50819,7 +50819,8 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _vm.gnp.cliente.tipo_persona == "F"
+        _vm.gnp.cliente.tipo_persona == "F" ||
+        _vm.gnp.cliente.tipo_persona == "M"
           ? _c("div", { staticClass: "form-group col-12 col-md-4" }, [
               _vm._m(7),
               _vm._v(" "),
@@ -50852,7 +50853,8 @@ var render = function() {
             ])
           : _vm._e(),
         _vm._v(" "),
-        _vm.gnp.cliente.tipo_persona == "F"
+        _vm.gnp.cliente.tipo_persona == "F" ||
+        _vm.gnp.cliente.tipo_persona == "M"
           ? _c("div", { staticClass: "form-group col-12 col-md-4" }, [
               _vm._m(8),
               _vm._v(" "),
@@ -50917,7 +50919,8 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _vm.gnp.cliente.tipo_persona == "F"
+        _vm.gnp.cliente.tipo_persona == "F" ||
+        _vm.gnp.cliente.tipo_persona == "M"
           ? _c("div", { staticClass: "form-group col-12 col-md-4" }, [
               _vm._m(10),
               _vm._v(" "),
