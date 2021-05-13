@@ -470,7 +470,7 @@ class GeneralSegurosController extends Controller
     public function sendGS(Request $request)
     {
 
-        if ($request->tipo_persona = "M") {
+        if ($request->tipo_persona == "M") {
            $request->nombre = $request->apepat;
            $request->tipo_persona = 3;
         }
