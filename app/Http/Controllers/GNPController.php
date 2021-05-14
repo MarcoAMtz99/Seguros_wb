@@ -778,6 +778,15 @@ class GNPController extends Controller
  				$carroceria, $version, $datos->f_nac, $datos->sexo, $datos->edad, $clavePaquete, $poliza);
 
  		}else{
+ 				
+ 				if ($datos->tipoPoliza == "Amplia") {
+ 					$clavePaquete = 'PRS0009361';
+ 				}elseif ($datos->tipoPoliza =="Limitada") {
+ 					$clavePaquete = 'PRS0009362';
+ 				}elseif ($datos->tipoPoliza == "RC") {
+ 					$clavePaquete = 'PRP0000349';
+ 				}
+
  			$data = $this->getXMLCotizacionM($datos->codigo_postal, $fecha_inicio, $fecha_fin, $modelo, $armadora,
  				$carroceria, $version, $datos->f_nac, $datos->sexo, $datos->edad, $clavePaquete, $poliza);
 
