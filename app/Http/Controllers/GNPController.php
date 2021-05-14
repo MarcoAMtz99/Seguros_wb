@@ -751,6 +751,7 @@ class GNPController extends Controller
  		$poliza  		   = $datos->paquete->DESC_PAQUETE;
  		$estadoCirculacion = substr($datos->estadoCirculacion, 1);
  		$datos->f_nac = str_replace("-", '', $datos->f_nac);
+ 		$datos->f_const = str_replace("-", '', $datos->f_const);
  		$telefono = substr($datos->telefono, 2);
  		$lada = substr($datos->telefono, 0, 2);
  		$datos->municipio = str_replace([".", ",", ";", ":", "-", "_"], "", $datos->municipio);
