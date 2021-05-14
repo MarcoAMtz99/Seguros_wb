@@ -59,6 +59,64 @@
                 <input class="form-control" type="text" name="nombre" v-model="gnp.cliente.nombre" required>
             </div>
         </div>
+        <hr>
+         <div class="row" v-if="gnp.cliente.tipo_persona == 'M'">
+            <div class="col-12 mt-3">
+                <h4>Datos del conductor:</h4>
+            </div>
+           <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == 'M'">
+                <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Fecha de constitucion:</label>
+                <input class="form-control" type="date" name="f_const" v-model="gnp.cliente.f_const" :max="maxDate" required>
+            </div>
+            <div class="form-group col-12 col-md-4">
+                <label class="control-label">
+                    <i class="fa fa-asterisk" aria-hidden="true"></i> Nombre(s)
+                </label>
+                <input class="form-control" type="text" name="nombre_c" v-model="gnp.cliente.nombre" required>
+            </div>
+            <div class="form-group col-12 col-md-4">
+                <label class="control-label">
+                    <i class="fa fa-asterisk" aria-hidden="true"></i> Apellido Paterno
+                </label>
+                <input type="text" name="apepat_c" class="form-control" v-model="gnp.cliente.apepat_c" required>
+            </div>
+            <div class="form-group col-12 col-md-4">
+                <label class="control-label">
+                    Apellido Materno
+                </label>
+                <input type="text" name="apemat_c" class="form-control" v-model="gnp.cliente.apemat_c">
+            </div>
+            <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == 'M'">
+                <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Fecha de nacimiento:</label>
+                <input class="form-control" type="date" name="f_nac_c" v-model="gnp.cliente.f_nac" :max="maxDate" required>
+            </div>
+            <div class="form-group col-12 col-md-4" v-if=" gnp.cliente.tipo_persona == 'M'">
+                <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Edad:</label>
+                <input class="form-control" type="text" v-model="edad" disabled>
+                <input class="form-control" type="hidden" name="edad" :value="edad" required>
+            </div>
+            <div class="form-group col-12 col-md-4">
+                <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C.:</label>
+                <input class="form-control" type="text" name="rfc_c" v-model="gnp.cliente.rfc_c" pattern="[a-zA-Z]{4,4}[0-9]{6,6}[a-zA-Z0-9]{3,3}" required>
+            </div>
+            <div class="form-group col-12 col-md-4" v-if=" gnp.cliente.tipo_persona == 'M'">
+                <label for="sexo" class="control-label"><i class="fas fa-asterisk"></i> Sexo</label>
+                <select name="sexo_c" class="form-control" v-model="gnp.cliente.sexo_c" required>
+                    <option value="">Seleccione su sexo</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                </select>
+            </div>
+            <div class="form-group col-12 col-md-4">
+                <label for="estadoCivil" class="control-label"><i class="fas fa-asterisk"></i> Estado Civil:</label>
+                <select name="estadoCivil_c" class="form-control" v-model="gnp.cliente.estadoCivil_c" required>
+                    <option value="">Seleccione el estado civil</option>
+                    <option value="C">Casado</option>
+                    <option value="S">Soltero</option>
+                </select>
+            </div>
+
+        </div>
         <div class="row">
             <div class="form-group col-12 col-md-4">
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Correo electrónico:</label>
@@ -68,11 +126,11 @@
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Telefono</label>
                 <input class="form-control" type="text" name="telefono" v-model="gnp.cliente.telefono" maxlength="10" minlength="10frfc" required>
             </div>
-            <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == 'F' || gnp.cliente.tipo_persona == 'M'">
+            <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == 'F'">
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Fecha de nacimiento:</label>
                 <input class="form-control" type="date" name="f_nac" v-model="gnp.cliente.f_nac" :max="maxDate" required>
             </div>
-            <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == 'F' ||  gnp.cliente.tipo_persona == 'M'">
+            <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == 'F'">
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Edad:</label>
                 <input class="form-control" type="text" v-model="edad" disabled>
                 <input class="form-control" type="hidden" name="edad" :value="edad" required>
@@ -81,7 +139,7 @@
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C.:</label>
                 <input class="form-control" type="text" name="rfc" v-model="gnp.cliente.rfc" pattern="[a-zA-Z]{4,4}[0-9]{6,6}[a-zA-Z0-9]{3,3}" required>
             </div>
-            <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == 'F' || gnp.cliente.tipo_persona == 'M'">
+            <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == 'F'">
                 <label for="sexo" class="control-label"><i class="fas fa-asterisk"></i> Sexo</label>
                 <select name="sexo" class="form-control" v-model="gnp.cliente.sexo" required>
                     <option value="">Seleccione su sexo</option>
@@ -217,6 +275,14 @@
                     cliente: {
                         tipo_persona: "1",
                         nombre:"",
+                        nombre_c:"",
+                        apepat_c:"",
+                        apemat_c:"",
+                        rfc_c:"",
+                        f_nac_c:"",
+                        sexo_c: "",
+                        estadoCivil_c: "",
+
                         apepat:"",
                         apemat:"",
                         rfc:"",
