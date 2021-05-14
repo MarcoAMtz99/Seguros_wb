@@ -821,7 +821,126 @@ class GNPController extends Controller
  				break;
  		}
 		/*  dd($array_data); */
- 		return  "<EMISION>
+		if ($datos->tipo_persona =="M") {
+			return  "<EMISION>
+				  <SOLICITUD>
+				    <USUARIO>$this->user</USUARIO>
+				    <PASSWORD>$this->pass</PASSWORD>
+				    <ID_UNIDAD_OPERABLE>$this->unidadOperable</ID_UNIDAD_OPERABLE>
+				    <NUM_COTIZACION>$num_cotizacion</NUM_COTIZACION>
+				    <FCH_INICIO_VIGENCIA>$fecha_inicio</FCH_INICIO_VIGENCIA>
+				    <FCH_FIN_VIGENCIA>$fecha_fin</FCH_FIN_VIGENCIA>
+				    <FCH_EFECTO_MOVIMIENTO>$fecha_inicio</FCH_EFECTO_MOVIMIENTO>
+				    <FCH_FIN_EFECTO_MOVIMIENTO>$fecha_fin</FCH_FIN_EFECTO_MOVIMIENTO>
+				    <VIA_PAGO>IN</VIA_PAGO>
+				    <VIA_PAGO_SUCESIVOS>IN</VIA_PAGO_SUCESIVOS>
+				    <PERIODICIDAD>$datos->periodicidad</PERIODICIDAD>
+				    <CVE_MONEDA>MXN</CVE_MONEDA>
+				    <BAN_RENOVACION_AUTOMATICA>1</BAN_RENOVACION_AUTOMATICA>
+				    <BAN_URL_IMPRESION>1</BAN_URL_IMPRESION>
+				    <CVE_FORMA_AJUSTE_IRREGULAR>PR</CVE_FORMA_AJUSTE_IRREGULAR>
+				    <BAN_CONTRA_IGUAL_CONDUCTOR>1</BAN_CONTRA_IGUAL_CONDUCTOR>
+				    <BAN_CONTRA_IGUAL_BENEFICIARIO>1</BAN_CONTRA_IGUAL_BENEFICIARIO>
+				    <BAN_AFECTA_BONO>0</BAN_AFECTA_BONO>
+				    <OPERACION>E</OPERACION>
+				  </SOLICITUD>
+				  <ELEMENTOS>
+				    <ELEMENTO>
+				      <NOMBRE>INTERMEDIARIO</NOMBRE>
+				      <CLAVE>$this->intermediario</CLAVE>
+				      <VALOR>$this->intermediario</VALOR>
+				    </ELEMENTO>
+				  </ELEMENTOS>
+				  <AGENTES>
+				    <AGENTE>
+				      <COD_INTERMEDIARIO>$this->intermediario</COD_INTERMEDIARIO>
+				      <ID_PARTICIPANTE>CASFSC183ABC</ID_PARTICIPANTE>
+				      <CVE_CLASE_INTERMEDIARIO_INFO>A</CVE_CLASE_INTERMEDIARIO_INFO>
+				      <BAN_INTERMEDIARIO_PRINCIPAL>1</BAN_INTERMEDIARIO_PRINCIPAL>
+				      <FOLIO>P0070295</FOLIO>
+				      <CVE_OFICINA_DIRECCION_AGENCIA>0709</CVE_OFICINA_DIRECCION_AGENCIA>
+				      <ID_TIPO_BASE_COMISION>PS</ID_TIPO_BASE_COMISION>
+				      <PCT_COMISION_PRIMA>10.0</PCT_COMISION_PRIMA>
+				      <PCT_PARTICIP_COMISION>100</PCT_PARTICIP_COMISION>
+				      <PCT_CESION_COMISION>0</PCT_CESION_COMISION>
+				    </AGENTE>
+				  </AGENTES>
+				  <VEHICULO>
+				    <SUB_RAMO>01</SUB_RAMO>
+				      <TIPO_VEHICULO>AUT</TIPO_VEHICULO>
+				      <MODELO>$modelo</MODELO>
+				      <ARMADORA>$armadora</ARMADORA>
+				      <CARROCERIA>$carroceria</CARROCERIA>
+				      <VERSION>$version</VERSION>
+				      <USO>$datos->uso</USO>
+				      <FORMA_INDEMNIZACION>03</FORMA_INDEMNIZACION>
+				      <VALOR_FACTURA></VALOR_FACTURA>
+				      <PLACAS>$datos->placas</PLACAS>
+				      <ALTO_RIESGO>0</ALTO_RIESGO>
+				      <TIPO_CARGA></TIPO_CARGA>
+				      <ESTADO_CIRCULACION>$datos->estado</ESTADO_CIRCULACION>
+				      <MOTOR>$datos->motor</MOTOR>
+				      <SERIE>$datos->serie</SERIE>
+				      <CODIGO_POSTAL>$datos->codigo_postal</CODIGO_POSTAL>
+				  </VEHICULO>
+				  <CONTRATANTE>
+				    <TIPO_PERSONA>$datos->tipo_persona</TIPO_PERSONA>
+				    <RFC>$datos->rfc</RFC>
+				    <NOMBRES>$datos->nombre</NOMBRES>
+				    <APELLIDO_PATERNO>$datos->apepat</APELLIDO_PATERNO>
+				    <APELLIDO_MATERNO>$datos->apemat</APELLIDO_MATERNO>
+				    <SEXO>$datos->sexo</SEXO>
+				    <RAZON_SOCIAL>$datos->nombre</RAZON_SOCIAL>
+				    <ESTADO_CIVIL>$datos->estadoCivil</ESTADO_CIVIL>
+				    <FCH_NACIMIENTO>$datos->f_nac</FCH_NACIMIENTO>
+				    <NACIONALIDAD>MEX</NACIONALIDAD>
+				    <PAIS_NACIMIENTO>MEX</PAIS_NACIMIENTO>
+				    <DIRECCION>
+				      <CVE_TIPO_VIA>$datos->tipoVia</CVE_TIPO_VIA>
+				      <CALLE>$datos->calle</CALLE>
+				      <NUMERO_EXTERIOR>$datos->num_ext</NUMERO_EXTERIOR>
+				      <NUMERO_INTERIOR>$num_int</NUMERO_INTERIOR>
+				      <COLONIA>$datos->colonia</COLONIA>
+				      <DELEGACION_MCPIO>$datos->municipio</DELEGACION_MCPIO>
+				      <ESTADO>$datos->estado</ESTADO>
+				      <CODIGO_POSTAL>$datos->codigo_postal</CODIGO_POSTAL>
+				      <PAIS_DOMICILIO>MEX</PAIS_DOMICILIO>
+				    </DIRECCION>
+				    <TELEFONOS>
+				      <TELEFONO>
+				        <CVE_LADA>$lada</CVE_LADA>
+				        <CVE_LADA_NACIONAL>$lada</CVE_LADA_NACIONAL>
+				        <NUMERO_TELEFONO>$telefono</NUMERO_TELEFONO>
+				      </TELEFONO>
+				    </TELEFONOS>
+				    <CORREOS>
+				      <CORREO>
+				        <CORREO_ELECTRONICO>$datos->correo</CORREO_ELECTRONICO>
+				      </CORREO>
+				    </CORREOS>
+				  </CONTRATANTE>
+				  <CONDUCTOR>
+				    <RFC>$datos->rfc</RFC>
+				    <NOMBRES>$datos->nombre</NOMBRES>
+				    <APELLIDO_PATERNO>$datos->apepat</APELLIDO_PATERNO>
+				    <APELLIDO_MATERNO>$datos->apemat</APELLIDO_MATERNO>
+				    <SEXO>$datos->sexo</SEXO>
+				    <ESTADO_CIVIL>$datos->estadoCivil</ESTADO_CIVIL>
+				    <FCH_NACIMIENTO>$datos->f_nac</FCH_NACIMIENTO>
+				    <EDAD_CONDUCTOR_HABITUAL>$datos->edad</EDAD_CONDUCTOR_HABITUAL>
+				  </CONDUCTOR>
+				  <PAQUETE>
+				    <CVE_PAQUETE>$clavePaquete</CVE_PAQUETE>
+				  </PAQUETE>
+				  <IMPORTES>
+				    <PRIMA_TOTAL>$primaTotal</PRIMA_TOTAL>
+				    <IMP_IVA>$importeIVA</IMP_IVA>
+				    <PRIMA_NETA>$primaNeta</PRIMA_NETA>
+				  </IMPORTES>
+				</EMISION>";
+			
+		}else{
+			return  "<EMISION>
 				  <SOLICITUD>
 				    <USUARIO>$this->user</USUARIO>
 				    <PASSWORD>$this->pass</PASSWORD>
@@ -937,6 +1056,8 @@ class GNPController extends Controller
 				  </IMPORTES>
 				</EMISION>";
 			
+		}
+ 		
  	}
 
  	/**
