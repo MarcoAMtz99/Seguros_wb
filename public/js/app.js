@@ -4449,6 +4449,19 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
 
+      if (fecha_c.length > 1) {
+        var _hoy = new Date();
+
+        fecha_c = new Date(fecha_c[0], fecha_c[1] - 1, fecha_c[2]);
+        edad = _hoy.getFullYear() - fecha_c.getFullYear();
+
+        var _m = _hoy.getMonth() - fecha_c.getMonth();
+
+        if (_m < 0 || _m === 0 && _hoy.getDate() < fecha_c.getDate()) {
+          edad--;
+        }
+      }
+
       return edad;
     }
   }

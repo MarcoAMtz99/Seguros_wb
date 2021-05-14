@@ -410,6 +410,16 @@
                         edad--;
                     }
                 }
+                if (fecha_c.length > 1){
+                    const hoy = new Date();
+                    fecha_c = new Date(fecha_c[0], fecha_c[1] - 1, fecha_c[2]);
+                    edad = hoy.getFullYear() - fecha_c.getFullYear();
+                    const m = hoy.getMonth() - fecha_c.getMonth();
+
+                    if (m < 0 || (m === 0 && hoy.getDate() < fecha_c.getDate())) {
+                        edad--;
+                    }
+                }
 
                 return edad;
 
