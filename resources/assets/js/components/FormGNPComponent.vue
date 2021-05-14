@@ -392,11 +392,11 @@
         },
         computed:{
             'edad':function(){
-                if (this.gnp.cliente.f_nac_c != "") {
-                    let fecha = this.gnp.cliente.f_nac_c.split('-');
-                }else{
+                
+                    let fecha_c = this.gnp.cliente.f_nac_c.split('-');
+                
                     let fecha = this.gnp.cliente.f_nac.split('-');
-                }
+                
                 
                 
                 let edad = 0;
