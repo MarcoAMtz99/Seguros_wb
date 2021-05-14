@@ -58,6 +58,10 @@
                 </label>
                 <input class="form-control" type="text" name="nombre" v-model="gnp.cliente.nombre" required>
             </div>
+            <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == 'M'">
+                <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Fecha de constitucion:</label>
+                <input class="form-control" type="date" name="f_const" v-model="gnp.cliente.f_const" :max="maxDate" required>
+            </div>
         </div>
         <hr>
         <div class="row">
@@ -145,10 +149,6 @@
           <div class="row" v-if="gnp.cliente.tipo_persona == 'M'">
             <div class="col-12 mt-3">
                 <h4>Datos del conductor:</h4>
-            </div>
-           <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == 'M'">
-                <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Fecha de constitucion:</label>
-                <input class="form-control" type="date" name="f_const" v-model="gnp.cliente.f_const" :max="maxDate" required>
             </div>
             <div class="form-group col-12 col-md-4">
                 <label class="control-label">
@@ -289,6 +289,7 @@
                         rfc:"",
                         curp:"",
                         f_nac:"",
+                        f_const:"";
                         sexo: "",
                         estadoCivil: "",
                         calle:"",
