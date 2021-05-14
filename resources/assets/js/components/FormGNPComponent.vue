@@ -154,7 +154,7 @@
                 <label class="control-label">
                     <i class="fa fa-asterisk" aria-hidden="true"></i> Nombre(s)
                 </label>
-                <input class="form-control" type="text" name="nombre_c" v-model="gnp.cliente.nombre" required>
+                <input class="form-control" type="text" name="nombre_c" v-model="gnp.cliente.nombre_c" required>
             </div>
             <div class="form-group col-12 col-md-4">
                 <label class="control-label">
@@ -170,7 +170,7 @@
             </div>
             <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == 'M'">
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Fecha de nacimiento:</label>
-                <input class="form-control" type="date" name="f_nac_c" v-model="gnp.cliente.f_nac" :max="maxDate" required>
+                <input class="form-control" type="date" name="f_nac_c" v-model="gnp.cliente.f_nac_c" :max="maxDate" required>
             </div>
             <div class="form-group col-12 col-md-4" v-if=" gnp.cliente.tipo_persona == 'M'">
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Edad:</label>

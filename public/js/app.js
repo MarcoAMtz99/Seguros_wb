@@ -51415,19 +51415,19 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.gnp.cliente.nombre,
-                    expression: "gnp.cliente.nombre"
+                    value: _vm.gnp.cliente.nombre_c,
+                    expression: "gnp.cliente.nombre_c"
                   }
                 ],
                 staticClass: "form-control",
                 attrs: { type: "text", name: "nombre_c", required: "" },
-                domProps: { value: _vm.gnp.cliente.nombre },
+                domProps: { value: _vm.gnp.cliente.nombre_c },
                 on: {
                   input: function($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.$set(_vm.gnp.cliente, "nombre", $event.target.value)
+                    _vm.$set(_vm.gnp.cliente, "nombre_c", $event.target.value)
                   }
                 }
               })
@@ -51496,8 +51496,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.gnp.cliente.f_nac,
-                        expression: "gnp.cliente.f_nac"
+                        value: _vm.gnp.cliente.f_nac_c,
+                        expression: "gnp.cliente.f_nac_c"
                       }
                     ],
                     staticClass: "form-control",
@@ -51507,13 +51507,17 @@ var render = function() {
                       max: _vm.maxDate,
                       required: ""
                     },
-                    domProps: { value: _vm.gnp.cliente.f_nac },
+                    domProps: { value: _vm.gnp.cliente.f_nac_c },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.gnp.cliente, "f_nac", $event.target.value)
+                        _vm.$set(
+                          _vm.gnp.cliente,
+                          "f_nac_c",
+                          $event.target.value
+                        )
                       }
                     }
                   })
