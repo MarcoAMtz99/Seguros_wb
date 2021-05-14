@@ -892,6 +892,7 @@ class GNPController extends Controller
 				    <SEXO>$datos->sexo</SEXO>
 				    <RAZON_SOCIAL>$datos->nombre</RAZON_SOCIAL>
 				    <ESTADO_CIVIL>$datos->estadoCivil</ESTADO_CIVIL>
+				    <FCH_CONSTITUCION>$datos->f_nac</FCH_CONSTITUCION>
 				    <FCH_NACIMIENTO>$datos->f_nac</FCH_NACIMIENTO>
 				    <NACIONALIDAD>MEX</NACIONALIDAD>
 				    <PAIS_NACIMIENTO>MEX</PAIS_NACIMIENTO>
