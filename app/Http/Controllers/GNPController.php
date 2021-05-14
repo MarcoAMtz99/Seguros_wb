@@ -821,7 +821,7 @@ class GNPController extends Controller
  				$primaTotal = $array_data["PAQUETES"]["PAQUETE"]["TOTALES"]["TOTAL_PRIMA"][2]["CONCEPTO_ECONOMICO"][10]["MONTO"];
  				break;
  		}
- 		dd($array_data,$data,$datos);
+ 		// dd($array_data,$data,$datos);
 		/*  dd($array_data); */
 		if ($datos->tipo_persona =="M") {
 			return  "<EMISION>
@@ -1078,7 +1078,7 @@ class GNPController extends Controller
  		$request->descripcionAuto = json_decode($request->descripcionAuto);
 
  		$data = $this->getXMLPoliza($request);
- 		// dd($data);
+ 		dd($data,$request);
  		try {
 			// dd($data);
 			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/emisor/emisor/emitir", $data);
