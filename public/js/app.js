@@ -4327,6 +4327,7 @@ __webpack_require__.r(__webpack_exports__);
           rfc: "",
           curp: "",
           f_nac: "",
+          f_const: "",
           sexo: "",
           estadoCivil: "",
           calle: "",
@@ -50822,7 +50823,44 @@ var render = function() {
                   }
                 }
               })
-            ])
+            ]),
+            _vm._v(" "),
+            _vm.gnp.cliente.tipo_persona == "M"
+              ? _c("div", { staticClass: "form-group col-12 col-md-4" }, [
+                  _vm._m(5),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.gnp.cliente.f_const,
+                        expression: "gnp.cliente.f_const"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "date",
+                      name: "f_const",
+                      max: _vm.maxDate,
+                      required: ""
+                    },
+                    domProps: { value: _vm.gnp.cliente.f_const },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.gnp.cliente,
+                          "f_const",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  })
+                ])
+              : _vm._e()
           ])
         : _vm._e(),
       _vm._v(" "),
@@ -50830,7 +50868,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(5),
+          _vm._m(6),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -50856,7 +50894,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(6),
+          _vm._m(7),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -50889,7 +50927,7 @@ var render = function() {
         _vm._v(" "),
         _vm.gnp.cliente.tipo_persona == "F"
           ? _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-              _vm._m(7),
+              _vm._m(8),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -50922,7 +50960,7 @@ var render = function() {
         _vm._v(" "),
         _vm.gnp.cliente.tipo_persona == "F"
           ? _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-              _vm._m(8),
+              _vm._m(9),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -50955,7 +50993,7 @@ var render = function() {
           : _vm._e(),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(9),
+          _vm._m(10),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -50987,7 +51025,7 @@ var render = function() {
         _vm._v(" "),
         _vm.gnp.cliente.tipo_persona == "F"
           ? _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-              _vm._m(10),
+              _vm._m(11),
               _vm._v(" "),
               _c(
                 "select",
@@ -51038,7 +51076,7 @@ var render = function() {
           : _vm._e(),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(11),
+          _vm._m(12),
           _vm._v(" "),
           _c(
             "select",
@@ -51084,7 +51122,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(12),
+          _vm._m(13),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -51115,7 +51153,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(13),
+          _vm._m(14),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -51146,7 +51184,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(14),
+          _vm._m(15),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -51181,7 +51219,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(15),
+          _vm._m(16),
           _vm._v(" "),
           _c(
             "select",
@@ -51230,7 +51268,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(16),
+          _vm._m(17),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -51256,7 +51294,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(17),
+          _vm._m(18),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -51310,7 +51348,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(18),
+          _vm._m(19),
           _vm._v(" "),
           _c(
             "select",
@@ -51367,44 +51405,7 @@ var render = function() {
       _vm._v(" "),
       _vm.gnp.cliente.tipo_persona == "M"
         ? _c("div", { staticClass: "row" }, [
-            _vm._m(19),
-            _vm._v(" "),
-            _vm.gnp.cliente.tipo_persona == "M"
-              ? _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                  _vm._m(20),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.gnp.cliente.f_const,
-                        expression: "gnp.cliente.f_const"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "date",
-                      name: "f_const",
-                      max: _vm.maxDate,
-                      required: ""
-                    },
-                    domProps: { value: _vm.gnp.cliente.f_const },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.gnp.cliente,
-                          "f_const",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  })
-                ])
-              : _vm._e(),
+            _vm._m(20),
             _vm._v(" "),
             _c("div", { staticClass: "form-group col-12 col-md-4" }, [
               _vm._m(21),
@@ -52062,6 +52063,18 @@ var staticRenderFns = [
         staticClass: "fa fa-asterisk",
         attrs: { "aria-hidden": "true" }
       }),
+      _vm._v(" Fecha de constitucion:")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "control-label" }, [
+      _c("i", {
+        staticClass: "fa fa-asterisk",
+        attrs: { "aria-hidden": "true" }
+      }),
       _vm._v(" Correo electrónico:")
     ])
   },
@@ -52221,18 +52234,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12 mt-3" }, [
       _c("h4", [_vm._v("Datos del conductor:")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "control-label" }, [
-      _c("i", {
-        staticClass: "fa fa-asterisk",
-        attrs: { "aria-hidden": "true" }
-      }),
-      _vm._v(" Fecha de constitucion:")
     ])
   },
   function() {

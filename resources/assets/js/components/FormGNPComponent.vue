@@ -289,7 +289,7 @@
                         rfc:"",
                         curp:"",
                         f_nac:"",
-                        f_const:"";
+                        f_const:"",
                         sexo: "",
                         estadoCivil: "",
                         calle:"",
