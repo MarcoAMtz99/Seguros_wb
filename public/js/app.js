@@ -4434,7 +4434,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     'edad': function edad() {
-      var fecha = this.gnp.cliente.f_nac.split('-');
+      if (this.gnp.cliente.f_nac_c != "") {
+        var _fecha = this.gnp.cliente.f_nac_c.split('-');
+      } else {
+        var _fecha2 = this.gnp.cliente.f_nac.split('-');
+      }
+
       var edad = 0;
 
       if (fecha.length > 1) {

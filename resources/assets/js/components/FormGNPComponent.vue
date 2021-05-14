@@ -392,7 +392,13 @@
         },
         computed:{
             'edad':function(){
-                let fecha = this.gnp.cliente.f_nac.split('-');
+                if (this.gnp.cliente.f_nac_c != "") {
+                    let fecha = this.gnp.cliente.f_nac_c.split('-');
+                }else{
+                    let fecha = this.gnp.cliente.f_nac.split('-');
+                }
+                
+                
                 let edad = 0;
                 if (fecha.length > 1){
                     const hoy = new Date();
