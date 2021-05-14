@@ -743,7 +743,7 @@ class GNPController extends Controller
  	 */
  	private function getXMLPoliza($datos)
  	{
- 		// dd($datos);
+ 		dd($datos);
  		$fecha_inicio      = Carbon::now()->format('Ymd');
  		$fecha_fin         = Carbon::now()->addYear()->format('Ymd');
  		$num_int           = $datos->num_int != null ? $datos->num_int : '';
@@ -883,6 +883,7 @@ class GNPController extends Controller
 				      <SERIE>$datos->serie</SERIE>
 				      <CODIGO_POSTAL>$datos->codigo_postal</CODIGO_POSTAL>
 				  </VEHICULO>
+
 				  <CONTRATANTE>
 				    <TIPO_PERSONA>$datos->tipo_persona</TIPO_PERSONA>
 				    <RFC>$datos->rfc</RFC>
@@ -920,16 +921,19 @@ class GNPController extends Controller
 				      </CORREO>
 				    </CORREOS>
 				  </CONTRATANTE>
+
 				  <CONDUCTOR>
 				    <RFC>$datos->rfc</RFC>
-				    <NOMBRES>$datos->nombre</NOMBRES>
-				    <APELLIDO_PATERNO>$datos->apepat</APELLIDO_PATERNO>
-				    <APELLIDO_MATERNO>$datos->apemat</APELLIDO_MATERNO>
-				    <SEXO>$datos->sexo</SEXO>
-				    <ESTADO_CIVIL>$datos->estadoCivil</ESTADO_CIVIL>
-				    <FCH_NACIMIENTO>$datos->f_nac</FCH_NACIMIENTO>
+				    <NOMBRES>$datos->nombre_c</NOMBRES>
+				    <APELLIDO_PATERNO>$datos->apepat_c</APELLIDO_PATERNO>
+				    <APELLIDO_MATERNO>$datos->apemat_c</APELLIDO_MATERNO>
+				    <SEXO>$datos->sexo_c</SEXO>
+				    <ESTADO_CIVIL>$datos->estadoCivil_c</ESTADO_CIVIL>
+				    <FCH_NACIMIENTO>$datos->f_nac_c</FCH_NACIMIENTO>
 				    <EDAD_CONDUCTOR_HABITUAL>$datos->edad</EDAD_CONDUCTOR_HABITUAL>
 				  </CONDUCTOR>
+
+
 				  <PAQUETE>
 				    <CVE_PAQUETE>$clavePaquete</CVE_PAQUETE>
 				  </PAQUETE>
