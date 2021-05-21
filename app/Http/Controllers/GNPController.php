@@ -198,6 +198,11 @@ class GNPController extends Controller
  	}
  		public function BusquedaModelo($modelo, $submarca)
  	{
+
+ 		if ($submarca == ' C-HR') {
+ 			$submarca = 'C HR';
+ 		}
+
  		$Modelos = $this->BusquedaModelos($modelo,$submarca);
  		// $json_mod = json_decode($Modelos);
  		// $bandera = false;
