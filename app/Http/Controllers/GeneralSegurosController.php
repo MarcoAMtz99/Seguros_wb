@@ -356,12 +356,12 @@ class GeneralSegurosController extends Controller
             $submarcas = $res->return->submarcas;
             // return $submarcas;
             // 
-            if ($submarca = 'SERIE 208') {
-                $submarca = '208';
-            }
-             if ($submarca = 'CR-V') {
-                $submarca = 'CRV';
-            }
+            // if ($submarca = 'SERIE 208') {
+            //     $submarca = '208';
+            // }
+            //  if ($submarca = 'CR-V') {
+            //     $submarca = 'CRV';
+            // }
             //  if ($submarca == 'X1') {
             //     $submarca = 'X1';
             // }
