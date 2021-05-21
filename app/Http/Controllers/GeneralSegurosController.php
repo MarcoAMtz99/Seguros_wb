@@ -359,6 +359,9 @@ class GeneralSegurosController extends Controller
             if ($submarca = 'SERIE 208') {
                 $submarca = '208';
             }
+             if ($submarca = 'CR-V') {
+                $submarca = 'CRV';
+            }
             foreach ($submarcas as $submarca_gs) {
                 if ($submarca_gs->nombre == $submarca || strpos($submarca_gs->nombre, $submarca) !== false ) {
                     return $submarca_gs;
