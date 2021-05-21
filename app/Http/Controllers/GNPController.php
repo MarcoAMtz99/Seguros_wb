@@ -205,6 +205,18 @@ class GNPController extends Controller
  		if($submarca == 'SERIE 208'){
 			$submarca ='PEUGEOT 208';
  		}
+ 		if($submarca == 'SERIE 3008'){
+			$submarca ='PEUGEOT 3008';
+ 		}
+ 		if($submarca == 'SERIE 308'){
+			$submarca ='PEUGEOT 308';
+ 		}
+ 		if($submarca == 'SERIE 301'){
+			$submarca ='PEUGEOT 301';
+ 		}
+ 		if($submarca == 'CR-V'){
+			$submarca ='CR V';
+ 		}
 
  		$Modelos = $this->BusquedaModelos($modelo,$submarca);
  		// $json_mod = json_decode($Modelos);
