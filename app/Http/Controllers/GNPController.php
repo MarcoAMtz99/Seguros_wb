@@ -224,7 +224,10 @@ class GNPController extends Controller
 			$submarca ='PEUGEOT 508';
  		}
  		if($submarca == 'CR-V'){
-			$submarca ='CR V';
+			$submarca ='CR V'; 
+ 		}
+ 		if($submarca == 'BR-V'){
+			$submarca ='BR V'; 
  		}
 
  		$Modelos = $this->BusquedaModelos($modelo,$submarca);
