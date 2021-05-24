@@ -915,7 +915,6 @@ class GNPController extends Controller
 				    <NOMBRES>$datos->nombre</NOMBRES>
 				    <APELLIDO_PATERNO>$datos->apepat</APELLIDO_PATERNO>
 				    <APELLIDO_MATERNO>$datos->apemat</APELLIDO_MATERNO>
-				    
 				    <RAZON_SOCIAL>$datos->nombre</RAZON_SOCIAL>
 				    
 				    <FCH_CONSTITUCION>$datos->f_const</FCH_CONSTITUCION>
@@ -947,6 +946,7 @@ class GNPController extends Controller
 				    </CORREOS>
 				  </CONTRATANTE>
 
+
 				  <CONDUCTOR>
 				    <RFC>$datos->rfc_c</RFC>
 				    <NOMBRES>$datos->nombre_c</NOMBRES>
@@ -957,8 +957,17 @@ class GNPController extends Controller
 				    <FCH_NACIMIENTO>$datos->f_nac_c</FCH_NACIMIENTO>
 				    <EDAD_CONDUCTOR_HABITUAL>$datos->edad</EDAD_CONDUCTOR_HABITUAL>
 				  </CONDUCTOR>
-
-
+				   <BENEFICIARIOS>
+				      <BENEFICIARIO>
+				         <BAN_IRREVOCABLE>0</BAN_IRREVOCABLE>
+				         <NOMBRES>Carlos</NOMBRES>
+				      <APELLIDO_PATERNO>Omega</APELLIDO_PATERNO>
+				      <APELLIDO_MATERNO>Alfa</APELLIDO_MATERNO>
+				         <PCT_BENEFICIO>1</PCT_BENEFICIO>
+				         <TIPO_PERSONA>F</TIPO_PERSONA>
+				      </BENEFICIARIO>
+				   </BENEFICIARIOS>
+				   
 				  <PAQUETE>
 				    <CVE_PAQUETE>$clavePaquete</CVE_PAQUETE>
 				  </PAQUETE>

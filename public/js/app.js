@@ -3571,8 +3571,7 @@ __webpack_require__.r(__webpack_exports__);
       ocupaciones: [],
       giros: [],
       tipocontactos: [],
-      detallePago: {},
-      loader_desc: true
+      detallePago: {}
     };
   },
   watch: {
@@ -3777,18 +3776,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     'sendGS': function sendGS() {
       console.log('enviado');
-      this.loader_desc = true;
-      $('#descripcion').append('<div class="loader">ENVIANDO</div>');
     },
-    'sendQua': function sendQua() {
-      // TODO
-      this.loader_desc = true;
-      $('#descripcion').append('<div class="loader">ENVIANDO</div>');
+    'sendQua': function sendQua() {// TODO
     },
-    'sendANA': function sendANA() {
-      // TODO
-      this.loader_desc = true;
-      $('#descripcion').append('<div class="loader">ENVIANDO</div>');
+    'sendANA': function sendANA() {// TODO
     },
     'formaPago': function formaPago() {
       var _this9 = this;
