@@ -487,12 +487,13 @@ class GeneralSegurosController extends Controller
     public function sendGS(Request $request)
     {
 
-        dd($request);
+       
         if ($request->tipo_persona == "M") {
            $request->nombre = $request->apepat;
            $request->apepat = '';
            $request->tipo_persona = 3;
         }
+         dd($request);
         ini_set('default_socket_timeout', 600);
         $clientSOAP = $this->getClient($this->urlCotiza);
         $emitir = $clientSOAP->emitirCotizacion([
