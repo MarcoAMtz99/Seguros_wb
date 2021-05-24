@@ -490,7 +490,7 @@ class GeneralSegurosController extends Controller
        
         if ($request->tipo_persona == 'M') {
            $request->nombre = $request->apepat;
-           $request->apepat = '';
+           // $request->apepat = '';
            $request->tipo_persona = 3;
         }
          // dd($request);
