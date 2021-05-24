@@ -14,6 +14,7 @@
 							<h5 class="mt-3 ml-3">General de Seguros</h5>
 						</div>
 					</div>
+
 					<div class="row">
 						<input type="hidden" name="cotizacion_id" v-model="generalseguro.cotizacion.id_cotizacion">
 						<div class="col-12 mt-3">
@@ -1145,6 +1146,7 @@
 				giros:[],
 				tipocontactos:[],
 				detallePago:{},
+				loader_desc:true,
 
 			}
 		},
@@ -1331,12 +1333,18 @@
 			},
 			'sendGS':function(){
 				console.log('enviado');
+				this.loader_desc = true;
+				$('#descripcion').append('<div class="loader">ENVIANDO</div>');
 			},
 			'sendQua': function(){
 				// TODO
+				this.loader_desc = true;
+				$('#descripcion').append('<div class="loader">ENVIANDO</div>');
 			},
 			'sendANA':function(){
 				// TODO
+				this.loader_desc = true;
+				$('#descripcion').append('<div class="loader">ENVIANDO</div>');
 			},
 			'formaPago':function(){
 				if (this.generalseguro.cotizacion.id_pago == "" ) {

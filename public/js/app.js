@@ -3398,6 +3398,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'alert', 'cotizacion', 'img'],
   data: function data() {
@@ -3570,7 +3571,8 @@ __webpack_require__.r(__webpack_exports__);
       ocupaciones: [],
       giros: [],
       tipocontactos: [],
-      detallePago: {}
+      detallePago: {},
+      loader_desc: true
     };
   },
   watch: {
@@ -3775,10 +3777,18 @@ __webpack_require__.r(__webpack_exports__);
     },
     'sendGS': function sendGS() {
       console.log('enviado');
+      this.loader_desc = true;
+      $('#descripcion').append('<div class="loader">ENVIANDO</div>');
     },
-    'sendQua': function sendQua() {// TODO
+    'sendQua': function sendQua() {
+      // TODO
+      this.loader_desc = true;
+      $('#descripcion').append('<div class="loader">ENVIANDO</div>');
     },
-    'sendANA': function sendANA() {// TODO
+    'sendANA': function sendANA() {
+      // TODO
+      this.loader_desc = true;
+      $('#descripcion').append('<div class="loader">ENVIANDO</div>');
     },
     'formaPago': function formaPago() {
       var _this9 = this;
