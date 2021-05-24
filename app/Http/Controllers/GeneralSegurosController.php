@@ -562,7 +562,7 @@ class GeneralSegurosController extends Controller
                 'porcenComisionAgente2' => ""
             ]
         ]);
-        dd($emitir);
+        // dd($emitir);
 
         $arr = json_decode(json_encode($emitir), true);
         // dd($arr);
