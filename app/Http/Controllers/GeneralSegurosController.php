@@ -488,12 +488,12 @@ class GeneralSegurosController extends Controller
     {
 
        
-        if ($request->tipo_persona == "M") {
+        if ($request->tipo_persona == 'M') {
            $request->nombre = $request->apepat;
            $request->apepat = '';
            $request->tipo_persona = 3;
         }
-         dd($request);
+         // dd($request);
         ini_set('default_socket_timeout', 600);
         $clientSOAP = $this->getClient($this->urlCotiza);
         $emitir = $clientSOAP->emitirCotizacion([
@@ -562,6 +562,7 @@ class GeneralSegurosController extends Controller
                 'porcenComisionAgente2' => ""
             ]
         ]);
+        dd($emitir);
 
         $arr = json_decode(json_encode($emitir), true);
         // dd($arr);
