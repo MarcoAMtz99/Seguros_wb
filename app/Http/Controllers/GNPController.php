@@ -205,6 +205,9 @@ class GNPController extends Controller
  		if($submarca == 'SERIE 208'){
 			$submarca ='PEUGEOT 208';
  		}
+ 		if($submarca == 'SERIE 2008'){
+			$submarca ='PEUGEOT 2008';
+ 		}
  		if($submarca == 'SERIE 3008'){
 			$submarca ='PEUGEOT 3008';
  		}
