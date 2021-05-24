@@ -95,7 +95,7 @@ class QualitasController extends Controller
 	{
 	  
 	  if($submarca == 'SERIE 2008'){
-			$submarca ='PEUGEOT 2008';
+			$submarca ='2008';
  		}
 	  try {
 		$result = $this->clientTarifa->listaTarifas(['cUsuario'=>"linea",'cTarifa'=>"linea",'cMarca'=>$marca,'cTipo'=>$submarca,'cModelo'=>$modelo]);
