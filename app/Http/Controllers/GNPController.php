@@ -948,6 +948,7 @@ class GNPController extends Controller
 
 
 					 <CONDUCTOR>
+					  		 <TIPO_PERSONA>F</TIPO_PERSONA>
 						      <RFC>PUOA840101</RFC>
 						      <NOMBRES>Prueba</NOMBRES>
 						      <APELLIDO_PATERNO>Omega</APELLIDO_PATERNO>
