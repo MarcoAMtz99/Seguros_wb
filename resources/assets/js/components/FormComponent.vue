@@ -62,7 +62,7 @@
 							<label class="control-label">
 								<i class="fas fa-asterisk"></i> Razón Social
 							</label>
-							<input type="text" name="apepat" class="form-control" v-model="generalseguro.cliente.razsoc" required>
+							<input type="text" name="razsoc" class="form-control" v-model="generalseguro.cliente.razsoc" required>
 						</div>
 					</div>
 					<div class="row">
