@@ -914,20 +914,13 @@ class GNPController extends Controller
 					<CVE_CLIENTE_ORIGEN/>
 				    <TIPO_PERSONA>$datos->tipo_persona</TIPO_PERSONA>
 				    <RFC>$datos->rfc</RFC>
-				    <NOMBRES/>
-					<APELLIDO_PATERNO/>
-					<APELLIDO_MATERNO/>
-					<SEXO/>
-					<ESTADO_CIVIL/>
-					<OCUPACION/>
+
 				    <RAZON_SOCIAL>$datos->nombre</RAZON_SOCIAL>
 				    
 				    <FCH_CONSTITUCION>$datos->f_const</FCH_CONSTITUCION>
 				    <NACIONALIDAD>MEX</NACIONALIDAD>
-				    <PAIS_NACIMIENTO/>
-					<DIRECCION>
-					<OPERACION/>
-				    <DIRECCION>
+				 
+
 				      <CVE_TIPO_VIA>$datos->tipoVia</CVE_TIPO_VIA>
 				      <CALLE>$datos->calle</CALLE>
 				      <NUMERO_EXTERIOR>$datos->num_ext</NUMERO_EXTERIOR>
