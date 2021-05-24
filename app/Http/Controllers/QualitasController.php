@@ -94,6 +94,9 @@ class QualitasController extends Controller
 	public function getModelos($uso,$marca,$submarca,$modelo)
 	{
 	  
+	  if($submarca == 'SERIE 2008'){
+			$submarca ='PEUGEOT 2008';
+ 		}
 	  try {
 		$result = $this->clientTarifa->listaTarifas(['cUsuario'=>"linea",'cTarifa'=>"linea",'cMarca'=>$marca,'cTipo'=>$submarca,'cModelo'=>$modelo]);
 		// dd($result);
