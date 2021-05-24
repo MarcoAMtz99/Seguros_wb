@@ -947,16 +947,16 @@ class GNPController extends Controller
 				  </CONTRATANTE>
 
 
-				  <CONDUCTOR>
-				    <RFC>$datos->rfc_c</RFC>
-				    <NOMBRES>$datos->nombre_c</NOMBRES>
-				    <APELLIDO_PATERNO>$datos->apepat_c</APELLIDO_PATERNO>
-				    <APELLIDO_MATERNO>$datos->apemat_c</APELLIDO_MATERNO>
-				    <SEXO>$datos->sexo_c</SEXO>
-				    <ESTADO_CIVIL>$datos->estadoCivil_c</ESTADO_CIVIL>
-				    <FCH_NACIMIENTO>$datos->f_nac_c</FCH_NACIMIENTO>
-				    <EDAD_CONDUCTOR_HABITUAL>$datos->edad</EDAD_CONDUCTOR_HABITUAL>
-				  </CONDUCTOR>
+					 <CONDUCTOR>
+						      <RFC>PUOA840101</RFC>
+						      <NOMBRES>Prueba</NOMBRES>
+						      <APELLIDO_PATERNO>Omega</APELLIDO_PATERNO>
+						      <APELLIDO_MATERNO>Alfa</APELLIDO_MATERNO>
+						      <SEXO>M</SEXO>
+						      <ESTADO_CIVIL>S</ESTADO_CIVIL>
+						      <FCH_NACIMIENTO>19840101</FCH_NACIMIENTO>
+						      <EDAD_CONDUCTOR_HABITUAL>36</EDAD_CONDUCTOR_HABITUAL>
+					</CONDUCTOR>
 				   <BENEFICIARIOS>
 				      <BENEFICIARIO>
 				         <BAN_IRREVOCABLE>0</BAN_IRREVOCABLE>
