@@ -919,8 +919,9 @@ class GNPController extends Controller
 				    
 				    <FCH_CONSTITUCION>$datos->f_const</FCH_CONSTITUCION>
 				    <NACIONALIDAD>MEX</NACIONALIDAD>
-				 
-
+				    <PAIS_NACIMIENTO/>
+					<DIRECCION>
+					
 				      <CVE_TIPO_VIA>$datos->tipoVia</CVE_TIPO_VIA>
 				      <CALLE>$datos->calle</CALLE>
 				      <NUMERO_EXTERIOR>$datos->num_ext</NUMERO_EXTERIOR>
