@@ -945,10 +945,7 @@ class GNPController extends Controller
 				      </CORREO>
 				    </CORREOS>
 				  </CONTRATANTE>
-
-
 					 <CONDUCTOR>
-					  		 <TIPO_PERSONA>F</TIPO_PERSONA>
 						      <RFC>PUOA840101</RFC>
 						      <NOMBRES>Prueba</NOMBRES>
 						      <APELLIDO_PATERNO>Omega</APELLIDO_PATERNO>
@@ -1076,7 +1073,6 @@ class GNPController extends Controller
 				      </CORREO>
 				    </CORREOS>
 				  </CONTRATANTE>
-
 				  <CONDUCTOR>
 				    <RFC>$datos->rfc</RFC>
 				    <NOMBRES>$datos->nombre</NOMBRES>
