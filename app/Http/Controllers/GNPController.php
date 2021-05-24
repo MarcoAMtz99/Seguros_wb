@@ -910,17 +910,23 @@ class GNPController extends Controller
 				  </VEHICULO>
 
 				  <CONTRATANTE>
+				  	<ID_PARTICIPANTE/>
+					<CVE_CLIENTE_ORIGEN/>
 				    <TIPO_PERSONA>$datos->tipo_persona</TIPO_PERSONA>
 				    <RFC>$datos->rfc</RFC>
-				    <NOMBRES>$datos->nombre</NOMBRES>
-				    <APELLIDO_PATERNO>$datos->apepat</APELLIDO_PATERNO>
-				    <APELLIDO_MATERNO>$datos->apemat</APELLIDO_MATERNO>
+				    <NOMBRES/>
+					<APELLIDO_PATERNO/>
+					<APELLIDO_MATERNO/>
+					<SEXO/>
+					<ESTADO_CIVIL/>
+					<OCUPACION/>
 				    <RAZON_SOCIAL>$datos->nombre</RAZON_SOCIAL>
 				    
 				    <FCH_CONSTITUCION>$datos->f_const</FCH_CONSTITUCION>
-				    
 				    <NACIONALIDAD>MEX</NACIONALIDAD>
-				    <PAIS_NACIMIENTO>MEX</PAIS_NACIMIENTO>
+				    <PAIS_NACIMIENTO/>
+					<DIRECCION>
+					<OPERACION/>
 				    <DIRECCION>
 				      <CVE_TIPO_VIA>$datos->tipoVia</CVE_TIPO_VIA>
 				      <CALLE>$datos->calle</CALLE>
@@ -967,7 +973,7 @@ class GNPController extends Controller
 				         <TIPO_PERSONA>F</TIPO_PERSONA>
 				      </BENEFICIARIO>
 				   </BENEFICIARIOS>
-				   
+
 				  <PAQUETE>
 				    <CVE_PAQUETE>$clavePaquete</CVE_PAQUETE>
 				  </PAQUETE>
@@ -1075,6 +1081,7 @@ class GNPController extends Controller
 				      </CORREO>
 				    </CORREOS>
 				  </CONTRATANTE>
+
 				  <CONDUCTOR>
 				    <RFC>$datos->rfc</RFC>
 				    <NOMBRES>$datos->nombre</NOMBRES>
