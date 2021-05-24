@@ -49578,7 +49578,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offset-1 col-5 col-md-3" }, [
+    return _c("div", { staticClass: "offset-1 col-5 col-12" }, [
       _c("h5", { staticClass: "mt-3 ml-3" }, [_vm._v("Datos del contratante")])
     ])
   },

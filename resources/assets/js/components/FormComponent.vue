@@ -69,7 +69,7 @@
 
 
 						<div class="row" v-if="generalseguro.cliente.tipo_persona == 'M' ">
-						<div class="offset-1 col-5 col-md-3">
+						<div class="offset-1 col-5 col-12">
 							<h5 class="mt-3 ml-3">Datos del contratante</h5>
 						</div>
 						<div class="form-group col-12 col-md-4">
