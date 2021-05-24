@@ -351,6 +351,7 @@ class GeneralSegurosController extends Controller
     public function searchSubMarca($marca_gs, $submarca)
     {
         $client = $this->getClient($this->urlCatAuto);
+
         $res = $client->wsListarSubMarcas(['arg0' => ['token' => $this->token, 'idMarca' => $marca_gs->id]]);
         if ($res->return->exito) {
             $submarcas = $res->return->submarcas;
@@ -359,7 +360,7 @@ class GeneralSegurosController extends Controller
             // if ($submarca = 'SERIE 208') {
             //     $submarca = '208';
             // }
-            //  if ($submarca = 'CR-V') {
+            //  if ($submarca == 'CR-V') {
             //     $submarca = 'CRV';
             // }
             //  if ($submarca == 'X1') {
@@ -486,6 +487,7 @@ class GeneralSegurosController extends Controller
     public function sendGS(Request $request)
     {
 
+        dd($request);
         if ($request->tipo_persona == "M") {
            $request->nombre = $request->apepat;
            $request->tipo_persona = 3;
