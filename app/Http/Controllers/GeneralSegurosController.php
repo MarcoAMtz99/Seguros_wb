@@ -490,6 +490,7 @@ class GeneralSegurosController extends Controller
         dd($request);
         if ($request->tipo_persona == "M") {
            $request->nombre = $request->apepat;
+           $request->apepat = '';
            $request->tipo_persona = 3;
         }
         ini_set('default_socket_timeout', 600);
