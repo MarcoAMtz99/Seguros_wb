@@ -94,8 +94,23 @@ class QualitasController extends Controller
 	public function getModelos($uso,$marca,$submarca,$modelo)
 	{
 	  
-	  if($submarca == 'SERIE 2008'){
+ 		if($submarca == 'SERIE 208'){
+			$submarca ='208';
+ 		}
+ 		if($submarca == 'SERIE 2008'){
 			$submarca ='2008';
+ 		}
+ 		if($submarca == 'SERIE 3008'){
+			$submarca ='3008';
+ 		}
+ 		if($submarca == 'SERIE 308'){
+			$submarca ='308';
+ 		}
+ 		if($submarca == 'SERIE 301'){
+			$submarca ='301';
+ 		}
+ 		if($submarca == 'SERIE 207'){
+			$submarca ='207';
  		}
 	  try {
 		$result = $this->clientTarifa->listaTarifas(['cUsuario'=>"linea",'cTarifa'=>"linea",'cMarca'=>$marca,'cTipo'=>$submarca,'cModelo'=>$modelo]);
