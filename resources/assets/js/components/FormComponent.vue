@@ -45,18 +45,21 @@
 								<i class="fas fa-asterisk"></i> Nombre(s)
 							</label>
 							<input class="form-control" type="text" name="nombre" v-model="generalseguro.cliente.nombre" required="" value="cliente.nombre">
+							{{cliente.nombre}}
 						</div>
 						<div class="form-group col-12 col-md-4">
 							<label class="control-label">
 								<i class="fas fa-asterisk"></i> Apellido Paterno
 							</label>
 							<input type="text" name="apepat" class="form-control" v-model="generalseguro.cliente.apepat" required="" value="cliente.appaterno">
+							{{cliente.appaterno}}
 						</div>
 						<div class="form-group col-12 col-md-4">
 							<label class="control-label">
 								Apellido Materno
 							</label>
 							<input type="text" name="apemat" class="form-control" v-model="generalseguro.cliente.apemat"value="cliente.apmaterno">
+							{{cliente.apmaterno}}
 						</div>
 					</div>
 					<div class="row" v-if="generalseguro.cliente.tipo_persona == 'M'">
@@ -1090,7 +1093,7 @@
 				generalseguro:{
 					cliente:{
 						tipo_persona:"F",
-						nombre:this.cliente.nombre,
+						nombre:"",
 						apepat:"",
 						apemat:"",
 						razsoc:"",
