@@ -334,6 +334,9 @@ class GeneralSegurosController extends Controller
                          $marca ='CHRYSLER';}
                     if ($marca =='MINI'){             
                          $marca ='BMW';}
+
+                    if ($marca =='PONTIAC'){
+                         $marca ='GENERAL MOTORS';}
            
             $marcas = $res->return->marcas;
             foreach ($marcas as $marca_gs) {
