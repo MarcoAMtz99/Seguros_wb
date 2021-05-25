@@ -3,7 +3,7 @@
 		<div class="row m-3">
 			<div class="col-12 m-2 p-2">
 				<!-- <form> -->
-				<h6>{{cliente}}</h6>
+				<!-- <h6>{{cliente}}</h6> -->
 				<form v-if="cotizacion.nombre === 'GS'" @submit="sendGS" method="POST" action="./sendGS">
 					<input type="hidden" name="_token" :value="csrf" />
 					<div class="row">
@@ -44,19 +44,19 @@
 							<label class="control-label">
 								<i class="fas fa-asterisk"></i> Nombre(s)
 							</label>
-							<input class="form-control" type="text" name="nombre" v-model="generalseguro.cliente.nombre" required="">
+							<input class="form-control" type="text" name="nombre" v-model="generalseguro.cliente.nombre" required="" value="cliente.nombre">
 						</div>
 						<div class="form-group col-12 col-md-4">
 							<label class="control-label">
 								<i class="fas fa-asterisk"></i> Apellido Paterno
 							</label>
-							<input type="text" name="apepat" class="form-control" v-model="generalseguro.cliente.apepat" required="">
+							<input type="text" name="apepat" class="form-control" v-model="generalseguro.cliente.apepat" required="" value="cliente.appaterno">
 						</div>
 						<div class="form-group col-12 col-md-4">
 							<label class="control-label">
 								Apellido Materno
 							</label>
-							<input type="text" name="apemat" class="form-control" v-model="generalseguro.cliente.apemat">
+							<input type="text" name="apemat" class="form-control" v-model="generalseguro.cliente.apemat"value="cliente.apmaterno">
 						</div>
 					</div>
 					<div class="row" v-if="generalseguro.cliente.tipo_persona == 'M'">
