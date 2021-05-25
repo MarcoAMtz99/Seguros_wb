@@ -324,9 +324,9 @@ class GeneralSegurosController extends Controller
         $res = $client->wsListarMarcas(['arg0' => ["token" => $this->token]]);
         // dd($res);
         if ($res->return->exito) {
-               if ($marca =='CHEVROLET'){
+                    if ($marca =='CHEVROLET'){
                          $marca ='GENERAL MOTORS';}
-                     if ($marca =='DODGE'){             
+                    if ($marca =='DODGE'){             
                          $marca ='CHRYSLER';}
                     if ($marca =='GMC'){             
                          $marca ='GENERAL MOTORS';}
@@ -334,9 +334,10 @@ class GeneralSegurosController extends Controller
                          $marca ='CHRYSLER';}
                     if ($marca =='MINI'){             
                          $marca ='BMW';}
-
                     if ($marca =='PONTIAC'){
                          $marca ='GENERAL MOTORS';}
+                    if($marca == 'BUIK'){
+                        $marca ='BUICK';}
            
             $marcas = $res->return->marcas;
             foreach ($marcas as $marca_gs) {

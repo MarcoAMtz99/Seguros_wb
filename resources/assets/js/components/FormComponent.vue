@@ -43,19 +43,19 @@
 							<label class="control-label">
 								<i class="fas fa-asterisk"></i> Nombre(s)
 							</label>
-							<input class="form-control" type="text" name="nombre" v-model="generalseguro.cliente.nombre" required="">
+							<input class="form-control" type="text" name="nombre" v-model="generalseguro.cliente.nombre" required="" value="{{cliente.nombre }}">
 						</div>
 						<div class="form-group col-12 col-md-4">
 							<label class="control-label">
 								<i class="fas fa-asterisk"></i> Apellido Paterno
-							</label>
-							<input type="text" name="apepat" class="form-control" v-model="generalseguro.cliente.apepat" required="">
+							</label> 
+							<input type="text" name="apepat" class="form-control" v-model="generalseguro.cliente.apepat" required="" value="{{cliente.appaterno}}">
 						</div>
 						<div class="form-group col-12 col-md-4">
 							<label class="control-label">
 								Apellido Materno
 							</label>
-							<input type="text" name="apemat" class="form-control" v-model="generalseguro.cliente.apemat">
+							<input type="text" name="apemat" class="form-control" v-model="generalseguro.cliente.apemat" value="{{cliente.apmaterno}}">
 						</div>
 					</div>
 					<div class="row" v-if="generalseguro.cliente.tipo_persona == 'M'">
@@ -627,7 +627,7 @@
 							<label class="control-label">
 								<i class="fa fa-asterisk" aria-hidden="true"></i> Razón Social
 							</label>
-							<input class="form-control" type="text" name="nombre" v-model="ana.cliente.nombre" placeholder="ABC990022X9X" required>
+							<input class="form-control" type="text" name="nombre" v-model="ana.cliente.nombre" required>
 						</div>
 					</div>
 					<div class="row">
@@ -639,10 +639,19 @@
 							<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Telefono</label>
 							<input class="form-control" type="text" name="telefono" v-model="ana.cliente.telefono" required>
 						</div>
+						<div class="row" v-if="ana.cliente.tipo_persona == '1'">
 						<div class="form-group col-12 col-md-4">
-							<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C.:</label>
-							<input class="form-control" type="text" name="rfc" v-model="ana.cliente.rfc" required>
+							<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C :</label>
+							<input class="form-control" type="text" name="rfc" v-model="ana.cliente.rfc" placeholder="ABC990022X9X"  required>
 						</div>
+						</div>
+						<div class="row" v-if="ana.cliente.tipo_persona == '2'">
+						<div class="form-group col-12 col-md-4">
+							<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C de la empresa:</label>
+							<input class="form-control" type="text" name="rfc" v-model="ana.cliente.rfc" placeholder="ABC990022X9X"  required>
+						</div>
+						</div>
+
 						<div class="form-group col-12 col-md-4" v-if="ana.cliente.tipo_persona == '1'">
 							<label class="control-label">C.U.R.P.:</label>
 							<input class="form-control" type="text" name="curp" v-model="ana.cliente.curp">
