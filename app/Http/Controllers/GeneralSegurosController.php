@@ -360,6 +360,9 @@ class GeneralSegurosController extends Controller
             if ($submarca == 'SERIE 208') {
                 $submarca = '208';
             }
+             if ($submarca == 'SERIE 207') {
+                $submarca = '207';
+            }
             if ($submarca == 'SERIE 2008') {
                 $submarca = '208';
             }
