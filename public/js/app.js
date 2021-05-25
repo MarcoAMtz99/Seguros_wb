@@ -47499,6 +47499,7 @@ var render = function() {
                             attrs: {
                               type: "text",
                               name: "nombre",
+                              placeholder: "ABC990022X9X",
                               required: ""
                             },
                             domProps: { value: _vm.ana.cliente.nombre },

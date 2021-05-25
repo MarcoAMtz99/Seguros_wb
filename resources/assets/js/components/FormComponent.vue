@@ -627,7 +627,7 @@
 							<label class="control-label">
 								<i class="fa fa-asterisk" aria-hidden="true"></i> Razón Social
 							</label>
-							<input class="form-control" type="text" name="nombre" v-model="ana.cliente.nombre" required>
+							<input class="form-control" type="text" name="nombre" v-model="ana.cliente.nombre" placeholder="ABC990022X9X" required>
 						</div>
 					</div>
 					<div class="row">
