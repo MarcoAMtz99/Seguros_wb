@@ -43501,17 +43501,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-12 mt-3" }, [
-                      _c("h6", [_vm._v("Datos del asegurado:")]),
-                      _vm._v(
-                        "\n\t\t\t\t\t\t\t" +
-                          _vm._s(_vm.cliente) +
-                          "\n\t\t\t\t\t\t"
-                      )
-                    ]),
+                    _vm._m(1),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12" }, [
-                      _vm._m(1),
+                      _vm._m(2),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-check col-12" }, [
                         _c("input", {
@@ -43619,7 +43612,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(2),
+                            _vm._m(3),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -43659,7 +43652,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(3),
+                            _vm._m(4),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -43740,7 +43733,7 @@ var render = function() {
                   _vm.generalseguro.cliente.tipo_persona == "M"
                     ? _c("div", { staticClass: "row" }, [
                         _c("div", { staticClass: "form-group col-12" }, [
-                          _vm._m(4),
+                          _vm._m(5),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -43779,13 +43772,13 @@ var render = function() {
                   _vm._v(" "),
                   _vm.generalseguro.cliente.tipo_persona == "M"
                     ? _c("div", { staticClass: "row" }, [
-                        _vm._m(5),
+                        _vm._m(6),
                         _vm._v(" "),
                         _c(
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(6),
+                            _vm._m(7),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -43825,7 +43818,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(7),
+                            _vm._m(8),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -43905,7 +43898,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(8),
+                      _vm._m(9),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -44013,7 +44006,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(9),
+                            _vm._m(10),
                             _vm._v(" "),
                             _c(
                               "select",
@@ -44072,7 +44065,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(10),
+                            _vm._m(11),
                             _vm._v(" "),
                             _c(
                               "select",
@@ -44128,7 +44121,7 @@ var render = function() {
                       : _vm._e(),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(11),
+                      _vm._m(12),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -44158,7 +44151,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(12),
+                      _vm._m(13),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -44188,7 +44181,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(13),
+                      _vm._m(14),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -44218,7 +44211,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(14),
+                      _vm._m(15),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -44248,7 +44241,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(15),
+                      _vm._m(16),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -44278,7 +44271,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(16),
+                      _vm._m(17),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -44355,7 +44348,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(17),
+                      _vm._m(18),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -44412,7 +44405,7 @@ var render = function() {
                     _vm._v(" "),
                     _vm.generalseguro.cliente.nacionalidad == 2
                       ? _c("div", { staticClass: "form-group col-12" }, [
-                          _vm._m(18),
+                          _vm._m(19),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -44456,7 +44449,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(19),
+                            _vm._m(20),
                             _vm._v(" "),
                             _c(
                               "select",
@@ -44517,7 +44510,7 @@ var render = function() {
                       : _vm._e(),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(20),
+                      _vm._m(21),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -44570,7 +44563,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(21),
+                      _vm._m(22),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -44693,7 +44686,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(22),
+                      _vm._m(23),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -44757,7 +44750,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(23),
+                      _vm._m(24),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -44814,7 +44807,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(24),
+                      _vm._m(25),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -44848,7 +44841,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(25),
+                            _vm._m(26),
                             _vm._v(" "),
                             _c(
                               "select",
@@ -44909,7 +44902,7 @@ var render = function() {
                       : _vm._e(),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(26),
+                      _vm._m(27),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-check col-12" }, [
                         _c("input", {
@@ -45015,7 +45008,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(27),
+                            _vm._m(28),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -45058,7 +45051,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(28),
+                            _vm._m(29),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -45098,7 +45091,7 @@ var render = function() {
                       : _vm._e(),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(29),
+                      _vm._m(30),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-check col" }, [
                         _c("input", {
@@ -45240,10 +45233,10 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
-                    _vm._m(30),
+                    _vm._m(31),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(31),
+                      _vm._m(32),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -45277,7 +45270,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(32),
+                      _vm._m(33),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -45311,7 +45304,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(33),
+                      _vm._m(34),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -45383,7 +45376,7 @@ var render = function() {
                     }),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(34),
+                      _vm._m(35),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -45507,7 +45500,7 @@ var render = function() {
                       : _vm._e()
                   ]),
                   _vm._v(" "),
-                  _vm._m(35)
+                  _vm._m(36)
                 ]
               )
             : _vm._e(),
@@ -45748,7 +45741,7 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(36)
+                    _vm._m(37)
                   ]),
                   _vm._v(" "),
                   _c("br"),
@@ -45756,10 +45749,10 @@ var render = function() {
                   _c("hr"),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
-                    _vm._m(37),
+                    _vm._m(38),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-4" }, [
-                      _vm._m(38),
+                      _vm._m(39),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-check col-12" }, [
                         _c("input", {
@@ -45861,7 +45854,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-4" }, [
-                      _vm._m(39),
+                      _vm._m(40),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-check col-12" }, [
                         _c("input", {
@@ -46002,7 +45995,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-4" }, [
-                      _vm._m(40),
+                      _vm._m(41),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-check col-12" }, [
                         _c("input", {
@@ -46108,7 +46101,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(41),
+                            _vm._m(42),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -46146,7 +46139,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(42),
+                            _vm._m(43),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -46227,7 +46220,7 @@ var render = function() {
                   _vm.qualitas.cliente.tipo_persona == "2"
                     ? _c("div", { staticClass: "row" }, [
                         _c("div", { staticClass: "form-group col-12" }, [
-                          _vm._m(43),
+                          _vm._m(44),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -46301,7 +46294,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(44),
+                      _vm._m(45),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -46331,7 +46324,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(45),
+                      _vm._m(46),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -46361,7 +46354,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(46),
+                      _vm._m(47),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -46391,7 +46384,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(47),
+                      _vm._m(48),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -46421,7 +46414,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(48),
+                      _vm._m(49),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -46451,7 +46444,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(49),
+                      _vm._m(50),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -46513,7 +46506,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(50),
+                      _vm._m(51),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -46543,7 +46536,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-8" }, [
-                      _vm._m(51),
+                      _vm._m(52),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -46600,7 +46593,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(52),
+                      _vm._m(53),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -46652,7 +46645,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(53),
+                      _vm._m(54),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -46705,7 +46698,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(54),
+                      _vm._m(55),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -46758,7 +46751,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(55),
+                      _vm._m(56),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -46813,10 +46806,10 @@ var render = function() {
                   _vm._v(" "),
                   _vm.qualitas.cliente.contratante == 0
                     ? _c("div", { staticClass: "row" }, [
-                        _vm._m(56),
+                        _vm._m(57),
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group col-6" }, [
-                          _vm._m(57),
+                          _vm._m(58),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-check col-12" }, [
                             _c("input", {
@@ -46928,7 +46921,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(58),
+                            _vm._m(59),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -46968,7 +46961,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(59),
+                            _vm._m(60),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -47049,7 +47042,7 @@ var render = function() {
                   _vm.qualitas.cliente.tipo_persona_cont == "2"
                     ? _c("div", { staticClass: "row" }, [
                         _c("div", { staticClass: "form-group col-12" }, [
-                          _vm._m(60),
+                          _vm._m(61),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -47135,7 +47128,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(61),
+                            _vm._m(62),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -47174,10 +47167,10 @@ var render = function() {
                     : _vm._e(),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
-                    _vm._m(62),
+                    _vm._m(63),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-6" }, [
-                      _vm._m(63),
+                      _vm._m(64),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -47207,7 +47200,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-6" }, [
-                      _vm._m(64),
+                      _vm._m(65),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -47241,7 +47234,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(65)
+                  _vm._m(66)
                 ]
               )
             : _vm._e(),
@@ -47277,14 +47270,14 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(66)
+                    _vm._m(67)
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
-                    _vm._m(67),
+                    _vm._m(68),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-6" }, [
-                      _vm._m(68),
+                      _vm._m(69),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-check col-12" }, [
                         _c("input", {
@@ -47386,7 +47379,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(69),
+                            _vm._m(70),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -47424,7 +47417,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(70),
+                            _vm._m(71),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -47501,7 +47494,7 @@ var render = function() {
                   _vm.ana.cliente.tipo_persona == "2"
                     ? _c("div", { staticClass: "row" }, [
                         _c("div", { staticClass: "form-group col-12" }, [
-                          _vm._m(71),
+                          _vm._m(72),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -47538,7 +47531,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(72),
+                      _vm._m(73),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -47568,7 +47561,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(73),
+                      _vm._m(74),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -47603,7 +47596,7 @@ var render = function() {
                             "div",
                             { staticClass: "form-group col-12 col-md-4" },
                             [
-                              _vm._m(74),
+                              _vm._m(75),
                               _vm._v(" "),
                               _c("input", {
                                 directives: [
@@ -47646,7 +47639,7 @@ var render = function() {
                             "div",
                             { staticClass: "form-group col-12 col-md-4" },
                             [
-                              _vm._m(75),
+                              _vm._m(76),
                               _vm._v(" "),
                               _c("input", {
                                 directives: [
@@ -47726,7 +47719,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(76),
+                            _vm._m(77),
                             _vm._v(" "),
                             _c(
                               "select",
@@ -47782,7 +47775,7 @@ var render = function() {
                       : _vm._e(),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(77),
+                      _vm._m(78),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -47835,7 +47828,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(78),
+                      _vm._m(79),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -47898,7 +47891,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(79),
+                      _vm._m(80),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -47951,7 +47944,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(80),
+                      _vm._m(81),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -48004,7 +47997,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(81),
+                      _vm._m(82),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -48034,7 +48027,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(82),
+                      _vm._m(83),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -48202,7 +48195,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(83),
+                            _vm._m(84),
                             _vm._v(" "),
                             _c(
                               "select",
@@ -48262,7 +48255,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(84),
+                            _vm._m(85),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -48302,7 +48295,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(85),
+                            _vm._m(86),
                             _vm._v(" "),
                             _c(
                               "select",
@@ -48362,7 +48355,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(86),
+                            _vm._m(87),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -48404,7 +48397,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(87),
+                            _vm._m(88),
                             _vm._v(" "),
                             _c(
                               "select",
@@ -48444,7 +48437,7 @@ var render = function() {
                                 }
                               },
                               [
-                                _vm._m(88),
+                                _vm._m(89),
                                 _vm._v(" "),
                                 _vm._l(_vm.nacionalidadANA, function(nacion) {
                                   return _c(
@@ -48465,7 +48458,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(89),
+                            _vm._m(90),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -48507,7 +48500,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(90),
+                            _vm._m(91),
                             _vm._v(" "),
                             _c(
                               "select",
@@ -48572,10 +48565,10 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
-                    _vm._m(91),
+                    _vm._m(92),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-6" }, [
-                      _vm._m(92),
+                      _vm._m(93),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -48628,7 +48621,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-6" }, [
-                      _vm._m(93),
+                      _vm._m(94),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -48658,7 +48651,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-6" }, [
-                      _vm._m(94),
+                      _vm._m(95),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -48694,7 +48687,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-6" }, [
-                      _vm._m(95),
+                      _vm._m(96),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -48763,7 +48756,7 @@ var render = function() {
                     }),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(96),
+                      _vm._m(97),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -48997,10 +48990,10 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
-                    _vm._m(97),
+                    _vm._m(98),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-6" }, [
-                      _vm._m(98),
+                      _vm._m(99),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-check col-12" }, [
                         _c("input", {
@@ -49104,16 +49097,16 @@ var render = function() {
                   _vm._v(" "),
                   _vm.ana.cliente.tipo_pago == "Tarjeta"
                     ? _c("div", { staticClass: "row" }, [
-                        _vm._m(99),
+                        _vm._m(100),
                         _vm._v(" "),
                         _c(
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(100),
+                            _vm._m(101),
                             _vm._v(" "),
                             _c("div", { staticClass: "input-group mb-3" }, [
-                              _vm._m(101),
+                              _vm._m(102),
                               _vm._v(" "),
                               _c("input", {
                                 directives: [
@@ -49154,10 +49147,10 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-3" },
                           [
-                            _vm._m(102),
+                            _vm._m(103),
                             _vm._v(" "),
                             _c("div", { staticClass: "input-group mb-3" }, [
-                              _vm._m(103),
+                              _vm._m(104),
                               _vm._v(" "),
                               _c("input", {
                                 directives: [
@@ -49199,10 +49192,10 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-6 col-md-3" },
                           [
-                            _vm._m(104),
+                            _vm._m(105),
                             _vm._v(" "),
                             _c("div", { staticClass: "input-group mb-3" }, [
-                              _vm._m(105),
+                              _vm._m(106),
                               _vm._v(" "),
                               _c(
                                 "select",
@@ -49366,10 +49359,10 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-6 col-md-2" },
                           [
-                            _vm._m(106),
+                            _vm._m(107),
                             _vm._v(" "),
                             _c("div", { staticClass: "input-group mb-3" }, [
-                              _vm._m(107),
+                              _vm._m(108),
                               _vm._v(" "),
                               _c("input", {
                                 directives: [
@@ -49410,7 +49403,7 @@ var render = function() {
                           ]
                         ),
                         _vm._v(" "),
-                        _vm._m(108),
+                        _vm._m(109),
                         _vm._v(" "),
                         _c(
                           "div",
@@ -49421,7 +49414,7 @@ var render = function() {
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "input-group mb-3" }, [
-                              _vm._m(109),
+                              _vm._m(110),
                               _vm._v(" "),
                               _c(
                                 "select",
@@ -49489,7 +49482,7 @@ var render = function() {
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "input-group mb-3" }, [
-                              _vm._m(110),
+                              _vm._m(111),
                               _vm._v(" "),
                               _c("textarea", {
                                 directives: [
@@ -49534,7 +49527,7 @@ var render = function() {
                             ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "input-group mb-3" }, [
-                              _vm._m(111),
+                              _vm._m(112),
                               _vm._v(" "),
                               _c("input", {
                                 directives: [
@@ -49573,7 +49566,7 @@ var render = function() {
                       ])
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm._m(112)
+                  _vm._m(113)
                 ]
               )
             : _vm._e(),
@@ -49602,6 +49595,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "offset-1 col-5 col-md-3" }, [
       _c("h5", { staticClass: "mt-3 ml-3" }, [_vm._v("General de Seguros")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 mt-3" }, [
+      _c("h6", [_vm._v("Datos del asegurado:")])
     ])
   },
   function() {

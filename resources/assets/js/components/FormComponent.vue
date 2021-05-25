@@ -19,7 +19,7 @@
 						<input type="hidden" name="cotizacion_id" v-model="generalseguro.cotizacion.id_cotizacion">
 						<div class="col-12 mt-3">
 							<h6>Datos del asegurado:</h6>
-							{{cliente}}
+							
 						</div>
 						<div class="form-group col-12">
 							<label class="control-label"><i class="fas fa-asterisk"></i> Tipo de persona:</label>
