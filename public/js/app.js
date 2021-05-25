@@ -43439,6 +43439,8 @@ var render = function() {
         "div",
         { staticClass: "col-12 m-2 p-2" },
         [
+          _c("h6", [_vm._v(_vm._s(_vm.cliente))]),
+          _vm._v(" "),
           _vm.cotizacion.nombre === "GS"
             ? _c(
                 "form",
