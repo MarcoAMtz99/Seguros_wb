@@ -19,6 +19,7 @@
 						<input type="hidden" name="cotizacion_id" v-model="generalseguro.cotizacion.id_cotizacion">
 						<div class="col-12 mt-3">
 							<h6>Datos del asegurado:</h6>
+							{{cliente}}
 						</div>
 						<div class="form-group col-12">
 							<label class="control-label"><i class="fas fa-asterisk"></i> Tipo de persona:</label>
@@ -43,19 +44,19 @@
 							<label class="control-label">
 								<i class="fas fa-asterisk"></i> Nombre(s)
 							</label>
-							<input class="form-control" type="text" name="nombre" v-model="generalseguro.cliente.nombre" required="" value="{{cliente.nombre }}">
+							<input class="form-control" type="text" name="nombre" v-model="generalseguro.cliente.nombre" required="">
 						</div>
 						<div class="form-group col-12 col-md-4">
 							<label class="control-label">
 								<i class="fas fa-asterisk"></i> Apellido Paterno
-							</label> 
-							<input type="text" name="apepat" class="form-control" v-model="generalseguro.cliente.apepat" required="" value="{{cliente.appaterno}}">
+							</label>
+							<input type="text" name="apepat" class="form-control" v-model="generalseguro.cliente.apepat" required="">
 						</div>
 						<div class="form-group col-12 col-md-4">
 							<label class="control-label">
 								Apellido Materno
 							</label>
-							<input type="text" name="apemat" class="form-control" v-model="generalseguro.cliente.apemat" value="{{cliente.apmaterno}}">
+							<input type="text" name="apemat" class="form-control" v-model="generalseguro.cliente.apemat">
 						</div>
 					</div>
 					<div class="row" v-if="generalseguro.cliente.tipo_persona == 'M'">
