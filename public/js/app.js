@@ -3516,7 +3516,7 @@ __webpack_require__.r(__webpack_exports__);
       generalseguro: {
         cliente: {
           tipo_persona: "F",
-          nombre: "",
+          nombre: this.cliente.nombre,
           apepat: "",
           apemat: "",
           razsoc: "",
