@@ -116,7 +116,7 @@ class QualitasController extends Controller
 			$submarca ='508';
  		}
  		if($submarca == 'SERIE 5'){
-			$submarca ='5';
+			$submarca ='SERIE 5';
  		}
 	  try {
 		$result = $this->clientTarifa->listaTarifas(['cUsuario'=>"linea",'cTarifa'=>"linea",'cMarca'=>$marca,'cTipo'=>$submarca,'cModelo'=>$modelo]);
