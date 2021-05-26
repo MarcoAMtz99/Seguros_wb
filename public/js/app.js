@@ -3696,6 +3696,9 @@ __webpack_require__.r(__webpack_exports__);
     'ana.cliente.codigo_postal': function anaClienteCodigo_postal(new_value, old_value) {
       this.getColonias(this.ana.cliente.estado, this.ana.cliente.municipio_id, new_value);
       this.ana.cliente.poblacion = "";
+    },
+    'generalseguro.cliente.cp': function generalseguroClienteCp(new_value, old_value) {
+      this.searchColonia(this.generalseguro.cliente.cp); // this.ana.cliente.poblacion="";
     }
   },
   created: function created() {},

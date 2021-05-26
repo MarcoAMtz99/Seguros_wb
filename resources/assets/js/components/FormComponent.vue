@@ -1273,6 +1273,10 @@
 			'ana.cliente.codigo_postal':function(new_value,old_value){
 				this.getColonias(this.ana.cliente.estado,this.ana.cliente.municipio_id,new_value);
 				this.ana.cliente.poblacion="";
+			},
+			'generalseguro.cliente.cp':function(new_value,old_value){
+				this.searchColonia(this.generalseguro.cliente.cp);
+				// this.ana.cliente.poblacion="";
 			}
 
 		},

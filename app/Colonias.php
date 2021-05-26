@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class colonias extends Model
 {
     //
-    protected $table="colonias";
+    protected $table="Colonias";
 
     protected $fillable=[
     	'id',
