@@ -99,7 +99,7 @@
 					<div class="row">
 						<div class="form-group col-12 col-md-4">
 							<label class="control-label">
-								<i class="fas fa-asterisk"></i> RFC
+								<i class="fas fa-asterisk"></i> RFC de la empresa
 							</label>
 							<input type="text" name="rfc" class="form-control" v-model="generalseguro.cliente.rfc" required="">
 						</div>

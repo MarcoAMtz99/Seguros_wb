@@ -49743,7 +49743,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", { staticClass: "control-label" }, [
       _c("i", { staticClass: "fas fa-asterisk" }),
-      _vm._v(" RFC\n\t\t\t\t\t\t\t")
+      _vm._v(" RFC de la empresa\n\t\t\t\t\t\t\t")
     ])
   },
   function() {
