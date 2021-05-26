@@ -3525,9 +3525,9 @@ __webpack_require__.r(__webpack_exports__);
       generalseguro: {
         cliente: {
           tipo_persona: "F",
-          nombre: "",
-          apepat: "",
-          apemat: "",
+          nombre: this.cliente.nombre,
+          apepat: this.cliente.appaterno,
+          apemat: this.cliente.apmaterno,
           razsoc: "",
           rfc: "",
           elector: "",
@@ -3536,7 +3536,7 @@ __webpack_require__.r(__webpack_exports__);
           edoCivil: "",
           calle: "",
           num: "",
-          cp: "",
+          cp: this.cliente.cp,
           colonia: "",
           municip: "",
           poblaci: "",

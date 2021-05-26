@@ -1099,9 +1099,9 @@
 				generalseguro:{
 					cliente:{
 						tipo_persona:"F",
-						nombre:"",
-						apepat:"",
-						apemat:"",
+						nombre:this.cliente.nombre,
+						apepat:this.cliente.appaterno,
+						apemat:this.cliente.apmaterno,
 						razsoc:"",
 						rfc:"",
 						elector:"",
@@ -1110,7 +1110,7 @@
 						edoCivil:"",
 						calle:"",
 						num:"",
-						cp:"",
+						cp:this.cliente.cp,
 						colonia:"",
 						municip:"",
 						poblaci:"",
