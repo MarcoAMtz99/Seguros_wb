@@ -3593,6 +3593,12 @@ __webpack_require__.r(__webpack_exports__);
       console.log('NUEVO VALOR', new_value);
       this.generalseguro.cotizacion.id_cotizacion = new_value;
       this.generalseguro.cliente.nombre = this.cliente.nombre;
+      this.generalseguro.cliente.apepat = this.cliente.apmaterno;
+      this.generalseguro.cliente.apemat = this.cliente.appaterno;
+      this.generalseguro.cliente.cp = this.cliente.cp;
+      this.generalseguro.cliente.fnac = this.cliente.f_nac;
+      this.generalseguro.cliente.email = this.cliente.email;
+      this.generalseguro.cliente.telefono1 = this.cliente.telefono;
     },
     'cotizacion.paquete.id': function cotizacionPaqueteId(new_value, old_value) {
       console.log(new_value);
