@@ -647,7 +647,7 @@
 							<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Correo electrónico:</label>
 							<input class="form-control" type="email" name="correo" v-model="ana.cliente.correo" required>
 						</div>
-						<div class="form-group col-12 col-md-2">
+						<div class="form-group col-12 col-md-4">
 							<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Telefono</label>
 							<input class="form-control" type="text" name="telefono" v-model="ana.cliente.telefono" required>
 						</div>
@@ -659,7 +659,7 @@
 						</div>
 						<div class="row" v-if="ana.cliente.tipo_persona == '2'">
 						<div class="form-group col-12 col-md-4">
-							<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C Empresa:</label>
+							<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C :</label>
 							<input class="form-control" type="text" name="rfc" v-model="ana.cliente.rfc"  required>
 						</div>
 						</div>
