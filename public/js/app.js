@@ -3687,20 +3687,6 @@ __webpack_require__.r(__webpack_exports__);
       } else {}
     },
     'ana.cliente.tipo_persona': function anaClienteTipo_persona(new_value, old_value) {
-      // this.ana.cliente.nombre = this.cliente.nombre;
-      // this.ana.cliente.apepat = this.cliente.apmaterno;
-      // this.ana.cliente.apemat = this.cliente.appaterno;
-      // this.ana.cliente.codigo_postal = this.cliente.cp; 
-      // this.ana.cliente.f_nac = this.cliente.f_nac;
-      // this.ana.cliente.email = this.cliente.email;
-      // this.ana.cliente.telefono = this.cliente.telefono;	
-      if (new_value == "2") {
-        this.ana.cliente.nombre = "";
-        this.getGirosANA();
-      }
-    },
-    'ana.cliente.estado': function anaClienteEstado(new_value, old_value) {
-      this.getMunicipios(new_value);
       this.ana.cliente.nombre = this.cliente.nombre;
       this.ana.cliente.apepat = this.cliente.apmaterno;
       this.ana.cliente.apemat = this.cliente.appaterno;
@@ -3708,6 +3694,14 @@ __webpack_require__.r(__webpack_exports__);
       this.ana.cliente.f_nac = this.cliente.f_nac;
       this.ana.cliente.email = this.cliente.email;
       this.ana.cliente.telefono = this.cliente.telefono;
+
+      if (new_value == "2") {
+        this.ana.cliente.nombre = "";
+        this.getGirosANA();
+      }
+    },
+    'ana.cliente.estado': function anaClienteEstado(new_value, old_value) {
+      this.getMunicipios(new_value);
       this.ana.cliente.municipio_id = "";
     },
     'ana.cliente.municipio_id': function anaClienteMunicipio_id(new_value, old_value) {
@@ -43602,8 +43596,7 @@ var render = function() {
                             name: "tipo_persona",
                             id: "radioF",
                             value: "F",
-                            required: "",
-                            checked: ""
+                            required: ""
                           },
                           domProps: {
                             checked: _vm._q(

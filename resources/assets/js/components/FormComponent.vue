@@ -25,7 +25,7 @@
 							<label class="control-label"><i class="fas fa-asterisk"></i> Tipo de persona:</label>
 							<!-- INPUT TIPO PERSONA (FISICA) -->
 	                        <div class="form-check col-12">
-	                            <input class="form-check-input" type="radio" name="tipo_persona" id="radioF" v-model="generalseguro.cliente.tipo_persona" value="F" required="" checked>
+	                            <input class="form-check-input" type="radio" name="tipo_persona" id="radioF" v-model="generalseguro.cliente.tipo_persona" value="F" required="" >
 	                            <label class="form-check-label" for="radioF">
 	                             Fisica
 	                            </label>
@@ -1265,20 +1265,7 @@
 				} else {}
 			},
 			'ana.cliente.tipo_persona':function (new_value,old_value) {
-				// this.ana.cliente.nombre = this.cliente.nombre;
-				// this.ana.cliente.apepat = this.cliente.apmaterno;
-				// this.ana.cliente.apemat = this.cliente.appaterno;
-				// this.ana.cliente.codigo_postal = this.cliente.cp; 
-				// this.ana.cliente.f_nac = this.cliente.f_nac;
-				// this.ana.cliente.email = this.cliente.email;
-				// this.ana.cliente.telefono = this.cliente.telefono;	
-				if (new_value=="2") {
-					this.ana.cliente.nombre="";
-					this.getGirosANA();
-				}
-			},
-			'ana.cliente.estado':function(new_value,old_value){
-				this.getMunicipios(new_value);
+
 				this.ana.cliente.nombre = this.cliente.nombre;
 				this.ana.cliente.apepat = this.cliente.apmaterno;
 				this.ana.cliente.apemat = this.cliente.appaterno;
@@ -1286,6 +1273,13 @@
 				this.ana.cliente.f_nac = this.cliente.f_nac;
 				this.ana.cliente.email = this.cliente.email;
 				this.ana.cliente.telefono = this.cliente.telefono;	
+				if (new_value=="2") {
+					this.ana.cliente.nombre="";
+					this.getGirosANA();
+				}
+			},
+			'ana.cliente.estado':function(new_value,old_value){
+				this.getMunicipios(new_value);
 				this.ana.cliente.municipio_id = "";
 			},
 			'ana.cliente.municipio_id':function(new_value,old_value){
