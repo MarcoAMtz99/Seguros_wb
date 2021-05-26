@@ -3525,9 +3525,9 @@ __webpack_require__.r(__webpack_exports__);
       generalseguro: {
         cliente: {
           tipo_persona: "F",
-          nombre: this.cliente.nombre,
-          apepat: this.cliente.appaterno,
-          apemat: this.cliente.apmaterno,
+          nombre: "",
+          apepat: "",
+          apemat: "",
           razsoc: "",
           rfc: "",
           elector: "",
@@ -3536,7 +3536,7 @@ __webpack_require__.r(__webpack_exports__);
           edoCivil: "",
           calle: "",
           num: "",
-          cp: this.cliente.cp,
+          cp: "",
           colonia: "",
           municip: "",
           poblaci: "",
@@ -43488,38 +43488,114 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.cliente.nombre,
+                              expression: "cliente.nombre"
+                            }
+                          ],
                           attrs: {
                             type: "hidden",
-                            value: "cliente.nombre",
                             name: "aux_nombre",
                             placeholder: ""
+                          },
+                          domProps: { value: _vm.cliente.nombre },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.cliente,
+                                "nombre",
+                                $event.target.value
+                              )
+                            }
                           }
                         }),
                         _vm._v(" "),
                         _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.cliente.appaterno,
+                              expression: "cliente.appaterno"
+                            }
+                          ],
                           attrs: {
                             type: "text",
-                            value: "cliente.appaterno",
                             name: "aux_appaterno",
                             placeholder: "cliente.appaterno"
+                          },
+                          domProps: { value: _vm.cliente.appaterno },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.cliente,
+                                "appaterno",
+                                $event.target.value
+                              )
+                            }
                           }
                         }),
                         _vm._v(" "),
                         _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.cliente.apmaterno,
+                              expression: "cliente.apmaterno"
+                            }
+                          ],
                           attrs: {
                             type: "text",
-                            value: "cliente.apmaterno",
                             name: "aux_apmaterno",
                             placeholder: "cliente.apmaterno"
+                          },
+                          domProps: { value: _vm.cliente.apmaterno },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.cliente,
+                                "apmaterno",
+                                $event.target.value
+                              )
+                            }
                           }
                         }),
                         _vm._v(" "),
                         _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.cliente.cp,
+                              expression: "cliente.cp"
+                            }
+                          ],
                           attrs: {
                             type: "number",
-                            value: "cliente.cp",
                             name: "aux_cp",
                             placeholder: "cliente.cp"
+                          },
+                          domProps: { value: _vm.cliente.cp },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.cliente, "cp", $event.target.value)
+                            }
                           }
                         }),
                         _vm._v(" "),

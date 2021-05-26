@@ -12,10 +12,10 @@
 						</div>
 						<div class="offset-1 col-5 col-md-3">
 							<h5 class="mt-3 ml-3">General de Seguros</h5>
-							<input type="hidden" value="cliente.nombre" name="aux_nombre" placeholder="">
-							<input type="text" value="cliente.appaterno" name="aux_appaterno" placeholder="cliente.appaterno">
-							<input type="text" value="cliente.apmaterno" name="aux_apmaterno" placeholder="cliente.apmaterno">
-							<input type="number" value="cliente.cp" name="aux_cp" placeholder="cliente.cp">
+							<input type="hidden" v-model="cliente.nombre" name="aux_nombre" placeholder="">
+							<input type="text" v-model="cliente.appaterno" name="aux_appaterno" placeholder="cliente.appaterno">
+							<input type="text" v-model="cliente.apmaterno" name="aux_apmaterno" placeholder="cliente.apmaterno">
+							<input type="number" v-model="cliente.cp" name="aux_cp" placeholder="cliente.cp">
 							<h6>NOMBRE:{{cliente.nombre}} {{cliente.appaterno}}  {{cliente.apmaterno}}</h6>
 							<H6>CP: {{cliente.cp}}</H6>
 						</div>
@@ -1099,9 +1099,9 @@
 				generalseguro:{
 					cliente:{
 						tipo_persona:"F",
-						nombre:this.cliente.nombre,
-						apepat:this.cliente.appaterno,
-						apemat:this.cliente.apmaterno,
+						nombre:"",
+						apepat:"",
+						apemat:"",
 						razsoc:"",
 						rfc:"",
 						elector:"",
@@ -1110,7 +1110,7 @@
 						edoCivil:"",
 						calle:"",
 						num:"",
-						cp:this.cliente.cp,
+						cp:"",
 						colonia:"",
 						municip:"",
 						poblaci:"",
