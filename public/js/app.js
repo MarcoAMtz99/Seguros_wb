@@ -3813,7 +3813,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log("COLONIAS GS", res.data);
 
         if (res.data.response) {
-          _this9.generalColonias = res.data; // this.generalseguro.cliente.fnac = res.data.response;
+          _this9.generalColonias = res.data.response; // this.generalseguro.cliente.fnac = res.data.response;
         }
       })["catch"](function (err) {
         console.log(err);

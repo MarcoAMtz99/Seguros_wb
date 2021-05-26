@@ -1367,7 +1367,7 @@
 				axios.get(url).then(res=>{
 					console.log("COLONIAS GS",res.data);
 					if(res.data.response){
-						this.generalColonias =res.data;
+						this.generalColonias =res.data.response;
 						// this.generalseguro.cliente.fnac = res.data.response;
 					}
 				}).catch(err=>{
