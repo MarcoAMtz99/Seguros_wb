@@ -3687,14 +3687,13 @@ __webpack_require__.r(__webpack_exports__);
       } else {}
     },
     'ana.cliente.tipo_persona': function anaClienteTipo_persona(new_value, old_value) {
-      this.ana.cliente.nombre = this.cliente.nombre;
-      this.ana.cliente.apepat = this.cliente.apmaterno;
-      this.ana.cliente.apemat = this.cliente.appaterno;
-      this.ana.cliente.codigo_postal = this.cliente.cp;
-      this.ana.cliente.f_nac = this.cliente.f_nac;
-      this.ana.cliente.email = this.cliente.email;
-      this.ana.cliente.telefono = this.cliente.telefono;
-
+      // this.ana.cliente.nombre = this.cliente.nombre;
+      // this.ana.cliente.apepat = this.cliente.apmaterno;
+      // this.ana.cliente.apemat = this.cliente.appaterno;
+      // this.ana.cliente.codigo_postal = this.cliente.cp; 
+      // this.ana.cliente.f_nac = this.cliente.f_nac;
+      // this.ana.cliente.email = this.cliente.email;
+      // this.ana.cliente.telefono = this.cliente.telefono;	
       if (new_value == "2") {
         this.ana.cliente.nombre = "";
         this.getGirosANA();
@@ -3702,6 +3701,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     'ana.cliente.estado': function anaClienteEstado(new_value, old_value) {
       this.getMunicipios(new_value);
+      this.ana.cliente.nombre = this.cliente.nombre;
+      this.ana.cliente.apepat = this.cliente.apmaterno;
+      this.ana.cliente.apemat = this.cliente.appaterno;
+      this.ana.cliente.codigo_postal = this.cliente.cp;
+      this.ana.cliente.f_nac = this.cliente.f_nac;
+      this.ana.cliente.email = this.cliente.email;
+      this.ana.cliente.telefono = this.cliente.telefono;
       this.ana.cliente.municipio_id = "";
     },
     'ana.cliente.municipio_id': function anaClienteMunicipio_id(new_value, old_value) {
@@ -4132,6 +4138,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -52556,7 +52564,7 @@ var staticRenderFns = [
         staticClass: "fa fa-asterisk",
         attrs: { "aria-hidden": "true" }
       }),
-      _vm._v(" R.F.C de la empresa:")
+      _vm._v(" R.F.C:")
     ])
   },
   function() {
