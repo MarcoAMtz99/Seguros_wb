@@ -136,7 +136,7 @@
 						</div>
 						<div class="form-group col-12 col-md-4">
 							<label class="control-label" for="cp"><i class="fas fa-asterisk"></i> Código Postal</label>
-							<input type="text" name="cp" class="form-control" v-model="generalseguro.cliente.cp" required>
+							<input type="text" name="cp" class="form-control" v-model="generalseguro.cliente.cp" required disabled="true">
 						</div>
 						<div class="form-group col-12 col-md-4">
 							
@@ -647,18 +647,18 @@
 							<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Correo electrónico:</label>
 							<input class="form-control" type="email" name="correo" v-model="ana.cliente.correo" required>
 						</div>
-						<div class="form-group col-12 col-md-4">
+						<div class="form-group col-12 col-md-2">
 							<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Telefono</label>
 							<input class="form-control" type="text" name="telefono" v-model="ana.cliente.telefono" required>
 						</div>
 						<div class="row" v-if="ana.cliente.tipo_persona == '1'">
-						<div class="form-group col-12 col-md-4">
+						<div class="form-group col-12 col-md-6">
 							<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C :</label>
-							<input class="form-control" type="text" name="rfc" v-model="ana.cliente.rfc" placeholder="ABC990022X9X"  required>
+							<input class="form-control" type="text" name="rfc" v-model="ana.cliente.rfc" required>
 						</div>
 						</div>
 						<div class="row" v-if="ana.cliente.tipo_persona == '2'">
-						<div class="form-group col-12 col-md-4">
+						<div class="form-group col-12 col-md-6">
 							<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C de la empresa:</label>
 							<input class="form-control" type="text" name="rfc" v-model="ana.cliente.rfc" placeholder="ABC990022X9X"  required>
 						</div>

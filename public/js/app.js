@@ -44240,7 +44240,12 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "text", name: "cp", required: "" },
+                        attrs: {
+                          type: "text",
+                          name: "cp",
+                          required: "",
+                          disabled: "true"
+                        },
                         domProps: { value: _vm.generalseguro.cliente.cp },
                         on: {
                           input: function($event) {
@@ -47630,7 +47635,7 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "form-group col-12 col-md-4" }, [
+                    _c("div", { staticClass: "form-group col-12 col-md-2" }, [
                       _vm._m(74),
                       _vm._v(" "),
                       _c("input", {
@@ -47664,7 +47669,7 @@ var render = function() {
                       ? _c("div", { staticClass: "row" }, [
                           _c(
                             "div",
-                            { staticClass: "form-group col-12 col-md-4" },
+                            { staticClass: "form-group col-12 col-md-6" },
                             [
                               _vm._m(75),
                               _vm._v(" "),
@@ -47681,7 +47686,6 @@ var render = function() {
                                 attrs: {
                                   type: "text",
                                   name: "rfc",
-                                  placeholder: "ABC990022X9X",
                                   required: ""
                                 },
                                 domProps: { value: _vm.ana.cliente.rfc },
@@ -47707,7 +47711,7 @@ var render = function() {
                       ? _c("div", { staticClass: "row" }, [
                           _c(
                             "div",
-                            { staticClass: "form-group col-12 col-md-4" },
+                            { staticClass: "form-group col-12 col-md-6" },
                             [
                               _vm._m(76),
                               _vm._v(" "),
