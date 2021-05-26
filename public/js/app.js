@@ -44301,7 +44301,7 @@ var render = function() {
                           _vm._l(_vm.generalColonias, function(colonia) {
                             return _c(
                               "option",
-                              { domProps: { value: colonia.id } },
+                              { domProps: { value: colonia.colonias } },
                               [_vm._v(_vm._s(colonia.descripciones))]
                             )
                           })

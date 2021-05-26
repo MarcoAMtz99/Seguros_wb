@@ -144,7 +144,7 @@
 							<label class="control-label" for="colonia"><i class="fas fa-asterisk"></i> Colonia</label>
 							<select class="form-control" name="colonia" v-model="generalseguro.cliente.colonia" required>
 								<option value="">Seleccione su colonia</option>
-								<option v-for="colonia in generalColonias" :value="colonia.id">{{colonia.descripciones}}</option>
+								<option v-for="colonia in generalColonias" :value="colonia.colonias">{{colonia.descripciones}}</option>
 							</select>
 						<!-- 	<input type="text" name="colonia" class="form-control" v-model="generalseguro.cliente.colonia" required> -->
 
