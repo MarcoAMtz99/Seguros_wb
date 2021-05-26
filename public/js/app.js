@@ -43648,12 +43648,7 @@ var render = function() {
                                   )
                                 }
                               }
-                            }),
-                            _vm._v(
-                              "\n\t\t\t\t\t\t\t" +
-                                _vm._s(_vm.cliente.nombre) +
-                                "\n\t\t\t\t\t\t"
-                            )
+                            })
                           ]
                         ),
                         _vm._v(" "),
@@ -43694,12 +43689,7 @@ var render = function() {
                                   )
                                 }
                               }
-                            }),
-                            _vm._v(
-                              "\n\t\t\t\t\t\t\t" +
-                                _vm._s(_vm.cliente.appaterno) +
-                                "\n\t\t\t\t\t\t"
-                            )
+                            })
                           ]
                         ),
                         _vm._v(" "),
@@ -43743,12 +43733,7 @@ var render = function() {
                                   )
                                 }
                               }
-                            }),
-                            _vm._v(
-                              "\n\t\t\t\t\t\t\t" +
-                                _vm._s(_vm.cliente.apmaterno) +
-                                "\n\t\t\t\t\t\t"
-                            )
+                            })
                           ]
                         )
                       ])
@@ -43817,6 +43802,7 @@ var render = function() {
                               attrs: {
                                 type: "text",
                                 name: "nombre",
+                                placeholder: "NOMBRE EMPRESA",
                                 required: ""
                               },
                               domProps: {
@@ -43857,6 +43843,7 @@ var render = function() {
                               attrs: {
                                 type: "text",
                                 name: "apepat",
+                                placeholder: "SA",
                                 required: ""
                               },
                               domProps: {
@@ -43898,7 +43885,11 @@ var render = function() {
                                 }
                               ],
                               staticClass: "form-control",
-                              attrs: { type: "text", name: "apemat" },
+                              attrs: {
+                                type: "text",
+                                name: "apemat",
+                                placeholder: "DE CV"
+                              },
                               domProps: {
                                 value: _vm.generalseguro.cliente.apemat
                               },
