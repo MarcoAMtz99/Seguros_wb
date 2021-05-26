@@ -1099,7 +1099,7 @@
 				generalseguro:{
 					cliente:{
 						tipo_persona:"F",
-						nombre:"",
+						nombre:this.cliente.nombre,
 						apepat:"",
 						apemat:"",
 						razsoc:"",
