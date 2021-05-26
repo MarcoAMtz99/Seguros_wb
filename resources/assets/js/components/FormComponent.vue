@@ -652,15 +652,15 @@
 							<input class="form-control" type="text" name="telefono" v-model="ana.cliente.telefono" required>
 						</div>
 						<div class="row" v-if="ana.cliente.tipo_persona == '1'">
-						<div class="form-group col-12 col-md-6">
+						<div class="form-group col-12 col-md-4">
 							<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C :</label>
 							<input class="form-control" type="text" name="rfc" v-model="ana.cliente.rfc" required>
 						</div>
 						</div>
 						<div class="row" v-if="ana.cliente.tipo_persona == '2'">
-						<div class="form-group col-12 col-md-6">
-							<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C de la empresa:</label>
-							<input class="form-control" type="text" name="rfc" v-model="ana.cliente.rfc" placeholder="ABC990022X9X"  required>
+						<div class="form-group col-12 col-md-4">
+							<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C Empresa:</label>
+							<input class="form-control" type="text" name="rfc" v-model="ana.cliente.rfc"  required>
 						</div>
 						</div>
 
@@ -1177,8 +1177,8 @@
 				console.log('NUEVO VALOR',new_value);
 				this.generalseguro.cotizacion.id_cotizacion = new_value;
 				this.generalseguro.cliente.nombre = this.cliente.nombre;
-				this.generalseguro.cliente.apepat = this.cliente.apmaterno;
-				this.generalseguro.cliente.apemat = this.cliente.appaterno;
+				this.generalseguro.cliente.apepat = this.cliente.appaterno;
+				this.generalseguro.cliente.apemat = this.cliente.apmaterno;
 				this.generalseguro.cliente.cp = this.cliente.cp; 
 				this.generalseguro.cliente.fnac = this.cliente.f_nac;
 				this.generalseguro.cliente.email = this.cliente.email;
@@ -1193,6 +1193,15 @@
 			'cotizacion.paquetequa':function(new_value,old_value){
 				console.log(new_value);
 				this.qualitas.vehiculo.paquete = new_value;
+				this.qualitas.cliente.nombre = this.cliente.nombre;
+				this.qualitas.cliente.apmaterno = this.cliente.apmaterno;
+				this.qualitas.cliente.appaterno = this.cliente.appaterno;
+				this.qualitas.cliente.cp = this.cliente.cp; 
+				this.qualitas.cliente.f_nac = this.cliente.f_nac;
+				this.qualitas.cliente.email = this.cliente.email;
+				this.qualitas.cliente.telefono = this.cliente.telefono;
+				
+
 			},
 			'cotizacion.camis':function(new_value,old_value){
 				console.log(new_value);
@@ -1256,7 +1265,13 @@
 				} else {}
 			},
 			'ana.cliente.tipo_persona':function (new_value,old_value) {
-						
+				this.ana.cliente.nombre = this.cliente.nombre;
+				this.ana.cliente.apepat = this.cliente.apmaterno;
+				this.ana.cliente.apemat = this.cliente.appaterno;
+				this.ana.cliente.codigo_postal = this.cliente.cp; 
+				this.ana.cliente.f_nac = this.cliente.f_nac;
+				this.ana.cliente.email = this.cliente.email;
+				this.ana.cliente.telefono = this.cliente.telefono;	
 				if (new_value=="2") {
 					this.ana.cliente.nombre="";
 					this.getGirosANA();

@@ -3602,8 +3602,8 @@ __webpack_require__.r(__webpack_exports__);
       console.log('NUEVO VALOR', new_value);
       this.generalseguro.cotizacion.id_cotizacion = new_value;
       this.generalseguro.cliente.nombre = this.cliente.nombre;
-      this.generalseguro.cliente.apepat = this.cliente.apmaterno;
-      this.generalseguro.cliente.apemat = this.cliente.appaterno;
+      this.generalseguro.cliente.apepat = this.cliente.appaterno;
+      this.generalseguro.cliente.apemat = this.cliente.apmaterno;
       this.generalseguro.cliente.cp = this.cliente.cp;
       this.generalseguro.cliente.fnac = this.cliente.f_nac;
       this.generalseguro.cliente.email = this.cliente.email;
@@ -3617,6 +3617,13 @@ __webpack_require__.r(__webpack_exports__);
     'cotizacion.paquetequa': function cotizacionPaquetequa(new_value, old_value) {
       console.log(new_value);
       this.qualitas.vehiculo.paquete = new_value;
+      this.qualitas.cliente.nombre = this.cliente.nombre;
+      this.qualitas.cliente.apmaterno = this.cliente.apmaterno;
+      this.qualitas.cliente.appaterno = this.cliente.appaterno;
+      this.qualitas.cliente.cp = this.cliente.cp;
+      this.qualitas.cliente.f_nac = this.cliente.f_nac;
+      this.qualitas.cliente.email = this.cliente.email;
+      this.qualitas.cliente.telefono = this.cliente.telefono;
     },
     'cotizacion.camis': function cotizacionCamis(new_value, old_value) {
       console.log(new_value);
@@ -3680,6 +3687,14 @@ __webpack_require__.r(__webpack_exports__);
       } else {}
     },
     'ana.cliente.tipo_persona': function anaClienteTipo_persona(new_value, old_value) {
+      this.ana.cliente.nombre = this.cliente.nombre;
+      this.ana.cliente.apepat = this.cliente.apmaterno;
+      this.ana.cliente.apemat = this.cliente.appaterno;
+      this.ana.cliente.codigo_postal = this.cliente.cp;
+      this.ana.cliente.f_nac = this.cliente.f_nac;
+      this.ana.cliente.email = this.cliente.email;
+      this.ana.cliente.telefono = this.cliente.telefono;
+
       if (new_value == "2") {
         this.ana.cliente.nombre = "";
         this.getGirosANA();
@@ -4452,6 +4467,17 @@ __webpack_require__.r(__webpack_exports__);
   watch: {
     'gnp.cliente.codigo_postal': function gnpClienteCodigo_postal(new_value, old_value) {
       if (new_value.length === 5) this.getDatosDomicilio(new_value);
+    },
+    'gnp.cliente.tipo_persona': function gnpClienteTipo_persona(new_value, old_value) {
+      this.gnp.cliente.nombre = this.cliente.nombre;
+      this.gnp.cliente.apepat = this.cliente.apmaterno;
+      this.gnp.cliente.apemat = this.cliente.appaterno;
+      this.gnp.cliente.codigo_postal = this.cliente.cp;
+      this.gnp.cliente.f_nac = this.cliente.f_nac;
+      this.gnp.cliente.email = this.cliente.email;
+      this.gnp.cliente.telefono = this.cliente.telefono;
+
+      if (new_value == "2") {}
     }
   },
   methods: {
@@ -47680,7 +47706,7 @@ var render = function() {
                       ? _c("div", { staticClass: "row" }, [
                           _c(
                             "div",
-                            { staticClass: "form-group col-12 col-md-6" },
+                            { staticClass: "form-group col-12 col-md-4" },
                             [
                               _vm._m(75),
                               _vm._v(" "),
@@ -47722,7 +47748,7 @@ var render = function() {
                       ? _c("div", { staticClass: "row" }, [
                           _c(
                             "div",
-                            { staticClass: "form-group col-12 col-md-6" },
+                            { staticClass: "form-group col-12 col-md-4" },
                             [
                               _vm._m(76),
                               _vm._v(" "),
@@ -47739,7 +47765,6 @@ var render = function() {
                                 attrs: {
                                   type: "text",
                                   name: "rfc",
-                                  placeholder: "ABC990022X9X",
                                   required: ""
                                 },
                                 domProps: { value: _vm.ana.cliente.rfc },
@@ -50457,7 +50482,7 @@ var staticRenderFns = [
         staticClass: "fa fa-asterisk",
         attrs: { "aria-hidden": "true" }
       }),
-      _vm._v(" R.F.C de la empresa:")
+      _vm._v(" R.F.C Empresa:")
     ])
   },
   function() {

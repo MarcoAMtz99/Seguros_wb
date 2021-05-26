@@ -340,6 +340,19 @@
             'gnp.cliente.codigo_postal':function(new_value,old_value){
                 if(new_value.length === 5)
                     this.getDatosDomicilio(new_value);
+            },
+            'gnp.cliente.tipo_persona':function (new_value,old_value) {
+                this.gnp.cliente.nombre = this.cliente.nombre;
+                this.gnp.cliente.apepat = this.cliente.apmaterno;
+                this.gnp.cliente.apemat = this.cliente.appaterno;
+                this.gnp.cliente.codigo_postal = this.cliente.cp; 
+                this.gnp.cliente.f_nac = this.cliente.f_nac;
+                this.gnp.cliente.email = this.cliente.email;
+                this.gnp.cliente.telefono = this.cliente.telefono; 
+
+                if (new_value=="2") {
+                    
+                }
             }
         },
         methods:{
