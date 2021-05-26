@@ -3414,6 +3414,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'alert', 'cotizacion', 'img'],
   data: function data() {
@@ -43483,6 +43487,42 @@ var render = function() {
                           _vm._v("General de Seguros")
                         ]),
                         _vm._v(" "),
+                        _c("input", {
+                          attrs: {
+                            type: "hidden",
+                            value: "cliente.nombre",
+                            name: "aux_nombre",
+                            placeholder: ""
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("input", {
+                          attrs: {
+                            type: "text",
+                            value: "cliente.appaterno",
+                            name: "aux_appaterno",
+                            placeholder: "cliente.appaterno"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("input", {
+                          attrs: {
+                            type: "text",
+                            value: "cliente.apmaterno",
+                            name: "aux_apmaterno",
+                            placeholder: "cliente.apmaterno"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("input", {
+                          attrs: {
+                            type: "number",
+                            value: "cliente.cp",
+                            name: "aux_cp",
+                            placeholder: "cliente.cp"
+                          }
+                        }),
+                        _vm._v(" "),
                         _c("h6", [
                           _vm._v(
                             "NOMBRE:" +
@@ -43655,7 +43695,8 @@ var render = function() {
                                 type: "text",
                                 name: "nombre",
                                 required: "",
-                                value: "cliente.nombre"
+                                value: "cliente.nombre",
+                                placeholder: "cliente.nombre"
                               },
                               domProps: {
                                 value: _vm.generalseguro.cliente.nombre

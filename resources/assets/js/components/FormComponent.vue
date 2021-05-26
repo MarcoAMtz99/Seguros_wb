@@ -12,6 +12,10 @@
 						</div>
 						<div class="offset-1 col-5 col-md-3">
 							<h5 class="mt-3 ml-3">General de Seguros</h5>
+							<input type="hidden" value="cliente.nombre" name="aux_nombre" placeholder="">
+							<input type="text" value="cliente.appaterno" name="aux_appaterno" placeholder="cliente.appaterno">
+							<input type="text" value="cliente.apmaterno" name="aux_apmaterno" placeholder="cliente.apmaterno">
+							<input type="number" value="cliente.cp" name="aux_cp" placeholder="cliente.cp">
 							<h6>NOMBRE:{{cliente.nombre}} {{cliente.appaterno}}  {{cliente.apmaterno}}</h6>
 							<H6>CP: {{cliente.cp}}</H6>
 						</div>
@@ -46,7 +50,7 @@
 							<label class="control-label">
 								<i class="fas fa-asterisk"></i> Nombre(s)
 							</label>
-							<input class="form-control" type="text" name="nombre" v-model="generalseguro.cliente.nombre" required="" value="cliente.nombre">
+							<input class="form-control" type="text" name="nombre" v-model="generalseguro.cliente.nombre" required="" value="cliente.nombre" placeholder="cliente.nombre">
 							
 						</div>
 						<div class="form-group col-12 col-md-4">
