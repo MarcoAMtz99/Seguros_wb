@@ -12,12 +12,6 @@
 						</div>
 						<div class="offset-1 col-5 col-md-3">
 							<h5 class="mt-3 ml-3">General de Seguros</h5>
-							<input type="hidden" v-model="cliente.nombre" name="aux_nombre" placeholder="">
-							<input type="text" v-model="cliente.appaterno" name="aux_appaterno" placeholder="cliente.appaterno">
-							<input type="text" v-model="cliente.apmaterno" name="aux_apmaterno" placeholder="cliente.apmaterno">
-							<input type="number" v-model="cliente.cp" name="aux_cp" placeholder="cliente.cp">
-							<h6>NOMBRE:{{cliente.nombre}} {{cliente.appaterno}}  {{cliente.apmaterno}}</h6>
-							<H6>CP: {{cliente.cp}}</H6>
 						</div>
 					</div>
 					
@@ -50,7 +44,7 @@
 							<label class="control-label">
 								<i class="fas fa-asterisk"></i> Nombre(s)
 							</label>
-							<input class="form-control" type="text" name="nombre" v-model="generalseguro.cliente.nombre" required="" value="cliente.nombre" placeholder="cliente.nombre">
+							<input class="form-control" type="text" name="nombre" v-model="generalseguro.cliente.nombre" required="" value="cliente.nombre">
 							
 						</div>
 						<div class="form-group col-12 col-md-4">
@@ -1099,7 +1093,7 @@
 				generalseguro:{
 					cliente:{
 						tipo_persona:"F",
-						nombre:this.cliente.nombre,
+						nombre:"",
 						apepat:"",
 						apemat:"",
 						razsoc:"",
@@ -1171,8 +1165,9 @@
 		watch:{
 			"cotizacion.id":function (new_value,old_value) {
 				// body...
-				console.log(new_value);
+				console.log('NUEVO VALOR',new_value);
 				this.generalseguro.cotizacion.id_cotizacion = new_value;
+				this.generalseguro.cliente.nombre = this.cliente.nombre;
 			},
 			'cotizacion.paquete.id':function(new_value,old_value){
 				console.log(new_value);
