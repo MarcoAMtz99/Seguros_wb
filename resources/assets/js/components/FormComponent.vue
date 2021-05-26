@@ -652,12 +652,14 @@
 							<input class="form-control" type="text" name="telefono" v-model="ana.cliente.telefono" required>
 						</div>
 						<div class="row" v-if="ana.cliente.tipo_persona == '1'">
+
 						<div class="form-group col-12 col-md-4">
 							<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C :</label>
 							<input class="form-control" type="text" name="rfc" v-model="ana.cliente.rfc" required>
 						</div>
+
 						</div>
-						<div class="row" v-if="ana.cliente.tipo_persona == '2'">
+						<div class="row" v-else="ana.cliente.tipo_persona == '2'">
 						<div class="form-group col-12 col-md-4">
 							<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C :</label>
 							<input class="form-control" type="text" name="rfc" v-model="ana.cliente.rfc"  required>
