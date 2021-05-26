@@ -33,6 +33,7 @@ Route::post('/getCoberturasQ','QualitasController@getCobertura');
 // General de seguros
 Route::get('/versionesGS/{marca}/{submarca}/{modelo}','GeneralSegurosController@versiones');
 Route::get('/getMarcas','GeneralSegurosController@getMarcas');
+Route::get('/getColonias/{cp}','ColoniasController@getColonias');
 Route::get('/getSubmarcas/{marca_id}','GeneralSegurosController@getSubmarcas');
 Route::get('/getModelos/{submarca_id}','GeneralSegurosController@getModelos');
 Route::get('/getVersiones/{submarca_id}/{modelo}','GeneralSegurosController@getVersiones');

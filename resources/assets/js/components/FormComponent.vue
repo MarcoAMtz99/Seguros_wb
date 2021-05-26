@@ -1174,6 +1174,7 @@
 				this.generalseguro.cliente.fnac = this.cliente.f_nac;
 				this.generalseguro.cliente.email = this.cliente.email;
 				this.generalseguro.cliente.telefono1 = this.cliente.telefono;
+				this.searchColonia(this.generalseguro.cliente.cp);
 
 			},
 			'cotizacion.paquete.id':function(new_value,old_value){
@@ -1351,6 +1352,22 @@
 					console.log(err);
 				})
 			},
+			'searchColonia':function (cp) {
+				// body...
+				let url= `./api/getColonias/${cp}`;
+				axios.get(url).then(res=>{
+					console.log("COLONIAS GS",res.data);
+					// if(res.data.response){
+					// 	this.generalseguro.cliente.fnac = res.data.response;
+					// }
+				}).catch(err=>{
+					console.log(err);
+				})
+			},
+
+
+
+
 			'sendGS':function(){
 				console.log('enviado');
 			},

@@ -3599,6 +3599,7 @@ __webpack_require__.r(__webpack_exports__);
       this.generalseguro.cliente.fnac = this.cliente.f_nac;
       this.generalseguro.cliente.email = this.cliente.email;
       this.generalseguro.cliente.telefono1 = this.cliente.telefono;
+      this.searchColonia(this.generalseguro.cliente.cp);
     },
     'cotizacion.paquete.id': function cotizacionPaqueteId(new_value, old_value) {
       console.log(new_value);
@@ -3790,6 +3791,17 @@ __webpack_require__.r(__webpack_exports__);
         if (res.data.response) {
           _this8.qualitasPobla = res.data.response;
         }
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    'searchColonia': function searchColonia(cp) {
+      // body...
+      var url = "./api/getColonias/".concat(cp);
+      axios.get(url).then(function (res) {
+        console.log("COLONIAS GS", res.data); // if(res.data.response){
+        // 	this.generalseguro.cliente.fnac = res.data.response;
+        // }
       })["catch"](function (err) {
         console.log(err);
       });
