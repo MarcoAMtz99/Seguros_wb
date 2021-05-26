@@ -511,6 +511,11 @@ class GeneralSegurosController extends Controller
 
        
         if ($request->tipo_persona == 'M') {
+
+            $aux = explode(" ", $request->razsoc);
+            $request->nombre= $aux[0];
+            $request->apepat= $aux[1];
+            $request->apemat= $aux[2];
            // $request->nombre = $request->apepat;
            // $request->apepat = '';
            $request->tipo_persona = 3;
