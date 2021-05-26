@@ -4382,6 +4382,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'cotizacion', 'img'],
   data: function data() {
@@ -51337,40 +51345,79 @@ var render = function() {
             ])
           : _vm._e(),
         _vm._v(" "),
-        _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(10),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.gnp.cliente.rfc,
-                expression: "gnp.cliente.rfc"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              name: "rfc",
-              pattern: "[a-zA-Z]{4,4}[0-9]{6,6}[a-zA-Z0-9]{3,3}",
-              required: ""
-            },
-            domProps: { value: _vm.gnp.cliente.rfc },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.gnp.cliente, "rfc", $event.target.value)
-              }
-            }
-          })
-        ]),
+        _vm.gnp.cliente.tipo_persona == "F"
+          ? _c("div", { staticClass: "form-group col-12 col-md-4" }, [
+              _c("div", { staticClass: "form-group col-12 col-md-4" }, [
+                _vm._m(10),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.gnp.cliente.rfc,
+                      expression: "gnp.cliente.rfc"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    name: "rfc",
+                    pattern: "[a-zA-Z]{4,4}[0-9]{6,6}[a-zA-Z0-9]{3,3}",
+                    required: ""
+                  },
+                  domProps: { value: _vm.gnp.cliente.rfc },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.gnp.cliente, "rfc", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.gnp.cliente.tipo_persona == "M"
+          ? _c("div", { staticClass: "form-group col-12 col-md-4" }, [
+              _c("div", { staticClass: "form-group col-12 col-md-4" }, [
+                _vm._m(11),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.gnp.cliente.rfc,
+                      expression: "gnp.cliente.rfc"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    name: "rfc",
+                    pattern: "[a-zA-Z]{3,3}[0-9]{6,6}[a-zA-Z0-9]{3,3}",
+                    required: ""
+                  },
+                  domProps: { value: _vm.gnp.cliente.rfc },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.gnp.cliente, "rfc", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ])
+          : _vm._e(),
         _vm._v(" "),
         _vm.gnp.cliente.tipo_persona == "F"
           ? _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-              _vm._m(11),
+              _vm._m(12),
               _vm._v(" "),
               _c(
                 "select",
@@ -51421,7 +51468,7 @@ var render = function() {
           : _vm._e(),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(12),
+          _vm._m(13),
           _vm._v(" "),
           _c(
             "select",
@@ -51467,7 +51514,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(13),
+          _vm._m(14),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -51498,7 +51545,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(14),
+          _vm._m(15),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -51529,7 +51576,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(15),
+          _vm._m(16),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -51564,7 +51611,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(16),
+          _vm._m(17),
           _vm._v(" "),
           _c(
             "select",
@@ -51613,7 +51660,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(17),
+          _vm._m(18),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -51639,7 +51686,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(18),
+          _vm._m(19),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -51693,7 +51740,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(19),
+          _vm._m(20),
           _vm._v(" "),
           _c(
             "select",
@@ -51750,10 +51797,10 @@ var render = function() {
       _vm._v(" "),
       _vm.gnp.cliente.tipo_persona == "M"
         ? _c("div", { staticClass: "row" }, [
-            _vm._m(20),
+            _vm._m(21),
             _vm._v(" "),
             _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-              _vm._m(21),
+              _vm._m(22),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -51779,7 +51826,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-              _vm._m(22),
+              _vm._m(23),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -51834,7 +51881,7 @@ var render = function() {
             _vm._v(" "),
             _vm.gnp.cliente.tipo_persona == "M"
               ? _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                  _vm._m(23),
+                  _vm._m(24),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -51871,7 +51918,7 @@ var render = function() {
             _vm._v(" "),
             _vm.gnp.cliente.tipo_persona == "M"
               ? _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                  _vm._m(24),
+                  _vm._m(25),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -51904,7 +51951,7 @@ var render = function() {
               : _vm._e(),
             _vm._v(" "),
             _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-              _vm._m(25),
+              _vm._m(26),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -51936,7 +51983,7 @@ var render = function() {
             _vm._v(" "),
             _vm.gnp.cliente.tipo_persona == "M"
               ? _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                  _vm._m(26),
+                  _vm._m(27),
                   _vm._v(" "),
                   _c(
                     "select",
@@ -51989,7 +52036,7 @@ var render = function() {
               : _vm._e(),
             _vm._v(" "),
             _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-              _vm._m(27),
+              _vm._m(28),
               _vm._v(" "),
               _c(
                 "select",
@@ -52039,10 +52086,10 @@ var render = function() {
         : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
-        _vm._m(28),
+        _vm._m(29),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-4" }, [
-          _vm._m(29),
+          _vm._m(30),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -52073,7 +52120,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-4" }, [
-          _vm._m(30),
+          _vm._m(31),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -52107,7 +52154,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-4" }, [
-          _vm._m(31),
+          _vm._m(32),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -52139,7 +52186,7 @@ var render = function() {
         _vm._v(" "),
         _vm.cliente.uso_auto == "Servicio Particular"
           ? _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-              _vm._m(32),
+              _vm._m(33),
               _vm._v(" "),
               _c(
                 "select",
@@ -52186,7 +52233,7 @@ var render = function() {
               )
             ])
           : _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-              _vm._m(33),
+              _vm._m(34),
               _vm._v(" "),
               _c(
                 "select",
@@ -52237,7 +52284,7 @@ var render = function() {
             ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(34),
+          _vm._m(35),
           _vm._v(" "),
           _c(
             "select",
@@ -52289,10 +52336,10 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
-        _vm._m(35),
+        _vm._m(36),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(36),
+          _vm._m(37),
           _vm._v(" "),
           _c(
             "select",
@@ -52342,7 +52389,7 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _vm._m(37)
+      _vm._m(38)
     ]
   )
 }
@@ -52473,6 +52520,18 @@ var staticRenderFns = [
         attrs: { "aria-hidden": "true" }
       }),
       _vm._v(" R.F.C.:")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "control-label" }, [
+      _c("i", {
+        staticClass: "fa fa-asterisk",
+        attrs: { "aria-hidden": "true" }
+      }),
+      _vm._v(" R.F.C de la empresa:")
     ])
   },
   function() {
