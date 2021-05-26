@@ -12,6 +12,8 @@
 						</div>
 						<div class="offset-1 col-5 col-md-3">
 							<h5 class="mt-3 ml-3">General de Seguros</h5>
+							<h6>NOMBRE:{{cliente.nombre}} {{cliente.appaterno}}  {{cliente.apmaterno}}</h6>
+							<H6>CP: {{cliente.cp}}</H6>
 						</div>
 					</div>
 					
