@@ -3412,6 +3412,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'alert', 'cotizacion', 'img'],
   data: function data() {
@@ -3570,6 +3578,7 @@ __webpack_require__.r(__webpack_exports__);
       qualitasProfesiones: [],
       qualitasOcupaciones: [],
       estadosCiviles: [],
+      generalColonias: [],
       anaestados: [],
       anamunicipios: [],
       anacp: [],
@@ -3796,12 +3805,16 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     'searchColonia': function searchColonia(cp) {
+      var _this9 = this;
+
       // body...
       var url = "./api/getColonias/".concat(cp);
       axios.get(url).then(function (res) {
-        console.log("COLONIAS GS", res.data); // if(res.data.response){
-        // 	this.generalseguro.cliente.fnac = res.data.response;
-        // }
+        console.log("COLONIAS GS", res.data);
+
+        if (res.data.response) {
+          _this9.generalColonias = res.data; // this.generalseguro.cliente.fnac = res.data.response;
+        }
       })["catch"](function (err) {
         console.log(err);
       });
@@ -3814,7 +3827,7 @@ __webpack_require__.r(__webpack_exports__);
     'sendANA': function sendANA() {// TODO
     },
     'formaPago': function formaPago() {
-      var _this9 = this;
+      var _this10 = this;
 
       if (this.generalseguro.cotizacion.id_pago == "") {
         this.detallePago = {};
@@ -3822,7 +3835,7 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         var result = this.cotizacion.paquete.formasPagoDTO.find(function (obj) {
           // console.log(obj);
-          if (obj.idFormaPago === _this9.generalseguro.cotizacion.id_pago) {
+          if (obj.idFormaPago === _this10.generalseguro.cotizacion.id_pago) {
             return obj;
           } // var obj.id === this.generalseguro.cotizacion.id_pago;
 
@@ -3833,28 +3846,28 @@ __webpack_require__.r(__webpack_exports__);
       console.log(this.detallePago);
     },
     'getEstados': function getEstados() {
-      var _this10 = this;
+      var _this11 = this;
 
       var url = "./api/estadosANA";
       axios.get(url).then(function (res) {
         // console.log(res.data);
         if (res.data.estados) {
-          _this10.anaestados = res.data.estados;
+          _this11.anaestados = res.data.estados;
         }
       })["catch"](function (err) {
         console.log(err);
       });
     },
     'getMunicipios': function getMunicipios(estado_id) {
-      var _this11 = this;
+      var _this12 = this;
 
       var url = "./api/municipiosANA/".concat(estado_id);
       axios.get(url).then(function (res) {
         console.log(res.data);
-        console.log('-- CLIENTE -- ', _this11.cotizacion);
+        console.log('-- CLIENTE -- ', _this12.cotizacion);
 
         if (res.data.municipios) {
-          _this11.anamunicipios = res.data.municipios;
+          _this12.anamunicipios = res.data.municipios;
         } // 
 
       })["catch"](function (err) {
@@ -3862,83 +3875,83 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     'getCP': function getCP(estado_id, municipio_id) {
-      var _this12 = this;
+      var _this13 = this;
 
       var url = "./api/cpANA/".concat(estado_id, "/").concat(municipio_id);
       axios.get(url).then(function (res) {
         // console.log(res.data);
         if (res.data['Codigo Postal']) {
-          _this12.anacp = res.data['Codigo Postal'];
+          _this13.anacp = res.data['Codigo Postal'];
         }
       })["catch"](function (err) {
         console.log(err);
       });
     },
     'getColonias': function getColonias(estado_id, municipio_id, cp_id) {
-      var _this13 = this;
+      var _this14 = this;
 
       var url = "./api/coloniaANA/".concat(estado_id, "/").concat(municipio_id, "/").concat(cp_id);
       axios.get(url).then(function (res) {
         console.log(res.data);
 
         if (res.data.colonias) {
-          _this13.anacolonias = res.data.colonias;
+          _this14.anacolonias = res.data.colonias;
         }
       })["catch"](function (err) {
         console.log(err);
       });
     },
     'getEdoCivil': function getEdoCivil() {
-      var _this14 = this;
+      var _this15 = this;
 
       var url = "./api/getEstadoCivil";
       axios.get(url).then(function (res) {
         console.log(res);
 
         if (res.data.estadosCivil) {
-          _this14.estadosCiviles = res.data.estadosCivil.sort();
+          _this15.estadosCiviles = res.data.estadosCivil.sort();
         }
       })["catch"](function (err) {
         console.log(err);
       });
     },
     'getOcupaciones': function getOcupaciones() {
-      var _this15 = this;
+      var _this16 = this;
 
       var url = "./api/getTitulos";
       axios.get(url).then(function (res) {
         console.log(res);
 
         if (res.data.titulos) {
-          _this15.ocupaciones = res.data.titulos.sort();
+          _this16.ocupaciones = res.data.titulos.sort();
         }
       })["catch"](function (err) {
         console.log(err);
       });
     },
     'getGiros': function getGiros() {
-      var _this16 = this;
+      var _this17 = this;
 
       var url = "./api/getGiros";
       axios.get(url).then(function (res) {
         console.log(res);
 
         if (res.data.giros) {
-          _this16.giros = res.data.giros.sort();
+          _this17.giros = res.data.giros.sort();
         }
       })["catch"](function (err) {
         console.log(err);
       });
     },
     'getContactos': function getContactos() {
-      var _this17 = this;
+      var _this18 = this;
 
       var url = "./api/getContactos";
       axios.get(url).then(function (res) {
         console.log(res.data);
 
         if (res.data.tiposContacto) {
-          _this17.tipocontactos = res.data.tiposContacto.sort();
+          _this18.tipocontactos = res.data.tiposContacto.sort();
         }
       })["catch"](function (err) {
         console.log(err);
@@ -44247,31 +44260,54 @@ var render = function() {
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
                       _vm._m(15),
                       _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.generalseguro.cliente.colonia,
-                            expression: "generalseguro.cliente.colonia"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text", name: "colonia", required: "" },
-                        domProps: { value: _vm.generalseguro.cliente.colonia },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.generalseguro.cliente.colonia,
+                              expression: "generalseguro.cliente.colonia"
                             }
-                            _vm.$set(
-                              _vm.generalseguro.cliente,
-                              "colonia",
-                              $event.target.value
-                            )
+                          ],
+                          staticClass: "form-control",
+                          attrs: { name: "colonia", required: "" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.generalseguro.cliente,
+                                "colonia",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
                           }
-                        }
-                      })
+                        },
+                        [
+                          _c("option", { attrs: { value: "" } }, [
+                            _vm._v("Seleccione su colonia")
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(_vm.generalColonias, function(colonia) {
+                            return _c(
+                              "option",
+                              { domProps: { value: colonia.id } },
+                              [_vm._v(_vm._s(colonia.descripciones))]
+                            )
+                          })
+                        ],
+                        2
+                      )
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
@@ -49776,10 +49812,7 @@ var staticRenderFns = [
     return _c(
       "label",
       { staticClass: "control-label", attrs: { for: "municip" } },
-      [
-        _c("i", { staticClass: "fas fa-asterisk" }),
-        _vm._v(" Alcaldia o Municipio")
-      ]
+      [_c("i", { staticClass: "fas fa-asterisk" }), _vm._v("Municipio")]
     )
   },
   function() {

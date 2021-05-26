@@ -139,11 +139,19 @@
 							<input type="text" name="cp" class="form-control" v-model="generalseguro.cliente.cp" required>
 						</div>
 						<div class="form-group col-12 col-md-4">
+							
+
 							<label class="control-label" for="colonia"><i class="fas fa-asterisk"></i> Colonia</label>
-							<input type="text" name="colonia" class="form-control" v-model="generalseguro.cliente.colonia" required>
+							<select class="form-control" name="colonia" v-model="generalseguro.cliente.colonia" required>
+								<option value="">Seleccione su colonia</option>
+								<option v-for="colonia in generalColonias" :value="colonia.id">{{colonia.descripciones}}</option>
+							</select>
+						<!-- 	<input type="text" name="colonia" class="form-control" v-model="generalseguro.cliente.colonia" required> -->
+
+
 						</div>
 						<div class="form-group col-12 col-md-4">
-							<label class="control-label" for="municip"><i class="fas fa-asterisk"></i> Alcaldia o Municipio</label>
+							<label class="control-label" for="municip"><i class="fas fa-asterisk"></i>Municipio</label>
 							<input type="text" name="municip" class="form-control" v-model="generalseguro.cliente.municip" required>
 						</div>
 						<div class="form-group col-12 col-md-4">
@@ -1144,6 +1152,7 @@
 				qualitasProfesiones:[],
 				qualitasOcupaciones:[],
 				estadosCiviles:[],
+				generalColonias:[],
 				anaestados:[],
 				anamunicipios:[],
 				anacp:[],
@@ -1357,9 +1366,10 @@
 				let url= `./api/getColonias/${cp}`;
 				axios.get(url).then(res=>{
 					console.log("COLONIAS GS",res.data);
-					// if(res.data.response){
-					// 	this.generalseguro.cliente.fnac = res.data.response;
-					// }
+					if(res.data.response){
+						this.generalColonias =res.data;
+						// this.generalseguro.cliente.fnac = res.data.response;
+					}
 				}).catch(err=>{
 					console.log(err);
 				})
