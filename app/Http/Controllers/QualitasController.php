@@ -116,7 +116,7 @@ class QualitasController extends Controller
 			$submarca ='508';
  		}
  		if($submarca == 'SERIE 5'){
-			$submarca ='550IA';
+			$submarca ='535IA';
  		}
  		if($submarca == 'SERIE 3'){
 			$submarca ='335IA';
@@ -130,7 +130,7 @@ class QualitasController extends Controller
 		$xml = simplexml_load_string($result->listaTarifasResult->any);
 		$results = json_decode(json_encode($xml), true);
 		$descripciones= [];
-		// dd($results);
+		dd($results);
 		if(empty($results['datos'])){
 			$result=null;
 			return $result;
