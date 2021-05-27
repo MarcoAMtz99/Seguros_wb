@@ -103,6 +103,7 @@
 							</label>
 							<input type="text" name="rfc" class="form-control" v-model="generalseguro.cliente.rfc" required="">
 						</div>
+						<br>
 						<div class="form-group col-12 col-md-4">
 							<label for="elector" class="control-label">Clave de credencial de Elector/INE</label>
 							<input type="text" name="elector" class="form-control" v-model="generalseguro.cliente.elector">

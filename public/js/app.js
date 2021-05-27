@@ -3422,6 +3422,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'alert', 'cotizacion', 'img'],
   data: function data() {
@@ -44013,6 +44014,8 @@ var render = function() {
                         }
                       })
                     ]),
+                    _vm._v(" "),
+                    _c("br"),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
                       _c(

@@ -116,10 +116,10 @@ class QualitasController extends Controller
 			$submarca ='508';
  		}
  		if($submarca == 'SERIE 5'){
-			$submarca ='SERIE 5';
+			$submarca ='550IA';
  		}
  		if($submarca == 'SERIE 3'){
-			$submarca ='3';
+			$submarca ='335IA';
  		}
  		if($marca == 'BUIK'){
 			$marca ='BUICK';
