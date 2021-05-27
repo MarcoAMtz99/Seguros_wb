@@ -3420,6 +3420,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'alert', 'cotizacion', 'img'],
   data: function data() {
@@ -4472,11 +4474,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     'gnp.cliente.tipo_persona': function gnpClienteTipo_persona(new_value, old_value) {
       this.gnp.cliente.nombre = this.cliente.nombre;
-      this.gnp.cliente.apepat = this.cliente.apmaterno;
-      this.gnp.cliente.apemat = this.cliente.appaterno;
+      this.gnp.cliente.apepat = this.cliente.appaterno;
+      this.gnp.cliente.apemat = this.cliente.apmaterno;
       this.gnp.cliente.codigo_postal = this.cliente.cp;
       this.gnp.cliente.f_nac = this.cliente.f_nac;
-      this.gnp.cliente.email = this.cliente.email;
+      this.gnp.cliente.correo = this.cliente.email;
       this.gnp.cliente.telefono = this.cliente.telefono;
 
       if (new_value == "2") {}
@@ -47743,10 +47745,7 @@ var render = function() {
                             ]
                           )
                         ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.ana.cliente.tipo_persona == "2"
-                      ? _c("div", { staticClass: "row" }, [
+                      : _c("div", { staticClass: "row" }, [
                           _c(
                             "div",
                             { staticClass: "form-group col-12 col-md-4" },
@@ -47784,8 +47783,7 @@ var render = function() {
                               })
                             ]
                           )
-                        ])
-                      : _vm._e(),
+                        ]),
                     _vm._v(" "),
                     _vm.ana.cliente.tipo_persona == "1"
                       ? _c(

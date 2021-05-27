@@ -89,7 +89,7 @@
                 <input class="form-control" type="text" name="rfc" v-model="gnp.cliente.rfc" pattern="[a-zA-Z]{4,4}[0-9]{6,6}[a-zA-Z0-9]{3,3}" required>
             </div>
              </div>
-
+             
                <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == 'M'">
             <div class="form-group col-12 col-md-4">
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C:</label>
@@ -345,11 +345,11 @@
             },
             'gnp.cliente.tipo_persona':function (new_value,old_value) {
                 this.gnp.cliente.nombre = this.cliente.nombre;
-                this.gnp.cliente.apepat = this.cliente.apmaterno;
-                this.gnp.cliente.apemat = this.cliente.appaterno;
+                this.gnp.cliente.apepat = this.cliente.appaterno;
+                this.gnp.cliente.apemat = this.cliente.apmaterno;
                 this.gnp.cliente.codigo_postal = this.cliente.cp; 
                 this.gnp.cliente.f_nac = this.cliente.f_nac;
-                this.gnp.cliente.email = this.cliente.email;
+                this.gnp.cliente.correo = this.cliente.email;
                 this.gnp.cliente.telefono = this.cliente.telefono; 
 
                 if (new_value=="2") {
