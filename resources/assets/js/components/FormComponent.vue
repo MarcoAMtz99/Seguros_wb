@@ -136,7 +136,7 @@
 						</div>
 						<div class="form-group col-12 col-md-4">
 							<label class="control-label" for="cp"><i class="fas fa-asterisk"></i> Código Postal</label>
-							<input type="text" name="cp" class="form-control" v-model="generalseguro.cliente.cp" required disabled="true">
+							<input type="text" name="cp" class="form-control" v-model="generalseguro.cliente.cp" required >
 						</div>
 						<div class="form-group col-12 col-md-4">
 							

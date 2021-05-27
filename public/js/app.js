@@ -44280,12 +44280,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          name: "cp",
-                          required: "",
-                          disabled: "true"
-                        },
+                        attrs: { type: "text", name: "cp", required: "" },
                         domProps: { value: _vm.generalseguro.cliente.cp },
                         on: {
                           input: function($event) {
