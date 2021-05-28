@@ -277,7 +277,17 @@ class GNPController extends Controller
  			}
  			// var_dump($Modelos);
  			// dd($Mods,$submarca);
-
+ 			if (count($Mods) == 0) {
+ 				$Mods2 = array(
+ 								'CLAVE'=> '',
+ 								'NOMBRE' =>'',
+ 								'VALOR' =>'MODELO NO DISPONIBLE EN GNP',
+ 								'CARROCERIA'=>'',
+ 								'MODELO'=>'',
+ 								'ARMADORA'=>''
+ 							);
+ 					array_push($Mods, $Mods2);
+ 			}
  			
  
 
