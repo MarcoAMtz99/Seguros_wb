@@ -202,7 +202,7 @@
                     <option value="F">Femenino</option>
                 </select>
             </div>
-            <div class="form-group col-12 col-md-4">
+            <div class="form-group col-12 col-md-4" v-if=" gnp.cliente.tipo_persona == 'F'">
                 <label for="estadoCivil" class="control-label"><i class="fas fa-asterisk"></i> Estado Civil:</label>
                 <select name="estadoCivil_c" class="form-control" v-model="gnp.cliente.estadoCivil_c" required>
                     <option value="">Seleccione el estado civil</option>
