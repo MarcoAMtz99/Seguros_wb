@@ -51516,51 +51516,55 @@ var render = function() {
             ])
           : _vm._e(),
         _vm._v(" "),
-        _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-          _vm._m(14),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
+        _vm.gnp.cliente.tipo_persona == "F"
+          ? _c("div", { staticClass: "form-group col-12 col-md-4" }, [
+              _vm._m(14),
+              _vm._v(" "),
+              _c(
+                "select",
                 {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.gnp.cliente.estadoCivil,
-                  expression: "gnp.cliente.estadoCivil"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { name: "estadoCivil", required: "" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.gnp.cliente,
-                    "estadoCivil",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
-                }
-              }
-            },
-            [
-              _c("option", { attrs: { value: "" } }, [
-                _vm._v("Seleccione el estado civil")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "C" } }, [_vm._v("Casado")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "S" } }, [_vm._v("Soltero")])
-            ]
-          )
-        ]),
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.gnp.cliente.estadoCivil,
+                      expression: "gnp.cliente.estadoCivil"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { name: "estadoCivil", required: "" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.gnp.cliente,
+                        "estadoCivil",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "" } }, [
+                    _vm._v("Seleccione el estado civil")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "C" } }, [_vm._v("Casado")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "S" } }, [_vm._v("Soltero")])
+                ]
+              )
+            ])
+          : _vm._e(),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-md-4" }, [
           _vm._m(15),
@@ -52084,59 +52088,53 @@ var render = function() {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _vm.gnp.cliente.tipo_persona == "F"
-              ? _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                  _vm._m(29),
-                  _vm._v(" "),
-                  _c(
-                    "select",
+            _c("div", { staticClass: "form-group col-12 col-md-4" }, [
+              _vm._m(29),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
                     {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.gnp.cliente.estadoCivil_c,
-                          expression: "gnp.cliente.estadoCivil_c"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { name: "estadoCivil_c", required: "" },
-                      on: {
-                        change: function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.gnp.cliente,
-                            "estadoCivil_c",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
-                        }
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "" } }, [
-                        _vm._v("Seleccione el estado civil")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "C" } }, [
-                        _vm._v("Casado")
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "S" } }, [
-                        _vm._v("Soltero")
-                      ])
-                    ]
-                  )
-                ])
-              : _vm._e()
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.gnp.cliente.estadoCivil_c,
+                      expression: "gnp.cliente.estadoCivil_c"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { name: "estadoCivil_c", required: "" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.gnp.cliente,
+                        "estadoCivil_c",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "" } }, [
+                    _vm._v("Seleccione el estado civil")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "C" } }, [_vm._v("Casado")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "S" } }, [_vm._v("Soltero")])
+                ]
+              )
+            ])
           ])
         : _vm._e(),
       _vm._v(" "),
