@@ -2039,7 +2039,7 @@ XML;
 
 	public function emitirPoliza(Request $request)
 	{
-		// dd($request->all());
+		dd($request->all());
 		$cliente = Cliente::where('cotizacion',$request->cotizacion)->first();
 
 		// $descripcion= $cliente->auto->version->descripcion;
