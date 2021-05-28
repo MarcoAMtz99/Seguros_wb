@@ -4496,6 +4496,13 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.gnp.cliente.estadoCirculacion = this.gnp.cliente.estadoClave;
+
+      if (this.gnp.cliente.tipo_persona == 'M') {
+        this.gnp.cliente.nombre_c = this.cliente.nombre;
+        this.gnp.cliente.apepat_c = this.cliente.appaterno;
+        this.gnp.cliente.apemat_c = this.cliente.apmaterno;
+        this.gnp.cliente.f_nac_c = this.cliente.f_nac;
+      }
     }
   },
   methods: {
