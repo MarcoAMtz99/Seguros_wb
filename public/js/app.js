@@ -3423,6 +3423,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'alert', 'cotizacion', 'img'],
   data: function data() {
@@ -43571,9 +43580,7 @@ var render = function() {
                           }
                         })
                       ]
-                    ),
-                    _vm._v(" "),
-                    _vm._m(0)
+                    )
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
@@ -43604,10 +43611,10 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _vm._m(1),
+                    _vm._m(0),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12" }, [
-                      _vm._m(2),
+                      _vm._m(1),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-check col-12" }, [
                         _c("input", {
@@ -43714,7 +43721,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(3),
+                            _vm._m(2),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -43755,7 +43762,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(4),
+                            _vm._m(3),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -43841,7 +43848,7 @@ var render = function() {
                   _vm.generalseguro.cliente.tipo_persona == "M"
                     ? _c("div", { staticClass: "row" }, [
                         _c("div", { staticClass: "form-group col-12" }, [
-                          _vm._m(5),
+                          _vm._m(4),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -43878,15 +43885,17 @@ var render = function() {
                       ])
                     : _vm._e(),
                   _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
                   _vm.generalseguro.cliente.tipo_persona == "M"
                     ? _c("div", { staticClass: "row" }, [
-                        _vm._m(6),
+                        _vm._m(5),
                         _vm._v(" "),
                         _c(
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(7),
+                            _vm._m(6),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -43927,7 +43936,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(8),
+                            _vm._m(7),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -44012,7 +44021,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(9),
+                      _vm._m(8),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -44034,6 +44043,53 @@ var render = function() {
                             _vm.$set(
                               _vm.generalseguro.cliente,
                               "rfc",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group col-12 col-md-4" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "control-label",
+                          attrs: { for: "fnac" }
+                        },
+                        [
+                          _c("i", { staticClass: "fas fa-asterisk" }),
+                          _vm._v(
+                            " " +
+                              _vm._s(
+                                _vm.generalseguro.cliente.tipo_persona == "F"
+                                  ? "Fecha de nacimiento"
+                                  : "Fecha de constitución"
+                              )
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.generalseguro.cliente.fnac,
+                            expression: "generalseguro.cliente.fnac"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "date", name: "fnac", required: "" },
+                        domProps: { value: _vm.generalseguro.cliente.fnac },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.generalseguro.cliente,
+                              "fnac",
                               $event.target.value
                             )
                           }
@@ -44122,7 +44178,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(10),
+                            _vm._m(9),
                             _vm._v(" "),
                             _c(
                               "select",
@@ -44181,7 +44237,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(11),
+                            _vm._m(10),
                             _vm._v(" "),
                             _c(
                               "select",
@@ -44235,6 +44291,10 @@ var render = function() {
                           ]
                         )
                       : _vm._e(),
+                    _vm._v(" "),
+                    _c("hr"),
+                    _vm._v(" "),
+                    _vm._m(11),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
                       _vm._m(12),
@@ -44432,53 +44492,6 @@ var render = function() {
                             _vm.$set(
                               _vm.generalseguro.cliente,
                               "poblaci",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "control-label",
-                          attrs: { for: "fnac" }
-                        },
-                        [
-                          _c("i", { staticClass: "fas fa-asterisk" }),
-                          _vm._v(
-                            " " +
-                              _vm._s(
-                                _vm.generalseguro.cliente.tipo_persona == "F"
-                                  ? "Fecha de nacimiento"
-                                  : "Fecha de constitución"
-                              )
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.generalseguro.cliente.fnac,
-                            expression: "generalseguro.cliente.fnac"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "date", name: "fnac", required: "" },
-                        domProps: { value: _vm.generalseguro.cliente.fnac },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.generalseguro.cliente,
-                              "fnac",
                               $event.target.value
                             )
                           }
@@ -45370,6 +45383,8 @@ var render = function() {
                       })
                     ])
                   ]),
+                  _vm._v(" "),
+                  _c("hr"),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
                     _vm._m(31),
@@ -49727,14 +49742,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "offset-1 col-5 col-md-3" }, [
-      _c("h5", { staticClass: "mt-3 ml-3" }, [_vm._v("General de Seguros")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12 mt-3" }, [
       _c("h6", [_vm._v("Datos del asegurado:")])
     ])
@@ -49780,7 +49787,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "offset-1 col-5 col-12" }, [
-      _c("h5", { staticClass: "mt-3 ml-3" }, [_vm._v("Datos del contratante")])
+      _c("h5", { staticClass: "mt-3 ml-3" }, [
+        _vm._v("Datos del conductor habitual")
+      ])
     ])
   },
   function() {
@@ -49829,6 +49838,14 @@ var staticRenderFns = [
       { staticClass: "control-label", attrs: { for: "edoCivil" } },
       [_c("i", { staticClass: "fas fa-asterisk" }), _vm._v(" Estado Civil")]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "offset-1 col-5 col-12" }, [
+      _c("h5", { staticClass: "mt-3 ml-3" }, [_vm._v("Direccion contratante")])
+    ])
   },
   function() {
     var _vm = this
@@ -50054,7 +50071,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12 mt-3" }, [
-      _c("h6", [_vm._v("Datos del automovil:")])
+      _c("h6", { staticClass: "mt-3 ml-3" }, [_vm._v("Datos del automovil:")])
     ])
   },
   function() {

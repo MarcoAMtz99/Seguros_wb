@@ -10,9 +10,9 @@
 						<div class="offset-1 col-5 offset-md-2 col-md-4 w-md-150">
 							<img width="100%" height="100%" :src="img.gsImageForm">
 						</div>
-						<div class="offset-1 col-5 col-md-3">
+						<!-- <div class="offset-1 col-5 col-md-3">
 							<h5 class="mt-3 ml-3">General de Seguros</h5>
-						</div>
+						</div> -->
 					</div>
 					
 					<div class="row">
@@ -69,13 +69,15 @@
 							</label>
 							<input type="text" name="razsoc" class="form-control" v-model="generalseguro.cliente.razsoc" required>
 						</div>
-					</div>
 
+
+					</div>
+					<hr>
 
 
 						<div class="row" v-if="generalseguro.cliente.tipo_persona == 'M' ">
 						<div class="offset-1 col-5 col-12">
-							<h5 class="mt-3 ml-3">Datos del contratante</h5>
+							<h5 class="mt-3 ml-3">Datos del conductor habitual</h5>
 						</div>
 						<div class="form-group col-12 col-md-4">
 							<label class="control-label">
@@ -103,6 +105,10 @@
 							</label>
 							<input type="text" name="rfc" class="form-control" v-model="generalseguro.cliente.rfc" required="">
 						</div>
+						<div class="form-group col-12 col-md-4">
+							<label for="fnac" class="control-label"><i class='fas fa-asterisk'></i> {{generalseguro.cliente.tipo_persona == 'F' ? 'Fecha de nacimiento' : 'Fecha de constitución'}}</label>
+							<input type="date" name="fnac" class="form-control" v-model="generalseguro.cliente.fnac" required>
+						</div>
 						<br>
 						<div class="form-group col-12 col-md-4">
 							<label for="elector" class="control-label">Clave de credencial de Elector/INE</label>
@@ -127,6 +133,11 @@
 								<option v-for="edocivil in estadosCiviles" :value="edocivil.id">{{edocivil.descripcion}}</option>
 							</select>
 						</div>
+						<hr>
+						<div class="offset-1 col-5 col-12">
+							<h5 class="mt-3 ml-3">Direccion contratante</h5>
+						</div>
+
 						<div class="form-group col-12 col-md-4">
 							<label class="control-label" for="calle"><i class="fas fa-asterisk"></i> Calle</label>
 							<input type="text" name="calle" class="form-control" v-model="generalseguro.cliente.calle" required>
@@ -159,10 +170,7 @@
 							<label class="control-label" for="poblaci"><i class="fas fa-asterisk"></i> Alcaldia o Población</label>
 							<input type="text" name="poblaci" class="form-control" v-model="generalseguro.cliente.poblaci" required>
 						</div>
-						<div class="form-group col-12 col-md-4">
-							<label for="fnac" class="control-label"><i class='fas fa-asterisk'></i> {{generalseguro.cliente.tipo_persona == 'F' ? 'Fecha de nacimiento' : 'Fecha de constitución'}}</label>
-							<input type="date" name="fnac" class="form-control" v-model="generalseguro.cliente.fnac" required>
-						</div>
+						
 						<div class="form-group col-12 col-md-4">
 							<label for="nacionalidad" class="control-label"><i class="fas fa-asterisk"></i> Nacionalidad</label>
 							<select name="nacionalidad" id="nacionalidad" class="form-control" v-model="generalseguro.cliente.nacionalidad" required>
@@ -271,9 +279,10 @@
 							<input type="number" name="pasaporte" class="form-control" min="0" v-model="generalseguro.cliente.pasaporte">
 						</div>
 					</div>
+					<hr>
 					<div class="row">
 						<div class="col-12 mt-3">
-							<h6>Datos del automovil:</h6>
+							<h6 class="mt-3 ml-3">Datos del automovil:</h6>
 						</div>
 						<div class="form-group col-12 col-md-4">
 							<label for="num_motor" class="control-label"><i class="fas fa-asterisk"></i> Número de motor</label>
@@ -403,7 +412,7 @@
 					</div>
 					<br>
 					<hr>
-					<div class="row" v-if="qualitas.cliente.tipo_persona == '1'|| qualitas.cliente.tipo_persona == 2">
+					<div class="row" v-if="qualitas.cliente.tipo_persona == '1' || qualitas.cliente.tipo_persona == 2">
 						<div class="form-group col-12 col-md-4">
 							<label class="control-label">
 								<i class="fas fa-asterisk"></i> Nombre(s)
