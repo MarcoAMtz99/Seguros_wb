@@ -124,6 +124,9 @@ class QualitasController extends Controller
  		if($marca == 'BUIK'){
 			$marca ='BUICK';
  		}
+ 		if($marca == 'MINIVAN '){
+			$marca ='1000';
+ 		}
 	  try {
 		$result = $this->clientTarifa->listaTarifas(['cUsuario'=>"linea",'cTarifa'=>"linea",'cMarca'=>$marca,'cTipo'=>$submarca,'cModelo'=>$modelo]);
 		// dd($result);
