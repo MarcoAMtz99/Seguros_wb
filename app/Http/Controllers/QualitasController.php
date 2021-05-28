@@ -2068,7 +2068,7 @@ XML;
 	<Movimiento TipoMovimiento="3" NoPoliza="" NoCotizacion="" NoEndoso="" TipoEndoso="" NoOTra="" NoNegocio="05545">
 		<DatosAsegurado NoAsegurado="">
 			<Nombre>$request->apepat $request->apemat $request->nombre</Nombre>
-			<Direccion>$request->calle, $request->ext</Direccion>
+			<Direccion>$request->calle $request->ext</Direccion>
 			<Colonia>$request->poblacion</Colonia>
 			<Poblacion>$request->municipio</Poblacion>
 			<Estado>$request->cod_estado</Estado>
