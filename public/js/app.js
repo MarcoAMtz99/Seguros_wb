@@ -46208,7 +46208,8 @@ var render = function() {
                   _vm._v(" "),
                   _c("hr"),
                   _vm._v(" "),
-                  _vm.qualitas.cliente.tipo_persona == "1"
+                  _vm.qualitas.cliente.tipo_persona == "1" ||
+                  _vm.qualitas.cliente.tipo_persona == "0"
                     ? _c("div", { staticClass: "row" }, [
                         _c(
                           "div",
@@ -47028,7 +47029,7 @@ var render = function() {
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.qualitas.cliente.contratante == 0 &&
-                  _vm.qualitas.cliente.tipo_persona_cont == 1
+                  _vm.qualitas.cliente.tipo_persona_cont == "1"
                     ? _c("div", { staticClass: "row" }, [
                         _c(
                           "div",
