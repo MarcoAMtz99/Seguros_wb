@@ -316,6 +316,21 @@ class GeneralSegurosController extends Controller
                 }
             }
         }
+
+        if ($marca_gs == null ) {
+            $aux = array( 
+                            "amis" =>'',
+                            "descripcion"=>'Modelo no disponible'
+                        );
+            if (count($versiones) == 0) {
+               array_push($versiones, $aux);
+            }
+           
+        }
+
+        return response()->json(['versiones_gs' => $versiones], 201);
+
+
     }
 
     public function searchMarca($marca)
