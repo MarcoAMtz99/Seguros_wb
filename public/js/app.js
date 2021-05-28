@@ -4410,6 +4410,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'cotizacion', 'img'],
   data: function data() {
@@ -51444,7 +51445,9 @@ var render = function() {
                     }
                   }
                 })
-              ])
+              ]),
+              _vm._v(" "),
+              _c("hr")
             ])
           : _vm._e(),
         _vm._v(" "),

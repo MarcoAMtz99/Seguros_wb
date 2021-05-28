@@ -95,6 +95,7 @@
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C:</label>
                 <input class="form-control" type="text" name="rfc" v-model="gnp.cliente.rfc" pattern="[a-zA-Z]{3,3}[0-9]{6,6}[a-zA-Z0-9]{3,3}" required>
             </div>
+            <hr>
              </div>
             <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == 'F'">
                 <label for="sexo" class="control-label"><i class="fas fa-asterisk"></i> Sexo</label>
