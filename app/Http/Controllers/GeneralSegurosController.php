@@ -359,6 +359,7 @@ class GeneralSegurosController extends Controller
         $res = $client->wsListarSubMarcas(['arg0' => ['token' => $this->token, 'idMarca' => $marca_gs->id]]);
         if ($res->return->exito) {
             $submarcas = $res->return->submarcas;
+
             // return $submarcas;
             // 
             if ($submarca == 'SERIE 208') {
@@ -388,6 +389,8 @@ class GeneralSegurosController extends Controller
             if ($submarca == 'MINIVAN') {
                 $submarca = '1000';
             }
+
+              dd($submarcas,$submarca);
             //  if ($submarca == 'X1') {
             //     $submarca = 'X1';
             // }
