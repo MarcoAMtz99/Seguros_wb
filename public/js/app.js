@@ -51431,36 +51431,34 @@ var render = function() {
         _vm._v(" "),
         _vm.gnp.cliente.tipo_persona == "F"
           ? _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-              _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                _vm._m(12),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.gnp.cliente.rfc,
-                      expression: "gnp.cliente.rfc"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    name: "rfc",
-                    pattern: "[a-zA-Z]{4,4}[0-9]{6,6}[a-zA-Z0-9]{3,3}",
-                    required: ""
-                  },
-                  domProps: { value: _vm.gnp.cliente.rfc },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.gnp.cliente, "rfc", $event.target.value)
-                    }
+              _vm._m(12),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.gnp.cliente.rfc,
+                    expression: "gnp.cliente.rfc"
                   }
-                })
-              ])
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  name: "rfc",
+                  pattern: "[a-zA-Z]{4,4}[0-9]{6,6}[a-zA-Z0-9]{3,3}",
+                  required: ""
+                },
+                domProps: { value: _vm.gnp.cliente.rfc },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.gnp.cliente, "rfc", $event.target.value)
+                  }
+                }
+              })
             ])
           : _vm._e(),
         _vm._v(" "),
