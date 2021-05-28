@@ -340,6 +340,7 @@ class GeneralSegurosController extends Controller
                         $marca ='BUICK';}
            
             $marcas = $res->return->marcas;
+            dd($marcas,$marca);
             foreach ($marcas as $marca_gs) {
                   
 
