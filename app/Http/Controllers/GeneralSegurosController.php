@@ -284,7 +284,7 @@ class GeneralSegurosController extends Controller
         // dd($marca_gs);
         if ($marca_gs) {
             $submarca_gs = $this->searchSubMarca($marca_gs, $submarca);
-            // dd($submarca_gs,$marca_gs, $submarca);
+            dd($submarca_gs,$marca_gs, $submarca);
             if ($submarca_gs) {
 
                 $modelo_gs = $this->searchModelos($submarca_gs, $modelo);
@@ -390,7 +390,7 @@ class GeneralSegurosController extends Controller
                 $submarca = '1000';
             }
 
-              dd($submarcas,$submarca);
+              // dd($submarcas,$submarca);
             //  if ($submarca == 'X1') {
             //     $submarca = 'X1';
             // }
