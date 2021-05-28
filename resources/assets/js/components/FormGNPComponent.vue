@@ -62,6 +62,12 @@
                 <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Fecha de constitucion:</label>
                 <input class="form-control" type="date" name="f_const" v-model="gnp.cliente.f_const" :max="maxDate" required>
             </div>
+               <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == 'M'">
+            <div class="form-group col-12 col-md-4">
+                <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C:</label>
+                <input class="form-control" type="text" name="rfc" v-model="gnp.cliente.rfc" pattern="[a-zA-Z]{3,3}[0-9]{6,6}[a-zA-Z0-9]{3,3}" required>
+            </div>
+             </div>
         </div>
         <hr>
         <div class="row">
@@ -85,18 +91,11 @@
              <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == 'F'">
 
             <div class="form-group col-12 col-md-4">
-                <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C.:</label>
+                <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C:</label>
                 <input class="form-control" type="text" name="rfc" v-model="gnp.cliente.rfc" pattern="[a-zA-Z]{4,4}[0-9]{6,6}[a-zA-Z0-9]{3,3}" required>
             </div>
              </div>
-             
-               <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == 'M'">
-            <div class="form-group col-12 col-md-4">
-                <label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C:</label>
-                <input class="form-control" type="text" name="rfc" v-model="gnp.cliente.rfc" pattern="[a-zA-Z]{3,3}[0-9]{6,6}[a-zA-Z0-9]{3,3}" required>
-            </div>
-            <hr>
-             </div>
+                
             <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == 'F'">
                 <label for="sexo" class="control-label"><i class="fas fa-asterisk"></i> Sexo</label>
                 <select name="sexo" class="form-control" v-model="gnp.cliente.sexo" required>
