@@ -352,9 +352,16 @@
                 this.gnp.cliente.correo = this.cliente.email;
                 this.gnp.cliente.telefono = this.cliente.telefono; 
 
-                if (new_value=="2") {
-                    
+                if (this.cliente.sexo=="Hombre") {
+                    this.gnp.cliente.sexo ='M';
+                }else{
+                    this.gnp.cliente.sexo ='F';
                 }
+                if(this.cliente.uso_auto =="Servicio Particular"){
+                    this.gnp.vehiculo.uso = '01';
+                }
+               this.gnp.cliente.estadoCirculacion =this.gnp.cliente.estadoClave ;
+
             }
         },
         methods:{
