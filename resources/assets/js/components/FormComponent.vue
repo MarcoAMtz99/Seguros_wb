@@ -72,6 +72,10 @@
 
 
 					</div>
+					<div class="form-group col-12 col-md-4">
+							<label for="fnac" class="control-label"><i class='fas fa-asterisk'></i> {{generalseguro.cliente.tipo_persona == 'F' ? 'Fecha de nacimiento' : 'Fecha de constitución'}}</label>
+							<input type="date" name="fnac" class="form-control" v-model="generalseguro.cliente.fnac" required>
+						</div>
 					<hr>
 
 
@@ -105,11 +109,7 @@
 							</label>
 							<input type="text" name="rfc" class="form-control" v-model="generalseguro.cliente.rfc" required="">
 						</div>
-						<div class="form-group col-12 col-md-4">
-							<label for="fnac" class="control-label"><i class='fas fa-asterisk'></i> {{generalseguro.cliente.tipo_persona == 'F' ? 'Fecha de nacimiento' : 'Fecha de constitución'}}</label>
-							<input type="date" name="fnac" class="form-control" v-model="generalseguro.cliente.fnac" required>
-						</div>
-						<br>
+				
 						<div class="form-group col-12 col-md-4">
 							<label for="elector" class="control-label">Clave de credencial de Elector/INE</label>
 							<input type="text" name="elector" class="form-control" v-model="generalseguro.cliente.elector">

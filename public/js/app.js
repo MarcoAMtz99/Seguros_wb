@@ -43885,6 +43885,50 @@ var render = function() {
                       ])
                     : _vm._e(),
                   _vm._v(" "),
+                  _c("div", { staticClass: "form-group col-12 col-md-4" }, [
+                    _c(
+                      "label",
+                      { staticClass: "control-label", attrs: { for: "fnac" } },
+                      [
+                        _c("i", { staticClass: "fas fa-asterisk" }),
+                        _vm._v(
+                          " " +
+                            _vm._s(
+                              _vm.generalseguro.cliente.tipo_persona == "F"
+                                ? "Fecha de nacimiento"
+                                : "Fecha de constitución"
+                            )
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.generalseguro.cliente.fnac,
+                          expression: "generalseguro.cliente.fnac"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "date", name: "fnac", required: "" },
+                      domProps: { value: _vm.generalseguro.cliente.fnac },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.generalseguro.cliente,
+                            "fnac",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
                   _c("hr"),
                   _vm._v(" "),
                   _vm.generalseguro.cliente.tipo_persona == "M"
@@ -44049,55 +44093,6 @@ var render = function() {
                         }
                       })
                     ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "control-label",
-                          attrs: { for: "fnac" }
-                        },
-                        [
-                          _c("i", { staticClass: "fas fa-asterisk" }),
-                          _vm._v(
-                            " " +
-                              _vm._s(
-                                _vm.generalseguro.cliente.tipo_persona == "F"
-                                  ? "Fecha de nacimiento"
-                                  : "Fecha de constitución"
-                              )
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.generalseguro.cliente.fnac,
-                            expression: "generalseguro.cliente.fnac"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "date", name: "fnac", required: "" },
-                        domProps: { value: _vm.generalseguro.cliente.fnac },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.generalseguro.cliente,
-                              "fnac",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("br"),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
                       _c(
