@@ -403,7 +403,7 @@ class GeneralSegurosController extends Controller
                 }
             }
         } else {
-            return false;
+            return $submarcas;
         }
     }
     public function searchModelos($submarca_gs, $modelo)
