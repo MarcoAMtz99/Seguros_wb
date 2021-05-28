@@ -2224,6 +2224,7 @@ XML;
 XML;
 
 		try{
+			dd($xmlpoliza);
 			$client = $this->clientCotiza->obtenerNuevaEmision(array('xmlEmision'=>$xmlpoliza));
 			$xml = simplexml_load_string($client->obtenerNuevaEmisionResult);
 			$response = json_decode(json_encode($xml), true);
