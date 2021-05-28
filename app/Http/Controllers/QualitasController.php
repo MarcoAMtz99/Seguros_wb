@@ -135,8 +135,32 @@ class QualitasController extends Controller
 		$descripciones= [];
 		// dd($results);
 		if(empty($results['datos'])){
+
 			$result=null;
-			return $result;
+
+			 $aux = array( 
+                           
+                            "CAMIS"=> "",
+							"cCategoria"=> "",
+							"cMarca"=> "",
+							"cMarcaLarga"=> "",
+							"cModelo"=> "",
+							"cNvaAMIS"=> "",
+							"cOcupantes"=> "",
+							"cTarifa"=> "",
+							"cTipo"=> "",
+							"cTransmision"=> "",
+							"cVersion"=> "MODELO NO DISPONIBLE",
+							"nV1"=> "",
+							"nV2"=> ""
+                        );
+            if (count($descripciones) == 0) {
+               array_push($descripciones, $aux);
+            }
+
+
+
+			return response()->json(['descripciones'=>$descripciones],201);
 		}
 		elseif(count($results["datos"]) == 0 ){
 		  array_push($descripciones, $results["datos"]['Elemento']);
