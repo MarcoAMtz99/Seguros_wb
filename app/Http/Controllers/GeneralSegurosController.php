@@ -281,10 +281,10 @@ class GeneralSegurosController extends Controller
     {
          $versiones = [];
         $marca_gs = $this->searchMarca($marca);
-        dd($marca_gs);
+        // dd($marca_gs);
         if ($marca_gs) {
             $submarca_gs = $this->searchSubMarca($marca_gs, $submarca);
-            dd($submarca_gs,$marca_gs, $submarca);
+            // dd($submarca_gs,$marca_gs, $submarca);
             if ($submarca_gs) {
 
                 $modelo_gs = $this->searchModelos($submarca_gs, $modelo);
@@ -340,7 +340,7 @@ class GeneralSegurosController extends Controller
                         $marca ='BUICK';}
            
             $marcas = $res->return->marcas;
-            dd($marcas,$marca);
+            // dd($marcas,$marca);
             foreach ($marcas as $marca_gs) {
                   
 
