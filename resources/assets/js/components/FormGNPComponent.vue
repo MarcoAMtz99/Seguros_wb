@@ -369,7 +369,11 @@
                      this.gnp.cliente.apepat_c = this.cliente.appaterno;
                      this.gnp.cliente.apemat_c = this.cliente.apmaterno;
                      this.gnp.cliente.f_nac_c =  this.cliente.f_nac;
-
+                      if (this.cliente.sexo=="Hombre") {
+                             this.gnp.cliente.sexo_c ='M';
+                         }else{
+                             this.gnp.cliente.sexo_c ='F';
+                         }
                }
 
             }
