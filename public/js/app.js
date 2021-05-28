@@ -46209,7 +46209,7 @@ var render = function() {
                   _c("hr"),
                   _vm._v(" "),
                   _vm.qualitas.cliente.tipo_persona == "1" ||
-                  _vm.qualitas.cliente.tipo_persona == "0"
+                  _vm.qualitas.cliente.tipo_persona == 2
                     ? _c("div", { staticClass: "row" }, [
                         _c(
                           "div",

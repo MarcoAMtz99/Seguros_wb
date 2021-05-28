@@ -403,7 +403,7 @@
 					</div>
 					<br>
 					<hr>
-					<div class="row" v-if="qualitas.cliente.tipo_persona == '1'|| qualitas.cliente.tipo_persona == '0'">
+					<div class="row" v-if="qualitas.cliente.tipo_persona == '1'|| qualitas.cliente.tipo_persona == 2">
 						<div class="form-group col-12 col-md-4">
 							<label class="control-label">
 								<i class="fas fa-asterisk"></i> Nombre(s)
