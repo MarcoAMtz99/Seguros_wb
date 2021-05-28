@@ -363,7 +363,7 @@
                 if(this.cliente.uso_auto =="Servicio Particular"){
                     this.gnp.vehiculo.uso = '01';
                 }
-               this.gnp.cliente.estadoCirculacion =this.gnp.cliente.estadoClave ;
+               // this.gnp.cliente.estadoCirculacion =this.gnp.cliente.estadoClave ;
                if (this.gnp.cliente.tipo_persona =='M') {
                      this.gnp.cliente.nombre_c = this.cliente.nombre;
                      this.gnp.cliente.apepat_c = this.cliente.appaterno;
@@ -387,6 +387,7 @@
                     this.gnp.cliente.estadoNombre         = res.data.estadoGNP.NOMBRE;
                     this.gnp.cliente.municipioClave       = res.data.municipioGNP.CLAVE;
                     this.gnp.cliente.municipioNombre      = res.data.municipioGNP.NOMBRE;
+                    this.gnp.cliente.estadoCirculacion    = res.data.estadoGNP.CLAVE;
                     if (res.data.colonias.length)
                         this.colonias                     = res.data.colonias;
                     else

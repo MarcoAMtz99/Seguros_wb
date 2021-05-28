@@ -4493,9 +4493,8 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.cliente.uso_auto == "Servicio Particular") {
         this.gnp.vehiculo.uso = '01';
-      }
+      } // this.gnp.cliente.estadoCirculacion =this.gnp.cliente.estadoClave ;
 
-      this.gnp.cliente.estadoCirculacion = this.gnp.cliente.estadoClave;
 
       if (this.gnp.cliente.tipo_persona == 'M') {
         this.gnp.cliente.nombre_c = this.cliente.nombre;
@@ -4522,6 +4521,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.gnp.cliente.estadoNombre = res.data.estadoGNP.NOMBRE;
         _this.gnp.cliente.municipioClave = res.data.municipioGNP.CLAVE;
         _this.gnp.cliente.municipioNombre = res.data.municipioGNP.NOMBRE;
+        _this.gnp.cliente.estadoCirculacion = res.data.estadoGNP.CLAVE;
         if (res.data.colonias.length) _this.colonias = res.data.colonias;else _this.colonias = [res.data.colonias];
       })["catch"](function (err) {
         alert('El Código Postal es incorrecto favor de verificar.');
