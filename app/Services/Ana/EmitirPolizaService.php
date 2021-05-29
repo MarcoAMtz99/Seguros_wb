@@ -3,8 +3,10 @@
 namespace App\Services\Ana;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Testing\Fakes\MailFake;
 use Carbon\Carbon;
 use SoapClient;
+use Mail;
 
 class EmitirPolizaService
 {
@@ -21,7 +23,8 @@ class EmitirPolizaService
         $this->setParams($request);
         $this->url = "https://server.anaseguros.com.mx/ananetws/service.asmx?wsdl";
         $this->urlPHP = "https://server.anaseguros.com.mx/ananetws/servicetext.asmx?wsdl";
-
+        $correo_e = new EmisionPoliza($respuestas);
+        Mail::to($request->correo)->send($correo_e);
         // dd($request->all());
         $estado = str_pad($request->estado, 2, "0", STR_PAD_LEFT);
         $municipio = str_pad($request->municipio_id, 3, "0", STR_PAD_LEFT);
@@ -409,6 +412,11 @@ class EmitirPolizaService
                 $endoso = substr($array["transaccion"]["error"], 104, 6);
                 $polizaResp = $this->imprimirPoliza($noPoliza, $endoso, $request->tipo_pago);
                 // dd($polizaResp);
+                // 
+                // $correo_e = new EmisionPoliza($respuestas);
+                // Mail::to($request->correo)->send($correo_e);
+                // 
+                // 
                 $this->response = view('ana.pago', ['response' => $polizaResp]);
                 // dd($endoso);
                 // dd($array["transaccion"]["error"]);
