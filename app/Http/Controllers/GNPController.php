@@ -91,7 +91,25 @@ class GNPController extends Controller
 				   
 				   </ELEMENTOS>  
 				</SOLICITUD_CATALOGO> ";
-
+				$xml_impre ="<IMPRESION>
+							  <NUM_COTIZACION>CIANNE210528046318</NUM_COTIZACION>
+							  <CORREO_ELECTRONICO>marcoamtz99@gmail.com</CORREO_ELECTRONICO>
+							  <PAQUETES>
+							    <ELEMENTO>
+							      <CLAVE>PRS0009355</CLAVE>
+							      <NOMBRE>PAQUETE</NOMBRE>
+							      <VALOR>RESPONSABILIDAD CIVIL</VALOR>
+							    </ELEMENTO>
+							  </PAQUETES>
+							  <PERIODICIDADES>
+							    <ELEMENTO>
+							      <CLAVE>A</CLAVE>
+							      <NOMBRE>PERIODICIDAD</NOMBRE>
+							      <VALOR>ANUAL</VALOR>
+							    </ELEMENTO>
+							  </PERIODICIDADES>
+							</IMPRESION>
+							";
 			// $xml="  <SOLICITUD_CATALOGO>
 			// <USUARIO>EMOREN927586</USUARIO>
 			// <PASSWORD>Moreno2021</PASSWORD>
@@ -112,28 +130,32 @@ class GNPController extends Controller
    //  		<NOMBRE>ARMADORA</NOMBRE>
    //  		<CLAVE>CH</CLAVE>
    //  		</ELEMENTO>
-				$modelos = $this->BusquedaModelo('2017', 'SERIE301');
-				$modelosAño = $this->BusquedaModelos('2012','SERIE301');
-				// $carroceria = $this->getCarroceria("HO", "CIVIC");
-				// $modelos    = $this->getModelos($modelo, $armadora, $carroceria);
-				dd($modelos,json_encode($modelosAño));
+				// $modelos = $this->BusquedaModelo('2017', 'SERIE301');
+				// $modelosAño = $this->BusquedaModelos('2012','SERIE301');
+				// // $carroceria = $this->getCarroceria("HO", "CIVIC");
+				// // $modelos    = $this->getModelos($modelo, $armadora, $carroceria);
+				// dd($modelos,json_encode($modelosAño));
 		 // </ELEMENTO>
 		 // </ELEMENTOS>  
 		 // </SOLICITUD_CATALOGO>";
-			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/catalogos/catalogo", $xml);
+		 // $this->curl->post("https://api.service.gnp.com.mx/autos/wsp/catalogos/catalogo", $xml);
+
+
+			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/impresion/buscarPoliza", $xml_impre);
 	        //convert the XML result into array
+	        // $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
-	        $armadora="";
-	        $marca="SPARK";
-	        if (isset($array_data['ELEMENTOS'])) {
- 			foreach ($array_data['ELEMENTOS'] as $value) {
- 				// if ($value['ELEMENTO']['NOMBRE'] === strtoupper("CARROCERIA")){
- 				// 	$armadora = $value['CLAVE'];
- 				// }
- 				dd($value);
- 			}
- 		}
- 			// dd($armadora);
+	  //       $armadora="";
+	  //       $marca="SPARK";
+	  //       if (isset($array_data['ELEMENTOS'])) {
+ 		// 	foreach ($array_data['ELEMENTOS'] as $value) {
+ 		// 		// if ($value['ELEMENTO']['NOMBRE'] === strtoupper("CARROCERIA")){
+ 		// 		// 	$armadora = $value['CLAVE'];
+ 		// 		// }
+ 		// 		dd($value);
+ 		// 	}
+ 		// }
+ 			dd($array_data);
 	        return $array_data;
 			
 	        // print_r('<pre>');
