@@ -157,7 +157,7 @@ class GNPController extends Controller
  		// 		dd($value);
  		// 	}
  		// }
- 			dd($array_data);
+ 			dd($array_data,$xml_impre);
 	        return $array_data;
 			
 	        // print_r('<pre>');
