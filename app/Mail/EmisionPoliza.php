@@ -16,9 +16,11 @@ class EmisionPoliza extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($respuestas)
     {
         //
+        $this->emision = $respuestas;
+       
     }
 
     /**
@@ -28,7 +30,7 @@ class EmisionPoliza extends Mailable
      */
     public function build()
     {
-        $mensaje = 'Marco A Mtx';
-        return $this->markdown('Mail.emision')->with('mensaje' ,$mensaje);;
+        // $mensaje = 'Marco A Mtx';
+        return $this->subject('Gracias por emitir en Autosegurodirecto GENERAL DE SEGUROS')->$this->markdown('Mail.emision')->with('mensaje' ,$this->emision);
     }
 }

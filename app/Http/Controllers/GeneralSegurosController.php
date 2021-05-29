@@ -531,6 +531,7 @@ class GeneralSegurosController extends Controller
     public function sendGS(Request $request)
     {
 
+
        
         if ($request->tipo_persona == 'M') {
 
@@ -615,8 +616,10 @@ class GeneralSegurosController extends Controller
 
         $arr = json_decode(json_encode($emitir), true);
         // dd($arr);
-
+        $email = $request->email;
+        // new EmisionPoliza();
         if ($arr['return']['exito']) {
+             // new EmisionPoliza($arr);
             return view('generalseguros.pago', ['response' => $arr]);
         } else {
             // dd($request->colonia);

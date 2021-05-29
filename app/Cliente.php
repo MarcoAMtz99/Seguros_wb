@@ -55,6 +55,12 @@ class Cliente extends Model
         Mail::to($this->email)->send($email);
         //return (new CreateCotizacion($this, $cotizacion));
     }
+    public function emailEmision($cotizacion, $aseguradora){
+        $email = new CreateCotizacion($this, $cotizacion, $aseguradora);
+        // dd($email,$this);
+        Mail::to($this->email)->send($email);
+        //return (new CreateCotizacion($this, $cotizacion));
+    }
 
 
     public function getMenor30Attribute()

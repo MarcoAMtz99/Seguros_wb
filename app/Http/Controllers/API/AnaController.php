@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\API;
-
+use App\Mail\EmisionPoliza;
 use App\CP;
 use App\Cliente;
 use App\Http\Controllers\Controller;
@@ -9,6 +9,7 @@ use App\Services\Ana\EmitirPolizaService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use SoapClient;
+use Illuminate\Support\Facades\Mail;
 
 class AnaController extends Controller
 {
@@ -560,6 +561,8 @@ XML;
                 }
             }
             // dd($coberturas,$respuestas);
+            $correo_e = new EmisionPoliza($respuestas);
+            Mail::to($request->correo)->send($correo_e);
             return response()->json(['ANASeguros'=>$respuestas,'xmlentrada'=>$xml,'respuestaxml'=>$respText->TransaccionTextResult],201);
         }
        
