@@ -1134,8 +1134,8 @@ class GNPController extends Controller
 			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/emisor/emisor/emitir", $data);
 	        //convert the XML result into array
 			$array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
-			
-			
+			// LIGA PARA IMPRIMIR
+				// https://api.service.gnp.com.mx/autos/wsp/impresion/buscarPoliza
 			$data = json_decode(json_encode(simplexml_load_string($data)), true);
 
 

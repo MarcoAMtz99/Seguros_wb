@@ -9,12 +9,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Mail\EmisionPoliza;
 
 Route::get('/', function () {
     return view('index');
 })->name('index');
 Route::get('/dev-envio', function(){
-	return view('prueba');
+	return new EmisionPoliza();
 });
 Route::get('prueba', 'GNPController@prueba');
 Route::get('pruebaG', 'GeneralSegurosController@prueba');
