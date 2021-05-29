@@ -417,8 +417,10 @@ class EmitirPolizaService
                 // $correo_e = new EmisionPoliza($respuestas);
                 // Mail::to($request->correo)->send($correo_e);
                 // 
-                $correo_e = new EmisionPoliza($polizaResp);
-                  Mail::to('marcoamtz99@gmail.com')->send(new EmisionPoliza($polizaResp));
+               $EmisionArray = Array(
+                "Documentos"=> $polizaResp);
+               
+                  Mail::to('marcoamtz99@gmail.com')->send(new EmisionPoliza($EmisionArray));
                 $this->response = view('ana.pago', ['response' => $polizaResp]);
                 // dd($endoso);
                 // dd($array["transaccion"]["error"]);
