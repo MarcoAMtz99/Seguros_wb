@@ -25,7 +25,7 @@ class EmitirPolizaService
         $this->url = "https://server.anaseguros.com.mx/ananetws/service.asmx?wsdl";
         $this->urlPHP = "https://server.anaseguros.com.mx/ananetws/servicetext.asmx?wsdl";
         
-        dd($request->all());
+        // dd($request->all());
         $estado = str_pad($request->estado, 2, "0", STR_PAD_LEFT);
         $municipio = str_pad($request->municipio_id, 3, "0", STR_PAD_LEFT);
         $estadoANA = $estado . $municipio;
