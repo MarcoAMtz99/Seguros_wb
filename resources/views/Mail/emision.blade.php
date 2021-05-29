@@ -1,7 +1,7 @@
 @component('mail::message')
-# Gracias por emitir con www.autosegurosdirecto.com
+# Gracias por emitir con Autosegurodirecto
 
-Ten un buen dia.
+Ten un buen dia. {{$mensaje}}
 
 @component('mail::button', ['url' => ''])
 Button Text

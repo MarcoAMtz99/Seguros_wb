@@ -28,6 +28,7 @@ class EmisionPoliza extends Mailable
      */
     public function build()
     {
-        return $this->markdown('Mail.emision');
+        $mensaje = 'Marco A Mtx';
+        return $this->markdown('Mail.emision',$mensaje);
     }
 }
