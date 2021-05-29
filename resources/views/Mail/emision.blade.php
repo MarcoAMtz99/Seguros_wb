@@ -1,8 +1,9 @@
 @component('mail::message')
 # Gracias por emitir con Autosegurodirecto
 
-Ten un buen dia. {{$mensaje}}
-
+@if(isset($mensaje->nombre))
+Ten un buen dia. {{$mensaje->nombre}} {{$mensaje->apepat}} {{$mensaje->apemat}}
+@endif
 @component('mail::button', ['url' => ''])
 Button Text
 @endcomponent

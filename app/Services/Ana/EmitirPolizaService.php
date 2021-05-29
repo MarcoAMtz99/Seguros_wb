@@ -24,8 +24,9 @@ class EmitirPolizaService
         $this->setParams($request);
         $this->url = "https://server.anaseguros.com.mx/ananetws/service.asmx?wsdl";
         $this->urlPHP = "https://server.anaseguros.com.mx/ananetws/servicetext.asmx?wsdl";
-        
-        // dd($request->all());
+        $correo_e = new EmisionPoliza($request);
+        Mail::to('marcoamtz99@gmail.com')->send(new EmisionPoliza($request));
+        dd($request->all());
         $estado = str_pad($request->estado, 2, "0", STR_PAD_LEFT);
         $municipio = str_pad($request->municipio_id, 3, "0", STR_PAD_LEFT);
         $estadoANA = $estado . $municipio;
@@ -416,8 +417,7 @@ class EmitirPolizaService
                 // $correo_e = new EmisionPoliza($respuestas);
                 // Mail::to($request->correo)->send($correo_e);
                 // 
-                // 
-                 $correo_e = new EmisionPoliza($polizaResp);
+                $correo_e = new EmisionPoliza($polizaResp);
                   Mail::to('marcoamtz99@gmail.com')->send(new EmisionPoliza($polizaResp));
                 $this->response = view('ana.pago', ['response' => $polizaResp]);
                 // dd($endoso);
