@@ -95,7 +95,7 @@ class GNPController extends Controller
 				$xml_impre ="
 							<IMPRESION>
 							  <NUM_COTIZACION>CIANNE210528046318</NUM_COTIZACION>
-							  <CORREO_ELECTRONICO>marcoamtz99@gmail.com</CORREO_ELECTRONICO>
+							  <CORREO_ELECTRONICO>'marcoamtz99@gmail.com'</CORREO_ELECTRONICO>
 							  <PAQUETES>
 							    <ELEMENTO>
 							      <CLAVE>PRS0009355</CLAVE>
