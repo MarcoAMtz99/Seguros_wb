@@ -91,7 +91,9 @@ class GNPController extends Controller
 				   
 				   </ELEMENTOS>  
 				</SOLICITUD_CATALOGO> ";
-				$xml_impre ="<IMPRESION>
+
+				$xml_impre ="
+							<IMPRESION>
 							  <NUM_COTIZACION>CIANNE210528046318</NUM_COTIZACION>
 							  <CORREO_ELECTRONICO>marcoamtz99@gmail.com</CORREO_ELECTRONICO>
 							  <PAQUETES>
