@@ -100,7 +100,7 @@ class GNPController extends Controller
 							    <ELEMENTO>
 							      <CLAVE>PRS0009355</CLAVE>
 							      <NOMBRE>PAQUETE</NOMBRE>
-							      <VALOR>RESPONSABILIDAD CIVIL</VALOR>
+							      <VALOR>AMPLIA</VALOR>
 							    </ELEMENTO>
 							  </PAQUETES>
 							  <PERIODICIDADES>
