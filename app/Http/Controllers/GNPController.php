@@ -10,6 +10,8 @@ use SoapClient;
 use GuzzleHttp\Client;
 use \Curl\Curl;
 use DB;
+use Mail;
+use App\Mail\EmisionPoliza;
 class GNPController extends Controller
 {
     protected $opts;
@@ -1143,7 +1145,9 @@ class GNPController extends Controller
    //  	array('xml' =>$data , 'request' => $array_data));
 
 			// dd($data,$this->curl->response);
-			 dd($XML,$data,$array_data); 
+			 // dd($XML,$data,$array_data); 
+			 	  $correo_e = new EmisionPoliza($data);
+                  Mail::to('marcoamtz99@gmail.com')->send(new EmisionPoliza($data ));
 	        return view('gnp.poliza',['response'=>$array_data ,'data'=>$data]);
 	        // return response()->json(['cotizacionGNP'=>$array_data],201);
 		} catch (Exception $e) {
