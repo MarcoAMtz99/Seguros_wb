@@ -31,6 +31,6 @@ class EmisionPoliza extends Mailable
     public function build()
     {
         // $mensaje = 'Marco A Mtx';
-        return $this->subject('Gracias por emitir en Autosegurodirecto ANA')->$this->markdown('Mail.emision')->with('mensaje' ,$this->emision);
+        return $this->markdown('Mail.emision')->with('mensaje' ,$this->emision);
     }
 }
