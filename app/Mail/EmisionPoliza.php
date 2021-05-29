@@ -16,10 +16,10 @@ class EmisionPoliza extends Mailable
      *
      * @return void
      */
-    public function __construct($request)
+    public function __construct($polizaResp)
     {
         //
-        $this->emision = $request;
+        $this->emision = $polizaResp;
        
     }
 
