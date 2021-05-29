@@ -7,6 +7,7 @@ use Illuminate\Support\Testing\Fakes\MailFake;
 use Carbon\Carbon;
 use SoapClient;
 use Mail;
+use App\Mail\EmisionPoliza;
 
 class EmitirPolizaService
 {
