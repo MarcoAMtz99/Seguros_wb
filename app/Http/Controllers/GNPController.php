@@ -92,7 +92,7 @@ class GNPController extends Controller
 				   </ELEMENTOS>  
 				</SOLICITUD_CATALOGO> ";
 
-				$xml_impre ="
+				$xml_impre =' 
 							<IMPRESION>
 							  <USUARIO>EMOREN927586</USUARIO>
 							  <PASSWORD>Moreno2021</PASSWORD>
@@ -114,7 +114,7 @@ class GNPController extends Controller
 							  </PERIODICIDADES>
 							</IMPRESION>
 
-							";
+							';
 			// $xml="  <SOLICITUD_CATALOGO>
 			// <USUARIO>EMOREN927586</USUARIO>
 			// <PASSWORD>Moreno2021</PASSWORD>
