@@ -94,25 +94,26 @@ class GNPController extends Controller
 
 				$xml_impre ="
 							<IMPRESION>
-							 <USUARIO>EMOREN927586</USUARIO>
-							<PASSWORD>Moreno2021</PASSWORD>
+							  <USUARIO>EMOREN927586</USUARIO>
+							  <PASSWORD>Moreno2021</PASSWORD>
 							  <NUM_COTIZACION>CIANNE210528046318</NUM_COTIZACION>
-							  <CORREO_ELECTRONICO>'marcoamtz99@gmail.com'</CORREO_ELECTRONICO>
+							  <CORREO_ELECTRONICO>marcoamtz99@gmail.com</CORREO_ELECTRONICO>
 							  <PAQUETES>
 							    <ELEMENTO>
 							      <CLAVE>PRS0009355</CLAVE>
-							      <NOMBRE>PAQUETE</NOMBRE>
-							      <VALOR>AMPLIA</VALOR>
+							      <NOMBRE>Amplia</NOMBRE>
+							      <VALOR></VALOR>
 							    </ELEMENTO>
 							  </PAQUETES>
 							  <PERIODICIDADES>
 							    <ELEMENTO>
 							      <CLAVE>A</CLAVE>
 							      <NOMBRE>PERIODICIDAD</NOMBRE>
-							      <VALOR>ANUAL</VALOR>
+							      <VALOR>Anual</VALOR>
 							    </ELEMENTO>
 							  </PERIODICIDADES>
 							</IMPRESION>
+
 							";
 			// $xml="  <SOLICITUD_CATALOGO>
 			// <USUARIO>EMOREN927586</USUARIO>
