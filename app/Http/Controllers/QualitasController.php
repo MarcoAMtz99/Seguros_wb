@@ -6,6 +6,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use SimpleXMLElement;
 use SoapClient;
+use Mail;
+use App\Mail\EmisionPoliza;
 class QualitasController extends Controller
 {
     //
@@ -2290,9 +2292,13 @@ XML;
 				$urlString = $impresion->RecuperaImpresionM15Result;
 			}
 			$urls=[];
+
 			foreach (explode('|',$urlString) as $url) {
 				array_push($urls,$url);
 			}
+
+			  Mail::to($request->email)->send(new EmisionPoliza($urls));
+
 			return view('qualitas.pago',['urls'=>$urls,'noPoliza'=>$noPoliza]);
 			// dd($urls);
 		}

@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use SoapClient;
 use App\Cliente;
-
+use Mail;
+use App\Mail\EmisionPoliza;
 
 class GeneralSegurosController extends Controller
 {
@@ -620,6 +621,7 @@ class GeneralSegurosController extends Controller
         // new EmisionPoliza();
         if ($arr['return']['exito']) {
              // new EmisionPoliza($arr);
+              Mail::to($request->email)->send(new EmisionPoliza($arr));
             return view('generalseguros.pago', ['response' => $arr]);
         } else {
             // dd($request->colonia);
