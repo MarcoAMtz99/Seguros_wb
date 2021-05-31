@@ -143,10 +143,10 @@ class GNPController extends Controller
 		 // </ELEMENTO>
 		 // </ELEMENTOS>  
 		 // </SOLICITUD_CATALOGO>";
-		 $this->curl->post("https://api.service.gnp.com.mx/autos/wsp/catalogos/catalogo", $xml);
+		 // $this->curl->post("https://api.service.gnp.com.mx/autos/wsp/catalogos/catalogo", $xml);
 
 
-			// $this->curl->post("https://api.service.gnp.com.mx/autos/wsp/impresion/buscarPoliza", $xml_impre);
+			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/impresion/buscarPoliza", $xml_impre);
 	        //convert the XML result into array
 	        // $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
@@ -160,7 +160,7 @@ class GNPController extends Controller
  		// 		dd($value);
  		// 	}
  		// }
- 			dd($array_data,$xml_impre);
+ 			dd($array_data,$xml_impre,$this->curl->response);
 	        return $array_data;
 			
 	        // print_r('<pre>');
