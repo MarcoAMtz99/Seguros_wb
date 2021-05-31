@@ -73,7 +73,7 @@ class GNPController extends Controller
 	        //convert the XML result into array
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
 			$prueba =  json_encode($modelos); */
-				$xml="	<SOLICITUD_CATALOGO>
+				$xml_1="	<SOLICITUD_CATALOGO>
 				 <USUARIO>EMOREN927586</USUARIO>
 				<PASSWORD>Moreno2021</PASSWORD>
 				 <TIPO_CATALOGO>VEHICULOS</TIPO_CATALOGO>
@@ -92,7 +92,7 @@ class GNPController extends Controller
 				   </ELEMENTOS>  
 				</SOLICITUD_CATALOGO> ";
 
-				$xml_impre =' 
+				$xml =' 
 							<IMPRESION>
 							  <USUARIO>EMOREN927586</USUARIO>
 							  <PASSWORD>Moreno2021</PASSWORD>
