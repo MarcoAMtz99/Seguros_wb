@@ -14,13 +14,13 @@ Button Text
 
    			 @if ($key == 0)
                  (Certificado de Responsabilidad Civil)
-                 @component('mail::button', ['url' => $links])
+                 {{$linkds}}
              @elseif($key == 1)
                  Recibo de cobro
-                  @component('mail::button', ['url' => $links])
+                 {{$linkds}}
              @else
                  Póliza de seguro de Automóvil
-                  @component('mail::button', ['url' => $links])
+                 {{$linkds}}
              @endif
 	
 	@endforeach
