@@ -92,10 +92,9 @@ class GNPController extends Controller
 				   </ELEMENTOS>  
 				</SOLICITUD_CATALOGO> ";
 
-				$xml ="<IMPRESION>
+				$xml ='<IMPRESION>
 					  <USUARIO>EMOREN927586</USUARIO>
 					  <PASSWORD>Moreno2021</PASSWORD>
-					   <ID_UNIDAD_OPERABLE>NOP0000016</ID_UNIDAD_OPERABLE>
 					  <NUM_COTIZACION>CIANNE210528046318</NUM_COTIZACION>
 					  <CORREO_ELECTRONICO>chirris4000@gmail.com</CORREO_ELECTRONICO>
 					  <PAQUETES>
@@ -113,7 +112,7 @@ class GNPController extends Controller
 					    </ELEMENTO>
 					  </PERIODICIDADES>
 					</IMPRESION>
-					";
+					';
 			// $xml="  <SOLICITUD_CATALOGO>
 			// <USUARIO>EMOREN927586</USUARIO>
 			// <PASSWORD>Moreno2021</PASSWORD>
