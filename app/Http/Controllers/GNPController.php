@@ -93,6 +93,8 @@ class GNPController extends Controller
 				</SOLICITUD_CATALOGO> ";
 
 				$xml ="<IMPRESION>
+  <USUARIO>EMOREN927586</USUARIO>
+  <PASSWORD>Moreno2021</PASSWORD>
   <NUM_COTIZACION>CIANNE210528046318</NUM_COTIZACION>
   <CORREO_ELECTRONICO>chirris4000@gmail.com</CORREO_ELECTRONICO>
   <PAQUETES>
@@ -142,7 +144,7 @@ class GNPController extends Controller
 		 // $this->curl->post("https://api.service.gnp.com.mx/autos/wsp/catalogos/catalogo", $xml);
 				
 
-			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/impresor", $xml);
+				$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/impresor", $xml);
 	        //convert the XML result into array
 	        // $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
