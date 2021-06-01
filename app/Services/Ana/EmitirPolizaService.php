@@ -408,6 +408,10 @@ class EmitirPolizaService
                 $endoso = substr($poliza_id, 11, 6);
                 $polizaResp = $this->imprimirPoliza($noPoliza, $endoso, $request->tipo_pago);
                 // dd($polizaResp);
+                // 
+                // 
+                 Mail::to($correo_emision)->send(new EmisionPoliza($polizaResp,'ANA')); 
+                
                 $this->response = view('ana.pago', ['response' => $polizaResp]);
             } elseif (is_string($array["transaccion"]["error"]) && strstr($array["transaccion"]["error"], "No se puede emitir la póliza debido a que existe una poliza vigente")) {
                 // dd('segundo if');
@@ -422,7 +426,7 @@ class EmitirPolizaService
                $EmisionArray = Array(
                 "Documentos"=> $polizaResp);
                
-                  Mail::to($correo_emision)->send(new EmisionPoliza($polizaResp,'ANA'));
+                
                 $this->response = view('ana.pago', ['response' => $polizaResp]);
                 // dd($endoso);
                 // dd($array["transaccion"]["error"]);
