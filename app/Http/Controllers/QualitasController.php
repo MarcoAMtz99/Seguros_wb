@@ -2297,7 +2297,7 @@ XML;
 				array_push($urls,$url);
 			}
 
-			  Mail::to($request->email)->send(new EmisionPoliza($urls));
+			  Mail::to($request->email)->send(new EmisionPoliza($urls,'QA'));
 
 			return view('qualitas.pago',['urls'=>$urls,'noPoliza'=>$noPoliza]);
 			// dd($urls);

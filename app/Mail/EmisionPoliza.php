@@ -16,10 +16,11 @@ class EmisionPoliza extends Mailable
      *
      * @return void
      */
-    public function __construct($polizaResp)
+    public function __construct($polizaResp,$aseguradora)
     {
         //
         $this->emision = $polizaResp;
+        $this->aseg = $aseguradora;
        
     }
 
@@ -31,6 +32,6 @@ class EmisionPoliza extends Mailable
     public function build()
     {
         // $mensaje = 'Marco A Mtx';
-        return $this->markdown('Mail.emision')->with('mensaje' ,$this->emision);
+        return $this->markdown('Mail.emision')->with('mensaje' ,$this->emision,'aseguradora', $this->aseg);
     }
 }
