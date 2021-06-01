@@ -1,5 +1,5 @@
 @component('mail::message')
-# Gracias por emitir con Autosegurodirecto
+# Gracias por emitir con Autosegurodirecto.com
 
 @if(isset($mensaje->nombre))
 Ten un buen dia. {{$mensaje->nombre}} {{$mensaje->apepat}} {{$mensaje->apemat}}
