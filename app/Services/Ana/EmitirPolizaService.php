@@ -420,7 +420,7 @@ class EmitirPolizaService
                $EmisionArray = Array(
                 "Documentos"=> $polizaResp);
                
-                  Mail::to($request->correo)->send(new EmisionPoliza($EmisionArray,'ANA'));
+                  Mail::to($request->correo)->send(new EmisionPoliza($polizaResp,'ANA'));
                 $this->response = view('ana.pago', ['response' => $polizaResp]);
                 // dd($endoso);
                 // dd($array["transaccion"]["error"]);
