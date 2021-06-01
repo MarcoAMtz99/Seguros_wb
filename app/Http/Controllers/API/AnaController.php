@@ -563,7 +563,7 @@ XML;
             }
             // dd($coberturas,$respuestas);
             // $correo_e = ;
-            Mail::to($request->correo)->send(new EmisionPoliza($respuestas));
+            // Mail::to($request->correo)->send(new EmisionPoliza($respuestas));
             // 
             return response()->json(['ANASeguros'=>$respuestas,'xmlentrada'=>$xml,'respuestaxml'=>$respText->TransaccionTextResult],201);
         }
