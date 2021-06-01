@@ -7,7 +7,7 @@ Ten un buen dia. {{$mensaje->nombre}} {{$mensaje->apepat}} {{$mensaje->apemat}}
 @component('mail::button', ['url' => ''])
 Button Text
 @endcomponent
-@if($aseg =="QA")
+@if($aseguradora =="QA")
 
 	@foreach ($mensaje as $links)
 
