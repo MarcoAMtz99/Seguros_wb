@@ -57,7 +57,7 @@
 							<div class="d-flex justify-content-center mt-4">
 								<a class="btn btn-primary btn-lg" href="{{$url}}" target="_blank" role="button">
                                 @if ($key == 0)
-                                    Texto (Certificado de Responsabilidad Civil)
+                                    (Certificado de Responsabilidad Civil)
                                 @elseif($key == 1)
                                     Recibo de cobro
                                 @else
