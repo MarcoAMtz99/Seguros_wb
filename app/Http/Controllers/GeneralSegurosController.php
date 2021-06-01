@@ -621,7 +621,7 @@ class GeneralSegurosController extends Controller
         // new EmisionPoliza();
         if ($arr['return']['exito']) {
              // new EmisionPoliza($arr);
-              Mail::to($request->email)->send(new EmisionPoliza($arr));
+              Mail::to($request->email)->send(new EmisionPoliza($arr,'GS'));
             return view('generalseguros.pago', ['response' => $arr]);
         } else {
             // dd($request->colonia);

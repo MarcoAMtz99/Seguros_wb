@@ -1174,7 +1174,7 @@ class GNPController extends Controller
 			 	  // $correo_e = new EmisionPoliza($data);
 			 	  // $EmisionArray = Array(
        //          	"Documentos"=> $data['SOLICITUD']['NUM_COTIZACION']);
-                  Mail::to($request->correo)->send(new EmisionPoliza($request));
+                  Mail::to($request->correo)->send(new EmisionPoliza($request,'GNP'));
 	        return view('gnp.poliza',['response'=>$array_data ,'data'=>$data]);
 	        // return response()->json(['cotizacionGNP'=>$array_data],201);
 		} catch (Exception $e) {
