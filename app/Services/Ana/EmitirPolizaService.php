@@ -27,8 +27,8 @@ class EmitirPolizaService
         // $correo_e = new EmisionPoliza($request);
       
              $correo_emision = $request->correo;
-          Mail::to($correo_emision)->send(new EmisionPoliza($request,'ANA'));
-        dd($request->correo);
+          // Mail::to($correo_emision)->send(new EmisionPoliza($request,'ANA'));
+        // dd($request->correo);
         $estado = str_pad($request->estado, 2, "0", STR_PAD_LEFT);
         $municipio = str_pad($request->municipio_id, 3, "0", STR_PAD_LEFT);
         $estadoANA = $estado . $municipio;
@@ -422,7 +422,7 @@ class EmitirPolizaService
                $EmisionArray = Array(
                 "Documentos"=> $polizaResp);
                
-                  Mail::to($request->correo)->send(new EmisionPoliza($polizaResp,'ANA'));
+                  Mail::to($correo_emision)->send(new EmisionPoliza($polizaResp,'ANA'));
                 $this->response = view('ana.pago', ['response' => $polizaResp]);
                 // dd($endoso);
                 // dd($array["transaccion"]["error"]);
