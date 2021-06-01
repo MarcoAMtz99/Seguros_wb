@@ -1,3 +1,4 @@
+@if($aseguradora =="QA")
 @component('mail::message')
 # Gracias por emitir con Autosegurodirecto.com
 
@@ -11,7 +12,7 @@ Button Text
 
 	@foreach ($mensaje as $links)
 
-    <!-- @component('mail::button', ['url' =>$links]) -->
+    
     <button type="button"  href="{{$links}}"class="btn btn-default">{{$links}}</button>
 	
 	@endforeach
@@ -22,3 +23,4 @@ Button Text
 Thanks,<br>
 {{ config('app.name') }}
 @endcomponent
+@endif
