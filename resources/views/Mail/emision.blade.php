@@ -14,13 +14,13 @@ Button Text
 
    			 @if ($key == 0)
                  (Certificado de Responsabilidad Civil)
-                 {{$linkds}}
+                 {{$links}}
              @elseif($key == 1)
                  Recibo de cobro
-                 {{$linkds}}
+                 {{$links}}
              @else
                  Póliza de seguro de Automóvil
-                 {{$linkds}}
+                 {{$links}}
              @endif
 	
 	@endforeach
