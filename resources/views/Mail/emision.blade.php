@@ -13,7 +13,7 @@ Button Text
 	@foreach ($mensaje as $links)
 
     
-    <button type="button"  href="{{$links}}"class="btn btn-default">{{$links}}</button>
+    <p>{{$links}}</p>
 	
 	@endforeach
 
