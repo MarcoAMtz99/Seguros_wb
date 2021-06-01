@@ -11,7 +11,8 @@ Button Text
 
 	@foreach ($mensaje as $links)
 
-    @component('mail::button', ['url' =>$links])
+    <!-- @component('mail::button', ['url' =>$links]) -->
+    <button type="button"  href="{{$links}}"class="btn btn-default">{{$links}}</button>
 	
 	@endforeach
 
