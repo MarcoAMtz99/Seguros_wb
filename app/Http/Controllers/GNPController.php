@@ -86,26 +86,14 @@ class GNPController extends Controller
 											</SOLICITUD>'
 							 ;
 
-				$xml ='<IMPRESION>
-					  <USUARIO>EMOREN927586</USUARIO>
-					  <PASSWORD>Moreno2021</PASSWORD>
-					  <NUM_COTIZACION>CIANNE210528046318</NUM_COTIZACION>
-					  <CORREO_ELECTRONICO>chirris4000@gmail.com</CORREO_ELECTRONICO>
-					  <PAQUETES>
-					    <ELEMENTO>
-					      <CLAVE>PRS0009355</CLAVE>
-					      <NOMBRE>Amplia</NOMBRE>
-					      <VALOR></VALOR>
-					    </ELEMENTO>
-					  </PAQUETES>
-					  <PERIODICIDADES>
-					    <ELEMENTO>
-					      <CLAVE>A</CLAVE>
-					      <NOMBRE>PERIODICIDAD</NOMBRE>
-					      <VALOR>Anual</VALOR>
-					    </ELEMENTO>
-					  </PERIODICIDADES>
-					</IMPRESION>
+				$xml ='<IMPRESIÓN_POLIZA>
+						  <USUARIO>EMOREN927586</USUARIO>
+						  <PASSWORD>Moreno2021</PASSWORD>
+						  <NUM_POLIZA>00000457810562</NUM_POLIZA>
+						  <NUM_VERSION>0</NUM_VERSION>
+						  <EXTENSION_ARCHIVO>PDF</EXTENSION_ARCHIVO>
+						</IMPRESIÓN_POLIZA>
+
 					';
 			// $xml="  <SOLICITUD_CATALOGO>
 			// <USUARIO>EMOREN927586</USUARIO>
@@ -135,7 +123,7 @@ class GNPController extends Controller
 		 // </ELEMENTO>
 		 // </ELEMENTOS>  
 		 // </SOLICITUD_CATALOGO>";
-		 $this->curl->post("https://api.service.gnp.com.mx/autos/wsp/recibofiscal/recibofiscal/recibofiscal", $xml_1);
+		 $this->curl->post("https://api.service.gnp.com.mx/autos/wsp/impresion/buscarPoliza", $xml);
 				
 
 				// $this->curl->post("https://api.service.gnp.com.mx/autos/wsp/impresor", $xml);
