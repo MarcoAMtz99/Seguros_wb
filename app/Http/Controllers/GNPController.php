@@ -73,15 +73,18 @@ class GNPController extends Controller
 	        //convert the XML result into array
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
 			$prueba =  json_encode($modelos); */
-				$xml_1="	<SOLICITUD>
-							  <USUARIO>EMOREN927586</USUARIO>
-							  <PASSWORD>Moreno2021</PASSWORD>
-							  <TIPO_DOCUMENTO>R</TIPO_DOCUMENTO>
-							  <FORMATO>P</FORMATO>
-							  <POLIZA>00000457810562 </POLIZA>
-							  <INTERMEDIARIO>0018601001</INTERMEDIARIO>
-							</SOLICITUD>
-							 ";
+				$xml_1=	'<SOLICITUD>
+											  <USUARIO>EMOREN927586</USUARIO>
+											  <PASSWORD>Moreno2021</PASSWORD>
+											  <TIPO_DOCUMENTO>R</TIPO_DOCUMENTO>
+											   <TIPO_DOCUMENTO>A</TIPO_DOCUMENTO>
+											    <TIPO_DOCUMENTO>F</TIPO_DOCUMENTO>
+											     <TIPO_DOCUMENTO>N</TIPO_DOCUMENTO>
+											  <FORMATO>P</FORMATO>
+											  <POLIZA>00000457810562</POLIZA>
+											  <INTERMEDIARIO>0018601001</INTERMEDIARIO>
+											</SOLICITUD>'
+							 ;
 
 				$xml ='<IMPRESION>
 					  <USUARIO>EMOREN927586</USUARIO>
