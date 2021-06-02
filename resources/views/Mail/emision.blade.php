@@ -85,7 +85,8 @@ Ten un buen dia. {{$mensaje->nombre}} {{$mensaje->apepat}} {{$mensaje->apemat}}
 @component('mail::button', ['url' => ''])
 Button Text
 @endcomponent
-@if($aseguradora =="QA")
+
+@if($aseguradora =="ANA")
     
     {{$mensaje['link']}}
    
@@ -111,22 +112,11 @@ Ten un buen dia. {{$mensaje->nombre}} {{$mensaje->apepat}} {{$mensaje->apemat}}
 @component('mail::button', ['url' => ''])
 Button Text
 @endcomponent
-@if($aseguradora =="QA")
+@if($aseguradora =="GNP")
 
-    @foreach ($mensaje as $key=>$links)
-
-             @if ($key == 0)
-                 (Certificado de Responsabilidad Civil)
-                 {{$links}}
-             @elseif($key == 1)
-                 Recibo de cobro
-                 {{$links}}
-             @else
-                 Póliza de seguro de Automóvil
-                 {{$links}}
-             @endif
     
-    @endforeach
+    
+@endforeach
 
 @endif
 
