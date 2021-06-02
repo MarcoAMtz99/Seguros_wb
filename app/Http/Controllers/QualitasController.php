@@ -123,15 +123,17 @@ class QualitasController extends Controller
  		if($submarca == 'SERIE 3'){
 			$submarca ='335IA';
  		}
- 		if($marca == 'GMC'){
-			$marca ='GMOTORS';
- 		}
+ 		
  		if($marca == 'BUIK'){
 			$marca ='BUICK';
  		}
  		if($submarca == 'MINIVAN '){
 			$submarca ='1000';
  		}
+ 		if($marca == 'GMC'){
+			$marca ='GMOTORS';
+ 		}
+ 		
 	  try {
 		$result = $this->clientTarifa->listaTarifas(['cUsuario'=>"linea",'cTarifa'=>"linea",'cMarca'=>$marca,'cTipo'=>$submarca,'cModelo'=>$modelo]);
 		// dd($result);
