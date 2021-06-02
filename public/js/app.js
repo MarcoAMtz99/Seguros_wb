@@ -53534,7 +53534,7 @@ var render = function() {
                                                     _vm.cotizacionesGNP.PAQUETES
                                                       .PAQUETE.TOTALES
                                                       .TOTAL_PRIMA[1]
-                                                      .CONCEPTO_ECONOMICO[11]
+                                                      .CONCEPTO_ECONOMICO[10]
                                                       .MONTO
                                                   )
                                                 )
@@ -53567,7 +53567,7 @@ var render = function() {
                                                     _vm.cotizacionesGNP.PAQUETES
                                                       .PAQUETE.TOTALES
                                                       .TOTAL_PRIMA[2]
-                                                      .CONCEPTO_ECONOMICO[11]
+                                                      .CONCEPTO_ECONOMICO[10]
                                                       .MONTO
                                                   )
                                                 ) +
@@ -53600,7 +53600,7 @@ var render = function() {
                                                     _vm.cotizacionesGNP.PAQUETES
                                                       .PAQUETE.TOTALES
                                                       .TOTAL_PRIMA[3]
-                                                      .CONCEPTO_ECONOMICO[11]
+                                                      .CONCEPTO_ECONOMICO[10]
                                                       .MONTO
                                                   )
                                                 ) +
