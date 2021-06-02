@@ -116,7 +116,6 @@ Button Text
 
     
     
-@endforeach
 
 @endif
 
