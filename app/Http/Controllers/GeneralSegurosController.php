@@ -406,6 +406,9 @@ class GeneralSegurosController extends Controller
             if ($submarca == 'MINIVAN') {
                 $submarca = '1000';
             }
+             if ($submarca == 'X1') {
+                $submarca = 'X1';
+            }
 
               // dd($submarcas,$submarca);
             //  if ($submarca == 'X1') {
@@ -423,6 +426,8 @@ class GeneralSegurosController extends Controller
                 }
             }
         } else {
+            $submarcas = $res->return->submarcas;
+
             return $submarcas;
         }
     }
