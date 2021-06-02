@@ -87,9 +87,12 @@ Button Text
 @endcomponent
 
 @if($aseguradora =="ANA")
-    
-    {{$mensaje}}
-   
+    @if(isset($mensaje->link))
+    {{$mensaje->link}}
+    @endif
+    @if(isset($mensaje['link']))
+    {{$mensaje['link']}}
+    @endif
 
 @endif
 
