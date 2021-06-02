@@ -44211,7 +44211,7 @@ var render = function() {
                               },
                               [
                                 _c("option", { attrs: { value: "" } }, [
-                                  _vm._v("Seleccione su sexo")
+                                  _vm._v("Seleccione su genero")
                                 ]),
                                 _vm._v(" "),
                                 _c("option", { attrs: { value: "1" } }, [
@@ -47741,84 +47741,80 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _vm.ana.cliente.tipo_persona == "1"
-                      ? _c("div", { staticClass: "row" }, [
-                          _c(
-                            "div",
-                            { staticClass: "form-group col-12 col-md-4" },
-                            [
-                              _vm._m(75),
-                              _vm._v(" "),
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.ana.cliente.rfc,
-                                    expression: "ana.cliente.rfc"
-                                  }
-                                ],
-                                staticClass: "form-control",
-                                attrs: {
-                                  type: "text",
-                                  name: "rfc",
-                                  required: ""
-                                },
-                                domProps: { value: _vm.ana.cliente.rfc },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.ana.cliente,
-                                      "rfc",
-                                      $event.target.value
-                                    )
-                                  }
+                      ? _c(
+                          "div",
+                          { staticClass: "form-group col-12 col-md-4" },
+                          [
+                            _vm._m(75),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.ana.cliente.rfc,
+                                  expression: "ana.cliente.rfc"
                                 }
-                              })
-                            ]
-                          )
-                        ])
-                      : _c("div", { staticClass: "row" }, [
-                          _c(
-                            "div",
-                            { staticClass: "form-group col-12 col-md-4" },
-                            [
-                              _vm._m(76),
-                              _vm._v(" "),
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.ana.cliente.rfc,
-                                    expression: "ana.cliente.rfc"
+                              ],
+                              staticClass: "form-control",
+                              attrs: {
+                                type: "text",
+                                name: "rfc",
+                                required: ""
+                              },
+                              domProps: { value: _vm.ana.cliente.rfc },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
                                   }
-                                ],
-                                staticClass: "form-control",
-                                attrs: {
-                                  type: "text",
-                                  name: "rfc",
-                                  required: ""
-                                },
-                                domProps: { value: _vm.ana.cliente.rfc },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.ana.cliente,
-                                      "rfc",
-                                      $event.target.value
-                                    )
-                                  }
+                                  _vm.$set(
+                                    _vm.ana.cliente,
+                                    "rfc",
+                                    $event.target.value
+                                  )
                                 }
-                              })
-                            ]
-                          )
-                        ]),
+                              }
+                            })
+                          ]
+                        )
+                      : _c(
+                          "div",
+                          { staticClass: "form-group col-12 col-md-4" },
+                          [
+                            _vm._m(76),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.ana.cliente.rfc,
+                                  expression: "ana.cliente.rfc"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: {
+                                type: "text",
+                                name: "rfc",
+                                required: ""
+                              },
+                              domProps: { value: _vm.ana.cliente.rfc },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.ana.cliente,
+                                    "rfc",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ]
+                        ),
                     _vm._v(" "),
                     _vm.ana.cliente.tipo_persona == "1"
                       ? _c(
@@ -49821,7 +49817,7 @@ var staticRenderFns = [
     return _c(
       "label",
       { staticClass: "control-label", attrs: { for: "sexo" } },
-      [_c("i", { staticClass: "fas fa-asterisk" }), _vm._v(" Sexo")]
+      [_c("i", { staticClass: "fas fa-asterisk" }), _vm._v(" Genero")]
     )
   },
   function() {
@@ -51513,7 +51509,7 @@ var render = function() {
                 },
                 [
                   _c("option", { attrs: { value: "" } }, [
-                    _vm._v("Seleccione su sexo")
+                    _vm._v("Seleccione su genero")
                   ]),
                   _vm._v(" "),
                   _c("option", { attrs: { value: "M" } }, [
@@ -52612,7 +52608,7 @@ var staticRenderFns = [
     return _c(
       "label",
       { staticClass: "control-label", attrs: { for: "sexo" } },
-      [_c("i", { staticClass: "fas fa-asterisk" }), _vm._v(" Sexo")]
+      [_c("i", { staticClass: "fas fa-asterisk" }), _vm._v(" Genero")]
     )
   },
   function() {

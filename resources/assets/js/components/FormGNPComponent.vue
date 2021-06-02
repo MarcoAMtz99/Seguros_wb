@@ -100,9 +100,9 @@
              
                 
             <div class="form-group col-12 col-md-4" v-if="gnp.cliente.tipo_persona == 'F'">
-                <label for="sexo" class="control-label"><i class="fas fa-asterisk"></i> Sexo</label>
+                <label for="sexo" class="control-label"><i class="fas fa-asterisk"></i> Genero</label>
                 <select name="sexo" class="form-control" v-model="gnp.cliente.sexo" required>
-                    <option value="">Seleccione su sexo</option>
+                    <option value="">Seleccione su genero</option>
                     <option value="M">Masculino</option>
                     <option value="F">Femenino</option>
                 </select>

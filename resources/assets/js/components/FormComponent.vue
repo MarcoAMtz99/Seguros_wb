@@ -119,9 +119,9 @@
 							<input type="text" name="curp" class="form-control" v-model="generalseguro.cliente.curp">
 						</div>
 						<div class="form-group col-12 col-md-4" v-if="generalseguro.cliente.tipo_persona == 'F'">
-							<label for="sexo" class="control-label"><i class="fas fa-asterisk"></i> Sexo</label>
+							<label for="sexo" class="control-label"><i class="fas fa-asterisk"></i> Genero</label>
 							<select name="sexo" class="form-control" v-model="generalseguro.cliente.sexo" required>
-								<option value="">Seleccione su sexo</option>
+								<option value="">Seleccione su genero</option>
 								<option value="1">Masculino</option>
 								<option value="2">Femenino</option>
 							</select>
@@ -661,20 +661,20 @@
 							<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> Telefono</label>
 							<input class="form-control" type="text" name="telefono" v-model="ana.cliente.telefono" required>
 						</div>
-						<div class="row" v-if="ana.cliente.tipo_persona == '1'">
+						
 
-						<div class="form-group col-12 col-md-4">
+						<div class="form-group col-12 col-md-4" v-if="ana.cliente.tipo_persona == '1'">
 							<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C :</label>
 							<input class="form-control" type="text" name="rfc" v-model="ana.cliente.rfc" required>
 						</div>
 
-						</div>
-						<div class="row" v-else="ana.cliente.tipo_persona == '2'">
-						<div class="form-group col-12 col-md-4">
+						
+						
+						<div class="form-group col-12 col-md-4" v-else="ana.cliente.tipo_persona == '2'">
 							<label class="control-label"><i class="fa fa-asterisk" aria-hidden="true"></i> R.F.C :</label>
 							<input class="form-control" type="text" name="rfc" v-model="ana.cliente.rfc"  required>
 						</div>
-						</div>
+						
 
 						<div class="form-group col-12 col-md-4" v-if="ana.cliente.tipo_persona == '1'">
 							<label class="control-label">C.U.R.P.:</label>
