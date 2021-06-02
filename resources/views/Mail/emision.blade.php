@@ -88,7 +88,7 @@ Button Text
 
 @if($aseguradora =="ANA")
     
-    {{$mensaje['link']}}
+    {{$mensaje}}
    
 
 @endif
