@@ -123,6 +123,9 @@ class QualitasController extends Controller
  		if($submarca == 'SERIE 3'){
 			$submarca ='335IA';
  		}
+ 		if($marca == 'GMC'){
+			$marca ='GMOTORS';
+ 		}
  		if($marca == 'BUIK'){
 			$marca ='BUICK';
  		}
