@@ -137,7 +137,7 @@ class GNPController extends Controller
 
 				// $this->curl->post("https://api.service.gnp.com.mx/autos/wsp/impresor", $xml);
 	        //convert the XML result into array
-	        // $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
+	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
 	        // $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
 	  //       $armadora="";
 	  //       $marca="SPARK";
@@ -149,7 +149,7 @@ class GNPController extends Controller
  		// 		dd($value);
  		// 	}
  		// }
- 			dd($xml_1,$this->curl->response);
+ 			dd($xml_1,$this->curl->response, $array_data);
 	        return $array_data;
 			
 	        // print_r('<pre>');
