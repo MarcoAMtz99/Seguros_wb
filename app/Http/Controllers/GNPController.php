@@ -80,7 +80,7 @@ class GNPController extends Controller
 											   <TIPO_DOCUMENTO>A</TIPO_DOCUMENTO>
 											    <TIPO_DOCUMENTO>F</TIPO_DOCUMENTO>
 											     <TIPO_DOCUMENTO>N</TIPO_DOCUMENTO>
-											  <FORMATO>P</FORMATO>
+											  <FORMATO>A</FORMATO>
 											  <POLIZA>00000457810562</POLIZA>
 											  <INTERMEDIARIO>0018601001</INTERMEDIARIO>
 											</SOLICITUD>'
