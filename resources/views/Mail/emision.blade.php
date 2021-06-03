@@ -50,6 +50,7 @@ Button Text
     @foreach ($mensaje['return']['listaDocumentos']['SDTDocumentos.SDTDocumentosItem'] as $boton)
 
         {{$boton['nombre']}}
+        {{$boton['liga']}}
                            
      @endforeach
    
