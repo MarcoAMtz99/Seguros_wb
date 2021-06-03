@@ -78,7 +78,7 @@ class GNPController extends Controller
 						<PASSWORD>Moreno2021</PASSWORD>										 
 						 <TIPO_DOCUMENTO>A</TIPO_DOCUMENTO>								
 						<FORMATO>P</FORMATO>
-						<POLIZA>00000457810562</POLIZA>
+						<POLIZA>00000457650513</POLIZA>
 						<INTERMEDIARIO>0018601001</INTERMEDIARIO>
 						</SOLICITUD>'
 							 ;
@@ -122,7 +122,8 @@ $xml ='
 		 // $this->curl->post("https://api.service.gnp.com.mx/autos/wsp/recibofiscal/recibofiscal/recibofiscal", $xml_1);
 				
 
-				$this->curl->post(" https://api.service.gnp.com.mx/autos/wsp/impresion/buscarPoliza", $xml);
+
+				$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/impresion/buscarPoliza",$xml);
 	        //convert the XML result into array
 	        // $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
 	        // $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
