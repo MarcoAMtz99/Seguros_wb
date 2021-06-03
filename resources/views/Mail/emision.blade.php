@@ -104,8 +104,9 @@ Ten un buen dia. {{$mensaje->nombre}} {{$mensaje->apepat}} {{$mensaje->apemat}}
 Button Text
 @endcomponent
 @if($aseguradora =="GNP")
+    POLIZA
 
-    
+    {{$mensaje}}
     
 
 @endif

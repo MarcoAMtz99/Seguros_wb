@@ -202,6 +202,36 @@ $xml ='
 				</SOLICITUD_CATALOGO> ";
 			return  $this->buscarEnCatalogo($xml);
  	}
+
+ 	public function ObtenerPdfPoliza($poliza){
+
+ 			$xml ='
+<IMPRESION_POLIZA>
+<USUARIO>EMOREN927586</USUARIO>
+<PASSWORD>Moreno2021</PASSWORD>
+<NUM_POLIZA>$poliza</NUM_POLIZA>
+<NUM_VERSION>0</NUM_VERSION>
+<EXTENSION_ARCHIVO>PDF</EXTENSION_ARCHIVO>
+</IMPRESION_POLIZA>';
+
+			try {
+			
+			
+				$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/impresion/buscarPoliza",$xml);
+ 				$array_data = json_decode($this->curl->response);
+	        // dd($data,$array_data);
+	        return $array_data;
+		} catch (Exception $e) {
+
+			return response()->json(['error'=>"Fallo la peticion"],400);
+		}
+ 		
+ 		}
+
+
+
+
+
  		public function BusquedaModelo($modelo, $submarca)
  	{
 
@@ -1152,8 +1182,9 @@ $xml ='
 			 // dd($XML,$data,$array_data); 
 			 	  // $correo_e = new EmisionPoliza($data);
 			 	  // $EmisionArray = Array(
-       //          	"Documentos"=> $data['SOLICITUD']['NUM_COTIZACION']);
-                  Mail::to($request->correo)->send(new EmisionPoliza($request,'GNP'));
+             		$num_poliza =  $array_data['SOLICITUD']["NUM_POLIZA"];
+             		$pdf = ObtenerPdfPoliza($num_poliza);
+                  Mail::to($request->correo)->send(new EmisionPoliza($pdf,'GNP'));
 	        return view('gnp.poliza',['response'=>$array_data ,'data'=>$data]);
 	        // return response()->json(['cotizacionGNP'=>$array_data],201);
 		} catch (Exception $e) {
