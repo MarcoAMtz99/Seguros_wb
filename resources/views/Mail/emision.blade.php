@@ -52,20 +52,7 @@ Button Text
         {{$boton['nombre']}}
                            
      @endforeach
-   <!--  @foreach ($mensaje as $key=>$links)
-
-             @if ($key == 0)
-                 (Certificado de Responsabilidad Civil)
-                 {{$links}}
-             @elseif($key == 1)
-                 Recibo de cobro
-                 {{$links}}
-             @else
-                 Póliza de seguro de Automóvil
-                 {{$links}}
-             @endif
-    
-    @endforeach -->
+   
 
 @endif
 
