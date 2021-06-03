@@ -374,27 +374,6 @@
 	                        </div>
 						</div>
 						<div class="form-group col-4">
-							<label class="control-label"><i class="fas fa-asterisk"></i> Tipo de pago:</label>
-	                        <div class="form-check col-12">
-	                            <input class="form-check-input" type="radio" name="tipo_pago" id="radioC" v-model="qualitas.cliente.tipo_pago" value="C" required="" checked>
-	                            <label class="form-check-label" for="radioC">
-	                             Contado
-	                            </label>
-	                        </div>
-	                        <div class="form-check col-12">
-	                            <input class="form-check-input" type="radio" name="tipo_pago" id="radioS" v-model="qualitas.cliente.tipo_pago" value="S">
-	                            <label class="form-check-label" for="radioS">
-	                             Semestral
-	                            </label>
-	                         </div>
-	                          <div class="form-check col-12">
-	                            <input class="form-check-input" type="radio" name="tipo_pago" id="radioMe" v-model="qualitas.cliente.tipo_pago" value="M">
-	                            <label class="form-check-label" for="radioMe">
-	                             Mensual
-	                            </label>
-	                           </div>
-						</div>
-						<div class="form-group col-4">
 							<label class="control-label"><i class="fas fa-asterisk"></i> El asegurado y el contratante son la misma persona:</label>
 	                        <div class="form-check col-12">
 	                            <input class="form-check-input" type="radio" id="radioCS" v-model="qualitas.cliente.contratante" value="1" required="" checked>
@@ -585,6 +564,35 @@
 							<input type="text" class="form-control" name="num_motor" v-model="qualitas.vehiculo.num_motor" required="">
 						</div>
 					</div>
+
+						<div class="form-group col-4">
+							<label class="control-label"><i class="fas fa-asterisk"></i> Tipo de pago:</label>
+	                        <div class="form-check col-12">
+	                            <input class="form-check-input" type="radio" name="tipo_pago" id="radioC" v-model="qualitas.cliente.tipo_pago" value="C" required="" checked>
+	                            <label class="form-check-label" for="radioC">
+	                             Contado
+	                            </label>
+	                        </div>
+	                        <div class="form-check col-12">
+	                            <input class="form-check-input" type="radio" name="tipo_pago" id="radioS" v-model="qualitas.cliente.tipo_pago" value="S">
+	                            <label class="form-check-label" for="radioS">
+	                             Semestral
+	                            </label>
+	                         </div>
+	                           <div class="form-check col-12">
+	                            <input class="form-check-input" type="radio" name="tipo_pago" id="radioTr" v-model="qualitas.cliente.tipo_pago" value="T">
+	                            <label class="form-check-label" for="radioTr">
+	                             Trimestral
+	                            </label>
+	                           </div>
+	                          <div class="form-check col-12">
+	                            <input class="form-check-input" type="radio" name="tipo_pago" id="radioMe" v-model="qualitas.cliente.tipo_pago" value="M">
+	                            <label class="form-check-label" for="radioMe">
+	                             Mensual
+	                            </label>
+	                           </div>                   
+						</div>
+
 					<div class="row">
 						<div class="mt-3 col d-flex justify-content-center">
 							<button type="submit" class="btn btn-primary btn-lg">Enviar</button>
