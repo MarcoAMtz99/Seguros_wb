@@ -1175,8 +1175,8 @@ $xml ='
 			$data = json_decode(json_encode(simplexml_load_string($data)), true);
 
 
-			
-             		$num_poliza =  $data['SOLICITUD']["NUM_POLIZA"];
+					dd($array_data,$data);
+             		// $num_poliza =  $data['SOLICITUD']["NUM_POLIZA"];
              		$pdf = $this->ObtenerPdfPoliza($num_poliza);
                   Mail::to($request->correo)->send(new EmisionPoliza($pdf,'GNP'));
 	        return view('gnp.poliza',['response'=>$array_data ,'data'=>$data,'pdf'=>$pdf]);
