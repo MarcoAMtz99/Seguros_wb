@@ -37,6 +37,7 @@
 						<label class="control-label">Número de poliza:</label>
 						@if( isset($response['SOLICITUD']) )
 							<p>{{ $response['SOLICITUD']["NUM_POLIZA"] }}</p>
+							<a class="btn btn-primary btn-lg" href="{{$pdf['RESULTADO']['URL_DOCUMENTO'] }}" target="_blank" role="button">{{$pdf['RESULTADO']['NOMBRE_DOCUMENTO'] }}</a>
 
 						@elseif(isset($data['SOLICITUD']['NUM_COTIZACION']))
 							<p>{{$data['SOLICITUD']['NUM_COTIZACION'] }}</p>

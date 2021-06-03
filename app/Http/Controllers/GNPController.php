@@ -1185,7 +1185,7 @@ $xml ='
              		$num_poliza =  $array_data['SOLICITUD']["NUM_POLIZA"];
              		$pdf = $this->ObtenerPdfPoliza($num_poliza);
                   Mail::to($request->correo)->send(new EmisionPoliza($pdf,'GNP'));
-	        return view('gnp.poliza',['response'=>$array_data ,'data'=>$data]);
+	        return view('gnp.poliza',['response'=>$array_data ,'data'=>$data,'pdf'=>$pdf]);
 	        // return response()->json(['cotizacionGNP'=>$array_data],201);
 		} catch (Exception $e) {
 			return response()->json(['error'=>"Fallo la petición"],400);
