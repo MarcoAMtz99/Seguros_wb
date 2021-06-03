@@ -219,7 +219,7 @@ $xml ='
 			
 				$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/impresion/buscarPoliza",$xml);
  				$array_data = json_decode($this->curl->response);
-	        dd($xml,$array_data,$poliza);
+	        // dd($xml,$array_data,$poliza);
 	        return $array_data;
 		} catch (Exception $e) {
 
@@ -1179,7 +1179,7 @@ $xml ='
    //  	array('xml' =>$data , 'request' => $array_data));
 
 			// dd($data,$this->curl->response);
-			 // dd($XML,$data,$array_data); 
+			 dd($XML,$data,$array_data); 
 			 	  // $correo_e = new EmisionPoliza($data);
 			 	  // $EmisionArray = Array(
              		$num_poliza =  $array_data['SOLICITUD']["NUM_POLIZA"];
