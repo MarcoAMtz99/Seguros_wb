@@ -3432,6 +3432,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'alert', 'cotizacion', 'img'],
   data: function data() {
@@ -46011,147 +46019,6 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.qualitas.cliente.tipo_pago,
-                              expression: "qualitas.cliente.tipo_pago"
-                            }
-                          ],
-                          staticClass: "form-check-input",
-                          attrs: {
-                            type: "radio",
-                            name: "tipo_pago",
-                            id: "radioC",
-                            value: "C",
-                            required: "",
-                            checked: ""
-                          },
-                          domProps: {
-                            checked: _vm._q(_vm.qualitas.cliente.tipo_pago, "C")
-                          },
-                          on: {
-                            change: function($event) {
-                              return _vm.$set(
-                                _vm.qualitas.cliente,
-                                "tipo_pago",
-                                "C"
-                              )
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-check-label",
-                            attrs: { for: "radioC" }
-                          },
-                          [
-                            _vm._v(
-                              "\n\t                             Contado\n\t                            "
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-check col-12" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.qualitas.cliente.tipo_pago,
-                              expression: "qualitas.cliente.tipo_pago"
-                            }
-                          ],
-                          staticClass: "form-check-input",
-                          attrs: {
-                            type: "radio",
-                            name: "tipo_pago",
-                            id: "radioS",
-                            value: "S"
-                          },
-                          domProps: {
-                            checked: _vm._q(_vm.qualitas.cliente.tipo_pago, "S")
-                          },
-                          on: {
-                            change: function($event) {
-                              return _vm.$set(
-                                _vm.qualitas.cliente,
-                                "tipo_pago",
-                                "S"
-                              )
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-check-label",
-                            attrs: { for: "radioS" }
-                          },
-                          [
-                            _vm._v(
-                              "\n\t                             Semestral\n\t                            "
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-check col-12" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.qualitas.cliente.tipo_pago,
-                              expression: "qualitas.cliente.tipo_pago"
-                            }
-                          ],
-                          staticClass: "form-check-input",
-                          attrs: {
-                            type: "radio",
-                            name: "tipo_pago",
-                            id: "radioMe",
-                            value: "M"
-                          },
-                          domProps: {
-                            checked: _vm._q(_vm.qualitas.cliente.tipo_pago, "M")
-                          },
-                          on: {
-                            change: function($event) {
-                              return _vm.$set(
-                                _vm.qualitas.cliente,
-                                "tipo_pago",
-                                "M"
-                              )
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-check-label",
-                            attrs: { for: "radioMe" }
-                          },
-                          [
-                            _vm._v(
-                              "\n\t                             Mensual\n\t                            "
-                            )
-                          ]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group col-4" }, [
-                      _vm._m(41),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-check col-12" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
                               value: _vm.qualitas.cliente.contratante,
                               expression: "qualitas.cliente.contratante"
                             }
@@ -46251,7 +46118,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(42),
+                            _vm._m(41),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -46289,7 +46156,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(43),
+                            _vm._m(42),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -46370,7 +46237,7 @@ var render = function() {
                   _vm.qualitas.cliente.tipo_persona == "2"
                     ? _c("div", { staticClass: "row" }, [
                         _c("div", { staticClass: "form-group col-12" }, [
-                          _vm._m(44),
+                          _vm._m(43),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -46444,7 +46311,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(45),
+                      _vm._m(44),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -46474,7 +46341,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(46),
+                      _vm._m(45),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -46504,7 +46371,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(47),
+                      _vm._m(46),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -46534,7 +46401,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(48),
+                      _vm._m(47),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -46564,7 +46431,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(49),
+                      _vm._m(48),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -46594,7 +46461,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(50),
+                      _vm._m(49),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -46656,7 +46523,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(51),
+                      _vm._m(50),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -46686,7 +46553,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-8" }, [
-                      _vm._m(52),
+                      _vm._m(51),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -46743,7 +46610,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(53),
+                      _vm._m(52),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -46795,7 +46662,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(54),
+                      _vm._m(53),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -46848,7 +46715,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(55),
+                      _vm._m(54),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -46901,7 +46768,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group col-12 col-md-4" }, [
-                      _vm._m(56),
+                      _vm._m(55),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -46956,10 +46823,10 @@ var render = function() {
                   _vm._v(" "),
                   _vm.qualitas.cliente.contratante == 0
                     ? _c("div", { staticClass: "row" }, [
-                        _vm._m(57),
+                        _vm._m(56),
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group col-6" }, [
-                          _vm._m(58),
+                          _vm._m(57),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-check col-12" }, [
                             _c("input", {
@@ -47071,7 +46938,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(59),
+                            _vm._m(58),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -47111,7 +46978,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(60),
+                            _vm._m(59),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -47192,7 +47059,7 @@ var render = function() {
                   _vm.qualitas.cliente.tipo_persona_cont == "2"
                     ? _c("div", { staticClass: "row" }, [
                         _c("div", { staticClass: "form-group col-12" }, [
-                          _vm._m(61),
+                          _vm._m(60),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -47278,7 +47145,7 @@ var render = function() {
                           "div",
                           { staticClass: "form-group col-12 col-md-4" },
                           [
-                            _vm._m(62),
+                            _vm._m(61),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -47317,10 +47184,10 @@ var render = function() {
                     : _vm._e(),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
-                    _vm._m(63),
+                    _vm._m(62),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-6" }, [
-                      _vm._m(64),
+                      _vm._m(63),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -47350,7 +47217,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-6" }, [
-                      _vm._m(65),
+                      _vm._m(64),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -47381,6 +47248,192 @@ var render = function() {
                           }
                         }
                       })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group col-4" }, [
+                    _vm._m(65),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-check col-12" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.qualitas.cliente.tipo_pago,
+                            expression: "qualitas.cliente.tipo_pago"
+                          }
+                        ],
+                        staticClass: "form-check-input",
+                        attrs: {
+                          type: "radio",
+                          name: "tipo_pago",
+                          id: "radioC",
+                          value: "C",
+                          required: "",
+                          checked: ""
+                        },
+                        domProps: {
+                          checked: _vm._q(_vm.qualitas.cliente.tipo_pago, "C")
+                        },
+                        on: {
+                          change: function($event) {
+                            return _vm.$set(
+                              _vm.qualitas.cliente,
+                              "tipo_pago",
+                              "C"
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "form-check-label",
+                          attrs: { for: "radioC" }
+                        },
+                        [
+                          _vm._v(
+                            "\n\t                             Contado\n\t                            "
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-check col-12" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.qualitas.cliente.tipo_pago,
+                            expression: "qualitas.cliente.tipo_pago"
+                          }
+                        ],
+                        staticClass: "form-check-input",
+                        attrs: {
+                          type: "radio",
+                          name: "tipo_pago",
+                          id: "radioS",
+                          value: "S"
+                        },
+                        domProps: {
+                          checked: _vm._q(_vm.qualitas.cliente.tipo_pago, "S")
+                        },
+                        on: {
+                          change: function($event) {
+                            return _vm.$set(
+                              _vm.qualitas.cliente,
+                              "tipo_pago",
+                              "S"
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "form-check-label",
+                          attrs: { for: "radioS" }
+                        },
+                        [
+                          _vm._v(
+                            "\n\t                             Semestral\n\t                            "
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-check col-12" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.qualitas.cliente.tipo_pago,
+                            expression: "qualitas.cliente.tipo_pago"
+                          }
+                        ],
+                        staticClass: "form-check-input",
+                        attrs: {
+                          type: "radio",
+                          name: "tipo_pago",
+                          id: "radioTr",
+                          value: "T"
+                        },
+                        domProps: {
+                          checked: _vm._q(_vm.qualitas.cliente.tipo_pago, "T")
+                        },
+                        on: {
+                          change: function($event) {
+                            return _vm.$set(
+                              _vm.qualitas.cliente,
+                              "tipo_pago",
+                              "T"
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "form-check-label",
+                          attrs: { for: "radioTr" }
+                        },
+                        [
+                          _vm._v(
+                            "\n\t                             Trimestral\n\t                            "
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-check col-12" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.qualitas.cliente.tipo_pago,
+                            expression: "qualitas.cliente.tipo_pago"
+                          }
+                        ],
+                        staticClass: "form-check-input",
+                        attrs: {
+                          type: "radio",
+                          name: "tipo_pago",
+                          id: "radioMe",
+                          value: "M"
+                        },
+                        domProps: {
+                          checked: _vm._q(_vm.qualitas.cliente.tipo_pago, "M")
+                        },
+                        on: {
+                          change: function($event) {
+                            return _vm.$set(
+                              _vm.qualitas.cliente,
+                              "tipo_pago",
+                              "M"
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "form-check-label",
+                          attrs: { for: "radioMe" }
+                        },
+                        [
+                          _vm._v(
+                            "\n\t                             Mensual\n\t                            "
+                          )
+                        ]
+                      )
                     ])
                   ]),
                   _vm._v(" "),
@@ -50150,15 +50203,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("label", { staticClass: "control-label" }, [
       _c("i", { staticClass: "fas fa-asterisk" }),
-      _vm._v(" Tipo de pago:")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { staticClass: "control-label" }, [
-      _c("i", { staticClass: "fas fa-asterisk" }),
       _vm._v(" El asegurado y el contratante son la misma persona:")
     ])
   },
@@ -50377,6 +50421,15 @@ var staticRenderFns = [
     return _c("label", { staticClass: "control-label" }, [
       _c("i", { staticClass: "fas fa-asterisk" }),
       _vm._v(" Número de motor")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "control-label" }, [
+      _c("i", { staticClass: "fas fa-asterisk" }),
+      _vm._v(" Tipo de pago:")
     ])
   },
   function() {

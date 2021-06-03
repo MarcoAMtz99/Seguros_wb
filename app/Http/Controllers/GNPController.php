@@ -205,21 +205,21 @@ $xml ='
 
  	public function ObtenerPdfPoliza($poliza){
 
- 			$xml ='
+ 			$xml ="
 <IMPRESION_POLIZA>
 <USUARIO>EMOREN927586</USUARIO>
 <PASSWORD>Moreno2021</PASSWORD>
 <NUM_POLIZA>$this->$poliza</NUM_POLIZA>
 <NUM_VERSION>0</NUM_VERSION>
 <EXTENSION_ARCHIVO>PDF</EXTENSION_ARCHIVO>
-</IMPRESION_POLIZA>';
+</IMPRESION_POLIZA>";
 
 			try {
 			
 			
 				$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/impresion/buscarPoliza",$xml);
  				$array_data = json_decode($this->curl->response);
-	        // dd($xml,$array_data,$poliza);
+	        dd($xml,$array_data,$poliza);
 	        return $array_data;
 		} catch (Exception $e) {
 
