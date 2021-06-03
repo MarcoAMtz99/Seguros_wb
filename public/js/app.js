@@ -53950,7 +53950,11 @@ var render = function() {
                                                               _c("span", [
                                                                 _vm._v(
                                                                   _vm._s(
-                                                                    cobertura.PrimaTotal
+                                                                    _vm._f(
+                                                                      "int"
+                                                                    )(
+                                                                      cobertura.PrimaTotal
+                                                                    )
                                                                   ) + " "
                                                                 )
                                                               ])
@@ -53974,7 +53978,11 @@ var render = function() {
                                                               _c("span", [
                                                                 _vm._v(
                                                                   _vm._s(
-                                                                    cobertura.PrimaTotal
+                                                                    _vm._f(
+                                                                      "int"
+                                                                    )(
+                                                                      cobertura.PrimaTotal
+                                                                    )
                                                                   ) + " "
                                                                 )
                                                               ])
@@ -54025,7 +54033,11 @@ var render = function() {
                                                                 _vm._v(
                                                                   "$ " +
                                                                     _vm._s(
-                                                                      cobertura.PrimaTotal
+                                                                      _vm._f(
+                                                                        "int"
+                                                                      )(
+                                                                        cobertura.PrimaTotal
+                                                                      )
                                                                     ) +
                                                                     " "
                                                                 )
@@ -54051,7 +54063,11 @@ var render = function() {
                                                                 _vm._v(
                                                                   "$" +
                                                                     _vm._s(
-                                                                      cobertura.PrimaTotal
+                                                                      _vm._f(
+                                                                        "int"
+                                                                      )(
+                                                                        cobertura.PrimaTotal
+                                                                      )
                                                                     ) +
                                                                     " "
                                                                 )
@@ -54103,7 +54119,11 @@ var render = function() {
                                                                 _vm._v(
                                                                   "$" +
                                                                     _vm._s(
-                                                                      cobertura.PrimaTotal
+                                                                      _vm._f(
+                                                                        "int"
+                                                                      )(
+                                                                        cobertura.PrimaTotal
+                                                                      )
                                                                     ) +
                                                                     " "
                                                                 )
@@ -54129,7 +54149,11 @@ var render = function() {
                                                                 _vm._v(
                                                                   "$" +
                                                                     _vm._s(
-                                                                      cobertura.PrimaTotal
+                                                                      _vm._f(
+                                                                        "int"
+                                                                      )(
+                                                                        cobertura.PrimaTotal
+                                                                      )
                                                                     ) +
                                                                     " "
                                                                 )

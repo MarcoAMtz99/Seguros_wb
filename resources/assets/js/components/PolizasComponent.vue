@@ -179,11 +179,11 @@
                                                     
                                                               <div class="text-center" v-if="cobertura['@attributes']['NoRecibo'] ==1 ">
                                                                1er pago:
-                                                                <span>{{cobertura.PrimaTotal}} </span> 
+                                                                <span>{{cobertura.PrimaTotal  | int }} </span> 
                                                               </div>
                                                                 <div class="text-center" v-if="cobertura['@attributes']['NoRecibo'] ==2 ">
                                                                 subsecuente x 1:
-                                                                <span>{{cobertura.PrimaTotal}} </span> 
+                                                                <span>{{cobertura.PrimaTotal  | int }} </span> 
                                                               </div>
                                     
                                                         </div>
@@ -197,11 +197,11 @@
                                                     
                                                               <div class="text-center" v-if="cobertura['@attributes']['NoRecibo'] ==1 ">
                                                                1er pago:
-                                                                <span>$ {{cobertura.PrimaTotal}} </span> 
+                                                                <span>$ {{cobertura.PrimaTotal  | int }} </span> 
                                                               </div>
                                                                 <div class="text-center" v-if="cobertura['@attributes']['NoRecibo'] ==2 ">
                                                                 subsecuente x 3:
-                                                                <span>${{cobertura.PrimaTotal}} </span> 
+                                                                <span>${{cobertura.PrimaTotal  | int }} </span> 
                                                               </div>
                                     
                                                         </div>
@@ -215,11 +215,11 @@
                                                     
                                                               <div class="text-center" v-if="cobertura['@attributes']['NoRecibo'] ==1 ">
                                                                1er pago:
-                                                                <span>${{cobertura.PrimaTotal}} </span> 
+                                                                <span>${{cobertura.PrimaTotal  | int }} </span> 
                                                               </div>
                                                                 <div class="text-center" v-if="cobertura['@attributes']['NoRecibo'] ==2 ">
                                                                 subsecuente x 11:
-                                                                <span>${{cobertura.PrimaTotal}} </span> 
+                                                                <span>${{cobertura.PrimaTotal  | int }} </span> 
                                                               </div>
                                     
                                                         </div>
