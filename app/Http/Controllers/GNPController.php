@@ -1178,6 +1178,7 @@ $xml ='
 					// dd($array_data,$data);
              		$num_poliza =  $array_data['SOLICITUD']["NUM_POLIZA"];
              		$pdf = $this->ObtenerPdfPoliza($num_poliza);
+             		dd($pdf,$array_data);
                   Mail::to($request->correo)->send(new EmisionPoliza($pdf,'GNP'));
 	        return view('gnp.poliza',['response'=>$array_data ,'data'=>$data,'pdf'=>$pdf]);
 	        // return response()->json(['cotizacionGNP'=>$array_data],201);
