@@ -209,7 +209,7 @@ $xml ='
 <IMPRESION_POLIZA>
 <USUARIO>EMOREN927586</USUARIO>
 <PASSWORD>Moreno2021</PASSWORD>
-<NUM_POLIZA>$poliza</NUM_POLIZA>
+<NUM_POLIZA>$this->$poliza</NUM_POLIZA>
 <NUM_VERSION>0</NUM_VERSION>
 <EXTENSION_ARCHIVO>PDF</EXTENSION_ARCHIVO>
 </IMPRESION_POLIZA>';
@@ -1179,7 +1179,7 @@ $xml ='
    //  	array('xml' =>$data , 'request' => $array_data));
 
 			// dd($data,$this->curl->response);
-			 dd($XML,$data,$array_data); 
+			 // dd($XML,$data,$array_data); 
 			 	  // $correo_e = new EmisionPoliza($data);
 			 	  // $EmisionArray = Array(
              		$num_poliza =  $array_data['SOLICITUD']["NUM_POLIZA"];
