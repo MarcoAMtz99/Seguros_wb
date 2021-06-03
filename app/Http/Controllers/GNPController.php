@@ -1183,7 +1183,7 @@ $xml ='
 			 	  // $correo_e = new EmisionPoliza($data);
 			 	  // $EmisionArray = Array(
              		$num_poliza =  $array_data['SOLICITUD']["NUM_POLIZA"];
-             		$pdf = ObtenerPdfPoliza($num_poliza);
+             		$pdf = $this->ObtenerPdfPoliza($num_poliza);
                   Mail::to($request->correo)->send(new EmisionPoliza($pdf,'GNP'));
 	        return view('gnp.poliza',['response'=>$array_data ,'data'=>$data]);
 	        // return response()->json(['cotizacionGNP'=>$array_data],201);
