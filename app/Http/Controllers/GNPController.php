@@ -220,7 +220,7 @@ $xml ='
 			
 				$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/impresion/buscarPoliza",$xml);
  				$array_data = json_decode($this->curl->response);
-	        dd($xml,$array_data,$poliza);
+	        // dd($xml,$array_data,$poliza);
 	        return $array_data;
 		} catch (Exception $e) {
 
