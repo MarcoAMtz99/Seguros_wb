@@ -2262,7 +2262,7 @@ XML;
 			$client = $this->clientCotiza->obtenerNuevaEmision(array('xmlEmision'=>$xmlpoliza));
 			$xml = simplexml_load_string($client->obtenerNuevaEmisionResult);
 			$response = json_decode(json_encode($xml), true);
-			dd($xmlpoliza,$response);
+			dd($xmlpoliza,$response,$xml);
 			if($response['Movimiento']['CodigoError']){
 				if (substr($response['Movimiento']['CodigoError'],0,4) == "0041") {
 					// dd($response['Movimiento']['CodigoError']);
