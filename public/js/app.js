@@ -47251,189 +47251,191 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "form-group col-4" }, [
-                    _vm._m(65),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-check col-12" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.qualitas.cliente.tipo_pago,
-                            expression: "qualitas.cliente.tipo_pago"
-                          }
-                        ],
-                        staticClass: "form-check-input",
-                        attrs: {
-                          type: "radio",
-                          name: "tipo_pago",
-                          id: "radioC",
-                          value: "C",
-                          required: "",
-                          checked: ""
-                        },
-                        domProps: {
-                          checked: _vm._q(_vm.qualitas.cliente.tipo_pago, "C")
-                        },
-                        on: {
-                          change: function($event) {
-                            return _vm.$set(
-                              _vm.qualitas.cliente,
-                              "tipo_pago",
-                              "C"
-                            )
-                          }
-                        }
-                      }),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "form-group col-4" }, [
+                      _vm._m(65),
                       _vm._v(" "),
-                      _c(
-                        "label",
-                        {
-                          staticClass: "form-check-label",
-                          attrs: { for: "radioC" }
-                        },
-                        [
-                          _vm._v(
-                            "\n\t                             Contado\n\t                            "
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-check col-12" }, [
-                      _c("input", {
-                        directives: [
+                      _c("div", { staticClass: "form-check col-12" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.qualitas.cliente.tipo_pago,
+                              expression: "qualitas.cliente.tipo_pago"
+                            }
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "radio",
+                            name: "tipo_pago",
+                            id: "radioC",
+                            value: "C",
+                            required: "",
+                            checked: ""
+                          },
+                          domProps: {
+                            checked: _vm._q(_vm.qualitas.cliente.tipo_pago, "C")
+                          },
+                          on: {
+                            change: function($event) {
+                              return _vm.$set(
+                                _vm.qualitas.cliente,
+                                "tipo_pago",
+                                "C"
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
                           {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.qualitas.cliente.tipo_pago,
-                            expression: "qualitas.cliente.tipo_pago"
-                          }
-                        ],
-                        staticClass: "form-check-input",
-                        attrs: {
-                          type: "radio",
-                          name: "tipo_pago",
-                          id: "radioS",
-                          value: "S"
-                        },
-                        domProps: {
-                          checked: _vm._q(_vm.qualitas.cliente.tipo_pago, "S")
-                        },
-                        on: {
-                          change: function($event) {
-                            return _vm.$set(
-                              _vm.qualitas.cliente,
-                              "tipo_pago",
-                              "S"
+                            staticClass: "form-check-label",
+                            attrs: { for: "radioC" }
+                          },
+                          [
+                            _vm._v(
+                              "\n\t                             Contado\n\t                            "
                             )
-                          }
-                        }
-                      }),
+                          ]
+                        )
+                      ]),
                       _vm._v(" "),
-                      _c(
-                        "label",
-                        {
-                          staticClass: "form-check-label",
-                          attrs: { for: "radioS" }
-                        },
-                        [
-                          _vm._v(
-                            "\n\t                             Semestral\n\t                            "
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-check col-12" }, [
-                      _c("input", {
-                        directives: [
+                      _c("div", { staticClass: "form-check col-12" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.qualitas.cliente.tipo_pago,
+                              expression: "qualitas.cliente.tipo_pago"
+                            }
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "radio",
+                            name: "tipo_pago",
+                            id: "radioS",
+                            value: "S"
+                          },
+                          domProps: {
+                            checked: _vm._q(_vm.qualitas.cliente.tipo_pago, "S")
+                          },
+                          on: {
+                            change: function($event) {
+                              return _vm.$set(
+                                _vm.qualitas.cliente,
+                                "tipo_pago",
+                                "S"
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
                           {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.qualitas.cliente.tipo_pago,
-                            expression: "qualitas.cliente.tipo_pago"
-                          }
-                        ],
-                        staticClass: "form-check-input",
-                        attrs: {
-                          type: "radio",
-                          name: "tipo_pago",
-                          id: "radioTr",
-                          value: "T"
-                        },
-                        domProps: {
-                          checked: _vm._q(_vm.qualitas.cliente.tipo_pago, "T")
-                        },
-                        on: {
-                          change: function($event) {
-                            return _vm.$set(
-                              _vm.qualitas.cliente,
-                              "tipo_pago",
-                              "T"
+                            staticClass: "form-check-label",
+                            attrs: { for: "radioS" }
+                          },
+                          [
+                            _vm._v(
+                              "\n\t                             Semestral\n\t                            "
                             )
-                          }
-                        }
-                      }),
+                          ]
+                        )
+                      ]),
                       _vm._v(" "),
-                      _c(
-                        "label",
-                        {
-                          staticClass: "form-check-label",
-                          attrs: { for: "radioTr" }
-                        },
-                        [
-                          _vm._v(
-                            "\n\t                             Trimestral\n\t                            "
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-check col-12" }, [
-                      _c("input", {
-                        directives: [
+                      _c("div", { staticClass: "form-check col-12" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.qualitas.cliente.tipo_pago,
+                              expression: "qualitas.cliente.tipo_pago"
+                            }
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "radio",
+                            name: "tipo_pago",
+                            id: "radioTr",
+                            value: "T"
+                          },
+                          domProps: {
+                            checked: _vm._q(_vm.qualitas.cliente.tipo_pago, "T")
+                          },
+                          on: {
+                            change: function($event) {
+                              return _vm.$set(
+                                _vm.qualitas.cliente,
+                                "tipo_pago",
+                                "T"
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
                           {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.qualitas.cliente.tipo_pago,
-                            expression: "qualitas.cliente.tipo_pago"
-                          }
-                        ],
-                        staticClass: "form-check-input",
-                        attrs: {
-                          type: "radio",
-                          name: "tipo_pago",
-                          id: "radioMe",
-                          value: "M"
-                        },
-                        domProps: {
-                          checked: _vm._q(_vm.qualitas.cliente.tipo_pago, "M")
-                        },
-                        on: {
-                          change: function($event) {
-                            return _vm.$set(
-                              _vm.qualitas.cliente,
-                              "tipo_pago",
-                              "M"
+                            staticClass: "form-check-label",
+                            attrs: { for: "radioTr" }
+                          },
+                          [
+                            _vm._v(
+                              "\n\t                             Trimestral\n\t                            "
                             )
-                          }
-                        }
-                      }),
+                          ]
+                        )
+                      ]),
                       _vm._v(" "),
-                      _c(
-                        "label",
-                        {
-                          staticClass: "form-check-label",
-                          attrs: { for: "radioMe" }
-                        },
-                        [
-                          _vm._v(
-                            "\n\t                             Mensual\n\t                            "
-                          )
-                        ]
-                      )
+                      _c("div", { staticClass: "form-check col-12" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.qualitas.cliente.tipo_pago,
+                              expression: "qualitas.cliente.tipo_pago"
+                            }
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "radio",
+                            name: "tipo_pago",
+                            id: "radioMe",
+                            value: "M"
+                          },
+                          domProps: {
+                            checked: _vm._q(_vm.qualitas.cliente.tipo_pago, "M")
+                          },
+                          on: {
+                            change: function($event) {
+                              return _vm.$set(
+                                _vm.qualitas.cliente,
+                                "tipo_pago",
+                                "M"
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "radioMe" }
+                          },
+                          [
+                            _vm._v(
+                              "\n\t                             Mensual\n\t                            "
+                            )
+                          ]
+                        )
+                      ])
                     ])
                   ]),
                   _vm._v(" "),

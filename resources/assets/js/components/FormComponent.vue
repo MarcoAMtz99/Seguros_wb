@@ -564,7 +564,7 @@
 							<input type="text" class="form-control" name="num_motor" v-model="qualitas.vehiculo.num_motor" required="">
 						</div>
 					</div>
-
+					<div class="row">
 						<div class="form-group col-4">
 							<label class="control-label"><i class="fas fa-asterisk"></i> Tipo de pago:</label>
 	                        <div class="form-check col-12">
@@ -592,7 +592,7 @@
 	                            </label>
 	                           </div>                   
 						</div>
-
+					</div>
 					<div class="row">
 						<div class="mt-3 col d-flex justify-content-center">
 							<button type="submit" class="btn btn-primary btn-lg">Enviar</button>
