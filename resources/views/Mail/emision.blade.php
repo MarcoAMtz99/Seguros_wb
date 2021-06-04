@@ -106,7 +106,7 @@ Button Text
 @if($aseguradora =="GNP")
     POLIZA
 
-    {{$mensaje['RESULTADO']['URL_DOCUMENTO']}}
+    {{$mensaje}}
     
 
 @endif
