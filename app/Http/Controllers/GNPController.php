@@ -119,14 +119,14 @@ $xml ='
 		 // </ELEMENTO>
 		 // </ELEMENTOS>  
 		 // </SOLICITUD_CATALOGO>";
-		 // $this->curl->post("https://api.service.gnp.com.mx/autos/wsp/recibofiscal/recibofiscal/recibofiscal", $xml_1);
+		 $this->curl->post("https://api.service.gnp.com.mx/autos/wsp/recibofiscal/recibofiscal/recibofiscal", $xml_1);
 				
-			$PDF = $this->ObtenerPdfPoliza('00000458783727');
+			// $PDF = $this->ObtenerPdfPoliza('00000458783727');
 
 				// $this->curl->post("https://api.service.gnp.com.mx/autos/wsp/impresion/buscarPoliza",$xml);
 	        //convert the XML result into array
 	        // $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
-	        dd($PDF);
+	        // dd($PDF);
 	        $array_data = json_decode($this->curl->response);
 	  //       $armadora="";
 	  //       $marca="SPARK";
