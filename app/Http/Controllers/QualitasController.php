@@ -2073,7 +2073,7 @@ XML;
 
 	public function emitirPoliza(Request $request)
 	{
-		dd($request->all());
+		// dd($request->all());
 		$cliente = Cliente::where('cotizacion',$request->cotizacion)->first();
 
 		// $descripcion= $cliente->auto->version->descripcion;
@@ -2227,7 +2227,7 @@ XML;
 			<FechaTermino>$vencimiento</FechaTermino>
 			<Moneda>0</Moneda>
 			<Agente>74285</Agente>
-			<FormaPago>C</FormaPago>
+			<FormaPago>$request->tipo_pago</FormaPago>
 			<TarifaValores>LINEA</TarifaValores>
 			<TarifaCuotas>LINEA</TarifaCuotas>
 			<TarifaDerechos>LINEA</TarifaDerechos>
@@ -2262,7 +2262,7 @@ XML;
 			$client = $this->clientCotiza->obtenerNuevaEmision(array('xmlEmision'=>$xmlpoliza));
 			$xml = simplexml_load_string($client->obtenerNuevaEmisionResult);
 			$response = json_decode(json_encode($xml), true);
-			// dd($xmlpoliza,$response);
+			dd($xmlpoliza,$response);
 			if($response['Movimiento']['CodigoError']){
 				if (substr($response['Movimiento']['CodigoError'],0,4) == "0041") {
 					// dd($response['Movimiento']['CodigoError']);
