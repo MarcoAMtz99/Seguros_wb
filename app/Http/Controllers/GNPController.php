@@ -128,7 +128,13 @@ $xml ='
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
 	        // dd($PDF);
 	        $cadena = $array_data['DOCUMENTO']['CADENA_BINARIA'];
-	        $RESULTADO = base64_decode($cadena);
+	        $RESULTADO = base64_decode($cadena,false);
+	        	$RESULTADO2 = imap_utf7_decode($cadena);
+	        	$RESULTADO3 = convert_uudecode($cadena);
+	        	$RESULTADO4 = imap_base64 ($cadena);
+	        		$RESULTADO5 = utf8_decode($cadena);
+	        			$RESULTADO6 = urlencode($cadena);
+	        			
 	        // $array_data = json_decode($this->curl->response);
 	  //       $armadora="";
 	  //       $marca="SPARK";
@@ -140,7 +146,7 @@ $xml ='
  		// 		dd($value);
  		// 	}
  		// }
- 			dd($xml_1,$array_data, $RESULTADO);
+ 			dd($xml_1, $RESULTADO,$RESULTADO2,$RESULTADO3,$RESULTADO4,$RESULTADO5,$RESULTADO6);
 	        return $array_data;
 			
 	        // print_r('<pre>');
