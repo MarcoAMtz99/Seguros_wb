@@ -128,7 +128,7 @@ $xml ='
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
 	        // dd($PDF);
 	        $cadena = $array_data['DOCUMENTO']['CADENA_BINARIA'];
-	        $RESULTADO = unpack("A", $cadena);
+	        $RESULTADO = base64_decode($cadena);
 	        // $array_data = json_decode($this->curl->response);
 	  //       $armadora="";
 	  //       $marca="SPARK";
