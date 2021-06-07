@@ -125,9 +125,9 @@ $xml ='
 
 				// $this->curl->post("https://api.service.gnp.com.mx/autos/wsp/impresion/buscarPoliza",$xml);
 	        //convert the XML result into array
-	        // $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
+	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
 	        // dd($PDF);
-	        $array_data = json_decode($this->curl->response);
+	        // $array_data = json_decode($this->curl->response);
 	  //       $armadora="";
 	  //       $marca="SPARK";
 	  //       if (isset($array_data['ELEMENTOS'])) {
@@ -138,7 +138,7 @@ $xml ='
  		// 		dd($value);
  		// 	}
  		// }
- 			dd($xml,$this->curl->response,$array_data);
+ 			dd($xml_1,$this->curl->response,$array_data);
 	        return $array_data;
 			
 	        // print_r('<pre>');
