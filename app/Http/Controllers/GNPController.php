@@ -127,6 +127,8 @@ $xml ='
 	        //convert the XML result into array
 	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
 	        // dd($PDF);
+	        $cadena = $array_data['DOCUMENTO']['CADENA_BINARIA'];
+	        $RESULTADO = unpack("cchars/nint", $cadena);
 	        // $array_data = json_decode($this->curl->response);
 	  //       $armadora="";
 	  //       $marca="SPARK";
@@ -138,7 +140,7 @@ $xml ='
  		// 		dd($value);
  		// 	}
  		// }
- 			dd($xml_1,$this->curl->response,$array_data);
+ 			dd($xml_1,$array_data, $RESULTADO);
 	        return $array_data;
 			
 	        // print_r('<pre>');
