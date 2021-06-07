@@ -146,8 +146,8 @@ $xml ='
  		// 		dd($value);
  		// 	}
  		// }
- 			dd($xml_1, $RESULTADO);
-	        return $array_data;
+ 			// dd($xml_1, $RESULTADO);
+	        return $RESULTADO;
 			
 	        // print_r('<pre>');
 	        // print_r($prueba);
