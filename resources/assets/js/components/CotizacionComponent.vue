@@ -25,7 +25,7 @@
     						<div class="row p-0 m-0">
     							<div class="col-12 p-0 m-0">
     								<div class="input-group">
-    									<input class="form-control" type="text" v-model="cliente.cotizacion" placeholder="¿Ya tienes código de cotización?" aria-label="No. generado por el sistema">
+    									<input class="form-control" type="text" v-model="cliente.cotizacion" placeholder="¿Ya tienes código de cotización?" value="{{!! Session::has('msg') ? Session::get("msg") : '' !!}} " aria-label="No. generado por el sistema">
     									<div class="input-group-append" v-if="cliente.cotizacion">
     										<button class="btn input-group-text" @click="searchCliente(cliente.cotizacion)">Ver</button>
     									</div>

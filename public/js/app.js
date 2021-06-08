@@ -41674,36 +41674,9 @@ var render = function() {
                     _c("div", { staticClass: "row p-0 m-0" }, [
                       _c("div", { staticClass: "col-12 p-0 m-0" }, [
                         _c("div", { staticClass: "input-group" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.cliente.cotizacion,
-                                expression: "cliente.cotizacion"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              placeholder: "¿Ya tienes código de cotización?",
-                              "aria-label": "No. generado por el sistema"
-                            },
-                            domProps: { value: _vm.cliente.cotizacion },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.cliente,
-                                  "cotizacion",
-                                  $event.target.value
-                                )
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
+                          _vm._v(
+                            '") : \'\' !!}} " aria-label="No. generado por el sistema">\n    \t\t\t\t\t\t\t\t\t'
+                          ),
                           _vm.cliente.cotizacion
                             ? _c("div", { staticClass: "input-group-append" }, [
                                 _c(
