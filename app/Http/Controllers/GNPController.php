@@ -1197,7 +1197,7 @@ $xml ='
                 		 	 Mail::to($request->correo)->send(new EmisionPoliza($pdf,'GNP'));
 	        				return view('gnp.poliza',['response'=>$array_data ,'data'=>$data,'pdf'=>$pdf]);
 					}else{
-							return redirect()->back()->with('msg', $request->cliente);
+							return redirect()->back()->withErrors(['msg'=>[$request->cliente]]);
 					}
 
          //     		$num_poliza =  $array_data['SOLICITUD']["NUM_POLIZA"];

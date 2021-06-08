@@ -20,12 +20,17 @@
     			</div>
     			<div class="col col-sm-6 p-2" v-show="!searchOption">
     				<div class="tab-content" id="v-pills-tabContent">
-    					 <!--USO-->
+    					 
+    					@if($errors->any())
+    					  			<div class="alert alert-info" role="alert">
+	                    			<h5 class="alert-heading"> {{ $errors != null ?  $errors :' '  }}</h5>
+	                				</div>
+	                	 @endif
     					<div class="tab-pane fade show active" id="v-pills-Uso" role="tabpanel" aria-albelledby="v-pills-Uso-tab">
     						<div class="row p-0 m-0">
     							<div class="col-12 p-0 m-0">
     								<div class="input-group">
-    									<input class="form-control" type="text" v-model="cliente.cotizacion" placeholder="¿Ya tienes código de cotización?" value="{{!! Session::has('msg') ? Session::get("msg") : '' !!}} " aria-label="No. generado por el sistema">
+    									<input class="form-control" type="text" v-model="cliente.cotizacion" placeholder="¿Ya tienes código de cotización?" aria-label="No. generado por el sistema">
     									<div class="input-group-append" v-if="cliente.cotizacion">
     										<button class="btn input-group-text" @click="searchCliente(cliente.cotizacion)">Ver</button>
     									</div>
