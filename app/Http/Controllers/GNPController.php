@@ -1197,6 +1197,8 @@ $xml ='
                 		 	 Mail::to($request->correo)->send(new EmisionPoliza($pdf,'GNP'));
 	        				return view('gnp.poliza',['response'=>$array_data ,'data'=>$data,'pdf'=>$pdf]);
 					}else{
+
+							dd($array_data);
 							return redirect()->back()->withErrors(['msg'=>[$request->cliente],'nombre'=>[$request->nombre] ]);
 					}
 
