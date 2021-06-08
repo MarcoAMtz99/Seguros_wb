@@ -1178,7 +1178,7 @@ $xml ='
 
  		$data = $this->getXMLPoliza($request);
  		$XML = $data ;
- 		dd($data,$request);
+ 		// dd($data,$request);
  		try {
 			// dd($data);
 			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/emisor/emisor/emitir", $data);
