@@ -3,6 +3,11 @@
 
 <!--CONTENIDO-->
     <!--PASOS-->
+                        @if($errors->any())
+                          <div class="alert alert-info" role="alert">
+                                    <h5 class="alert-heading">{{$errors->first()}}</h5>
+                          </div>
+                          @endif
     <div class="row justify-content-center">
         <div class="col-12 col-sm-11 my-5 mx-0 p-0 bg-light rounded shadow-lg">
             <ul class="nav nav-tabs" id="myTab" role="tablist">

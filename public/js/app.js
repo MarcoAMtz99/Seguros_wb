@@ -2024,10 +2024,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -41665,21 +41661,6 @@ var render = function() {
                 attrs: { id: "v-pills-tabContent" }
               },
               [
-                _vm._v(
-                  "\n    \t\t\t\t\t \n    \t\t\t\t\t@if($errors->any())\n    \t\t\t\t\t  \t\t\t"
-                ),
-                _c(
-                  "div",
-                  { staticClass: "alert alert-info", attrs: { role: "alert" } },
-                  [
-                    _c("h5", { staticClass: "alert-heading" }, [
-                      _vm._v(
-                        " " + _vm._s(_vm.$errors != null ? _vm.$errors : " ")
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v("\n\t                \t @endif\n    \t\t\t\t\t"),
                 _c(
                   "div",
                   {

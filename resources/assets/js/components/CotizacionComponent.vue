@@ -21,11 +21,7 @@
     			<div class="col col-sm-6 p-2" v-show="!searchOption">
     				<div class="tab-content" id="v-pills-tabContent">
     					 
-    					@if($errors->any())
-    					  			<div class="alert alert-info" role="alert">
-	                    			<h5 class="alert-heading"> {{ $errors != null ?  $errors :' '  }}</h5>
-	                				</div>
-	                	 @endif
+    					
     					<div class="tab-pane fade show active" id="v-pills-Uso" role="tabpanel" aria-albelledby="v-pills-Uso-tab">
     						<div class="row p-0 m-0">
     							<div class="col-12 p-0 m-0">
