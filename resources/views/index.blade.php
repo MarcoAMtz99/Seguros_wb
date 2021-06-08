@@ -8,7 +8,7 @@
                                     <h5 class="alert-heading">Hubo un error en tu emision, usa tu codigo de cotizacion para volver a intentarlo : {{$errors->first()}}</h5>
                           @if($errors->has('nombre'))
 
-                            <strong>$errors->first('nombre')</strong>
+                            <strong>{{$errors->first('nombre')}}</strong>
                           @endif          
                           </div>
                           @endif
