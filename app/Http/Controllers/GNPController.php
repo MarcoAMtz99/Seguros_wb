@@ -1178,7 +1178,7 @@ $xml ='
 
  		$data = $this->getXMLPoliza($request);
  		$XML = $data ;
- 		// dd($data,$request);
+ 		dd($data,$request);
  		try {
 			// dd($data);
 			$this->curl->post("https://api.service.gnp.com.mx/autos/wsp/emisor/emisor/emitir", $data);
@@ -1197,7 +1197,7 @@ $xml ='
                 		 	 Mail::to($request->correo)->send(new EmisionPoliza($pdf,'GNP'));
 	        				return view('gnp.poliza',['response'=>$array_data ,'data'=>$data,'pdf'=>$pdf]);
 					}else{
-							return response()->json(['error'=>"Fallo la petición"],400);
+							return redirect()->back()->with('msg', 'No se pudo completar el registro');
 					}
 
          //     		$num_poliza =  $array_data['SOLICITUD']["NUM_POLIZA"];
