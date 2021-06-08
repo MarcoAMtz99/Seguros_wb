@@ -5,7 +5,7 @@
     <!--PASOS-->
                         @if($errors->any())
                           <div class="alert alert-info" role="alert">
-                                    <h5 class="alert-heading">{{$errors->first()}}</h5>
+                                    <h5 class="alert-heading">Hubo un error en tu emision, usa tu codigo de cotizacion para volver a intentarlo : {{$errors->first()}}</h5>
                           </div>
                           @endif
     <div class="row justify-content-center">
