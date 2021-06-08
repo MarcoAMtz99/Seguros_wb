@@ -1197,7 +1197,7 @@ $xml ='
                 		 	 Mail::to($request->correo)->send(new EmisionPoliza($pdf,'GNP'));
 	        				return view('gnp.poliza',['response'=>$array_data ,'data'=>$data,'pdf'=>$pdf]);
 					}else{
-							return Redirect::back()->with('msg', 'No se pudo completar el registro');
+							return redirect()->back()->with('msg', 'No se pudo completar el registro');
 					}
 
          //     		$num_poliza =  $array_data['SOLICITUD']["NUM_POLIZA"];
