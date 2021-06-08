@@ -1200,11 +1200,11 @@ $xml ='
 							return Redirect::back()->with('msg', 'No se pudo completar el registro');
 					}
 
-             		$num_poliza =  $array_data['SOLICITUD']["NUM_POLIZA"];
-             		$pdf = $this->ObtenerPdfPoliza($num_poliza);
-             		// dd($pdf,$array_data,$pdf->RESULTADO->URL_DOCUMENTO);
-                  Mail::to($request->correo)->send(new EmisionPoliza($pdf,'GNP'));
-	        return view('gnp.poliza',['response'=>$array_data ,'data'=>$data,'pdf'=>$pdf]);
+         //     		$num_poliza =  $array_data['SOLICITUD']["NUM_POLIZA"];
+         //     		$pdf = $this->ObtenerPdfPoliza($num_poliza);
+         //     		// dd($pdf,$array_data,$pdf->RESULTADO->URL_DOCUMENTO);
+         //          Mail::to($request->correo)->send(new EmisionPoliza($pdf,'GNP'));
+	        // return view('gnp.poliza',['response'=>$array_data ,'data'=>$data,'pdf'=>$pdf]);
 	        // return response()->json(['cotizacionGNP'=>$array_data],201);
 		} catch (Exception $e) {
 			return response()->json(['error'=>"Fallo la petición"],400);
