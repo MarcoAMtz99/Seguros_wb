@@ -10,7 +10,7 @@
 
                             <strong>{{$errors->first('nombre')}}</strong>
                           @endif 
-                          @if()
+                          @if($errors->has('error'))
                             <h6>{{$errors->first('error')}}</h6>
                           @endif         
                           </div>
