@@ -9,7 +9,10 @@
                           @if($errors->has('nombre'))
 
                             <strong>{{$errors->first('nombre')}}</strong>
-                          @endif          
+                          @endif 
+                          @if()
+                            <h6>{{$errors->first('error')}}</h6>
+                          @endif         
                           </div>
                           @endif
     <div class="row justify-content-center">
