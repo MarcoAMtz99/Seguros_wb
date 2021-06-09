@@ -1198,8 +1198,8 @@ $xml ='
 	        				return view('gnp.poliza',['response'=>$array_data ,'data'=>$data,'pdf'=>$pdf]);
 					}else{
 
-							dd($array_data);
-							return redirect()->back()->withErrors(['msg'=>[$request->cliente],'nombre'=>[$request->nombre] ]);
+							$descripcion_error = $array_data['DESCRIPCION'];
+							return redirect()->back()->withErrors(['msg'=>[$request->cliente],'nombre'=>[$request->nombre], 'error'=>[$descripcion_error]]);
 					}
 
          //     		$num_poliza =  $array_data['SOLICITUD']["NUM_POLIZA"];
