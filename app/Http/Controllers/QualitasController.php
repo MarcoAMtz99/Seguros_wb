@@ -2128,11 +2128,11 @@ XML;
 			</ConsideracionesAdicionalesDA>
 			<ConsideracionesAdicionalesDA NoConsideracion="40">
 				<TipoRegla>5</TipoRegla>
-				<ValorRegla>$request->apemat</ValorRegla>
+				<ValorRegla>$request->apepat</ValorRegla>
 			</ConsideracionesAdicionalesDA>
 			<ConsideracionesAdicionalesDA NoConsideracion="40">
 				<TipoRegla>6</TipoRegla>
-				<ValorRegla>$request->apepat</ValorRegla>
+				<ValorRegla>$request->apemat</ValorRegla>
 			</ConsideracionesAdicionalesDA>
 			<ConsideracionesAdicionalesDA NoConsideracion="40">
 				<TipoRegla>7</TipoRegla>
