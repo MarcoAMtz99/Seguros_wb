@@ -990,7 +990,7 @@
 					</div>
 					<div class="row">
 						<div class="col d-flex justify-content-center">
-							<button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+							<button type="submit" class="btn btn-primary btn-lg" @click="emitirAna(ana)" >Enviar</button>
 						</div>
 						<div class="m-2 ml-2 flex-shrink-1 d-flex justify-content-right">
 							<i class="fa fa-asterisk" aria-hidden="true"></i> Campos Obligatorios
