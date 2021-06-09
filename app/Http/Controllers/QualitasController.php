@@ -2262,7 +2262,12 @@ XML;
 			$client = $this->clientCotiza->obtenerNuevaEmision(array('xmlEmision'=>$xmlpoliza));
 			$xml = simplexml_load_string($client->obtenerNuevaEmisionResult);
 			$response = json_decode(json_encode($xml), true);
-			dd($xmlpoliza,$response,$xml);
+			// dd($xmlpoliza,$response,$xml);
+				if ($response['Movimiento']['CodigoError'] !='' ) {
+					$descripcion_error = $response['Movimiento']['CodigoError'];
+
+					return redirect()->back()->withErrors(['msg'=>[$request->cotizacion],'nombre'=>[$request->nombre], 'error'=>[$descripcion_error]]);
+				}
 			if($response['Movimiento']['CodigoError']){
 				if (substr($response['Movimiento']['CodigoError'],0,4) == "0041") {
 					// dd($response['Movimiento']['CodigoError']);
