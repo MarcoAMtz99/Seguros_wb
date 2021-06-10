@@ -88,7 +88,7 @@ XML;
         // dd($request);
         $emitirPolizaService = new EmitirPolizaService($request);
         $array = $emitirPolizaService->response();
-        dd($emitirPolizaService,"Hola",$array);
+        dd($emitirPolizaService,"Hola",$array['transaccion']['error']);
         
         return $emitirPolizaService->response();
     }
