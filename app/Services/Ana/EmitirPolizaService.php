@@ -413,6 +413,7 @@ class EmitirPolizaService
                  Mail::to($correo_emision)->send(new EmisionPoliza($polizaResp,'ANA')); 
                 
                 $this->response = view('ana.pago', ['response' => $polizaResp]);
+
             } elseif (is_string($array["transaccion"]["error"]) && strstr($array["transaccion"]["error"], "No se puede emitir la póliza debido a que existe una poliza vigente")) {
                 // dd('segundo if');
                 $noPoliza = substr($array['transaccion']['error'], 84, 9);
@@ -439,7 +440,7 @@ class EmitirPolizaService
             }
             // dd($array);
         } catch (SoapFault $fault) {
-            dd($fault);
+            dd($fault,"Error en ANA");
         }
     }
 
