@@ -88,7 +88,7 @@ XML;
         // dd($request);
         $emitirPolizaService = new EmitirPolizaService($request);
         $array = get_object_vars($emitirPolizaService);
-        dd($emitirPolizaService,"Hola",$array_push);
+        dd($emitirPolizaService,"Hola",$array);
         
         return $emitirPolizaService->response();
     }
