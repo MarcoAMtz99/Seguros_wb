@@ -85,10 +85,14 @@ XML;
     }
 
     public function emitirPoliza(Request $request){
-        // dd($request);
+        dd($request);
         $emitirPolizaService = new EmitirPolizaService($request);
         $array = $emitirPolizaService->response();
-        dd($emitirPolizaService,"Hola",$array);
+           if ( isset($array['transaccion']['error'])   ) {
+                    return redirect()->back()->withErrors(['msg'=>[$request->cliente],'nombre'=>[$request->nombre], 'error'=>[$descripcion_error]]);
+            }
+
+        // dd($emitirPolizaService,"Hola",$array['transaccion']['error']);
         
         return $emitirPolizaService->response();
     }
