@@ -87,7 +87,7 @@ XML;
     public function emitirPoliza(Request $request){
         // dd($request);
         $emitirPolizaService = new EmitirPolizaService($request);
-        dd($emitirPolizaService,"Hola");
+        dd($emitirPolizaService,"Hola",$emitirPolizaService->response->error);
         
         return $emitirPolizaService->response();
     }
