@@ -87,7 +87,7 @@ XML;
     public function emitirPoliza(Request $request){
         // dd($request);
         $emitirPolizaService = new EmitirPolizaService($request);
-        $array = json_decode($emitirPolizaService);
+        $array = get_object_vars($emitirPolizaService);
         dd($emitirPolizaService,"Hola",$array_push);
         
         return $emitirPolizaService->response();
