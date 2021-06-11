@@ -89,7 +89,7 @@ XML;
         $emitirPolizaService = new EmitirPolizaService($request);
         $array = $emitirPolizaService->response();
            if ( isset($array['transaccion']['error'])   ) {
-             $descripcion_error = $array['transaccion']['error']
+             $descripcion_error = $array['transaccion']['error'];
                     return redirect()->back()->withErrors(['msg'=>[$request->id_cotizacion],'nombre'=>[$request->nombre], 'error'=>[$descripcion_error]]);
             }
 
