@@ -136,6 +136,9 @@ class QualitasController extends Controller
  		if($marca == 'PONTIAC'){
 			$marca ='CHEVROLET';
  		}
+ 		if($submarca == 'MATIZ G2'){
+			$submarca ='MATIZ';
+ 		}
  		
 	  try {
 		$result = $this->clientTarifa->listaTarifas(['cUsuario'=>"linea",'cTarifa'=>"linea",'cMarca'=>$marca,'cTipo'=>$submarca,'cModelo'=>$modelo]);
