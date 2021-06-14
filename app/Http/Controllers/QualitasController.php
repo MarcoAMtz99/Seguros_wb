@@ -129,9 +129,12 @@ class QualitasController extends Controller
  		}
  		if($submarca == 'MINIVAN '){
 			$submarca ='1000';
- 		}
+ 		} 
  		if($marca == 'GMC'){
 			$marca ='GENERAL MOTORS';
+ 		}
+ 		if($marca == 'PONTIAC'){
+			$marca ='CHEVROLET';
  		}
  		
 	  try {
