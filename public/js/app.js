@@ -41602,7 +41602,7 @@ var render = function() {
                     "aria-selected": "false"
                   }
                 },
-                [_vm._v("Sexo: " + _vm._s(_vm.cliente.sexo))]
+                [_vm._v("Genero: " + _vm._s(_vm.cliente.sexo))]
               ),
               _vm._v(" "),
               _c(
@@ -49762,7 +49762,29 @@ var render = function() {
                       ])
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm._m(113)
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "col d-flex justify-content-center" },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary btn-lg",
+                            attrs: { type: "submit" },
+                            on: {
+                              click: function($event) {
+                                return _vm.emitirAna(_vm.ana)
+                              }
+                            }
+                          },
+                          [_vm._v("Enviar")]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(113)
+                  ])
                 ]
               )
             : _vm._e(),
@@ -51012,27 +51034,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col d-flex justify-content-center" }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-primary btn-lg", attrs: { type: "submit" } },
-          [_vm._v("Enviar")]
-        )
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "m-2 ml-2 flex-shrink-1 d-flex justify-content-right" },
-        [
-          _c("i", {
-            staticClass: "fa fa-asterisk",
-            attrs: { "aria-hidden": "true" }
-          }),
-          _vm._v(" Campos Obligatorios\n\t\t\t\t\t\t")
-        ]
-      )
-    ])
+    return _c(
+      "div",
+      { staticClass: "m-2 ml-2 flex-shrink-1 d-flex justify-content-right" },
+      [
+        _c("i", {
+          staticClass: "fa fa-asterisk",
+          attrs: { "aria-hidden": "true" }
+        }),
+        _vm._v(" Campos Obligatorios\n\t\t\t\t\t\t")
+      ]
+    )
   }
 ]
 render._withStripped = true
