@@ -1189,7 +1189,7 @@ $xml ='
 			$data = json_decode(json_encode(simplexml_load_string($data)), true);
 
 
-					// dd($array_data,$data);
+					dd($array_data,$request);
 					if (isset($array_data['SOLICITUD']["NUM_POLIZA"])) {
 						$num_poliza =  $array_data['SOLICITUD']["NUM_POLIZA"];
              				$pdf = $this->ObtenerPdfPoliza($num_poliza);
