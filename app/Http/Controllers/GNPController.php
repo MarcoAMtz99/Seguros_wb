@@ -274,7 +274,9 @@ $xml ='
  		if($submarca == 'BR-V'){
 			$submarca ='BR V'; 
  		}
-
+ 		if($submarca == 'IMPREZA WRX'){
+			$submarca ='IMPREZA'; 
+ 		}
  		$Modelos = $this->BusquedaModelos($modelo,$submarca);
  		// $json_mod = json_decode($Modelos);
  		// $bandera = false;
