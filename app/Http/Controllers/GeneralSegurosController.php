@@ -406,6 +406,9 @@ class GeneralSegurosController extends Controller
             if ($submarca == 'MINIVAN') {
                 $submarca = '1000';
             }
+            if ($submarca == 'IMPREZA WRX') {
+                $submarca = 'WRX';
+            }
 
               // dd($submarcas,$submarca);
             //  if ($submarca == 'X1') {
