@@ -111,24 +111,24 @@ $xml ='
    //  		<NOMBRE>ARMADORA</NOMBRE>
    //  		<CLAVE>CH</CLAVE>
    //  		</ELEMENTO>
-				// $modelos = $this->BusquedaModelo('2017', 'SERIE301');
-				// $modelosAño = $this->BusquedaModelos('2012','SERIE301');
+				$modelos = $this->BusquedaModelo('2017', 'SERIE301');
+				$modelosAño = $this->BusquedaModelos('2020','SERIE301');
 				// // $carroceria = $this->getCarroceria("HO", "CIVIC");
 				// // $modelos    = $this->getModelos($modelo, $armadora, $carroceria);
-				// dd($modelos,json_encode($modelosAño));
+				dd($modelos,json_encode($modelosAño));
 		 // </ELEMENTO>
 		 // </ELEMENTOS>  
 		 // </SOLICITUD_CATALOGO>";
-		 $this->curl->post("https://api.service.gnp.com.mx/autos/wsp/recibofiscal/recibofiscal/recibofiscal", $xml_1);
+		 // $this->curl->post("https://api.service.gnp.com.mx/autos/wsp/recibofiscal/recibofiscal/recibofiscal", $xml_1);
 				
 			// $PDF = $this->ObtenerPdfPoliza('00000458783727');
 
 				// $this->curl->post("https://api.service.gnp.com.mx/autos/wsp/impresion/buscarPoliza",$xml);
 	        //convert the XML result into array
-	        $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
-	        // dd($PDF);
-	        $cadena = $array_data['DOCUMENTO']['CADENA_BINARIA'];
-	        $RESULTADO = base64_decode($cadena,true);
+	        // $array_data = json_decode(json_encode(simplexml_load_string($this->curl->response)), true);
+	        // // dd($PDF);
+	        // $cadena = $array_data['DOCUMENTO']['CADENA_BINARIA'];
+	        // $RESULTADO = base64_decode($cadena,true);
 	        	// $RESULTADO2 = imap_utf7_decode($cadena);
 	        	// $RESULTADO3 = convert_uudecode($cadena);
 	        	// $RESULTADO4 = imap_base64 ($cadena);
@@ -147,7 +147,7 @@ $xml ='
  		// 	}
  		// }
  			// dd($xml_1, $RESULTADO);
-	        return $RESULTADO;
+	        // return $RESULTADO;
 			
 	        // print_r('<pre>');
 	        // print_r($prueba);
