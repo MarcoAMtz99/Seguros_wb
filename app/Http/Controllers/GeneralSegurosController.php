@@ -57,8 +57,9 @@ class GeneralSegurosController extends Controller
     }
 
     public function prueba(){
-            $token = $this->setMarca('TESLA');
-            return $token;
+            $client = $this->getClient($this->urlCatAuto);
+            $res = $client->wsListarMarcas(['arg0' => ["token" => $this->token]]);
+            return $res;
     }
 
     public function getClient($url)
