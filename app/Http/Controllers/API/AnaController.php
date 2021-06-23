@@ -48,6 +48,15 @@ class AnaController extends Controller
         }
         return $array;
     }
+    public function prueba(){
+        $marcas = $this->marcas('2010');
+        $marcas1 = $this->marcas('2015');
+        $marcas2 = $this->marcas('2018');
+        $marcas3 = $this->marcas('2020');
+        $marcas4 = $this->marcas('2022');
+         return response()->json(['marcas'=>$marcas,'marcas1'=>$marcas1,'marcas2'=>$marcas2,'marcas3'=>$marcas3,'marcas4'=>$marcas4,],201);
+        
+    }
 
     public function imprimirPoliza($poliza,$endoso,$tipo_pago){
         if ($tipo_pago == "Tarjeta") {
