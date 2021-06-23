@@ -57,7 +57,7 @@ class GeneralSegurosController extends Controller
     }
 
     public function prueba(){
-            $token = $this->getToken();
+            $token = $this->setMarca('TESLA');
             return $token;
     }
 
