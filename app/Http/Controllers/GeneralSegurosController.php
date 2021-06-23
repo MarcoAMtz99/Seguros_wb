@@ -162,11 +162,13 @@ class GeneralSegurosController extends Controller
 
     public function prueba(){
 
+            // $marca = 
            try {
 
             $client = $this->getClient($this->urlCatAuto);
             $res = $client->wsListarMarcas(['arg0' => ["token" => $this->token]]);
             if ($res->return->exito) {
+                dd($res->return);
                 foreach ($res->return->marcas as $marca_gs) {
                     if ($marca_gs->nombre == $marca->nombre) {
                         $marca->id_gs = $marca_gs->id;
