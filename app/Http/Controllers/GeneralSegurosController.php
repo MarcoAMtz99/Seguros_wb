@@ -180,7 +180,7 @@ class GeneralSegurosController extends Controller
             dd($fault);
         }
      }
-    }
+    
 
     public function getCotizacion(Request $request)
     {
