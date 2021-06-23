@@ -56,12 +56,6 @@ class GeneralSegurosController extends Controller
         });
     }
 
-    public function prueba(){
-            $client = $this->getClient($this->urlCatAuto);
-            $res = $client->wsListarMarcas(['arg0' => ["token" => $this->token]]);
-            return $res;
-    }
-
     public function getClient($url)
     {
         try {
@@ -163,6 +157,29 @@ class GeneralSegurosController extends Controller
         } catch (SoapFault $fault) {
             dd($fault);
         }
+    }
+
+
+    public function prueba(){
+
+           try {
+
+            $client = $this->getClient($this->urlCatAuto);
+            $res = $client->wsListarMarcas(['arg0' => ["token" => $this->token]]);
+            if ($res->return->exito) {
+                foreach ($res->return->marcas as $marca_gs) {
+                    if ($marca_gs->nombre == $marca->nombre) {
+                        $marca->id_gs = $marca_gs->id;
+                        $marca->save();
+                        return $marca_gs->id;
+                    }
+                }
+            } else {
+            }
+        } catch (SoapFault $fault) {
+            dd($fault);
+        }
+     }
     }
 
     public function getCotizacion(Request $request)
