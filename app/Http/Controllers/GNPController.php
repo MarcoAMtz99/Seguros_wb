@@ -277,6 +277,9 @@ $xml ='
  		if($submarca == 'IMPREZA WRX'){
 			$submarca ='IMPREZA'; 
  		}
+ 		if($submarca == 'SPIDER'){
+			$submarca ='ALFA ROMEO SPIDER'; 
+ 		}
  		$Modelos = $this->BusquedaModelos($modelo,$submarca);
  		// $json_mod = json_decode($Modelos);
  		// $bandera = false;
