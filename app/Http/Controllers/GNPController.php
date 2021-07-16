@@ -244,7 +244,7 @@ $xml ='
  		public function BusquedaModelo($modelo, $submarca)
  	{
 
- 		dd($modelo, $submarca);
+ 		// dd($modelo, $submarca);
  		if ($submarca == ' C-HR') {
  			$submarca = 'C HR';
  		}
