@@ -278,7 +278,7 @@ $xml ='
 			$submarca ='IMPREZA'; 
  		}
  		if($submarca == 'SPIDER'){
-			$submarca ='ALFA ROMEO SPIDER'; 
+			$submarca ='ALFA ROMEO 147'; 
  		}
  		$Modelos = $this->BusquedaModelos($modelo,$submarca);
  		// $json_mod = json_decode($Modelos);
