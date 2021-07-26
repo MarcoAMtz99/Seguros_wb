@@ -42090,15 +42090,17 @@ var render = function() {
                             ),
                             _vm._v(" "),
                             _vm._l(_vm.marcas, function(marca) {
-                              return _c(
-                                "option",
-                                {
-                                  staticClass:
-                                    "list-group-item text-center text-dark seleccionador",
-                                  domProps: { value: marca }
-                                },
-                                [_vm._v(_vm._s(marca.descripcion))]
-                              )
+                              return marca.descripcion != "BUIK"
+                                ? _c(
+                                    "option",
+                                    {
+                                      staticClass:
+                                        "list-group-item text-center text-dark seleccionador",
+                                      domProps: { value: marca }
+                                    },
+                                    [_vm._v(_vm._s(marca.descripcion))]
+                                  )
+                                : _vm._e()
                             })
                           ],
                           2

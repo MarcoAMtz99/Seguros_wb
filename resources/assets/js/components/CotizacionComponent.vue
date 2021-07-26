@@ -88,7 +88,7 @@
 		                        	</div>
 		                            <select v-show="!loader_marca && this.marcas.length != 0" v-model="cliente.marca_auto" size="7" class="list-group list-group-flush col">
 		                            	<option value="" class="list-group-item text-center text-dark seleccionador">Seleccione su marca</option>
-										<option v-for="marca in marcas" :value="marca" class="list-group-item text-center text-dark seleccionador">{{marca.descripcion}}</option>
+										<option v-for="marca in marcas" :value="marca" class="list-group-item text-center text-dark seleccionador" v-if="marca.descripcion != 'BUIK'">{{ marca.descripcion }}</option>
 									</select>
 									<div class="row">
 										<div class="col-12 mt-3 d-block d-sm-none">
