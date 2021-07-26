@@ -221,7 +221,7 @@
 		                <div class="tab-pane fade" v-show="sexo" id="v-pills-Sexo" role="tabpanel" aria-albelledby="v-pills-Sexo-tab">
 		                    <div class="card p-0">
 		                        <div class="card-header">
-		                            Sexo
+		                            Genero
 		                        </div>
 		                        <div class="card-body">
 		                            <select v-model="cliente.sexo" size="3" class="list-group list-group-flush col"  style="overflow-y: hidden;">

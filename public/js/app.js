@@ -42699,7 +42699,7 @@ var render = function() {
                     _c("div", { staticClass: "card p-0" }, [
                       _c("div", { staticClass: "card-header" }, [
                         _vm._v(
-                          "\n\t\t                            Sexo\n\t\t                        "
+                          "\n\t\t                            Genero\n\t\t                        "
                         )
                       ]),
                       _vm._v(" "),
@@ -53602,7 +53602,7 @@ var render = function() {
                                                     _vm.cotizacionesGNP.PAQUETES
                                                       .PAQUETE.TOTALES
                                                       .TOTAL_PRIMA[1]
-                                                      .CONCEPTO_ECONOMICO[10]
+                                                      .CONCEPTO_ECONOMICO[11]
                                                       .MONTO
                                                   )
                                                 )
@@ -53614,7 +53614,7 @@ var render = function() {
                                                   _vm.cotizacionesGNP.PAQUETES
                                                     .PAQUETE.TOTALES
                                                     .TOTAL_PRIMA[1]
-                                                    .CONCEPTO_ECONOMICO[11]
+                                                    .CONCEPTO_ECONOMICO[12]
                                                     .MONTO
                                                 ) +
                                                 " "
@@ -53635,7 +53635,7 @@ var render = function() {
                                                     _vm.cotizacionesGNP.PAQUETES
                                                       .PAQUETE.TOTALES
                                                       .TOTAL_PRIMA[2]
-                                                      .CONCEPTO_ECONOMICO[10]
+                                                      .CONCEPTO_ECONOMICO[11]
                                                       .MONTO
                                                   )
                                                 ) +
@@ -53648,7 +53648,7 @@ var render = function() {
                                                   _vm.cotizacionesGNP.PAQUETES
                                                     .PAQUETE.TOTALES
                                                     .TOTAL_PRIMA[2]
-                                                    .CONCEPTO_ECONOMICO[11]
+                                                    .CONCEPTO_ECONOMICO[12]
                                                     .MONTO
                                                 )
                                             )
@@ -53668,7 +53668,7 @@ var render = function() {
                                                     _vm.cotizacionesGNP.PAQUETES
                                                       .PAQUETE.TOTALES
                                                       .TOTAL_PRIMA[3]
-                                                      .CONCEPTO_ECONOMICO[10]
+                                                      .CONCEPTO_ECONOMICO[11]
                                                       .MONTO
                                                   )
                                                 ) +
@@ -53682,7 +53682,7 @@ var render = function() {
                                                     _vm.cotizacionesGNP.PAQUETES
                                                       .PAQUETE.TOTALES
                                                       .TOTAL_PRIMA[3]
-                                                      .CONCEPTO_ECONOMICO[11]
+                                                      .CONCEPTO_ECONOMICO[12]
                                                       .MONTO
                                                   )
                                                 ) +
@@ -56654,9 +56654,7 @@ var render = function() {
                                                             _vm._v(
                                                               " " +
                                                                 _vm._s(
-                                                                  _vm._f("int")(
-                                                                    cobertura.Deducible
-                                                                  )
+                                                                  cobertura.Deducible
                                                                 ) +
                                                                 "%"
                                                             )
