@@ -42090,7 +42090,7 @@ var render = function() {
                             ),
                             _vm._v(" "),
                             _vm._l(_vm.marcas, function(marca) {
-                              return marca.descripcion != "BUIK"
+                              return marca.descripcion !== "BUIK"
                                 ? _c(
                                     "option",
                                     {
