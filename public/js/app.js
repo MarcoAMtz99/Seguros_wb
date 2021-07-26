@@ -56654,7 +56654,12 @@ var render = function() {
                                                             _vm._v(
                                                               " " +
                                                                 _vm._s(
-                                                                  cobertura.Deducible
+                                                                  _vm._f("int")(
+                                                                    cobertura.Deducible ==
+                                                                      NaN
+                                                                      ? 0
+                                                                      : cobertura.Deducible
+                                                                  )
                                                                 ) +
                                                                 "%"
                                                             )
