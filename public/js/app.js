@@ -56655,10 +56655,10 @@ var render = function() {
                                                               " " +
                                                                 _vm._s(
                                                                   _vm._f("int")(
-                                                                    cobertura.Deducible ===
-                                                                      NaN
-                                                                      ? 0
-                                                                      : cobertura.Deducible
+                                                                    typeof cobertura.Deducible ==
+                                                                      "number"
+                                                                      ? cobertura.Deducible
+                                                                      : 0
                                                                   )
                                                                 ) +
                                                                 "%"

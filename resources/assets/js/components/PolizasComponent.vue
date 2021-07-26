@@ -689,7 +689,7 @@
                                                         <div v-for="(cobertura,index) in cotizacionesQualitas['Coberturas']" v-if="cobertura.tipo && !(['','Daños Materiales','Gastos Médicos','Gastos Legales','Asistencia Vial','Robo Total','Responsabilidad Civil'].indexOf(cobertura.tipo) != -1)">
                                                             <div>
                                                                 <span><strong>{{cobertura.tipo}}:</strong>${{cobertura.SumaAsegurada|int}}</span>
-                                                                <span v-if="cobertura.Deducible"><strong>Deducible:</strong> {{cobertura.Deducible === NaN ? 0 : cobertura.Deducible|int}}%</span>
+                                                                <span v-if="cobertura.Deducible"><strong>Deducible:</strong> {{typeof cobertura.Deducible == 'number' ? cobertura.Deducible : 0 |int}}%</span>
                                                             </div>
                                                         </div>
                                                     </div>
