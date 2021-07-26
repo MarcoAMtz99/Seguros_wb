@@ -56656,12 +56656,7 @@ var render = function() {
                                                             _vm._v(
                                                               " " +
                                                                 _vm._s(
-                                                                  _vm._f("int")(
-                                                                    typeof cobertura.Deducible ==
-                                                                      "number"
-                                                                      ? cobertura.Deducible
-                                                                      : 0
-                                                                  )
+                                                                  cobertura.Deducible
                                                                 ) +
                                                                 "%"
                                                             )
