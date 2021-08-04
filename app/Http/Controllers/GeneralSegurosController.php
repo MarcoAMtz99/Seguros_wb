@@ -162,6 +162,7 @@ class GeneralSegurosController extends Controller
 
     public function prueba(Request $request){
 
+            dd($request);
             // $marca = 
            try {
 

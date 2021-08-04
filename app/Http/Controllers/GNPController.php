@@ -43,8 +43,9 @@ class GNPController extends Controller
  	 * Función para prueba 
  	 * @return string
  	 */
- 	public function prueba()
+ 	public function prueba(Request $request)
  	{
+ 			 dd($request);
  		// return view('prueba');
  		/* dd($this->getTiposVia()); */
  		/* dd($this->modelos("Ford", "focus", "2015")); */
