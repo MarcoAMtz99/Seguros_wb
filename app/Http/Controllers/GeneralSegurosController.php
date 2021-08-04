@@ -160,7 +160,7 @@ class GeneralSegurosController extends Controller
     }
 
 
-    public function prueba(){
+    public function prueba(Request $request){
 
             // $marca = 
            try {
