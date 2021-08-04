@@ -282,6 +282,9 @@ $xml ='
  		if($submarca == 'SPIDER'){
 			$submarca ='ALFA ROMEO 147'; 
  		}
+ 		if($submarca == 'Q7'){
+			$submarca ='AUDI Q7'; 
+ 		}
  		$Modelos = $this->BusquedaModelos($modelo,$submarca);
  		// $json_mod = json_decode($Modelos);
  		// $bandera = false;
