@@ -312,17 +312,18 @@ $xml ='
  					array_push($Mods, $Mods2);
 
  					//Con esta validacion verificamos si la submarca se enceuntra en carroceria con marca
- 				}elseif (str_contains($Modelos['ELEMENTOS'][$i]['ELEMENTO'][3]['VALOR'],$submarca)) {
- 					$Mods2 = array(
- 								'CLAVE'=> $Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['CLAVE'],
- 								'NOMBRE' =>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['NOMBRE'],
- 								'VALOR' =>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['VALOR'],
- 								'CARROCERIA'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][3]['CLAVE'],
- 								'MODELO'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][2]['VALOR'],
- 								'ARMADORA'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][1]['CLAVE']
- 							);
- 					array_push($Mods, $Mods2);
  				}
+ 				// elseif (str_contains($Modelos['ELEMENTOS'][$i]['ELEMENTO'][3]['VALOR'],$submarca)) {
+ 				// 	$Mods2 = array(
+ 				// 				'CLAVE'=> $Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['CLAVE'],
+ 				// 				'NOMBRE' =>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['NOMBRE'],
+ 				// 				'VALOR' =>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][4]['VALOR'],
+ 				// 				'CARROCERIA'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][3]['CLAVE'],
+ 				// 				'MODELO'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][2]['VALOR'],
+ 				// 				'ARMADORA'=>$Modelos['ELEMENTOS'][$i]['ELEMENTO'][1]['CLAVE']
+ 				// 			);
+ 				// 	array_push($Mods, $Mods2);
+ 				// }
 
  				//VERSION DEL MODELO ESTE DATO ES LA DESCRIPCION QUE VOY A MOSTRAR 
  				// dd($Modelos['ELEMENTOS'][$i]['ELEMENTO'],$longitud,$submarca);
