@@ -285,6 +285,21 @@ $xml ='
  		if($submarca == 'Q7'){
 			$submarca ='AUDI Q7'; 
  		}
+ 		if($submarca == 'Q2'){
+			$submarca ='AUDI Q2'; 
+ 		}
+ 		if($submarca == 'Q3'){
+			$submarca ='AUDI Q3'; 
+ 		}
+ 		if($submarca == 'Q5'){
+			$submarca ='AUDI Q5'; 
+ 		}
+ 		if($submarca == 'Q8'){
+			$submarca ='AUDI Q8'; 
+ 		}
+ 		if($submarca == 'QT'){
+			$submarca ='AUDI QT'; 
+ 		}
  		$Modelos = $this->BusquedaModelos($modelo,$submarca);
  		// $json_mod = json_decode($Modelos);
  		// $bandera = false;
