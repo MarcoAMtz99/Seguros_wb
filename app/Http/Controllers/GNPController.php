@@ -45,6 +45,7 @@ class GNPController extends Controller
  	 */
  	public function prueba(Request $request)
  	{
+ 		
  			 dd($request);
  		// return view('prueba');
  		/* dd($this->getTiposVia()); */
