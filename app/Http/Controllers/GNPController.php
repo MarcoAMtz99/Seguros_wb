@@ -46,7 +46,7 @@ class GNPController extends Controller
  	public function prueba(request $request)
  	{
 
- 			 dd($request);
+ 			 // dd($request);
  		// return view('prueba');
  		/* dd($this->getTiposVia()); */
  		/* dd($this->modelos("Ford", "focus", "2015")); */
@@ -113,8 +113,8 @@ $xml ='
    //  		<NOMBRE>ARMADORA</NOMBRE>
    //  		<CLAVE>CH</CLAVE>
    //  		</ELEMENTO>
-				$modelos = $this->BusquedaModelo('2012', 'SERIE301');
-				$modelosAño = $this->BusquedaModelos('2012','SERIE301');
+				$modelos = $this->BusquedaModelo('2002', 'SERIE301');
+				$modelosAño = $this->BusquedaModelos('2002','SERIE301');
 				// // $carroceria = $this->getCarroceria("HO", "CIVIC");
 				// // $modelos    = $this->getModelos($modelo, $armadora, $carroceria);
 				dd($modelos,json_encode($modelosAño));
