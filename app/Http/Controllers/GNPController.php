@@ -113,8 +113,8 @@ $xml ='
    //  		<NOMBRE>ARMADORA</NOMBRE>
    //  		<CLAVE>CH</CLAVE>
    //  		</ELEMENTO>
-				$modelos = $this->BusquedaModelo('2002', 'SERIE301');
-				$modelosAño = $this->BusquedaModelos('2002','SERIE301');
+				$modelos = $this->BusquedaModelo('2007', 'SERIE301');
+				$modelosAño = $this->BusquedaModelos('2007','SERIE301');
 				// // $carroceria = $this->getCarroceria("HO", "CIVIC");
 				// // $modelos    = $this->getModelos($modelo, $armadora, $carroceria);
 				dd($modelos,json_encode($modelosAño));
