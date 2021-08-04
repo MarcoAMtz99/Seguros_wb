@@ -43,7 +43,7 @@ class GNPController extends Controller
  	 * Función para prueba 
  	 * @return string
  	 */
- 	public function prueba(Request $request)
+ 	public function prueba(request $request)
  	{
 
  			 dd($request->id);
