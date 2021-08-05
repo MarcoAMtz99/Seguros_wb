@@ -10,8 +10,8 @@
 			<button type="submit">Enviar</button>
 			</form>		
 
-			@if(isset($Modelos))
-				{{dd($Modelos)}}
+			@if(isset($modelos))
+				{{dd($modelos)}}
 			@endif
 
 
