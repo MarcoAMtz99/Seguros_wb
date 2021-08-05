@@ -45,9 +45,11 @@ class GNPController extends Controller
  	 */
  	public function prueba2(request $request)
  	{
- 		dd($request);
-
- 		return "Esta es la prueba 2";
+ 		// dd($request);
+ 		
+ 		$Modelos = $this->BusquedaModelos($request->año,'SERIE301');
+ 	
+ 		return view('prueba',['modelos'=>json_encode($Modelos)]);
  	}
 
  	public function prueba(request $request)
