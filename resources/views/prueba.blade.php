@@ -14,7 +14,7 @@
 				
 
 				
-				<table style="width:100%">
+				<table id="myTable" class="display">
 						  <tr>
 						   
 						    <th>ARMADORA</th>
@@ -33,13 +33,13 @@
 							</tr>
 							@endforeach
 						  
-						  <tr>
-						    <td>Eve</td>
-						    <td>Jackson</td>
-						    <td>94</td>
-						  </tr>
+						  
 						</table>
 			@endif
 
-
+<script type="text/javascript">
+	$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
 @endsection
