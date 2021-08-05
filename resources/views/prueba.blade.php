@@ -11,7 +11,7 @@
 			</form>		
 
 			@if(isset($modelos))
-				{{dd($modelos['ELEMENTOS']['ELEMENTO'] )}}
+				{{dd($modelos)}}
 				<table style="width:100%">
 						  <tr>
 						    <th>UNO </th>
