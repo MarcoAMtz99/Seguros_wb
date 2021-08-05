@@ -300,6 +300,9 @@ $xml ='
  		if($submarca == 'QT'){
 			$submarca ='AUDI QT'; 
  		}
+ 		if($submarca == 'S-TYPE'){
+			$submarca ='S TYPE'; 
+ 		}
  		$Modelos = $this->BusquedaModelos($modelo,$submarca);
  		// $json_mod = json_decode($Modelos);
  		// $bandera = false;
