@@ -13,19 +13,25 @@
 			@if(isset($modelos))
 				
 
-				@foreach($modelos["ELEMENTOS"] as $key)
-				 <th>{{dd($key)}} </th>
-				@endforeach
+				
 				<table style="width:100%">
 						  <tr>
 						   
-						    <th>DOS</th>
-						    <th>TRES</th>
+						    <th>ARMADORA</th>
+						    <th>MODELO</th>
+						      <th>CARROCERIA</th>
+						       <th>VERSION</th>
 						  </tr>
 						  <tr>
-						    <td>Jill</td>
-						    <td>Smith</td>
-						    <td>50</td>
+						@foreach($modelos["ELEMENTOS"] as $key)
+						
+							 <td>{{dd($key["ELEMENTO"][1]["VALOR"])}} </td>
+							  <td>{{dd($key["ELEMENTO"][2]["VALOR"])}} </td>
+							   <td>{{dd($key["ELEMENTO"][3]["VALOR"])}} </td>
+							    <td>{{dd($key["ELEMENTO"][4]["VALOR"])}} </td>
+
+
+							@endforeach
 						  </tr>
 						  <tr>
 						    <td>Eve</td>
