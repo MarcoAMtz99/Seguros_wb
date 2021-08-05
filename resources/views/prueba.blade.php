@@ -22,17 +22,17 @@
 						      <th>CARROCERIA</th>
 						       <th>VERSION</th>
 						  </tr>
-						  <tr>
+						 
 						@foreach($modelos["ELEMENTOS"] as $key)
-
+						 <tr>
 							 <td>{{$key["ELEMENTO"][1]["VALOR"]}} </td>
 							  <td>{{$key["ELEMENTO"][2]["VALOR"]}} </td>
 							   <td>{{$key["ELEMENTO"][3]["VALOR"]}} </td>
 							    <td>{{$key["ELEMENTO"][4]["VALOR"]}} </td>
 
-
+							</tr>
 							@endforeach
-						  </tr>
+						  
 						  <tr>
 						    <td>Eve</td>
 						    <td>Jackson</td>
