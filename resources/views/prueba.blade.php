@@ -11,10 +11,14 @@
 			</form>		
 
 			@if(isset($modelos))
-				{{dd($modelos)}}
+				
+
+				@foreach($modelos["ELEMENTOS"] as $key)
+				 <th>{{dd($key)}} </th>
+				@endforeach
 				<table style="width:100%">
 						  <tr>
-						    <th>UNO </th>
+						   
 						    <th>DOS</th>
 						    <th>TRES</th>
 						  </tr>
