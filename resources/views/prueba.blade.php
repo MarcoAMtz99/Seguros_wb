@@ -14,7 +14,7 @@
 				
 
 				
-				<table id="table_id" class="table">
+				<table  class="table table-dark">
 						  <tr>
 						   
 						    <th>ARMADORA</th>
