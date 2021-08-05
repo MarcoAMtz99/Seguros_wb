@@ -14,7 +14,7 @@
 				
 
 				
-				<table style="width:100% ; background: white;">
+				<table id="table_id" style="width:100% ; background: white;">
 						  <tr>
 						   
 						    <th>ARMADORA</th>
@@ -33,11 +33,7 @@
 							</tr>
 							@endforeach
 						  
-						  <tr>
-						    <td>Eve</td>
-						    <td>Jackson</td>
-						    <td>94</td>
-						  </tr>
+					
 						</table>
 			@endif
 

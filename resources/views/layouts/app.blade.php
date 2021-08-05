@@ -243,6 +243,11 @@
               $('.btn').removeClass('animacionVer');
             })
         </script>
+        <script>
+            $(document).ready( function () {
+                $('#table_id').DataTable();
+            } );
 
+        </script>   
     @yield('scripts')
 </html>
