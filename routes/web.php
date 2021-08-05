@@ -18,7 +18,7 @@ Route::get('/dev-envio', function(){
 	return new EmisionPoliza();
 });
 Route::get('prueba', 'GNPController@prueba');
-Route::post('prueba/{id}', 'GNPController@prueba2')->name('año');
+Route::post('prueba2', 'GNPController@prueba2')->name('año');
 Route::get('pruebaG', 'GeneralSegurosController@prueba');
 Route::get('pruebaA', 'API\AnaController@prueba');
 Route::post('sendGS','GeneralSegurosController@sendGS');
