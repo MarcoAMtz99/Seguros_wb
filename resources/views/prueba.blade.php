@@ -3,7 +3,7 @@
 
 
 
-			<form action="{{ route('año') }}">
+			<form action="{{ route('año') }}" method="POST">
 
 				{{ csrf_field() }}
 			<input type="text" id="año" name="año" placeholder="AÑO MODELO">
