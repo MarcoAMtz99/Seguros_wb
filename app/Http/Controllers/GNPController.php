@@ -45,7 +45,9 @@ class GNPController extends Controller
  	 */
  	public function prueba2(request $request)
  	{
- 		dd("Esta es la prueba 2",$request);
+ 		// dd(,$request);
+
+ 		return "Esta es la prueba 2";
  	}
 
  	public function prueba(request $request)
