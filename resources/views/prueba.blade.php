@@ -24,11 +24,11 @@
 						  </tr>
 						  <tr>
 						@foreach($modelos["ELEMENTOS"] as $key)
-						
-							 <td>{{dd($key["ELEMENTO"][1]["VALOR"])}} </td>
-							  <td>{{dd($key["ELEMENTO"][2]["VALOR"])}} </td>
-							   <td>{{dd($key["ELEMENTO"][3]["VALOR"])}} </td>
-							    <td>{{dd($key["ELEMENTO"][4]["VALOR"])}} </td>
+
+							 <td>{{$key["ELEMENTO"][1]["VALOR"]}} </td>
+							  <td>{{$key["ELEMENTO"][2]["VALOR"]}} </td>
+							   <td>{{$key["ELEMENTO"][3]["VALOR"]}} </td>
+							    <td>{{$key["ELEMENTO"][4]["VALOR"]}} </td>
 
 
 							@endforeach
