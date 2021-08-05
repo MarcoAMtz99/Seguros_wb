@@ -7,6 +7,7 @@
 
 				{{ csrf_field() }}
 			<input type="text" id="año" name="año" placeholder="AÑO MODELO">
+			<input type="text" id="submarca" name="submarca" placeholder="submarca">
 			<button type="submit">Enviar</button>
 			</form>		
 
@@ -24,6 +25,7 @@
 						  </tr>
 						 
 						@foreach($modelos["ELEMENTOS"] as $key)
+						@if($modelos['ELEMENTO'][3]["VALOR"] === $submarca)
 						 <tr>
 							 <td>{{$key["ELEMENTO"][1]["VALOR"]}} </td>
 							  <td>{{$key["ELEMENTO"][2]["VALOR"]}} </td>
@@ -31,6 +33,7 @@
 							    <td>{{$key["ELEMENTO"][4]["VALOR"]}} </td>
 
 							</tr>
+							@endif
 							@endforeach
 						  
 					
