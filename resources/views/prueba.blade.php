@@ -25,7 +25,7 @@
 						  </tr>
 						 
 						@foreach($modelos["ELEMENTOS"] as $key)
-						@if($modelos['ELEMENTO'][3]["VALOR"] === $submarca)
+						@if($modelos["ELEMENTO"][3]["VALOR"] === $submarca)
 						 <tr>
 							 <td>{{$key["ELEMENTO"][1]["VALOR"]}} </td>
 							  <td>{{$key["ELEMENTO"][2]["VALOR"]}} </td>
