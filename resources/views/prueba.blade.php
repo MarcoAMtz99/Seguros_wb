@@ -14,7 +14,7 @@
 				
 
 				
-				<table  class="table table-dark">
+				<table id="table_id" style="width:100% ; background: white;">
 						  <tr>
 						   
 						    <th>ARMADORA</th>
