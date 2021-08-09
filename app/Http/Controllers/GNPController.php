@@ -312,6 +312,21 @@ $xml ='
  		if($submarca == 'S-TYPE'){
 			$submarca ='S TYPE'; 
  		}
+ 		if($submarca == 'S-TYPE'){
+			$submarca ='S TYPE'; 
+ 		}
+ 		if($submarca == 'MARINER'){
+			$submarca ='MERCURY MARINER'; 
+ 		}
+ 		if($submarca == '156'){
+			$submarca ='147'; 
+ 		}
+ 		if($submarca == '159'){
+			$submarca ='147'; 
+ 		}
+ 		if($submarca == '166'){
+			$submarca ='147'; 
+ 		}
  		$Modelos = $this->BusquedaModelos($modelo,$submarca);
  		// $json_mod = json_decode($Modelos);
  		// $bandera = false;
