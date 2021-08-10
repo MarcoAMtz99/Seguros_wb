@@ -2153,12 +2153,6 @@ function Cliente(_ref) {
         $('#v-pills-Nacimiento-tab').removeClass('disabled');
         $('#v-pills-Nacimiento-tab').click();
       }
-
-      if (this.sexo == "Masculino") {
-        this.sexo == "Hombre";
-      } else if (this.sexo == "Femenino") {
-        this.sexo == "Mujer";
-      }
     }
   },
   created: function created() {

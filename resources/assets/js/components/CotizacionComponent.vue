@@ -453,11 +453,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				$('#v-pills-Nacimiento-tab').click();
     			}
 
-    			if (this.sexo == "Masculino") {
-    					this.sexo =="Hombre";
-    				}else if(this.sexo == "Femenino"){
-    						this.sexo =="Mujer";
-    				}
+    			
     		},
 
     	},
