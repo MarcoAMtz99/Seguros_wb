@@ -2025,6 +2025,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -43320,6 +43326,52 @@ var render = function() {
                                 [_vm._v("Siguiente")]
                               )
                             ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row" }, [
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.marcasGNP,
+                                  expression: "marcasGNP"
+                                }
+                              ],
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.marcasGNP = $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                }
+                              }
+                            },
+                            [
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("Seleccione su marca")
+                              ]),
+                              _vm._v(" "),
+                              _vm._l(_vm.marcasGNP, function(marca) {
+                                return _c(
+                                  "option",
+                                  { domProps: { value: marca } },
+                                  [_vm._v(_vm._s(marca))]
+                                )
+                              })
+                            ],
+                            2
                           )
                         ])
                       ])

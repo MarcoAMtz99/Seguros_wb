@@ -308,6 +308,12 @@
 		                                    <button type="button" id="8_1" @click="sendCotizacion(cliente)" class="btn btn-primary seleccionador">Siguiente</button>
 		                                </div>
 									</div>
+									 <div class="row">
+									 <select  v-model="marcasGNP">
+		                            	<option value="" >Seleccione su marca</option>
+										<option v-for="marca in marcasGNP" :value="marca">{{ marca}}</option>
+									</select>
+									</div>
 		                        </div>
 		                    </div>
 		                </div>
