@@ -75,5 +75,7 @@ Route::get('/domicilio-gnp/{cp}', 'GNPController@getDatosDomicilio');
 Route::get('/usos-vehiculo-gnp', 'GNPController@getUsosVehiculo');
 Route::get('/estados-circulacion-gnp', 'GNPController@getEstadosCirculacion');
 Route::get('/tipos-via-gnp', 'GNPController@getTiposVia');
-//API PARA LA CONSULTA DE GNP PARA EL PRINCIPIO
-Route::get('/modelos-gnp/{modelo} ','GNPController@modelosAño');
+//CON ESTA URI VAMOS A OBTENER TODAS LAS MARCAS DE ESE AÑO
+Route::get('/marcas-gnp/{año}','GNPController@marcasAño');
+//con esta obtendremos los Resultados de modelos de esta marca
+Route::get('/submarcas-gnp/{año}/{marca}','GNPController@submarcas');
