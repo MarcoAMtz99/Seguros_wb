@@ -2269,6 +2269,7 @@ function Cliente(_ref) {
       if (res.data.marcas) {
         _this5.marcasGNP = res.data.marcas;
         console.log('Aqui se ejecutaron los MODELOS GNP3', _this5.marcasGNP);
+        console.log('Aqui se ejecutaron los MODELOS GNP4', _this5.marcasGNP);
       }
     })["catch"](function (error) {
       console.log('error submarcas', error);

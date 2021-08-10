@@ -565,6 +565,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				if (res.data.marcas) {
     					this.marcasGNP = res.data.marcas;
     					console.log('Aqui se ejecutaron los MODELOS GNP3',this.marcasGNP);
+    					console.log('Aqui se ejecutaron los MODELOS GNP4',this.marcasGNP);
     				}
     				
     			}).catch(error=>{
