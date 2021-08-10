@@ -75,5 +75,5 @@ Route::get('/domicilio-gnp/{cp}', 'GNPController@getDatosDomicilio');
 Route::get('/usos-vehiculo-gnp', 'GNPController@getUsosVehiculo');
 Route::get('/estados-circulacion-gnp', 'GNPController@getEstadosCirculacion');
 Route::get('/tipos-via-gnp', 'GNPController@getTiposVia');
-
-Route::get('/modelos-gnp','GNPController@modelosAño');
+//API PARA LA CONSULTA DE GNP PARA EL PRINCIPIO
+Route::get('/modelos-gnp/{modelo} ','GNPController@modelosAño');
