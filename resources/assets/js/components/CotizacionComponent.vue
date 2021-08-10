@@ -80,6 +80,9 @@
 										<option v-for="marca in marcasGNP" :value="marca">{{ marca}}</option>
 									</select>
 								</div>
+								<div>
+									{{marcasGNP}}
+								</div>
 		                </div>
 						 <!--MARCA-->
 		                <div class="tab-pane fade" v-show="marca" id="v-pills-Marca" role="tabpanel" aria-albelledby="v-pills-Marca-tab">
