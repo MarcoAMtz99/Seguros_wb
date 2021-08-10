@@ -53,9 +53,9 @@ class GNPController extends Controller
  	}
 
  	public function modelosAño($año){
- 		// dd($año);
+ 		
  		$Modelos = $this->BusquedaModelos($año,'SERIE301');
- 		// $uno = "Mensaje uno";
+ 		
  		return response()->json(['CatGNP'=>$Modelos],200);
  	}
 
