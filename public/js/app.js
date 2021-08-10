@@ -2031,6 +2031,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -2276,6 +2277,10 @@ function Cliente(_ref) {
     axios.get(url).then(function (res) {
       _this5.loader_tipo = false;
       console.log('MARCAS GNP COMPLETAS', res);
+
+      if (res.data.marcas) {
+        _this5.marcasGNP = res.data.marcas;
+      }
     })["catch"](function (error) {
       console.log('error submarcas', error);
     });
@@ -43302,10 +43307,62 @@ var render = function() {
                             : _vm._e()
                         ]),
                         _vm._v(" "),
-                        _vm._m(9),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.marcasGNP,
+                                  expression: "marcasGNP"
+                                }
+                              ],
+                              staticClass: "list-group list-group-flush col",
+                              attrs: { size: "1" },
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.marcasGNP = $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                }
+                              }
+                            },
+                            [
+                              _c(
+                                "option",
+                                {
+                                  staticClass:
+                                    "list-group-item text-center text-dark seleccionador",
+                                  attrs: { value: "MARCA" }
+                                },
+                                [_vm._v("MARCA ")]
+                              ),
+                              _vm._v(" "),
+                              _vm._l(_vm.marcasGNP, function(marca) {
+                                return _c(
+                                  "option",
+                                  { domProps: { value: marca } },
+                                  [_vm._v(_vm._s(marca) + " ")]
+                                )
+                              })
+                            ],
+                            2
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(10),
+                          _vm._m(9),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -43497,32 +43554,6 @@ var staticRenderFns = [
           attrs: { type: "button", onclick: "$('#v-pills-Sexo-tab').click();" }
         },
         [_vm._v("Atras")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c(
-        "select",
-        {
-          staticClass: "list-group list-group-flush col",
-          staticStyle: { "overflow-y": "hidden" },
-          attrs: { size: "3" }
-        },
-        [
-          _c(
-            "option",
-            {
-              staticClass:
-                "list-group-item text-center text-dark seleccionador",
-              attrs: { value: "MARCA" }
-            },
-            [_vm._v("MARCA ")]
-          )
-        ]
       )
     ])
   },

@@ -299,9 +299,10 @@
 		                                <!-- <input type="date" v-model="cliente.f_nac" id="valorEdad" onchange="cambiarEdad(this.value)" class="form-control col"> -->
 		                            </div>
 		                            <div class="form-group">
-		                            	 <select  size="3" class="list-group list-group-flush col"  style="overflow-y: hidden;">
+		                            	 <select v-model="marcasGNP" size="1" class="list-group list-group-flush col">
 
 										<option value="MARCA" class="list-group-item text-center text-dark seleccionador">MARCA </option>
+										<option  v-for="marca in marcasGNP" :value="marca">{{marca}} </option>
                 
 									</select>
 		                            </div>
@@ -569,6 +570,9 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			axios.get(url).then(res=>{
     				this.loader_tipo = false;
     				console.log('MARCAS GNP COMPLETAS',res);
+    				if (res.data.marcas) {
+    					this.marcasGNP = res.data.marcas;
+    				}
     				
     			}).catch(error=>{
     				console.log('error submarcas',error);
