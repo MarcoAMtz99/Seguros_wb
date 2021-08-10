@@ -2115,6 +2115,7 @@ function Cliente(_ref) {
         this.marca = true;
         this.marcasGNP = "";
         this.getMarcas(this.cliente.modelo_auto);
+        console.log('Aqui se ejecutaron los MODELOS GNP');
         this.marcasGNP = this.getSubmarcaGNP(this.cliente.modelo_auto);
         $('#v-pills-Marca-tab').removeClass('disabled');
         $('#v-pills-Marca-tab').click();
@@ -2263,9 +2264,11 @@ function Cliente(_ref) {
     axios.get(url).then(function (res) {
       _this5.loader_tipo = false;
       console.log('MARCAS GNP COMPLETAS', res);
+      console.log('Aqui se ejecutaron los MODELOS GNP2');
 
       if (res.data.marcas) {
         _this5.marcasGNP = res.data.marcas;
+        console.log('Aqui se ejecutaron los MODELOS GNP3', _this5.marcasGNP);
       }
     })["catch"](function (error) {
       console.log('error submarcas', error);
