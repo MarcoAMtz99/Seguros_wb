@@ -451,9 +451,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				
     				$('#v-pills-Nacimiento-tab').removeClass('disabled');
     				$('#v-pills-Nacimiento-tab').click();
-    			}
-
-    			
+    			}	
     		},
 
     	},
