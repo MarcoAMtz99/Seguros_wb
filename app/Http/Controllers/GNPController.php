@@ -52,10 +52,11 @@ class GNPController extends Controller
  		return view('prueba',['modelos'=>$Modelos,'submarca'=>$request->submarca]);
  	}
 
- 	public function modelosAño(Request $request){
- 		dd($request);
- 		$uno = "Mensaje uno";
- 		return $uno;
+ 	public function modelosAño($año){
+ 		dd($año);
+ 		$Modelos = $this->BusquedaModelos($año,'SERIE301');
+ 		// $uno = "Mensaje uno";
+ 		return response()->json(['CatGNP'=>$Modelos],200);
  	}
 
  	public function prueba(request $request)
