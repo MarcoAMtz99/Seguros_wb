@@ -2032,6 +2032,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -42048,6 +42051,14 @@ var render = function() {
                           })
                         ],
                         2
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _vm._v(
+                        "\n\t\t\t\t\t\t\t\t\t" +
+                          _vm._s(_vm.marcasGNP) +
+                          "\n\t\t\t\t\t\t\t\t"
                       )
                     ])
                   ]
