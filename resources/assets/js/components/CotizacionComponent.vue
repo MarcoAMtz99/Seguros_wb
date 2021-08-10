@@ -226,8 +226,8 @@
 		                        <div class="card-body">
 		                            <select v-model="cliente.sexo" size="3" class="list-group list-group-flush col"  style="overflow-y: hidden;">
 
-										<option value="Hombre" class="list-group-item text-center text-dark seleccionador">Masculino </option>
-                        				<option value="Mujer" class="list-group-item text-center text-dark seleccionador">Femenino</option>
+										<option value="Masculino" class="list-group-item text-center text-dark seleccionador">Masculino </option>
+                        				<option value="Femenino" class="list-group-item text-center text-dark seleccionador">Femenino</option>
                         				<option value="Otro" class="list-group-item text-center text-dark seleccionador">Otro</option>
 									</select>
 									<div class="row">
@@ -298,14 +298,7 @@
 										</div>
 		                                <!-- <input type="date" v-model="cliente.f_nac" id="valorEdad" onchange="cambiarEdad(this.value)" class="form-control col"> -->
 		                            </div>
-		                            <div class="form-group">
-		                            	 <select v-model="marcasGNP" size="1" class="list-group list-group-flush col">
-
-										<option value="MARCA" class="list-group-item text-center text-dark seleccionador">MARCA </option>
-										<option  v-for="marca in marcasGNP" :value="marca">{{marca}} </option>
-                
-									</select>
-		                            </div>
+		                            
 
 		                            <div class="row">
 										<div class="col mt-3 d-block d-sm-none">

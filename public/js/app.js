@@ -2025,13 +2025,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -42773,7 +42766,7 @@ var render = function() {
                               {
                                 staticClass:
                                   "list-group-item text-center text-dark seleccionador",
-                                attrs: { value: "Hombre" }
+                                attrs: { value: "Masculino" }
                               },
                               [_vm._v("Masculino ")]
                             ),
@@ -42783,7 +42776,7 @@ var render = function() {
                               {
                                 staticClass:
                                   "list-group-item text-center text-dark seleccionador",
-                                attrs: { value: "Mujer" }
+                                attrs: { value: "Femenino" }
                               },
                               [_vm._v("Femenino")]
                             ),
@@ -43298,60 +43291,6 @@ var render = function() {
                                 ]
                               )
                             : _vm._e()
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.marcasGNP,
-                                  expression: "marcasGNP"
-                                }
-                              ],
-                              staticClass: "list-group list-group-flush col",
-                              attrs: { size: "1" },
-                              on: {
-                                change: function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.marcasGNP = $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                }
-                              }
-                            },
-                            [
-                              _c(
-                                "option",
-                                {
-                                  staticClass:
-                                    "list-group-item text-center text-dark seleccionador",
-                                  attrs: { value: "MARCA" }
-                                },
-                                [_vm._v("MARCA ")]
-                              ),
-                              _vm._v(" "),
-                              _vm._l(_vm.marcasGNP, function(marca) {
-                                return _c(
-                                  "option",
-                                  { domProps: { value: marca } },
-                                  [_vm._v(_vm._s(marca) + " ")]
-                                )
-                              })
-                            ],
-                            2
-                          )
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
