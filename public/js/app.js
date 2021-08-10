@@ -2150,10 +2150,10 @@ function Cliente(_ref) {
       if (newV != "") {
         this.nac = true;
 
-        if (this.cliente.cliente.sexo == "Masculino") {
-          this.cliente.cliente.sexo == "Hombre";
-        } else if (this.cliente.cliente.sexo == "Femenino") {
-          this.cliente.cliente.sexo == "Mujer";
+        if (this.cliente.sexo == "Masculino") {
+          this.cliente.sexo == "Hombre";
+        } else if (this.cliente.sexo == "Femenino") {
+          this.cliente.sexo == "Mujer";
         }
 
         $('#v-pills-Nacimiento-tab').removeClass('disabled');
