@@ -2150,15 +2150,14 @@ function Cliente(_ref) {
     'cliente.sexo': function clienteSexo(newV, oldV) {
       if (newV != "") {
         this.nac = true;
-
-        if (this.cliente.sexo == "Masculino") {
-          this.cliente.sexo == "Hombre";
-        } else if (this.cliente.sexo == "Femenino") {
-          this.cliente.sexo == "Mujer";
-        }
-
         $('#v-pills-Nacimiento-tab').removeClass('disabled');
         $('#v-pills-Nacimiento-tab').click();
+      }
+
+      if (this.cliente.sexo == "Masculino") {
+        this.cliente.sexo == "Hombre";
+      } else if (this.cliente.sexo == "Femenino") {
+        this.cliente.sexo == "Mujer";
       }
     }
   },

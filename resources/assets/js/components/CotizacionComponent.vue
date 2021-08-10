@@ -448,15 +448,18 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     		'cliente.sexo':function(newV,oldV){
     			if (newV != "") {
     				this.nac = true;
-    				if (this.cliente.sexo == "Masculino") {
+    				
+    				$('#v-pills-Nacimiento-tab').removeClass('disabled');
+    				$('#v-pills-Nacimiento-tab').click();
+    			}
+
+    			if (this.cliente.sexo == "Masculino") {
     					this.cliente.sexo =="Hombre";
     				}else if(this.cliente.sexo == "Femenino"){
     						this.cliente.sexo =="Mujer";
     				}
-    				$('#v-pills-Nacimiento-tab').removeClass('disabled');
-    				$('#v-pills-Nacimiento-tab').click();
-    			}
     		},
+
     	},
     	created(){
     		this.getModelos();
@@ -648,6 +651,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			}
     			if (input == "sexo" && this.cliente.telefono != "") {
     				this.nac = true;
+
     				$('#v-pills-Nacimiento-tab').removeClass('disabled');
     				$('#v-pills-Nacimiento-tab').click();
     			}
