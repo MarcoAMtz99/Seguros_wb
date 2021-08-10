@@ -299,7 +299,7 @@
 		                                <!-- <input type="date" v-model="cliente.f_nac" id="valorEdad" onchange="cambiarEdad(this.value)" class="form-control col"> -->
 		                            </div>
 		                            <div class="form-group">
-		                            	 <select v-model="marcasGNP" size="3" class="list-group list-group-flush col"  style="overflow-y: hidden;">
+		                            	 <select  size="3" class="list-group list-group-flush col"  style="overflow-y: hidden;">
 
 										<option value="MARCA" class="list-group-item text-center text-dark seleccionador">MARCA </option>
                 
@@ -417,6 +417,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			if (newV != "") {
     				this.marca = true;
     				this.getMarcas(this.cliente.modelo_auto)
+    				this.marcasGNP = this.getSubmarcaGNP(this.cliente.modelo_auto);
     				$('#v-pills-Marca-tab').removeClass('disabled');
     				$('#v-pills-Marca-tab').click();
     			}
@@ -430,6 +431,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				}
 
     				this.getSubmarcas(this.cliente.marca_auto.id);
+
     				$('#v-pills-Submarca-tab').removeClass('disabled');
     				$('#v-pills-Submarca-tab').click();
     			}
@@ -562,13 +564,11 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			getSubmarcaGNP(año){
     			this.loader_tipo=true;
     			let url = `./api/marcas-gnp/${this.cliente.modelo_auto}`;
-    			// $('#descripcion').append('<div class="loader"></div>');
+    			
     			axios.get(url).then(res=>{
     				this.loader_tipo = false;
     				console.log('MARCAS GNP',res);
-    				// if (res.data.submarcas) {
-    				// 	this.submarcas = res.data.submarcas.sort();
-    				// }
+    				
     			}).catch(error=>{
     				console.log('error submarcas',error);
 				});
