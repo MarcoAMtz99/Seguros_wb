@@ -226,8 +226,8 @@
 		                        <div class="card-body">
 		                            <select v-model="cliente.sexo" size="3" class="list-group list-group-flush col"  style="overflow-y: hidden;">
 
-										<option value="Hombre" class="list-group-item text-center text-dark seleccionador">Masculino </option>
-                        				<option value="Mujer" class="list-group-item text-center text-dark seleccionador">Femenino</option>
+										<option value="Masculino" class="list-group-item text-center text-dark seleccionador">Masculino </option>
+                        				<option value="Femenino" class="list-group-item text-center text-dark seleccionador">Femenino</option>
                         				<option value="Otro" class="list-group-item text-center text-dark seleccionador">Otro</option>
 									</select>
 									<div class="row">
@@ -298,6 +298,13 @@
 										</div>
 		                                <!-- <input type="date" v-model="cliente.f_nac" id="valorEdad" onchange="cambiarEdad(this.value)" class="form-control col"> -->
 		                            </div>
+		                            <div class="form-group">
+		                            	 <select v-model="GNP.marca" size="3" class="list-group list-group-flush col"  style="overflow-y: hidden;">
+
+										<option value="MARCA" class="list-group-item text-center text-dark seleccionador">MARCA </option>
+                
+									</select>
+		                            </div>
 
 		                            <div class="row">
 										<div class="col mt-3 d-block d-sm-none">
@@ -362,6 +369,8 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			marcas: [],
     			submarcas:[],
     			modelos:[],
+    			modelosGNP:[],
+    			marcasGNP:[],
     			pills:[
     				'v-pills-Uso',
     				'v-pills-Marca',
@@ -435,6 +444,11 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     		'cliente.sexo':function(newV,oldV){
     			if (newV != "") {
     				this.nac = true;
+    				if (this.cliente.cliente.sexo == "Masculino") {
+    					this.cliente.cliente.sexo =="Hombre";
+    				}else if(this.cliente.cliente.sexo == "Femenino"){
+    						this.cliente.cliente.sexo =="Mujer";
+    				}
     				$('#v-pills-Nacimiento-tab').removeClass('disabled');
     				$('#v-pills-Nacimiento-tab').click();
     			}
@@ -541,6 +555,20 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				if (res.data.submarcas) {
     					this.submarcas = res.data.submarcas.sort();
     				}
+    			}).catch(error=>{
+    				console.log('error submarcas',error);
+				});
+    		},
+    			getSubmarcaGNP(año){
+    			this.loader_tipo=true;
+    			let url = `./api/marcas-gnp/${this.cliente.modelo_auto}`;
+    			// $('#descripcion').append('<div class="loader"></div>');
+    			axios.get(url).then(res=>{
+    				this.loader_tipo = false;
+    				console.log('MARCAS GNP',res);
+    				// if (res.data.submarcas) {
+    				// 	this.submarcas = res.data.submarcas.sort();
+    				// }
     			}).catch(error=>{
     				console.log('error submarcas',error);
 				});

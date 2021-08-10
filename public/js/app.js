@@ -2024,6 +2024,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -2077,6 +2084,8 @@ function Cliente(_ref) {
       marcas: [],
       submarcas: [],
       modelos: [],
+      modelosGNP: [],
+      marcasGNP: [],
       pills: ['v-pills-Uso', 'v-pills-Marca', 'v-pills-Submarca', 'v-pills-Modelo', 'v-pills-CP', 'v-pills-Nombre', 'v-pills-Celular', 'v-pills-Correo', 'v-pills-Sexo', 'v-pills-Nacimiento', 'v-pills-Aseguradoras'],
       alert_cp: "",
       uso: true,
@@ -2138,6 +2147,13 @@ function Cliente(_ref) {
     'cliente.sexo': function clienteSexo(newV, oldV) {
       if (newV != "") {
         this.nac = true;
+
+        if (this.cliente.cliente.sexo == "Masculino") {
+          this.cliente.cliente.sexo == "Hombre";
+        } else if (this.cliente.cliente.sexo == "Femenino") {
+          this.cliente.cliente.sexo == "Mujer";
+        }
+
         $('#v-pills-Nacimiento-tab').removeClass('disabled');
         $('#v-pills-Nacimiento-tab').click();
       }
@@ -2250,44 +2266,58 @@ function Cliente(_ref) {
     })["catch"](function (error) {
       console.log('error submarcas', error);
     });
-  }), _defineProperty(_methods, "getModelos", function getModelos() {
+  }), _defineProperty(_methods, "getSubmarcaGNP", function getSubmarcaGNP(año) {
     var _this5 = this;
+
+    this.loader_tipo = true;
+    var url = "./api/marcas-gnp/".concat(this.cliente.modelo_auto); // $('#descripcion').append('<div class="loader"></div>');
+
+    axios.get(url).then(function (res) {
+      _this5.loader_tipo = false;
+      console.log('MARCAS GNP', res); // if (res.data.submarcas) {
+      // 	this.submarcas = res.data.submarcas.sort();
+      // }
+    })["catch"](function (error) {
+      console.log('error submarcas', error);
+    });
+  }), _defineProperty(_methods, "getModelos", function getModelos() {
+    var _this6 = this;
 
     var url = "./api/modelosANA";
     axios.get(url).then(function (res) {
       console.log('res modelos', res);
-      _this5.loader_modelo = false;
+      _this6.loader_modelo = false;
 
       if (res.data.modelos) {
-        _this5.modelos = res.data.modelos;
+        _this6.modelos = res.data.modelos;
       }
     })["catch"](function (error) {
       console.log('error modelos', error);
     });
   }), _defineProperty(_methods, "getDescripciones", function getDescripciones(submarca, modelo, marca) {
-    var _this6 = this;
+    var _this7 = this;
 
     this.loader_desc = true; // console.log(marca);
 
     $('#descripcion').append('<div class="loader"></div>');
     var url = "./api/vehiculoANA/".concat(marca, "/").concat(submarca, "/").concat(modelo);
     axios.get(url).then(function (res) {
-      _this6.loader_desc = false;
-      _this6.descripciones = res.data.vehiculos;
+      _this7.loader_desc = false;
+      _this7.descripciones = res.data.vehiculos;
     })["catch"](function (err) {
       console.log('getDescripciones err', err);
     });
   }), _defineProperty(_methods, "nextPill", function nextPill(input) {
-    var _this7 = this;
+    var _this8 = this;
 
     if (input == "cp" && this.cliente.cp != "") {
       var url = "./api/cp/".concat(this.cliente.cp);
       axios.get(url).then(function (res) {
         if (res.data.response) {
-          _this7.alert_cp = _this7.nombre = true;
-          _this7.alert_cp = ""; // console.log('si entra');
+          _this8.alert_cp = _this8.nombre = true;
+          _this8.alert_cp = ""; // console.log('si entra');
 
-          _this7.cliente.cestado = res.data.response[0].cestado;
+          _this8.cliente.cestado = res.data.response[0].cestado;
           $('#v-pills-Nombre-tab').removeClass('disabled');
           $('#v-pills-Nombre-tab').click();
         }
@@ -2295,9 +2325,9 @@ function Cliente(_ref) {
         console.log('CP', res);
       })["catch"](function (err) {
         if (err.response.data.error) {
-          _this7.nombre = false;
+          _this8.nombre = false;
           $('#v-pills-Nombre-tab').addClass('disabled');
-          _this7.alert_cp = err.response.data.error;
+          _this8.alert_cp = err.response.data.error;
         }
       });
     }
@@ -2332,7 +2362,7 @@ function Cliente(_ref) {
       $('#v-pills-Aseguradoras-tab').click();
     }
   }), _defineProperty(_methods, "sendCotizacion", function sendCotizacion(cliente) {
-    var _this8 = this;
+    var _this9 = this;
 
     var params = cliente;
     var url = "./api/cotizacion";
@@ -2340,26 +2370,26 @@ function Cliente(_ref) {
     this.alert["class"] = '';
     axios.post(url, cliente).then(function (res) {
       //console.log('res',res);
-      _this8.cliente.cotizacion = res.data.cotizacion.cotizacion;
-      _this8.cliente.uso_auto = res.data.cotizacion.uso_auto;
-      _this8.cliente.descripcion_auto = res.data.cotizacion.auto.version;
-      _this8.cliente.marca_auto = res.data.cotizacion.auto.marca;
-      _this8.cliente.modelo_auto = res.data.cotizacion.auto.submarca.anio;
-      _this8.cliente.submarca_auto = res.data.cotizacion.auto.submarca;
-      _this8.cliente.cp = res.data.cotizacion.cp;
-      _this8.cliente.nombre = res.data.cotizacion.nombre;
-      _this8.cliente.appaterno = res.data.cotizacion.appaterno;
-      _this8.cliente.apmaterno = res.data.cotizacion.apmaterno;
-      _this8.cliente.telefono = res.data.cotizacion.telefono;
-      _this8.cliente.email = res.data.cotizacion.email;
-      _this8.cliente.sexo = res.data.cotizacion.sexo;
-      _this8.cliente.f_nac = res.data.cotizacion.f_nac;
-      _this8.cliente.ana = res.data.cotizacion.ana;
-      _this8.cliente.gs = res.data.cotizacion.gs;
-      _this8.cliente.qualitas = res.data.cotizacion.qualitas;
-      _this8.getcotizacion.value = !_this8.getcotizacion.value;
-      _this8.alert.message = "".concat(_this8.cliente.nombre, " ").concat(_this8.cliente.appaterno, " ").concat(_this8.cliente.apmaterno, " su cotizaci\xF3n se guardo con el folio ").concat(_this8.cliente.cotizacion);
-      _this8.alert["class"] = "alert alert-success alert-dismissible fade show";
+      _this9.cliente.cotizacion = res.data.cotizacion.cotizacion;
+      _this9.cliente.uso_auto = res.data.cotizacion.uso_auto;
+      _this9.cliente.descripcion_auto = res.data.cotizacion.auto.version;
+      _this9.cliente.marca_auto = res.data.cotizacion.auto.marca;
+      _this9.cliente.modelo_auto = res.data.cotizacion.auto.submarca.anio;
+      _this9.cliente.submarca_auto = res.data.cotizacion.auto.submarca;
+      _this9.cliente.cp = res.data.cotizacion.cp;
+      _this9.cliente.nombre = res.data.cotizacion.nombre;
+      _this9.cliente.appaterno = res.data.cotizacion.appaterno;
+      _this9.cliente.apmaterno = res.data.cotizacion.apmaterno;
+      _this9.cliente.telefono = res.data.cotizacion.telefono;
+      _this9.cliente.email = res.data.cotizacion.email;
+      _this9.cliente.sexo = res.data.cotizacion.sexo;
+      _this9.cliente.f_nac = res.data.cotizacion.f_nac;
+      _this9.cliente.ana = res.data.cotizacion.ana;
+      _this9.cliente.gs = res.data.cotizacion.gs;
+      _this9.cliente.qualitas = res.data.cotizacion.qualitas;
+      _this9.getcotizacion.value = !_this9.getcotizacion.value;
+      _this9.alert.message = "".concat(_this9.cliente.nombre, " ").concat(_this9.cliente.appaterno, " ").concat(_this9.cliente.apmaterno, " su cotizaci\xF3n se guardo con el folio ").concat(_this9.cliente.cotizacion);
+      _this9.alert["class"] = "alert alert-success alert-dismissible fade show";
       $("#paso2-tab").removeClass("disabled");
       $("#paso2-tab").click();
     })["catch"](function (err) {
@@ -42746,7 +42776,7 @@ var render = function() {
                               {
                                 staticClass:
                                   "list-group-item text-center text-dark seleccionador",
-                                attrs: { value: "Hombre" }
+                                attrs: { value: "Masculino" }
                               },
                               [_vm._v("Masculino ")]
                             ),
@@ -42756,7 +42786,7 @@ var render = function() {
                               {
                                 staticClass:
                                   "list-group-item text-center text-dark seleccionador",
-                                attrs: { value: "Mujer" }
+                                attrs: { value: "Femenino" }
                               },
                               [_vm._v("Femenino")]
                             ),
@@ -43271,6 +43301,56 @@ var render = function() {
                                 ]
                               )
                             : _vm._e()
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.GNP.marca,
+                                  expression: "GNP.marca"
+                                }
+                              ],
+                              staticClass: "list-group list-group-flush col",
+                              staticStyle: { "overflow-y": "hidden" },
+                              attrs: { size: "3" },
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.GNP,
+                                    "marca",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                }
+                              }
+                            },
+                            [
+                              _c(
+                                "option",
+                                {
+                                  staticClass:
+                                    "list-group-item text-center text-dark seleccionador",
+                                  attrs: { value: "MARCA" }
+                                },
+                                [_vm._v("MARCA ")]
+                              )
+                            ]
+                          )
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [

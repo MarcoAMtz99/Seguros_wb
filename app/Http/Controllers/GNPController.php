@@ -69,8 +69,28 @@ class GNPController extends Controller
 
  	public function submarcas($año,$marca){
 
- 			dd($marca,$año);
- 			return "Hola";
+ 			// dd($marca,$año);
+ 			$Modelos = $this->BusquedaModelos($año,'SERIE301');
+ 			$submarcas =[];
+ 			$submarcas2 =[];
+
+ 			foreach ($Modelos['ELEMENTOS'] as $key => $value) {
+ 				// dd($value);
+ 				if ($value["ELEMENTO"][1]["VALOR"] === $marca) {
+ 					$aux =  $value["ELEMENTO"][3]["VALOR"];
+ 					$aux2 = array(
+ 						'CARROCERIA'=>$value["ELEMENTO"][3]["VALOR"],
+ 						'MODELO'=>$value["ELEMENTO"][2]["VALOR"],
+ 						'ARMADORA'=>$value["ELEMENTO"][1]["VALOR"]
+
+ 					);
+ 					array_push($submarcas, $aux);
+ 					array_push($submarcas2, $aux2);
+ 				}
+ 			
+ 		}
+ 			// dd($submarcas,$submarcas2);
+ 			return response()->json(['submarcas'=>array_unique($submarcas)],200);
  	}
 
  	public function prueba(request $request)
@@ -246,14 +266,14 @@ $xml ='
 
  	public function ObtenerPdfPoliza($poliza){
 
- 			$xml ="
-<IMPRESION_POLIZA>
-<USUARIO>EMOREN927586</USUARIO>
-<PASSWORD>Moreno2021</PASSWORD>
-<NUM_POLIZA>$poliza</NUM_POLIZA>
-<NUM_VERSION>0</NUM_VERSION>
-<EXTENSION_ARCHIVO>PDF</EXTENSION_ARCHIVO>
-</IMPRESION_POLIZA>";
+ 			$xml = "
+			<IMPRESION_POLIZA>
+			<USUARIO>EMOREN927586</USUARIO>
+			<PASSWORD>Moreno2021</PASSWORD>
+			<NUM_POLIZA>$poliza</NUM_POLIZA>
+			<NUM_VERSION>0</NUM_VERSION>
+			<EXTENSION_ARCHIVO>PDF</EXTENSION_ARCHIVO>
+			</IMPRESION_POLIZA>";
 
 			try {
 			
