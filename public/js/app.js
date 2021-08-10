@@ -2154,10 +2154,10 @@ function Cliente(_ref) {
         $('#v-pills-Nacimiento-tab').click();
       }
 
-      if (this.cliente.sexo == "Masculino") {
-        this.cliente.sexo == "Hombre";
-      } else if (this.cliente.sexo == "Femenino") {
-        this.cliente.sexo == "Mujer";
+      if (this.sexo == "Masculino") {
+        this.sexo == "Hombre";
+      } else if (this.sexo == "Femenino") {
+        this.sexo == "Mujer";
       }
     }
   },
