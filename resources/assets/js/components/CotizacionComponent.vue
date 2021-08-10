@@ -416,7 +416,8 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     		'cliente.modelo_auto':function(newV,oldV){
     			if (newV != "") {
     				this.marca = true;
-    				this.getMarcas(this.cliente.modelo_auto)
+    				this.marcasGNP ="";
+    				this.getMarcas(this.cliente.modelo_auto);
     				this.marcasGNP = this.getSubmarcaGNP(this.cliente.modelo_auto);
     				$('#v-pills-Marca-tab').removeClass('disabled');
     				$('#v-pills-Marca-tab').click();
@@ -567,7 +568,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			
     			axios.get(url).then(res=>{
     				this.loader_tipo = false;
-    				console.log('MARCAS GNP',res);
+    				console.log('MARCAS GNP COMPLETAS',res);
     				
     			}).catch(error=>{
     				console.log('error submarcas',error);

@@ -2119,6 +2119,7 @@ function Cliente(_ref) {
     'cliente.modelo_auto': function clienteModelo_auto(newV, oldV) {
       if (newV != "") {
         this.marca = true;
+        this.marcasGNP = "";
         this.getMarcas(this.cliente.modelo_auto);
         this.marcasGNP = this.getSubmarcaGNP(this.cliente.modelo_auto);
         $('#v-pills-Marca-tab').removeClass('disabled');
@@ -2274,7 +2275,7 @@ function Cliente(_ref) {
     var url = "./api/marcas-gnp/".concat(this.cliente.modelo_auto);
     axios.get(url).then(function (res) {
       _this5.loader_tipo = false;
-      console.log('MARCAS GNP', res);
+      console.log('MARCAS GNP COMPLETAS', res);
     })["catch"](function (error) {
       console.log('error submarcas', error);
     });
