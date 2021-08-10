@@ -226,8 +226,8 @@
 		                        <div class="card-body">
 		                            <select v-model="cliente.sexo" size="3" class="list-group list-group-flush col"  style="overflow-y: hidden;">
 
-										<option value="Masculino" class="list-group-item text-center text-dark seleccionador">Masculino </option>
-                        				<option value="Femenino" class="list-group-item text-center text-dark seleccionador">Femenino</option>
+										<option value="Hombre" class="list-group-item text-center text-dark seleccionador">Masculino </option>
+                        				<option value="Mujer" class="list-group-item text-center text-dark seleccionador">Femenino</option>
                         				<option value="Otro" class="list-group-item text-center text-dark seleccionador">Otro</option>
 									</select>
 									<div class="row">
