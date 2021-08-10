@@ -75,4 +75,5 @@ Route::get('/domicilio-gnp/{cp}', 'GNPController@getDatosDomicilio');
 Route::get('/usos-vehiculo-gnp', 'GNPController@getUsosVehiculo');
 Route::get('/estados-circulacion-gnp', 'GNPController@getEstadosCirculacion');
 Route::get('/tipos-via-gnp', 'GNPController@getTiposVia');
-Route::get('/modelos-gnp/{año}','GNPController@modelosAño');
+
+Route::post('/modelos-gnp/{año}','GNPController@modelosAño');

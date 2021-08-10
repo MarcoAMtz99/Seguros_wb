@@ -43,7 +43,7 @@ class GNPController extends Controller
  	 * Función para prueba 
  	 * @return string
  	 */
- 	public function prueba2(request $request)
+ 	public function prueba2(Request $request)
  	{
  		// dd($request);
  		
@@ -52,7 +52,8 @@ class GNPController extends Controller
  		return view('prueba',['modelos'=>$Modelos,'submarca'=>$request->submarca]);
  	}
 
- 	public function modelosAño(request $request){
+ 	public function modelosAño(Request $request){
+ 		dd($request);
  		$uno = "Mensaje uno";
  		return $uno;
  	}
