@@ -53,7 +53,7 @@ class GNPController extends Controller
  	}
 
  	public function modelosAño(request $request){
-
+ 		$uno = "Mensaje uno";
  		return "Estos son los modelos por año";
  	}
 
