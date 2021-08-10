@@ -52,6 +52,11 @@ class GNPController extends Controller
  		return view('prueba',['modelos'=>$Modelos,'submarca'=>$request->submarca]);
  	}
 
+ 	public function modelosAño(request $request){
+
+ 		return "Estos son los modelos por año";
+ 	}
+
  	public function prueba(request $request)
  	{
 
@@ -327,6 +332,10 @@ $xml ='
  		if($submarca == '166'){
 			$submarca ='ALFA ROMEO 147'; 
  		}
+ 		if($submarca == 'BRERA'){
+			$submarca ='ALFA ROMEO 147'; 
+ 		}
+
  		$Modelos = $this->BusquedaModelos($modelo,$submarca);
  		// $json_mod = json_decode($Modelos);
  		// $bandera = false;
