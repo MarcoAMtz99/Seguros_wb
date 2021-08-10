@@ -81,7 +81,7 @@
 									</select>
 								</div>
 								<div>
-									{{marcasGNP}}
+									  {{marcasGNP}}
 								</div>
 		                </div>
 						 <!--MARCA-->
