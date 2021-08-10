@@ -43311,8 +43311,8 @@ var render = function() {
                                 {
                                   name: "model",
                                   rawName: "v-model",
-                                  value: _vm.GNP.marca,
-                                  expression: "GNP.marca"
+                                  value: _vm.marcasGNP,
+                                  expression: "marcasGNP"
                                 }
                               ],
                               staticClass: "list-group list-group-flush col",
@@ -43329,13 +43329,9 @@ var render = function() {
                                         "_value" in o ? o._value : o.value
                                       return val
                                     })
-                                  _vm.$set(
-                                    _vm.GNP,
-                                    "marca",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  )
+                                  _vm.marcasGNP = $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
                                 }
                               }
                             },

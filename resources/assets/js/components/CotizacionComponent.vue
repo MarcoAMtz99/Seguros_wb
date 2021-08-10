@@ -299,7 +299,7 @@
 		                                <!-- <input type="date" v-model="cliente.f_nac" id="valorEdad" onchange="cambiarEdad(this.value)" class="form-control col"> -->
 		                            </div>
 		                            <div class="form-group">
-		                            	 <select v-model="GNP.marca" size="3" class="list-group list-group-flush col"  style="overflow-y: hidden;">
+		                            	 <select v-model="marcasGNP" size="3" class="list-group list-group-flush col"  style="overflow-y: hidden;">
 
 										<option value="MARCA" class="list-group-item text-center text-dark seleccionador">MARCA </option>
                 
