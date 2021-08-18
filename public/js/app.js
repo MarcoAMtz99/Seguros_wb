@@ -2061,8 +2061,8 @@ function Cliente(_ref) {
   this.email = email;
   this.sexo = sexo;
   this.f_nac = f_nac;
-  this.ejecutivo;
-  this.codigo_descuento;
+  this.ejecutivo = ejecutivo;
+  this.codigo_descuento = codigo_descuento;
 }
 
 /* harmony default export */ __webpack_exports__["default"] = ({

@@ -341,8 +341,8 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 	this.email 	    = email;
 	this.sexo 	    = sexo;
 	this.f_nac      = f_nac;
-	this.ejecutivo;
-	this.codigo_descuento;
+	this.ejecutivo   = ejecutivo;
+	this.codigo_descuento = codigo_descuento;
 
 }
     export default {
