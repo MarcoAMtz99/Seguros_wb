@@ -438,7 +438,8 @@ XML;
             $modelo = $cliente->auto->submarca->anio;
             $descripcion= $request->descripcion;
             $poliza = $request->poliza;
-            
+            $Descuento =0;
+
             $planes=['1','3','4'];
             // dd($clave_amis);
             $pagosJSON=$this->formaPagos();
@@ -453,6 +454,11 @@ XML;
             // dd($fecha_t);
             // dd($poblacion);
             $respuestas=[];
+            if ($cliente->ejecutivo || $cliente->codigo_descuento != null) {
+                 $Descuento =50;
+            }else{
+                 $Descuento =0;
+            }
             foreach ($pagos as $pago) {
                 switch ($poliza) {
                     case "Amplia":
@@ -477,7 +483,7 @@ XML;
             <cobertura id="40" desc="" sa="" tipo="" ded="50" pma=""/>
         </vehiculo>
         <asegurado id="" nombre="" paterno="" materno="" calle="" numerointerior="" numeroexterior="" colonia="" poblacion="" estado="$estadoANA" cp="" pais="" tipopersona=""/>
-        <poliza id="" tipo="A" endoso="" fecemision="" feciniciovig="$fecha_hoy" fecterminovig="$fecha_t" moneda="0" bonificacion="50" formapago="$pago->id" agente="14275" tarifacuotas="1804" tarifavalores="1804" tarifaderechos="1804" beneficiario="" politicacancelacion="1"/>
+        <poliza id="" tipo="A" endoso="" fecemision="" feciniciovig="$fecha_hoy" fecterminovig="$fecha_t" moneda="0" bonificacion="$Descuento" formapago="$pago->id" agente="14275" tarifacuotas="1804" tarifavalores="1804" tarifaderechos="1804" beneficiario="" politicacancelacion="1"/>
         <prima primaneta="" derecho="" recargo="" impuesto="" primatotal="" comision=""/>
         <recibo id="" feciniciovig="" fecterminovig="" primaneta="" derecho="" recargo="" impuesto="" primatotal="" comision="" cadenaoriginal="" sellodigital="" fecemision="" serie="" folio="" horaemision="" numeroaprobacion="" anoaprobacion="" numseriecertificado=""/>
         <error/>
@@ -501,7 +507,7 @@ XML;
             <cobertura id="34" desc="" sa="2000000" tipo="" ded="" pma=""/>
         </vehiculo>
         <asegurado id="" nombre="" paterno="" materno="" calle="" numerointerior="" numeroexterior="" colonia="" poblacion="" estado="$estadoANA" cp="" pais="" tipopersona=""/>
-        <poliza id="" tipo="A" endoso="" fecemision="" feciniciovig="$fecha_hoy" fecterminovig="$fecha_t" moneda="0" bonificacion="50" formapago="$pago->id" agente="14275" tarifacuotas="1804" tarifavalores="1804" tarifaderechos="1804" beneficiario="" politicacancelacion="1"/>
+        <poliza id="" tipo="A" endoso="" fecemision="" feciniciovig="$fecha_hoy" fecterminovig="$fecha_t" moneda="0" bonificacion="$Descuento" formapago="$pago->id" agente="14275" tarifacuotas="1804" tarifavalores="1804" tarifaderechos="1804" beneficiario="" politicacancelacion="1"/>
         <prima primaneta="" derecho="" recargo="" impuesto="" primatotal="" comision=""/>
         <recibo id="" feciniciovig="" fecterminovig="" primaneta="" derecho="" recargo="" impuesto="" primatotal="" comision="" cadenaoriginal="" sellodigital="" fecemision="" serie="" folio="" horaemision="" numeroaprobacion="" anoaprobacion="" numseriecertificado=""/>
         <error/>
@@ -523,7 +529,7 @@ XML;
             <cobertura id="34" desc="" sa="2000000" tipo="" ded="" pma=""/>
         </vehiculo>
         <asegurado id="" nombre="" paterno="" materno="" calle="" numerointerior="" numeroexterior="" colonia="" poblacion="" estado="01001" cp="" pais="" tipopersona=""/>
-        <poliza id="" tipo="A" endoso="" fecemision="" feciniciovig="$fecha_hoy" fecterminovig="$fecha_t" moneda="0" bonificacion="50" formapago="$pago->id" agente="14275" tarifacuotas="1804" tarifavalores="1804" tarifaderechos="1804" beneficiario="" politicacancelacion="1"/>
+        <poliza id="" tipo="A" endoso="" fecemision="" feciniciovig="$fecha_hoy" fecterminovig="$fecha_t" moneda="0" bonificacion="$Descuento" formapago="$pago->id" agente="14275" tarifacuotas="1804" tarifavalores="1804" tarifaderechos="1804" beneficiario="" politicacancelacion="1"/>
         <prima primaneta="" derecho="" recargo="" impuesto="" primatotal="" comision=""/>
         <recibo id="" feciniciovig="" fecterminovig="" primaneta="" derecho="" recargo="" impuesto="" primatotal="" comision="" cadenaoriginal="" sellodigital="" fecemision="" serie="" folio="" horaemision="" numeroaprobacion="" anoaprobacion="" numseriecertificado=""/>
         <error/>
