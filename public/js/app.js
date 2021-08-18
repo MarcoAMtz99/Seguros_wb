@@ -2180,6 +2180,8 @@ function Cliente(_ref) {
           _this.cliente.gs = res.data.cotizacion.gs;
           _this.cliente.qualitas = res.data.cotizacion.qualitas;
           _this.cliente.gnp = res.data.cotizacion.gnp;
+          _this.cliente.ejecutivo = res.data.ejecutivo;
+          _this.cliente.codigo_descuento = res.data.codigo_descuento;
           $("#paso2-tab").removeClass("disabled");
           $("#paso2-tab").click();
           _this.getcotizacion.value = !_this.getcotizacion.value;

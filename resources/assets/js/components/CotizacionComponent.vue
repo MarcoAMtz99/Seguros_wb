@@ -473,6 +473,8 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 						this.cliente.gs 			  = res.data.cotizacion.gs;
 						this.cliente.qualitas 		  = res.data.cotizacion.qualitas;
 						this.cliente.gnp 		  	  = res.data.cotizacion.gnp;
+						this.cliente.ejecutivo 		  = res.data.ejecutivo;
+						this.cliente.codigo_descuento = res.data.codigo_descuento;
 
 					 	$("#paso2-tab").removeClass("disabled");
         				$("#paso2-tab").click();
