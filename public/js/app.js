@@ -2035,6 +2035,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -2108,7 +2117,9 @@ function Cliente(_ref) {
       sexo: false,
       nac: false,
       searchOption: false,
-      checkall: false
+      checkall: false,
+      marcaGNP: "",
+      modeloGNP: ''
     };
   },
   watch: {
@@ -2120,13 +2131,20 @@ function Cliente(_ref) {
         this.modelo = true;
       }
     },
+    'modeloGNP': function modeloGNP(newValue, oldValue) {
+      console.log('Aqui se ejecutaron los MODELOS GNP', this.modeloGNP);
+      this.marcaGNP = this.modeloGNP;
+      this.marcasGNP = this.getSubmarcaGNP(this.modeloGNP);
+    },
+    'cliente.gnpMarca': function clienteGnpMarca(newValue, oldValue) {
+      this.marcasGNP = "";
+      console.log('Marcas de Gnp en el año:', this.modeloGNP);
+      this.marcasGNP = this.getSubmarcaGNP(this.modeloGNP);
+    },
     'cliente.modelo_auto': function clienteModelo_auto(newV, oldV) {
       if (newV != "") {
         this.marca = true;
-        this.marcasGNP = "";
         this.getMarcas(this.cliente.modelo_auto);
-        console.log('Aqui se ejecutaron los MODELOS GNP');
-        this.marcasGNP = this.getSubmarcaGNP(this.cliente.modelo_auto);
         $('#v-pills-Marca-tab').removeClass('disabled');
         $('#v-pills-Marca-tab').click();
       }
@@ -2270,16 +2288,15 @@ function Cliente(_ref) {
     var _this5 = this;
 
     this.loader_tipo = true;
-    var url = "./api/marcas-gnp/".concat(this.cliente.modelo_auto);
+    var url = "./api/marcas-gnp/".concat(año);
     axios.get(url).then(function (res) {
       _this5.loader_tipo = false;
       console.log('MARCAS GNP COMPLETAS', res);
-      console.log('Aqui se ejecutaron los MODELOS GNP2');
 
       if (res.data.marcas) {
         _this5.marcasGNP = res.data.marcas;
-        console.log('Aqui se ejecutaron los MODELOS GNP3', _this5.marcasGNP);
-        console.log('Aqui se ejecutaron los MODELOS GNP4', _this5.marcasGNP);
+        console.log('RES MARCAS', _this5.marcasGNP);
+        alert('EXITO EN LA CONSULTA');
       }
     })["catch"](function (error) {
       console.log('error submarcas', error);
@@ -41938,78 +41955,9 @@ var render = function() {
                     }
                   },
                   [
-                    _c("div", { staticClass: "card p-0" }, [
-                      _c("div", { staticClass: "card-header" }, [
-                        _vm._v(
-                          "\n\t\t                            Modelo\n\t\t                        "
-                        )
-                      ]),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "" } }, [_vm._v("GNP ")]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "card-body" }, [
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.cliente.modelo_auto,
-                                expression: "cliente.modelo_auto"
-                              }
-                            ],
-                            staticClass: "list-group list-group-flush col",
-                            attrs: { size: "7" },
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.cliente,
-                                  "modelo_auto",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              {
-                                staticClass:
-                                  "list-group-item text-center text-dark seleccionador",
-                                attrs: { value: "" }
-                              },
-                              [_vm._v("Seleccione su modelo")]
-                            ),
-                            _vm._v(" "),
-                            _vm._l(_vm.modelos, function(anio) {
-                              return _c(
-                                "option",
-                                {
-                                  staticClass:
-                                    "list-group-item text-center text-dark seleccionador",
-                                  domProps: { value: anio }
-                                },
-                                [_vm._v(_vm._s(anio))]
-                              )
-                            })
-                          ],
-                          2
-                        ),
-                        _vm._v(" "),
-                        _vm._m(0)
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "row" }, [
                       _c(
                         "select",
                         {
@@ -42017,10 +41965,11 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.marcasGNP,
-                              expression: "marcasGNP"
+                              value: _vm.modeloGNP,
+                              expression: "modeloGNP"
                             }
                           ],
+                          staticClass: "form-control",
                           on: {
                             change: function($event) {
                               var $$selectedVal = Array.prototype.filter
@@ -42031,7 +41980,7 @@ var render = function() {
                                   var val = "_value" in o ? o._value : o.value
                                   return val
                                 })
-                              _vm.marcasGNP = $event.target.multiple
+                              _vm.modeloGNP = $event.target.multiple
                                 ? $$selectedVal
                                 : $$selectedVal[0]
                             }
@@ -42042,23 +41991,77 @@ var render = function() {
                             _vm._v("Seleccione su marca")
                           ]),
                           _vm._v(" "),
-                          _vm._l(_vm.marcasGNP, function(marca) {
+                          _c("option", { attrs: { value: "2020" } }, [
+                            _vm._v("2020")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "2021" } }, [
+                            _vm._v("2021")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "2022" } }, [
+                            _vm._v("2022")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.cliente.gnpMarca,
+                              expression: "cliente.gnpMarca"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.cliente,
+                                "gnpMarca",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "option",
+                            {
+                              staticClass:
+                                "list-group-item text-center text-dark seleccionador",
+                              staticStyle: { "white-space": "normal" },
+                              attrs: { value: "" }
+                            },
+                            [_vm._v("Seleccione el modelo")]
+                          ),
+                          _vm._v(" "),
+                          _vm._l(_vm.marcasGNP, function(marcas) {
                             return _c(
                               "option",
-                              { domProps: { value: marca } },
-                              [_vm._v(_vm._s(marca))]
+                              {
+                                staticClass:
+                                  "list-group-item text-center text-dark seleccionador",
+                                attrs: { value: "" }
+                              },
+                              [_vm._v(_vm._s(marcas))]
                             )
                           })
                         ],
                         2
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [
-                      _vm._v(
-                        "\n\t\t\t\t\t\t\t\t\t  " +
-                          _vm._s(_vm.marcasGNP) +
-                          "\n\t\t\t\t\t\t\t\t"
                       )
                     ])
                   ]
@@ -42193,7 +42196,7 @@ var render = function() {
                           2
                         ),
                         _vm._v(" "),
-                        _vm._m(1)
+                        _vm._m(0)
                       ])
                     ])
                   ]
@@ -42326,7 +42329,7 @@ var render = function() {
                           2
                         ),
                         _vm._v(" "),
-                        _vm._m(2)
+                        _vm._m(1)
                       ])
                     ])
                   ]
@@ -42404,7 +42407,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(3),
+                          _vm._m(2),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -42559,7 +42562,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(4),
+                          _vm._m(3),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -42648,7 +42651,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(5),
+                          _vm._m(4),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -42737,7 +42740,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(6),
+                          _vm._m(5),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -42860,7 +42863,7 @@ var render = function() {
                           ]
                         ),
                         _vm._v(" "),
-                        _vm._m(7)
+                        _vm._m(6)
                       ])
                     ])
                   ]
@@ -42926,7 +42929,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(8),
+                          _vm._m(7),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -43361,7 +43364,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(9),
+                          _vm._m(8),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -43398,26 +43401,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-12 mt-3 d-block d-sm-none" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-primary",
-            attrs: {
-              type: "button",
-              onclick: "$('#v-pills-Marca-tab').click();"
-            }
-          },
-          [_vm._v("Atras")]
-        )
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

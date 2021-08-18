@@ -58,12 +58,12 @@
     					</div>
     					<!--MODELO-->
 		                <div class="tab-pane fade" v-show="modelo" id="v-pills-Modelo" role="tabpanel" aria-albelledby="v-pills-Modelo-tab">
-		                    <div class="card p-0">
+		                 <!--    <div class="card p-0">
 		                        <div class="card-header">
 		                            Modelo
 		                        </div>
 		                        <div class="card-body">
-		                            <select class="list-group list-group-flush col" v-model="cliente.modelo_auto" size="7">
+		                            <select class="list-group list-group-flush col" v-model="cliente.modelo_auto" size="5">
 		                            	<option value=""  class="list-group-item text-center text-dark seleccionador">Seleccione su modelo</option>
 		                            	<option v-for="anio in modelos" :value="anio" class="list-group-item text-center text-dark seleccionador">{{anio}}</option>
 		                            </select>
@@ -73,16 +73,25 @@
 										</div>
 									</div>
 		                        </div>
-		                    </div>
-		                     <div class="row">
-									 <select  v-model="marcasGNP">
+		                    </div> -->
+		                     <div class="form-group">
+		                     	<label for="">GNP </label>
+									 <select  v-model="modeloGNP" class="form-control">
 		                            	<option value="" >Seleccione su marca</option>
-										<option v-for="marca in marcasGNP" :value="marca">{{ marca}}</option>
+										<option value="2020">2020</option>
+										<option value="2021">2021</option>
+										<option value="2022">2022</option>
 									</select>
-								</div>
-								<div>
-									  {{marcasGNP}}
-								</div>
+								
+
+    											<select v-model="cliente.gnpMarca" class="form-control">
+    												<option value="" class="list-group-item text-center text-dark seleccionador" style="white-space: normal;">Seleccione el modelo</option>
+    												<option value="" v-for="marcas in marcasGNP" class="list-group-item text-center text-dark seleccionador">{{marcas}}</option>
+    											</select>
+    										
+    								</div>		
+								
+								
 		                </div>
 						 <!--MARCA-->
 		                <div class="tab-pane fade" v-show="marca" id="v-pills-Marca" role="tabpanel" aria-albelledby="v-pills-Marca-tab">
@@ -406,6 +415,8 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			nac: false,
     			searchOption:false,
     			checkall:false,
+    			marcaGNP:"",
+    			modeloGNP:'',
     		}
     	},
     	watch:{
@@ -417,13 +428,24 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				this.modelo = true;
     			}
     		},
+    		'modeloGNP':function(newValue,oldValue){
+    				
+					console.log('Aqui se ejecutaron los MODELOS GNP',this.modeloGNP);
+
+					this.marcaGNP = this.modeloGNP;
+    				this.marcasGNP = this.getSubmarcaGNP(this.modeloGNP);
+    		},
+    		'cliente.gnpMarca':function(newValue,oldValue){
+    				this.marcasGNP ="";
+					console.log('Marcas de Gnp en el año:',this.modeloGNP);
+    				this.marcasGNP = this.getSubmarcaGNP(this.modeloGNP);
+    		},
     		'cliente.modelo_auto':function(newV,oldV){
     			if (newV != "") {
     				this.marca = true;
-    				this.marcasGNP ="";
+    				
     				this.getMarcas(this.cliente.modelo_auto);
-    				console.log('Aqui se ejecutaron los MODELOS GNP');
-    				this.marcasGNP = this.getSubmarcaGNP(this.cliente.modelo_auto);
+    				
     				$('#v-pills-Marca-tab').removeClass('disabled');
     				$('#v-pills-Marca-tab').click();
     			}
@@ -566,16 +588,16 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     		},
     			getSubmarcaGNP(año){
     			this.loader_tipo=true;
-    			let url = `./api/marcas-gnp/${this.cliente.modelo_auto}`;
+    			let url = `./api/marcas-gnp/${año}`;
     			
     			axios.get(url).then(res=>{
     				this.loader_tipo = false;
     				console.log('MARCAS GNP COMPLETAS',res);
-    				console.log('Aqui se ejecutaron los MODELOS GNP2');
+    				
     				if (res.data.marcas) {
     					this.marcasGNP = res.data.marcas;
-    					console.log('Aqui se ejecutaron los MODELOS GNP3',this.marcasGNP);
-    					console.log('Aqui se ejecutaron los MODELOS GNP4',this.marcasGNP);
+    					console.log('RES MARCAS',this.marcasGNP);
+    					alert('EXITO EN LA CONSULTA');
     				}
     				
     			}).catch(error=>{
