@@ -2184,6 +2184,7 @@ function Cliente(_ref) {
           _this.cliente.codigo_descuento = res.data.codigo_descuento;
           $("#paso2-tab").removeClass("disabled");
           $("#paso2-tab").click();
+          console.log('');
           _this.getcotizacion.value = !_this.getcotizacion.value;
         }
       })["catch"](function (err) {
@@ -2360,6 +2361,8 @@ function Cliente(_ref) {
       _this8.cliente.gs = res.data.cotizacion.gs;
       _this8.cliente.qualitas = res.data.cotizacion.qualitas;
       _this8.getcotizacion.value = !_this8.getcotizacion.value;
+      _this8.cliente.ejecutivo = res.data.ejecutivo;
+      _this8.cliente.codigo_descuento = res.data.codigo_descuento;
       _this8.alert.message = "".concat(_this8.cliente.nombre, " ").concat(_this8.cliente.appaterno, " ").concat(_this8.cliente.apmaterno, " su cotizaci\xF3n se guardo con el folio ").concat(_this8.cliente.cotizacion);
       _this8.alert["class"] = "alert alert-success alert-dismissible fade show";
       $("#paso2-tab").removeClass("disabled");
