@@ -438,7 +438,7 @@ XML;
             $modelo = $cliente->auto->submarca->anio;
             $descripcion= $request->descripcion;
             $poliza = $request->poliza;
-            $Descuento =0;
+            $Descuento = 0;
 
             $planes=['1','3','4'];
             // dd($clave_amis);
@@ -455,7 +455,7 @@ XML;
             // dd($poblacion);
             $respuestas=[];
             if ($cliente->ejecutivo || $cliente->codigo_descuento != null) {
-                 $Descuento =50;
+                 $Descuento = 50;
             }else{
                  $Descuento =0;
             }
