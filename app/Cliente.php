@@ -32,7 +32,9 @@ class Cliente extends Model
         'ana',
         'gs',
         'gnp',
-        'qualitas'
+        'qualitas',
+        'ejecutivo',
+        'codigo_descuento'
     ];
 
     protected $hidden=[

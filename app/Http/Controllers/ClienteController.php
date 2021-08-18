@@ -22,7 +22,7 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        dd($request->all());
         $rules=[
             'uso_auto'      => 'required',
             'marca_auto'    => 'required|array',
