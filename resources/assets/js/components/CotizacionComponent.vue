@@ -3,7 +3,7 @@
   		<!-- Crear cotización -->
     	<div class="tab-pane">
     		<div class="row m-0 p-1 no-gutters">
-    			<div class="col-sm-6 d-none d-sm-block p-2">
+    			<div class="col-sm-4 d-none d-sm-block p-2">
     				<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 		              <a class="nav-link active" id="v-pills-Uso-tab"  data-toggle="pill" href="#v-pills-Uso" role="tab" aria-controls="v-pills-Uso" aria-selected="true">Uso: {{cliente.uso_auto}}</a>
 		              <a class="nav-link disabled" id="v-pills-Modelo-tab" data-toggle="pill"  href="#v-pills-Modelo" role="tab" aria-controls="v-pills-Modelo" aria-selected="false">Modelo: {{cliente.modelo_auto}}</a>
@@ -18,7 +18,8 @@
 		              <a class="nav-link" id="v-pills-Aseguradoras-tab" data-toggle="pill"  href="#v-pills-Aseguradoras" role="tab" aria-controls="v-pills-Aseguradoras" aria-selected="false">Aseguradoras:</a>
 		            </div>
     			</div>
-    			<div class="col col-sm-6 p-2" v-show="!searchOption">
+
+    			<div class="col col-sm-8 p-2" v-show="!searchOption">
     				<div class="tab-content" id="v-pills-tabContent">
     					 
     					
@@ -58,41 +59,147 @@
     					</div>
     					<!--MODELO-->
 		                <div class="tab-pane fade" v-show="modelo" id="v-pills-Modelo" role="tabpanel" aria-albelledby="v-pills-Modelo-tab">
-		                 <!--    <div class="card p-0">
-		                        <div class="card-header">
-		                            Modelo
-		                        </div>
-		                        <div class="card-body">
-		                            <select class="list-group list-group-flush col" v-model="cliente.modelo_auto" size="5">
-		                            	<option value=""  class="list-group-item text-center text-dark seleccionador">Seleccione su modelo</option>
-		                            	<option v-for="anio in modelos" :value="anio" class="list-group-item text-center text-dark seleccionador">{{anio}}</option>
-		                            </select>
-		                            <div class="row">
-										<div class="col-12 mt-3 d-block d-sm-none">
-											<button class="btn btn-primary" type="button" onclick="$('#v-pills-Marca-tab').click();">Atras</button>
-										</div>
-									</div>
-		                        </div>
-		                    </div> -->
-		                     <div class="form-group">
-		                     	<label for="">GNP </label>
-									 <select  v-model="modeloGNP" class="form-control">
-		                            	<option value="" >Seleccione su marca</option>
+		                
+		                <div class="row">
+		  				<div class="col">
+		  					<label for="gnp_lista" class="col">GNP</label>
+		  					 <label class="form-check-label" for=""><img :src="img.gnpImage" width="120" height="50"></label>
+		  				</div>
+		  				<div class="col-3">
+		  					<select  v-model="modeloGNP" class="form-control" id="gnp_lista">
+		                            	<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione su año</option>
+		                            	<option value="2011">2011</option>
+										<option value="2012">2012</option>
+										<option value="2013">2013</option>
+										<option value="2020">2014</option>
+										<option value="2015">2015</option>
+										<option value="2016">2016</option>
+										<option value="2017">2017</option>
+										<option value="2018">2018</option>
+										<option value="2019">2019</option>
 										<option value="2020">2020</option>
 										<option value="2021">2021</option>
 										<option value="2022">2022</option>
-									</select>
-								
+									</select>	
 
-    											<select v-model="cliente.gnpMarca" class="form-control">
-    												<option value="" class="list-group-item text-center text-dark seleccionador" style="white-space: normal;">Seleccione el modelo</option>
-    												<option value="" v-for="marcas in marcasGNP" class="list-group-item text-center text-dark seleccionador">{{marcas}}</option>
-    											</select>
-    										
-    								</div>		
-								
-								
-		                </div>
+		  				</div>
+		  				<div class="col-3">
+		  					<select v-model="cliente.gnpMarca" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
+
+    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
+    								</select>
+		  				</div>
+		  				<div class="col-3">
+		  					<select v-model="cliente.gnpMarca" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
+
+    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
+    								</select>
+		  				</div>
+		  				
+						</div>
+						<hr>	
+						<div class="row">
+		  				<div class="col">
+		  					<label for="gnp_lista" class="col">GENERAL DE SEGUROS</label>
+		  				</div>
+		  				<div class="col-3">
+		  					<select  v-model="modeloGNP" class="form-control" id="gnp_lista">
+		                            	<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione su año</option>
+		                            	<option value="2011">2011</option>
+										<option value="2012">2012</option>
+										<option value="2013">2013</option>
+										<option value="2020">2014</option>
+										<option value="2015">2015</option>
+										<option value="2016">2016</option>
+										<option value="2017">2017</option>
+										<option value="2018">2018</option>
+										<option value="2019">2019</option>
+										<option value="2020">2020</option>
+										<option value="2021">2021</option>
+										<option value="2022">2022</option>
+									</select>	
+
+		  				</div>
+		  				<div class="col-3">
+		  					<select v-model="cliente.gnpMarca" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
+
+    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
+    								</select>
+		  				</div>
+		  				
+						</div>
+						<hr>	
+						<div class="row">
+		  				<div class="col">
+		  					<label for="gnp_lista" class="col">ANA</label>
+		  				</div>
+		  				<div class="col-3">
+		  					<select  v-model="modeloGNP" class="form-control" id="gnp_lista">
+		                            	<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione su año</option>
+		                            	<option value="2011">2011</option>
+										<option value="2012">2012</option>
+										<option value="2013">2013</option>
+										<option value="2020">2014</option>
+										<option value="2015">2015</option>
+										<option value="2016">2016</option>
+										<option value="2017">2017</option>
+										<option value="2018">2018</option>
+										<option value="2019">2019</option>
+										<option value="2020">2020</option>
+										<option value="2021">2021</option>
+										<option value="2022">2022</option>
+									</select>	
+
+		  				</div>
+		  				<div class="col-3">
+		  					<select v-model="cliente.gnpMarca" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
+
+    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
+    								</select>
+		  				</div>
+		  				
+						</div>
+						<hr>	
+						<div class="row">
+		  				<div class="col">
+		  					<label for="gnp_lista" class="col">QUALITAS</label>
+		  				</div>
+		  				<div class="col-3">
+		  					<select  v-model="modeloGNP" class="form-control" id="gnp_lista">
+		                            	<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione su año</option>
+		                            	<option value="2011">2011</option>
+										<option value="2012">2012</option>
+										<option value="2013">2013</option>
+										<option value="2020">2014</option>
+										<option value="2015">2015</option>
+										<option value="2016">2016</option>
+										<option value="2017">2017</option>
+										<option value="2018">2018</option>
+										<option value="2019">2019</option>
+										<option value="2020">2020</option>
+										<option value="2021">2021</option>
+										<option value="2022">2022</option>
+									</select>	
+
+		  				</div>
+		  				<div class="col-3">
+		  					<select v-model="cliente.gnpMarca" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
+
+    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
+    								</select>
+		  				</div>
+		  				
+						</div>
+						<hr>	
+
+
+
+						</div>
 						 <!--MARCA-->
 		                <div class="tab-pane fade" v-show="marca" id="v-pills-Marca" role="tabpanel" aria-albelledby="v-pills-Marca-tab">
 		                    <div class="card p-0">
