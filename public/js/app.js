@@ -42893,312 +42893,10 @@ var render = function() {
                   },
                   [
                     _c("div", { staticClass: "card p-0" }, [
-                      _c("div", { staticClass: "card-header" }, [
-                        _c("div", { staticClass: "row text-center" }, [
-                          _c("label", [
-                            _vm._v(
-                              "\n\t\t                            \t\tAseguradoras\n\t\t                        \t\t"
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass: "col mt-3 d-flex justify-content-end"
-                            },
-                            [
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "form-check-label",
-                                  attrs: { for: "checkbox-todos" }
-                                },
-                                [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.checkall,
-                                        expression: "checkall"
-                                      }
-                                    ],
-                                    staticClass: "form-check-input",
-                                    attrs: {
-                                      type: "checkbox",
-                                      id: "checkbox-todos"
-                                    },
-                                    domProps: {
-                                      checked: Array.isArray(_vm.checkall)
-                                        ? _vm._i(_vm.checkall, null) > -1
-                                        : _vm.checkall
-                                    },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.selectAll()
-                                      },
-                                      change: function($event) {
-                                        var $$a = _vm.checkall,
-                                          $$el = $event.target,
-                                          $$c = $$el.checked ? true : false
-                                        if (Array.isArray($$a)) {
-                                          var $$v = null,
-                                            $$i = _vm._i($$a, $$v)
-                                          if ($$el.checked) {
-                                            $$i < 0 &&
-                                              (_vm.checkall = $$a.concat([$$v]))
-                                          } else {
-                                            $$i > -1 &&
-                                              (_vm.checkall = $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1)))
-                                          }
-                                        } else {
-                                          _vm.checkall = $$c
-                                        }
-                                      }
-                                    }
-                                  }),
-                                  _vm._v("Todos")
-                                ]
-                              )
-                            ]
-                          )
-                        ])
-                      ]),
+                      _vm._m(9),
                       _vm._v(" "),
                       _c("div", { staticClass: "card-body" }, [
                         _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "div",
-                            { staticClass: "form-check form-check-inline" },
-                            [
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.cliente.gnp,
-                                    expression: "cliente.gnp"
-                                  }
-                                ],
-                                staticClass: "form-check-input",
-                                attrs: {
-                                  type: "checkbox",
-                                  id: "checkbox-gnp",
-                                  "true-value": "1",
-                                  "false-value": "0"
-                                },
-                                domProps: {
-                                  checked: Array.isArray(_vm.cliente.gnp)
-                                    ? _vm._i(_vm.cliente.gnp, null) > -1
-                                    : _vm._q(_vm.cliente.gnp, "1")
-                                },
-                                on: {
-                                  change: function($event) {
-                                    var $$a = _vm.cliente.gnp,
-                                      $$el = $event.target,
-                                      $$c = $$el.checked ? "1" : "0"
-                                    if (Array.isArray($$a)) {
-                                      var $$v = null,
-                                        $$i = _vm._i($$a, $$v)
-                                      if ($$el.checked) {
-                                        $$i < 0 &&
-                                          _vm.$set(
-                                            _vm.cliente,
-                                            "gnp",
-                                            $$a.concat([$$v])
-                                          )
-                                      } else {
-                                        $$i > -1 &&
-                                          _vm.$set(
-                                            _vm.cliente,
-                                            "gnp",
-                                            $$a
-                                              .slice(0, $$i)
-                                              .concat($$a.slice($$i + 1))
-                                          )
-                                      }
-                                    } else {
-                                      _vm.$set(_vm.cliente, "gnp", $$c)
-                                    }
-                                  }
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "form-check-label",
-                                  attrs: { for: "checkbox-gnp" }
-                                },
-                                [
-                                  _c("img", {
-                                    attrs: {
-                                      src: _vm.img.gnpImage,
-                                      width: "120",
-                                      height: "50"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _vm.cliente.uso_auto == "Servicio Particular"
-                            ? _c(
-                                "div",
-                                { staticClass: "form-check form-check-inline" },
-                                [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.cliente.gs,
-                                        expression: "cliente.gs"
-                                      }
-                                    ],
-                                    staticClass: "form-check-input",
-                                    attrs: {
-                                      type: "checkbox",
-                                      id: "checkbox-gs",
-                                      "true-value": "1",
-                                      "false-value": "0"
-                                    },
-                                    domProps: {
-                                      checked: Array.isArray(_vm.cliente.gs)
-                                        ? _vm._i(_vm.cliente.gs, null) > -1
-                                        : _vm._q(_vm.cliente.gs, "1")
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        var $$a = _vm.cliente.gs,
-                                          $$el = $event.target,
-                                          $$c = $$el.checked ? "1" : "0"
-                                        if (Array.isArray($$a)) {
-                                          var $$v = null,
-                                            $$i = _vm._i($$a, $$v)
-                                          if ($$el.checked) {
-                                            $$i < 0 &&
-                                              _vm.$set(
-                                                _vm.cliente,
-                                                "gs",
-                                                $$a.concat([$$v])
-                                              )
-                                          } else {
-                                            $$i > -1 &&
-                                              _vm.$set(
-                                                _vm.cliente,
-                                                "gs",
-                                                $$a
-                                                  .slice(0, $$i)
-                                                  .concat($$a.slice($$i + 1))
-                                              )
-                                          }
-                                        } else {
-                                          _vm.$set(_vm.cliente, "gs", $$c)
-                                        }
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "label",
-                                    {
-                                      staticClass: "form-check-label",
-                                      attrs: { for: "checkbox-gs" }
-                                    },
-                                    [
-                                      _c("img", {
-                                        attrs: {
-                                          src: _vm.img.gsImage,
-                                          width: "120",
-                                          height: "50"
-                                        }
-                                      })
-                                    ]
-                                  )
-                                ]
-                              )
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "form-check form-check-inline" },
-                            [
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.cliente.qualitas,
-                                    expression: "cliente.qualitas"
-                                  }
-                                ],
-                                staticClass: "form-check-input",
-                                attrs: {
-                                  type: "checkbox",
-                                  id: "checkbox-qualitas",
-                                  "true-value": "1",
-                                  "false-value": "0"
-                                },
-                                domProps: {
-                                  checked: Array.isArray(_vm.cliente.qualitas)
-                                    ? _vm._i(_vm.cliente.qualitas, null) > -1
-                                    : _vm._q(_vm.cliente.qualitas, "1")
-                                },
-                                on: {
-                                  change: function($event) {
-                                    var $$a = _vm.cliente.qualitas,
-                                      $$el = $event.target,
-                                      $$c = $$el.checked ? "1" : "0"
-                                    if (Array.isArray($$a)) {
-                                      var $$v = null,
-                                        $$i = _vm._i($$a, $$v)
-                                      if ($$el.checked) {
-                                        $$i < 0 &&
-                                          _vm.$set(
-                                            _vm.cliente,
-                                            "qualitas",
-                                            $$a.concat([$$v])
-                                          )
-                                      } else {
-                                        $$i > -1 &&
-                                          _vm.$set(
-                                            _vm.cliente,
-                                            "qualitas",
-                                            $$a
-                                              .slice(0, $$i)
-                                              .concat($$a.slice($$i + 1))
-                                          )
-                                      }
-                                    } else {
-                                      _vm.$set(_vm.cliente, "qualitas", $$c)
-                                    }
-                                  }
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "label",
-                                {
-                                  staticClass: "form-check-label",
-                                  attrs: { for: "checkbox-qualitas" }
-                                },
-                                [
-                                  _c("img", {
-                                    attrs: {
-                                      src: _vm.img.quaImage,
-                                      width: "120",
-                                      height: "50"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
                           _vm.cliente.uso_auto == "Servicio Particular"
                             ? _c(
                                 "div",
@@ -43279,7 +42977,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(9),
+                          _vm._m(10),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -43472,6 +43170,20 @@ var staticRenderFns = [
         },
         [_vm._v("Atras")]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("div", { staticClass: "row text-center" }, [
+        _c("label", [
+          _vm._v(
+            "\n\t\t                            \t\tAseguradoras\n\t\t                        \t\t"
+          )
+        ])
+      ])
     ])
   },
   function() {
