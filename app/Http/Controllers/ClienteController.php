@@ -23,6 +23,11 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+        if ($request->sexo == "Maculino") {
+            $request->sexo =="Hombre";
+        }else if ($request->sexo == "Femenino") {
+            $request->sexo =="Mujer";
+        }
         $rules=[
             'uso_auto'      => 'required',
             'marca_auto'    => 'required|array',
