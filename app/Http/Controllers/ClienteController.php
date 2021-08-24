@@ -40,7 +40,7 @@ class ClienteController extends Controller
             'apmaterno'     => 'nullable|string',
             'telefono'      => 'required|numeric',
             'email'         => 'required|email',
-            'sexo'          => 'required|in:Hombre,Mujer,Otro',
+            // 'sexo'          => 'required|in:Hombre,Mujer,Otro',
             'f_nac'         => 'required|date'
 
         ];
