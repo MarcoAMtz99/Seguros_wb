@@ -2543,7 +2543,13 @@ function Cliente(_ref) {
     this.alert.message = '';
     this.alert["class"] = '';
     axios.post(url, cliente).then(function (res) {
-      //console.log('res',res);
+      if (_this10.cliente.sexo == "Maculino") {
+        _this10.cliente.sexo == "Hombre";
+      } else if (_this10.cliente.sexo == "Femenino") {
+        _this10.cliente.sexo == "Mujer";
+      } //console.log('res',res);
+
+
       _this10.cliente.cotizacion = res.data.cotizacion.cotizacion;
       _this10.cliente.uso_auto = res.data.cotizacion.uso_auto;
       _this10.cliente.descripcion_auto = res.data.cotizacion.auto.version;

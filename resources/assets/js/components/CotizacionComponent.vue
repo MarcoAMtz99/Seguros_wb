@@ -850,6 +850,11 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			this.alert.message = '';
 				this.alert.class = '';
     			axios.post(url,cliente).then(res=>{
+    				if (this.cliente.sexo =="Maculino") {
+    					this.cliente.sexo =="Hombre";
+    				}else if (this.cliente.sexo =="Femenino") {
+    					this.cliente.sexo =="Mujer";
+    				}
     				//console.log('res',res);
     				this.cliente.cotizacion 	  = res.data.cotizacion.cotizacion;
 					this.cliente.uso_auto 		  = res.data.cotizacion.uso_auto;
