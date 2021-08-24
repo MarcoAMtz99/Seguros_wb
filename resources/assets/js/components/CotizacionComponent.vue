@@ -366,6 +366,9 @@
 		                        <div class="card-header">
 		                            Genero
 		                        </div>
+		                      <!--    <div class="card-header">
+		                            Genero
+		                        </div> -->
 		                        <div class="card-body">
 		                            <select v-model="cliente.sexo" size="3" class="list-group list-group-flush col"  style="overflow-y: hidden;">
 
