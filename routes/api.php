@@ -79,3 +79,4 @@ Route::get('/tipos-via-gnp', 'GNPController@getTiposVia');
 Route::get('/marcas-gnp/{modelo}','GNPController@marcasAño');
 //con esta obtendremos los Resultados de modelos de esta marca
 Route::get('/submarcas-gnp/{modelo}/{marca}','GNPController@submarcas');
+Route::get('/versiones-gnp/{modelo}/{marca}','GNPController@versiones');

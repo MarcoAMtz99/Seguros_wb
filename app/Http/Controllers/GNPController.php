@@ -62,7 +62,8 @@ class GNPController extends Controller
  			array_push($marcas, $aux);
  		}
  	
- 		// dd(array_unique($marcas));
+ 		// dd();
+ 		// 
  		
  		return response()->json(['marcas'=>array_unique($marcas)],200);
  	}
@@ -78,10 +79,12 @@ class GNPController extends Controller
  				// dd($value);
  				if ($value["ELEMENTO"][1]["VALOR"] === $marca) {
  					$aux =  $value["ELEMENTO"][3]["VALOR"];
+
  					$aux2 = array(
  						'CARROCERIA'=>$value["ELEMENTO"][3]["VALOR"],
  						'MODELO'=>$value["ELEMENTO"][2]["VALOR"],
- 						'ARMADORA'=>$value["ELEMENTO"][1]["VALOR"]
+ 						'ARMADORA'=>$value["ELEMENTO"][1]["VALOR"],
+ 						'VERSION'=>$value["ELEMENTO"][4]["VALOR"]
 
  					);
  					array_push($submarcas, $aux);
@@ -91,6 +94,12 @@ class GNPController extends Controller
  		}
  			// dd($submarcas,$submarcas2);
  			return response()->json(['submarcas'=>array_unique($submarcas)],200);
+ 	}
+
+ 	public function versiones($año,$marca){
+
+ 		dd($año,$marca);
+
  	}
 
  	public function prueba(request $request)

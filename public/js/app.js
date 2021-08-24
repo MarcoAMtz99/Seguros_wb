@@ -2151,6 +2151,31 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -2206,6 +2231,7 @@ function Cliente(_ref) {
       modelos: [],
       modelosGNP: [],
       marcasGNP: [],
+      submarcasGNP: [],
       pills: ['v-pills-Uso', 'v-pills-Marca', 'v-pills-Submarca', 'v-pills-Modelo', 'v-pills-CP', 'v-pills-Nombre', 'v-pills-Celular', 'v-pills-Correo', 'v-pills-Sexo', 'v-pills-Nacimiento', 'v-pills-Aseguradoras'],
       alert_cp: "",
       uso: true,
@@ -2226,7 +2252,8 @@ function Cliente(_ref) {
       searchOption: false,
       checkall: false,
       marcaGNP: "",
-      modeloGNP: ''
+      modeloGNP: '',
+      submarcaGNP: ""
     };
   },
   watch: {
@@ -2239,14 +2266,20 @@ function Cliente(_ref) {
       }
     },
     'modeloGNP': function modeloGNP(newValue, oldValue) {
-      console.log('Aqui se ejecutaron los MODELOS GNP', this.modeloGNP);
-      this.marcaGNP = this.modeloGNP;
-      this.marcasGNP = this.getSubmarcaGNP(this.modeloGNP);
+      console.log('Aqui se ejecutaron los MODELOS GNP', this.modeloGNP); // this.marcaGNP = this.modeloGNP;
+
+      this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
     },
-    'cliente.gnpMarca': function clienteGnpMarca(newValue, oldValue) {
-      this.marcasGNP = "";
-      console.log('Marcas de Gnp en el año:', this.modeloGNP);
-      this.marcasGNP = this.getSubmarcaGNP(this.modeloGNP);
+    'marcaGNP': function marcaGNP(newValue, oldValue) {
+      // this.cliente.gnpMarca ="";cliente.gnpMarca
+      // this.marcaGNP = 
+      console.log('SUBMarcas de Gnp en el año:', this.modeloGNP, this.marcaGNP);
+      this.subMarcasGNP = this.getSubmarcaGNP(this.modeloGNP, this.marcaGNP);
+    },
+    'cliente.submarcaGNP': function clienteSubmarcaGNP(newValue, oldValue) {
+      // this.submarcasGNP ="";
+      console.log('subMarcas de Gnp en el año:', this.submarcasGNP);
+      this.submarcasGNP = this.getSubmarcaGNP(this.modeloGNP, this.submarcasGNP);
     },
     'cliente.modelo_auto': function clienteModelo_auto(newV, oldV) {
       if (newV != "") {
@@ -2391,61 +2424,78 @@ function Cliente(_ref) {
     })["catch"](function (error) {
       console.log('error submarcas', error);
     });
-  }), _defineProperty(_methods, "getSubmarcaGNP", function getSubmarcaGNP(año) {
+  }), _defineProperty(_methods, "getSubmarcaGNP", function getSubmarcaGNP(año, marca) {
     var _this5 = this;
+
+    this.loader_tipo = true;
+    var url = "./api/submarcas-gnp/".concat(año, "/").concat(marca);
+    axios.get(url).then(function (res) {
+      _this5.loader_tipo = false;
+      console.log('SUBMARCAS GNP COMPLETAS', res);
+
+      if (res.data.submarcas) {
+        _this5.submarcasGNP = res.data.submarcas;
+        console.log('RES SUBMARCAS', _this5.submarcasGNP);
+        alert('EXITO EN LA CONSULTA SUBMARCAS');
+      }
+    })["catch"](function (error) {
+      console.log('error submarcas', error);
+    });
+  }), _defineProperty(_methods, "getmarcaGNP", function getmarcaGNP(año) {
+    var _this6 = this;
 
     this.loader_tipo = true;
     var url = "./api/marcas-gnp/".concat(año);
     axios.get(url).then(function (res) {
-      _this5.loader_tipo = false;
+      _this6.loader_tipo = false;
       console.log('MARCAS GNP COMPLETAS', res);
 
       if (res.data.marcas) {
-        _this5.marcasGNP = res.data.marcas;
-        console.log('RES MARCAS', _this5.marcasGNP);
+        _this6.marcasGNP = res.data.marcas;
+        console.log('RES MARCAS', _this6.marcasGNP);
         alert('EXITO EN LA CONSULTA');
       }
     })["catch"](function (error) {
       console.log('error submarcas', error);
     });
   }), _defineProperty(_methods, "getModelos", function getModelos() {
-    var _this6 = this;
+    var _this7 = this;
 
     var url = "./api/modelosANA";
     axios.get(url).then(function (res) {
       console.log('res modelos', res);
-      _this6.loader_modelo = false;
+      _this7.loader_modelo = false;
 
       if (res.data.modelos) {
-        _this6.modelos = res.data.modelos;
+        _this7.modelos = res.data.modelos;
       }
     })["catch"](function (error) {
       console.log('error modelos', error);
     });
   }), _defineProperty(_methods, "getDescripciones", function getDescripciones(submarca, modelo, marca) {
-    var _this7 = this;
+    var _this8 = this;
 
     this.loader_desc = true; // console.log(marca);
 
     $('#descripcion').append('<div class="loader"></div>');
     var url = "./api/vehiculoANA/".concat(marca, "/").concat(submarca, "/").concat(modelo);
     axios.get(url).then(function (res) {
-      _this7.loader_desc = false;
-      _this7.descripciones = res.data.vehiculos;
+      _this8.loader_desc = false;
+      _this8.descripciones = res.data.vehiculos;
     })["catch"](function (err) {
       console.log('getDescripciones err', err);
     });
   }), _defineProperty(_methods, "nextPill", function nextPill(input) {
-    var _this8 = this;
+    var _this9 = this;
 
     if (input == "cp" && this.cliente.cp != "") {
       var url = "./api/cp/".concat(this.cliente.cp);
       axios.get(url).then(function (res) {
         if (res.data.response) {
-          _this8.alert_cp = _this8.nombre = true;
-          _this8.alert_cp = ""; // console.log('si entra');
+          _this9.alert_cp = _this9.nombre = true;
+          _this9.alert_cp = ""; // console.log('si entra');
 
-          _this8.cliente.cestado = res.data.response[0].cestado;
+          _this9.cliente.cestado = res.data.response[0].cestado;
           $('#v-pills-Nombre-tab').removeClass('disabled');
           $('#v-pills-Nombre-tab').click();
         }
@@ -2453,9 +2503,9 @@ function Cliente(_ref) {
         console.log('CP', res);
       })["catch"](function (err) {
         if (err.response.data.error) {
-          _this8.nombre = false;
+          _this9.nombre = false;
           $('#v-pills-Nombre-tab').addClass('disabled');
-          _this8.alert_cp = err.response.data.error;
+          _this9.alert_cp = err.response.data.error;
         }
       });
     }
@@ -2490,7 +2540,7 @@ function Cliente(_ref) {
       $('#v-pills-Aseguradoras-tab').click();
     }
   }), _defineProperty(_methods, "sendCotizacion", function sendCotizacion(cliente) {
-    var _this9 = this;
+    var _this10 = this;
 
     var params = cliente;
     var url = "./api/cotizacion";
@@ -2498,26 +2548,26 @@ function Cliente(_ref) {
     this.alert["class"] = '';
     axios.post(url, cliente).then(function (res) {
       //console.log('res',res);
-      _this9.cliente.cotizacion = res.data.cotizacion.cotizacion;
-      _this9.cliente.uso_auto = res.data.cotizacion.uso_auto;
-      _this9.cliente.descripcion_auto = res.data.cotizacion.auto.version;
-      _this9.cliente.marca_auto = res.data.cotizacion.auto.marca;
-      _this9.cliente.modelo_auto = res.data.cotizacion.auto.submarca.anio;
-      _this9.cliente.submarca_auto = res.data.cotizacion.auto.submarca;
-      _this9.cliente.cp = res.data.cotizacion.cp;
-      _this9.cliente.nombre = res.data.cotizacion.nombre;
-      _this9.cliente.appaterno = res.data.cotizacion.appaterno;
-      _this9.cliente.apmaterno = res.data.cotizacion.apmaterno;
-      _this9.cliente.telefono = res.data.cotizacion.telefono;
-      _this9.cliente.email = res.data.cotizacion.email;
-      _this9.cliente.sexo = res.data.cotizacion.sexo;
-      _this9.cliente.f_nac = res.data.cotizacion.f_nac;
-      _this9.cliente.ana = res.data.cotizacion.ana;
-      _this9.cliente.gs = res.data.cotizacion.gs;
-      _this9.cliente.qualitas = res.data.cotizacion.qualitas;
-      _this9.getcotizacion.value = !_this9.getcotizacion.value;
-      _this9.alert.message = "".concat(_this9.cliente.nombre, " ").concat(_this9.cliente.appaterno, " ").concat(_this9.cliente.apmaterno, " su cotizaci\xF3n se guardo con el folio ").concat(_this9.cliente.cotizacion);
-      _this9.alert["class"] = "alert alert-success alert-dismissible fade show";
+      _this10.cliente.cotizacion = res.data.cotizacion.cotizacion;
+      _this10.cliente.uso_auto = res.data.cotizacion.uso_auto;
+      _this10.cliente.descripcion_auto = res.data.cotizacion.auto.version;
+      _this10.cliente.marca_auto = res.data.cotizacion.auto.marca;
+      _this10.cliente.modelo_auto = res.data.cotizacion.auto.submarca.anio;
+      _this10.cliente.submarca_auto = res.data.cotizacion.auto.submarca;
+      _this10.cliente.cp = res.data.cotizacion.cp;
+      _this10.cliente.nombre = res.data.cotizacion.nombre;
+      _this10.cliente.appaterno = res.data.cotizacion.appaterno;
+      _this10.cliente.apmaterno = res.data.cotizacion.apmaterno;
+      _this10.cliente.telefono = res.data.cotizacion.telefono;
+      _this10.cliente.email = res.data.cotizacion.email;
+      _this10.cliente.sexo = res.data.cotizacion.sexo;
+      _this10.cliente.f_nac = res.data.cotizacion.f_nac;
+      _this10.cliente.ana = res.data.cotizacion.ana;
+      _this10.cliente.gs = res.data.cotizacion.gs;
+      _this10.cliente.qualitas = res.data.cotizacion.qualitas;
+      _this10.getcotizacion.value = !_this10.getcotizacion.value;
+      _this10.alert.message = "".concat(_this10.cliente.nombre, " ").concat(_this10.cliente.appaterno, " ").concat(_this10.cliente.apmaterno, " su cotizaci\xF3n se guardo con el folio ").concat(_this10.cliente.cotizacion);
+      _this10.alert["class"] = "alert alert-success alert-dismissible fade show";
       $("#paso2-tab").removeClass("disabled");
       $("#paso2-tab").click();
     })["catch"](function (err) {
@@ -42066,12 +42116,6 @@ var render = function() {
                       _c("div", { staticClass: "col" }, [
                         _c(
                           "label",
-                          { staticClass: "col", attrs: { for: "gnp_lista" } },
-                          [_vm._v("GNP")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "label",
                           {
                             staticClass: "form-check-label",
                             attrs: { for: "" }
@@ -42080,6 +42124,227 @@ var render = function() {
                             _c("img", {
                               attrs: {
                                 src: _vm.img.gnpImage,
+                                width: "120",
+                                height: "50"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-3" }, [
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.modeloGNP,
+                                expression: "modeloGNP"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { id: "gnp_lista" },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.modeloGNP = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              {
+                                staticClass: "form-control form-control-sm",
+                                staticStyle: { "white-space": "normal" },
+                                attrs: { value: "" }
+                              },
+                              [_vm._v("Seleccione su año")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "2011" } }, [
+                              _vm._v("2011")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "2012" } }, [
+                              _vm._v("2012")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "2013" } }, [
+                              _vm._v("2013")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "2020" } }, [
+                              _vm._v("2014")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "2015" } }, [
+                              _vm._v("2015")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "2016" } }, [
+                              _vm._v("2016")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "2017" } }, [
+                              _vm._v("2017")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "2018" } }, [
+                              _vm._v("2018")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "2019" } }, [
+                              _vm._v("2019")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "2020" } }, [
+                              _vm._v("2020")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "2021" } }, [
+                              _vm._v("2021")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "2022" } }, [
+                              _vm._v("2022")
+                            ])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-3" }, [
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.marcaGNP,
+                                expression: "marcaGNP"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.marcaGNP = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              {
+                                staticClass: "form-control form-control-sm",
+                                staticStyle: { "white-space": "normal" },
+                                attrs: { value: "" }
+                              },
+                              [_vm._v("Seleccione el modelo")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.marcasGNP, function(marcas) {
+                              return _c(
+                                "option",
+                                { domProps: { value: marcas } },
+                                [_vm._v(_vm._s(marcas))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-3" }, [
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.cliente.gnpsubMarca,
+                                expression: "cliente.gnpsubMarca"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.cliente,
+                                  "gnpsubMarca",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              {
+                                staticClass: "form-control form-control-sm",
+                                staticStyle: { "white-space": "normal" },
+                                attrs: { value: "" }
+                              },
+                              [_vm._v("Seleccione la submarca")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.submarcasGNP, function(marcas) {
+                              return _c("option", { attrs: { value: "" } }, [
+                                _vm._v(_vm._s(marcas))
+                              ])
+                            })
+                          ],
+                          2
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("hr"),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "checkbox-gs" }
+                          },
+                          [
+                            _c("img", {
+                              attrs: {
+                                src: _vm.img.gsImage,
                                 width: "120",
                                 height: "50"
                               }
@@ -42242,8 +42507,8 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.cliente.gnpMarca,
-                                expression: "cliente.gnpMarca"
+                                value: _vm.cliente.submarcaGNP,
+                                expression: "cliente.submarcaGNP"
                               }
                             ],
                             staticClass: "form-control",
@@ -42259,7 +42524,7 @@ var render = function() {
                                   })
                                 _vm.$set(
                                   _vm.cliente,
-                                  "gnpMarca",
+                                  "submarcaGNP",
                                   $event.target.multiple
                                     ? $$selectedVal
                                     : $$selectedVal[0]
@@ -42275,7 +42540,7 @@ var render = function() {
                                 staticStyle: { "white-space": "normal" },
                                 attrs: { value: "" }
                               },
-                              [_vm._v("Seleccione el modelo")]
+                              [_vm._v("Seleccione la submarca")]
                             ),
                             _vm._v(" "),
                             _vm._l(_vm.marcasGNP, function(marcas) {
@@ -42292,7 +42557,24 @@ var render = function() {
                     _c("hr"),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
-                      _vm._m(0),
+                      _c("div", { staticClass: "col" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "checkbox-ana" }
+                          },
+                          [
+                            _c("img", {
+                              attrs: {
+                                src: _vm.img.anaImage,
+                                width: "120",
+                                height: "50"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-3" }, [
                         _c(
@@ -42438,13 +42720,84 @@ var render = function() {
                           ],
                           2
                         )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-3" }, [
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.cliente.submarcaGNP,
+                                expression: "cliente.submarcaGNP"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.cliente,
+                                  "submarcaGNP",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              {
+                                staticClass: "form-control form-control-sm",
+                                staticStyle: { "white-space": "normal" },
+                                attrs: { value: "" }
+                              },
+                              [_vm._v("Seleccione la submarca")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.marcasGNP, function(marcas) {
+                              return _c("option", { attrs: { value: "" } }, [
+                                _vm._v(_vm._s(marcas))
+                              ])
+                            })
+                          ],
+                          2
+                        )
                       ])
                     ]),
                     _vm._v(" "),
                     _c("hr"),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
-                      _vm._m(1),
+                      _c("div", { staticClass: "col" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "checkbox-qualitas" }
+                          },
+                          [
+                            _c("img", {
+                              attrs: {
+                                src: _vm.img.quaImage,
+                                width: "120",
+                                height: "50"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-3" }, [
                         _c(
@@ -42590,104 +42943,6 @@ var render = function() {
                           ],
                           2
                         )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("hr"),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "row" }, [
-                      _vm._m(2),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-3" }, [
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.modeloGNP,
-                                expression: "modeloGNP"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: { id: "gnp_lista" },
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.modeloGNP = $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              }
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              {
-                                staticClass: "form-control form-control-sm",
-                                staticStyle: { "white-space": "normal" },
-                                attrs: { value: "" }
-                              },
-                              [_vm._v("Seleccione su año")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2011" } }, [
-                              _vm._v("2011")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2012" } }, [
-                              _vm._v("2012")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2013" } }, [
-                              _vm._v("2013")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2020" } }, [
-                              _vm._v("2014")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2015" } }, [
-                              _vm._v("2015")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2016" } }, [
-                              _vm._v("2016")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2017" } }, [
-                              _vm._v("2017")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2018" } }, [
-                              _vm._v("2018")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2019" } }, [
-                              _vm._v("2019")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2020" } }, [
-                              _vm._v("2020")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2021" } }, [
-                              _vm._v("2021")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2022" } }, [
-                              _vm._v("2022")
-                            ])
-                          ]
-                        )
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-3" }, [
@@ -42698,8 +42953,8 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.cliente.gnpMarca,
-                                expression: "cliente.gnpMarca"
+                                value: _vm.cliente.submarcaGNP,
+                                expression: "cliente.submarcaGNP"
                               }
                             ],
                             staticClass: "form-control",
@@ -42715,7 +42970,7 @@ var render = function() {
                                   })
                                 _vm.$set(
                                   _vm.cliente,
-                                  "gnpMarca",
+                                  "submarcaGNP",
                                   $event.target.multiple
                                     ? $$selectedVal
                                     : $$selectedVal[0]
@@ -42731,7 +42986,7 @@ var render = function() {
                                 staticStyle: { "white-space": "normal" },
                                 attrs: { value: "" }
                               },
-                              [_vm._v("Seleccione el modelo")]
+                              [_vm._v("Seleccione la submarca")]
                             ),
                             _vm._v(" "),
                             _vm._l(_vm.marcasGNP, function(marcas) {
@@ -42878,7 +43133,7 @@ var render = function() {
                           2
                         ),
                         _vm._v(" "),
-                        _vm._m(3)
+                        _vm._m(0)
                       ])
                     ])
                   ]
@@ -43011,7 +43266,7 @@ var render = function() {
                           2
                         ),
                         _vm._v(" "),
-                        _vm._m(4)
+                        _vm._m(1)
                       ])
                     ])
                   ]
@@ -43089,7 +43344,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(5),
+                          _vm._m(2),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -43244,7 +43499,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(6),
+                          _vm._m(3),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -43333,7 +43588,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(7),
+                          _vm._m(4),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -43422,7 +43677,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(8),
+                          _vm._m(5),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -43545,7 +43800,7 @@ var render = function() {
                           ]
                         ),
                         _vm._v(" "),
-                        _vm._m(9)
+                        _vm._m(6)
                       ])
                     ])
                   ]
@@ -43611,7 +43866,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(10),
+                          _vm._m(7),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -44046,7 +44301,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(11),
+                          _vm._m(8),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -44083,36 +44338,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col" }, [
-      _c("label", { staticClass: "col", attrs: { for: "gnp_lista" } }, [
-        _vm._v("GENERAL DE SEGUROS")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col" }, [
-      _c("label", { staticClass: "col", attrs: { for: "gnp_lista" } }, [
-        _vm._v("ANA")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col" }, [
-      _c("label", { staticClass: "col", attrs: { for: "gnp_lista" } }, [
-        _vm._v("QUALITAS")
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

@@ -62,7 +62,7 @@
 		                
 		                <div class="row">
 		  				<div class="col">
-		  					<label for="gnp_lista" class="col">GNP</label>
+		  					<!-- <label for="gnp_lista" class="col">GNP</label> -->
 		  					 <label class="form-check-label" for=""><img :src="img.gnpImage" width="120" height="50"></label>
 		  				</div>
 		  				<div class="col-3">
@@ -84,17 +84,18 @@
 
 		  				</div>
 		  				<div class="col-3">
-		  					<select v-model="cliente.gnpMarca" class="form-control">
+		  					<select v-model="marcaGNP" class="form-control">
     								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
 
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
+    								<option :value="marcas" v-for="marcas in marcasGNP">{{marcas}}</option>
     								</select>
+    								
 		  				</div>
 		  				<div class="col-3">
-		  					<select v-model="cliente.gnpMarca" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
+		  					<select v-model="cliente.gnpsubMarca" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
 
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
+    								<option value="" v-for="marcas in submarcasGNP">{{marcas}}</option>
     								</select>
 		  				</div>
 		  				
@@ -102,7 +103,7 @@
 						<hr>	
 						<div class="row">
 		  				<div class="col">
-		  					<label for="gnp_lista" class="col">GENERAL DE SEGUROS</label>
+		  					<label class="form-check-label" for="checkbox-gs"><img :src="img.gsImage" width="120" height="50"></label>
 		  				</div>
 		  				<div class="col-3">
 		  					<select  v-model="modeloGNP" class="form-control" id="gnp_lista">
@@ -129,12 +130,20 @@
     								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
     								</select>
 		  				</div>
+
+		  				<div class="col-3">
+		  					<select v-model="cliente.submarcaGNP" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
+
+    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
+    								</select>
+		  				</div>
 		  				
 						</div>
 						<hr>	
 						<div class="row">
 		  				<div class="col">
-		  					<label for="gnp_lista" class="col">ANA</label>
+		  					<label class="form-check-label" for="checkbox-ana"><img :src="img.anaImage" width="120" height="50"></label>
 		  				</div>
 		  				<div class="col-3">
 		  					<select  v-model="modeloGNP" class="form-control" id="gnp_lista">
@@ -161,12 +170,19 @@
     								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
     								</select>
 		  				</div>
+		  				<div class="col-3">
+		  					<select v-model="cliente.submarcaGNP" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
+
+    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
+    								</select>
+		  				</div>
 		  				
 						</div>
 						<hr>	
 						<div class="row">
 		  				<div class="col">
-		  					<label for="gnp_lista" class="col">QUALITAS</label>
+		  					<label class="form-check-label" for="checkbox-qualitas"><img :src="img.quaImage" width="120" height="50"></label>
 		  				</div>
 		  				<div class="col-3">
 		  					<select  v-model="modeloGNP" class="form-control" id="gnp_lista">
@@ -193,9 +209,18 @@
     								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
     								</select>
 		  				</div>
+		  				<div class="col-3">
+		  					<select v-model="cliente.submarcaGNP" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
+
+    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
+    								</select>
+		  				</div>
 		  				
 						</div>
 						<hr>	
+
+ 
 
 
 
@@ -491,6 +516,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			modelos:[],
     			modelosGNP:[],
     			marcasGNP:[],
+    			submarcasGNP:[],
     			pills:[
     				'v-pills-Uso',
     				'v-pills-Marca',
@@ -524,6 +550,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			checkall:false,
     			marcaGNP:"",
     			modeloGNP:'',
+    			submarcaGNP:""
     		}
     	},
     	watch:{
@@ -539,14 +566,23 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				
 					console.log('Aqui se ejecutaron los MODELOS GNP',this.modeloGNP);
 
-					this.marcaGNP = this.modeloGNP;
-    				this.marcasGNP = this.getSubmarcaGNP(this.modeloGNP);
+					// this.marcaGNP = this.modeloGNP;
+    				this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
     		},
-    		'cliente.gnpMarca':function(newValue,oldValue){
-    				this.marcasGNP ="";
-					console.log('Marcas de Gnp en el año:',this.modeloGNP);
-    				this.marcasGNP = this.getSubmarcaGNP(this.modeloGNP);
+    		'marcaGNP':function(newValue,oldValue){
+    				// this.cliente.gnpMarca ="";cliente.gnpMarca
+    				// this.marcaGNP = 
+					console.log('SUBMarcas de Gnp en el año:',this.modeloGNP,this.marcaGNP);
+
+    				this.subMarcasGNP = this.getSubmarcaGNP(this.modeloGNP,this.marcaGNP);
     		},
+
+    		'cliente.submarcaGNP':function(newValue,oldValue){
+    				// this.submarcasGNP ="";
+					console.log('subMarcas de Gnp en el año:',this.submarcasGNP);
+    				this.submarcasGNP = this.getSubmarcaGNP(this.modeloGNP,this.submarcasGNP);
+    		},
+
     		'cliente.modelo_auto':function(newV,oldV){
     			if (newV != "") {
     				this.marca = true;
@@ -693,7 +729,26 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				console.log('error submarcas',error);
 				});
     		},
-    			getSubmarcaGNP(año){
+    			getSubmarcaGNP(año,marca){
+    			this.loader_tipo=true;
+    			let url = `./api/submarcas-gnp/${año}/${marca}`;
+    			
+    			axios.get(url).then(res=>{
+    				this.loader_tipo = false;
+    				console.log('SUBMARCAS GNP COMPLETAS',res);
+    				
+    				if (res.data.submarcas) {
+    					this.submarcasGNP = res.data.submarcas;
+    					console.log('RES SUBMARCAS',this.submarcasGNP);
+    					alert('EXITO EN LA CONSULTA SUBMARCAS');
+    				}
+    				
+    			}).catch(error=>{
+    				console.log('error submarcas',error);
+				});
+    		},
+    		
+    		getmarcaGNP(año){
     			this.loader_tipo=true;
     			let url = `./api/marcas-gnp/${año}`;
     			
