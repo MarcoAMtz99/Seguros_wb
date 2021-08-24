@@ -43269,7 +43269,7 @@ var render = function() {
                               {
                                 staticClass:
                                   "list-group-item text-center text-dark seleccionador",
-                                attrs: { value: "Masculino" }
+                                attrs: { value: "Hombre" }
                               },
                               [_vm._v("Masculino ")]
                             ),
@@ -43279,7 +43279,7 @@ var render = function() {
                               {
                                 staticClass:
                                   "list-group-item text-center text-dark seleccionador",
-                                attrs: { value: "Femenino" }
+                                attrs: { value: "Mujer" }
                               },
                               [_vm._v("Femenino")]
                             ),
