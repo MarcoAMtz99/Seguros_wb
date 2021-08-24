@@ -146,20 +146,9 @@
 		  					<label class="form-check-label" for="checkbox-ana"><img :src="img.anaImage" width="120" height="50"></label>
 		  				</div>
 		  				<div class="col-3">
-		  					<select  v-model="modeloGNP" class="form-control" id="gnp_lista">
+		  					<select  v-model="cliente.modelo_auto" class="form-control" id="gnp_lista">
 		                            	<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione su año</option>
-		                            	<option value="2011">2011</option>
-										<option value="2012">2012</option>
-										<option value="2013">2013</option>
-										<option value="2020">2014</option>
-										<option value="2015">2015</option>
-										<option value="2016">2016</option>
-										<option value="2017">2017</option>
-										<option value="2018">2018</option>
-										<option value="2019">2019</option>
-										<option value="2020">2020</option>
-										<option value="2021">2021</option>
-										<option value="2022">2022</option>
+		                            	<option v-for="anio in modelos" :value="anio" >{{anio}}</option>
 									</select>	
 
 		  				</div>
@@ -219,11 +208,6 @@
 		  				
 						</div>
 						<hr>	
-
- 
-
-
-
 						</div>
 						 <!--MARCA-->
 		                <div class="tab-pane fade" v-show="marca" id="v-pills-Marca" role="tabpanel" aria-albelledby="v-pills-Marca-tab">

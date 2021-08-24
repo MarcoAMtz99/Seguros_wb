@@ -2160,22 +2160,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -42584,8 +42568,8 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.modeloGNP,
-                                expression: "modeloGNP"
+                                value: _vm.cliente.modelo_auto,
+                                expression: "cliente.modelo_auto"
                               }
                             ],
                             staticClass: "form-control",
@@ -42600,9 +42584,13 @@ var render = function() {
                                     var val = "_value" in o ? o._value : o.value
                                     return val
                                   })
-                                _vm.modeloGNP = $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
+                                _vm.$set(
+                                  _vm.cliente,
+                                  "modelo_auto",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
                               }
                             }
                           },
@@ -42617,54 +42605,15 @@ var render = function() {
                               [_vm._v("Seleccione su año")]
                             ),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "2011" } }, [
-                              _vm._v("2011")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2012" } }, [
-                              _vm._v("2012")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2013" } }, [
-                              _vm._v("2013")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2020" } }, [
-                              _vm._v("2014")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2015" } }, [
-                              _vm._v("2015")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2016" } }, [
-                              _vm._v("2016")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2017" } }, [
-                              _vm._v("2017")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2018" } }, [
-                              _vm._v("2018")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2019" } }, [
-                              _vm._v("2019")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2020" } }, [
-                              _vm._v("2020")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2021" } }, [
-                              _vm._v("2021")
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2022" } }, [
-                              _vm._v("2022")
-                            ])
-                          ]
+                            _vm._l(_vm.modelos, function(anio) {
+                              return _c(
+                                "option",
+                                { domProps: { value: anio } },
+                                [_vm._v(_vm._s(anio))]
+                              )
+                            })
+                          ],
+                          2
                         )
                       ]),
                       _vm._v(" "),
