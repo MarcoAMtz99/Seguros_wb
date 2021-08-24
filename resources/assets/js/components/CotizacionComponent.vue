@@ -153,17 +153,17 @@
 
 		  				</div>
 		  				<div class="col-3">
-		  					<select v-model="cliente.gnpMarca" class="form-control">
+		  					<select v-model="cliente.marca_auto" class="form-control">
     								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
 
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
+    								<option v-for="marca in marcas" :value="marca" class="list-group-item text-center text-dark seleccionador">{{marca.descripcion}}</option>
     								</select>
 		  				</div>
 		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
+		  					<select v-model="cliente.submarca_auto" class="form-control">
     								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
 
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
+    								<option v-for="submarca in submarcas" :value="submarca" class="list-group-item text-center text-dark seleccionador">{{submarca.descripcion}}</option>
     								</select>
 		  				</div>
 		  				

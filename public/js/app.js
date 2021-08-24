@@ -42625,8 +42625,8 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.cliente.gnpMarca,
-                                expression: "cliente.gnpMarca"
+                                value: _vm.cliente.marca_auto,
+                                expression: "cliente.marca_auto"
                               }
                             ],
                             staticClass: "form-control",
@@ -42642,7 +42642,7 @@ var render = function() {
                                   })
                                 _vm.$set(
                                   _vm.cliente,
-                                  "gnpMarca",
+                                  "marca_auto",
                                   $event.target.multiple
                                     ? $$selectedVal
                                     : $$selectedVal[0]
@@ -42661,10 +42661,16 @@ var render = function() {
                               [_vm._v("Seleccione el modelo")]
                             ),
                             _vm._v(" "),
-                            _vm._l(_vm.marcasGNP, function(marcas) {
-                              return _c("option", { attrs: { value: "" } }, [
-                                _vm._v(_vm._s(marcas))
-                              ])
+                            _vm._l(_vm.marcas, function(marca) {
+                              return _c(
+                                "option",
+                                {
+                                  staticClass:
+                                    "list-group-item text-center text-dark seleccionador",
+                                  domProps: { value: marca }
+                                },
+                                [_vm._v(_vm._s(marca.descripcion))]
+                              )
                             })
                           ],
                           2
@@ -42679,8 +42685,8 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.cliente.submarcaGNP,
-                                expression: "cliente.submarcaGNP"
+                                value: _vm.cliente.submarca_auto,
+                                expression: "cliente.submarca_auto"
                               }
                             ],
                             staticClass: "form-control",
@@ -42696,7 +42702,7 @@ var render = function() {
                                   })
                                 _vm.$set(
                                   _vm.cliente,
-                                  "submarcaGNP",
+                                  "submarca_auto",
                                   $event.target.multiple
                                     ? $$selectedVal
                                     : $$selectedVal[0]
@@ -42715,10 +42721,16 @@ var render = function() {
                               [_vm._v("Seleccione la submarca")]
                             ),
                             _vm._v(" "),
-                            _vm._l(_vm.marcasGNP, function(marcas) {
-                              return _c("option", { attrs: { value: "" } }, [
-                                _vm._v(_vm._s(marcas))
-                              ])
+                            _vm._l(_vm.submarcas, function(submarca) {
+                              return _c(
+                                "option",
+                                {
+                                  staticClass:
+                                    "list-group-item text-center text-dark seleccionador",
+                                  domProps: { value: submarca }
+                                },
+                                [_vm._v(_vm._s(submarca.descripcion))]
+                              )
                             })
                           ],
                           2
