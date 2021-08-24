@@ -41923,40 +41923,6 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group" }, [
-                          _c("label", [_vm._v("Ejecutivo")]),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.cliente.ejecutivo,
-                                expression: "cliente.ejecutivo"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              placeholder: "Ejecutivo",
-                              "aria-label": "No. Ejecutivo"
-                            },
-                            domProps: { value: _vm.cliente.ejecutivo },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.cliente,
-                                  "ejecutivo",
-                                  $event.target.value
-                                )
-                              }
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
                           _c("label", [_vm._v("Código de Descuento")]),
                           _vm._v(" "),
                           _c("input", {
