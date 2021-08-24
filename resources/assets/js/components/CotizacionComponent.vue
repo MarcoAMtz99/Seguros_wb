@@ -101,7 +101,7 @@
 		  				
 						</div>
 						<hr>	
-						<div class="row">
+						<!-- <div class="row">
 		  				<div class="col">
 		  					<label class="form-check-label" for="checkbox-gs"><img :src="img.gsImage" width="120" height="50"></label>
 		  				</div>
@@ -139,7 +139,7 @@
     								</select>
 		  				</div>
 		  				
-						</div>
+						</div> -->
 						<hr>	
 						<div class="row">
 		  				<div class="col">
@@ -169,7 +169,7 @@
 		  				
 						</div>
 						<hr>	
-						<div class="row">
+						<!-- <div class="row">
 		  				<div class="col">
 		  					<label class="form-check-label" for="checkbox-qualitas"><img :src="img.quaImage" width="120" height="50"></label>
 		  				</div>
@@ -206,7 +206,7 @@
     								</select>
 		  				</div>
 		  				
-						</div>
+						</div> -->
 						<hr>
 						 <div class="row">
 										<div class="col-12 mt-3 d-block d-sm-none">
