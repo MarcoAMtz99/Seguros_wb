@@ -207,7 +207,12 @@
 		  				</div>
 		  				
 						</div>
-						<hr>	
+						<hr>
+						 <div class="row">
+										<div class="col-12 mt-3 d-block d-sm-none">
+											<button class="btn btn-primary" type="button" onclick="$('#v-pills-Marca-tab').click();">Atras</button>
+										</div>
+							</div>
 						</div>
 						 <!--MARCA-->
 		                <div class="tab-pane fade" v-show="marca" id="v-pills-Marca" role="tabpanel" aria-albelledby="v-pills-Marca-tab">
@@ -569,7 +574,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 
     		'cliente.modelo_auto':function(newV,oldV){
     			if (newV != "") {
-    				this.marca = true;
+    				// this.marca = true;
     				
     				this.getMarcas(this.cliente.modelo_auto);
     				

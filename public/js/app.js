@@ -2160,6 +2160,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -2267,7 +2272,7 @@ function Cliente(_ref) {
     },
     'cliente.modelo_auto': function clienteModelo_auto(newV, oldV) {
       if (newV != "") {
-        this.marca = true;
+        // this.marca = true;
         this.getMarcas(this.cliente.modelo_auto);
         $('#v-pills-Marca-tab').removeClass('disabled');
         $('#v-pills-Marca-tab').click();
@@ -42961,7 +42966,9 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("hr")
+                    _c("hr"),
+                    _vm._v(" "),
+                    _vm._m(0)
                   ]
                 ),
                 _vm._v(" "),
@@ -43094,7 +43101,7 @@ var render = function() {
                           2
                         ),
                         _vm._v(" "),
-                        _vm._m(0)
+                        _vm._m(1)
                       ])
                     ])
                   ]
@@ -43227,7 +43234,7 @@ var render = function() {
                           2
                         ),
                         _vm._v(" "),
-                        _vm._m(1)
+                        _vm._m(2)
                       ])
                     ])
                   ]
@@ -43305,7 +43312,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(2),
+                          _vm._m(3),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -43460,7 +43467,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(3),
+                          _vm._m(4),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -43549,7 +43556,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(4),
+                          _vm._m(5),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -43638,7 +43645,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(5),
+                          _vm._m(6),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -43761,7 +43768,7 @@ var render = function() {
                           ]
                         ),
                         _vm._v(" "),
-                        _vm._m(6)
+                        _vm._m(7)
                       ])
                     ])
                   ]
@@ -43827,7 +43834,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(7),
+                          _vm._m(8),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -44262,7 +44269,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(8),
+                          _vm._m(9),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -44299,6 +44306,26 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-12 mt-3 d-block d-sm-none" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary",
+            attrs: {
+              type: "button",
+              onclick: "$('#v-pills-Marca-tab').click();"
+            }
+          },
+          [_vm._v("Atras")]
+        )
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
