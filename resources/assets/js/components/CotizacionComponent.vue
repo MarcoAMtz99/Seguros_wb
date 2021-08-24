@@ -36,6 +36,10 @@
     									<label>Ejecutivo</label>
     									<input class="form-control" type="text" v-model="cliente.ejecutivo" placeholder="Ejecutivo" aria-label="No. Ejecutivo">
     								</div> -->
+    								<!-- <div class="form-group">
+    									<label>Ejecutivo</label>
+    									<input class="form-control" type="text" v-model="cliente.ejecutivo" placeholder="Ejecutivo" aria-label="No. Ejecutivo">
+    								</div> -->
     								<div class="form-group">
     									<label>Código de Descuento</label>
     									<input class="form-control" type="text" v-model="cliente.codigo_descuento" placeholder="Código de descuento" aria-label="Código de descuento">
