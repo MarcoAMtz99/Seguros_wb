@@ -42332,7 +42332,7 @@ var render = function() {
                                 _vm._l(_vm.submarcasGNP, function(marcas) {
                                   return _c(
                                     "option",
-                                    { attrs: { value: "" } },
+                                    { domProps: { value: marcas } },
                                     [_vm._v(_vm._s(marcas))]
                                   )
                                 })

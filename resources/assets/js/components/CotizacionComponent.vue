@@ -140,7 +140,7 @@
 		  					<select v-model="cliente.gnpsubMarca" class="form-control">
     								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
 
-    								<option value="" v-for="marcas in submarcasGNP">{{marcas}}</option>
+    								<option :value="marcas" v-for="marcas in submarcasGNP">{{marcas}}</option>
     								</select>
 		  				</div>
 		  				
