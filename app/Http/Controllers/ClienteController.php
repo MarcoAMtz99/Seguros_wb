@@ -71,7 +71,9 @@ class ClienteController extends Controller
             'ejecutivo'        => $request->ejecutivo,
             'codigo_descuento' => $request->codigo_descuento,
             'gnpMarca'         => $request->gnpMarca,
-            'gnpsubMarca'      => $request->gnpsubMarca
+            'gnpsubMarca'      => $request->gnpsubMarca,
+            'anaMarca'         => $request->marca_auto['descripcion'],
+            'anasubMarca'      => $request->submarca_auto['descripcion']
 
         ]);
 
