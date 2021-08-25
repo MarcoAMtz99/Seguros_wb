@@ -2298,7 +2298,7 @@ function Cliente(_ref) {
       loader_modelo: true,
       descripcion: false,
       cp: false
-    }, _defineProperty(_ref2, "modelos", ""), _defineProperty(_ref2, "nombre", false), _defineProperty(_ref2, "celular", false), _defineProperty(_ref2, "correo", false), _defineProperty(_ref2, "sexo", false), _defineProperty(_ref2, "nac", false), _defineProperty(_ref2, "searchOption", false), _defineProperty(_ref2, "checkall", false), _defineProperty(_ref2, "marcaGNP", ""), _defineProperty(_ref2, "modeloGNP", ''), _defineProperty(_ref2, "submarcaGNP", ""), _ref2;
+    }, _defineProperty(_ref2, "modelos", ""), _defineProperty(_ref2, "nombre", false), _defineProperty(_ref2, "celular", false), _defineProperty(_ref2, "correo", false), _defineProperty(_ref2, "sexo", false), _defineProperty(_ref2, "nac", false), _defineProperty(_ref2, "searchOption", false), _defineProperty(_ref2, "checkall", false), _defineProperty(_ref2, "marcaGNP", ""), _defineProperty(_ref2, "modeloGNP", ''), _defineProperty(_ref2, "submarcaGNP", ""), _defineProperty(_ref2, "gnpsubMarca", ""), _ref2;
   },
   watch: {
     'cliente.uso_auto': function clienteUso_auto(newValue, oldValue) {
@@ -2337,9 +2337,9 @@ function Cliente(_ref) {
       this.cp = true; // console.log('subMarcas de Gnp en el año:',this.submarcasGNP);
       // this.submarcasGNP = this.getSubmarcaGNP(this.modeloGNP,this.submarcasGNP);
 
-      this.gnpsubMarca = this.cliente.submarcaGNP;
+      this.submarcaGNP = this.cliente.gnpsubMarca;
       console.log('subMarca que se envia seleccion', this.cliente.gnpsubMarca);
-      console.log('subMarca que se envia', this.gnpsubMarca); // $('#v-pills-CP-tab').removeClass('disabled');
+      console.log('subMarca que se envia', this.gnpsubMarca, this.submarcaGNP); // $('#v-pills-CP-tab').removeClass('disabled');
       // $('#v-pills-CP-tab').click();
     },
     'cliente.modelo_auto': function clienteModelo_auto(newV, oldV) {
