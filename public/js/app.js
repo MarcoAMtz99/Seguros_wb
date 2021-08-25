@@ -2313,6 +2313,7 @@ function Cliente(_ref) {
       // this.submarcasGNP ="";
       console.log('subMarcas de Gnp en el año:', this.submarcasGNP);
       this.submarcasGNP = this.getSubmarcaGNP(this.modeloGNP, this.submarcasGNP);
+      this.gnpsubMarca = this.cliente.submarcaGNP;
     },
     'cliente.modelo_auto': function clienteModelo_auto(newV, oldV) {
       if (newV != "") {

@@ -140,7 +140,7 @@
 		  					<select v-model="cliente.gnpsubMarca" class="form-control">
     								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
 
-    								<option :value="marcas" v-for="marcas in submarcasGNP">{{marcas}}</option>
+    								<option v-for="marcas in submarcasGNP" :value="marcas">{{marcas}}</option>
     								</select>
 		  				</div>
 		  				
@@ -627,6 +627,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				// this.submarcasGNP ="";
 					console.log('subMarcas de Gnp en el año:',this.submarcasGNP);
     				this.submarcasGNP = this.getSubmarcaGNP(this.modeloGNP,this.submarcasGNP);
+    				this.gnpsubMarca = this.cliente.submarcaGNP;
     		},
 
     		'cliente.modelo_auto':function(newV,oldV){
