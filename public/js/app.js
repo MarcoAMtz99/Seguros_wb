@@ -5601,6 +5601,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   watch: {
     'getcotizacion.value': function getcotizacionValue(newVal, oldVal) {
+      console.log('Cliente::', this.cliente);
+
       if (this.cliente.ana) {
         this.getDescripcionesANA(this.cliente.marca_auto.id_ana, this.cliente.submarca_auto.id_ana, this.cliente.submarca_auto.anio);
       }
