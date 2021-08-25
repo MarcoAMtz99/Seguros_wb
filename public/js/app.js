@@ -2205,6 +2205,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -2309,13 +2313,14 @@ function Cliente(_ref) {
       // console.log('SUBMarcas de Gnp en el año:',this.modeloGNP,this.marcaGNP,this.modelos);
       this.subMarcasGNP = this.getSubmarcaGNP(this.modeloGNP, this.marcaGNP);
     },
-    'cliente.submarcaGNP': function clienteSubmarcaGNP(newValue, oldValue) {
-      if (newValue != "") {
-        // console.log('subMarcas de Gnp en el año:',this.submarcasGNP);
-        this.submarcasGNP = this.getSubmarcaGNP(this.modeloGNP, this.submarcasGNP);
-        this.gnpsubMarca = this.cliente.submarcaGNP;
-        console.log('subMarca que se envia', this.gnpsubMarca);
-      }
+    'cliente.gnpsubMarca': function clienteGnpsubMarca(newValue, oldValue) {
+      this.cp = true; // console.log('subMarcas de Gnp en el año:',this.submarcasGNP);
+
+      this.submarcasGNP = this.getSubmarcaGNP(this.modeloGNP, this.submarcasGNP);
+      this.gnpsubMarca = this.cliente.submarcaGNP;
+      console.log('subMarca que se envia', this.gnpsubMarca);
+      $('#v-pills-CP-tab').removeClass('disabled');
+      $('#v-pills-CP-tab').click();
     },
     'cliente.modelo_auto': function clienteModelo_auto(newV, oldV) {
       if (newV != "") {
@@ -2327,8 +2332,7 @@ function Cliente(_ref) {
     },
     'cliente.marca_auto': function clienteMarca_auto(newValue, oldValue) {
       if (newValue != "") {
-        this.modelo = true;
-
+        // this.modelo = true;
         if (this.searchOption == false) {
           this.cliente.descripcion_auto = "";
         }
@@ -42498,7 +42502,27 @@ var render = function() {
                     _vm._v(" "),
                     _c("hr"),
                     _vm._v(" "),
-                    _c("hr")
+                    _c("hr"),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col mt-3 d-flex justify-content-end" },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary seleccionador",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.nextPill("cp")
+                              }
+                            }
+                          },
+                          [_vm._v("Siguiente")]
+                        )
+                      ]
+                    )
                   ]
                 ),
                 _vm._v(" "),

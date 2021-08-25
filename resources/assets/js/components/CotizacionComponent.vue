@@ -262,6 +262,10 @@
 		  				
 						</div> -->
 						<hr>
+						<div class="col mt-3 d-flex justify-content-end">
+                        					<button type="button" class="btn btn-primary seleccionador" @click="nextPill('cp')">Siguiente</button>
+											
+										</div>
 
 		                </div>
 
@@ -623,13 +627,18 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				this.subMarcasGNP = this.getSubmarcaGNP(this.modeloGNP,this.marcaGNP);
     		},
 
-    		'cliente.submarcaGNP':function(newValue,oldValue){
-    				if (newValue != "") {
+    		'cliente.gnpsubMarca':function(newValue,oldValue){
+    				
+    					this.cp = true;
     				// console.log('subMarcas de Gnp en el año:',this.submarcasGNP);
     				this.submarcasGNP = this.getSubmarcaGNP(this.modeloGNP,this.submarcasGNP);
     				this.gnpsubMarca = this.cliente.submarcaGNP;
     				console.log('subMarca que se envia',this.gnpsubMarca );
-    				}
+
+
+    				$('#v-pills-CP-tab').removeClass('disabled');
+    				$('#v-pills-CP-tab').click();
+    				
 					
     		},
 
@@ -645,7 +654,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     		},
     		'cliente.marca_auto': function(newValue,oldValue){
     			if (newValue != "") {
-    				this.modelo = true;
+    				// this.modelo = true;
 
     				if(this.searchOption == false){
     					this.cliente.descripcion_auto="";
