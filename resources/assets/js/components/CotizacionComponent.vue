@@ -207,24 +207,6 @@
 
 		  				</div>
 		  				<div class="col-3">
-		  					<select  v-model="modeloGNP" class="form-control" id="gnp_lista">
-		                            	<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione su año</option>
-		                            	<option value="2011">2011</option>
-										<option value="2012">2012</option>
-										<option value="2013">2013</option>
-										<option value="2020">2014</option>
-										<option value="2015">2015</option>
-										<option value="2016">2016</option>
-										<option value="2017">2017</option>
-										<option value="2018">2018</option>
-										<option value="2019">2019</option>
-										<option value="2020">2020</option>
-										<option value="2021">2021</option>
-										<option value="2022">2022</option>
-									</select>	
-
-		  				</div>
-		  				<div class="col-3">
 		  					<select v-model="cliente.gnpMarca" class="form-control">
     								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
 
@@ -644,7 +626,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				// this.cliente.gnpMarca ="";cliente.gnpMarca
     				// this.marcaGNP = 
 					// console.log('SUBMarcas de Gnp en el año:',this.modeloGNP,this.marcaGNP,this.modelos);
-
+						this.cliente.gnpMarca =	this.marcaGNP;
     				this.subMarcasGNP = this.getSubmarcaGNP(this.modeloGNP,this.marcaGNP);
     		},
 
@@ -958,6 +940,9 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 					this.cliente.uso_auto 		  = res.data.cotizacion.uso_auto;
 					this.cliente.descripcion_auto = res.data.cotizacion.auto.version;
 					this.cliente.marca_auto    	  = res.data.cotizacion.auto.marca;
+					// if (isset(this.cliente.modelo_auto)) {
+						
+					// }
 					this.cliente.modelo_auto      = res.data.cotizacion.auto.submarca.anio;
 					this.cliente.submarca_auto    = res.data.cotizacion.auto.submarca;
 					this.cliente.cp 			  = res.data.cotizacion.cp;
@@ -972,6 +957,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 					this.cliente.gs 			  = res.data.cotizacion.gs;
 					this.cliente.qualitas 		  = res.data.cotizacion.qualitas;
 					this.cliente.gnpsubMarca 	  = res.data.cotizacion.gnpsubMarca;
+					this.cliente.gnpMarca		  = res.data.cotizacion.gnpMarca;
     				this.getcotizacion.value 	  = !this.getcotizacion.value;
     				this.alert.message 			  = `${this.cliente.nombre} ${this.cliente.appaterno} ${this.cliente.apmaterno} su cotización se guardo con el folio ${this.cliente.cotizacion}`;
     				this.alert.class 			  = "alert alert-success alert-dismissible fade show";

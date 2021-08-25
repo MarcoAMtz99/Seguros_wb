@@ -22,29 +22,35 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        // dd($request);
         if ($request->sexo == "Maculino") {
             $request->sexo =="Hombre";
         }else if ($request->sexo == "Femenino") {
             $request->sexo =="Mujer";
         }
-        $rules=[
-            'uso_auto'      => 'required',
-            'marca_auto'    => 'required|array',
-            'submarca_auto' => 'required|array',
-            'modelo_auto'   => 'required|numeric',
-            'cp'            => 'required',
-            'cestado'       => 'required',
-            'nombre'        => 'required|string',
-            'appaterno'     => 'required|string',
-            'apmaterno'     => 'nullable|string',
-            'telefono'      => 'required|numeric',
-            'email'         => 'required|email',
-            // 'sexo'          => 'required|in:Hombre,Mujer,Otro',
-            'f_nac'         => 'required|date'
+        $GNP=[];
+        $auxGnp=Array(
+            'marca'=> $request->gnpMarca,
+            'submarca'=> $request->gnpsubMarca,
+        );
+        array_push($GNP, $auxGnp);
+        // $rules=[
+        //     'uso_auto'      => 'required',
+        //     'marca_auto'    => 'required|array',
+        //     'submarca_auto' => 'required|array',
+        //     'modelo_auto'   => 'required|numeric',
+        //     'cp'            => 'required',
+        //     'cestado'       => 'required',
+        //     'nombre'        => 'required|string',
+        //     'appaterno'     => 'required|string',
+        //     'apmaterno'     => 'nullable|string',
+        //     'telefono'      => 'required|numeric',
+        //     'email'         => 'required|email',
+        //     // 'sexo'          => 'required|in:Hombre,Mujer,Otro',
+        //     'f_nac'         => 'required|date'
 
-        ];
-        $this->validate($request,$rules);
+        // ];
+        // $this->validate($request,$rules);
         // return $request->all();
 
         $cliente = Cliente::create([
@@ -69,21 +75,27 @@ class ClienteController extends Controller
 
         $auto = new Auto();
         $cliente->auto()->save($auto);
-
-        $marca = new Marca([
+        if (isset($request->marca_auto['id']) ) {
+             $marca = new Marca([
             'id_ana'      => $request->marca_auto['id'],
-            'descripcion' => $request->marca_auto['descripcion']
+            'descripcion' => $request->marca_auto['descripcion'],
+            'id_gnp' => $request->gnpMarca
         ]);
+             $auto->marca()->save($marca);
+        }
+       
 
-        $auto->marca()->save($marca);
-
-        $submarca=new Submarca([
+        
+        if (isset($request->submarca_auto['id'] ) ) {
+            $submarca=new Submarca([
             "id_ana"      => $request->submarca_auto['id'],
             "descripcion" => $request->submarca_auto['descripcion'],
             "id_seg_gs"   => "1",
             "anio"        => $request->modelo_auto,
         ]);
         $auto->submarca()->save($submarca);
+        }
+        
 
         $cliente->cotizacion = $cliente->generarCotizacion();
         $cliente->save();
@@ -91,7 +103,8 @@ class ClienteController extends Controller
         $cliente->auto->marca;
         $cliente->auto->submarca;
         //$cliente->emailCotizacion();
-        return response()->json(['cotizacion'=>$cliente],201);
+        // dd($cliente);
+        return response()->json(['cotizacion'=>$cliente,'GNP'=>$GNP],201);
     }
 
     public function sendEmail(Request $request)

@@ -2210,24 +2210,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -2331,6 +2313,7 @@ function Cliente(_ref) {
       // this.cliente.gnpMarca ="";cliente.gnpMarca
       // this.marcaGNP = 
       // console.log('SUBMarcas de Gnp en el año:',this.modeloGNP,this.marcaGNP,this.modelos);
+      this.cliente.gnpMarca = this.marcaGNP;
       this.subMarcasGNP = this.getSubmarcaGNP(this.modeloGNP, this.marcaGNP);
     },
     'cliente.gnpsubMarca': function clienteGnpsubMarca(newValue, oldValue) {
@@ -2623,7 +2606,9 @@ function Cliente(_ref) {
       _this10.cliente.cotizacion = res.data.cotizacion.cotizacion;
       _this10.cliente.uso_auto = res.data.cotizacion.uso_auto;
       _this10.cliente.descripcion_auto = res.data.cotizacion.auto.version;
-      _this10.cliente.marca_auto = res.data.cotizacion.auto.marca;
+      _this10.cliente.marca_auto = res.data.cotizacion.auto.marca; // if (isset(this.cliente.modelo_auto)) {
+      // }
+
       _this10.cliente.modelo_auto = res.data.cotizacion.auto.submarca.anio;
       _this10.cliente.submarca_auto = res.data.cotizacion.auto.submarca;
       _this10.cliente.cp = res.data.cotizacion.cp;
@@ -2638,6 +2623,7 @@ function Cliente(_ref) {
       _this10.cliente.gs = res.data.cotizacion.gs;
       _this10.cliente.qualitas = res.data.cotizacion.qualitas;
       _this10.cliente.gnpsubMarca = res.data.cotizacion.gnpsubMarca;
+      _this10.cliente.gnpMarca = res.data.cotizacion.gnpMarca;
       _this10.getcotizacion.value = !_this10.getcotizacion.value;
       _this10.alert.message = "".concat(_this10.cliente.nombre, " ").concat(_this10.cliente.appaterno, " ").concat(_this10.cliente.apmaterno, " su cotizaci\xF3n se guardo con el folio ").concat(_this10.cliente.cotizacion);
       _this10.alert["class"] = "alert alert-success alert-dismissible fade show";
