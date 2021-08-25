@@ -69,7 +69,9 @@ class ClienteController extends Controller
             'qualitas'         => $request->qualitas,
             'gnp'              => $request->gnp,
             'ejecutivo'        => $request->ejecutivo,
-            'codigo_descuento' => $request->codigo_descuento
+            'codigo_descuento' => $request->codigo_descuento,
+            'gnpMarca'         => $request->gnpMarca,
+            'gnpsubMarca'      => $request->gnpsubMarca
 
         ]);
 

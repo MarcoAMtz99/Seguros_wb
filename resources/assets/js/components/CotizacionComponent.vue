@@ -719,8 +719,10 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 						this.cliente.ana 			  = res.data.cotizacion.ana;
 						this.cliente.gs 			  = res.data.cotizacion.gs;
 						this.cliente.qualitas 		  = res.data.cotizacion.qualitas;
-						this.cliente.gnp 		  	  = res.data.cotizacion.gnp;
+						this.cliente.gnpMarca 		  = res.data.cotizacion.gnpMarca;
+						this.cliente.gnpsubMarca 	  = res.data.cotizacion.gnpsubMarca;
 
+						alert(this.cliente.gnpMarca,this.cliente.gnpsubMarca);
 					 	$("#paso2-tab").removeClass("disabled");
         				$("#paso2-tab").click();
         				this.getcotizacion.value = !this.getcotizacion.value;

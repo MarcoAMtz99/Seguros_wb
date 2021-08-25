@@ -32,7 +32,15 @@ class Cliente extends Model
         'ana',
         'gs',
         'gnp',
-        'qualitas'
+        'qualitas',
+        'gnpMarca',
+        'gnpsubMarca',
+        'anaMarca',
+        'anasubMarca',
+        'gsMarca',
+        'gssubMarca',
+        'qaMarca',
+        'qasubMarca'
     ];
 
     protected $hidden=[
