@@ -6,9 +6,9 @@
     			<div class="col-sm-4 d-none d-sm-block p-2">
     				<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 		              <a class="nav-link active" id="v-pills-Uso-tab"  data-toggle="pill" href="#v-pills-Uso" role="tab" aria-controls="v-pills-Uso" aria-selected="true">Uso: {{cliente.uso_auto}}</a>
-		              <!-- <a class="nav-link disabled" id="v-pills-Modelo-tab" data-toggle="pill"  href="#v-pills-Modelo" role="tab" aria-controls="v-pills-Modelo" aria-selected="false">Modelo: {{cliente.modelo_auto}}</a>
+		              <a class="nav-link disabled" id="v-pills-Modelo-tab" data-toggle="pill"  href="#v-pills-Modelo" role="tab" aria-controls="v-pills-Modelo" aria-selected="false">Modelo: {{cliente.modelos}}</a>
 		              <a class="nav-link disabled" id="v-pills-Marca-tab" data-toggle="pill" href="#v-pills-Marca" role="tab" aria-controls="v-pills-Marca" aria-selected="false">Marca: {{cliente.marca_auto.descripcion}}</a>
-		              <a class="nav-link disabled" id="v-pills-Submarca-tab" data-toggle="pill" href="#v-pills-Submarca" role="tab" aria-controls="v-pills-Submarca" aria-selected="false">Tipo: {{cliente.submarca_auto.descripcion}}</a> -->
+		              <a class="nav-link disabled" id="v-pills-Submarca-tab" data-toggle="pill" href="#v-pills-Submarca" role="tab" aria-controls="v-pills-Submarca" aria-selected="false">Tipo: {{cliente.submarca_auto.descripcion}}</a>
 		              <a class="nav-link disabled" id="v-pills-CP-tab" data-toggle="pill"  href="#v-pills-CP" role="tab" aria-controls="v-pills-CP" aria-selected="false">CP: {{cliente.cp}}</a>
 		              <a class="nav-link disabled" id="v-pills-Nombre-tab" data-toggle="pill" href="#v-pills-Nombre"  role="tab" aria-controls="v-pills-Nombre" aria-selected="false">Nombre: {{cliente.nombre}} {{cliente.appaterno}} {{cliente.apmaterno}}</a>
 		              <a class="nav-link disabled" id="v-pills-Celular-tab" data-toggle="pill"  href="#v-pills-Celular" role="tab" aria-controls="v-pills-Celular" aria-selected="false">Celular: {{cliente.telefono}}</a>
@@ -63,13 +63,54 @@
     					</div>
     					<!--MODELO-->
 		                <div class="tab-pane fade" v-show="modelo" id="v-pills-Modelo" role="tabpanel" aria-albelledby="v-pills-Modelo-tab">
+		               <!--  <select class="list-group list-group-flush col" v-model="cliente.modelo_auto" size="2">
+		                            	<option value=""  class="list-group-item text-center text-dark seleccionador">Seleccione su modelo</option>
+		                            	<option v-for="anio in modelos" :value="anio" class="list-group-item text-center text-dark seleccionador">{{anio}}</option>
+		                            </select> -->
+		                            <div class="form-group">
+    									<label>Modelo</label>
+    									<input class="form-control" type="number" v-model="cliente.modelos" placeholder="2001,2002,2003,2004" aria-label="Modelo" id="valorModelo">
+    								</div>
+    								<div class="col mt-3 d-flex justify-content-end">
+                        					<button type="button" class="btn btn-primary seleccionador" @click="nextPill('Marca')">Siguiente</button>
+											
+										</div>
+		                            <br>
+		                            <hr>
 		                
-		                <div class="row">
+						 <div class="row">
+										<div class="col-12 mt-3 d-block d-sm-none">
+											<button class="btn btn-primary" type="button" onclick="$('#v-pills-Marca-tab').click();">Atras</button>
+										</div>
+							</div>
+						</div>
+						 <!--MARCA-->
+		                <div class="tab-pane fade" v-show="marca" id="v-pills-Marca" role="tabpanel" aria-albelledby="v-pills-Marca-tab">
+		                    <div class="card p-0">
+		                        <div class="card-header">
+		                            Marca
+		                        </div>
+		                        <div class="card-body">
+		                        	<!-- <div v-show="loader_marca" class="loader"></div>
+		                        	<div v-show="!loader_marca && this.marcas.length == 0">
+		                        		<label>No se encontraron resultados</label>
+		                        	</div>
+		                            <select v-show="!loader_marca && this.marcas.length != 0" v-model="cliente.marca_auto" size="7" class="list-group list-group-flush col">
+		                            	<option value="" class="list-group-item text-center text-dark seleccionador">Seleccione su marca</option>
+										<option v-for="marca in marcas" :value="marca" class="list-group-item text-center text-dark seleccionador" v-if="marca.descripcion !== 'BUIK' ">{{ marca.descripcion }}</option>
+									</select>
+									<div class="row">
+										<div class="col-12 mt-3 d-block d-sm-none">
+											<button class="btn btn-primary" type="button" onclick="$('#v-pills-Uso-tab').click();">Atras</button>
+										</div>
+									</div> -->
+									<div class="row">
+
 		  				<div class="col">
 		  					<!-- <label for="gnp_lista" class="col">GNP</label> -->
 		  					 <label class="form-check-label" for=""><img :src="img.gnpImage" width="120" height="50"></label>
 		  				</div>
-		  				<div class="col-3">
+		  			<!-- 	<div class="col-3">
 		  					<select  v-model="modeloGNP" class="form-control" id="gnp_lista">
 		                            	<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione su año</option>
 		                            	<option value="2011">2011</option>
@@ -86,7 +127,7 @@
 										<option value="2022">2022</option>
 									</select>	
 
-		  				</div>
+		  				</div> -->
 		  				<div class="col-3">
 		  					<select v-model="marcaGNP" class="form-control">
     								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
@@ -104,7 +145,44 @@
 		  				</div>
 		  				
 						</div>
+						<hr>
+
 						<hr>	
+						<div class="row">
+		  				<div class="col">
+		  					<label class="form-check-label" for="checkbox-ana"><img :src="img.anaImage" width="120" height="50"></label>
+		  				</div>
+		  				<!-- <div class="col-3">
+		  					<select  v-model="cliente.modelo_auto" class="form-control" id="gnp_lista">
+		                            	<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione su año</option>
+		                            	<option v-for="anio in modelos" :value="anio" >{{anio}}</option>
+									</select>	
+
+		  				</div> -->
+		  				<div class="col-3">
+		  					<select v-model="cliente.marca_auto" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
+
+    								<option v-for="marca in marcas" :value="marca" class="list-group-item text-center text-dark seleccionador">{{marca.descripcion}}</option>
+    								</select>
+		  				</div>
+		  				<div class="col-3">
+		  					<select v-model="cliente.submarca_auto" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
+
+    								<option v-for="submarca in submarcas" :value="submarca" class="list-group-item text-center text-dark seleccionador">{{submarca.descripcion}}</option>
+    								</select>
+		  				</div>
+		  				
+						</div>
+						<hr>	
+
+		                        </div>
+		                    </div>
+
+
+		                <hr>
+		                
 						<!-- <div class="row">
 		  				<div class="col">
 		  					<label class="form-check-label" for="checkbox-gs"><img :src="img.gsImage" width="120" height="50"></label>
@@ -144,35 +222,7 @@
 		  				</div>
 		  				
 						</div> -->
-						<hr>	
-						<div class="row">
-		  				<div class="col">
-		  					<label class="form-check-label" for="checkbox-ana"><img :src="img.anaImage" width="120" height="50"></label>
-		  				</div>
-		  				<div class="col-3">
-		  					<select  v-model="cliente.modelo_auto" class="form-control" id="gnp_lista">
-		                            	<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione su año</option>
-		                            	<option v-for="anio in modelos" :value="anio" >{{anio}}</option>
-									</select>	
-
-		  				</div>
-		  				<div class="col-3">
-		  					<select v-model="cliente.marca_auto" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
-
-    								<option v-for="marca in marcas" :value="marca" class="list-group-item text-center text-dark seleccionador">{{marca.descripcion}}</option>
-    								</select>
-		  				</div>
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarca_auto" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option v-for="submarca in submarcas" :value="submarca" class="list-group-item text-center text-dark seleccionador">{{submarca.descripcion}}</option>
-    								</select>
-		  				</div>
-		  				
-						</div>
-						<hr>	
+						
 						<!-- <div class="row">
 		  				<div class="col">
 		  					<label class="form-check-label" for="checkbox-qualitas"><img :src="img.quaImage" width="120" height="50"></label>
@@ -212,35 +262,13 @@
 		  				
 						</div> -->
 						<hr>
-						 <div class="row">
-										<div class="col-12 mt-3 d-block d-sm-none">
-											<button class="btn btn-primary" type="button" onclick="$('#v-pills-Marca-tab').click();">Atras</button>
-										</div>
-							</div>
-						</div>
-						 <!--MARCA-->
-		                <div class="tab-pane fade" v-show="marca" id="v-pills-Marca" role="tabpanel" aria-albelledby="v-pills-Marca-tab">
-		                    <div class="card p-0">
-		                        <div class="card-header">
-		                            Marca
-		                        </div>
-		                        <div class="card-body">
-		                        	<div v-show="loader_marca" class="loader"></div>
-		                        	<div v-show="!loader_marca && this.marcas.length == 0">
-		                        		<label>No se encontraron resultados</label>
-		                        	</div>
-		                            <select v-show="!loader_marca && this.marcas.length != 0" v-model="cliente.marca_auto" size="7" class="list-group list-group-flush col">
-		                            	<option value="" class="list-group-item text-center text-dark seleccionador">Seleccione su marca</option>
-										<option v-for="marca in marcas" :value="marca" class="list-group-item text-center text-dark seleccionador" v-if="marca.descripcion !== 'BUIK' ">{{ marca.descripcion }}</option>
-									</select>
-									<div class="row">
-										<div class="col-12 mt-3 d-block d-sm-none">
-											<button class="btn btn-primary" type="button" onclick="$('#v-pills-Uso-tab').click();">Atras</button>
-										</div>
-									</div>
-		                        </div>
-		                    </div>
+
 		                </div>
+
+
+
+
+
 		                 <!--SUBMARCA-->
 		                <div class="tab-pane fade" v-show="marca" id="v-pills-Submarca" role="tabpanel" aria-albelledby="v-pills-Submarca-tab">
 		                    <div class="card p-0">
@@ -415,10 +443,7 @@
 		                            		Aseguradoras
 		                        		</label>
 		                        		<div class="col mt-3 d-flex justify-content-end">
-										  	  <select class="list-group list-group-flush col" v-model="cliente.modelo_auto" size="7">
-		                            	<option value=""  class="list-group-item text-center text-dark seleccionador">Seleccione su modelo</option>
-		                            	<option v-for="anio in modelos" :value="anio" class="list-group-item text-center text-dark seleccionador">{{anio}}</option>
-		                            </select>
+										  	
 										  	<label class="form-check-label" for="checkbox-todos"><input class="form-check-input" type="checkbox" id="checkbox-todos" v-model="checkall" @click="selectAll()">Todos</label>
 		                        		</div>
 		                        	</div>
@@ -430,51 +455,11 @@
 										  <input class="form-check-input" type="checkbox" id="checkbox-gnp" v-model="cliente.gnp" true-value="1" false-value="0">
 										  <label class="form-check-label" for="checkbox-gnp"><img :src="img.gnpImage" width="120" height="50"></label>
 										</div>
-										<div class="row">
-		  				<div class="col">
-		  					<!-- <label for="gnp_lista" class="col">GNP</label> -->
-		  					 <label class="form-check-label" for=""><img :src="img.gnpImage" width="120" height="50"></label>
-		  				</div>
-		  				<div class="col-3">
-		  					<select  v-model="modeloGNP" class="form-control" id="gnp_lista">
-		                            	<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione su año</option>
-		                            	<option value="2011">2011</option>
-										<option value="2012">2012</option>
-										<option value="2013">2013</option>
-										<option value="2020">2014</option>
-										<option value="2015">2015</option>
-										<option value="2016">2016</option>
-										<option value="2017">2017</option>
-										<option value="2018">2018</option>
-										<option value="2019">2019</option>
-										<option value="2020">2020</option>
-										<option value="2021">2021</option>
-										<option value="2022">2022</option>
-									</select>	
-
-		  				</div>
-		  				<div class="col-3">
-		  					<select v-model="marcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
-
-    								<option :value="marcas" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-    								
-		  				</div>
-		  				<div class="col-3">
-		  					<select v-model="cliente.gnpsubMarca" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in submarcasGNP">{{marcas}}</option>
-    								</select>
-		  				</div>
-		  				
-						</div>
-						<hr>	
 
 
 
-										
+
+
 										<!-- General de seguros -->
 										<div class="form-check form-check-inline" v-if="cliente.uso_auto == 'Servicio Particular'">
 										  <input class="form-check-input" type="checkbox" id="checkbox-gs" v-model="cliente.gs" true-value="1" false-value="0">
@@ -585,6 +570,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			loader_modelo:true,
     			descripcion:false,
     			cp:false,
+    			modelos:"",
     			nombre:false,
     			celular:false,
     			correo:false,
@@ -602,24 +588,31 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			if (newValue != "") {
     				this.marca = true;
     				this.cp = true;
-    				// $('#v-pills-Modelo-tab').removeClass('disabled');
-    				// $('#v-pills-Modelo-tab').click();
-    				$('#v-pills-CP-tab').removeClass('disabled');
-    				$('#v-pills-CP-tab').click();
+    				$('#v-pills-Modelo-tab').removeClass('disabled');
+    				$('#v-pills-Modelo-tab').click();
+    				// $('#v-pills-CP-tab').removeClass('disabled');
+    				// $('#v-pills-CP-tab').click();
     				this.modelo = true;
     			}
     		},
     		'modeloGNP':function(newValue,oldValue){
     				
-					console.log('Aqui se ejecutaron los MODELOS GNP',this.modeloGNP);
+					console.log('Aqui se ejecutaron los MODELOS GNP',this.modelos);
 
 					// this.marcaGNP = this.modeloGNP;
     				this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
     		},
+    		'cliente.modelos':function(newValue,oldValue){
+    				this.modelos = this.cliente.modelos;
+					// alert('Aqui esta el valor',this.modelos);
+					this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
+					// this.marcaGNP =	 this.modeloGNP;
+    				// this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
+    		},
     		'marcaGNP':function(newValue,oldValue){
     				// this.cliente.gnpMarca ="";cliente.gnpMarca
     				// this.marcaGNP = 
-					console.log('SUBMarcas de Gnp en el año:',this.modeloGNP,this.marcaGNP);
+					console.log('SUBMarcas de Gnp en el año:',this.modeloGNP,this.marcaGNP,this.modelos);
 
     				this.subMarcasGNP = this.getSubmarcaGNP(this.modeloGNP,this.marcaGNP);
     		},
@@ -650,8 +643,8 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 
     				this.getSubmarcas(this.cliente.marca_auto.id);
 
-    				$('#v-pills-Submarca-tab').removeClass('disabled');
-    				$('#v-pills-Submarca-tab').click();
+    				// $('#v-pills-Submarca-tab').removeClass('disabled');
+    				// $('#v-pills-Submarca-tab').click();
     			}
     		},
     		'cliente.submarca_auto':function(newV,oldV){
@@ -866,6 +859,12 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     					});
     				
     			}
+    			if (input == "Marca" && this.cliente.modelos != "") {
+    				this.Marca = true;
+    				$('#v-pills-Marca-tab').removeClass('disabled');
+    				$('#v-pills-Marca-tab').click();
+
+    			}
     			if (input == "nombre" && this.cliente.nombre != "" && this.cliente.appaterno != "") {
     				this.celular = true;
     				$('#v-pills-Celular-tab').removeClass('disabled');
@@ -893,6 +892,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				$('#v-pills-Aseguradoras-tab').click();
 
     			}
+    			
     		},
 
     		sendCotizacion(cliente){
