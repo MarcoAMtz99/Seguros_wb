@@ -2172,6 +2172,51 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -43524,6 +43569,241 @@ var render = function() {
                               )
                             ]
                           ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "row" }, [
+                            _c("div", { staticClass: "col" }, [
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "form-check-label",
+                                  attrs: { for: "" }
+                                },
+                                [
+                                  _c("img", {
+                                    attrs: {
+                                      src: _vm.img.gnpImage,
+                                      width: "120",
+                                      height: "50"
+                                    }
+                                  })
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-3" }, [
+                              _c(
+                                "select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.modeloGNP,
+                                      expression: "modeloGNP"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  attrs: { id: "gnp_lista" },
+                                  on: {
+                                    change: function($event) {
+                                      var $$selectedVal = Array.prototype.filter
+                                        .call($event.target.options, function(
+                                          o
+                                        ) {
+                                          return o.selected
+                                        })
+                                        .map(function(o) {
+                                          var val =
+                                            "_value" in o ? o._value : o.value
+                                          return val
+                                        })
+                                      _vm.modeloGNP = $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "option",
+                                    {
+                                      staticClass:
+                                        "form-control form-control-sm",
+                                      staticStyle: { "white-space": "normal" },
+                                      attrs: { value: "" }
+                                    },
+                                    [_vm._v("Seleccione su año")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("option", { attrs: { value: "2011" } }, [
+                                    _vm._v("2011")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("option", { attrs: { value: "2012" } }, [
+                                    _vm._v("2012")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("option", { attrs: { value: "2013" } }, [
+                                    _vm._v("2013")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("option", { attrs: { value: "2020" } }, [
+                                    _vm._v("2014")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("option", { attrs: { value: "2015" } }, [
+                                    _vm._v("2015")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("option", { attrs: { value: "2016" } }, [
+                                    _vm._v("2016")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("option", { attrs: { value: "2017" } }, [
+                                    _vm._v("2017")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("option", { attrs: { value: "2018" } }, [
+                                    _vm._v("2018")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("option", { attrs: { value: "2019" } }, [
+                                    _vm._v("2019")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("option", { attrs: { value: "2020" } }, [
+                                    _vm._v("2020")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("option", { attrs: { value: "2021" } }, [
+                                    _vm._v("2021")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("option", { attrs: { value: "2022" } }, [
+                                    _vm._v("2022")
+                                  ])
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-3" }, [
+                              _c(
+                                "select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.marcaGNP,
+                                      expression: "marcaGNP"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  on: {
+                                    change: function($event) {
+                                      var $$selectedVal = Array.prototype.filter
+                                        .call($event.target.options, function(
+                                          o
+                                        ) {
+                                          return o.selected
+                                        })
+                                        .map(function(o) {
+                                          var val =
+                                            "_value" in o ? o._value : o.value
+                                          return val
+                                        })
+                                      _vm.marcaGNP = $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "option",
+                                    {
+                                      staticClass:
+                                        "form-control form-control-sm",
+                                      staticStyle: { "white-space": "normal" },
+                                      attrs: { value: "" }
+                                    },
+                                    [_vm._v("Seleccione el modelo")]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._l(_vm.marcasGNP, function(marcas) {
+                                    return _c(
+                                      "option",
+                                      { domProps: { value: marcas } },
+                                      [_vm._v(_vm._s(marcas))]
+                                    )
+                                  })
+                                ],
+                                2
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-3" }, [
+                              _c(
+                                "select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.cliente.gnpsubMarca,
+                                      expression: "cliente.gnpsubMarca"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  on: {
+                                    change: function($event) {
+                                      var $$selectedVal = Array.prototype.filter
+                                        .call($event.target.options, function(
+                                          o
+                                        ) {
+                                          return o.selected
+                                        })
+                                        .map(function(o) {
+                                          var val =
+                                            "_value" in o ? o._value : o.value
+                                          return val
+                                        })
+                                      _vm.$set(
+                                        _vm.cliente,
+                                        "gnpsubMarca",
+                                        $event.target.multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "option",
+                                    {
+                                      staticClass:
+                                        "form-control form-control-sm",
+                                      staticStyle: { "white-space": "normal" },
+                                      attrs: { value: "" }
+                                    },
+                                    [_vm._v("Seleccione la submarca")]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._l(_vm.submarcasGNP, function(marcas) {
+                                    return _c(
+                                      "option",
+                                      { attrs: { value: "" } },
+                                      [_vm._v(_vm._s(marcas))]
+                                    )
+                                  })
+                                ],
+                                2
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("hr"),
                           _vm._v(" "),
                           _vm.cliente.uso_auto == "Servicio Particular"
                             ? _c(

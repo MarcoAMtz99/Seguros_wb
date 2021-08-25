@@ -427,6 +427,51 @@
 										  <input class="form-check-input" type="checkbox" id="checkbox-gnp" v-model="cliente.gnp" true-value="1" false-value="0">
 										  <label class="form-check-label" for="checkbox-gnp"><img :src="img.gnpImage" width="120" height="50"></label>
 										</div>
+										<div class="row">
+		  				<div class="col">
+		  					<!-- <label for="gnp_lista" class="col">GNP</label> -->
+		  					 <label class="form-check-label" for=""><img :src="img.gnpImage" width="120" height="50"></label>
+		  				</div>
+		  				<div class="col-3">
+		  					<select  v-model="modeloGNP" class="form-control" id="gnp_lista">
+		                            	<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione su año</option>
+		                            	<option value="2011">2011</option>
+										<option value="2012">2012</option>
+										<option value="2013">2013</option>
+										<option value="2020">2014</option>
+										<option value="2015">2015</option>
+										<option value="2016">2016</option>
+										<option value="2017">2017</option>
+										<option value="2018">2018</option>
+										<option value="2019">2019</option>
+										<option value="2020">2020</option>
+										<option value="2021">2021</option>
+										<option value="2022">2022</option>
+									</select>	
+
+		  				</div>
+		  				<div class="col-3">
+		  					<select v-model="marcaGNP" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
+
+    								<option :value="marcas" v-for="marcas in marcasGNP">{{marcas}}</option>
+    								</select>
+    								
+		  				</div>
+		  				<div class="col-3">
+		  					<select v-model="cliente.gnpsubMarca" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
+
+    								<option value="" v-for="marcas in submarcasGNP">{{marcas}}</option>
+    								</select>
+		  				</div>
+		  				
+						</div>
+						<hr>	
+
+
+
+										
 										<!-- General de seguros -->
 										<div class="form-check form-check-inline" v-if="cliente.uso_auto == 'Servicio Particular'">
 										  <input class="form-check-input" type="checkbox" id="checkbox-gs" v-model="cliente.gs" true-value="1" false-value="0">
