@@ -195,7 +195,7 @@
                 <p class="font-weight-bold text-center">¿NECESITA ASISTENCIA?</p>
                 <p class="text-center">
                     <i class="fa fa-phone"  style="font-size:36px"></i>
-                    TEL DF: 6275-8686
+                    TEL DF: 55-6275-8686
                 </p>
                 
                 <p class="text-center">
