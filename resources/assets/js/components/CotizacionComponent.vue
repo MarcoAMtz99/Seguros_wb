@@ -604,9 +604,14 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     		},
     		'cliente.modelos':function(newValue,oldValue){
     				this.modelos = this.cliente.modelos;
-					// alert('Aqui esta el valor',this.modelos);
+					// alert('Aqui esta el valor',this.modelos
+					this.modeloGNP = this.cliente.modelos;
+					this.cliente.modelo_auto = this.cliente.modelos;
+
 					this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
-					// this.marcaGNP =	 this.modeloGNP;
+					this.getMarcas(this.cliente.modelo_auto);
+					console.log('MODELO GNP',this.modeloGNP);
+
     				// this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
     		},
     		'marcaGNP':function(newValue,oldValue){
@@ -775,12 +780,12 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			
     			axios.get(url).then(res=>{
     				this.loader_tipo = false;
-    				console.log('SUBMARCAS GNP COMPLETAS',res);
+    				// console.log('SUBMARCAS GNP COMPLETAS',res);
     				
     				if (res.data.submarcas) {
     					this.submarcasGNP = res.data.submarcas;
-    					console.log('RES SUBMARCAS',this.submarcasGNP);
-    					alert('EXITO EN LA CONSULTA SUBMARCAS');
+    					// console.log('RES SUBMARCAS',this.submarcasGNP);
+    					// alert('EXITO EN LA CONSULTA SUBMARCAS');
     				}
     				
     			}).catch(error=>{
@@ -794,12 +799,12 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			
     			axios.get(url).then(res=>{
     				this.loader_tipo = false;
-    				console.log('MARCAS GNP COMPLETAS',res);
+    				// console.log('MARCAS GNP COMPLETAS',res);
     				
     				if (res.data.marcas) {
     					this.marcasGNP = res.data.marcas;
-    					console.log('RES MARCAS',this.marcasGNP);
-    					alert('EXITO EN LA CONSULTA');
+    					// console.log('RES MARCAS',this.marcasGNP);
+    					// alert('EXITO EN LA CONSULTA');
     				}
     				
     			}).catch(error=>{

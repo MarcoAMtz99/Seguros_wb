@@ -2295,10 +2295,13 @@ function Cliente(_ref) {
       this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
     },
     'cliente.modelos': function clienteModelos(newValue, oldValue) {
-      this.modelos = this.cliente.modelos; // alert('Aqui esta el valor',this.modelos);
+      this.modelos = this.cliente.modelos; // alert('Aqui esta el valor',this.modelos
 
-      this.marcasGNP = this.getmarcaGNP(this.modeloGNP); // this.marcaGNP =	 this.modeloGNP;
-      // this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
+      this.modeloGNP = this.cliente.modelos;
+      this.cliente.modelo_auto = this.cliente.modelos;
+      this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
+      this.getMarcas(this.cliente.modelo_auto);
+      console.log('MODELO GNP', this.modeloGNP); // this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
     },
     'marcaGNP': function marcaGNP(newValue, oldValue) {
       // this.cliente.gnpMarca ="";cliente.gnpMarca
@@ -2459,13 +2462,11 @@ function Cliente(_ref) {
     this.loader_tipo = true;
     var url = "./api/submarcas-gnp/".concat(año, "/").concat(marca);
     axios.get(url).then(function (res) {
-      _this5.loader_tipo = false;
-      console.log('SUBMARCAS GNP COMPLETAS', res);
+      _this5.loader_tipo = false; // console.log('SUBMARCAS GNP COMPLETAS',res);
 
       if (res.data.submarcas) {
-        _this5.submarcasGNP = res.data.submarcas;
-        console.log('RES SUBMARCAS', _this5.submarcasGNP);
-        alert('EXITO EN LA CONSULTA SUBMARCAS');
+        _this5.submarcasGNP = res.data.submarcas; // console.log('RES SUBMARCAS',this.submarcasGNP);
+        // alert('EXITO EN LA CONSULTA SUBMARCAS');
       }
     })["catch"](function (error) {
       console.log('error submarcas', error);
@@ -2476,13 +2477,11 @@ function Cliente(_ref) {
     this.loader_tipo = true;
     var url = "./api/marcas-gnp/".concat(año);
     axios.get(url).then(function (res) {
-      _this6.loader_tipo = false;
-      console.log('MARCAS GNP COMPLETAS', res);
+      _this6.loader_tipo = false; // console.log('MARCAS GNP COMPLETAS',res);
 
       if (res.data.marcas) {
-        _this6.marcasGNP = res.data.marcas;
-        console.log('RES MARCAS', _this6.marcasGNP);
-        alert('EXITO EN LA CONSULTA');
+        _this6.marcasGNP = res.data.marcas; // console.log('RES MARCAS',this.marcasGNP);
+        // alert('EXITO EN LA CONSULTA');
       }
     })["catch"](function (error) {
       console.log('error submarcas', error);
