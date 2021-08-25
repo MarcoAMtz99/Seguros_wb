@@ -774,7 +774,7 @@
                     this.getDescripcionesGS(this.cliente.marca_auto.descripcion,this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio);
                 }
                 if(this.cliente.gnp){
-                    this.getDescripcionesGNP(this.cliente.marca_auto.descripcion,this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio);
+                    this.getDescripcionesGNP(this.cliente.gnpMarca,this.cliente.gnpsubMarca, this.cliente.modelos);
                         console.log("Datos cliente",this.cliente);
                 }
     		},
@@ -835,9 +835,9 @@
                         this.cotizacionesANA=res.data.ANASeguros;
                         this.xmlentrada=res.data.xmlentrada;
                         this.respuestaxml=res.data.respuestaxml;
-                        console.log('Cotizacion Ana:',this.cotizacionesANA);
-                         console.log('Cotizacion Ana XML :',this.xmlentrada);
-                           console.log('Cotizacion Ana XML salida :',this.respuestaxml);
+                        // console.log('Cotizacion Ana:',this.cotizacionesANA);
+                        //  console.log('Cotizacion Ana XML :',this.xmlentrada);
+                           // console.log('Cotizacion Ana XML salida :',this.respuestaxml);
                         this.sendCotizacion(this.cliente, this.cotizacionesANA, "ANA");
                     }
                 }).catch(err=>{

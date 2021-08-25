@@ -2394,7 +2394,9 @@ function Cliente(_ref) {
           _this.cliente.ana = res.data.cotizacion.ana;
           _this.cliente.gs = res.data.cotizacion.gs;
           _this.cliente.qualitas = res.data.cotizacion.qualitas;
-          _this.cliente.gnp = res.data.cotizacion.gnp;
+          _this.cliente.gnpMarca = res.data.cotizacion.gnpMarca;
+          _this.cliente.gnpsubMarca = res.data.cotizacion.gnpsubMarca;
+          alert(_this.cliente.gnpMarca, _this.cliente.gnpsubMarca);
           $("#paso2-tab").removeClass("disabled");
           $("#paso2-tab").click();
           _this.getcotizacion.value = !_this.getcotizacion.value;
@@ -5675,7 +5677,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (this.cliente.gnp) {
-        this.getDescripcionesGNP(this.cliente.marca_auto.descripcion, this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio);
+        this.getDescripcionesGNP(this.cliente.gnpMarca, this.cliente.gnpsubMarca, this.cliente.modelos);
         console.log("Datos cliente", this.cliente);
       }
     },
@@ -5735,10 +5737,9 @@ __webpack_require__.r(__webpack_exports__);
           _this2.loader = false;
           _this2.cotizacionesANA = res.data.ANASeguros;
           _this2.xmlentrada = res.data.xmlentrada;
-          _this2.respuestaxml = res.data.respuestaxml;
-          console.log('Cotizacion Ana:', _this2.cotizacionesANA);
-          console.log('Cotizacion Ana XML :', _this2.xmlentrada);
-          console.log('Cotizacion Ana XML salida :', _this2.respuestaxml);
+          _this2.respuestaxml = res.data.respuestaxml; // console.log('Cotizacion Ana:',this.cotizacionesANA);
+          //  console.log('Cotizacion Ana XML :',this.xmlentrada);
+          // console.log('Cotizacion Ana XML salida :',this.respuestaxml);
 
           _this2.sendCotizacion(_this2.cliente, _this2.cotizacionesANA, "ANA");
         }
