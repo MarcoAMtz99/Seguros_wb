@@ -631,8 +631,9 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				
     					this.cp = true;
     				// console.log('subMarcas de Gnp en el año:',this.submarcasGNP);
-    				this.submarcasGNP = this.getSubmarcaGNP(this.modeloGNP,this.submarcasGNP);
+    				// this.submarcasGNP = this.getSubmarcaGNP(this.modeloGNP,this.submarcasGNP);
     				this.gnpsubMarca = this.cliente.submarcaGNP;
+    				console.log('subMarca que se envia seleccion',this.cliente.gnpsubMarca );
     				console.log('subMarca que se envia',this.gnpsubMarca );
 
 
