@@ -263,7 +263,7 @@
 						</div> -->
 						<hr>
 						<div class="col mt-3 d-flex justify-content-end">
-                        					<button type="button" class="btn btn-primary seleccionador" @click="nextPill('cp')">Siguiente</button>
+                        					<button type="button" class="btn btn-primary seleccionador" @click="nextPill('codigo')">Siguiente</button>
 											
 										</div>
 
@@ -610,6 +610,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			if (newValue != "") {
     					this.modelos = this.cliente.modelos;
 						this.modeloGNP = this.cliente.modelos;
+						// this.marcaGNP = marcaGNP
 						this.cliente.modelo_auto = this.cliente.modelos;
 						this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
 						this.getMarcas(this.cliente.modelo_auto);
@@ -878,6 +879,12 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     						}
     					});
     				
+    			}
+    			if (input == "codigo" && this.cliente.modelos != "") {
+    				this.Marca = true;
+    				$('#v-pills-CP-tab').removeClass('disabled');
+    				$('#v-pills-CP-tab').click();
+
     			}
     			if (input == "Marca" && this.cliente.modelos != "") {
     				this.Marca = true;

@@ -2301,7 +2301,8 @@ function Cliente(_ref) {
     'cliente.modelos': function clienteModelos(newValue, oldValue) {
       if (newValue != "") {
         this.modelos = this.cliente.modelos;
-        this.modeloGNP = this.cliente.modelos;
+        this.modeloGNP = this.cliente.modelos; // this.marcaGNP = marcaGNP
+
         this.cliente.modelo_auto = this.cliente.modelos;
         this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
         this.getMarcas(this.cliente.modelo_auto);
@@ -2543,6 +2544,12 @@ function Cliente(_ref) {
           _this9.alert_cp = err.response.data.error;
         }
       });
+    }
+
+    if (input == "codigo" && this.cliente.modelos != "") {
+      this.Marca = true;
+      $('#v-pills-CP-tab').removeClass('disabled');
+      $('#v-pills-CP-tab').click();
     }
 
     if (input == "Marca" && this.cliente.modelos != "") {
@@ -42515,7 +42522,7 @@ var render = function() {
                             attrs: { type: "button" },
                             on: {
                               click: function($event) {
-                                return _vm.nextPill("cp")
+                                return _vm.nextPill("codigo")
                               }
                             }
                           },
