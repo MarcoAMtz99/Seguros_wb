@@ -618,16 +618,19 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     		'marcaGNP':function(newValue,oldValue){
     				// this.cliente.gnpMarca ="";cliente.gnpMarca
     				// this.marcaGNP = 
-					console.log('SUBMarcas de Gnp en el año:',this.modeloGNP,this.marcaGNP,this.modelos);
+					// console.log('SUBMarcas de Gnp en el año:',this.modeloGNP,this.marcaGNP,this.modelos);
 
     				this.subMarcasGNP = this.getSubmarcaGNP(this.modeloGNP,this.marcaGNP);
     		},
 
     		'cliente.submarcaGNP':function(newValue,oldValue){
-    				// this.submarcasGNP ="";
-					console.log('subMarcas de Gnp en el año:',this.submarcasGNP);
+    				if (newValue != "") {
+    				// console.log('subMarcas de Gnp en el año:',this.submarcasGNP);
     				this.submarcasGNP = this.getSubmarcaGNP(this.modeloGNP,this.submarcasGNP);
     				this.gnpsubMarca = this.cliente.submarcaGNP;
+    				console.log('subMarca que se envia',this.gnpsubMarca );
+    				}
+					
     		},
 
     		'cliente.modelo_auto':function(newV,oldV){
