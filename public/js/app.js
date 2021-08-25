@@ -2256,8 +2256,11 @@ function Cliente(_ref) {
     'cliente.uso_auto': function clienteUso_auto(newValue, oldValue) {
       if (newValue != "") {
         this.marca = true;
-        $('#v-pills-Modelo-tab').removeClass('disabled');
-        $('#v-pills-Modelo-tab').click();
+        this.cp = true; // $('#v-pills-Modelo-tab').removeClass('disabled');
+        // $('#v-pills-Modelo-tab').click();
+
+        $('#v-pills-CP-tab').removeClass('disabled');
+        $('#v-pills-CP-tab').click();
         this.modelo = true;
       }
     },
@@ -41674,58 +41677,6 @@ var render = function() {
                   }
                 },
                 [_vm._v("Uso: " + _vm._s(_vm.cliente.uso_auto))]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link disabled",
-                  attrs: {
-                    id: "v-pills-Modelo-tab",
-                    "data-toggle": "pill",
-                    href: "#v-pills-Modelo",
-                    role: "tab",
-                    "aria-controls": "v-pills-Modelo",
-                    "aria-selected": "false"
-                  }
-                },
-                [_vm._v("Modelo: " + _vm._s(_vm.cliente.modelo_auto))]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link disabled",
-                  attrs: {
-                    id: "v-pills-Marca-tab",
-                    "data-toggle": "pill",
-                    href: "#v-pills-Marca",
-                    role: "tab",
-                    "aria-controls": "v-pills-Marca",
-                    "aria-selected": "false"
-                  }
-                },
-                [_vm._v("Marca: " + _vm._s(_vm.cliente.marca_auto.descripcion))]
-              ),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link disabled",
-                  attrs: {
-                    id: "v-pills-Submarca-tab",
-                    "data-toggle": "pill",
-                    href: "#v-pills-Submarca",
-                    role: "tab",
-                    "aria-controls": "v-pills-Submarca",
-                    "aria-selected": "false"
-                  }
-                },
-                [
-                  _vm._v(
-                    "Tipo: " + _vm._s(_vm.cliente.submarca_auto.descripcion)
-                  )
-                ]
               ),
               _vm._v(" "),
               _c(
