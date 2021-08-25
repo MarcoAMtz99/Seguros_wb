@@ -637,8 +637,8 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				console.log('subMarca que se envia',this.gnpsubMarca );
 
 
-    				$('#v-pills-CP-tab').removeClass('disabled');
-    				$('#v-pills-CP-tab').click();
+    				// $('#v-pills-CP-tab').removeClass('disabled');
+    				// $('#v-pills-CP-tab').click();
     				
 					
     		},

@@ -2319,9 +2319,8 @@ function Cliente(_ref) {
 
       this.gnpsubMarca = this.cliente.submarcaGNP;
       console.log('subMarca que se envia seleccion', this.cliente.gnpsubMarca);
-      console.log('subMarca que se envia', this.gnpsubMarca);
-      $('#v-pills-CP-tab').removeClass('disabled');
-      $('#v-pills-CP-tab').click();
+      console.log('subMarca que se envia', this.gnpsubMarca); // $('#v-pills-CP-tab').removeClass('disabled');
+      // $('#v-pills-CP-tab').click();
     },
     'cliente.modelo_auto': function clienteModelo_auto(newV, oldV) {
       if (newV != "") {
