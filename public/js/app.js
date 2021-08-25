@@ -2605,6 +2605,7 @@ function Cliente(_ref) {
       _this10.cliente.ana = res.data.cotizacion.ana;
       _this10.cliente.gs = res.data.cotizacion.gs;
       _this10.cliente.qualitas = res.data.cotizacion.qualitas;
+      _this10.cliente.gnpsubMarca = res.data.cotizacion.gnpsubMarca;
       _this10.getcotizacion.value = !_this10.getcotizacion.value;
       _this10.alert.message = "".concat(_this10.cliente.nombre, " ").concat(_this10.cliente.appaterno, " ").concat(_this10.cliente.apmaterno, " su cotizaci\xF3n se guardo con el folio ").concat(_this10.cliente.cotizacion);
       _this10.alert["class"] = "alert alert-success alert-dismissible fade show";

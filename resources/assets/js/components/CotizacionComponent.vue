@@ -929,6 +929,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 					this.cliente.ana 			  = res.data.cotizacion.ana;
 					this.cliente.gs 			  = res.data.cotizacion.gs;
 					this.cliente.qualitas 		  = res.data.cotizacion.qualitas;
+					this.cliente.gnpsubMarca 	  = res.data.cotizacion.gnpsubMarca;
     				this.getcotizacion.value 	  = !this.getcotizacion.value;
     				this.alert.message 			  = `${this.cliente.nombre} ${this.cliente.appaterno} ${this.cliente.apmaterno} su cotización se guardo con el folio ${this.cliente.cotizacion}`;
     				this.alert.class 			  = "alert alert-success alert-dismissible fade show";
