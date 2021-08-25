@@ -603,16 +603,17 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
     		},
     		'cliente.modelos':function(newValue,oldValue){
-    				this.modelos = this.cliente.modelos;
-					// alert('Aqui esta el valor',this.modelos
-					this.modeloGNP = this.cliente.modelos;
-					this.cliente.modelo_auto = this.cliente.modelos;
+    			if (newValue != "") {
+    					this.modelos = this.cliente.modelos;
+						this.modeloGNP = this.cliente.modelos;
+						this.cliente.modelo_auto = this.cliente.modelos;
+						this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
+						this.getMarcas(this.cliente.modelo_auto);
+					
+    			}
+    				
 
-					this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
-					this.getMarcas(this.cliente.modelo_auto);
-					console.log('MODELO GNP',this.modeloGNP);
-
-    				// this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
+    				
     		},
     		'marcaGNP':function(newValue,oldValue){
     				// this.cliente.gnpMarca ="";cliente.gnpMarca

@@ -2295,13 +2295,13 @@ function Cliente(_ref) {
       this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
     },
     'cliente.modelos': function clienteModelos(newValue, oldValue) {
-      this.modelos = this.cliente.modelos; // alert('Aqui esta el valor',this.modelos
-
-      this.modeloGNP = this.cliente.modelos;
-      this.cliente.modelo_auto = this.cliente.modelos;
-      this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
-      this.getMarcas(this.cliente.modelo_auto);
-      console.log('MODELO GNP', this.modeloGNP); // this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
+      if (newValue != "") {
+        this.modelos = this.cliente.modelos;
+        this.modeloGNP = this.cliente.modelos;
+        this.cliente.modelo_auto = this.cliente.modelos;
+        this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
+        this.getMarcas(this.cliente.modelo_auto);
+      }
     },
     'marcaGNP': function marcaGNP(newValue, oldValue) {
       // this.cliente.gnpMarca ="";cliente.gnpMarca
