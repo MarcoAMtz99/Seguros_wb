@@ -415,7 +415,10 @@
 		                            		Aseguradoras
 		                        		</label>
 		                        		<div class="col mt-3 d-flex justify-content-end">
-										  	
+										  	  <select class="list-group list-group-flush col" v-model="cliente.modelo_auto" size="7">
+		                            	<option value=""  class="list-group-item text-center text-dark seleccionador">Seleccione su modelo</option>
+		                            	<option v-for="anio in modelos" :value="anio" class="list-group-item text-center text-dark seleccionador">{{anio}}</option>
+		                            </select>
 										  	<label class="form-check-label" for="checkbox-todos"><input class="form-check-input" type="checkbox" id="checkbox-todos" v-model="checkall" @click="selectAll()">Todos</label>
 		                        		</div>
 		                        	</div>

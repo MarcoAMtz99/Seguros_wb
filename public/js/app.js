@@ -2217,6 +2217,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -43432,6 +43435,69 @@ var render = function() {
                               staticClass: "col mt-3 d-flex justify-content-end"
                             },
                             [
+                              _c(
+                                "select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.cliente.modelo_auto,
+                                      expression: "cliente.modelo_auto"
+                                    }
+                                  ],
+                                  staticClass:
+                                    "list-group list-group-flush col",
+                                  attrs: { size: "7" },
+                                  on: {
+                                    change: function($event) {
+                                      var $$selectedVal = Array.prototype.filter
+                                        .call($event.target.options, function(
+                                          o
+                                        ) {
+                                          return o.selected
+                                        })
+                                        .map(function(o) {
+                                          var val =
+                                            "_value" in o ? o._value : o.value
+                                          return val
+                                        })
+                                      _vm.$set(
+                                        _vm.cliente,
+                                        "modelo_auto",
+                                        $event.target.multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "option",
+                                    {
+                                      staticClass:
+                                        "list-group-item text-center text-dark seleccionador",
+                                      attrs: { value: "" }
+                                    },
+                                    [_vm._v("Seleccione su modelo")]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._l(_vm.modelos, function(anio) {
+                                    return _c(
+                                      "option",
+                                      {
+                                        staticClass:
+                                          "list-group-item text-center text-dark seleccionador",
+                                        domProps: { value: anio }
+                                      },
+                                      [_vm._v(_vm._s(anio))]
+                                    )
+                                  })
+                                ],
+                                2
+                              ),
+                              _vm._v(" "),
                               _c(
                                 "label",
                                 {
