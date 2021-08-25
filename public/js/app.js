@@ -5618,7 +5618,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['cliente', 'getcotizacion', 'alert', 'img'],
+  props: ['cliente', 'GNP', 'getcotizacion', 'alert', 'img'],
   data: function data() {
     return {
       loader: false,
@@ -5659,6 +5659,7 @@ __webpack_require__.r(__webpack_exports__);
   watch: {
     'getcotizacion.value': function getcotizacionValue(newVal, oldVal) {
       console.log('Cliente::', this.cliente);
+      console.log('GETCOTIZACION:', this.getcotizacion);
 
       if (this.cliente.ana) {
         this.getDescripcionesANA(this.cliente.marca_auto.id_ana, this.cliente.submarca_auto.id_ana, this.cliente.submarca_auto.anio);
