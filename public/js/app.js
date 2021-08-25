@@ -2209,6 +2209,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -2326,9 +2345,8 @@ function Cliente(_ref) {
     'cliente.modelo_auto': function clienteModelo_auto(newV, oldV) {
       if (newV != "") {
         // this.marca = true;
-        this.getMarcas(this.cliente.modelo_auto);
-        $('#v-pills-Marca-tab').removeClass('disabled');
-        $('#v-pills-Marca-tab').click();
+        this.getMarcas(this.cliente.modelo_auto); // $('#v-pills-Marca-tab').removeClass('disabled');
+        // $('#v-pills-Marca-tab').click();
       }
     },
     'cliente.marca_auto': function clienteMarca_auto(newValue, oldValue) {
