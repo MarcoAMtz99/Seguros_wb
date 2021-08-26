@@ -281,7 +281,7 @@
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'DM PERDIDA PARCIAL                                '">
                                                             <div class="border"><strong>{{cobertura.NOMBRE}}:</strong> 5% de la suma asegurada</div>
                                                             <br>
-                                                            <strong>Suma Asegurada:</strong> <br>
+                                                            <strong>Suma Asegurada: ${{cobertura.SUMA_ASEGURADA}} </strong> <br>
                                                             Valor Factura: Para Vehículos de hasta 12 meses de antigüedad. <br>
                                                              Valor Comercial: Para vehículos de mas de 12 meses de antigüedad.
                                                             <br>
@@ -325,6 +325,8 @@
                                                         <div v-for="(cobertura,index) in cotizacionesANA[0]['CONTADO']['coberturas']" v-if="cobertura.desc == 'DAÑOS MATERIALES'">
                                                             <span><strong>{{cobertura.desc}}:</strong> {{cobertura.sa}}</span>
                                                             <span v-if="cobertura.ded"><strong>Deducible por daños:</strong>{{cobertura.ded}}</span>
+
+                                                            <span>Daños Materiales: Valor Comercial = Valor más alto guía EBC o Automática del mes de siniestro.</span>
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">

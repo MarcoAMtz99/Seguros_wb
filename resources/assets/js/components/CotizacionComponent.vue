@@ -184,7 +184,7 @@
 		                <hr>
 
 		                
-						<!-- <div class="row">
+						<div class="row">
 		  				<div class="col">
 		  					<label class="form-check-label" for="checkbox-gs"><img :src="img.gsImage" width="120" height="50"></label>
 		  				</div>
@@ -222,7 +222,7 @@
     								</select>
 		  				</div>
 		  				
-						</div> -->
+						</div>
 						
 						<!-- <div class="row">
 		  				<div class="col">
