@@ -453,8 +453,9 @@ XML;
             // dd($fecha_t);
             // dd($poblacion);
             $respuestas=[];
+             dd($pagos);
             foreach ($pagos as $pago) {
-                dd($pago);
+
                 switch ($poliza) {
                     case "Amplia":
                         // code...
