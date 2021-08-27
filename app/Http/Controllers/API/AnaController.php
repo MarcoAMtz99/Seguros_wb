@@ -453,6 +453,7 @@ XML;
             // dd($fecha_t);
             // dd($poblacion);
             $respuestas=[];
+            $XMLS= [];
              // dd($pagos);
             foreach ($pagos as $pago) {
 
@@ -461,7 +462,7 @@ XML;
                         // code...
                         $xml = <<<XML
 <transacciones xmlns="">
-    <transaccion version="1" tipotransaccion="C" cotizacion="" negocio="1195" tiponegocio="">
+    <transaccion version="1" tipotransaccion="$pago->id" cotizacion="" negocio="1195" tiponegocio="">
         <vehiculo id="1" amis="$descripcion" modelo="$modelo" descripcion="" uso="1" servicio="1" plan="1" motor="" serie="" repuve="" placas="" conductor="" conductorliciencia="" conductorfecnac="" conductorocupacion="" estado="$estadoANA" poblacion="$poblacion" color="01" dispositivo="" fecdispositivo="" tipocarga="" tipocargadescripcion="">
 
             <cobertura id="02" desc="" sa="" tipo="3" ded="5" pma=""/>
@@ -579,12 +580,14 @@ XML;
                 }catch(SoapFault $fault){
                     dd($fault);
                 }
-            }
+                 array_push($XMLS,$xml);
+            } // TERMINA EL FOR DE PAGOS
+
             // dd($coberturas,$respuestas);
             // $correo_e = ;
             // Mail::to($request->correo)->send(new EmisionPoliza($respuestas));
             // 
-            return response()->json(['ANASeguros'=>$respuestas,'xmlentrada'=>$xml,'respuestaxml'=>$respText->TransaccionTextResult],201);
+            return response()->json(['ANASeguros'=>$respuestas,'xmlentrada'=>$xml,'respuestaxml'=>$respText->TransaccionTextResult,'XMLS'=>$XMLS],201);
         }
        
     }
