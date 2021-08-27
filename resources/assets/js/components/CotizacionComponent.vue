@@ -188,7 +188,7 @@
 		  				<div class="col">
 		  					<label class="form-check-label" for="checkbox-gs"><img :src="img.gsImage" width="120" height="50"></label>
 		  				</div>
-		  				<div class="col-3">
+		  				<!-- <div class="col-3">
 		  					<select  v-model="modeloGNP" class="form-control" id="gnp_lista">
 		                            	<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione su año</option>
 		                            	<option value="2011">2011</option>
@@ -205,10 +205,10 @@
 										<option value="2022">2022</option>
 									</select>	
 
-		  				</div>
+		  				</div> -->
 		  				<div class="col-3">
-		  					<select v-model="cliente.gnpMarca" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
+		  					<select v-model="cliente.gsMarca" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la marca</option>
 
     								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
     								</select>
@@ -656,6 +656,16 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				// $('#v-pills-Marca-tab').click();
     			}
     		},
+    		'cliente.gsMarca':function(newV,oldV){
+    			// if (newV != "") {
+    				// this.marca = true;
+    				
+    				this.getMarcasGS();
+    				
+    				// $('#v-pills-Marca-tab').removeClass('disabled');
+    				// $('#v-pills-Marca-tab').click();
+    			// }
+    		},
     		'cliente.marca_auto': function(newValue,oldValue){
     			if (newValue != "") {
     				// this.modelo = true;
@@ -774,6 +784,18 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			axios.get(url).then(res=>{
     				this.loader_marca = false;
     				//console.log("res marcas",res);
+    				this.marcas = res.data.marcas.sort();
+    			}).catch(error=>{
+    				console.log('error',error);
+
+    			})
+    		},
+    			getMarcasGS(){
+    			this.loader_marca=true;
+    			let url = `./api/getMarcas`;
+    			axios.get(url).then(res=>{
+    				this.loader_marca = false;
+    				console.log("res marcas",res);
     				this.marcas = res.data.marcas.sort();
     			}).catch(error=>{
     				console.log('error',error);
