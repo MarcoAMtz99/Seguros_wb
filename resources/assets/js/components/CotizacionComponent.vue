@@ -210,7 +210,7 @@
 		  					<select v-model="cliente.gsMarca" class="form-control">
     								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la marca</option>
 
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
+    								<option value="" v-for="marcas in marcasGS">{{marcas}}</option>
     								</select>
 		  				</div>
 
@@ -551,6 +551,8 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			modelosGNP:[],
     			marcasGNP:[],
     			submarcasGNP:[],
+    			marcasGS:[],
+    			submarcasGS:[],
     			pills:[
     				'v-pills-Uso',
     				'v-pills-Marca',
@@ -586,7 +588,9 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			marcaGNP:"",
     			modeloGNP:'',
     			submarcaGNP:"",
-    			gnpsubMarca:""
+    			gnpsubMarca:"",
+    			marcaGS:"",
+    			submarcagS:""
     		}
     	},
     	watch:{
@@ -660,7 +664,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			// if (newV != "") {
     				// this.marca = true;
     				
-    				this.getMarcasGS();
+    				this.marcasGS = this.getMarcasGS();
     				
     				// $('#v-pills-Marca-tab').removeClass('disabled');
     				// $('#v-pills-Marca-tab').click();
@@ -793,10 +797,10 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			getMarcasGS(){
     			this.loader_marca=true;
     			let url = `./api/getMarcas`;
-    			axios.get(url).then(res=>{
+    			axios.get(url).then(res=>{p
     				this.loader_marca = false;
-    				console.log("res marcas",res);
-    				this.marcas = res.data.marcas.sort();
+    				console.log("res marcas general de seguros",res.data.marcas);
+    				this.marcasGS = res.data.marcas.sort();
     			}).catch(error=>{
     				console.log('error',error);
 

@@ -2268,6 +2268,8 @@ function Cliente(_ref) {
       modelosGNP: [],
       marcasGNP: [],
       submarcasGNP: [],
+      marcasGS: [],
+      submarcasGS: [],
       pills: ['v-pills-Uso', 'v-pills-Marca', 'v-pills-Submarca', 'v-pills-Modelo', 'v-pills-CP', 'v-pills-Nombre', 'v-pills-Celular', 'v-pills-Correo', 'v-pills-Sexo', 'v-pills-Nacimiento', 'v-pills-Aseguradoras'],
       alert_cp: "",
       uso: true,
@@ -2280,7 +2282,7 @@ function Cliente(_ref) {
       loader_modelo: true,
       descripcion: false,
       cp: false
-    }, _defineProperty(_ref2, "modelos", ""), _defineProperty(_ref2, "nombre", false), _defineProperty(_ref2, "celular", false), _defineProperty(_ref2, "correo", false), _defineProperty(_ref2, "sexo", false), _defineProperty(_ref2, "nac", false), _defineProperty(_ref2, "searchOption", false), _defineProperty(_ref2, "checkall", false), _defineProperty(_ref2, "marcaGNP", ""), _defineProperty(_ref2, "modeloGNP", ''), _defineProperty(_ref2, "submarcaGNP", ""), _defineProperty(_ref2, "gnpsubMarca", ""), _ref2;
+    }, _defineProperty(_ref2, "modelos", ""), _defineProperty(_ref2, "nombre", false), _defineProperty(_ref2, "celular", false), _defineProperty(_ref2, "correo", false), _defineProperty(_ref2, "sexo", false), _defineProperty(_ref2, "nac", false), _defineProperty(_ref2, "searchOption", false), _defineProperty(_ref2, "checkall", false), _defineProperty(_ref2, "marcaGNP", ""), _defineProperty(_ref2, "modeloGNP", ''), _defineProperty(_ref2, "submarcaGNP", ""), _defineProperty(_ref2, "gnpsubMarca", ""), _defineProperty(_ref2, "marcaGS", ""), _defineProperty(_ref2, "submarcagS", ""), _ref2;
   },
   watch: {
     'cliente.uso_auto': function clienteUso_auto(newValue, oldValue) {
@@ -2335,7 +2337,7 @@ function Cliente(_ref) {
     'cliente.gsMarca': function clienteGsMarca(newV, oldV) {
       // if (newV != "") {
       // this.marca = true;
-      this.getMarcasGS(); // $('#v-pills-Marca-tab').removeClass('disabled');
+      this.marcasGS = this.getMarcasGS(); // $('#v-pills-Marca-tab').removeClass('disabled');
       // $('#v-pills-Marca-tab').click();
       // }
     },
@@ -2464,9 +2466,10 @@ function Cliente(_ref) {
     this.loader_marca = true;
     var url = "./api/getMarcas";
     axios.get(url).then(function (res) {
+      p;
       _this4.loader_marca = false;
-      console.log("res marcas", res);
-      _this4.marcas = res.data.marcas.sort();
+      console.log("res marcas general de seguros", res.data.marcas);
+      _this4.marcasGS = res.data.marcas.sort();
     })["catch"](function (error) {
       console.log('error', error);
     });
@@ -42600,7 +42603,7 @@ var render = function() {
                               [_vm._v("Seleccione la marca")]
                             ),
                             _vm._v(" "),
-                            _vm._l(_vm.marcasGNP, function(marcas) {
+                            _vm._l(_vm.marcasGS, function(marcas) {
                               return _c("option", { attrs: { value: "" } }, [
                                 _vm._v(_vm._s(marcas))
                               ])
