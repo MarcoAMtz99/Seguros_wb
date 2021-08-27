@@ -454,7 +454,6 @@ XML;
             // dd($poblacion);
             $respuestas=[];
             $XMLS= [];
-             // dd($pagos);
             foreach ($pagos as $pago) {
 
                 switch ($poliza) {
