@@ -110,24 +110,7 @@
 		  					<!-- <label for="gnp_lista" class="col">GNP</label> -->
 		  					 <label class="form-check-label" for=""><img :src="img.gnpImage" width="120" height="50"></label>
 		  				</div>
-		  			<!-- 	<div class="col-3">
-		  					<select  v-model="modeloGNP" class="form-control" id="gnp_lista">
-		                            	<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione su año</option>
-		                            	<option value="2011">2011</option>
-										<option value="2012">2012</option>
-										<option value="2013">2013</option>
-										<option value="2020">2014</option>
-										<option value="2015">2015</option>
-										<option value="2016">2016</option>
-										<option value="2017">2017</option>
-										<option value="2018">2018</option>
-										<option value="2019">2019</option>
-										<option value="2020">2020</option>
-										<option value="2021">2021</option>
-										<option value="2022">2022</option>
-									</select>	
-
-		  				</div> -->
+		  		
 		  				<div class="col-3">
 		  					<select v-model="marcaGNP" class="form-control">
     								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
@@ -152,30 +135,50 @@
 		  				<div class="col">
 		  					<label class="form-check-label" for="checkbox-ana"><img :src="img.anaImage" width="120" height="50"></label>
 		  				</div>
-		  				<!-- <div class="col-3">
-		  					<select  v-model="cliente.modelo_auto" class="form-control" id="gnp_lista">
-		                            	<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione su año</option>
-		                            	<option v-for="anio in modelos" :value="anio" >{{anio}}</option>
-									</select>	
-
-		  				</div> -->
-		  				<div class="col-3">
+		  			
+		  					<div class="col-3">
 		  					<select v-model="cliente.marca_auto" class="form-control">
     								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
 
     								<option v-for="marca in marcas" :value="marca" class="list-group-item text-center text-dark seleccionador">{{marca.descripcion}}</option>
     								</select>
-		  				</div>
-		  				<div class="col-3">
+		  					</div>
+		  					<div class="col-3">
 		  					<select v-model="cliente.submarca_auto" class="form-control">
     								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
 
     								<option v-for="submarca in submarcas" :value="submarca" class="list-group-item text-center text-dark seleccionador">{{submarca.descripcion}}</option>
     								</select>
-		  				</div>
+		  					</div>
 		  				
-						</div>
-						<hr>	
+							</div>
+							<hr>	
+							<div class="row">
+		  					<div class="col">
+		  					<label class="form-check-label" for="checkbox-gs"><img :src="img.gsImage" width="120" height="50"></label>
+		  					</div>
+		  					<div class="col-3">
+		  					<select v-model="cliente.gsMarca" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la marca</option>
+
+    								<option :value="marcas" v-for="marcas in marcasGS">{{marcas.nombre}}</option>
+    								</select>
+		  					</div>
+
+		  					<div class="col-3">
+		  					<select v-model="cliente.submarcasGS" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
+
+    								<option :value="marcas.nombre" v-for="marcas in submarcasGS">{{marcas.nombre}}</option>
+    								</select>
+		  						</div>
+
+
+		  				
+		  				
+								</div>
+
+
 
 		                        </div>
 		                    </div>
@@ -184,45 +187,7 @@
 		                <hr>
 
 		                
-						<div class="row">
-		  				<div class="col">
-		  					<label class="form-check-label" for="checkbox-gs"><img :src="img.gsImage" width="120" height="50"></label>
-		  				</div>
-		  				<!-- <div class="col-3">
-		  					<select  v-model="modeloGNP" class="form-control" id="gnp_lista">
-		                            	<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione su año</option>
-		                            	<option value="2011">2011</option>
-										<option value="2012">2012</option>
-										<option value="2013">2013</option>
-										<option value="2020">2014</option>
-										<option value="2015">2015</option>
-										<option value="2016">2016</option>
-										<option value="2017">2017</option>
-										<option value="2018">2018</option>
-										<option value="2019">2019</option>
-										<option value="2020">2020</option>
-										<option value="2021">2021</option>
-										<option value="2022">2022</option>
-									</select>	
-
-		  				</div> -->
-		  				<div class="col-3">
-		  					<select v-model="cliente.gsMarca" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la marca</option>
-
-    								<option :value="marcas.nombre" v-for="marcas in marcasGS">{{marcas.nombre}}</option>
-    								</select>
-		  				</div>
-
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcasGS" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option :value="marcas.nombre" v-for="marcas in submarcasGS">{{marcas.nombre}}</option>
-    								</select>
-		  				</div>
-		  				
-						</div>
+						
 						
 						<!-- <div class="row">
 		  				<div class="col">
@@ -665,7 +630,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     		'cliente.gsMarca':function(newV,oldV){
     			if (newV != "") {
     				console.log('VALOR DE LA MARCA',this.cliente.gsMarca);
-    				this.submarcasGS = this.getSubmarcaGS(this.cliente.gsMarca);
+    				this.submarcasGS = this.getSubmarcaGS(this.cliente.gsMarca.id);
     				
     				
     				// $('#v-pills-Marca-tab').removeClass('disabled');
@@ -677,7 +642,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				this.submarcaGS = this.cliente.submarcasGS;
     				
     				console.log('SUBMARCA SELECCIONADA GS:',this.submarcaGS);
-    				this.cliente.gssubMarca =this.submarcaGS;
+    				this.cliente.gssubMarca = this.submarcaGS;
     				// $('#v-pills-Marca-tab').removeClass('disabled');
     				// $('#v-pills-Marca-tab').click();
     			}
