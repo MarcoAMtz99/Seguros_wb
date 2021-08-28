@@ -210,7 +210,7 @@
 		  					<select v-model="cliente.gsMarca" class="form-control">
     								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la marca</option>
 
-    								<option value="" v-for="marcas in marcasGS">{{marcas}}</option>
+    								<option value="" v-for="marcas in marcasGS">{{marcas.nombre}}</option>
     								</select>
 		  				</div>
 
@@ -616,10 +616,12 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			if (newValue != "") {
     					this.modelos = this.cliente.modelos;
 						this.modeloGNP = this.cliente.modelos;
+
 						// this.marcaGNP = marcaGNP
 						this.cliente.modelo_auto = this.cliente.modelos;
 						this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
 						this.getMarcas(this.cliente.modelo_auto);
+						this.marcasGS = this.getMarcasGS();
 					
     			}
     				
@@ -664,7 +666,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			// if (newV != "") {
     				// this.marca = true;
     				
-    				this.marcasGS = this.getMarcasGS();
+    				
     				
     				// $('#v-pills-Marca-tab').removeClass('disabled');
     				// $('#v-pills-Marca-tab').click();

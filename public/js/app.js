@@ -2309,6 +2309,7 @@ function Cliente(_ref) {
         this.cliente.modelo_auto = this.cliente.modelos;
         this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
         this.getMarcas(this.cliente.modelo_auto);
+        this.marcasGS = this.getMarcasGS();
       }
     },
     'marcaGNP': function marcaGNP(newValue, oldValue) {
@@ -2334,10 +2335,9 @@ function Cliente(_ref) {
         // $('#v-pills-Marca-tab').click();
       }
     },
-    'cliente.gsMarca': function clienteGsMarca(newV, oldV) {
-      // if (newV != "") {
+    'cliente.gsMarca': function clienteGsMarca(newV, oldV) {// if (newV != "") {
       // this.marca = true;
-      this.marcasGS = this.getMarcasGS(); // $('#v-pills-Marca-tab').removeClass('disabled');
+      // $('#v-pills-Marca-tab').removeClass('disabled');
       // $('#v-pills-Marca-tab').click();
       // }
     },
@@ -42605,7 +42605,7 @@ var render = function() {
                             _vm._v(" "),
                             _vm._l(_vm.marcasGS, function(marcas) {
                               return _c("option", { attrs: { value: "" } }, [
-                                _vm._v(_vm._s(marcas))
+                                _vm._v(_vm._s(marcas.nombre))
                               ])
                             })
                           ],
