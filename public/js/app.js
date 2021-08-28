@@ -2466,7 +2466,6 @@ function Cliente(_ref) {
     this.loader_marca = true;
     var url = "./api/getMarcas";
     axios.get(url).then(function (res) {
-      p;
       _this4.loader_marca = false;
       console.log("res marcas general de seguros", res.data.marcas);
       _this4.marcasGS = res.data.marcas.sort();

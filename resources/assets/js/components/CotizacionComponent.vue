@@ -799,7 +799,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			getMarcasGS(){
     			this.loader_marca=true;
     			let url = `./api/getMarcas`;
-    			axios.get(url).then(res=>{p
+    			axios.get(url).then(res=>{
     				this.loader_marca = false;
     				console.log("res marcas general de seguros",res.data.marcas);
     				this.marcasGS = res.data.marcas.sort();
