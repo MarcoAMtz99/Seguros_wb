@@ -590,7 +590,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			submarcaGNP:"",
     			gnpsubMarca:"",
     			marcaGS:"",
-    			submarcagS:""
+    			submarcaGS:""
     		}
     	},
     	watch:{
@@ -672,16 +672,16 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				// $('#v-pills-Marca-tab').click();
     			}
     		},
-    		// 'cliente.gsSubmarca':function(newV,oldV){
-    		// 	// if (newV != "") {
-    		// 		// this.marca = true;
+    		'cliente.gsSubmarca':function(newV,oldV){
+    			if (newV != "") {
+    				this.submarcaGS = this.cliente.submarcasGS;
     				
+    				console.log('SUBMARCA SELECCIONADA GS:',this.submarcaGS);
     				
-    				
-    		// 		// $('#v-pills-Marca-tab').removeClass('disabled');
-    		// 		// $('#v-pills-Marca-tab').click();
-    		// 	// }
-    		// },
+    				// $('#v-pills-Marca-tab').removeClass('disabled');
+    				// $('#v-pills-Marca-tab').click();
+    			}
+    		},
     		'cliente.marca_auto': function(newValue,oldValue){
     			if (newValue != "") {
     				// this.modelo = true;
@@ -700,7 +700,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			if (newV != "") {
     				this.cp = true;
     				$('#v-pills-CP-tab').removeClass('disabled');
-    				$('#v-pills-CP-tab').click();
+    				// $('#v-pills-CP-tab').click();
     			}
     		},
     		'cliente.sexo':function(newV,oldV){

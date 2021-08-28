@@ -2282,7 +2282,7 @@ function Cliente(_ref) {
       loader_modelo: true,
       descripcion: false,
       cp: false
-    }, _defineProperty(_ref2, "modelos", ""), _defineProperty(_ref2, "nombre", false), _defineProperty(_ref2, "celular", false), _defineProperty(_ref2, "correo", false), _defineProperty(_ref2, "sexo", false), _defineProperty(_ref2, "nac", false), _defineProperty(_ref2, "searchOption", false), _defineProperty(_ref2, "checkall", false), _defineProperty(_ref2, "marcaGNP", ""), _defineProperty(_ref2, "modeloGNP", ''), _defineProperty(_ref2, "submarcaGNP", ""), _defineProperty(_ref2, "gnpsubMarca", ""), _defineProperty(_ref2, "marcaGS", ""), _defineProperty(_ref2, "submarcagS", ""), _ref2;
+    }, _defineProperty(_ref2, "modelos", ""), _defineProperty(_ref2, "nombre", false), _defineProperty(_ref2, "celular", false), _defineProperty(_ref2, "correo", false), _defineProperty(_ref2, "sexo", false), _defineProperty(_ref2, "nac", false), _defineProperty(_ref2, "searchOption", false), _defineProperty(_ref2, "checkall", false), _defineProperty(_ref2, "marcaGNP", ""), _defineProperty(_ref2, "modeloGNP", ''), _defineProperty(_ref2, "submarcaGNP", ""), _defineProperty(_ref2, "gnpsubMarca", ""), _defineProperty(_ref2, "marcaGS", ""), _defineProperty(_ref2, "submarcaGS", ""), _ref2;
   },
   watch: {
     'cliente.uso_auto': function clienteUso_auto(newValue, oldValue) {
@@ -2342,13 +2342,13 @@ function Cliente(_ref) {
         // $('#v-pills-Marca-tab').click();
       }
     },
-    // 'cliente.gsSubmarca':function(newV,oldV){
-    // 	// if (newV != "") {
-    // 		// this.marca = true;
-    // 		// $('#v-pills-Marca-tab').removeClass('disabled');
-    // 		// $('#v-pills-Marca-tab').click();
-    // 	// }
-    // },
+    'cliente.gsSubmarca': function clienteGsSubmarca(newV, oldV) {
+      if (newV != "") {
+        this.submarcaGS = this.cliente.submarcasGS;
+        console.log('SUBMARCA SELECCIONADA GS:', this.submarcaGS); // $('#v-pills-Marca-tab').removeClass('disabled');
+        // $('#v-pills-Marca-tab').click();
+      }
+    },
     'cliente.marca_auto': function clienteMarca_auto(newValue, oldValue) {
       if (newValue != "") {
         // this.modelo = true;
@@ -2363,8 +2363,7 @@ function Cliente(_ref) {
     'cliente.submarca_auto': function clienteSubmarca_auto(newV, oldV) {
       if (newV != "") {
         this.cp = true;
-        $('#v-pills-CP-tab').removeClass('disabled');
-        $('#v-pills-CP-tab').click();
+        $('#v-pills-CP-tab').removeClass('disabled'); // $('#v-pills-CP-tab').click();
       }
     },
     'cliente.sexo': function clienteSexo(newV, oldV) {
