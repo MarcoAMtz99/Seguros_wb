@@ -567,8 +567,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     		'cliente.gnpsubMarca':function(newValue,oldValue){
     				
     					this.cp = true;
-    				// console.log('subMarcas de Gnp en el año:',this.submarcasGNP);
-    				// this.submarcasGNP = this.getSubmarcaGNP(this.modeloGNP,this.submarcasGNP);
+    				
     				this.submarcaGNP = this.cliente.gnpsubMarca;
     				console.log('subMarca que se envia seleccion',this.cliente.gnpsubMarca );
     				console.log('subMarca que se envia',this.gnpsubMarca,this.submarcaGNP );
@@ -596,8 +595,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				this.submarcasGS = this.getSubmarcaGS(this.cliente.gsMarca.id);
     				
     				
-    				// $('#v-pills-Marca-tab').removeClass('disabled');
-    				// $('#v-pills-Marca-tab').click();
+    				
     			}
     		},
     		'cliente.submarcasGS':function(newV,oldV){
@@ -606,8 +604,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				
     				console.log('SUBMARCA SELECCIONADA GS:',this.submarcaGS);
     				this.cliente.gssubMarca = this.submarcaGS;
-    				// $('#v-pills-Marca-tab').removeClass('disabled');
-    				// $('#v-pills-Marca-tab').click();
+    				
     			}
     		},
     		'cliente.marca_auto': function(newValue,oldValue){

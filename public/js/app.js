@@ -2248,9 +2248,7 @@ function Cliente(_ref) {
       this.subMarcasGNP = this.getSubmarcaGNP(this.modeloGNP, this.marcaGNP);
     },
     'cliente.gnpsubMarca': function clienteGnpsubMarca(newValue, oldValue) {
-      this.cp = true; // console.log('subMarcas de Gnp en el año:',this.submarcasGNP);
-      // this.submarcasGNP = this.getSubmarcaGNP(this.modeloGNP,this.submarcasGNP);
-
+      this.cp = true;
       this.submarcaGNP = this.cliente.gnpsubMarca;
       console.log('subMarca que se envia seleccion', this.cliente.gnpsubMarca);
       console.log('subMarca que se envia', this.gnpsubMarca, this.submarcaGNP); // $('#v-pills-CP-tab').removeClass('disabled');
@@ -2266,16 +2264,14 @@ function Cliente(_ref) {
     'cliente.gsMarca': function clienteGsMarca(newV, oldV) {
       if (newV != "") {
         console.log('VALOR DE LA MARCA', this.cliente.gsMarca);
-        this.submarcasGS = this.getSubmarcaGS(this.cliente.gsMarca.id); // $('#v-pills-Marca-tab').removeClass('disabled');
-        // $('#v-pills-Marca-tab').click();
+        this.submarcasGS = this.getSubmarcaGS(this.cliente.gsMarca.id);
       }
     },
     'cliente.submarcasGS': function clienteSubmarcasGS(newV, oldV) {
       if (newV != "") {
         this.submarcaGS = this.cliente.submarcasGS;
         console.log('SUBMARCA SELECCIONADA GS:', this.submarcaGS);
-        this.cliente.gssubMarca = this.submarcaGS; // $('#v-pills-Marca-tab').removeClass('disabled');
-        // $('#v-pills-Marca-tab').click();
+        this.cliente.gssubMarca = this.submarcaGS;
       }
     },
     'cliente.marca_auto': function clienteMarca_auto(newValue, oldValue) {
