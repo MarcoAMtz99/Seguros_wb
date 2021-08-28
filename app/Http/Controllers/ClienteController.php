@@ -22,7 +22,7 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        // dd($request);
         if ($request->sexo == "Maculino") {
             $request->sexo =="Hombre";
         }else if ($request->sexo == "Femenino") {
@@ -72,7 +72,7 @@ class ClienteController extends Controller
             'codigo_descuento' => $request->codigo_descuento,
             'gnpMarca'         => $request->gnpMarca,
             'gnpsubMarca'      => $request->gnpsubMarca,
-            'gsMarca'          => $request->gsMarca,
+            'gsMarca'          => $request->gsMarca['nombre'],
             'gssubMarca'       => $request->submarcasGS,
             'anaMarca'         => $request->marca_auto['descripcion'],
             'anasubMarca'      => $request->submarca_auto['descripcion']
