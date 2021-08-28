@@ -2672,7 +2672,7 @@ function Cliente(_ref) {
       _this12.cliente.gnpsubMarca = res.data.cotizacion.gnpsubMarca;
       _this12.cliente.gnpMarca = res.data.cotizacion.gnpMarca;
       _this12.cliente.gssubMarca = res.data.cotizacion.gssubMarca;
-      _this12.cliente.gsMarca.nombre = res.data.cotizacion.gsMarca;
+      _this12.cliente.gsMarca = res.data.cotizacion.gsMarca;
       _this12.getcotizacion.value = !_this12.getcotizacion.value;
       _this12.alert.message = "".concat(_this12.cliente.nombre, " ").concat(_this12.cliente.appaterno, " ").concat(_this12.cliente.apmaterno, " su cotizaci\xF3n se guardo con el folio ").concat(_this12.cliente.cotizacion);
       _this12.alert["class"] = "alert alert-success alert-dismissible fade show";
