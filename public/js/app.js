@@ -5729,7 +5729,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.cliente.gs) {
         console.log("Datos del auto: ", this.cliente.marca_auto.descripcion, this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio);
-        this.getDescripcionesGS(this.cliente.marca_auto.descripcion, this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio);
+        this.getDescripcionesGS(this.cliente.gsMarca, this.cliente.gssubMarca, this.cliente.modelos);
       }
 
       if (this.cliente.gnp) {
@@ -42638,7 +42638,7 @@ var render = function() {
                             _vm._l(_vm.marcasGS, function(marcas) {
                               return _c(
                                 "option",
-                                { domProps: { value: marcas.id } },
+                                { domProps: { value: marcas.nombre } },
                                 [_vm._v(_vm._s(marcas.nombre))]
                               )
                             })
@@ -42694,7 +42694,7 @@ var render = function() {
                             _vm._l(_vm.submarcasGS, function(marcas) {
                               return _c(
                                 "option",
-                                { domProps: { value: marcas.id } },
+                                { domProps: { value: marcas.nombre } },
                                 [_vm._v(_vm._s(marcas.nombre))]
                               )
                             })

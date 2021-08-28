@@ -773,7 +773,7 @@
                 }
                 if(this.cliente.gs){
                     console.log("Datos del auto: ",this.cliente.marca_auto.descripcion,this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio);
-                    this.getDescripcionesGS(this.cliente.marca_auto.descripcion,this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio);
+                    this.getDescripcionesGS(this.cliente.gsMarca,this.cliente.gssubMarca,this.cliente.modelos);
                 }
                 if(this.cliente.gnp){
                     this.getDescripcionesGNP(this.cliente.gnpMarca,this.cliente.gnpsubMarca, this.cliente.modelos);
