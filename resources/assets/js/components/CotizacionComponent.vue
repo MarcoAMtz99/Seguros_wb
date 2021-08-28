@@ -210,7 +210,7 @@
 		  					<select v-model="cliente.gsMarca" class="form-control">
     								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la marca</option>
 
-    								<option :value="marcas.nombre" v-for="marcas in marcasGS">{{marcas.nombre}}</option>
+    								<option :value="marcas" v-for="marcas in marcasGS">{{marcas.nombre}}</option>
     								</select>
 		  				</div>
 

@@ -42638,7 +42638,7 @@ var render = function() {
                             _vm._l(_vm.marcasGS, function(marcas) {
                               return _c(
                                 "option",
-                                { domProps: { value: marcas.nombre } },
+                                { domProps: { value: marcas } },
                                 [_vm._v(_vm._s(marcas.nombre))]
                               )
                             })
