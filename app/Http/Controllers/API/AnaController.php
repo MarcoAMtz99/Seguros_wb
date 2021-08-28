@@ -453,9 +453,7 @@ XML;
             // dd($fecha_t);
             // dd($poblacion);
             $respuestas=[];
-            $XMLS= [];
             foreach ($pagos as $pago) {
-
                 switch ($poliza) {
                     case "Amplia":
                         // code...
@@ -479,7 +477,7 @@ XML;
             <cobertura id="40" desc="" sa="" tipo="" ded="50" pma=""/>
         </vehiculo>
         <asegurado id="" nombre="" paterno="" materno="" calle="" numerointerior="" numeroexterior="" colonia="" poblacion="" estado="$estadoANA" cp="" pais="" tipopersona=""/>
-        <poliza id="" tipo="A" endoso="" fecemision="" fecinpiciovig="$fecha_hoy" fecterminovig="$fecha_t" moneda="0" bonificacion="50" formapago="$pago->id" agente="14275" tarifacuotas="1804" tarifavalores="1804" tarifaderechos="1804" beneficiario="" politicacancelacion="1"/>
+        <poliza id="" tipo="A" endoso="" fecemision="" feciniciovig="$fecha_hoy" fecterminovig="$fecha_t" moneda="0" bonificacion="50" formapago="$pago->id" agente="14275" tarifacuotas="1804" tarifavalores="1804" tarifaderechos="1804" beneficiario="" politicacancelacion="1"/>
         <prima primaneta="" derecho="" recargo="" impuesto="" primatotal="" comision=""/>
         <recibo id="" feciniciovig="" fecterminovig="" primaneta="" derecho="" recargo="" impuesto="" primatotal="" comision="" cadenaoriginal="" sellodigital="" fecemision="" serie="" folio="" horaemision="" numeroaprobacion="" anoaprobacion="" numseriecertificado=""/>
         <error/>
@@ -579,14 +577,12 @@ XML;
                 }catch(SoapFault $fault){
                     dd($fault);
                 }
-                 array_push($XMLS,$xml);
-            } // TERMINA EL FOR DE PAGOS
-
+            }
             // dd($coberturas,$respuestas);
             // $correo_e = ;
             // Mail::to($request->correo)->send(new EmisionPoliza($respuestas));
             // 
-            return response()->json(['ANASeguros'=>$respuestas,'xmlentrada'=>$xml,'respuestaxml'=>$respText->TransaccionTextResult,'XMLS'=>$XMLS],201);
+            return response()->json(['ANASeguros'=>$respuestas,'xmlentrada'=>$xml,'respuestaxml'=>$respText->TransaccionTextResult],201);
         }
        
     }
