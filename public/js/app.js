@@ -2338,7 +2338,7 @@ function Cliente(_ref) {
     'cliente.gsMarca': function clienteGsMarca(newV, oldV) {
       if (newV != "") {
         console.log('VALOR DE LA MARCA', this.cliente.gsMarca);
-        this.submarcasGS = this.getSubmarcaGS(this.cliente.gsMarca.id); // $('#v-pills-Marca-tab').removeClass('disabled');
+        this.submarcasGS = this.getSubmarcaGS(this.cliente.gsMarca); // $('#v-pills-Marca-tab').removeClass('disabled');
         // $('#v-pills-Marca-tab').click();
       }
     },
