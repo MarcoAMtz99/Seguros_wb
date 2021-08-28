@@ -189,272 +189,7 @@
 		                
 						
 						
-						<!-- <div class="row">
-		  				<div class="col">
-		  					<label class="form-check-label" for="checkbox-qualitas"><img :src="img.quaImage" width="120" height="50"></label>
-		  				</div>
-		  				<div class="col-3">
-		  			
-		  				</div>
-		  			
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-		  				</div>
-		  				
-						</div> -->
-						<!-- <div class="row">
-		  				<div class="col">
-		  					<label class="form-check-label" for="checkbox-qualitas"><img :src="img.quaImage" width="120" height="50"></label>
-		  				</div>
-		  				<div class="col-3">
-		  			
-		  				</div>
-		  			
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-    								
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-		  				</div>
-		  				
-						</div> -->
-						<!-- <div class="row">
-		  				<div class="col">
-		  					<label class="form-check-label" for="checkbox-qualitas"><img :src="img.quaImage" width="120" height="50"></label>
-		  				</div>
-		  				<div class="col-3">
-		  			
-		  				</div>
-		  			
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-    								
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-		  				</div>
-		  				
-						</div> -->
-						<!-- <div class="row">
-		  				<div class="col">
-		  					<label class="form-check-label" for="checkbox-qualitas"><img :src="img.quaImage" width="120" height="50"></label>
-		  				</div>
-		  				<div class="col-3">
-		  			
-		  				</div>
-		  			
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-    								
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-		  				</div>
-		  				
-						</div> -->
-						<!-- <div class="row">
-		  				<div class="col">
-		  					<label class="form-check-label" for="checkbox-qualitas"><img :src="img.quaImage" width="120" height="50"></label>
-		  				</div>
-		  				<div class="col-3">
-		  			
-		  				</div>
-		  			
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-    								
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-		  				</div>
-		  				
-						</div> -->
-						<!-- <div class="row">
-		  				<div class="col">
-		  					<label class="form-check-label" for="checkbox-qualitas"><img :src="img.quaImage" width="120" height="50"></label>
-		  				</div>
-		  				<div class="col-3">
-		  			
-		  				</div>
-		  			
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-    								
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-		  				</div>
-		  				
-						</div> -->
-						<!-- <div class="row">
-		  				<div class="col">
-		  					<label class="form-check-label" for="checkbox-qualitas"><img :src="img.quaImage" width="120" height="50"></label>
-		  				</div>
-		  				<div class="col-3">
-		  			
-		  				</div>
-		  			
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-    								
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
-		  				</div>
-		  				
-						</div> -->
+						
 						<hr>
 						<div class="col mt-3 d-flex justify-content-end">
                         					<button type="button" class="btn btn-primary seleccionador" @click="nextPill('codigo')">Siguiente</button>
@@ -865,7 +600,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				// $('#v-pills-Marca-tab').click();
     			}
     		},
-    		'cliente.gsSubmarca':function(newV,oldV){
+    		'cliente.submarcasGS':function(newV,oldV){
     			if (newV != "") {
     				this.submarcaGS = this.cliente.submarcasGS;
     				
@@ -940,6 +675,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 						this.cliente.qualitas 		  = res.data.cotizacion.qualitas;
 						this.cliente.gnpMarca 		  = res.data.cotizacion.gnpMarca;
 						this.cliente.gnpsubMarca 	  = res.data.cotizacion.gnpsubMarca;
+
 						this.cliente.gssubMarca 	  = res.data.cotizacion.gssubMarca;
 						this.cliente.gsMarca	      = res.data.cotizacion.gsMarca;
 
@@ -1212,7 +948,9 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 					this.cliente.qualitas 		  = res.data.cotizacion.qualitas;
 					this.cliente.gnpsubMarca 	  = res.data.cotizacion.gnpsubMarca;
 					this.cliente.gnpMarca		  = res.data.cotizacion.gnpMarca;
+
 					this.cliente.gssubMarca		  = res.data.cotizacion.gssubMarca;
+
 					this.cliente.gsMarca    	  = res.data.cotizacion.gsMarca;
     				this.getcotizacion.value 	  = !this.getcotizacion.value;
 
