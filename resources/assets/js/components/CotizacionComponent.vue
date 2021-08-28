@@ -630,7 +630,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     		'cliente.gsMarca':function(newV,oldV){
     			if (newV != "") {
     				console.log('VALOR DE LA MARCA',this.cliente.gsMarca);
-    				this.submarcasGS = this.getSubmarcaGS(this.cliente.gsMarca);
+    				this.submarcasGS = this.getSubmarcaGS(this.cliente.gsMarca.id);
     				
     				
     				// $('#v-pills-Marca-tab').removeClass('disabled');
