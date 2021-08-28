@@ -218,7 +218,7 @@
 		  					<select v-model="cliente.submarcasGS" class="form-control">
     								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
 
-    								<option :value="marcas.id" v-for="marcas in submarcasGS">{{marcas}}</option>
+    								<option :value="marcas.id" v-for="marcas in submarcasGS">{{marcas.nombre}}</option>
     								</select>
 		  				</div>
 		  				

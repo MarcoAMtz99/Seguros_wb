@@ -42690,7 +42690,7 @@ var render = function() {
                               return _c(
                                 "option",
                                 { domProps: { value: marcas.id } },
-                                [_vm._v(_vm._s(marcas))]
+                                [_vm._v(_vm._s(marcas.nombre))]
                               )
                             })
                           ],
