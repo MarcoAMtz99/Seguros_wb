@@ -210,7 +210,7 @@
 		  					<select v-model="cliente.gsMarca" class="form-control">
     								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la marca</option>
 
-    								<option value="" v-for="marcas in marcasGS">{{marcas.nombre}}</option>
+    								<option :value="marcas.id" v-for="marcas in marcasGS">{{marcas.nombre}}</option>
     								</select>
 		  				</div>
 
@@ -218,7 +218,7 @@
 		  					<select v-model="cliente.submarcasGS" class="form-control">
     								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
 
-    								<option value="" v-for="marcas in submarcasGS">{{marcas}}</option>
+    								<option :value="marcas.id" v-for="marcas in submarcasGS">{{marcas}}</option>
     								</select>
 		  				</div>
 		  				
@@ -663,14 +663,14 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			}
     		},
     		'cliente.gsMarca':function(newV,oldV){
-    			// if (newV != "") {
-    				// this.marca = true;
-    				this.submarcasGS = this.getSubmarcaGS(this.cliente.gsMarca);
+    			if (newV != "") {
+    				console.log('VALOR DE LA MARCA',this.cliente.gsMarca);
+    				this.submarcasGS = this.getSubmarcaGS(this.cliente.gsMarca.id);
     				
     				
     				// $('#v-pills-Marca-tab').removeClass('disabled');
     				// $('#v-pills-Marca-tab').click();
-    			// }
+    			}
     		},
     		// 'cliente.gsSubmarca':function(newV,oldV){
     		// 	// if (newV != "") {

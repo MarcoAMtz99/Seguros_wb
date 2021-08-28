@@ -2336,11 +2336,11 @@ function Cliente(_ref) {
       }
     },
     'cliente.gsMarca': function clienteGsMarca(newV, oldV) {
-      // if (newV != "") {
-      // this.marca = true;
-      this.submarcasGS = this.getSubmarcaGS(this.cliente.gsMarca); // $('#v-pills-Marca-tab').removeClass('disabled');
-      // $('#v-pills-Marca-tab').click();
-      // }
+      if (newV != "") {
+        console.log('VALOR DE LA MARCA', this.cliente.gsMarca);
+        this.submarcasGS = this.getSubmarcaGS(this.cliente.gsMarca.id); // $('#v-pills-Marca-tab').removeClass('disabled');
+        // $('#v-pills-Marca-tab').click();
+      }
     },
     // 'cliente.gsSubmarca':function(newV,oldV){
     // 	// if (newV != "") {
@@ -42632,9 +42632,11 @@ var render = function() {
                             ),
                             _vm._v(" "),
                             _vm._l(_vm.marcasGS, function(marcas) {
-                              return _c("option", { attrs: { value: "" } }, [
-                                _vm._v(_vm._s(marcas.nombre))
-                              ])
+                              return _c(
+                                "option",
+                                { domProps: { value: marcas.id } },
+                                [_vm._v(_vm._s(marcas.nombre))]
+                              )
                             })
                           ],
                           2
@@ -42686,9 +42688,11 @@ var render = function() {
                             ),
                             _vm._v(" "),
                             _vm._l(_vm.submarcasGS, function(marcas) {
-                              return _c("option", { attrs: { value: "" } }, [
-                                _vm._v(_vm._s(marcas))
-                              ])
+                              return _c(
+                                "option",
+                                { domProps: { value: marcas.id } },
+                                [_vm._v(_vm._s(marcas))]
+                              )
                             })
                           ],
                           2
