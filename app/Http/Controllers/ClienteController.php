@@ -72,8 +72,8 @@ class ClienteController extends Controller
             'codigo_descuento' => $request->codigo_descuento,
             'gnpMarca'         => $request->gnpMarca,
             'gnpsubMarca'      => $request->gnpsubMarca,
-            'gsMarca'         => $request->gsMarca,
-            'gssubMarca'      => $request->submarcasGS,
+            'gsMarca'          => $request->gsMarca,
+            'gssubMarca'       => $request->submarcasGS,
             'anaMarca'         => $request->marca_auto['descripcion'],
             'anasubMarca'      => $request->submarca_auto['descripcion']
 
@@ -109,7 +109,7 @@ class ClienteController extends Controller
         $cliente->auto->marca;
         $cliente->auto->submarca;
         //$cliente->emailCotizacion();
-        dd($cliente);
+        // dd($cliente);
         return response()->json(['cotizacion'=>$cliente,'GNP'=>$GNP],201);
     }
 
