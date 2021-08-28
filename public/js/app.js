@@ -42649,8 +42649,8 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.cliente.submarcaGNP,
-                                expression: "cliente.submarcaGNP"
+                                value: _vm.cliente.submarcasGS,
+                                expression: "cliente.submarcasGS"
                               }
                             ],
                             staticClass: "form-control",
@@ -42666,7 +42666,7 @@ var render = function() {
                                   })
                                 _vm.$set(
                                   _vm.cliente,
-                                  "submarcaGNP",
+                                  "submarcasGS",
                                   $event.target.multiple
                                     ? $$selectedVal
                                     : $$selectedVal[0]
@@ -42685,7 +42685,7 @@ var render = function() {
                               [_vm._v("Seleccione la submarca")]
                             ),
                             _vm._v(" "),
-                            _vm._l(_vm.marcasGNP, function(marcas) {
+                            _vm._l(_vm.submarcasGS, function(marcas) {
                               return _c("option", { attrs: { value: "" } }, [
                                 _vm._v(_vm._s(marcas))
                               ])
