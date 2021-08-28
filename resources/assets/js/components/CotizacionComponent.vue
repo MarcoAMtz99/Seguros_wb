@@ -802,6 +802,11 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			axios.get(url).then(res=>{
     				this.loader_marca = false;
     				console.log("res marcas general de seguros",res.data.marcas);
+    				// console.log("res marcas general de seguros",res.data.marcas);
+    				// console.log("res marcas general de seguros",res.data.marcas);
+    				// console.log("res marcas general de seguros",res.data.marcas);
+    				// console.log("res marcas general de seguros",res.data.marcas);
+    				// console.log("res marcas general de seguros",res.data.marcas);
     				this.marcasGS = res.data.marcas.sort();
     			}).catch(error=>{
     				console.log('error',error);
