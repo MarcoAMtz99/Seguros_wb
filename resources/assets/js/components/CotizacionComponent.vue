@@ -642,7 +642,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				this.submarcaGS = this.cliente.submarcasGS;
     				
     				console.log('SUBMARCA SELECCIONADA GS:',this.submarcaGS);
-    				this.cliente.gssubMarca =this.submarcaGS;
+    				this.cliente.gssubMarca = this.submarcaGS;
     				// $('#v-pills-Marca-tab').removeClass('disabled');
     				// $('#v-pills-Marca-tab').click();
     			}
