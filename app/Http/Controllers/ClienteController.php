@@ -22,7 +22,7 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        // dd($request);
         if ($request->sexo == "Maculino") {
             $request->sexo =="Hombre";
         }else if ($request->sexo == "Femenino") {
@@ -34,24 +34,24 @@ class ClienteController extends Controller
             'submarca'=> $request->gnpsubMarca,
         );
         array_push($GNP, $auxGnp);
-        // $rules=[
-        //     'uso_auto'      => 'required',
-        //     'marca_auto'    => 'required|array',
-        //     'submarca_auto' => 'required|array',
-        //     'modelo_auto'   => 'required|numeric',
-        //     'cp'            => 'required',
-        //     'cestado'       => 'required',
-        //     'nombre'        => 'required|string',
-        //     'appaterno'     => 'required|string',
-        //     'apmaterno'     => 'nullable|string',
-        //     'telefono'      => 'required|numeric',
-        //     'email'         => 'required|email',
-        //     // 'sexo'          => 'required|in:Hombre,Mujer,Otro',
-        //     'f_nac'         => 'required|date'
+        $rules=[
+            'uso_auto'      => 'required',
+            'marca_auto'    => 'required|array',
+            'submarca_auto' => 'required|array',
+            'modelo_auto'   => 'required|numeric',
+            'cp'            => 'required',
+            'cestado'       => 'required',
+            'nombre'        => 'required|string',
+            'appaterno'     => 'required|string',
+            'apmaterno'     => 'nullable|string',
+            'telefono'      => 'required|numeric',
+            'email'         => 'required|email',
+            'sexo'          => 'required|in:Hombre,Mujer,Otro',
+            'f_nac'         => 'required|date'
 
-        // ];
-        // $this->validate($request,$rules);
-        // return $request->all();
+        ];
+        $this->validate($request,$rules);
+        return $request->all();
 
         $cliente = Cliente::create([
             "uso_auto"         => $request->uso_auto,
@@ -72,6 +72,8 @@ class ClienteController extends Controller
             'codigo_descuento' => $request->codigo_descuento,
             'gnpMarca'         => $request->gnpMarca,
             'gnpsubMarca'      => $request->gnpsubMarca,
+            'gsMarca'         => $request->gsMarca,
+            'gssubMarca'      => $request->submarcasGS,
             'anaMarca'         => $request->marca_auto['descripcion'],
             'anasubMarca'      => $request->submarca_auto['descripcion']
 
