@@ -2192,24 +2192,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -42565,144 +42547,146 @@ var render = function() {
                           ])
                         ]),
                         _vm._v(" "),
-                        _c("hr")
+                        _c("hr"),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "form-check-label",
+                                attrs: { for: "checkbox-gs" }
+                              },
+                              [
+                                _c("img", {
+                                  attrs: {
+                                    src: _vm.img.gsImage,
+                                    width: "120",
+                                    height: "50"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-3" }, [
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.cliente.gsMarca,
+                                    expression: "cliente.gsMarca"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.cliente,
+                                      "gsMarca",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "option",
+                                  {
+                                    staticClass: "form-control form-control-sm",
+                                    staticStyle: { "white-space": "normal" },
+                                    attrs: { value: "" }
+                                  },
+                                  [_vm._v("Seleccione la marca")]
+                                ),
+                                _vm._v(" "),
+                                _vm._l(_vm.marcasGS, function(marcas) {
+                                  return _c(
+                                    "option",
+                                    { domProps: { value: marcas } },
+                                    [_vm._v(_vm._s(marcas.nombre))]
+                                  )
+                                })
+                              ],
+                              2
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-3" }, [
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.cliente.submarcasGS,
+                                    expression: "cliente.submarcasGS"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.cliente,
+                                      "submarcasGS",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "option",
+                                  {
+                                    staticClass: "form-control form-control-sm",
+                                    staticStyle: { "white-space": "normal" },
+                                    attrs: { value: "" }
+                                  },
+                                  [_vm._v("Seleccione la submarca")]
+                                ),
+                                _vm._v(" "),
+                                _vm._l(_vm.submarcasGS, function(marcas) {
+                                  return _c(
+                                    "option",
+                                    { domProps: { value: marcas.nombre } },
+                                    [_vm._v(_vm._s(marcas.nombre))]
+                                  )
+                                })
+                              ],
+                              2
+                            )
+                          ])
+                        ])
                       ])
                     ]),
                     _vm._v(" "),
                     _c("hr"),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-check-label",
-                            attrs: { for: "checkbox-gs" }
-                          },
-                          [
-                            _c("img", {
-                              attrs: {
-                                src: _vm.img.gsImage,
-                                width: "120",
-                                height: "50"
-                              }
-                            })
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-3" }, [
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.cliente.gsMarca,
-                                expression: "cliente.gsMarca"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.cliente,
-                                  "gsMarca",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              {
-                                staticClass: "form-control form-control-sm",
-                                staticStyle: { "white-space": "normal" },
-                                attrs: { value: "" }
-                              },
-                              [_vm._v("Seleccione la marca")]
-                            ),
-                            _vm._v(" "),
-                            _vm._l(_vm.marcasGS, function(marcas) {
-                              return _c(
-                                "option",
-                                { domProps: { value: marcas } },
-                                [_vm._v(_vm._s(marcas.nombre))]
-                              )
-                            })
-                          ],
-                          2
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-3" }, [
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.cliente.submarcasGS,
-                                expression: "cliente.submarcasGS"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            on: {
-                              change: function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.cliente,
-                                  "submarcasGS",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c(
-                              "option",
-                              {
-                                staticClass: "form-control form-control-sm",
-                                staticStyle: { "white-space": "normal" },
-                                attrs: { value: "" }
-                              },
-                              [_vm._v("Seleccione la submarca")]
-                            ),
-                            _vm._v(" "),
-                            _vm._l(_vm.submarcasGS, function(marcas) {
-                              return _c(
-                                "option",
-                                { domProps: { value: marcas.nombre } },
-                                [_vm._v(_vm._s(marcas.nombre))]
-                              )
-                            })
-                          ],
-                          2
-                        )
-                      ])
-                    ]),
                     _vm._v(" "),
                     _c("hr"),
                     _vm._v(" "),
