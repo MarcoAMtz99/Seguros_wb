@@ -466,10 +466,10 @@
 
 
 										<!-- General de seguros -->
-										<!-- <div class="form-check form-check-inline" v-if="cliente.uso_auto == 'Servicio Particular'">
+										<div class="form-check form-check-inline" v-if="cliente.uso_auto == 'Servicio Particular'">
 										  <input class="form-check-input" type="checkbox" id="checkbox-gs" v-model="cliente.gs" true-value="1" false-value="0">
 										  <label class="form-check-label" for="checkbox-gs"><img :src="img.gsImage" width="120" height="50"></label>
-										</div> -->
+										</div>
 										<!-- Qualitas -->
 		                            	<!-- <div class="form-check form-check-inline">
 										  <input class="form-check-input" type="checkbox" id="checkbox-qualitas" v-model="cliente.qualitas" true-value="1" false-value="0">
@@ -677,7 +677,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				this.submarcaGS = this.cliente.submarcasGS;
     				
     				console.log('SUBMARCA SELECCIONADA GS:',this.submarcaGS);
-    				
+    				this.cliente.gssubMarca =this.submarcaGS;
     				// $('#v-pills-Marca-tab').removeClass('disabled');
     				// $('#v-pills-Marca-tab').click();
     			}
@@ -747,8 +747,10 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 						this.cliente.qualitas 		  = res.data.cotizacion.qualitas;
 						this.cliente.gnpMarca 		  = res.data.cotizacion.gnpMarca;
 						this.cliente.gnpsubMarca 	  = res.data.cotizacion.gnpsubMarca;
+						this.cliente.gssubMarca		  = res.data.cotizacion.gssubMarca;
+						this.cliente.gsMarca		  = res.data.cotizacion.gsMarca;
 
-						alert(this.cliente.gnpMarca,this.cliente.gnpsubMarca);
+						// alert(this.cliente.gnpMarca,this.cliente.gnpsubMarca);
 					 	$("#paso2-tab").removeClass("disabled");
         				$("#paso2-tab").click();
         				this.getcotizacion.value = !this.getcotizacion.value;
@@ -1017,7 +1019,10 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 					this.cliente.qualitas 		  = res.data.cotizacion.qualitas;
 					this.cliente.gnpsubMarca 	  = res.data.cotizacion.gnpsubMarca;
 					this.cliente.gnpMarca		  = res.data.cotizacion.gnpMarca;
+					this.cliente.gssubMarca		  = res.data.cotizacion.gssubMarca;
+					this.cliente.gsMarca		  = res.data.cotizacion.gsMarca;
     				this.getcotizacion.value 	  = !this.getcotizacion.value;
+
     				this.alert.message 			  = `${this.cliente.nombre} ${this.cliente.appaterno} ${this.cliente.apmaterno} su cotización se guardo con el folio ${this.cliente.cotizacion}`;
     				this.alert.class 			  = "alert alert-success alert-dismissible fade show";
 

@@ -2345,7 +2345,8 @@ function Cliente(_ref) {
     'cliente.gsSubmarca': function clienteGsSubmarca(newV, oldV) {
       if (newV != "") {
         this.submarcaGS = this.cliente.submarcasGS;
-        console.log('SUBMARCA SELECCIONADA GS:', this.submarcaGS); // $('#v-pills-Marca-tab').removeClass('disabled');
+        console.log('SUBMARCA SELECCIONADA GS:', this.submarcaGS);
+        this.cliente.gssubMarca = this.submarcaGS; // $('#v-pills-Marca-tab').removeClass('disabled');
         // $('#v-pills-Marca-tab').click();
       }
     },
@@ -2412,7 +2413,9 @@ function Cliente(_ref) {
           _this.cliente.qualitas = res.data.cotizacion.qualitas;
           _this.cliente.gnpMarca = res.data.cotizacion.gnpMarca;
           _this.cliente.gnpsubMarca = res.data.cotizacion.gnpsubMarca;
-          alert(_this.cliente.gnpMarca, _this.cliente.gnpsubMarca);
+          _this.cliente.gssubMarca = res.data.cotizacion.gssubMarca;
+          _this.cliente.gsMarca = res.data.cotizacion.gsMarca; // alert(this.cliente.gnpMarca,this.cliente.gnpsubMarca);
+
           $("#paso2-tab").removeClass("disabled");
           $("#paso2-tab").click();
           _this.getcotizacion.value = !_this.getcotizacion.value;
@@ -2675,6 +2678,8 @@ function Cliente(_ref) {
       _this12.cliente.qualitas = res.data.cotizacion.qualitas;
       _this12.cliente.gnpsubMarca = res.data.cotizacion.gnpsubMarca;
       _this12.cliente.gnpMarca = res.data.cotizacion.gnpMarca;
+      _this12.cliente.gssubMarca = res.data.cotizacion.gssubMarca;
+      _this12.cliente.gsMarca = res.data.cotizacion.gsMarca;
       _this12.getcotizacion.value = !_this12.getcotizacion.value;
       _this12.alert.message = "".concat(_this12.cliente.nombre, " ").concat(_this12.cliente.appaterno, " ").concat(_this12.cliente.apmaterno, " su cotizaci\xF3n se guardo con el folio ").concat(_this12.cliente.cotizacion);
       _this12.alert["class"] = "alert alert-success alert-dismissible fade show";
@@ -43578,6 +43583,84 @@ var render = function() {
                               )
                             ]
                           ),
+                          _vm._v(" "),
+                          _vm.cliente.uso_auto == "Servicio Particular"
+                            ? _c(
+                                "div",
+                                { staticClass: "form-check form-check-inline" },
+                                [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.cliente.gs,
+                                        expression: "cliente.gs"
+                                      }
+                                    ],
+                                    staticClass: "form-check-input",
+                                    attrs: {
+                                      type: "checkbox",
+                                      id: "checkbox-gs",
+                                      "true-value": "1",
+                                      "false-value": "0"
+                                    },
+                                    domProps: {
+                                      checked: Array.isArray(_vm.cliente.gs)
+                                        ? _vm._i(_vm.cliente.gs, null) > -1
+                                        : _vm._q(_vm.cliente.gs, "1")
+                                    },
+                                    on: {
+                                      change: function($event) {
+                                        var $$a = _vm.cliente.gs,
+                                          $$el = $event.target,
+                                          $$c = $$el.checked ? "1" : "0"
+                                        if (Array.isArray($$a)) {
+                                          var $$v = null,
+                                            $$i = _vm._i($$a, $$v)
+                                          if ($$el.checked) {
+                                            $$i < 0 &&
+                                              _vm.$set(
+                                                _vm.cliente,
+                                                "gs",
+                                                $$a.concat([$$v])
+                                              )
+                                          } else {
+                                            $$i > -1 &&
+                                              _vm.$set(
+                                                _vm.cliente,
+                                                "gs",
+                                                $$a
+                                                  .slice(0, $$i)
+                                                  .concat($$a.slice($$i + 1))
+                                              )
+                                          }
+                                        } else {
+                                          _vm.$set(_vm.cliente, "gs", $$c)
+                                        }
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "form-check-label",
+                                      attrs: { for: "checkbox-gs" }
+                                    },
+                                    [
+                                      _c("img", {
+                                        attrs: {
+                                          src: _vm.img.gsImage,
+                                          width: "120",
+                                          height: "50"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              )
+                            : _vm._e(),
                           _vm._v(" "),
                           _vm.cliente.uso_auto == "Servicio Particular"
                             ? _c(
