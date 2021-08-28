@@ -453,6 +453,8 @@ XML;
             // dd($fecha_t);
             // dd($poblacion);
             $respuestas=[];
+            $XMLS=[];
+            $XMLS_REQUEST=[];
             foreach ($pagos as $pago) {
                 switch ($poliza) {
                     case "Amplia":
@@ -574,6 +576,9 @@ XML;
                             ]
                         ]
                     );
+                    array_push($XMLS,$xml);
+                    array_push($XMLS_REQUEST, $respText->TransaccionTextResult);
+
                 }catch(SoapFault $fault){
                     dd($fault);
                 }
@@ -582,7 +587,7 @@ XML;
             // $correo_e = ;
             // Mail::to($request->correo)->send(new EmisionPoliza($respuestas));
             // 
-            return response()->json(['ANASeguros'=>$respuestas,'xmlentrada'=>$xml,'respuestaxml'=>$respText->TransaccionTextResult],201);
+            return response()->json(['ANASeguros'=>$respuestas,'xmlentrada'=>$xml,'respuestaxml'=>$respText->TransaccionTextResult,'XML_ENTRADA'=>$XMLS,'XMLS_SALIDA'=>$XMLS_REQUEST],201);
         }
        
     }
