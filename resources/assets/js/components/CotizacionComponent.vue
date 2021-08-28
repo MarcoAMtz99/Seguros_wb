@@ -665,13 +665,23 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     		'cliente.gsMarca':function(newV,oldV){
     			// if (newV != "") {
     				// this.marca = true;
-    				
+    				this.submarcasGS = this.getSubmarcaGS(this.cliente.gsMarca);
     				
     				
     				// $('#v-pills-Marca-tab').removeClass('disabled');
     				// $('#v-pills-Marca-tab').click();
     			// }
     		},
+    		// 'cliente.gsSubmarca':function(newV,oldV){
+    		// 	// if (newV != "") {
+    		// 		// this.marca = true;
+    				
+    				
+    				
+    		// 		// $('#v-pills-Marca-tab').removeClass('disabled');
+    		// 		// $('#v-pills-Marca-tab').click();
+    		// 	// }
+    		// },
     		'cliente.marca_auto': function(newValue,oldValue){
     			if (newValue != "") {
     				// this.modelo = true;
@@ -822,6 +832,20 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				console.log('res submarcas',res);
     				if (res.data.submarcas) {
     					this.submarcas = res.data.submarcas.sort();
+    				}
+    			}).catch(error=>{
+    				console.log('error submarcas',error);
+				});
+    		},
+    		getSubmarcaGS(marca){
+    			this.loader_tipo=true;
+    			let url = `./api/getSubmarcas/${marca}`;
+    			// $('#descripcion').append('<div class="loader"></div>');
+    			axios.get(url).then(res=>{
+    				this.loader_tipo = false;
+    				console.log('res submarcas GS',res);
+    				if (res.data.submarcas) {
+    					this.submarcasGS = res.data.submarcas.sort();
     				}
     			}).catch(error=>{
     				console.log('error submarcas',error);
