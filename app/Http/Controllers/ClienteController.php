@@ -109,7 +109,7 @@ class ClienteController extends Controller
         $cliente->auto->marca;
         $cliente->auto->submarca;
         //$cliente->emailCotizacion();
-        // dd($cliente);
+        dd($cliente);
         return response()->json(['cotizacion'=>$cliente,'GNP'=>$GNP],201);
     }
 
