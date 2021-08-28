@@ -2406,8 +2406,8 @@ function Cliente(_ref) {
           _this.cliente.qualitas = res.data.cotizacion.qualitas;
           _this.cliente.gnpMarca = res.data.cotizacion.gnpMarca;
           _this.cliente.gnpsubMarca = res.data.cotizacion.gnpsubMarca;
-          _this.cliente.gssubMarca.nombre = res.data.cotizacion.gssubMarca;
-          _this.cliente.gsMarca.nombre = res.data.cotizacion.gsMarca; // alert(this.cliente.gnpMarca,this.cliente.gnpsubMarca);
+          _this.cliente.gssubMarca = res.data.cotizacion.gssubMarca;
+          _this.cliente.gsMarca = res.data.cotizacion.gsMarca; // alert(this.cliente.gnpMarca,this.cliente.gnpsubMarca);
 
           $("#paso2-tab").removeClass("disabled");
           $("#paso2-tab").click();
@@ -2671,7 +2671,7 @@ function Cliente(_ref) {
       _this12.cliente.qualitas = res.data.cotizacion.qualitas;
       _this12.cliente.gnpsubMarca = res.data.cotizacion.gnpsubMarca;
       _this12.cliente.gnpMarca = res.data.cotizacion.gnpMarca;
-      _this12.cliente.gssubMarca.nombre = res.data.cotizacion.gssubMarca;
+      _this12.cliente.gssubMarca = res.data.cotizacion.gssubMarca;
       _this12.cliente.gsMarca.nombre = res.data.cotizacion.gsMarca;
       _this12.getcotizacion.value = !_this12.getcotizacion.value;
       _this12.alert.message = "".concat(_this12.cliente.nombre, " ").concat(_this12.cliente.appaterno, " ").concat(_this12.cliente.apmaterno, " su cotizaci\xF3n se guardo con el folio ").concat(_this12.cliente.cotizacion);

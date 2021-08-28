@@ -740,8 +740,8 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 						this.cliente.qualitas 		  = res.data.cotizacion.qualitas;
 						this.cliente.gnpMarca 		  = res.data.cotizacion.gnpMarca;
 						this.cliente.gnpsubMarca 	  = res.data.cotizacion.gnpsubMarca;
-						this.cliente.gssubMarca.nombre = res.data.cotizacion.gssubMarca;
-						this.cliente.gsMarca.nombre	   = res.data.cotizacion.gsMarca;
+						this.cliente.gssubMarca 	  = res.data.cotizacion.gssubMarca;
+						this.cliente.gsMarca	      = res.data.cotizacion.gsMarca;
 
 						// alert(this.cliente.gnpMarca,this.cliente.gnpsubMarca);
 					 	$("#paso2-tab").removeClass("disabled");
@@ -1012,7 +1012,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 					this.cliente.qualitas 		  = res.data.cotizacion.qualitas;
 					this.cliente.gnpsubMarca 	  = res.data.cotizacion.gnpsubMarca;
 					this.cliente.gnpMarca		  = res.data.cotizacion.gnpMarca;
-					this.cliente.gssubMarca.nombre		  = res.data.cotizacion.gssubMarca;
+					this.cliente.gssubMarca		  = res.data.cotizacion.gssubMarca;
 					this.cliente.gsMarca.nombre		  = res.data.cotizacion.gsMarca;
     				this.getcotizacion.value 	  = !this.getcotizacion.value;
 
