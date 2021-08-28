@@ -218,6 +218,34 @@
     								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
     								</select>
 		  				</div>
+		  					<div class="col-3">
+		  					<select v-model="cliente.gnpMarca" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
+
+    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
+    								</select>
+		  				</div>
+		  					<div class="col-3">
+		  					<select v-model="cliente.gnpMarca" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
+
+    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
+    								</select>
+		  				</div>
+		  					<div class="col-3">
+		  					<select v-model="cliente.gnpMarca" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
+
+    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
+    								</select>
+		  				</div>
+		  					<div class="col-3">
+		  					<select v-model="cliente.gnpMarca" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
+
+    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
+    								</select>
+		  				</div>
 		  				<div class="col-3">
 		  					<select v-model="cliente.submarcaGNP" class="form-control">
     								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
