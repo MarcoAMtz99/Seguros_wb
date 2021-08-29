@@ -397,50 +397,50 @@ class GeneralSegurosController extends Controller
         $res = $client->wsListarSubMarcas(['arg0' => ['token' => $this->token, 'idMarca' => $marca_gs->id]]);
         if ($res->return->exito) {
             $submarcas = $res->return->submarcas;
-
+            dd($submarcas);
             // return $submarcas;
             // 
-            if ($submarca == 'SERIE 208') {
-                $submarca = '208';
-            }
-             if ($submarca == 'SERIE 207') {
-                $submarca = '207';
-            }
-            if ($submarca == 'SERIE 2008') {
-                $submarca = '208';
-            }
-            if ($submarca == 'SERIE 308') {
-                $submarca = '308';
-            }
-            if ($submarca == 'SERIE 301') {
-                $submarca = '301';
-            }
-            if ($submarca == 'SERIE 5008') {
-                $submarca = '5008';
-            }
-            if ($submarca == 'SERIE 508') {
-                $submarca = '508';
-            }
-             if ($submarca == 'CR-V') {
-                $submarca = 'CRV';
-            }
-            if ($submarca == 'MINIVAN') {
-                $submarca = '1000';
-            }
-            if ($submarca == 'IMPREZA WRX') {
-                $submarca = 'WRX';
-            }
+            // if ($submarca == 'SERIE 208') {
+            //     $submarca = '208';
+            // }
+            //  if ($submarca == 'SERIE 207') {
+            //     $submarca = '207';
+            // }
+            // if ($submarca == 'SERIE 2008') {
+            //     $submarca = '208';
+            // }
+            // if ($submarca == 'SERIE 308') {
+            //     $submarca = '308';
+            // }
+            // if ($submarca == 'SERIE 301') {
+            //     $submarca = '301';
+            // }
+            // if ($submarca == 'SERIE 5008') {
+            //     $submarca = '5008';
+            // }
+            // if ($submarca == 'SERIE 508') {
+            //     $submarca = '508';
+            // }
+            //  if ($submarca == 'CR-V') {
+            //     $submarca = 'CRV';
+            // }
+            // if ($submarca == 'MINIVAN') {
+            //     $submarca = '1000';
+            // }
+            // if ($submarca == 'IMPREZA WRX') {
+            //     $submarca = 'WRX';
+            // }
 
-              // dd($submarcas,$submarca);
-            //  if ($submarca == 'X1') {
-            //     $submarca = 'X1';
-            // }
-            //  if ($submarca == 'X3') {
-            //     $submarca = 'X3';
-            // }
-            // if ($submarca == 'SERIE 5') {
-            //     $submarca = 'SERIE 5';
-            // }
+            //   // dd($submarcas,$submarca);
+            // //  if ($submarca == 'X1') {
+            // //     $submarca = 'X1';
+            // // }
+            // //  if ($submarca == 'X3') {
+            // //     $submarca = 'X3';
+            // // }
+            // // if ($submarca == 'SERIE 5') {
+            // //     $submarca = 'SERIE 5';
+            // // }
             foreach ($submarcas as $submarca_gs) {
                 if ($submarca_gs->nombre == $submarca || strpos($submarca_gs->nombre, $submarca) !== false ) {
                     return $submarca_gs;
