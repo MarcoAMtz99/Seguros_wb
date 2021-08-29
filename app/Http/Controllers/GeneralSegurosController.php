@@ -313,7 +313,7 @@ class GeneralSegurosController extends Controller
                 // dd($submarca_gs,$modelo_gs,$marca_gs);
                 if ($modelo_gs) {
                     $versiones_gs = $this->searchVersiones($submarca_gs, $modelo_gs);
-                    dd($versiones_gs);
+                    // dd($versiones_gs);
                     // dd(count(array($versiones_gs)));
                     if (isset($versiones_gs->amis)) {
                         // $aux = array( 
@@ -397,7 +397,7 @@ class GeneralSegurosController extends Controller
         $res = $client->wsListarSubMarcas(['arg0' => ['token' => $this->token, 'idMarca' => $marca_gs->id]]);
         if ($res->return->exito) {
             $submarcas = $res->return->submarcas;
-            // dd($submarcas);
+           
             // return $submarcas;
             // 
             // if ($submarca == 'SERIE 208') {
