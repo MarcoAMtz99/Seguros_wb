@@ -306,14 +306,14 @@ class GeneralSegurosController extends Controller
         // dd($marca_gs);
         if ($marca_gs) {
             $submarca_gs = $this->searchSubMarca($marca_gs, $submarca);
-            // dd($submarca_gs,$marca_gs, $submarca);
+          
             if ($submarca_gs) {
 
                 $modelo_gs = $this->searchModelos($submarca_gs, $modelo);
                 // dd($submarca_gs,$modelo_gs,$marca_gs);
                 if ($modelo_gs) {
                     $versiones_gs = $this->searchVersiones($submarca_gs, $modelo_gs);
-                    // dd($versiones_gs->amis);
+                    dd($versiones_gs->amis);
                     // dd(count(array($versiones_gs)));
                     if (isset($versiones_gs->amis)) {
                         // $aux = array( 
