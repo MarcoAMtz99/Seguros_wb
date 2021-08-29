@@ -2376,6 +2376,7 @@ function Cliente(_ref) {
           _this.cliente.ana = res.data.cotizacion.ana;
           _this.cliente.gs = res.data.cotizacion.gs;
           _this.cliente.qualitas = res.data.cotizacion.qualitas;
+          _this.cliente.gnp = res.data.cotizacion.gnp;
           _this.cliente.gnpMarca = res.data.cotizacion.gnpMarca;
           _this.cliente.gnpsubMarca = res.data.cotizacion.gnpsubMarca;
           _this.cliente.gssubMarca = res.data.cotizacion.gssubMarca;
@@ -2641,6 +2642,7 @@ function Cliente(_ref) {
       _this12.cliente.ana = res.data.cotizacion.ana;
       _this12.cliente.gs = res.data.cotizacion.gs;
       _this12.cliente.qualitas = res.data.cotizacion.qualitas;
+      _this12.cliente.gnp = res.data.cotizacion.gnp;
       _this12.cliente.gnpsubMarca = res.data.cotizacion.gnpsubMarca;
       _this12.cliente.gnpMarca = res.data.cotizacion.gnpMarca;
       _this12.cliente.gssubMarca = res.data.cotizacion.gssubMarca;
@@ -5681,8 +5683,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   watch: {
     'getcotizacion.value': function getcotizacionValue(newVal, oldVal) {
-      console.log('Cliente::', this.cliente);
-      console.log('GETCOTIZACION:', this.getcotizacion);
+      console.log('Cliente::', this.cliente); // console.log('GETCOTIZACION:',this.getcotizacion);
 
       if (this.cliente.ana) {
         this.getDescripcionesANA(this.cliente.marca_auto.id_ana, this.cliente.submarca_auto.id_ana, this.cliente.submarca_auto.anio);

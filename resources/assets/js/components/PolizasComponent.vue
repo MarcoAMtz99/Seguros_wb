@@ -763,7 +763,7 @@
     	watch:{
     		'getcotizacion.value': function (newVal,oldVal) {
                 console.log('Cliente::',this.cliente);
-                console.log('GETCOTIZACION:',this.getcotizacion);
+                // console.log('GETCOTIZACION:',this.getcotizacion);
                 
                 if (this.cliente.ana) {
                     this.getDescripcionesANA(this.cliente.marca_auto.id_ana,this.cliente.submarca_auto.id_ana,this.cliente.submarca_auto.anio);
