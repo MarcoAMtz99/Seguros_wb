@@ -461,7 +461,7 @@ XML;
                         // code...
                         $xml = <<<XML
 <transacciones xmlns="">
-    <transaccion version="1" tipotransaccion="$pago->id" cotizacion="" negocio="1195" tiponegocio="">
+    <transaccion version="1" tipotransaccion="C" cotizacion="" negocio="1195" tiponegocio="">
         <vehiculo id="1" amis="$descripcion" modelo="$modelo" descripcion="" uso="1" servicio="1" plan="1" motor="" serie="" repuve="" placas="" conductor="" conductorliciencia="" conductorfecnac="" conductorocupacion="" estado="$estadoANA" poblacion="$poblacion" color="01" dispositivo="" fecdispositivo="" tipocarga="" tipocargadescripcion="">
 
             <cobertura id="02" desc="" sa="" tipo="3" ded="5" pma=""/>
