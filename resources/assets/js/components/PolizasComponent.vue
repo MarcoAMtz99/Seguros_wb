@@ -147,7 +147,7 @@
                                                         <div v-if="cotizacionesANA[3]['TRIMESTRAL']['recibos'][1] !==undefined && cotizacionesANA[3]['TRIMESTRAL']['recibos'][0] !=='' " >
                                                         <div class="border">Trimestral: <!-- ${{cotizacionesANA[3]['TRIMESTRAL']['prima']['primatotal'] | int }} --></div>
                                                         <div class="border">1er Pago: ${{cotizacionesANA[3]['TRIMESTRAL']['recibos'][0]['primatotal'] | int }}</div>
-                                                          <div class="border">Subsecuente x 2: ${{cotizacionesANA[3]['TRIMESTRAL']['recibos'][1]['primatotal'] | int }}</div>
+                                                          <div class="border">Subsecuente x 3: ${{cotizacionesANA[3]['TRIMESTRAL']['recibos'][1]['primatotal'] | int }}</div>
 
                                                           </div>
                                                          <div v-if="cotizacionesANA[1]['MENSUAL']['recibos'][1] !== undefined &&
@@ -852,7 +852,7 @@
                 let params = { "cliente": cliente, "cotizacion": cotizacion, "aseguradora": aseguradora};
                 let url = "./api/email-cotizacion";
                 this.alert.message = '';
-                this.alert.class = '';
+                this.alert.class = '';  
                 axios.post(url,params).then(res=>{
                     console.log('res:');
                     console.log('Metodo sendCotizacion');
