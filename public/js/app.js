@@ -2442,8 +2442,8 @@ function Cliente(_ref) {
       this.loader_marca = true;
       var url = "./api/marcasANA/".concat(modelo);
       axios.get(url).then(function (res) {
-        _this3.loader_marca = false; //console.log("res marcas",res);
-
+        _this3.loader_marca = false;
+        console.log("res marcas ANA ", res);
         _this3.marcas = res.data.marcas.sort();
       })["catch"](function (error) {
         console.log('error', error);

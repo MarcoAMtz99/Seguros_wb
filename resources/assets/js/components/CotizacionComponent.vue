@@ -780,7 +780,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			let url = `./api/marcasANA/${modelo}`;
     			axios.get(url).then(res=>{
     				this.loader_marca = false;
-    				//console.log("res marcas",res);
+    				console.log("res marcas ANA ",res);
     				this.marcas = res.data.marcas.sort();
     			}).catch(error=>{
     				console.log('error',error);
