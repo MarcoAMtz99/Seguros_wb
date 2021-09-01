@@ -755,16 +755,16 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				this.cliente.gnp = 0;
     			}
     		},
-    		getMarcas(){
-    			let url = './api/getMarcas';
-    			axios.get(url).then(res=>{
-    				console.log("res",res);
-    				this.marcas = res.data.marcas.sort();
-    			}).catch(error=>{
-    				console.log('error',error);
+    		// getMarcas(){
+    		// 	let url = './api/getMarcas';
+    		// 	axios.get(url).then(res=>{
+    		// 		console.log("res",res);
+    		// 		this.marcas = res.data.marcas.sort();
+    		// 	}).catch(error=>{
+    		// 		console.log('error',error);
 
-    			})
-    		},
+    		// 	})
+    		// },
     		getMarcasQa(){
     			let url = './api/marcas';
     			axios.get(url).then(res=>{
@@ -813,6 +813,20 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				console.log('res submarcas',res);
     				if (res.data.submarcas) {
     					this.submarcas = res.data.submarcas.sort();
+    				}
+    			}).catch(error=>{
+    				console.log('error submarcas',error);
+				});
+    		},
+    		getSubmarcaGS(marca){
+    			this.loader_tipo=true;
+    			let url = `./api/getSubmarcas/${marca}`;
+    			// $('#descripcion').append('<div class="loader"></div>');
+    			axios.get(url).then(res=>{
+    				this.loader_tipo = false;
+    				console.log('res submarcas GS',res);
+    				if (res.data.submarcas) {
+    					this.submarcasGS = res.data.submarcas.sort();
     				}
     			}).catch(error=>{
     				console.log('error submarcas',error);

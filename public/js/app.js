@@ -2416,74 +2416,92 @@ function Cliente(_ref) {
         this.cliente.gnp = 0;
       }
     },
-    getMarcas: function getMarcas() {
+    // getMarcas(){
+    // 	let url = './api/getMarcas';
+    // 	axios.get(url).then(res=>{
+    // 		console.log("res",res);
+    // 		this.marcas = res.data.marcas.sort();
+    // 	}).catch(error=>{
+    // 		console.log('error',error);
+    // 	})
+    // },
+    getMarcasQa: function getMarcasQa() {
       var _this2 = this;
 
-      var url = './api/getMarcas';
+      var url = './api/marcas';
       axios.get(url).then(function (res) {
-        console.log("res", res);
+        console.log("res qualitas", res);
         _this2.marcas = res.data.marcas.sort();
       })["catch"](function (error) {
         console.log('error', error);
       });
     },
-    getMarcasQa: function getMarcasQa() {
+    getMarcas: function getMarcas(modelo) {
       var _this3 = this;
 
-      var url = './api/marcas';
+      this.loader_marca = true;
+      var url = "./api/marcasANA/".concat(modelo);
       axios.get(url).then(function (res) {
-        console.log("res qualitas", res);
+        _this3.loader_marca = false; //console.log("res marcas",res);
+
         _this3.marcas = res.data.marcas.sort();
       })["catch"](function (error) {
         console.log('error', error);
       });
+    },
+    getMarcasGS: function getMarcasGS() {
+      var _this4 = this;
+
+      this.loader_marca = true;
+      var url = "./api/getMarcas";
+      axios.get(url).then(function (res) {
+        _this4.loader_marca = false;
+        console.log("res marcas general de seguros", res.data.marcas); // console.log("res marcas general de seguros",res.data.marcas);
+        // console.log("res marcas general de seguros",res.data.marcas);
+        // console.log("res marcas general de seguros",res.data.marcas);
+        // console.log("res marcas general de seguros",res.data.marcas);
+        // console.log("res marcas general de seguros",res.data.marcas);
+
+        _this4.marcasGS = res.data.marcas.sort();
+      })["catch"](function (error) {
+        console.log('error', error);
+      });
+    },
+    getSubmarcas: function getSubmarcas(marca) {
+      var _this5 = this;
+
+      this.loader_tipo = true;
+      var url = "./api/submarcaANA/".concat(marca, "/").concat(this.cliente.modelo_auto);
+      $('#descripcion').append('<div class="loader"></div>');
+      axios.get(url).then(function (res) {
+        _this5.loader_tipo = false;
+        console.log('res submarcas', res);
+
+        if (res.data.submarcas) {
+          _this5.submarcas = res.data.submarcas.sort();
+        }
+      })["catch"](function (error) {
+        console.log('error submarcas', error);
+      });
+    },
+    getSubmarcaGS: function getSubmarcaGS(marca) {
+      var _this6 = this;
+
+      this.loader_tipo = true;
+      var url = "./api/getSubmarcas/".concat(marca); // $('#descripcion').append('<div class="loader"></div>');
+
+      axios.get(url).then(function (res) {
+        _this6.loader_tipo = false;
+        console.log('res submarcas GS', res);
+
+        if (res.data.submarcas) {
+          _this6.submarcasGS = res.data.submarcas.sort();
+        }
+      })["catch"](function (error) {
+        console.log('error submarcas', error);
+      });
     }
-  }, _defineProperty(_methods, "getMarcas", function getMarcas(modelo) {
-    var _this4 = this;
-
-    this.loader_marca = true;
-    var url = "./api/marcasANA/".concat(modelo);
-    axios.get(url).then(function (res) {
-      _this4.loader_marca = false; //console.log("res marcas",res);
-
-      _this4.marcas = res.data.marcas.sort();
-    })["catch"](function (error) {
-      console.log('error', error);
-    });
-  }), _defineProperty(_methods, "getMarcasGS", function getMarcasGS() {
-    var _this5 = this;
-
-    this.loader_marca = true;
-    var url = "./api/getMarcas";
-    axios.get(url).then(function (res) {
-      _this5.loader_marca = false;
-      console.log("res marcas general de seguros", res.data.marcas); // console.log("res marcas general de seguros",res.data.marcas);
-      // console.log("res marcas general de seguros",res.data.marcas);
-      // console.log("res marcas general de seguros",res.data.marcas);
-      // console.log("res marcas general de seguros",res.data.marcas);
-      // console.log("res marcas general de seguros",res.data.marcas);
-
-      _this5.marcasGS = res.data.marcas.sort();
-    })["catch"](function (error) {
-      console.log('error', error);
-    });
-  }), _defineProperty(_methods, "getSubmarcas", function getSubmarcas(marca) {
-    var _this6 = this;
-
-    this.loader_tipo = true;
-    var url = "./api/submarcaANA/".concat(marca, "/").concat(this.cliente.modelo_auto);
-    $('#descripcion').append('<div class="loader"></div>');
-    axios.get(url).then(function (res) {
-      _this6.loader_tipo = false;
-      console.log('res submarcas', res);
-
-      if (res.data.submarcas) {
-        _this6.submarcas = res.data.submarcas.sort();
-      }
-    })["catch"](function (error) {
-      console.log('error submarcas', error);
-    });
-  }), _defineProperty(_methods, "getSubmarcaGS", function getSubmarcaGS(marca) {
+  }, _defineProperty(_methods, "getSubmarcaGS", function getSubmarcaGS(marca) {
     var _this7 = this;
 
     this.loader_tipo = true;
