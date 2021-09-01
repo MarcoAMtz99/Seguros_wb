@@ -54285,7 +54285,11 @@ var render = function() {
                                                           ),
                                                           _c("br"),
                                                           _vm._v(
-                                                            "\n                                                            Subsecuente x : $" +
+                                                            "\n                                                            Subsecuente x " +
+                                                              _vm._s(
+                                                                pago.divisor
+                                                              ) +
+                                                              ": $" +
                                                               _vm._s(
                                                                 _vm._f("int")(
                                                                   pago.recibosub
