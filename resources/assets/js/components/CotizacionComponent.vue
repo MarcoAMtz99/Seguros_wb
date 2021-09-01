@@ -640,6 +640,16 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				// $('#v-pills-Marca-tab').click();
     			}
     		},
+    		'cliente.qaMarca':function(newV,oldV){
+    			if (newV != "") {
+    				console.log('VALOR DE LA MARCA',this.cliente.qaMarca);
+    				this.submarcasGS = this.getSubmarcaGS(this.cliente.gsMarca.id);
+    				
+    				
+    				// $('#v-pills-Marca-tab').removeClass('disabled');
+    				// $('#v-pills-Marca-tab').click();
+    			}
+    		},
     		'cliente.gsSubmarca':function(newV,oldV){
     			if (newV != "") {
     				this.submarcaGS = this.cliente.submarcasGS;

@@ -2310,6 +2310,13 @@ function Cliente(_ref) {
         // $('#v-pills-Marca-tab').click();
       }
     },
+    'cliente.qaMarca': function clienteQaMarca(newV, oldV) {
+      if (newV != "") {
+        console.log('VALOR DE LA MARCA', this.cliente.qaMarca);
+        this.submarcasGS = this.getSubmarcaGS(this.cliente.gsMarca.id); // $('#v-pills-Marca-tab').removeClass('disabled');
+        // $('#v-pills-Marca-tab').click();
+      }
+    },
     'cliente.gsSubmarca': function clienteGsSubmarca(newV, oldV) {
       if (newV != "") {
         this.submarcaGS = this.cliente.submarcasGS;
