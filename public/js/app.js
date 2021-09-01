@@ -2440,7 +2440,7 @@ function Cliente(_ref) {
       var url = './api/marcas';
       axios.get(url).then(function (res) {
         console.log("res qualitas", res);
-        _this2.marcas = res.data.marcas.sort();
+        _this2.marcasQA = res.data.marcas.sort();
       })["catch"](function (error) {
         console.log('error', error);
       });

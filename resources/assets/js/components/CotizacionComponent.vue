@@ -781,7 +781,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			let url = './api/marcas';
     			axios.get(url).then(res=>{
     				console.log("res qualitas",res);
-    				this.marcas = res.data.marcas.sort();
+    				this.marcasQA  = res.data.marcas.sort();
     			}).catch(error=>{
     				console.log('error',error);
 
