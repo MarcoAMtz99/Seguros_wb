@@ -518,6 +518,8 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			submarcasGNP:[],
     			marcasGS:[],
     			submarcasGS:[],
+    			marcasQA:[],
+    			submarcasQA:[],
     			pills:[
     				'v-pills-Uso',
     				'v-pills-Marca',
@@ -587,6 +589,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 						this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
 						this.getMarcas(this.cliente.modelo_auto);
 						this.marcasGS = this.getMarcasGS();
+						this.marcasQA = this.getMarcasQa();
 					
     			}
     				
@@ -597,7 +600,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				// this.cliente.gnpMarca ="";cliente.gnpMarca
     				// this.marcaGNP = 
 					// console.log('SUBMarcas de Gnp en el año:',this.modeloGNP,this.marcaGNP,this.modelos);
-						this.cliente.gnpMarca =	this.marcaGNP;
+					this.cliente.gnpMarca =	this.marcaGNP;
     				this.subMarcasGNP = this.getSubmarcaGNP(this.modeloGNP,this.marcaGNP);
     		},
 
@@ -756,6 +759,16 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			let url = './api/getMarcas';
     			axios.get(url).then(res=>{
     				console.log("res",res);
+    				this.marcas = res.data.marcas.sort();
+    			}).catch(error=>{
+    				console.log('error',error);
+
+    			})
+    		},
+    		getMarcasQa(){
+    			let url = './api/marcas';
+    			axios.get(url).then(res=>{
+    				console.log("res qualitas",res);
     				this.marcas = res.data.marcas.sort();
     			}).catch(error=>{
     				console.log('error',error);

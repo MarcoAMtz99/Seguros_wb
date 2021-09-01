@@ -31,10 +31,15 @@ class GeneralSegurosController extends Controller
         // *******************************************************
         //                https://serviciosgs.mx/gsautos-ws/soap/catalogoAutosWS?wsdl
         //                https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl
-        //                
+        //                https://gswas.com.mx/gsautos-ws/soap/autenticacionWS?wsdl
         $this->urlCatD = "https://serviciosgs.mx/gsautos-ws/DescargaCatalogo?6424687fddcef5216829292a0a172332";
-        $this->urlAuth = "https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl";
-        $this->urlCotiza = "https://serviciosgs.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
+        //ambiente de pruebas 
+        // $this->urlAuth = "https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl";
+        //produccion
+        $this->urlAuth = "https://gswas.com.mx/gsautos-ws/soap/autenticacionWS?wsdl";
+        // $this->urlCotiza = "https://serviciosgs.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
+        $this->urlCotiza = "https://gswas.com.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
+        
         $this->urlCat = "https://serviciosgs.mx/gsautos-ws/soap/catalogosWS?wsdl";
         $this->urlCatAuto = "https://serviciosgs.mx/gsautos-ws/soap/catalogoAutosWS?wsdl";
         $this->urlCober = "https://serviciosgs.mx/gsautos-ws/soap/catalogoCoberturasWS?wsdl";
