@@ -189,11 +189,11 @@
 		                
 						
 						
-						<!-- <div class="row">
+						<div class="row">
 		  				<div class="col">
 		  					<label class="form-check-label" for="checkbox-qualitas"><img :src="img.quaImage" width="120" height="50"></label>
 		  				</div>
-		  				<div class="col-3">
+		  				<!-- <div class="col-3">
 		  					<select  v-model="modeloGNP" class="form-control" id="gnp_lista">
 		                            	<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione su año</option>
 		                            	<option value="2011">2011</option>
@@ -210,23 +210,23 @@
 										<option value="2022">2022</option>
 									</select>	
 
-		  				</div>
+		  				</div> -->
 		  				<div class="col-3">
-		  					<select v-model="cliente.gnpMarca" class="form-control">
+		  					<select v-model="cliente.qaMarca" class="form-control">
     								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
 
-    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
+    								<option value="" v-for="marcas in marcasQA">{{marcas.cMarcaLarga}}</option>
     								</select>
 		  				</div>
-		  				<div class="col-3">
-		  					<select v-model="cliente.submarcaGNP" class="form-control">
+		  				<!-- <div class="col-3">
+		  					<select v-model="cliente.qaSubmarca" class="form-control">
     								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
 
     								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
     								</select>
-		  				</div>
+		  				</div> -->
 		  				
-						</div> -->
+						</div>
 						<hr>
 						<div class="col mt-3 d-flex justify-content-end">
                         					<button type="button" class="btn btn-primary seleccionador" @click="nextPill('codigo')">Siguiente</button>

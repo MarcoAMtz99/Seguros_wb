@@ -42704,6 +42704,81 @@ var render = function() {
                     _vm._v(" "),
                     _c("hr"),
                     _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "checkbox-qualitas" }
+                          },
+                          [
+                            _c("img", {
+                              attrs: {
+                                src: _vm.img.quaImage,
+                                width: "120",
+                                height: "50"
+                              }
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-3" }, [
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.cliente.qaMarca,
+                                expression: "cliente.qaMarca"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.cliente,
+                                  "qaMarca",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              {
+                                staticClass: "form-control form-control-sm",
+                                staticStyle: { "white-space": "normal" },
+                                attrs: { value: "" }
+                              },
+                              [_vm._v("Seleccione el modelo")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.marcasQA, function(marcas) {
+                              return _c("option", { attrs: { value: "" } }, [
+                                _vm._v(_vm._s(marcas.cMarcaLarga))
+                              ])
+                            })
+                          ],
+                          2
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
                     _c("hr"),
                     _vm._v(" "),
                     _c(
