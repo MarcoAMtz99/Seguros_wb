@@ -83,7 +83,7 @@ class QualitasController extends Controller
 		$descripciones= [];
 		
 		foreach ($results as $key => $value) {
-
+			dd($value);
 			array_push($descripciones, $value->cTipo);
 		}
 		dd(array_unique($descripciones));
