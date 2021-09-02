@@ -77,7 +77,7 @@ class QualitasController extends Controller
  		$marca= "HONDA";
  		$modelo= "2018";
  		$result = $this->clientTarifa->listaTarifas(['cUsuario'=>"linea",'cTarifa'=>"linea",'cMarca'=>$marca,'cModelo'=>$modelo]);
-		// dd($result);
+	
 		$xml = simplexml_load_string($result->listaTarifasResult->any);
 		$results = json_decode(json_encode($xml), true);
 		$descripciones= [];
@@ -93,6 +93,7 @@ class QualitasController extends Controller
 
 
 		dd(array_unique($descripciones));
+		return $descripciones;
  	}
 
  	public function getMarcas()
