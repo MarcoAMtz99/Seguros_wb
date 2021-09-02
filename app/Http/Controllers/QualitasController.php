@@ -93,7 +93,7 @@ class QualitasController extends Controller
 
 
 		// dd(array_unique($descripciones));
-		return $descripciones;
+		return "HOLA";
  	}
 
  	public function getMarcas()
