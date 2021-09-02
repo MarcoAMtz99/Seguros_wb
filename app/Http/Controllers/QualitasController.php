@@ -74,6 +74,8 @@ class QualitasController extends Controller
  		
  	}
  	public function prueba(){
+ 		$marca= "HONDA";
+ 		$modelo= "2018";
  		$result = $this->clientTarifa->listaTarifas(['cUsuario'=>"linea",'cTarifa'=>"linea",'cMarca'=>$marca,'cModelo'=>$modelo]);
 		// dd($result);
 		$xml = simplexml_load_string($result->listaTarifasResult->any);
