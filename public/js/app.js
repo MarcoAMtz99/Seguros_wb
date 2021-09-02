@@ -54299,7 +54299,9 @@ var render = function() {
                                                           _vm._v(
                                                             "\n                                                            Subsecuente x " +
                                                               _vm._s(
-                                                                pago.divisor
+                                                                _vm.number_format(
+                                                                  pago.divisor
+                                                                ) - 1
                                                               ) +
                                                               ": $" +
                                                               _vm._s(
