@@ -21,6 +21,7 @@ Route::get('prueba', 'GNPController@prueba');
 Route::post('prueba2', 'GNPController@prueba2')->name('año');
 Route::get('pruebaG', 'GeneralSegurosController@prueba');
 Route::get('pruebaA', 'API\AnaController@prueba');
+Route::get('pruebaQ', 'QualitasController@prueba');
 Route::post('sendGS','GeneralSegurosController@sendGS');
 Route::post('sendQua','QualitasController@emitirPoliza');
 Route::post('sendANA','API\AnaController@emitirPoliza');

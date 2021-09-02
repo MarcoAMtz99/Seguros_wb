@@ -73,6 +73,15 @@ class QualitasController extends Controller
         
  		
  	}
+ 	public function prueba(){
+ 		$result = $this->clientTarifa->listaTarifas(['cUsuario'=>"linea",'cTarifa'=>"linea",'cMarca'=>$marca,'cModelo'=>$modelo]);
+		// dd($result);
+		$xml = simplexml_load_string($result->listaTarifasResult->any);
+		$results = json_decode(json_encode($xml), true);
+		$descripciones= [];
+		dd($results);
+
+ 	}
 
  	public function getMarcas()
 	{

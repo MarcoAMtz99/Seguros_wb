@@ -42786,6 +42786,63 @@ var render = function() {
                               ],
                               2
                             )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-3" }, [
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.cliente.qaSubmarca,
+                                    expression: "cliente.qaSubmarca"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.cliente,
+                                      "qaSubmarca",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "option",
+                                  {
+                                    staticClass: "form-control form-control-sm",
+                                    staticStyle: { "white-space": "normal" },
+                                    attrs: { value: "" }
+                                  },
+                                  [_vm._v("Seleccione la submarca")]
+                                ),
+                                _vm._v(" "),
+                                _vm._l(_vm.marcasGNP, function(marcas) {
+                                  return _c(
+                                    "option",
+                                    { attrs: { value: "" } },
+                                    [_vm._v(_vm._s(marcas))]
+                                  )
+                                })
+                              ],
+                              2
+                            )
                           ])
                         ])
                       ])
