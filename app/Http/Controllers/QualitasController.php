@@ -74,25 +74,25 @@ class QualitasController extends Controller
  		
  	}
  	public function prueba(){
- 		$marca= "HONDA";
- 		$modelo= "2018";
- 		$result = $this->clientTarifa->listaTarifas(['cUsuario'=>"linea",'cTarifa'=>"linea",'cMarca'=>$marca,'cModelo'=>$modelo]);
+ 	// 	$marca= "HONDA";
+ 	// 	$modelo= "2018";
+ 	// 	$result = $this->clientTarifa->listaTarifas(['cUsuario'=>"linea",'cTarifa'=>"linea",'cMarca'=>$marca,'cModelo'=>$modelo]);
 	
-		$xml = simplexml_load_string($result->listaTarifasResult->any);
-		$results = json_decode(json_encode($xml), true);
-		$descripciones= [];
+		// $xml = simplexml_load_string($result->listaTarifasResult->any);
+		// $results = json_decode(json_encode($xml), true);
+		// $descripciones= [];
 		
-		foreach ($results as $key => $value) {
+		// foreach ($results as $key => $value) {
 			
-			foreach ($value as $key => $submarcas) {
-				dd($submarcas[0][0],"Aqui estan las submarcas");
-			}
-			array_push($descripciones, $value->cTipo);
-		}
+		// 	foreach ($value as $key => $submarcas) {
+		// 		dd($submarcas[0][0],"Aqui estan las submarcas");
+		// 	}
+		// 	array_push($descripciones, $value->cTipo);
+		// }
 
 
 
-		// dd(array_unique($descripciones));
+		// // dd(array_unique($descripciones));
 		return "HOLA";
  	}
 
