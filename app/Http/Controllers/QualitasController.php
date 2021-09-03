@@ -86,7 +86,7 @@ class QualitasController extends Controller
 			
 			foreach ($value as $key => $submarcas) {	
 				foreach ($submarcas as $key => $auxiliar) {
-					// dd($auxiliar,"auxiliar");
+					dd($auxiliar,"auxiliar");
 					array_push($descripciones, $submarcas['cTipo']);
 				}
 				
@@ -94,8 +94,6 @@ class QualitasController extends Controller
 			}
 			
 		}
-
-
 
 		// dd(array_unique($descripciones),"Descripciones finales");
 		return response()->json(['descripciones'=>array_unique($descripciones)],201);
