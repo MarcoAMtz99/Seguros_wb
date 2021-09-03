@@ -90,8 +90,8 @@ class QualitasController extends Controller
 					// dd($auxiliar,"auxiliar",$auxiliar['cTipo']);
 					$aux = array(
 						'id'=>$key,
-						'cTipo'=>$auxiliar['cTipo'],
-					);
+						'cTipo'=>$auxiliar['cTipo']
+						);
 					array_push($descripciones, $aux);
 				}
 				
