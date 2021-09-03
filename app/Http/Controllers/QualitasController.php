@@ -80,10 +80,10 @@ class QualitasController extends Controller
 	
 		$xml = simplexml_load_string($result->listaTarifasResult->any);
 		$results = json_decode(json_encode($xml), true);
-		dd($results);
+		// dd($results);
 		$descripciones= [];
 		
-		foreach ($results as $key => $value) {
+		foreach ($results['datos'] as $key => $value) {
 			
 			foreach ($value as $key => $submarcas) {	
 
