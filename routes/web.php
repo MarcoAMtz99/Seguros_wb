@@ -30,6 +30,12 @@ Route::get('pago','GeneralSegurosController@vista');
 Route::get('acerca_nosotros',function(){
 	return view('static.acerca');
 });
+Route::get('/clear-cache', function () {
+   echo Artisan::call('config:clear');
+   echo Artisan::call('config:cache');
+   echo Artisan::call('cache:clear');
+   echo Artisan::call('route:clear');
+});
 Route::get('contacto',function(){
 	return view('static.contacto');
 });
