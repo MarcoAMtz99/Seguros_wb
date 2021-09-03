@@ -99,7 +99,7 @@ class QualitasController extends Controller
  	}
 
 
- 		public function getsubMarcas($modelo,$marca)
+ 		public function getsubMarcas($marca,$modelo)
 	{
 	  
 	  try {
