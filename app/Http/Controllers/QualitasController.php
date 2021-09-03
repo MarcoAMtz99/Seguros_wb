@@ -97,8 +97,8 @@ class QualitasController extends Controller
 
 
 
-		dd(array_unique($descripciones),"Descripciones finales");
-		return "HOLA";
+		// dd(array_unique($descripciones),"Descripciones finales");
+		return response()->json(['descripciones'=>array_unique($descripciones)],201);
  	}
 
  	public function getMarcas()
