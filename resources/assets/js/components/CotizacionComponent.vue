@@ -207,13 +207,13 @@
 		    								<option value="" v-for="marcas in marcasQA">{{marcas.cMarcaLarga}}</option>
 		    								</select>
 				  				</div>
-				  				<div class="col-3">
+				  				<!-- <div class="col-3">
 				  					<select v-model="cliente.qaSubmarca" class="form-control">
 		    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
 		    								
 		    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
 		    								</select>
-				  				</div>
+				  				</div> -->
 				  				
 								</div>
 
