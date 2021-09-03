@@ -122,7 +122,7 @@ class QualitasController extends Controller
 				}	
 			}
 		} // fin del primer foreach results['datos']
-		// dd(array_unique($descripciones),"Descripciones finales");
+		dd(array_unique($descripciones),"Descripciones finales");
 		return response()->json(['descripciones'=>array_unique($descripciones)],201);
 
 
