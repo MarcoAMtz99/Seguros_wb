@@ -80,6 +80,7 @@ class QualitasController extends Controller
 	
 		$xml = simplexml_load_string($result->listaTarifasResult->any);
 		$results = json_decode(json_encode($xml), true);
+		dd($results);
 		$descripciones= [];
 		
 		foreach ($results as $key => $value) {
@@ -100,7 +101,7 @@ class QualitasController extends Controller
 			
 		}
 
-		// dd(array_unique($descripciones),"Descripciones finales");
+		dd(array_unique($descripciones),"Descripciones finales");
 		return response()->json(['descripciones'=>array_unique($descripciones)],201);
  	}
 
