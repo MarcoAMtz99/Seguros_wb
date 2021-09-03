@@ -98,11 +98,46 @@ class QualitasController extends Controller
 		return response()->json(['descripciones'=>array_unique($descripciones)],201);
  	}
 
- 	public function getMarcas()
+
+ 		public function getsubMarcas($modelo,$marca)
 	{
 	  
 	  try {
 		
+		
+		$result = $this->clientTarifa->listaTarifas(['cUsuario'=>"linea",'cTarifa'=>"linea",'cMarca'=>$marca,'cModelo'=>$modelo]);
+	
+		$xml = simplexml_load_string($result->listaTarifasResult->any);
+		$results = json_decode(json_encode($xml), true);
+		$descripciones= [];
+		
+		foreach ($results['datos'] as $key => $value) {
+			foreach ($value as $key => $submarcas) {	
+				foreach ($submarcas as $key => $auxiliar) {
+					$aux = array(
+						'id'=>$key,
+						'cTipo'=>$auxiliar['cTipo']
+						);
+					array_push($descripciones, $aux);
+				}	
+			}
+		} // fin del primer foreach results['datos']
+		// dd(array_unique($descripciones),"Descripciones finales");
+		return response()->json(['descripciones'=>array_unique($descripciones)],201);
+
+
+
+
+	  } catch (SoapFault $fault) {
+		
+		dd($fault);
+	  }
+	}
+
+ 	public function getMarcas()
+	{
+	  
+	  try {
 		
 		// dd($this->clientTarifa->__getTypes());
 		$lista_marcas = $this->clientTarifa->listaMarcas(['cUsuario'=>"linea","cTarifa"=>"linea"]);
