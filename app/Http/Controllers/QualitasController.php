@@ -97,7 +97,7 @@ class QualitasController extends Controller
 
 
 
-		dd(array_unique($descripciones));
+		dd(array_unique($descripciones),"Descripciones finales");
 		return "HOLA";
  	}
 
