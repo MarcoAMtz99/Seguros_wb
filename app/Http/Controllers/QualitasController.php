@@ -84,9 +84,9 @@ class QualitasController extends Controller
 		
 		foreach ($results as $key => $value) {
 			
-			foreach ($value as $key => $submarcas) {	// dd($submarcas->cTipo,"Aqui estan las submarcas");
+			foreach ($value as $key => $submarcas) {	
 			
-				array_push($submarcas, $value->cTipo);
+				array_push($descripciones, $submarcas->cTipo);
 			}
 			
 		}
