@@ -124,7 +124,20 @@ class QualitasController extends Controller
 				}	
 			}
 		} // fin del primer foreach results['datos']
-		dd(array_unique($descripciones),"Descripciones finales");
+		// 	foreach ($results['datos'] as $key => $value) {
+		// 	foreach ($value as $key => $submarcas) {	
+		// 		dd($submarcas);
+		// 		foreach ($submarcas as $key => $auxiliar) {
+
+		// 			$aux = array(
+		// 				'id'=>$key,
+		// 				'cTipo'=>$auxiliar['cTipo']
+		// 				);
+		// 			array_push($descripciones, $aux);
+		// 		}	
+		// 	}
+		// }
+		// dd(array_unique($descripciones),"Descripciones finales");
 		return response()->json(['descripciones'=>array_unique($descripciones)],201);
 
 
