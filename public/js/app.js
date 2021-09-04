@@ -2459,7 +2459,7 @@ function Cliente(_ref) {
       var url = "./api/submarcasQa/".concat(marca, "/").concat(this.cliente.modelo_auto);
       axios.get(url).then(function (res) {
         console.log("res qualitas submarcas", res);
-        _this3.submarcasQA = res.data.descripciones.sort();
+        _this3.submarcasQA = res.data.descripciones;
       })["catch"](function (error) {
         console.log('error', error);
       });

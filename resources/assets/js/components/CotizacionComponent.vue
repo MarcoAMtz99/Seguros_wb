@@ -804,7 +804,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			let url = `./api/submarcasQa/${marca}/${this.cliente.modelo_auto}`;
     			axios.get(url).then(res=>{
     				console.log("res qualitas submarcas",res);
-    				this.submarcasQA  = res.data.descripciones.sort();
+    				this.submarcasQA  = res.data.descripciones;
     			}).catch(error=>{
     				console.log('error',error);
 
