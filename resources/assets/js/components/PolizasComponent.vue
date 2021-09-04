@@ -119,7 +119,7 @@
                                                             {{pago.nombre}}:  ${{pago.primaTotal | int}}
                                                         <div>
                                                             1er pago: ${{pago.reciboini | int}} <br>
-                                                            Subsecuente x {{number_format(pago.divisor)-1}}: ${{pago.recibosub | int}}
+                                                            Subsecuente x {{parseInt(pago.divisor)-1}}: ${{pago.recibosub | int}}
                                                         </div>
                                                        
                                                         </div>

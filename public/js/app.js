@@ -2459,7 +2459,7 @@ function Cliente(_ref) {
       var url = "./api/submarcasQa/".concat(marca, "/").concat(this.cliente.modelo_auto);
       axios.get(url).then(function (res) {
         console.log("res qualitas submarcas", res);
-        _this3.submarcasQA = res.data.marcas.sort();
+        _this3.submarcasQA = res.data.descripciones.sort();
       })["catch"](function (error) {
         console.log('error', error);
       });
@@ -43825,6 +43825,82 @@ var render = function() {
                               )
                             : _vm._e(),
                           _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "form-check form-check-inline" },
+                            [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.cliente.qualitas,
+                                    expression: "cliente.qualitas"
+                                  }
+                                ],
+                                staticClass: "form-check-input",
+                                attrs: {
+                                  type: "checkbox",
+                                  id: "checkbox-qualitas",
+                                  "true-value": "1",
+                                  "false-value": "0"
+                                },
+                                domProps: {
+                                  checked: Array.isArray(_vm.cliente.qualitas)
+                                    ? _vm._i(_vm.cliente.qualitas, null) > -1
+                                    : _vm._q(_vm.cliente.qualitas, "1")
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$a = _vm.cliente.qualitas,
+                                      $$el = $event.target,
+                                      $$c = $$el.checked ? "1" : "0"
+                                    if (Array.isArray($$a)) {
+                                      var $$v = null,
+                                        $$i = _vm._i($$a, $$v)
+                                      if ($$el.checked) {
+                                        $$i < 0 &&
+                                          _vm.$set(
+                                            _vm.cliente,
+                                            "qualitas",
+                                            $$a.concat([$$v])
+                                          )
+                                      } else {
+                                        $$i > -1 &&
+                                          _vm.$set(
+                                            _vm.cliente,
+                                            "qualitas",
+                                            $$a
+                                              .slice(0, $$i)
+                                              .concat($$a.slice($$i + 1))
+                                          )
+                                      }
+                                    } else {
+                                      _vm.$set(_vm.cliente, "qualitas", $$c)
+                                    }
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "form-check-label",
+                                  attrs: { for: "checkbox-qualitas" }
+                                },
+                                [
+                                  _c("img", {
+                                    attrs: {
+                                      src: _vm.img.quaImage,
+                                      width: "120",
+                                      height: "50"
+                                    }
+                                  })
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
                           _vm.cliente.uso_auto == "Servicio Particular"
                             ? _c(
                                 "div",
@@ -54375,7 +54451,7 @@ var render = function() {
                                                           _vm._v(
                                                             "\n                                                            Subsecuente x " +
                                                               _vm._s(
-                                                                _vm.number_format(
+                                                                parseInt(
                                                                   pago.divisor
                                                                 ) - 1
                                                               ) +
