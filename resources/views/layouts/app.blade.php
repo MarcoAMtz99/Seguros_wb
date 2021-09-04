@@ -138,9 +138,9 @@
                             <li class="nav-item active">
                                 <a class="nav-link" style="color: white;" href="{{ url('/') }}">Cotiza</a>
                             </li>
-                            <li class="nav-item">
+                         <!--    <li class="nav-item">
                                 <a class="nav-link" style="color: white;" href="{{ url('/') }}">Inicio</a>
-                            </li>
+                            </li> -->
                             <li class="nav-item">
                                 <a class="nav-link" style="color: white;" href="{{ url('/acerca_nosotros') }}">Acerca de Nosotros</a>
                             </li>
@@ -155,6 +155,9 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" style="color: white;" href="{{ url('/aviso') }}">Aviso de privacidad</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" style="color: white;" href="{{ url('/terminos') }}">Terminos y condiciones</a>
                             </li>
                         </ul>
                     </div>

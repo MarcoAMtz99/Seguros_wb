@@ -48,6 +48,9 @@ Route::get('noticias',function(){
 Route::get('aviso',function(){
 	return view('static.aviso');
 });
+Route::get('terminos',function(){
+	return view('static.terminos');
+});
 //Rutas
 
 Route::get('script', 'ScriptController@execute');
