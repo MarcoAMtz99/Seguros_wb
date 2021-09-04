@@ -2251,7 +2251,7 @@ function Cliente(_ref) {
       loader_modelo: true,
       descripcion: false,
       cp: false
-    }, _defineProperty(_ref2, "modelos", ""), _defineProperty(_ref2, "nombre", false), _defineProperty(_ref2, "celular", false), _defineProperty(_ref2, "correo", false), _defineProperty(_ref2, "sexo", false), _defineProperty(_ref2, "nac", false), _defineProperty(_ref2, "searchOption", false), _defineProperty(_ref2, "checkall", false), _defineProperty(_ref2, "marcaGNP", ""), _defineProperty(_ref2, "modeloGNP", ''), _defineProperty(_ref2, "submarcaGNP", ""), _defineProperty(_ref2, "gnpsubMarca", ""), _defineProperty(_ref2, "marcaGS", ""), _defineProperty(_ref2, "submarcaGS", ""), _ref2;
+    }, _defineProperty(_ref2, "modelos", ""), _defineProperty(_ref2, "nombre", false), _defineProperty(_ref2, "celular", false), _defineProperty(_ref2, "correo", false), _defineProperty(_ref2, "sexo", false), _defineProperty(_ref2, "nac", false), _defineProperty(_ref2, "searchOption", false), _defineProperty(_ref2, "checkall", false), _defineProperty(_ref2, "marcaGNP", ""), _defineProperty(_ref2, "modeloGNP", ''), _defineProperty(_ref2, "submarcaGNP", ""), _defineProperty(_ref2, "gnpsubMarca", ""), _defineProperty(_ref2, "marcaGS", ""), _defineProperty(_ref2, "submarcaGS", ""), _defineProperty(_ref2, "marcaQA", ""), _defineProperty(_ref2, "submarcaQA", ""), _ref2;
   },
   watch: {
     'cliente.uso_auto': function clienteUso_auto(newValue, oldValue) {
@@ -2315,7 +2315,15 @@ function Cliente(_ref) {
     'cliente.qaMarca': function clienteQaMarca(newV, oldV) {
       if (newV != "") {
         console.log('VALOR DE LA MARCA', this.cliente.qaMarca);
-        this.submarcasGS = this.getSubmarcaGS(this.cliente.gsMarca.id); // $('#v-pills-Marca-tab').removeClass('disabled');
+        this.marcaQA = this.cliente.qaMarca;
+        this.getsubMarcasQa(this.cliente.qaMarca); // $('#v-pills-Marca-tab').removeClass('disabled');
+        // $('#v-pills-Marca-tab').click();
+      }
+    },
+    'cliente.qaSubmarca': function clienteQaSubmarca(newV, oldV) {
+      if (newV != "") {
+        console.log('VALOR DE LA SUBMARCA', this.cliente.qaSubmarca);
+        this.submarcaQA = this.cliente.qaSubmarca; // $('#v-pills-Marca-tab').removeClass('disabled');
         // $('#v-pills-Marca-tab').click();
       }
     },
@@ -2445,155 +2453,166 @@ function Cliente(_ref) {
         console.log('error', error);
       });
     },
-    getMarcas: function getMarcas(modelo) {
+    getsubMarcasQa: function getsubMarcasQa(marca) {
       var _this3 = this;
+
+      var url = "./api/submarcasQa/".concat(marca, "/").concat(this.cliente.modelo_auto);
+      axios.get(url).then(function (res) {
+        console.log("res qualitas submarcas", res);
+        _this3.submarcasQA = res.data.marcas.sort();
+      })["catch"](function (error) {
+        console.log('error', error);
+      });
+    },
+    getMarcas: function getMarcas(modelo) {
+      var _this4 = this;
 
       this.loader_marca = true;
       var url = "./api/marcasANA/".concat(modelo);
       axios.get(url).then(function (res) {
-        _this3.loader_marca = false;
+        _this4.loader_marca = false;
         console.log("res marcas ANA ", res);
-        _this3.marcas = res.data.marcas.sort();
+        _this4.marcas = res.data.marcas.sort();
       })["catch"](function (error) {
         console.log('error', error);
       });
     },
     getMarcasGS: function getMarcasGS() {
-      var _this4 = this;
+      var _this5 = this;
 
       this.loader_marca = true;
       var url = "./api/getMarcas";
       axios.get(url).then(function (res) {
-        _this4.loader_marca = false;
+        _this5.loader_marca = false;
         console.log("res marcas general de seguros", res.data.marcas); // console.log("res marcas general de seguros",res.data.marcas);
         // console.log("res marcas general de seguros",res.data.marcas);
         // console.log("res marcas general de seguros",res.data.marcas);
         // console.log("res marcas general de seguros",res.data.marcas);
         // console.log("res marcas general de seguros",res.data.marcas);
 
-        _this4.marcasGS = res.data.marcas.sort();
+        _this5.marcasGS = res.data.marcas.sort();
       })["catch"](function (error) {
         console.log('error', error);
       });
     },
     getSubmarcas: function getSubmarcas(marca) {
-      var _this5 = this;
+      var _this6 = this;
 
       this.loader_tipo = true;
       var url = "./api/submarcaANA/".concat(marca, "/").concat(this.cliente.modelo_auto);
       $('#descripcion').append('<div class="loader"></div>');
       axios.get(url).then(function (res) {
-        _this5.loader_tipo = false;
+        _this6.loader_tipo = false;
         console.log('res submarcas', res);
 
         if (res.data.submarcas) {
-          _this5.submarcas = res.data.submarcas.sort();
+          _this6.submarcas = res.data.submarcas.sort();
         }
       })["catch"](function (error) {
         console.log('error submarcas', error);
       });
     },
     getSubmarcaGS: function getSubmarcaGS(marca) {
-      var _this6 = this;
+      var _this7 = this;
 
       this.loader_tipo = true;
       var url = "./api/getSubmarcas/".concat(marca); // $('#descripcion').append('<div class="loader"></div>');
 
       axios.get(url).then(function (res) {
-        _this6.loader_tipo = false;
+        _this7.loader_tipo = false;
         console.log('res submarcas GS', res);
 
         if (res.data.submarcas) {
-          _this6.submarcasGS = res.data.submarcas.sort();
+          _this7.submarcasGS = res.data.submarcas.sort();
         }
       })["catch"](function (error) {
         console.log('error submarcas', error);
       });
     }
   }, _defineProperty(_methods, "getSubmarcaGS", function getSubmarcaGS(marca) {
-    var _this7 = this;
+    var _this8 = this;
 
     this.loader_tipo = true;
     var url = "./api/getSubmarcas/".concat(marca); // $('#descripcion').append('<div class="loader"></div>');
 
     axios.get(url).then(function (res) {
-      _this7.loader_tipo = false;
+      _this8.loader_tipo = false;
       console.log('res submarcas GS', res);
 
       if (res.data.submarcas) {
-        _this7.submarcasGS = res.data.submarcas.sort();
+        _this8.submarcasGS = res.data.submarcas.sort();
       }
     })["catch"](function (error) {
       console.log('error submarcas', error);
     });
   }), _defineProperty(_methods, "getSubmarcaGNP", function getSubmarcaGNP(año, marca) {
-    var _this8 = this;
+    var _this9 = this;
 
     this.loader_tipo = true;
     var url = "./api/submarcas-gnp/".concat(año, "/").concat(marca);
     axios.get(url).then(function (res) {
-      _this8.loader_tipo = false; // console.log('SUBMARCAS GNP COMPLETAS',res);
+      _this9.loader_tipo = false; // console.log('SUBMARCAS GNP COMPLETAS',res);
 
       if (res.data.submarcas) {
-        _this8.submarcasGNP = res.data.submarcas; // console.log('RES SUBMARCAS',this.submarcasGNP);
+        _this9.submarcasGNP = res.data.submarcas; // console.log('RES SUBMARCAS',this.submarcasGNP);
         // alert('EXITO EN LA CONSULTA SUBMARCAS');
       }
     })["catch"](function (error) {
       console.log('error submarcas', error);
     });
   }), _defineProperty(_methods, "getmarcaGNP", function getmarcaGNP(año) {
-    var _this9 = this;
+    var _this10 = this;
 
     this.loader_tipo = true;
     var url = "./api/marcas-gnp/".concat(año);
     axios.get(url).then(function (res) {
-      _this9.loader_tipo = false; // console.log('MARCAS GNP COMPLETAS',res);
+      _this10.loader_tipo = false; // console.log('MARCAS GNP COMPLETAS',res);
 
       if (res.data.marcas) {
-        _this9.marcasGNP = res.data.marcas; // console.log('RES MARCAS',this.marcasGNP);
+        _this10.marcasGNP = res.data.marcas; // console.log('RES MARCAS',this.marcasGNP);
         // alert('EXITO EN LA CONSULTA');
       }
     })["catch"](function (error) {
       console.log('error submarcas', error);
     });
   }), _defineProperty(_methods, "getModelos", function getModelos() {
-    var _this10 = this;
+    var _this11 = this;
 
     var url = "./api/modelosANA";
     axios.get(url).then(function (res) {
       console.log('res modelos', res);
-      _this10.loader_modelo = false;
+      _this11.loader_modelo = false;
 
       if (res.data.modelos) {
-        _this10.modelos = res.data.modelos;
+        _this11.modelos = res.data.modelos;
       }
     })["catch"](function (error) {
       console.log('error modelos', error);
     });
   }), _defineProperty(_methods, "getDescripciones", function getDescripciones(submarca, modelo, marca) {
-    var _this11 = this;
+    var _this12 = this;
 
     this.loader_desc = true; // console.log(marca);
 
     $('#descripcion').append('<div class="loader"></div>');
     var url = "./api/vehiculoANA/".concat(marca, "/").concat(submarca, "/").concat(modelo);
     axios.get(url).then(function (res) {
-      _this11.loader_desc = false;
-      _this11.descripciones = res.data.vehiculos;
+      _this12.loader_desc = false;
+      _this12.descripciones = res.data.vehiculos;
     })["catch"](function (err) {
       console.log('getDescripciones err', err);
     });
   }), _defineProperty(_methods, "nextPill", function nextPill(input) {
-    var _this12 = this;
+    var _this13 = this;
 
     if (input == "cp" && this.cliente.cp != "") {
       var url = "./api/cp/".concat(this.cliente.cp);
       axios.get(url).then(function (res) {
         if (res.data.response) {
-          _this12.alert_cp = _this12.nombre = true;
-          _this12.alert_cp = ""; // console.log('si entra');
+          _this13.alert_cp = _this13.nombre = true;
+          _this13.alert_cp = ""; // console.log('si entra');
 
-          _this12.cliente.cestado = res.data.response[0].cestado;
+          _this13.cliente.cestado = res.data.response[0].cestado;
           $('#v-pills-Nombre-tab').removeClass('disabled');
           $('#v-pills-Nombre-tab').click();
         }
@@ -2601,9 +2620,9 @@ function Cliente(_ref) {
         console.log('CP', res);
       })["catch"](function (err) {
         if (err.response.data.error) {
-          _this12.nombre = false;
+          _this13.nombre = false;
           $('#v-pills-Nombre-tab').addClass('disabled');
-          _this12.alert_cp = err.response.data.error;
+          _this13.alert_cp = err.response.data.error;
         }
       });
     }
@@ -2650,47 +2669,47 @@ function Cliente(_ref) {
       $('#v-pills-Aseguradoras-tab').click();
     }
   }), _defineProperty(_methods, "sendCotizacion", function sendCotizacion(cliente) {
-    var _this13 = this;
+    var _this14 = this;
 
     var params = cliente;
     var url = "./api/cotizacion";
     this.alert.message = '';
     this.alert["class"] = '';
     axios.post(url, cliente).then(function (res) {
-      if (_this13.cliente.sexo == "Maculino") {
-        _this13.cliente.sexo == "Hombre";
-      } else if (_this13.cliente.sexo == "Femenino") {
-        _this13.cliente.sexo == "Mujer";
+      if (_this14.cliente.sexo == "Maculino") {
+        _this14.cliente.sexo == "Hombre";
+      } else if (_this14.cliente.sexo == "Femenino") {
+        _this14.cliente.sexo == "Mujer";
       } //console.log('res',res);
 
 
-      _this13.cliente.cotizacion = res.data.cotizacion.cotizacion;
-      _this13.cliente.uso_auto = res.data.cotizacion.uso_auto;
-      _this13.cliente.descripcion_auto = res.data.cotizacion.auto.version;
-      _this13.cliente.marca_auto = res.data.cotizacion.auto.marca; // if (isset(this.cliente.modelo_auto)) {
+      _this14.cliente.cotizacion = res.data.cotizacion.cotizacion;
+      _this14.cliente.uso_auto = res.data.cotizacion.uso_auto;
+      _this14.cliente.descripcion_auto = res.data.cotizacion.auto.version;
+      _this14.cliente.marca_auto = res.data.cotizacion.auto.marca; // if (isset(this.cliente.modelo_auto)) {
       // }
 
-      _this13.cliente.modelo_auto = res.data.cotizacion.auto.submarca.anio;
-      _this13.cliente.submarca_auto = res.data.cotizacion.auto.submarca;
-      _this13.cliente.cp = res.data.cotizacion.cp;
-      _this13.cliente.nombre = res.data.cotizacion.nombre;
-      _this13.cliente.appaterno = res.data.cotizacion.appaterno;
-      _this13.cliente.apmaterno = res.data.cotizacion.apmaterno;
-      _this13.cliente.telefono = res.data.cotizacion.telefono;
-      _this13.cliente.email = res.data.cotizacion.email;
-      _this13.cliente.sexo = res.data.cotizacion.sexo;
-      _this13.cliente.f_nac = res.data.cotizacion.f_nac;
-      _this13.cliente.ana = res.data.cotizacion.ana;
-      _this13.cliente.gs = res.data.cotizacion.gs;
-      _this13.cliente.qualitas = res.data.cotizacion.qualitas;
-      _this13.cliente.gnp = res.data.cotizacion.gnp;
-      _this13.cliente.gnpsubMarca = res.data.cotizacion.gnpsubMarca;
-      _this13.cliente.gnpMarca = res.data.cotizacion.gnpMarca;
-      _this13.cliente.gssubMarca = res.data.cotizacion.gssubMarca;
-      _this13.cliente.gsMarca = res.data.cotizacion.gsMarca;
-      _this13.getcotizacion.value = !_this13.getcotizacion.value;
-      _this13.alert.message = "".concat(_this13.cliente.nombre, " ").concat(_this13.cliente.appaterno, " ").concat(_this13.cliente.apmaterno, " su cotizaci\xF3n se guardo con el folio ").concat(_this13.cliente.cotizacion);
-      _this13.alert["class"] = "alert alert-success alert-dismissible fade show";
+      _this14.cliente.modelo_auto = res.data.cotizacion.auto.submarca.anio;
+      _this14.cliente.submarca_auto = res.data.cotizacion.auto.submarca;
+      _this14.cliente.cp = res.data.cotizacion.cp;
+      _this14.cliente.nombre = res.data.cotizacion.nombre;
+      _this14.cliente.appaterno = res.data.cotizacion.appaterno;
+      _this14.cliente.apmaterno = res.data.cotizacion.apmaterno;
+      _this14.cliente.telefono = res.data.cotizacion.telefono;
+      _this14.cliente.email = res.data.cotizacion.email;
+      _this14.cliente.sexo = res.data.cotizacion.sexo;
+      _this14.cliente.f_nac = res.data.cotizacion.f_nac;
+      _this14.cliente.ana = res.data.cotizacion.ana;
+      _this14.cliente.gs = res.data.cotizacion.gs;
+      _this14.cliente.qualitas = res.data.cotizacion.qualitas;
+      _this14.cliente.gnp = res.data.cotizacion.gnp;
+      _this14.cliente.gnpsubMarca = res.data.cotizacion.gnpsubMarca;
+      _this14.cliente.gnpMarca = res.data.cotizacion.gnpMarca;
+      _this14.cliente.gssubMarca = res.data.cotizacion.gssubMarca;
+      _this14.cliente.gsMarca = res.data.cotizacion.gsMarca;
+      _this14.getcotizacion.value = !_this14.getcotizacion.value;
+      _this14.alert.message = "".concat(_this14.cliente.nombre, " ").concat(_this14.cliente.appaterno, " ").concat(_this14.cliente.apmaterno, " su cotizaci\xF3n se guardo con el folio ").concat(_this14.cliente.cotizacion);
+      _this14.alert["class"] = "alert alert-success alert-dismissible fade show";
       $("#paso2-tab").removeClass("disabled");
       $("#paso2-tab").click();
     })["catch"](function (err) {
@@ -42779,8 +42798,65 @@ var render = function() {
                                 _vm._l(_vm.marcasQA, function(marcas) {
                                   return _c(
                                     "option",
-                                    { attrs: { value: "" } },
+                                    { domProps: { value: marcas.cMarcaLarga } },
                                     [_vm._v(_vm._s(marcas.cMarcaLarga))]
+                                  )
+                                })
+                              ],
+                              2
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-3" }, [
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.cliente.qaSubmarca,
+                                    expression: "cliente.qaSubmarca"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.cliente,
+                                      "qaSubmarca",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "option",
+                                  {
+                                    staticClass: "form-control form-control-sm",
+                                    staticStyle: { "white-space": "normal" },
+                                    attrs: { value: "" }
+                                  },
+                                  [_vm._v("Seleccione la submarca")]
+                                ),
+                                _vm._v(" "),
+                                _vm._l(_vm.submarcasQA, function(marcas) {
+                                  return _c(
+                                    "option",
+                                    { domProps: { value: marcas } },
+                                    [_vm._v(_vm._s(marcas))]
                                   )
                                 })
                               ],

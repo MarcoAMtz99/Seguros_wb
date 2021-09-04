@@ -204,16 +204,16 @@
 				  					<select v-model="cliente.qaMarca" class="form-control">
 		    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
 
-		    								<option value="" v-for="marcas in marcasQA">{{marcas.cMarcaLarga}}</option>
+		    								<option :value="marcas.cMarcaLarga" v-for="marcas in marcasQA">{{marcas.cMarcaLarga}}</option>
 		    								</select>
 				  				</div>
-				  				<!-- <div class="col-3">
+				  				<div class="col-3">
 				  					<select v-model="cliente.qaSubmarca" class="form-control">
 		    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
 		    								
-		    								<option value="" v-for="marcas in marcasGNP">{{marcas}}</option>
+		    								<option :value="marcas" v-for="marcas in submarcasQA">{{marcas}}</option>
 		    								</select>
-				  				</div> -->
+				  				</div>
 				  				
 								</div>
 
@@ -559,7 +559,9 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			submarcaGNP:"",
     			gnpsubMarca:"",
     			marcaGS:"",
-    			submarcaGS:""
+    			submarcaGS:"",
+    			marcaQA:"",
+    			submarcaQA:""
     		}
     	},
     	watch:{
@@ -645,7 +647,18 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     		'cliente.qaMarca':function(newV,oldV){
     			if (newV != "") {
     				console.log('VALOR DE LA MARCA',this.cliente.qaMarca);
-    				this.submarcasGS = this.getSubmarcaGS(this.cliente.gsMarca.id);
+    				this.marcaQA = this.cliente.qaMarca;
+    				this.getsubMarcasQa(this.cliente.qaMarca);
+    				
+    				
+    				// $('#v-pills-Marca-tab').removeClass('disabled');
+    				// $('#v-pills-Marca-tab').click();
+    			}
+    		},
+    		'cliente.qaSubmarca':function(newV,oldV){
+    			if (newV != "") {
+    				console.log('VALOR DE LA SUBMARCA',this.cliente.qaSubmarca);
+    				this.submarcaQA = this.cliente.qaSubmarca;
     				
     				
     				// $('#v-pills-Marca-tab').removeClass('disabled');
@@ -782,6 +795,16 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			axios.get(url).then(res=>{
     				console.log("res qualitas",res);
     				this.marcasQA  = res.data.marcas.sort();
+    			}).catch(error=>{
+    				console.log('error',error);
+
+    			})
+    		},
+    		getsubMarcasQa(marca){
+    			let url = `./api/submarcasQa/${marca}/${this.cliente.modelo_auto}`;
+    			axios.get(url).then(res=>{
+    				console.log("res qualitas submarcas",res);
+    				this.submarcasQA  = res.data.marcas.sort();
     			}).catch(error=>{
     				console.log('error',error);
 
