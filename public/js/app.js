@@ -2402,7 +2402,9 @@ function Cliente(_ref) {
           _this.cliente.gnpMarca = res.data.cotizacion.gnpMarca;
           _this.cliente.gnpsubMarca = res.data.cotizacion.gnpsubMarca;
           _this.cliente.gssubMarca = res.data.cotizacion.gssubMarca;
-          _this.cliente.gsMarca = res.data.cotizacion.gsMarca; // alert(this.cliente.gnpMarca,this.cliente.gnpsubMarca);
+          _this.cliente.gsMarca = res.data.cotizacion.gsMarca;
+          _this.cliente.qaSubmarca = res.data.cotizacion.qasubMarca;
+          _this.cliente.qaMarca = res.data.cotizacion.qaMarca; // alert(this.cliente.gnpMarca,this.cliente.gnpsubMarca);
 
           $("#paso2-tab").removeClass("disabled");
           $("#paso2-tab").click();

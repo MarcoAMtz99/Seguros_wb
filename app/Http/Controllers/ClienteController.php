@@ -76,8 +76,8 @@ class ClienteController extends Controller
             'gssubMarca'       => $request->submarcasGS,
             'anaMarca'         => $request->marca_auto['descripcion'],
             'anasubMarca'      => $request->submarca_auto['descripcion'],
-            'qaMarca'         => $request->qaMarca,
-            'qasubMarca'      => $request->qaSubmarca
+            'qaMarca'          => $request->qaMarca,
+            'qasubMarca'       => $request->qaSubmarca
 
         ]);
 

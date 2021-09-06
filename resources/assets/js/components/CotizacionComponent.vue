@@ -745,6 +745,9 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 
 						this.cliente.gssubMarca		  = res.data.cotizacion.gssubMarca;
 						this.cliente.gsMarca		  = res.data.cotizacion.gsMarca;
+						
+						this.cliente.qaSubmarca		  = res.data.cotizacion.qasubMarca;
+						this.cliente.qaMarca		  = res.data.cotizacion.qaMarca;
 
 						// alert(this.cliente.gnpMarca,this.cliente.gnpsubMarca);
 					 	$("#paso2-tab").removeClass("disabled");
