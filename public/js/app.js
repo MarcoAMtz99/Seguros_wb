@@ -2324,7 +2324,8 @@ function Cliente(_ref) {
     'cliente.qaSubmarca': function clienteQaSubmarca(newV, oldV) {
       if (newV != "") {
         console.log('VALOR DE LA SUBMARCA', this.cliente.qaSubmarca);
-        this.submarcaQA = this.cliente.qaSubmarca; // $('#v-pills-Marca-tab').removeClass('disabled');
+        this.submarcaQA = this.cliente.qaSubmarca;
+        this.cliente.qaSubmarca = this.submarcaQA; // $('#v-pills-Marca-tab').removeClass('disabled');
         // $('#v-pills-Marca-tab').click();
       }
     },
@@ -2404,8 +2405,8 @@ function Cliente(_ref) {
           _this.cliente.gssubMarca = res.data.cotizacion.gssubMarca;
           _this.cliente.gsMarca = res.data.cotizacion.gsMarca;
           _this.cliente.qaSubmarca = res.data.cotizacion.qasubMarca;
-          _this.cliente.qaMarca = res.data.cotizacion.qaMarca; // alert(this.cliente.gnpMarca,this.cliente.gnpsubMarca);
-
+          _this.cliente.qaMarca = res.data.cotizacion.qaMarca;
+          console.log("datos res de QA:", res.data.cotizacion.qasubMarca, _this.cliente.qaSubmarca);
           $("#paso2-tab").removeClass("disabled");
           $("#paso2-tab").click();
           _this.getcotizacion.value = !_this.getcotizacion.value;
