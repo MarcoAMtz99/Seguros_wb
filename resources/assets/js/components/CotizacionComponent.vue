@@ -637,6 +637,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     		'cliente.gsMarca':function(newV,oldV){
     			if (newV != "") {
     				console.log('VALOR DE LA MARCA',this.cliente.gsMarca);
+    				this.cliente.modelo_auto = this.cliente.modelos;
     				this.submarcasGS = this.getSubmarcaGS(this.cliente.gsMarca.id);
     				
     				
@@ -717,7 +718,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			this.alert.message = '';
 				this.alert.class = '';
     			axios.post(url,params).then(res=>{
-    				// console.log("res cot",res);
+    				console.log("res datos serch cotizacion",res);
     				if(res.data.cotizacion){
     					this.searchOption = true;
     					// this.cliente = new Cliente(res.data.cotizacion);
@@ -741,6 +742,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 						this.cliente.gnp 		  	  = res.data.cotizacion.gnp;
 						this.cliente.gnpMarca 		  = res.data.cotizacion.gnpMarca;
 						this.cliente.gnpsubMarca 	  = res.data.cotizacion.gnpsubMarca;
+
 						this.cliente.gssubMarca		  = res.data.cotizacion.gssubMarca;
 						this.cliente.gsMarca		  = res.data.cotizacion.gsMarca;
 
@@ -1050,7 +1052,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 					this.cliente.gnpMarca		  = res.data.cotizacion.gnpMarca;
 					this.cliente.gssubMarca		  = res.data.cotizacion.gssubMarca;
 					this.cliente.gsMarca		  = res.data.cotizacion.gsMarca;
-					
+
 					this.cliente.qaMarca		  = res.data.cotizacion.qaMarca;
 					this.cliente.qaSubmarca		  = res.data.cotizacion.qaSubmarca;
 

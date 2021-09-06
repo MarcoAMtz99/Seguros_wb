@@ -22,7 +22,7 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        // dd($request);
         if ($request->sexo == "Maculino") {
             $request->sexo =="Hombre";
         }else if ($request->sexo == "Femenino") {
@@ -75,7 +75,9 @@ class ClienteController extends Controller
             'gsMarca'          => $request->gsMarca['nombre'],
             'gssubMarca'       => $request->submarcasGS,
             'anaMarca'         => $request->marca_auto['descripcion'],
-            'anasubMarca'      => $request->submarca_auto['descripcion']
+            'anasubMarca'      => $request->submarca_auto['descripcion'],
+            'qaMarca'         => $request->qaMarca,
+            'qasubMarca'      => $request->qasubMarca
 
         ]);
 
@@ -110,7 +112,7 @@ class ClienteController extends Controller
         $cliente->auto->submarca;
         //$cliente->emailCotizacion();
         // dd($cliente);
-        return response()->json(['cotizacion'=>$cliente,'GNP'=>$GNP],201);
+        return response()->json(['cotizacion'=>$cliente,'GNP'=>$GNP,'originales'=>$request],201);
     }
 
     public function sendEmail(Request $request)

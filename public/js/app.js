@@ -2308,6 +2308,7 @@ function Cliente(_ref) {
     'cliente.gsMarca': function clienteGsMarca(newV, oldV) {
       if (newV != "") {
         console.log('VALOR DE LA MARCA', this.cliente.gsMarca);
+        this.cliente.modelo_auto = this.cliente.modelos;
         this.submarcasGS = this.getSubmarcaGS(this.cliente.gsMarca.id); // $('#v-pills-Marca-tab').removeClass('disabled');
         // $('#v-pills-Marca-tab').click();
       }
@@ -2375,7 +2376,8 @@ function Cliente(_ref) {
       this.alert.message = '';
       this.alert["class"] = '';
       axios.post(url, params).then(function (res) {
-        // console.log("res cot",res);
+        console.log("res datos serch cotizacion", res);
+
         if (res.data.cotizacion) {
           _this.searchOption = true; // this.cliente = new Cliente(res.data.cotizacion);
 
@@ -2707,6 +2709,8 @@ function Cliente(_ref) {
       _this14.cliente.gnpMarca = res.data.cotizacion.gnpMarca;
       _this14.cliente.gssubMarca = res.data.cotizacion.gssubMarca;
       _this14.cliente.gsMarca = res.data.cotizacion.gsMarca;
+      _this14.cliente.qaMarca = res.data.cotizacion.qaMarca;
+      _this14.cliente.qaSubmarca = res.data.cotizacion.qaSubmarca;
       _this14.getcotizacion.value = !_this14.getcotizacion.value;
       _this14.alert.message = "".concat(_this14.cliente.nombre, " ").concat(_this14.cliente.appaterno, " ").concat(_this14.cliente.apmaterno, " su cotizaci\xF3n se guardo con el folio ").concat(_this14.cliente.cotizacion);
       _this14.alert["class"] = "alert alert-success alert-dismissible fade show";
@@ -5750,7 +5754,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (this.cliente.qualitas) {
-        this.getDescripcionesQualitas(this.cliente.marca_auto.descripcion, this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio);
+        this.getDescripcionesQualitas(this.cliente.qaMarca, this.cliente.qaSubmarca, this.cliente.submarca_auto.anio);
       }
 
       if (this.cliente.gs) {
@@ -54310,7 +54314,7 @@ var render = function() {
                                                     _vm.cotizacionesGNP.PAQUETES
                                                       .PAQUETE.TOTALES
                                                       .TOTAL_PRIMA[1]
-                                                      .CONCEPTO_ECONOMICO[11]
+                                                      .CONCEPTO_ECONOMICO[10]
                                                       .MONTO
                                                   )
                                                 )
@@ -54322,7 +54326,7 @@ var render = function() {
                                                   _vm.cotizacionesGNP.PAQUETES
                                                     .PAQUETE.TOTALES
                                                     .TOTAL_PRIMA[1]
-                                                    .CONCEPTO_ECONOMICO[12]
+                                                    .CONCEPTO_ECONOMICO[11]
                                                     .MONTO
                                                 ) +
                                                 " "
@@ -54343,7 +54347,7 @@ var render = function() {
                                                     _vm.cotizacionesGNP.PAQUETES
                                                       .PAQUETE.TOTALES
                                                       .TOTAL_PRIMA[2]
-                                                      .CONCEPTO_ECONOMICO[11]
+                                                      .CONCEPTO_ECONOMICO[10]
                                                       .MONTO
                                                   )
                                                 ) +
@@ -54356,7 +54360,7 @@ var render = function() {
                                                   _vm.cotizacionesGNP.PAQUETES
                                                     .PAQUETE.TOTALES
                                                     .TOTAL_PRIMA[2]
-                                                    .CONCEPTO_ECONOMICO[12]
+                                                    .CONCEPTO_ECONOMICO[11]
                                                     .MONTO
                                                 )
                                             )
@@ -54376,7 +54380,7 @@ var render = function() {
                                                     _vm.cotizacionesGNP.PAQUETES
                                                       .PAQUETE.TOTALES
                                                       .TOTAL_PRIMA[3]
-                                                      .CONCEPTO_ECONOMICO[11]
+                                                      .CONCEPTO_ECONOMICO[10]
                                                       .MONTO
                                                   )
                                                 ) +
@@ -54390,7 +54394,7 @@ var render = function() {
                                                     _vm.cotizacionesGNP.PAQUETES
                                                       .PAQUETE.TOTALES
                                                       .TOTAL_PRIMA[3]
-                                                      .CONCEPTO_ECONOMICO[12]
+                                                      .CONCEPTO_ECONOMICO[11]
                                                       .MONTO
                                                   )
                                                 ) +
