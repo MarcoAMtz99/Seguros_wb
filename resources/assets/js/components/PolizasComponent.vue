@@ -773,10 +773,11 @@
                 }
                 if(this.cliente.gs){
                     console.log("Datos del auto: ",this.cliente.marca_auto.descripcion,this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio);
-                    this.getDescripcionesGS(this.cliente.gsMarca,this.cliente.gssubMarca,this.cliente.modelos);
+                    
+                    this.getDescripcionesGS(this.cliente.gsMarca,this.cliente.gssubMarca,this.cliente.submarca_auto.anio);
                 }
                 if(this.cliente.gnp){
-                    this.getDescripcionesGNP(this.cliente.gnpMarca,this.cliente.gnpsubMarca, this.cliente.modelos);
+                    this.getDescripcionesGNP(this.cliente.gnpMarca,this.cliente.gnpsubMarca,this.cliente.submarca_auto.anio);
                         console.log("Datos cliente",this.cliente);
                 }
     		},
