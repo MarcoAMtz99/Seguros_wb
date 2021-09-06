@@ -169,6 +169,7 @@ class QualitasController extends Controller
 	}
 	public function getModelos($uso,$marca,$submarca,$modelo)
 	{
+			dd($uso,$marca,$submarca,$modelo);
 	  
  		if($submarca == 'SERIE 208'){
 			$submarca ='208';
