@@ -769,7 +769,7 @@
                     this.getDescripcionesANA(this.cliente.marca_auto.id_ana,this.cliente.submarca_auto.id_ana,this.cliente.submarca_auto.anio);
                 }
                 if (this.cliente.qualitas) {
-                    this.getDescripcionesQualitas(this.cliente.qaMarca,this.cliente.qaSubmarca, this.cliente.submarca_auto.anio)
+                    this.getDescripcionesQualitas(this.cliente.qaMarca,this.cliente.qasubMarca, this.cliente.submarca_auto.anio)
                 }
                 if(this.cliente.gs){
                     console.log("Datos del auto: ",this.cliente.marca_auto.descripcion,this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio);

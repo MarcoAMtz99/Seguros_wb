@@ -3,7 +3,7 @@
   		<!-- Crear cotización -->
     	<div class="tab-pane">
     		<div class="row m-0 p-1 no-gutters">
-    			<div class="col-sm-4 d-none d-sm-block p-2">
+    			<!-- <div class="col-sm-4 d-none d-sm-block p-2">
     				<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 		              <a class="nav-link active" id="v-pills-Uso-tab"  data-toggle="pill" href="#v-pills-Uso" role="tab" aria-controls="v-pills-Uso" aria-selected="true">Uso: {{cliente.uso_auto}}</a>
 		              <a class="nav-link disabled" id="v-pills-Modelo-tab" data-toggle="pill"  href="#v-pills-Modelo" role="tab" aria-controls="v-pills-Modelo" aria-selected="false">Modelo: {{cliente.modelos}}</a>
@@ -17,7 +17,7 @@
 		              <a class="nav-link disabled" id="v-pills-Nacimiento-tab" data-toggle="pill"  href="#v-pills-Nacimiento" role="tab" aria-controls="v-pills-Nacimiento" aria-selected="false">Nacimiento: {{cliente.f_nac}}</a>
 		              <a class="nav-link" id="v-pills-Aseguradoras-tab" data-toggle="pill"  href="#v-pills-Aseguradoras" role="tab" aria-controls="v-pills-Aseguradoras" aria-selected="false">Aseguradoras:</a>
 		            </div>
-    			</div>
+    			</div> -->
 
     			<div class="col col-sm-8 p-2" v-show="!searchOption">
     				<div class="tab-content" id="v-pills-tabContent">
@@ -25,7 +25,7 @@
     					
     					<div class="tab-pane fade show active" id="v-pills-Uso" role="tabpanel" aria-albelledby="v-pills-Uso-tab">
     						<div class="row p-0 m-0">
-    							<div class="col-12 p-0 m-0">
+    							<div class="col-3 p-0 m-0">
     								<div class="input-group">
     									<input class="form-control" type="text" v-model="cliente.cotizacion" placeholder="¿Ya tienes código de cotización?" aria-label="No. generado por el sistema">
     									<div class="input-group-append" v-if="cliente.cotizacion">
@@ -50,7 +50,7 @@
     											Uso:
     										</div>
     										<div class="card-body">
-    											<select v-model="cliente.uso_auto" size="3" class="list-group list-group-flush col mr-0 ml-0"  style="overflow-y: hidden;">
+    											<select v-model="cliente.uso_auto" size="1" class="list-group list-group-flush col mr-0 ml-0"  style="overflow-y: hidden;">
     												<option value="" class="list-group-item text-center text-dark seleccionador" style="white-space: normal;">Seleccione el uso que se da al vehiculo</option>
     												<option value="Servicio Particular" class="list-group-item text-center text-dark seleccionador">Servicio Particular</option>
                                     				<option value="Servicio Público" class="list-group-item text-center text-dark seleccionador">Servicio Público</option>
@@ -58,7 +58,135 @@
     										</div>
     									</div>
     								</div>
-    							</div>
+    							</div>  
+    							<!-- DESPUES DE AQUI IRAN LOS CAMPOES DEL FORMULARIO -->
+    							<div class="col-2">
+    								<div class="input-group">
+    							<div class="form-group">
+    									<label>Modelo</label>
+    									<input class="form-control" type="number" v-model="cliente.modelos" placeholder="2001,2002,2003,2004" aria-label="Modelo" id="valorModelo">
+    								</div>
+    								<div class="form-group">
+    									<label>Codigo Postal</label>
+		                                <input type="number" class="form-control" v-model="cliente.cp" placeholder="CP: 000000" id="valorCP">
+		                                <div class="alert alert-danger" v-show="alert_cp">
+  											<strong>{{alert_cp}}</strong>
+										</div>
+		                            </div>
+		                            <div class="form-group">
+		                            	<label>Genero</label>
+		                            	 <select v-model="cliente.sexo" size="1" class="list-group list-group-flush col"  style="overflow-y: hidden;">
+
+										<option value="Hombre" class="list-group-item text-center text-dark seleccionador">Masculino </option>
+                        				<option value="Mujer" class="list-group-item text-center text-dark seleccionador">Femenino</option>
+                        				<option value="Otro" class="list-group-item text-center text-dark seleccionador">Otro</option>
+									</select>
+		                            </div>
+    								</div>
+    								</div>
+
+    			<div class="col-6">
+    					<div class="row">
+
+		  				<div class="col">
+		  					<!-- <label for="gnp_lista" class="col">GNP</label> -->
+		  					 <label class="form-check-label" for=""><img :src="img.gnpImage" width="120" height="50"></label>
+		  				</div>
+		  		
+		  				<div class="col-3">
+		  					<select v-model="marcaGNP" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
+
+    								<option :value="marcas" v-for="marcas in marcasGNP">{{marcas}}</option>
+    								</select>
+    								
+		  				</div>
+		  				<div class="col-3">
+		  					<select v-model="cliente.gnpsubMarca" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
+
+    								<option v-for="marcas in submarcasGNP" :value="marcas">{{marcas}}</option>
+    								</select>
+		  				</div>
+		  				
+						</div>
+						<hr>
+
+						<hr>	
+						<div class="row">
+		  				<div class="col">
+		  					<label class="form-check-label" for="checkbox-ana"><img :src="img.anaImage" width="120" height="50"></label>
+		  				</div>
+		  			
+		  					<div class="col-3">
+		  					<select v-model="cliente.marca_auto" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
+
+    								<option v-for="marca in marcas" :value="marca" class="list-group-item text-center text-dark seleccionador">{{marca.descripcion}}</option>
+    								</select>
+		  					</div>
+		  					<div class="col-3">
+		  					<select v-model="cliente.submarca_auto" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
+
+    								<option v-for="submarca in submarcas" :value="submarca" class="list-group-item text-center text-dark seleccionador">{{submarca.descripcion}}</option>
+    								</select>
+		  					</div>
+		  				
+							</div>
+							<hr>	
+							<div class="row">
+		  					<div class="col">
+		  					<label class="form-check-label" for="checkbox-gs"><img :src="img.gsImage" width="120" height="50"></label>
+		  					</div>
+		  					<div class="col-3">
+		  					<select v-model="cliente.gsMarca" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la marca</option>
+
+    								<option :value="marcas" v-for="marcas in marcasGS">{{marcas.nombre}}</option>
+    								</select>
+		  					</div>
+
+		  					<div class="col-3">
+		  					<select v-model="cliente.submarcasGS" class="form-control">
+    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
+
+    								<option :value="marcas.nombre" v-for="marcas in submarcasGS">{{marcas.nombre}}</option>
+    								</select>
+		  						</div>
+
+
+		  				
+		  				
+								</div>
+								<hr>
+								<div class="row">
+				  				<div class="col">
+				  					<label class="form-check-label" for="checkbox-qualitas"><img :src="img.quaImage" width="120" height="50"></label>
+				  				</div>
+				  			
+				  				<div class="col-3">
+				  					<select v-model="cliente.qaMarca" class="form-control">
+		    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
+
+		    								<option :value="marcas.cMarcaLarga" v-for="marcas in marcasQA">{{marcas.cMarcaLarga}}</option>
+		    								</select>
+				  				</div>
+				  				<div class="col-3">
+				  					<select v-model="cliente.qaSubmarca" class="form-control">
+		    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
+		    								
+		    								<option :value="marcas" v-for="marcas in submarcasQA">{{marcas}}</option>
+		    								</select>
+				  				</div>
+				  				
+								</div>
+
+								</div> 
+								<!-- FIN DEL COL EN ASEGURADORAS -->
+								
+
+
     						</div>
     					</div>
     					<!--MODELO-->
@@ -67,10 +195,10 @@
 		                            	<option value=""  class="list-group-item text-center text-dark seleccionador">Seleccione su modelo</option>
 		                            	<option v-for="anio in modelos" :value="anio" class="list-group-item text-center text-dark seleccionador">{{anio}}</option>
 		                            </select> -->
-		                            <div class="form-group">
+		                            <!-- <div class="form-group">
     									<label>Modelo</label>
     									<input class="form-control" type="number" v-model="cliente.modelos" placeholder="2001,2002,2003,2004" aria-label="Modelo" id="valorModelo">
-    								</div>
+    								</div> -->
     								<div class="col mt-3 d-flex justify-content-end">
                         					<button type="button" class="btn btn-primary seleccionador" @click="nextPill('Marca')">Siguiente</button>
 											
