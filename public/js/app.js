@@ -2305,6 +2305,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -42129,6 +42142,39 @@ var render = function() {
                               )
                             ])
                           ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("label", [_vm._v("Fecha de nacimiento")]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.cliente.f_nac,
+                                expression: "cliente.f_nac"
+                              }
+                            ],
+                            attrs: {
+                              type: "date",
+                              id: "valorEdad",
+                              onchange: "cambiarEdad(this.value)"
+                            },
+                            domProps: { value: _vm.cliente.f_nac },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.cliente,
+                                  "f_nac",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
                         ])
                       ]),
                       _vm._v(" "),
@@ -42845,6 +42891,32 @@ var render = function() {
                             )
                           ])
                         ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _vm._m(0),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "col mt-3 d-flex justify-content-end"
+                          },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary seleccionador",
+                                attrs: { type: "button", id: "8_1" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.sendCotizacion(_vm.cliente)
+                                  }
+                                }
+                              },
+                              [_vm._v("Siguiente")]
+                            )
+                          ]
+                        )
                       ])
                     ])
                   ]
@@ -42893,7 +42965,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("hr"),
                     _vm._v(" "),
-                    _vm._m(0)
+                    _vm._m(1)
                   ]
                 ),
                 _vm._v(" "),
@@ -43629,7 +43701,7 @@ var render = function() {
                           2
                         ),
                         _vm._v(" "),
-                        _vm._m(1)
+                        _vm._m(2)
                       ])
                     ])
                   ]
@@ -43707,7 +43779,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(2),
+                          _vm._m(3),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -43862,7 +43934,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(3),
+                          _vm._m(4),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -43951,7 +44023,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(4),
+                          _vm._m(5),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -44040,7 +44112,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(5),
+                          _vm._m(6),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -44163,7 +44235,7 @@ var render = function() {
                           ]
                         ),
                         _vm._v(" "),
-                        _vm._m(6)
+                        _vm._m(7)
                       ])
                     ])
                   ]
@@ -44229,7 +44301,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(7),
+                          _vm._m(8),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -44278,7 +44350,7 @@ var render = function() {
                   },
                   [
                     _c("div", { staticClass: "card p-0" }, [
-                      _vm._m(8),
+                      _vm._m(9),
                       _vm._v(" "),
                       _c("div", { staticClass: "card-body" }, [
                         _c("div", { staticClass: "form-group" }, [
@@ -44592,7 +44664,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
-                          _vm._m(9),
+                          _vm._m(10),
                           _vm._v(" "),
                           _c(
                             "div",
@@ -44629,6 +44701,24 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col mt-3 d-block d-sm-none" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary",
+          attrs: {
+            type: "button",
+            onclick: "$('#v-pills-Nacimiento-tab').click();"
+          }
+        },
+        [_vm._v("Atras")]
+      )
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

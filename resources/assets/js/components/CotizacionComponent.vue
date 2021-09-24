@@ -56,8 +56,13 @@
                                     				<option value="Servicio Público" class="list-group-item text-center text-dark seleccionador">Servicio Público</option>
     											</select>
     										</div>
+
     									</div>
     								</div>
+    								   <div class="form-group">
+		                              	<label>Fecha de nacimiento</label>
+		                                <input type="date" v-model="cliente.f_nac" id="valorEdad" onchange="cambiarEdad(this.value)" >
+		                            </div>
     							</div>  
     							<!-- DESPUES DE AQUI IRAN LOS CAMPOES DEL FORMULARIO -->
     							<div class="col-2">
@@ -82,6 +87,7 @@
                         				<option value="Otro" class="list-group-item text-center text-dark seleccionador">Otro</option>
 									</select>
 		                            </div>
+
     								</div>
     								</div>
 
@@ -184,7 +190,14 @@
 
 								</div> 
 								<!-- FIN DEL COL EN ASEGURADORAS -->
-								
+								 <div class="row">
+										<div class="col mt-3 d-block d-sm-none">
+											<button class="btn btn-primary" type="button" onclick="$('#v-pills-Nacimiento-tab').click();">Atras</button>
+										</div>
+										<div class="col mt-3 d-flex justify-content-end">
+		                                    <button type="button" id="8_1" @click="sendCotizacion(cliente)" class="btn btn-primary seleccionador">Siguiente</button>
+		                                </div>
+									</div>
 
 
     						</div>
