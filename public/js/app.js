@@ -2318,6 +2318,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -2501,6 +2507,9 @@ function Cliente(_ref) {
         $('#v-pills-Nacimiento-tab').removeClass('disabled');
         $('#v-pills-Nacimiento-tab').click();
       }
+    },
+    'cliente.cp': function clienteCp(newValue, oldValue) {
+      this.getCP();
     }
   },
   created: function created() {
@@ -2748,17 +2757,38 @@ function Cliente(_ref) {
     })["catch"](function (err) {
       console.log('getDescripciones err', err);
     });
-  }), _defineProperty(_methods, "nextPill", function nextPill(input) {
+  }), _defineProperty(_methods, "getCP", function getCP() {
     var _this13 = this;
+
+    var url = "./api/cp/".concat(this.cliente.cp);
+    axios.get(url).then(function (res) {
+      if (res.data.response) {
+        _this13.alert_cp = _this13.nombre = true;
+        _this13.alert_cp = ""; // console.log('si entra');
+
+        _this13.cliente.cestado = res.data.response[0].cestado; // $('#v-pills-Nombre-tab').removeClass('disabled');
+        // $('#v-pills-Nombre-tab').click();
+      }
+
+      console.log('CP', res);
+    })["catch"](function (err) {
+      if (err.response.data.error) {
+        _this13.nombre = false;
+        $('#v-pills-Nombre-tab').addClass('disabled');
+        _this13.alert_cp = err.response.data.error;
+      }
+    });
+  }), _defineProperty(_methods, "nextPill", function nextPill(input) {
+    var _this14 = this;
 
     if (input == "cp" && this.cliente.cp != "") {
       var url = "./api/cp/".concat(this.cliente.cp);
       axios.get(url).then(function (res) {
         if (res.data.response) {
-          _this13.alert_cp = _this13.nombre = true;
-          _this13.alert_cp = ""; // console.log('si entra');
+          _this14.alert_cp = _this14.nombre = true;
+          _this14.alert_cp = ""; // console.log('si entra');
 
-          _this13.cliente.cestado = res.data.response[0].cestado;
+          _this14.cliente.cestado = res.data.response[0].cestado;
           $('#v-pills-Nombre-tab').removeClass('disabled');
           $('#v-pills-Nombre-tab').click();
         }
@@ -2766,9 +2796,9 @@ function Cliente(_ref) {
         console.log('CP', res);
       })["catch"](function (err) {
         if (err.response.data.error) {
-          _this13.nombre = false;
+          _this14.nombre = false;
           $('#v-pills-Nombre-tab').addClass('disabled');
-          _this13.alert_cp = err.response.data.error;
+          _this14.alert_cp = err.response.data.error;
         }
       });
     }
@@ -2815,49 +2845,49 @@ function Cliente(_ref) {
       $('#v-pills-Aseguradoras-tab').click();
     }
   }), _defineProperty(_methods, "sendCotizacion", function sendCotizacion(cliente) {
-    var _this14 = this;
+    var _this15 = this;
 
     var params = cliente;
     var url = "./api/cotizacion";
     this.alert.message = '';
     this.alert["class"] = '';
     axios.post(url, cliente).then(function (res) {
-      if (_this14.cliente.sexo == "Maculino") {
-        _this14.cliente.sexo == "Hombre";
-      } else if (_this14.cliente.sexo == "Femenino") {
-        _this14.cliente.sexo == "Mujer";
+      if (_this15.cliente.sexo == "Maculino") {
+        _this15.cliente.sexo == "Hombre";
+      } else if (_this15.cliente.sexo == "Femenino") {
+        _this15.cliente.sexo == "Mujer";
       } //console.log('res',res);
 
 
-      _this14.cliente.cotizacion = res.data.cotizacion.cotizacion;
-      _this14.cliente.uso_auto = res.data.cotizacion.uso_auto;
-      _this14.cliente.descripcion_auto = res.data.cotizacion.auto.version;
-      _this14.cliente.marca_auto = res.data.cotizacion.auto.marca; // if (isset(this.cliente.modelo_auto)) {
+      _this15.cliente.cotizacion = res.data.cotizacion.cotizacion;
+      _this15.cliente.uso_auto = res.data.cotizacion.uso_auto;
+      _this15.cliente.descripcion_auto = res.data.cotizacion.auto.version;
+      _this15.cliente.marca_auto = res.data.cotizacion.auto.marca; // if (isset(this.cliente.modelo_auto)) {
       // }
 
-      _this14.cliente.modelo_auto = res.data.cotizacion.auto.submarca.anio;
-      _this14.cliente.submarca_auto = res.data.cotizacion.auto.submarca;
-      _this14.cliente.cp = res.data.cotizacion.cp;
-      _this14.cliente.nombre = res.data.cotizacion.nombre;
-      _this14.cliente.appaterno = res.data.cotizacion.appaterno;
-      _this14.cliente.apmaterno = res.data.cotizacion.apmaterno;
-      _this14.cliente.telefono = res.data.cotizacion.telefono;
-      _this14.cliente.email = res.data.cotizacion.email;
-      _this14.cliente.sexo = res.data.cotizacion.sexo;
-      _this14.cliente.f_nac = res.data.cotizacion.f_nac;
-      _this14.cliente.ana = res.data.cotizacion.ana;
-      _this14.cliente.gs = res.data.cotizacion.gs;
-      _this14.cliente.qualitas = res.data.cotizacion.qualitas;
-      _this14.cliente.gnp = res.data.cotizacion.gnp;
-      _this14.cliente.gnpsubMarca = res.data.cotizacion.gnpsubMarca;
-      _this14.cliente.gnpMarca = res.data.cotizacion.gnpMarca;
-      _this14.cliente.gssubMarca = res.data.cotizacion.gssubMarca;
-      _this14.cliente.gsMarca = res.data.cotizacion.gsMarca;
-      _this14.cliente.qaMarca = res.data.cotizacion.qaMarca;
-      _this14.cliente.qaSubmarca = res.data.cotizacion.qaSubmarca;
-      _this14.getcotizacion.value = !_this14.getcotizacion.value;
-      _this14.alert.message = "".concat(_this14.cliente.nombre, " ").concat(_this14.cliente.appaterno, " ").concat(_this14.cliente.apmaterno, " su cotizaci\xF3n se guardo con el folio ").concat(_this14.cliente.cotizacion);
-      _this14.alert["class"] = "alert alert-success alert-dismissible fade show";
+      _this15.cliente.modelo_auto = res.data.cotizacion.auto.submarca.anio;
+      _this15.cliente.submarca_auto = res.data.cotizacion.auto.submarca;
+      _this15.cliente.cp = res.data.cotizacion.cp;
+      _this15.cliente.nombre = res.data.cotizacion.nombre;
+      _this15.cliente.appaterno = res.data.cotizacion.appaterno;
+      _this15.cliente.apmaterno = res.data.cotizacion.apmaterno;
+      _this15.cliente.telefono = res.data.cotizacion.telefono;
+      _this15.cliente.email = res.data.cotizacion.email;
+      _this15.cliente.sexo = res.data.cotizacion.sexo;
+      _this15.cliente.f_nac = res.data.cotizacion.f_nac;
+      _this15.cliente.ana = res.data.cotizacion.ana;
+      _this15.cliente.gs = res.data.cotizacion.gs;
+      _this15.cliente.qualitas = res.data.cotizacion.qualitas;
+      _this15.cliente.gnp = res.data.cotizacion.gnp;
+      _this15.cliente.gnpsubMarca = res.data.cotizacion.gnpsubMarca;
+      _this15.cliente.gnpMarca = res.data.cotizacion.gnpMarca;
+      _this15.cliente.gssubMarca = res.data.cotizacion.gssubMarca;
+      _this15.cliente.gsMarca = res.data.cotizacion.gsMarca;
+      _this15.cliente.qaMarca = res.data.cotizacion.qaMarca;
+      _this15.cliente.qaSubmarca = res.data.cotizacion.qaSubmarca;
+      _this15.getcotizacion.value = !_this15.getcotizacion.value;
+      _this15.alert.message = "".concat(_this15.cliente.nombre, " ").concat(_this15.cliente.appaterno, " ").concat(_this15.cliente.apmaterno, " su cotizaci\xF3n se guardo con el folio ").concat(_this15.cliente.cotizacion);
+      _this15.alert["class"] = "alert alert-success alert-dismissible fade show";
       $("#paso2-tab").removeClass("disabled");
       $("#paso2-tab").click();
     })["catch"](function (err) {
@@ -42342,6 +42372,59 @@ var render = function() {
                       _c("div", { staticClass: "col-6" }, [
                         _c("div", { staticClass: "row" }, [
                           _c("div", { staticClass: "col" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.cliente.gnp,
+                                  expression: "cliente.gnp"
+                                }
+                              ],
+                              staticClass: "form-check-input",
+                              attrs: {
+                                type: "checkbox",
+                                id: "checkbox-gnp",
+                                "true-value": "1",
+                                "false-value": "0"
+                              },
+                              domProps: {
+                                checked: Array.isArray(_vm.cliente.gnp)
+                                  ? _vm._i(_vm.cliente.gnp, null) > -1
+                                  : _vm._q(_vm.cliente.gnp, "1")
+                              },
+                              on: {
+                                change: function($event) {
+                                  var $$a = _vm.cliente.gnp,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? "1" : "0"
+                                  if (Array.isArray($$a)) {
+                                    var $$v = null,
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        _vm.$set(
+                                          _vm.cliente,
+                                          "gnp",
+                                          $$a.concat([$$v])
+                                        )
+                                    } else {
+                                      $$i > -1 &&
+                                        _vm.$set(
+                                          _vm.cliente,
+                                          "gnp",
+                                          $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1))
+                                        )
+                                    }
+                                  } else {
+                                    _vm.$set(_vm.cliente, "gnp", $$c)
+                                  }
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
                             _c(
                               "label",
                               {
@@ -42477,6 +42560,59 @@ var render = function() {
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
                           _c("div", { staticClass: "col" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.cliente.ana,
+                                  expression: "cliente.ana"
+                                }
+                              ],
+                              staticClass: "form-check-input",
+                              attrs: {
+                                type: "checkbox",
+                                id: "checkbox-ana",
+                                "true-value": "1",
+                                "false-value": "0"
+                              },
+                              domProps: {
+                                checked: Array.isArray(_vm.cliente.ana)
+                                  ? _vm._i(_vm.cliente.ana, null) > -1
+                                  : _vm._q(_vm.cliente.ana, "1")
+                              },
+                              on: {
+                                change: function($event) {
+                                  var $$a = _vm.cliente.ana,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? "1" : "0"
+                                  if (Array.isArray($$a)) {
+                                    var $$v = null,
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        _vm.$set(
+                                          _vm.cliente,
+                                          "ana",
+                                          $$a.concat([$$v])
+                                        )
+                                    } else {
+                                      $$i > -1 &&
+                                        _vm.$set(
+                                          _vm.cliente,
+                                          "ana",
+                                          $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1))
+                                        )
+                                    }
+                                  } else {
+                                    _vm.$set(_vm.cliente, "ana", $$c)
+                                  }
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
                             _c(
                               "label",
                               {
@@ -42622,6 +42758,59 @@ var render = function() {
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
                           _c("div", { staticClass: "col" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.cliente.gs,
+                                  expression: "cliente.gs"
+                                }
+                              ],
+                              staticClass: "form-check-input",
+                              attrs: {
+                                type: "checkbox",
+                                id: "checkbox-gs",
+                                "true-value": "1",
+                                "false-value": "0"
+                              },
+                              domProps: {
+                                checked: Array.isArray(_vm.cliente.gs)
+                                  ? _vm._i(_vm.cliente.gs, null) > -1
+                                  : _vm._q(_vm.cliente.gs, "1")
+                              },
+                              on: {
+                                change: function($event) {
+                                  var $$a = _vm.cliente.gs,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? "1" : "0"
+                                  if (Array.isArray($$a)) {
+                                    var $$v = null,
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        _vm.$set(
+                                          _vm.cliente,
+                                          "gs",
+                                          $$a.concat([$$v])
+                                        )
+                                    } else {
+                                      $$i > -1 &&
+                                        _vm.$set(
+                                          _vm.cliente,
+                                          "gs",
+                                          $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1))
+                                        )
+                                    }
+                                  } else {
+                                    _vm.$set(_vm.cliente, "gs", $$c)
+                                  }
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
                             _c(
                               "label",
                               {
@@ -42759,6 +42948,59 @@ var render = function() {
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
                           _c("div", { staticClass: "col" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.cliente.qualitas,
+                                  expression: "cliente.qualitas"
+                                }
+                              ],
+                              staticClass: "form-check-input",
+                              attrs: {
+                                type: "checkbox",
+                                id: "checkbox-qualitas",
+                                "true-value": "1",
+                                "false-value": "0"
+                              },
+                              domProps: {
+                                checked: Array.isArray(_vm.cliente.qualitas)
+                                  ? _vm._i(_vm.cliente.qualitas, null) > -1
+                                  : _vm._q(_vm.cliente.qualitas, "1")
+                              },
+                              on: {
+                                change: function($event) {
+                                  var $$a = _vm.cliente.qualitas,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? "1" : "0"
+                                  if (Array.isArray($$a)) {
+                                    var $$v = null,
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        _vm.$set(
+                                          _vm.cliente,
+                                          "qualitas",
+                                          $$a.concat([$$v])
+                                        )
+                                    } else {
+                                      $$i > -1 &&
+                                        _vm.$set(
+                                          _vm.cliente,
+                                          "qualitas",
+                                          $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1))
+                                        )
+                                    }
+                                  } else {
+                                    _vm.$set(_vm.cliente, "qualitas", $$c)
+                                  }
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
                             _c(
                               "label",
                               {

@@ -96,6 +96,7 @@
 
 		  				<div class="col">
 		  					<!-- <label for="gnp_lista" class="col">GNP</label> -->
+		  					<input class="form-check-input" type="checkbox" id="checkbox-gnp" v-model="cliente.gnp" true-value="1" false-value="0">
 		  					 <label class="form-check-label" for=""><img :src="img.gnpImage" width="120" height="50"></label>
 		  				</div>
 		  		
@@ -117,10 +118,13 @@
 		  				
 						</div>
 						<hr>
+						
+
 
 						<hr>	
 						<div class="row">
 		  				<div class="col">
+		  					<input class="form-check-input" type="checkbox" id="checkbox-ana" v-model="cliente.ana" true-value="1" false-value="0">
 		  					<label class="form-check-label" for="checkbox-ana"><img :src="img.anaImage" width="120" height="50"></label>
 		  				</div>
 		  			
@@ -143,6 +147,7 @@
 							<hr>	
 							<div class="row">
 		  					<div class="col">
+		  						<input class="form-check-input" type="checkbox" id="checkbox-gs" v-model="cliente.gs" true-value="1" false-value="0">
 		  					<label class="form-check-label" for="checkbox-gs"><img :src="img.gsImage" width="120" height="50"></label>
 		  					</div>
 		  					<div class="col-3">
@@ -168,6 +173,7 @@
 								<hr>
 								<div class="row">
 				  				<div class="col">
+				  					<input class="form-check-input" type="checkbox" id="checkbox-qualitas" v-model="cliente.qualitas" true-value="1" false-value="0">
 				  					<label class="form-check-label" for="checkbox-qualitas"><img :src="img.quaImage" width="120" height="50"></label>
 				  				</div>
 				  			
@@ -847,6 +853,9 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				$('#v-pills-Nacimiento-tab').click();
     			}	
     		},
+    		'cliente.cp':function(newValue,oldValue){
+						this.getCP();		
+    		},
 
     	},
     	created(){
@@ -1090,6 +1099,31 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 
     				console.log('getDescripciones err',err);
     			})
+    		},
+    		getCP(){
+    			let url = `./api/cp/${this.cliente.cp}`;
+
+    				axios.get(url).then(res=>{
+    						if(res.data.response){
+    							this.alert_cp = 
+    							this.nombre = true;
+    							this.alert_cp = "";
+    							// console.log('si entra');
+
+			    				this.cliente.cestado = res.data.response[0].cestado;
+
+			    				// $('#v-pills-Nombre-tab').removeClass('disabled');
+			    				// $('#v-pills-Nombre-tab').click();
+    						}
+    						console.log('CP',res);
+    				}).catch(
+    					err=>{
+    						if(err.response.data.error){
+    							this.nombre = false;
+    							$('#v-pills-Nombre-tab').addClass('disabled');
+    							this.alert_cp = err.response.data.error;
+    						}
+    					});
     		},
     		nextPill(input){
     			if (input == "cp" && this.cliente.cp != "") {
