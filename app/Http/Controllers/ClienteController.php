@@ -22,7 +22,7 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
+        dd($request);
         if ($request->sexo == "Maculino") {
             $request->sexo =="Hombre";
         }else if ($request->sexo == "Femenino") {
