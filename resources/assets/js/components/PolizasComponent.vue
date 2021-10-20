@@ -769,7 +769,7 @@
                     this.getDescripcionesANA(this.cliente.marca_auto.id_ana,this.cliente.submarca_auto.id_ana,this.cliente.submarca_auto.anio);
                 }
                 if (this.cliente.qualitas) {
-                    this.getDescripcionesQualitas(this.cliente.qaMarca,this.cliente.qasubMarca, this.cliente.submarca_auto.anio)
+                    this.getDescripcionesQualitas(this.cliente.qaMarca,this.cliente.qaSubmarca, this.cliente.submarca_auto.anio)
                     // console.log('DATOS DE QA EN COTIZACION',this.cliente);
                 }
                 if(this.cliente.gs){
