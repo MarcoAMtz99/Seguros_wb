@@ -770,6 +770,7 @@
                 }
                 if (this.cliente.qualitas) {
                     this.getDescripcionesQualitas(this.cliente.qaMarca,this.cliente.qasubMarca, this.cliente.submarca_auto.anio)
+                    console.log('DATOS DE QA EN COTIZACION',this.cliente.qasubMarca,this.cliente.qaMarca,this.cliente.submarca_auto.anio);
                 }
                 if(this.cliente.gs){
                     console.log("Datos del auto: ",this.cliente.marca_auto.descripcion,this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio);
@@ -893,7 +894,8 @@
                 let uso = this.cliente.uso_auto
                 let url=`./api/modelos/${uso}/${marca}/${submarca}/${modelo}`;
                 axios.get(url).then(res=>{
-                     console.log("descripcion qualitas",res.data);
+                     // console.log("descripcion qualitas",res.data);
+                     console.log("datos que se envian qualitas",submarca,marca,modelo);
                     this.descripciones_qualitas = res.data.descripciones;
                 }).catch(err=>{
                     console.log(err);

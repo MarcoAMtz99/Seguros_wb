@@ -193,10 +193,7 @@
 				  				</div>
 				  				
 								</div>
-
-								</div> 
-								<!-- FIN DEL COL EN ASEGURADORAS -->
-								 <div class="row">
+									<div class="row">
 										<div class="col mt-3 d-block d-sm-none">
 											<button class="btn btn-primary" type="button" onclick="$('#v-pills-Nacimiento-tab').click();">Atras</button>
 										</div>
@@ -204,7 +201,17 @@
 		                                    <button type="button" id="8_1" @click="sendCotizacion(cliente)" class="btn btn-primary seleccionador">Siguiente</button>
 		                                </div>
 									</div>
-
+								</div> 
+								<!-- FIN DEL COL EN ASEGURADORAS -->
+								<!--  <div class="row">
+										<div class="col mt-3 d-block d-sm-none">
+											<button class="btn btn-primary" type="button" onclick="$('#v-pills-Nacimiento-tab').click();">Atras</button>
+										</div>
+										<div class="col mt-3 d-flex justify-content-end">
+		                                    <button type="button" id="8_1" @click="sendCotizacion(cliente)" class="btn btn-primary seleccionador">Siguiente</button>
+		                                </div>
+									</div>
+ -->
 
     						</div>
     					</div>

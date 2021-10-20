@@ -2324,6 +2324,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -5929,6 +5936,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.cliente.qualitas) {
         this.getDescripcionesQualitas(this.cliente.qaMarca, this.cliente.qasubMarca, this.cliente.submarca_auto.anio);
+        console.log('DATOS DE QA EN COTIZACION', this.cliente.qasubMarca, this.cliente.qaMarca, this.cliente.submarca_auto.anio);
       }
 
       if (this.cliente.gs) {
@@ -6055,7 +6063,8 @@ __webpack_require__.r(__webpack_exports__);
       var uso = this.cliente.uso_auto;
       var url = "./api/modelos/".concat(uso, "/").concat(marca, "/").concat(submarca, "/").concat(modelo);
       axios.get(url).then(function (res) {
-        console.log("descripcion qualitas", res.data);
+        // console.log("descripcion qualitas",res.data);
+        console.log("datos que se envian qualitas", submarca, marca, modelo);
         _this3.descripciones_qualitas = res.data.descripciones;
       })["catch"](function (err) {
         console.log(err);
@@ -43132,33 +43141,33 @@ var render = function() {
                               2
                             )
                           ])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "row" }, [
-                        _vm._m(0),
+                        ]),
                         _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "col mt-3 d-flex justify-content-end"
-                          },
-                          [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-primary seleccionador",
-                                attrs: { type: "button", id: "8_1" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.sendCotizacion(_vm.cliente)
+                        _c("div", { staticClass: "row" }, [
+                          _vm._m(0),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "col mt-3 d-flex justify-content-end"
+                            },
+                            [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-primary seleccionador",
+                                  attrs: { type: "button", id: "8_1" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.sendCotizacion(_vm.cliente)
+                                    }
                                   }
-                                }
-                              },
-                              [_vm._v("Siguiente")]
-                            )
-                          ]
-                        )
+                                },
+                                [_vm._v("Siguiente")]
+                              )
+                            ]
+                          )
+                        ])
                       ])
                     ])
                   ]

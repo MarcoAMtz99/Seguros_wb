@@ -48,9 +48,9 @@ class ClienteController extends Controller
         //     'email'         => 'required|email',
         //     'sexo'          => 'required|in:Hombre,Mujer,Otro',
         //     'f_nac'         => 'required|date'
-        $request->nombre ='';
-        $request->appaterno= '';
-        $request->apmaterno= '';
+         $request->nombre ='';
+         $request->appaterno= '';
+         $request->apmaterno= '';
          $request->email='prueba@prueba.com';
          $request->telefono='5555555555';
         // ];
