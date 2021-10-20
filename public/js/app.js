@@ -5928,15 +5928,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   watch: {
     'getcotizacion.value': function getcotizacionValue(newVal, oldVal) {
-      console.log('Cliente::', this.cliente); // console.log('GETCOTIZACION:',this.getcotizacion);
+      console.log('Cliente::', this.cliente);
+      console.log('GETCOTIZACION:', this.getcotizacion);
 
       if (this.cliente.ana) {
         this.getDescripcionesANA(this.cliente.marca_auto.id_ana, this.cliente.submarca_auto.id_ana, this.cliente.submarca_auto.anio);
       }
 
       if (this.cliente.qualitas) {
-        this.getDescripcionesQualitas(this.cliente.qaMarca, this.cliente.qasubMarca, this.cliente.submarca_auto.anio);
-        console.log('DATOS DE QA EN COTIZACION', this.cliente);
+        this.getDescripcionesQualitas(this.cliente.qaMarca, this.cliente.qasubMarca, this.cliente.submarca_auto.anio); // console.log('DATOS DE QA EN COTIZACION',this.cliente);
       }
 
       if (this.cliente.gs) {
@@ -5945,8 +5945,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (this.cliente.gnp) {
-        this.getDescripcionesGNP(this.cliente.gnpMarca, this.cliente.gnpsubMarca, this.cliente.submarca_auto.anio);
-        console.log("Datos cliente", this.cliente);
+        this.getDescripcionesGNP(this.cliente.gnpMarca, this.cliente.gnpsubMarca, this.cliente.submarca_auto.anio); // console.log("Datos cliente",this.cliente);
       }
     },
     'desc_ana': function desc_ana(newVal, oldVal) {
@@ -5980,10 +5979,9 @@ __webpack_require__.r(__webpack_exports__);
 
       var url = "./api/vehiculoANA/".concat(marca_id, "/").concat(submarca_id, "/").concat(modelo);
       axios.get(url).then(function (res) {
-        console.log('descripcion ana', res.data);
-        _this.descripciones_ana = res.data.vehiculos;
-        console.log('Get Descripcion ANA', _this.descripciones_ana);
-        console.log('Funciona el controlador ANA EN VUE');
+        // console.log('descripcion ana',res.data)
+        _this.descripciones_ana = res.data.vehiculos; // console.log('Get Descripcion ANA',this.descripciones_ana);
+        // console.log('Funciona el controlador ANA EN VUE');
       })["catch"](function (err) {
         console.log('err', err);
       });
@@ -6025,10 +6023,10 @@ __webpack_require__.r(__webpack_exports__);
       var url = "./api/email-cotizacion";
       this.alert.message = '';
       this.alert["class"] = '';
-      axios.post(url, params).then(function (res) {
-        console.log('res:');
-        console.log('Metodo sendCotizacion');
-        console.log(res); // console.log('ESTA ACTIVO DESCRIPCIONES GS en sencotizacion');
+      axios.post(url, params).then(function (res) {// console.log('res:');
+        // console.log('Metodo sendCotizacion');
+        // console.log(res);
+        // console.log('ESTA ACTIVO DESCRIPCIONES GS en sencotizacion');
         // this.cliente.cotizacion =res.data.cotizacion.cotizacion;
         // this.cliente.uso_auto =res.data.cotizacion.uso_auto;
         // this.cliente.descripcion_auto = res.data.cotizacion.auto.version;
@@ -6086,8 +6084,8 @@ __webpack_require__.r(__webpack_exports__);
       this.cotizacionesQualitasT = []; // this.loader = true;
 
       axios.post(url, params).then(function (res) {
-        _this4.loader = false;
-        console.log("Descripcion qa: ", res.data);
+        _this4.loader = false; // console.log("Descripcion qa: ",res.data);
+
         _this4.cotizacionesQualitas = res.data.Qualitas;
         _this4.cotizacionesQualitasS = res.data.QualitasS;
         _this4.cotizacionesQualitasM = res.data.QualitasM;
@@ -6099,16 +6097,15 @@ __webpack_require__.r(__webpack_exports__);
 
         _this4.cotizacionQualitas.push(_this4.cotizacionesQualitasM);
 
-        _this4.cotizacionQualitas.push(_this4.cotizacionesQualitasT);
+        _this4.cotizacionQualitas.push(_this4.cotizacionesQualitasT); // console.log('COTIZACION COMPLETA QA: ',this.cotizacionQualitas);
 
-        console.log('COTIZACION COMPLETA QA: ', _this4.cotizacionQualitas);
 
-        _this4.sendCotizacion(_this4.cliente, _this4.cotizacionQualitas, "QA");
+        _this4.sendCotizacion(_this4.cliente, _this4.cotizacionQualitas, "QA"); // console.log('Cotizacion QA:', this.cotizacionesQualitas);
+        // console.log('Cotizacion QAS:', this.cotizacionesQualitasS);
+        // console.log('Cotizacion QAM:', this.cotizacionesQualitasM);
+        //  console.log('Cotizacion QAT:', this.cotizacionesQualitasT);
+        //Prueba QA
 
-        console.log('Cotizacion QA:', _this4.cotizacionesQualitas);
-        console.log('Cotizacion QAS:', _this4.cotizacionesQualitasS);
-        console.log('Cotizacion QAM:', _this4.cotizacionesQualitasM);
-        console.log('Cotizacion QAT:', _this4.cotizacionesQualitasT); //Prueba QA
       })["catch"](function (err) {
         _this4.loader = false;
         console.log(err);
@@ -6142,9 +6139,8 @@ __webpack_require__.r(__webpack_exports__);
         _this6.loader = false;
         _this6.cotizacionesGS = res.data.cotizacion;
 
-        _this6.sendCotizacion(_this6.cliente, _this6.cotizacionesGS, "GS");
+        _this6.sendCotizacion(_this6.cliente, _this6.cotizacionesGS, "GS"); // console.log('Cotizacion General de seguros',this.cotizacionesGS);
 
-        console.log('Cotizacion General de seguros', _this6.cotizacionesGS);
       })["catch"](function (err) {
         _this6.loader = false;
         console.log(err);
@@ -6157,8 +6153,8 @@ __webpack_require__.r(__webpack_exports__);
       axios.get(url).then(function (res) {
         console.log('DESCRIPCIONES GNP', res);
         _this7.descripciones_gnp2 = res.data.modelosGNP2; // console.log('data: ',res.data );
+        // console.log('Nuevas descripciones',this.descripciones_gnp2);
 
-        console.log('Nuevas descripciones', _this7.descripciones_gnp2);
         _this7.descripciones_gnp = res.data.modelosGNP.ELEMENTOS;
         _this7.descripciones_gnp2 = res.data.modelosGNP2;
         console.log("Hola esto es GNP RESULTADO", _this7.descripciones_gnp);
@@ -6180,9 +6176,9 @@ __webpack_require__.r(__webpack_exports__);
       axios.post(url, params).then(function (res) {
         _this8.cotizacionesGNP = res.data.cotizacionGNP;
 
-        _this8.sendCotizacion(_this8.cliente, _this8.cotizacionesGNP, "GNP");
+        _this8.sendCotizacion(_this8.cliente, _this8.cotizacionesGNP, "GNP"); // console.log('Cotizacion GNP arreglo',this.cotizacionesGNP);
 
-        console.log('Cotizacion GNP arreglo', _this8.cotizacionesGNP);
+
         _this8.loader = false;
       })["catch"](function (err) {
         _this8.loader = false;
@@ -6206,8 +6202,7 @@ __webpack_require__.r(__webpack_exports__);
           _this9.loader = false;
         }
       })["catch"](function (error) {
-        _this9.loaderGS = false;
-        console.log('general err', error);
+        _this9.loaderGS = false; // console.log('general err',error);
       });
     },
     infoAna: function infoAna(cotiza) {
@@ -6266,9 +6261,9 @@ __webpack_require__.r(__webpack_exports__);
         tipo_poliza: tipo_poliza,
         paquete: this.cotizacionesGNP.PAQUETES.PAQUETE,
         numCotizacion: this.cotizacionesGNP.SOLICITUD.NUM_COTIZACION
-      };
-      console.log('descripcionAuto:', this.desc_gnp);
-      console.log('Cotizacion GNP: ', this.setCotizacion);
+      }; // console.log('descripcionAuto:',this.desc_gnp);
+      // console.log('Cotizacion GNP: ', this.setCotizacion);
+
       this.$emit("emitirgnp", this.setCotizacion);
       $("#paso3-tab").removeClass("disabled");
       $("#paso3-tab").click();
