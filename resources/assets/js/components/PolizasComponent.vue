@@ -927,7 +927,7 @@
                        this.cotizacionQualitas.push(this.cotizacionesQualitasM);
                        this.cotizacionQualitas.push(this.cotizacionesQualitasT);
                        console.log('COTIZACION COMPLETA QA: ',this.cotizacionQualitas);
-                       this.sendCotizacion(this.cliente, this.cotizacionQualitas, "QA");
+                       // this.sendCotizacion(this.cliente, this.cotizacionQualitas, "QA");
                     console.log('Cotizacion QA:', this.cotizacionesQualitas);
                     console.log('Cotizacion QAS:', this.cotizacionesQualitasS);
                     console.log('Cotizacion QAM:', this.cotizacionesQualitasM);

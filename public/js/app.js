@@ -6101,9 +6101,7 @@ __webpack_require__.r(__webpack_exports__);
 
         _this4.cotizacionQualitas.push(_this4.cotizacionesQualitasT);
 
-        console.log('COTIZACION COMPLETA QA: ', _this4.cotizacionQualitas);
-
-        _this4.sendCotizacion(_this4.cliente, _this4.cotizacionQualitas, "QA");
+        console.log('COTIZACION COMPLETA QA: ', _this4.cotizacionQualitas); // this.sendCotizacion(this.cliente, this.cotizacionQualitas, "QA");
 
         console.log('Cotizacion QA:', _this4.cotizacionesQualitas);
         console.log('Cotizacion QAS:', _this4.cotizacionesQualitasS);
