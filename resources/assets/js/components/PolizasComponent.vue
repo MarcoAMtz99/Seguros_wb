@@ -770,7 +770,7 @@
                 }
                 if (this.cliente.qualitas) {
                     this.getDescripcionesQualitas(this.cliente.qaMarca,this.cliente.qasubMarca, this.cliente.submarca_auto.anio)
-                    console.log('DATOS DE QA EN COTIZACION',this.cliente.qasubMarca,this.cliente.qaMarca,this.cliente.submarca_auto.anio);
+                    console.log('DATOS DE QA EN COTIZACION',this.cliente);
                 }
                 if(this.cliente.gs){
                     console.log("Datos del auto: ",this.cliente.marca_auto.descripcion,this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio);

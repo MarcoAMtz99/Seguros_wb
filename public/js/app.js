@@ -5936,7 +5936,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.cliente.qualitas) {
         this.getDescripcionesQualitas(this.cliente.qaMarca, this.cliente.qasubMarca, this.cliente.submarca_auto.anio);
-        console.log('DATOS DE QA EN COTIZACION', this.cliente.qasubMarca, this.cliente.qaMarca, this.cliente.submarca_auto.anio);
+        console.log('DATOS DE QA EN COTIZACION', this.cliente);
       }
 
       if (this.cliente.gs) {
