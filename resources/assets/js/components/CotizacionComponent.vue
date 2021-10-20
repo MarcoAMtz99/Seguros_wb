@@ -1240,7 +1240,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 					this.cliente.gsMarca		  = res.data.cotizacion.gsMarca;
 
 					this.cliente.qaMarca		  = res.data.cotizacion.qaMarca;
-					this.cliente.qaSubmarca		  = res.data.cotizacion.qaSubmarca;
+					this.cliente.qaSubmarca		  = res.data.cotizacion.qasubMarca;
 
     				this.getcotizacion.value 	  = !this.getcotizacion.value;
 
