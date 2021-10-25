@@ -2332,6 +2332,38 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -2340,6 +2372,8 @@ $(document).ready(function ($) {
       changeYear: true
     });
   }
+
+  $('#myModal').modal('toggle');
 });
 
 function Cliente(_ref) {
@@ -2396,6 +2430,7 @@ function Cliente(_ref) {
       submarcasQA: [],
       pills: ['v-pills-Uso', 'v-pills-Marca', 'v-pills-Submarca', 'v-pills-Modelo', 'v-pills-CP', 'v-pills-Nombre', 'v-pills-Celular', 'v-pills-Correo', 'v-pills-Sexo', 'v-pills-Nacimiento', 'v-pills-Aseguradoras'],
       alert_cp: "",
+      isVisible: true,
       uso: true,
       marca: false,
       submarca: false,
@@ -2610,6 +2645,12 @@ function Cliente(_ref) {
           $('#alert').alert('show');
         }
       });
+    },
+    open: function open() {
+      this.isVisible = true;
+    },
+    close: function close() {
+      this.isVisible = false;
     },
     selectAll: function selectAll() {
       if (!this.checkall) {
@@ -2928,7 +2969,7 @@ function Cliente(_ref) {
       _this15.cliente.qaMarca = res.data.cotizacion.qaMarca;
       _this15.cliente.qaSubmarca = res.data.cotizacion.qasubMarca;
       _this15.getcotizacion.value = !_this15.getcotizacion.value;
-      _this15.alert.message = "".concat(_this15.cliente.nombre, " ").concat(_this15.cliente.appaterno, " ").concat(_this15.cliente.apmaterno, " su cotizaci\xF3n se guardo con el folio ").concat(_this15.cliente.cotizacion);
+      _this15.alert.message = "su cotizaci\xF3n se guardo con el folio ".concat(_this15.cliente.cotizacion);
       _this15.alert["class"] = "alert alert-success alert-dismissible fade show";
       $("#paso2-tab").removeClass("disabled");
       $("#paso2-tab").click();
@@ -44991,7 +45032,9 @@ var render = function() {
           ]
         )
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _vm._m(11)
   ])
 }
 var staticRenderFns = [
@@ -45187,6 +45230,109 @@ var staticRenderFns = [
         [_vm._v("Atras")]
       )
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "myModal",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog", attrs: { role: "document" } },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "exampleModalLabel" }
+                  },
+                  [_vm._v("Como cotizar")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "close",
+                    attrs: {
+                      type: "button",
+                      "data-dismiss": "modal",
+                      "aria-label": "Close"
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("×")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("p", [
+                  _c("b", [_vm._v("1-")]),
+                  _vm._v(" SELECCIONA EL TIPO DE USO")
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("strong", [_vm._v("2-")]),
+                  _vm._v(" INGRESA TU FECHA DE NACIMIENTO")
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("strong", [_vm._v("3-")]),
+                  _vm._v(" INGRESA EL AÑO DE TU MODELO")
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("strong", [_vm._v("4-")]),
+                  _vm._v(" INGRESA TU CODIGO POSTAL")
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("strong", [_vm._v("5-")]),
+                  _vm._v(" SELECCIONA EL GENERO")
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("strong", [_vm._v("6-")]),
+                  _vm._v(" SELECCIONA EL MODELO EN CADA ASEGURADORA")
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("strong", [_vm._v("7-")]),
+                  _vm._v(" HAZ CLICK EN SIGUIENTE")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "myModal" }
+                  },
+                  [_vm._v("Close")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
   }
 ]
 render._withStripped = true

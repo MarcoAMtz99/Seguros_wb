@@ -622,12 +622,44 @@
     			</div>
     		</div>
     	</div>
+    	
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Como cotizar</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<!-- <strong></strong> -->
+        <p><b>1-</b> SELECCIONA EL TIPO DE USO</p>
+         <p><strong>2-</strong> INGRESA TU FECHA DE NACIMIENTO</p>
+          <p><strong>3-</strong> INGRESA EL AÑO DE TU MODELO</p>
+           <p><strong>4-</strong> INGRESA TU CODIGO POSTAL</p>
+            <p><strong>5-</strong> SELECCIONA EL GENERO</p>
+             <p><strong>6-</strong> SELECCIONA EL MODELO EN CADA ASEGURADORA</p>
+              <p><strong>7-</strong> HAZ CLICK EN SIGUIENTE</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="myModal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
     	<!-- Fin de crear cotización -->
 	    <!-- <pre>
 	    	@{{$data}}
 	    </pre> -->
     </div>
+
+
 </template>
+	
+
 
 <script>
 $(document).ready(function($) {
@@ -635,6 +667,7 @@ $(document).ready(function($) {
         console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
         $("#valorEdad").datepicker({changeMonth:true, changeYear: true});
     }
+    $('#myModal').modal('toggle');
 });
 
 function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefono,email,sexo,f_nac, qualitas, ana,ejecutivo,codigo_descuento,}){
@@ -691,6 +724,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				'v-pills-Aseguradoras'
     			],
     			alert_cp:"",
+    			isVisible: true,
     			uso: true,
     			marca: false,
     			submarca:false,
@@ -963,6 +997,13 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 
 
     		},
+    		open() {
+            this.isVisible = true
+		        },
+
+		        close() {
+		            this.isVisible = false
+		        },
     		selectAll(){
     			if (!this.checkall) {
     				this.cliente.qualitas = 1;
@@ -1284,7 +1325,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 
     				this.getcotizacion.value 	  = !this.getcotizacion.value;
 
-    				this.alert.message 			  = `${this.cliente.nombre} ${this.cliente.appaterno} ${this.cliente.apmaterno} su cotización se guardo con el folio ${this.cliente.cotizacion}`;
+    				this.alert.message 			  = `su cotización se guardo con el folio ${this.cliente.cotizacion}`;
     				this.alert.class 			  = "alert alert-success alert-dismissible fade show";
 
     				$("#paso2-tab").removeClass("disabled");
