@@ -56,6 +56,28 @@ class ClienteController extends Controller
         // ];
         // $this->validate($request,$rules);
         // return $request->all();
+         // dd($request);
+         if ($request->gs==null) {
+              $generalMarca  ='';
+             $request->submarcasGS ='';
+         }else{
+            $generalMarca = $request->gsMarca['nombre'];
+         }
+         if ($request->gnp==null) {
+             $request->gnpMarca = '';
+             $request->gnpsubMarca = '';
+         }
+         if ($request->ana==null) {
+           $marcaAna= '';
+            $submarcaAna='';
+         }else{
+            $marcaAna=$request->marca_auto['descripcion'] ;
+            $submarcaAna=$request->marca_auto['descripcion'];
+         }
+         if ($request->qualitas==null) {
+             $request->qaMarca = '';
+             $request->qaSubmarca = '';
+         }
 
         $cliente = Cliente::create([
             "uso_auto"         => $request->uso_auto,
@@ -76,10 +98,10 @@ class ClienteController extends Controller
             'codigo_descuento' => $request->codigo_descuento,
             'gnpMarca'         => $request->gnpMarca,
             'gnpsubMarca'      => $request->gnpsubMarca,
-            'gsMarca'          => $request->gsMarca['nombre'],
+            'gsMarca'          => $generalMarca,
             'gssubMarca'       => $request->submarcasGS,
-            'anaMarca'         => $request->marca_auto['descripcion'],
-            'anasubMarca'      => $request->submarca_auto['descripcion'],
+            'anaMarca'         => $marcaAna,
+            'anasubMarca'      => $submarcaAna,
             'qaMarca'          => $request->qaMarca,
             'qasubMarca'       => $request->qaSubmarca
 

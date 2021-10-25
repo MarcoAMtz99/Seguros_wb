@@ -2331,6 +2331,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -2413,11 +2414,17 @@ function Cliente(_ref) {
         this.marca = true;
         this.cp = true;
         $('#v-pills-Modelo-tab').removeClass('disabled');
-        $('#v-pills-Modelo-tab').click(); // $('#v-pills-CP-tab').removeClass('disabled');
+        $('#v-pills-Modelo-tab').click();
+        $('#fechaNacimineto').removeClass('disabled');
+        console.log('CAMBIO TIPO SERVICIO'); // $('#v-pills-CP-tab').removeClass('disabled');
         // $('#v-pills-CP-tab').click();
 
         this.modelo = true;
       }
+    },
+    'cliente.f_nac': function clienteF_nac(newValue, oldValue) {
+      $('#valorModelo').removeClass('disabled');
+      console.log('Cambios en fecha de nacimiento');
     },
     'modeloGNP': function modeloGNP(newValue, oldValue) {
       console.log('Aqui se ejecutaron los MODELOS GNP', this.modelos); // this.marcaGNP = this.modeloGNP;
@@ -2427,7 +2434,8 @@ function Cliente(_ref) {
     'cliente.modelos': function clienteModelos(newValue, oldValue) {
       if (newValue != "") {
         this.modelos = this.cliente.modelos;
-        this.modeloGNP = this.cliente.modelos; // this.marcaGNP = marcaGNP
+        this.modeloGNP = this.cliente.modelos;
+        $('#valorCP').removeClass('disabled'); // this.marcaGNP = marcaGNP
 
         this.cliente.modelo_auto = this.cliente.modelos;
         this.marcasGNP = this.getmarcaGNP(this.modeloGNP);
@@ -2435,6 +2443,23 @@ function Cliente(_ref) {
         this.marcasGS = this.getMarcasGS();
         this.marcasQA = this.getMarcasQa();
       }
+    },
+    'cliente.gnp': function clienteGnp(newValue, oldValue) {
+      $('#marcaGNP').removeClass('disabled');
+      $('#submarcaGNP').removeClass('disabled');
+    },
+    'cliente.ana': function clienteAna(newValue, oldValue) {
+      $('#marcaAna').removeClass('disabled');
+      $('#submarcaAna').removeClass('disabled');
+    },
+    'cliente.gs': function clienteGs(newValue, oldValue) {
+      $('#marcaGeneral').removeClass('disabled');
+      $('#submarcaGeneral').removeClass('disabled');
+      console.log('Se remueve clase de GS');
+    },
+    'cliente.qualitas': function clienteQualitas(newValue, oldValue) {
+      $('#marcaQa').removeClass('disabled');
+      $('#submarcaQa').removeClass('disabled');
     },
     'marcaGNP': function marcaGNP(newValue, oldValue) {
       // this.cliente.gnpMarca ="";cliente.gnpMarca
@@ -2449,7 +2474,8 @@ function Cliente(_ref) {
 
       this.submarcaGNP = this.cliente.gnpsubMarca;
       console.log('subMarca que se envia seleccion', this.cliente.gnpsubMarca);
-      console.log('subMarca que se envia', this.gnpsubMarca, this.submarcaGNP); // $('#v-pills-CP-tab').removeClass('disabled');
+      console.log('subMarca que se envia', this.gnpsubMarca, this.submarcaGNP);
+      $('#8_1').removeClass('disabled'); // $('#v-pills-CP-tab').removeClass('disabled');
       // $('#v-pills-CP-tab').click();
     },
     'cliente.modelo_auto': function clienteModelo_auto(newV, oldV) {
@@ -2479,7 +2505,8 @@ function Cliente(_ref) {
       if (newV != "") {
         console.log('VALOR DE LA SUBMARCA', this.cliente.qaSubmarca);
         this.submarcaQA = this.cliente.qaSubmarca;
-        this.cliente.qaSubmarca = this.submarcaQA; // $('#v-pills-Marca-tab').removeClass('disabled');
+        this.cliente.qaSubmarca = this.submarcaQA;
+        $('#8_1').removeClass('disabled'); // $('#v-pills-Marca-tab').removeClass('disabled');
         // $('#v-pills-Marca-tab').click();
       }
     },
@@ -2487,7 +2514,8 @@ function Cliente(_ref) {
       if (newV != "") {
         this.submarcaGS = this.cliente.submarcasGS;
         console.log('SUBMARCA SELECCIONADA GS:', this.submarcaGS);
-        this.cliente.gssubMarca = this.submarcaGS; // $('#v-pills-Marca-tab').removeClass('disabled');
+        this.cliente.gssubMarca = this.submarcaGS;
+        $('#8_1').removeClass('disabled'); // $('#v-pills-Marca-tab').removeClass('disabled');
         // $('#v-pills-Marca-tab').click();
       }
     },
@@ -2505,18 +2533,25 @@ function Cliente(_ref) {
     'cliente.submarca_auto': function clienteSubmarca_auto(newV, oldV) {
       if (newV != "") {
         this.cp = true;
+        $('#8_1').removeClass('disabled');
         $('#v-pills-CP-tab').removeClass('disabled'); // $('#v-pills-CP-tab').click();
       }
     },
     'cliente.sexo': function clienteSexo(newV, oldV) {
       if (newV != "") {
         this.nac = true;
+        $('#checkbox-gnp').removeClass('disabled');
+        $('#checkbox-ana').removeClass('disabled');
+        $('#checkbox-gs').removeClass('disabled');
+        $('#checkbox-qualitas').removeClass('disabled');
+        $('#v-pills-Nacimiento-tab').removeClass('disabled');
         $('#v-pills-Nacimiento-tab').removeClass('disabled');
         $('#v-pills-Nacimiento-tab').click();
       }
     },
     'cliente.cp': function clienteCp(newValue, oldValue) {
       this.getCP();
+      $('#genero').removeClass('disabled'); // $('#v-pills-Nacimiento-tab').removeClass('disabled');	
     }
   },
   created: function created() {
@@ -42113,10 +42148,9 @@ var render = function() {
                                       expression: "cliente.uso_auto"
                                     }
                                   ],
-                                  staticClass:
-                                    "list-group list-group-flush col mr-0 ml-0",
+                                  staticClass: "nav-link active col-12",
                                   staticStyle: { "overflow-y": "hidden" },
-                                  attrs: { size: "1" },
+                                  attrs: { id: "tipoServicio", size: "1" },
                                   on: {
                                     change: function($event) {
                                       var $$selectedVal = Array.prototype.filter
@@ -42178,44 +42212,45 @@ var render = function() {
                                 ]
                               )
                             ])
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c("label", [_vm._v("Fecha de nacimiento")]),
+                          ]),
                           _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.cliente.f_nac,
-                                expression: "cliente.f_nac"
-                              }
-                            ],
-                            attrs: {
-                              type: "date",
-                              id: "valorEdad",
-                              onchange: "cambiarEdad(this.value)"
-                            },
-                            domProps: { value: _vm.cliente.f_nac },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("label", [_vm._v("Fecha de nacimiento")]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.cliente.f_nac,
+                                  expression: "cliente.f_nac"
                                 }
-                                _vm.$set(
-                                  _vm.cliente,
-                                  "f_nac",
-                                  $event.target.value
-                                )
+                              ],
+                              staticClass: "nav-link disabled col-12",
+                              attrs: {
+                                type: "date",
+                                id: "fechaNacimineto",
+                                onchange: "cambiarEdad(this.value)"
+                              },
+                              domProps: { value: _vm.cliente.f_nac },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.cliente,
+                                    "f_nac",
+                                    $event.target.value
+                                  )
+                                }
                               }
-                            }
-                          })
+                            })
+                          ])
                         ])
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "col-2" }, [
+                      _c("div", { staticClass: "col-4" }, [
                         _c("div", { staticClass: "input-group" }, [
                           _c("div", { staticClass: "form-group" }, [
                             _c("label", [_vm._v("Modelo")]),
@@ -42229,7 +42264,7 @@ var render = function() {
                                   expression: "cliente.modelos"
                                 }
                               ],
-                              staticClass: "form-control",
+                              staticClass: "nav-link disabled",
                               attrs: {
                                 type: "number",
                                 placeholder: "2001,2002,2003,2004",
@@ -42264,7 +42299,7 @@ var render = function() {
                                   expression: "cliente.cp"
                                 }
                               ],
-                              staticClass: "form-control",
+                              staticClass: "nav-link disabled",
                               attrs: {
                                 type: "number",
                                 placeholder: "CP: 000000",
@@ -42316,9 +42351,9 @@ var render = function() {
                                     expression: "cliente.sexo"
                                   }
                                 ],
-                                staticClass: "list-group list-group-flush col",
+                                staticClass: "nav-link disabled col-12",
                                 staticStyle: { "overflow-y": "hidden" },
-                                attrs: { size: "1" },
+                                attrs: { size: "1", id: "genero" },
                                 on: {
                                   change: function($event) {
                                     var $$selectedVal = Array.prototype.filter
@@ -42376,7 +42411,7 @@ var render = function() {
                         ])
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "col-6" }, [
+                      _c("div", { staticClass: "col-5" }, [
                         _c("div", { staticClass: "row" }, [
                           _c("div", { staticClass: "col" }, [
                             _c("input", {
@@ -42388,7 +42423,7 @@ var render = function() {
                                   expression: "cliente.gnp"
                                 }
                               ],
-                              staticClass: "form-check-input",
+                              staticClass: "form-check-input nav-link disabled",
                               attrs: {
                                 type: "checkbox",
                                 id: "checkbox-gnp",
@@ -42462,7 +42497,8 @@ var render = function() {
                                     expression: "marcaGNP"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control nav-link disabled",
+                                attrs: { id: "marcaGNP" },
                                 on: {
                                   change: function($event) {
                                     var $$selectedVal = Array.prototype.filter
@@ -42484,7 +42520,8 @@ var render = function() {
                                 _c(
                                   "option",
                                   {
-                                    staticClass: "form-control form-control-sm",
+                                    staticClass:
+                                      "form-control form-control-sm ",
                                     staticStyle: { "white-space": "normal" },
                                     attrs: { value: "" }
                                   },
@@ -42515,7 +42552,8 @@ var render = function() {
                                     expression: "cliente.gnpsubMarca"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control nav-link disabled",
+                                attrs: { id: "submarcaGNP" },
                                 on: {
                                   change: function($event) {
                                     var $$selectedVal = Array.prototype.filter
@@ -42576,7 +42614,7 @@ var render = function() {
                                   expression: "cliente.ana"
                                 }
                               ],
-                              staticClass: "form-check-input",
+                              staticClass: "form-check-input nav-link disabled",
                               attrs: {
                                 type: "checkbox",
                                 id: "checkbox-ana",
@@ -42650,7 +42688,8 @@ var render = function() {
                                     expression: "cliente.marca_auto"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control nav-link disabled",
+                                attrs: { id: "marcaAna" },
                                 on: {
                                   change: function($event) {
                                     var $$selectedVal = Array.prototype.filter
@@ -42711,7 +42750,8 @@ var render = function() {
                                     expression: "cliente.submarca_auto"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control nav-link disabled",
+                                attrs: { id: "submarcaAna" },
                                 on: {
                                   change: function($event) {
                                     var $$selectedVal = Array.prototype.filter
@@ -42774,7 +42814,7 @@ var render = function() {
                                   expression: "cliente.gs"
                                 }
                               ],
-                              staticClass: "form-check-input",
+                              staticClass: "form-check-input nav-link disabled",
                               attrs: {
                                 type: "checkbox",
                                 id: "checkbox-gs",
@@ -42848,7 +42888,8 @@ var render = function() {
                                     expression: "cliente.gsMarca"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control nav-link disabled",
+                                attrs: { id: "marcaGeneral" },
                                 on: {
                                   change: function($event) {
                                     var $$selectedVal = Array.prototype.filter
@@ -42905,7 +42946,8 @@ var render = function() {
                                     expression: "cliente.submarcasGS"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control nav-link disabled",
+                                attrs: { id: "submarcaGeneral" },
                                 on: {
                                   change: function($event) {
                                     var $$selectedVal = Array.prototype.filter
@@ -42964,7 +43006,7 @@ var render = function() {
                                   expression: "cliente.qualitas"
                                 }
                               ],
-                              staticClass: "form-check-input",
+                              staticClass: "form-check-input nav-link disabled",
                               attrs: {
                                 type: "checkbox",
                                 id: "checkbox-qualitas",
@@ -43038,7 +43080,8 @@ var render = function() {
                                     expression: "cliente.qaMarca"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control nav-link disabled",
+                                attrs: { id: "marcaQa" },
                                 on: {
                                   change: function($event) {
                                     var $$selectedVal = Array.prototype.filter
@@ -43095,7 +43138,8 @@ var render = function() {
                                     expression: "cliente.qaSubmarca"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control nav-link disabled",
+                                attrs: { id: "submarcaQa" },
                                 on: {
                                   change: function($event) {
                                     var $$selectedVal = Array.prototype.filter
@@ -43153,7 +43197,8 @@ var render = function() {
                               _c(
                                 "button",
                                 {
-                                  staticClass: "btn btn-primary seleccionador",
+                                  staticClass:
+                                    "btn btn-primary seleccionador nav-link disabled",
                                   attrs: { type: "button", id: "8_1" },
                                   on: {
                                     click: function($event) {
@@ -44621,7 +44666,7 @@ var render = function() {
                                   type: "checkbox",
                                   id: "checkbox-gnp",
                                   "true-value": "1",
-                                  "false-value": "0"
+                                  "false-value": "1"
                                 },
                                 domProps: {
                                   checked: Array.isArray(_vm.cliente.gnp)
@@ -44632,7 +44677,7 @@ var render = function() {
                                   change: function($event) {
                                     var $$a = _vm.cliente.gnp,
                                       $$el = $event.target,
-                                      $$c = $$el.checked ? "1" : "0"
+                                      $$c = $$el.checked ? "1" : "1"
                                     if (Array.isArray($$a)) {
                                       var $$v = null,
                                         $$i = _vm._i($$a, $$v)
@@ -44698,7 +44743,7 @@ var render = function() {
                                       type: "checkbox",
                                       id: "checkbox-gs",
                                       "true-value": "1",
-                                      "false-value": "0"
+                                      "false-value": "1"
                                     },
                                     domProps: {
                                       checked: Array.isArray(_vm.cliente.gs)
@@ -44709,7 +44754,7 @@ var render = function() {
                                       change: function($event) {
                                         var $$a = _vm.cliente.gs,
                                           $$el = $event.target,
-                                          $$c = $$el.checked ? "1" : "0"
+                                          $$c = $$el.checked ? "1" : "1"
                                         if (Array.isArray($$a)) {
                                           var $$v = null,
                                             $$i = _vm._i($$a, $$v)
@@ -44852,7 +44897,7 @@ var render = function() {
                                       type: "checkbox",
                                       id: "checkbox-ana",
                                       "true-value": "1",
-                                      "false-value": "0"
+                                      "false-value": "1"
                                     },
                                     domProps: {
                                       checked: Array.isArray(_vm.cliente.ana)
@@ -44863,7 +44908,7 @@ var render = function() {
                                       change: function($event) {
                                         var $$a = _vm.cliente.ana,
                                           $$el = $event.target,
-                                          $$c = $$el.checked ? "1" : "0"
+                                          $$c = $$el.checked ? "1" : "1"
                                         if (Array.isArray($$a)) {
                                           var $$v = null,
                                             $$i = _vm._i($$a, $$v)
