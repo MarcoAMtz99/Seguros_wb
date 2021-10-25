@@ -2650,7 +2650,8 @@ function Cliente(_ref) {
       this.isVisible = true;
     },
     close: function close() {
-      this.isVisible = false;
+      // myModal
+      $("#myModal").modal('hide'); // console.log('CERRAR VENTANA');
     },
     selectAll: function selectAll() {
       if (!this.checkall) {
@@ -45034,7 +45035,79 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(11)
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "myModal",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog", attrs: { role: "document" } },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "exampleModalLabel" }
+                  },
+                  [_vm._v("Como cotizar")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "close",
+                    attrs: {
+                      type: "button",
+                      "data-dismiss": "modal",
+                      "aria-label": "Close"
+                    },
+                    on: {
+                      click: function($event) {
+                        return _vm.close()
+                      }
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("×")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _vm._m(11),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "myModal" },
+                    on: {
+                      click: function($event) {
+                        return _vm.close()
+                      }
+                    }
+                  },
+                  [_vm._v("Cerrar")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -45235,104 +45308,33 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "myModal",
-          tabindex: "-1",
-          role: "dialog",
-          "aria-labelledby": "exampleModalLabel",
-          "aria-hidden": "true"
-        }
-      },
-      [
-        _c(
-          "div",
-          { staticClass: "modal-dialog", attrs: { role: "document" } },
-          [
-            _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
-                _c(
-                  "h5",
-                  {
-                    staticClass: "modal-title",
-                    attrs: { id: "exampleModalLabel" }
-                  },
-                  [_vm._v("Como cotizar")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "close",
-                    attrs: {
-                      type: "button",
-                      "data-dismiss": "modal",
-                      "aria-label": "Close"
-                    }
-                  },
-                  [
-                    _c("span", { attrs: { "aria-hidden": "true" } }, [
-                      _vm._v("×")
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-body" }, [
-                _c("p", [
-                  _c("b", [_vm._v("1-")]),
-                  _vm._v(" SELECCIONA EL TIPO DE USO")
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _c("strong", [_vm._v("2-")]),
-                  _vm._v(" INGRESA TU FECHA DE NACIMIENTO")
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _c("strong", [_vm._v("3-")]),
-                  _vm._v(" INGRESA EL AÑO DE TU MODELO")
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _c("strong", [_vm._v("4-")]),
-                  _vm._v(" INGRESA TU CODIGO POSTAL")
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _c("strong", [_vm._v("5-")]),
-                  _vm._v(" SELECCIONA EL GENERO")
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _c("strong", [_vm._v("6-")]),
-                  _vm._v(" SELECCIONA EL MODELO EN CADA ASEGURADORA")
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _c("strong", [_vm._v("7-")]),
-                  _vm._v(" HAZ CLICK EN SIGUIENTE")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-footer" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-secondary",
-                    attrs: { type: "button", "data-dismiss": "myModal" }
-                  },
-                  [_vm._v("Close")]
-                )
-              ])
-            ])
-          ]
-        )
-      ]
-    )
+    return _c("div", { staticClass: "modal-body" }, [
+      _c("p", [_c("b", [_vm._v("1-")]), _vm._v(" SELECCIONA EL TIPO DE USO ")]),
+      _vm._v(" "),
+      _c("p", [
+        _c("strong", [_vm._v("2-")]),
+        _vm._v(" INGRESA TU FECHA DE NACIMIENTO")
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _c("strong", [_vm._v("3-")]),
+        _vm._v(" INGRESA EL AÑO DE TU MODELO")
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _c("strong", [_vm._v("4-")]),
+        _vm._v(" INGRESA TU CODIGO POSTAL")
+      ]),
+      _vm._v(" "),
+      _c("p", [_c("strong", [_vm._v("5-")]), _vm._v(" SELECCIONA EL GENERO")]),
+      _vm._v(" "),
+      _c("p", [
+        _c("strong", [_vm._v("6-")]),
+        _vm._v(" SELECCIONA EL MODELO EN CADA ASEGURADORA")
+      ]),
+      _vm._v(" "),
+      _c("p", [_c("strong", [_vm._v("7-")]), _vm._v(" HAZ CLICK EN SIGUIENTE")])
+    ])
   }
 ]
 render._withStripped = true

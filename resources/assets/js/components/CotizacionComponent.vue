@@ -629,13 +629,13 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Como cotizar</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="close()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
       	<!-- <strong></strong> -->
-        <p><b>1-</b> SELECCIONA EL TIPO DE USO</p>
+        <p><b>1-</b> SELECCIONA EL TIPO DE USO </p>
          <p><strong>2-</strong> INGRESA TU FECHA DE NACIMIENTO</p>
           <p><strong>3-</strong> INGRESA EL AÑO DE TU MODELO</p>
            <p><strong>4-</strong> INGRESA TU CODIGO POSTAL</p>
@@ -644,7 +644,7 @@
               <p><strong>7-</strong> HAZ CLICK EN SIGUIENTE</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="myModal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="myModal" @click="close()">Cerrar</button>
         <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>
     </div>
@@ -1002,7 +1002,9 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 		        },
 
 		        close() {
-		            this.isVisible = false
+		            // myModal
+		            $("#myModal").modal('hide');
+		            // console.log('CERRAR VENTANA');
 		        },
     		selectAll(){
     			if (!this.checkall) {
