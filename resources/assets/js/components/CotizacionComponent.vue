@@ -1,5 +1,8 @@
 <template>
     <div>
+    	<div v-show="loader_marca" class="loading">
+    		<p>CARGANDO</p>
+    	</div>
   		<!-- Crear cotización -->
     	<div class="tab-pane">
     		<div class="row m-0 p-1 no-gutters">
@@ -19,13 +22,13 @@
 		            </div>
     			</div> -->
 
-    			<div class="col col-sm-8 p-2" v-show="!searchOption">
+    			<div class="col col-sm-12 p-2" v-show="!searchOption">
     				<div class="tab-content" id="v-pills-tabContent">
     					 
     					
     					<div class="tab-pane fade show active" id="v-pills-Uso" role="tabpanel" aria-albelledby="v-pills-Uso-tab">
     						<div class="row p-0 m-0">
-    							<div class="col-3 p-0 m-0">
+    							<div class="col-12 col-md-3 p-0 m-0">
     								<div class="input-group">
     									<input class="form-control" type="text" v-model="cliente.cotizacion" placeholder="¿Ya tienes código de cotización?" aria-label="No. generado por el sistema">
     									<div class="input-group-append" v-if="cliente.cotizacion">
@@ -47,6 +50,7 @@
     								<div class="col-12 p-0 my-4">
     									<div class="card">
     										<div class="card-header">
+    											<strong><p class="h4 align-center">1</p></strong>
     											Uso:
     										</div>
     										<div class="card-body">
@@ -58,151 +62,236 @@
     										</div>
 
     									</div>
-    									  <div class="form-group">
-		                              	<label>Fecha de nacimiento</label>
-		                                <input type="date" v-model="cliente.f_nac" id="fechaNacimineto"  onchange="cambiarEdad(this.value)"  class="nav-link disabled col-12">
-		                            </div>
+    									<div class="card">
+    										<div class="card-header">
+
+    											<strong><p class="h4">2</p></strong>
+    											Fecha de nacimiento
+    											</div>
+    											<div class="card-body">
+    												<div class="form-group">
+					                              	
+					                                <input type="date" v-model="cliente.f_nac" id="fechaNacimineto"  onchange="cambiarEdad(this.value)"  class="nav-link disabled col-12">
+					                            </div>
+    											</div>
+    										
+    									</div>
+    								
     								</div>
     								 
     							</div>  
+    						
     							<!-- DESPUES DE AQUI IRAN LOS CAMPOES DEL FORMULARIO -->
-    							<div class="col-4">
+    							<div class="col-12 col-md-4 ">
     								<div class="input-group">
-    							<div class="form-group">
-    									<label>Modelo</label>
-    									<input class="nav-link disabled" type="number" v-model="cliente.modelos" placeholder="2001,2002,2003,2004" aria-label="Modelo" id="valorModelo" >
-    								</div>
-    								<div class="form-group">
-    									<label>Codigo Postal</label>
-		                                <input type="number" class="nav-link disabled" v-model="cliente.cp" placeholder="CP: 000000" id="valorCP" >
-		                                <div class="alert alert-danger" v-show="alert_cp">
-  											<strong>{{alert_cp}}</strong>
-										</div>
-		                            </div>
-		                            <div class="form-group">
-		                            	<label>Genero</label>
-		                            	 <select v-model="cliente.sexo" size="1" id="genero" class="nav-link disabled col-12"  style="overflow-y: hidden;">
-
-										<option value="Hombre" class="list-group-item text-center text-dark seleccionador">Masculino </option>
-                        				<option value="Mujer" class="list-group-item text-center text-dark seleccionador">Femenino</option>
-                        				<option value="Otro" class="list-group-item text-center text-dark seleccionador">Otro</option>
-									</select>
-		                            </div>
-
-    								</div>
-    								</div>
-
-    			<div class="col-5">
-    					<div class="row">
-
-		  				<div class="col">
-		  					<!-- <label for="gnp_lista" class="col">GNP</label> -->
-		  					<input class="form-check-input nav-link disabled" type="checkbox" id="checkbox-gnp" v-model="cliente.gnp" true-value="1" false-value="0">
-		  					 <label class="form-check-label" for=""><img :src="img.gnpImage" width="120" height="50"></label>
-		  				</div>
-		  		
-		  				<div class="col-3">
-		  					<select v-model="marcaGNP" class="form-control nav-link disabled" id="marcaGNP">
-    								<option value="" class="form-control form-control-sm " style="white-space: normal;">Seleccione el modelo</option>
-
-    								<option :value="marcas" v-for="marcas in marcasGNP">{{marcas}}</option>
-    								</select>
+    										<div class="col-12 card">
+    								<div class="card-header">
+    									<strong><p class="h4">3</p></strong>
+    									Modelo
+    										</div>
+    									<div class="card-body">
+    										<div class="form-group">
     								
-		  				</div>
-		  				<div class="col-3">
-		  					<select v-model="cliente.gnpsubMarca" class="form-control nav-link disabled" id="submarcaGNP">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option v-for="marcas in submarcasGNP" :value="marcas">{{marcas}}</option>
-    								</select>
-		  				</div>
-		  				
-						</div>
-						<hr>
-						
-
-
-						<hr>	
-						<div class="row">
-		  				<div class="col">
-		  					<input class="form-check-input nav-link disabled" type="checkbox" id="checkbox-ana" v-model="cliente.ana" true-value="1" false-value="0">
-		  					<label class="form-check-label" for="checkbox-ana"><img :src="img.anaImage" width="120" height="50"></label>
-		  				</div>
-		  			
-		  					<div class="col-3">
-		  					<select v-model="cliente.marca_auto" class="form-control nav-link disabled" id="marcaAna">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
-
-    								<option v-for="marca in marcas" :value="marca" class="list-group-item text-center text-dark seleccionador">{{marca.descripcion}}</option>
-    								</select>
-		  					</div>
-		  					<div class="col-3">
-		  					<select v-model="cliente.submarca_auto" class="form-control nav-link disabled" id="submarcaAna">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option v-for="submarca in submarcas" :value="submarca" class="list-group-item text-center text-dark seleccionador">{{submarca.descripcion}}</option>
-    								</select>
-		  					</div>
-		  				
-							</div>
-							<hr>	
-							<div class="row">
-		  					<div class="col">
-		  						<input class="form-check-input nav-link disabled" type="checkbox" id="checkbox-gs" v-model="cliente.gs" true-value="1" false-value="0">
-		  					<label class="form-check-label" for="checkbox-gs"><img :src="img.gsImage" width="120" height="50"></label>
-		  					</div>
-		  					<div class="col-3">
-		  					<select v-model="cliente.gsMarca" class="form-control nav-link disabled" id="marcaGeneral">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la marca</option>
-
-    								<option :value="marcas" v-for="marcas in marcasGS">{{marcas.nombre}}</option>
-    								</select>
-		  					</div>
-
-		  					<div class="col-3">
-		  					<select v-model="cliente.submarcasGS" class="form-control nav-link disabled" id="submarcaGeneral">
-    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-
-    								<option :value="marcas.nombre" v-for="marcas in submarcasGS">{{marcas.nombre}}</option>
-    								</select>
-		  						</div>
-
-
-		  				
-		  				
-								</div>
-								<hr>
-								<div class="row">
-				  				<div class="col">
-				  					<input class="form-check-input nav-link disabled" type="checkbox" id="checkbox-qualitas" v-model="cliente.qualitas" true-value="1" false-value="0">
-				  					<label class="form-check-label" for="checkbox-qualitas"><img :src="img.quaImage" width="120" height="50"></label>
-				  				</div>
-				  			
-				  				<div class="col-3">
-				  					<select v-model="cliente.qaMarca" class="form-control nav-link disabled" id="marcaQa">
-		    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
-
-		    								<option :value="marcas.cMarcaLarga" v-for="marcas in marcasQA">{{marcas.cMarcaLarga}}</option>
-		    								</select>
-				  				</div>
-				  				<div class="col-3">
-				  					<select v-model="cliente.qaSubmarca" class="form-control nav-link disabled" id="submarcaQa">
-		    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
+		    									<input class="nav-link disabled" type="number" v-model="cliente.modelos" placeholder="2001,2002,2003,2004" aria-label="Modelo" id="valorModelo" >
+		    								</div>
+		    									</div>
 		    								
-		    								<option :value="marcas" v-for="marcas in submarcasQA">{{marcas}}</option>
-		    								</select>
-				  				</div>
-				  				
-								</div>
-									<div class="row">
-										<div class="col mt-3 d-block d-sm-none">
-											<button class="btn btn-primary" type="button" onclick="$('#v-pills-Nacimiento-tab').click();">Atras</button>
-										</div>
-										<div class="col mt-3 d-flex justify-content-end">
-		                                    <button type="button" id="8_1" @click="sendCotizacion(cliente)" class="btn btn-primary seleccionador nav-link disabled">Siguiente</button>
-		                                </div>
-									</div>
-								</div> 
+		    							</div>
+	    								<div class=" col-12 card ">
+	    									<div class="card-header">
+	    										<strong><p class="h4">4</p></strong>
+	    										<label>Codigo Postal</label>
+	    										</div>
+	    										<div class="card-body">
+	    													<div class="form-group">
+	    									
+			                                <input type="number" class="nav-link disabled" v-model="cliente.cp" placeholder="CP: 000000" id="valorCP" >
+			                                <div class="alert alert-danger" v-show="alert_cp">
+	  											<strong>{{alert_cp}}</strong>
+											</div>
+			                            </div>
+	    										</div>
+	    									
+	    								</div>
+	    								<div class="col-12 card">
+	    									<div class="card-header">
+	    										<strong><p class="h4">5</p></strong>
+	    										<label>Genero</label>
+	    										</div>
+	    										<div class="card-body">
+	    												  <div class="form-group">
+			                            	
+			                            	 <select v-model="cliente.sexo"  id="genero" class="nav-link disabled col-12"  style="overflow-y: hidden;">
+
+											<option value="Hombre" class="list-group-item text-center text-dark seleccionador">Masculino </option>
+	                        				<option value="Mujer" class="list-group-item text-center text-dark seleccionador">Femenino</option>
+	                        				<option value="Otro" class="list-group-item text-center text-dark seleccionador">Otro</option>
+										</select>
+			                            </div>
+	    										</div>
+	    									
+	    								</div>
+		                          
+
+    								</div>
+    								</div>
+
+    			<div class="col-12 col-md-5 col-lg-5">
+    					<div class="card">
+    						<div class="card-header">
+    									GNP
+    							</div>
+    							<div class="card-body">
+    										<div class="row">
+						    						
+								  				<div class="col">
+								  					<!-- <label for="gnp_lista" class="col">GNP</label> -->
+								  					<input class="form-check-input nav-link disabled" type="checkbox" id="checkbox-gnp" v-model="cliente.gnp" true-value="1" false-value="0" hidden>
+								  					 <label class="form-check-label" for=""><img :src="img.gnpImage" width="120" height="50"></label>
+								  				</div>
+								  		
+								  				<div class="col-3">
+								  					<select v-model="marcaGNP" class="form-control nav-link disabled" id="marcaGNP">
+						    								<option value="" class="form-control form-control-sm " style="white-space: normal;">Seleccione el modelo</option>
+
+						    								<option :value="marcas" v-for="marcas in marcasGNP">{{marcas}}</option>
+						    								</select>
+						    								
+								  				</div>
+								  				<div class="col-3">
+								  					<select v-model="cliente.gnpsubMarca" class="form-control nav-link disabled" id="submarcaGNP">
+						    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
+
+						    								<option v-for="marcas in submarcasGNP" :value="marcas">{{marcas}}</option>
+						    								</select>
+								  				</div>
+								  				
+												</div>
+						    							
+						    						</div>
+						    					</div>
+    				
+						
+							<!-- <hr>	 -->
+												<div class="card">
+													<div class="card-header">
+														ANA
+														</div>
+														<div class="card-body">
+																	<div class="row">
+													  				<div class="col">
+													  					<input class="form-check-input nav-link disabled" type="checkbox" id="checkbox-ana" v-model="cliente.ana" true-value="1" false-value="0" hidden>
+													  					<label class="form-check-label" for="checkbox-ana"><img :src="img.anaImage" width="120" height="50"></label>
+													  				</div>
+													  			
+													  					<div class="col-3">
+													  					<select v-model="cliente.marca_auto" class="form-control nav-link disabled" id="marcaAna">
+											    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
+
+											    								<option v-for="marca in marcas" :value="marca" class="list-group-item text-center text-dark seleccionador">{{marca.descripcion}}</option>
+											    								</select>
+													  					</div>
+													  					<div class="col-3">
+													  					<select v-model="cliente.submarca_auto" class="form-control nav-link disabled" id="submarcaAna">
+											    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
+
+											    								<option v-for="submarca in submarcas" :value="submarca" class="list-group-item text-center text-dark seleccionador">{{submarca.descripcion}}</option>
+											    								</select>
+													  					</div>
+													  				
+																		</div>
+														</div>
+													
+												</div>
+					
+								<!-- <hr> -->
+																<div class="card">
+																<div class="card-header">
+																	GENERAL DE SEGUROS
+																	</div>
+																	<div class="card-body">
+																				<div class="row">
+											  					<div class="col">
+											  						<input class="form-check-input nav-link disabled" type="checkbox" id="checkbox-gs" v-model="cliente.gs" true-value="1" false-value="0" hidden>
+											  					<label class="form-check-label" for="checkbox-gs"><img :src="img.gsImage" width="120" height="50"></label>
+											  					</div>
+											  					<div class="col-3">
+											  					<select v-model="cliente.gsMarca" class="form-control nav-link disabled" id="marcaGeneral">
+									    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la marca</option>
+
+									    								<option :value="marcas" v-for="marcas in marcasGS">{{marcas.nombre}}</option>
+									    								</select>
+											  					</div>
+
+											  					<div class="col-3">
+											  					<select v-model="cliente.submarcasGS" class="form-control nav-link disabled" id="submarcaGeneral">
+									    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
+
+									    								<option :value="marcas.nombre" v-for="marcas in submarcasGS">{{marcas.nombre}}</option>
+									    								</select>
+											  						</div>
+
+
+											  				
+											  				
+																	</div>
+																	</div>
+																
+															</div>	
+						
+								<!-- <hr> -->
+																<div class="card">
+																		<div class="card-header">
+																			QUALITAS
+																			</div>
+																			<div class="card-body">
+																						<div class="row">
+																		  				<div class="col">
+																		  					<input class="form-check-input nav-link disabled" type="checkbox" id="checkbox-qualitas" v-model="cliente.qualitas" true-value="1" false-value="0" hidden>
+																		  					<label class="form-check-label" for="checkbox-qualitas"><img :src="img.quaImage" width="120" height="50"></label>
+																		  				</div>
+																		  			
+																		  				<div class="col-3">
+																		  					<select v-model="cliente.qaMarca" class="form-control nav-link disabled" id="marcaQa">
+																    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
+
+																    								<option :value="marcas.cMarcaLarga" v-for="marcas in marcasQA">{{marcas.cMarcaLarga}}</option>
+																    								</select>
+																		  				</div>
+																		  				<div class="col-3">
+																		  					<select v-model="cliente.qaSubmarca" class="form-control nav-link disabled" id="submarcaQa">
+																    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
+																    								
+																    								<option :value="marcas" v-for="marcas in submarcasQA">{{marcas}}</option>
+																    								</select>
+																		  				</div>
+																		  				
+																						</div>
+																			</div>
+																		
+																	</div>
+															
+							 <!--    <hr> -->
+																		<div class="card">
+																			<div class="card-header">
+																				<strong><p>7</p></strong>
+																				COTIZAR
+																			</div>
+																				<div class="card-body">
+																						
+																						<div class="row">
+																							<div class="col mt-3 d-block d-sm-none">
+																								<button class="btn btn-primary" type="button" onclick="$('#v-pills-Nacimiento-tab').click();">Atras</button>
+																							</div>
+																							<div class="col mt-3 d-flex justify-content-end">
+															                                    <button type="button" id="8_1" @click="sendCotizacion(cliente)" class="btn btn-primary seleccionador nav-link disabled">Siguiente</button>
+															                                </div>
+																						</div>
+																				</div>
+																			
+																		</div>
+
+					</div> 
 								<!-- FIN DEL COL EN ASEGURADORAS -->
 								<!--  <div class="row">
 										<div class="col mt-3 d-block d-sm-none">
@@ -729,7 +818,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			marca: false,
     			submarca:false,
     			modelo: false,
-    			loader_marca:true,
+    			loader_marca:false,
     			loader_desc:true,
     			loader_tipo:true,
     			loader_modelo:true,
@@ -799,7 +888,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				
     		},
     		'cliente.gnp':function(newValue,oldValue){
-    				
+    					
     					$('#marcaGNP').removeClass('disabled');
     					$('#submarcaGNP').removeClass('disabled');
     				
@@ -930,6 +1019,10 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				$('#v-pills-Nacimiento-tab').removeClass('disabled');
     				$('#v-pills-Nacimiento-tab').removeClass('disabled');
     				$('#v-pills-Nacimiento-tab').click();
+    				this.cliente.ana=1;
+    				this.cliente.gs=1;
+    				this.cliente.qualitas=1;
+    				this.cliente.gnp=1;
     			}	
     		},
     		'cliente.cp':function(newValue,oldValue){
@@ -1042,6 +1135,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				console.log("res qualitas",res);
     				this.marcasQA  = res.data.marcas.sort();
     			}).catch(error=>{
+    				this.loader_marca=false;
     				console.log('error',error);
 
     			})
@@ -1052,6 +1146,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				console.log("res qualitas submarcas",res);
     				this.submarcasQA  = res.data.descripciones;
     			}).catch(error=>{
+    				this.loader_marca=false;
     				console.log('error',error);
 
     			})
@@ -1064,6 +1159,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				console.log("res marcas ANA ",res);
     				this.marcas = res.data.marcas.sort();
     			}).catch(error=>{
+    					this.loader_marca=false;
     				console.log('error',error);
 
     			})
@@ -1129,12 +1225,13 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     		},
     			getSubmarcaGNP(año,marca){
     			this.loader_tipo=true;
+    			this.loader_marca=true;
     			let url = `./api/submarcas-gnp/${año}/${marca}`;
     			
     			axios.get(url).then(res=>{
     				this.loader_tipo = false;
     				// console.log('SUBMARCAS GNP COMPLETAS',res);
-    				
+    					this.loader_marca=false;
     				if (res.data.submarcas) {
     					this.submarcasGNP = res.data.submarcas;
     					// console.log('RES SUBMARCAS',this.submarcasGNP);
@@ -1153,7 +1250,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			axios.get(url).then(res=>{
     				this.loader_tipo = false;
     				// console.log('MARCAS GNP COMPLETAS',res);
-    				
+    					this.loader_marca=false;
     				if (res.data.marcas) {
     					this.marcasGNP = res.data.marcas;
     					// console.log('RES MARCAS',this.marcasGNP);
