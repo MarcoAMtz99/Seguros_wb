@@ -1425,6 +1425,7 @@
 
 
 			'sendGS':function(){
+				this.loader_marca=true;
 				console.log('enviado');
 			},
 			'sendQua': function(){

@@ -4578,6 +4578,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     'sendGS': function sendGS() {
+      this.loader_marca = true;
       console.log('enviado');
     },
     'sendQua': function sendQua() {// TODO
