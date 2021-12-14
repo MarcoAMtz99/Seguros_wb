@@ -575,7 +575,7 @@ class GeneralSegurosController extends Controller
            // $request->apepat = '';
            $request->tipo_persona = 3;
         }
-         dd($request);
+         // dd($request);
         ini_set('default_socket_timeout', 600);
         $clientSOAP = $this->getClient($this->urlCotiza);
         $emitir = $clientSOAP->emitirCotizacion([
@@ -655,8 +655,9 @@ class GeneralSegurosController extends Controller
               Mail::to($request->email)->send(new EmisionPoliza($arr,'GS'));
             return view('generalseguros.pago', ['response' => $arr]);
         } else {
-            // dd($request->colonia);
-            dd($arr,$emitir,$request);
+         
+              return response()->json(['estatus' => 500]);
+            // dd($arr,$emitir,$request);
         }
     }
 }
