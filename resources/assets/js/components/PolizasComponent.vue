@@ -378,8 +378,8 @@
                                                         <div v-for="(cobertura,index) in cotizacionesQualitas['Coberturas']" v-if="cobertura.tipo == 'Daños Materiales'">
                                                             <span><strong>{{cobertura.tipo}}:</strong> ${{cobertura['SumaAsegurada']|int}}</span>
                                                             <span v-if="cobertura['Deducible']"><strong>Deducible por daños:</strong> {{cobertura['Deducible']|int}}%</span>
-                                                        </div>
-                                                        <strong>Suma Asegurada: ${{cobertura['SumaAsegurada']|int}} </strong> <br>
+                                                       
+                                                        <strong>Suma Asegurada: ${{cobertura['SumaAsegurada']|int}} </strong><br>
                                                             Valor Factura: Para Vehículos de hasta 12 meses de antigüedad. <br>
                                                              Valor Comercial: Para vehículos de mas de 12 meses de antigüedad.
                                                             <br>
@@ -396,6 +396,7 @@
 
                                                             Reparacion en Agencia<br>
                                                     </div>
+                                                     </div>
                                                     <div v-else class="text-center">
                                                         Seleccione una descripción
                                                     </div>
