@@ -57024,6 +57024,8 @@ var render = function() {
                                                             ])
                                                           : _vm._e(),
                                                         _vm._v(" "),
+                                                        _c("br"),
+                                                        _vm._v(" "),
                                                         _c("span", [
                                                           _vm._v(
                                                             "Daños Materiales: Valor Comercial = Valor más alto guía EBC o Automática del mes de siniestro."
@@ -57168,6 +57170,8 @@ var render = function() {
                                                               )
                                                             ])
                                                           : _vm._e(),
+                                                        _vm._v(" "),
+                                                        _c("br"),
                                                         _vm._v(" "),
                                                         _c("strong", [
                                                           _vm._v(

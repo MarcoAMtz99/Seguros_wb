@@ -346,7 +346,7 @@
                                                         <div v-for="(cobertura,index) in cotizacionesANA[0]['CONTADO']['coberturas']" v-if="cobertura.desc == 'DAÑOS MATERIALES'">
                                                             <span><strong>{{cobertura.desc}}:</strong> {{cobertura.sa}}</span>
                                                             <span v-if="cobertura.ded"><strong>Deducible por daños:</strong>{{cobertura.ded}}</span>
-
+                                                            <br>
                                                             <span>Daños Materiales: Valor Comercial = Valor más alto guía EBC o Automática del mes de siniestro.</span>
 
                                                             <strong>Suma Asegurada: ${{cobertura.ded}} </strong> <br>
@@ -378,7 +378,7 @@
                                                         <div v-for="(cobertura,index) in cotizacionesQualitas['Coberturas']" v-if="cobertura.tipo == 'Daños Materiales'">
                                                             <span><strong>{{cobertura.tipo}}:</strong> ${{cobertura['SumaAsegurada']|int}}</span>
                                                             <span v-if="cobertura['Deducible']"><strong>Deducible por daños:</strong> {{cobertura['Deducible']|int}}%</span>
-                                                       
+                                                        <br>
                                                         <strong>Suma Asegurada: ${{cobertura['SumaAsegurada']|int}} </strong><br>
                                                             Valor Factura: Para Vehículos de hasta 12 meses de antigüedad. <br>
                                                              Valor Comercial: Para vehículos de mas de 12 meses de antigüedad.
