@@ -310,6 +310,27 @@
                                                     <div class="text-center" v-if="desc_gs && tipo_poliza && cotizacionesGS.id" style="padding:0">
                                                         <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Daños Materiales Pérdida Parcial'">
                                                             <div class="border"><strong>{{cobertura.descripcion}}:</strong> {{cobertura.monto}}</div>
+                                                            <br>
+                                                            <strong>Suma Asegurada: ${{cobertura.monto}} </strong> <br>
+                                                            Valor Factura: Para Vehículos de hasta 12 meses de antigüedad. <br>
+                                                             Valor Comercial: Para vehículos de mas de 12 meses de antigüedad.
+                                                            <br>
+                                                        
+                                                        
+                                                            <strong>Riesgos cubiertos:</strong><br>
+
+                                                            Colisiones y Vuelcos <br>
+                                                            Rotura de Cristales<br>
+                                                            Incendio, Rayo y explosion<br>
+                                                            Catástrofes naturales<br>
+                                                            Paros, mítines, huelga o disturbios<br>
+                                                            Daños al transportar el vehículo asegurado<br> Penetración accidental de agua al motor<br>
+
+                                                            Reparacion en Agencia<br>
+
+                                                            Para Vehículos de hasta 2 años de antiguedad <br>
+
+
                                                         </div>
                                                         <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Daños Materiales Pérdida Total'">
                                                             <div class="border"><strong>{{cobertura.descripcion}}:</strong> {{cobertura.monto}}</div>
@@ -327,6 +348,25 @@
                                                             <span v-if="cobertura.ded"><strong>Deducible por daños:</strong>{{cobertura.ded}}</span>
 
                                                             <span>Daños Materiales: Valor Comercial = Valor más alto guía EBC o Automática del mes de siniestro.</span>
+
+                                                            <strong>Suma Asegurada: ${{cobertura.ded}} </strong> <br>
+                                                            Valor Factura: Para Vehículos de hasta 12 meses de antigüedad. <br>
+                                                             Valor Comercial: Para vehículos de mas de 12 meses de antigüedad.
+                                                            <br>
+                                                        
+                                                        
+                                                            <strong>Riesgos cubiertos:</strong><br>
+
+                                                            Colisiones y Vuelcos <br>
+                                                            Rotura de Cristales<br>
+                                                            Incendio, Rayo y explosion<br>
+                                                            Catástrofes naturales<br>
+                                                            Paros, mítines, huelga o disturbios<br>
+                                                            Daños al transportar el vehículo asegurado<br> Penetración accidental de agua al motor<br>
+
+                                                            Reparacion en Agencia<br>
+
+                                                            Para Vehículos de hasta 2 años de antiguedad <br>
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">
@@ -339,6 +379,22 @@
                                                             <span><strong>{{cobertura.tipo}}:</strong> ${{cobertura['SumaAsegurada']|int}}</span>
                                                             <span v-if="cobertura['Deducible']"><strong>Deducible por daños:</strong> {{cobertura['Deducible']|int}}%</span>
                                                         </div>
+                                                        <strong>Suma Asegurada: ${{cobertura['SumaAsegurada']|int}} </strong> <br>
+                                                            Valor Factura: Para Vehículos de hasta 12 meses de antigüedad. <br>
+                                                             Valor Comercial: Para vehículos de mas de 12 meses de antigüedad.
+                                                            <br>
+                                                        
+                                                        
+                                                            <strong>Riesgos cubiertos:</strong><br>
+
+                                                            Colisiones y Vuelcos <br>
+                                                            Rotura de Cristales<br>
+                                                            Incendio, Rayo y explosion<br>
+                                                            Catástrofes naturales<br>
+                                                            Paros, mítines, huelga o disturbios<br>
+                                                            Daños al transportar el vehículo asegurado<br> Penetración accidental de agua al motor<br>
+
+                                                            Reparacion en Agencia<br>
                                                     </div>
                                                     <div v-else class="text-center">
                                                         Seleccione una descripción

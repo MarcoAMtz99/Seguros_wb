@@ -149,8 +149,9 @@
 								  					<input class="form-check-input nav-link disabled" type="checkbox" id="checkbox-gnp" v-model="cliente.gnp" true-value="1" false-value="0" hidden>
 								  					 <label class="form-check-label" for=""><img :src="img.gnpImage" width="120" height="50"></label>
 								  				</div>
-								  		
+								  				<strong>6-A </strong>
 								  				<div class="col-3">
+
 								  					<select v-model="marcaGNP" class="form-control nav-link disabled" id="marcaGNP">
 						    								<option value="" class="form-control form-control-sm " style="white-space: normal;">Seleccione el modelo</option>
 
@@ -158,6 +159,7 @@
 						    								</select>
 						    								
 								  				</div>
+								  				<strong>6-E </strong>
 								  				<div class="col-3">
 								  					<select v-model="cliente.gnpsubMarca" class="form-control nav-link disabled" id="submarcaGNP">
 						    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
@@ -183,14 +185,15 @@
 													  					<input class="form-check-input nav-link disabled" type="checkbox" id="checkbox-ana" v-model="cliente.ana" true-value="1" false-value="0" hidden>
 													  					<label class="form-check-label" for="checkbox-ana"><img :src="img.anaImage" width="120" height="50"></label>
 													  				</div>
-													  			
+													  					<strong>6-B </strong>
 													  					<div class="col-3">
-													  					<select v-model="cliente.marca_auto" class="form-control nav-link disabled" id="marcaAna">
+													  					<select v-model="cliente.marca_auto" class="form-control nav-link disabled" id="marcaAna" data-toggle="6b">
 											    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
 
 											    								<option v-for="marca in marcas" :value="marca" class="list-group-item text-center text-dark seleccionador">{{marca.descripcion}}</option>
 											    								</select>
 													  					</div>
+													  					<strong>6-F </strong>
 													  					<div class="col-3">
 													  					<select v-model="cliente.submarca_auto" class="form-control nav-link disabled" id="submarcaAna">
 											    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
@@ -215,6 +218,7 @@
 											  						<input class="form-check-input nav-link disabled" type="checkbox" id="checkbox-gs" v-model="cliente.gs" true-value="1" false-value="0" hidden>
 											  					<label class="form-check-label" for="checkbox-gs"><img :src="img.gsImage" width="120" height="50"></label>
 											  					</div>
+											  					<strong>6-C </strong>
 											  					<div class="col-3">
 											  					<select v-model="cliente.gsMarca" class="form-control nav-link disabled" id="marcaGeneral">
 									    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la marca</option>
@@ -222,7 +226,7 @@
 									    								<option :value="marcas" v-for="marcas in marcasGS">{{marcas.nombre}}</option>
 									    								</select>
 											  					</div>
-
+											  					<strong>6-G </strong>
 											  					<div class="col-3">
 											  					<select v-model="cliente.submarcasGS" class="form-control nav-link disabled" id="submarcaGeneral">
 									    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
@@ -250,7 +254,7 @@
 																		  					<input class="form-check-input nav-link disabled" type="checkbox" id="checkbox-qualitas" v-model="cliente.qualitas" true-value="1" false-value="0" hidden>
 																		  					<label class="form-check-label" for="checkbox-qualitas"><img :src="img.quaImage" width="120" height="50"></label>
 																		  				</div>
-																		  			
+																		  				<strong>6-D </strong>
 																		  				<div class="col-3">
 																		  					<select v-model="cliente.qaMarca" class="form-control nav-link disabled" id="marcaQa">
 																    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
@@ -258,6 +262,7 @@
 																    								<option :value="marcas.cMarcaLarga" v-for="marcas in marcasQA">{{marcas.cMarcaLarga}}</option>
 																    								</select>
 																		  				</div>
+																		  				<strong>6-H </strong>
 																		  				<div class="col-3">
 																		  					<select v-model="cliente.qaSubmarca" class="form-control nav-link disabled" id="submarcaQa">
 																    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>

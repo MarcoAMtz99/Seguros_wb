@@ -2453,6 +2453,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 $(document).ready(function ($) {
   if (!Modernizr.inputtypes.date) {
     console.log("The 'date' input type is not supported, so using JQueryUI datepicker instead.");
@@ -5356,6 +5361,62 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -42675,6 +42736,8 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
+                              _c("strong", [_vm._v("6-A ")]),
+                              _vm._v(" "),
                               _c("div", { staticClass: "col-3" }, [
                                 _c(
                                   "select",
@@ -42734,6 +42797,8 @@ var render = function() {
                                   2
                                 )
                               ]),
+                              _vm._v(" "),
+                              _c("strong", [_vm._v("6-E ")]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-3" }, [
                                 _c(
@@ -42885,6 +42950,8 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
+                              _c("strong", [_vm._v("6-B ")]),
+                              _vm._v(" "),
                               _c("div", { staticClass: "col-3" }, [
                                 _c(
                                   "select",
@@ -42899,7 +42966,10 @@ var render = function() {
                                     ],
                                     staticClass:
                                       "form-control nav-link disabled",
-                                    attrs: { id: "marcaAna" },
+                                    attrs: {
+                                      id: "marcaAna",
+                                      "data-toggle": "6b"
+                                    },
                                     on: {
                                       change: function($event) {
                                         var $$selectedVal = Array.prototype.filter
@@ -42952,6 +43022,8 @@ var render = function() {
                                   2
                                 )
                               ]),
+                              _vm._v(" "),
+                              _c("strong", [_vm._v("6-F ")]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-3" }, [
                                 _c(
@@ -43107,6 +43179,8 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
+                              _c("strong", [_vm._v("6-C ")]),
+                              _vm._v(" "),
                               _c("div", { staticClass: "col-3" }, [
                                 _c(
                                   "select",
@@ -43170,6 +43244,8 @@ var render = function() {
                                   2
                                 )
                               ]),
+                              _vm._v(" "),
+                              _c("strong", [_vm._v("6-G ")]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-3" }, [
                                 _c(
@@ -43321,6 +43397,8 @@ var render = function() {
                                 )
                               ]),
                               _vm._v(" "),
+                              _c("strong", [_vm._v("6-D ")]),
+                              _vm._v(" "),
                               _c("div", { staticClass: "col-3" }, [
                                 _c(
                                   "select",
@@ -43388,6 +43466,8 @@ var render = function() {
                                   2
                                 )
                               ]),
+                              _vm._v(" "),
+                              _c("strong", [_vm._v("6-H ")]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-3" }, [
                                 _c(
@@ -56777,7 +56857,72 @@ var render = function() {
                                                                   )
                                                               )
                                                             ]
-                                                          )
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c("br"),
+                                                          _vm._v(" "),
+                                                          _c("strong", [
+                                                            _vm._v(
+                                                              "Suma Asegurada: $" +
+                                                                _vm._s(
+                                                                  cobertura.monto
+                                                                ) +
+                                                                " "
+                                                            )
+                                                          ]),
+                                                          _vm._v(" "),
+                                                          _c("br"),
+                                                          _vm._v(
+                                                            "\n                                                            Valor Factura: Para Vehículos de hasta 12 meses de antigüedad. "
+                                                          ),
+                                                          _c("br"),
+                                                          _vm._v(
+                                                            "\n                                                             Valor Comercial: Para vehículos de mas de 12 meses de antigüedad.\n                                                            "
+                                                          ),
+                                                          _c("br"),
+                                                          _vm._v(" "),
+                                                          _c("strong", [
+                                                            _vm._v(
+                                                              "Riesgos cubiertos:"
+                                                            )
+                                                          ]),
+                                                          _c("br"),
+                                                          _vm._v(
+                                                            "\n\n                                                            Colisiones y Vuelcos "
+                                                          ),
+                                                          _c("br"),
+                                                          _vm._v(
+                                                            "\n                                                            Rotura de Cristales"
+                                                          ),
+                                                          _c("br"),
+                                                          _vm._v(
+                                                            "\n                                                            Incendio, Rayo y explosion"
+                                                          ),
+                                                          _c("br"),
+                                                          _vm._v(
+                                                            "\n                                                            Catástrofes naturales"
+                                                          ),
+                                                          _c("br"),
+                                                          _vm._v(
+                                                            "\n                                                            Paros, mítines, huelga o disturbios"
+                                                          ),
+                                                          _c("br"),
+                                                          _vm._v(
+                                                            "\n                                                            Daños al transportar el vehículo asegurado"
+                                                          ),
+                                                          _c("br"),
+                                                          _vm._v(
+                                                            " Penetración accidental de agua al motor"
+                                                          ),
+                                                          _c("br"),
+                                                          _vm._v(
+                                                            "\n\n                                                            Reparacion en Agencia"
+                                                          ),
+                                                          _c("br"),
+                                                          _vm._v(
+                                                            "\n\n                                                            Para Vehículos de hasta 2 años de antiguedad "
+                                                          ),
+                                                          _c("br")
                                                         ])
                                                       : _vm._e()
                                                   }
@@ -56882,7 +57027,70 @@ var render = function() {
                                                           _vm._v(
                                                             "Daños Materiales: Valor Comercial = Valor más alto guía EBC o Automática del mes de siniestro."
                                                           )
-                                                        ])
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("strong", [
+                                                          _vm._v(
+                                                            "Suma Asegurada: $" +
+                                                              _vm._s(
+                                                                cobertura.ded
+                                                              ) +
+                                                              " "
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("br"),
+                                                        _vm._v(
+                                                          "\n                                                            Valor Factura: Para Vehículos de hasta 12 meses de antigüedad. "
+                                                        ),
+                                                        _c("br"),
+                                                        _vm._v(
+                                                          "\n                                                             Valor Comercial: Para vehículos de mas de 12 meses de antigüedad.\n                                                            "
+                                                        ),
+                                                        _c("br"),
+                                                        _vm._v(" "),
+                                                        _c("strong", [
+                                                          _vm._v(
+                                                            "Riesgos cubiertos:"
+                                                          )
+                                                        ]),
+                                                        _c("br"),
+                                                        _vm._v(
+                                                          "\n\n                                                            Colisiones y Vuelcos "
+                                                        ),
+                                                        _c("br"),
+                                                        _vm._v(
+                                                          "\n                                                            Rotura de Cristales"
+                                                        ),
+                                                        _c("br"),
+                                                        _vm._v(
+                                                          "\n                                                            Incendio, Rayo y explosion"
+                                                        ),
+                                                        _c("br"),
+                                                        _vm._v(
+                                                          "\n                                                            Catástrofes naturales"
+                                                        ),
+                                                        _c("br"),
+                                                        _vm._v(
+                                                          "\n                                                            Paros, mítines, huelga o disturbios"
+                                                        ),
+                                                        _c("br"),
+                                                        _vm._v(
+                                                          "\n                                                            Daños al transportar el vehículo asegurado"
+                                                        ),
+                                                        _c("br"),
+                                                        _vm._v(
+                                                          " Penetración accidental de agua al motor"
+                                                        ),
+                                                        _c("br"),
+                                                        _vm._v(
+                                                          "\n\n                                                            Reparacion en Agencia"
+                                                        ),
+                                                        _c("br"),
+                                                        _vm._v(
+                                                          "\n\n                                                            Para Vehículos de hasta 2 años de antiguedad "
+                                                        ),
+                                                        _c("br")
                                                       ])
                                                     : _vm._e()
                                                 }
@@ -56909,61 +57117,124 @@ var render = function() {
                                           ? _c(
                                               "div",
                                               { staticClass: "text-center" },
-                                              _vm._l(
-                                                _vm.cotizacionesQualitas[
-                                                  "Coberturas"
-                                                ],
-                                                function(cobertura, index) {
-                                                  return cobertura.tipo ==
-                                                    "Daños Materiales"
-                                                    ? _c("div", [
-                                                        _c("span", [
-                                                          _c("strong", [
+                                              [
+                                                _vm._l(
+                                                  _vm.cotizacionesQualitas[
+                                                    "Coberturas"
+                                                  ],
+                                                  function(cobertura, index) {
+                                                    return cobertura.tipo ==
+                                                      "Daños Materiales"
+                                                      ? _c("div", [
+                                                          _c("span", [
+                                                            _c("strong", [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  cobertura.tipo
+                                                                ) + ":"
+                                                              )
+                                                            ]),
                                                             _vm._v(
-                                                              _vm._s(
-                                                                cobertura.tipo
-                                                              ) + ":"
+                                                              " $" +
+                                                                _vm._s(
+                                                                  _vm._f("int")(
+                                                                    cobertura[
+                                                                      "SumaAsegurada"
+                                                                    ]
+                                                                  )
+                                                                )
                                                             )
                                                           ]),
-                                                          _vm._v(
-                                                            " $" +
-                                                              _vm._s(
-                                                                _vm._f("int")(
-                                                                  cobertura[
-                                                                    "SumaAsegurada"
-                                                                  ]
-                                                                )
-                                                              )
-                                                          )
-                                                        ]),
-                                                        _vm._v(" "),
-                                                        cobertura["Deducible"]
-                                                          ? _c("span", [
-                                                              _c("strong", [
+                                                          _vm._v(" "),
+                                                          cobertura["Deducible"]
+                                                            ? _c("span", [
+                                                                _c("strong", [
+                                                                  _vm._v(
+                                                                    "Deducible por daños:"
+                                                                  )
+                                                                ]),
                                                                 _vm._v(
-                                                                  "Deducible por daños:"
+                                                                  " " +
+                                                                    _vm._s(
+                                                                      _vm._f(
+                                                                        "int"
+                                                                      )(
+                                                                        cobertura[
+                                                                          "Deducible"
+                                                                        ]
+                                                                      )
+                                                                    ) +
+                                                                    "%"
                                                                 )
-                                                              ]),
-                                                              _vm._v(
-                                                                " " +
-                                                                  _vm._s(
-                                                                    _vm._f(
-                                                                      "int"
-                                                                    )(
-                                                                      cobertura[
-                                                                        "Deducible"
-                                                                      ]
-                                                                    )
-                                                                  ) +
-                                                                  "%"
-                                                              )
-                                                            ])
-                                                          : _vm._e()
-                                                      ])
-                                                    : _vm._e()
-                                                }
-                                              ),
-                                              0
+                                                              ])
+                                                            : _vm._e()
+                                                        ])
+                                                      : _vm._e()
+                                                  }
+                                                ),
+                                                _vm._v(" "),
+                                                _c("strong", [
+                                                  _vm._v(
+                                                    "Suma Asegurada: $" +
+                                                      _vm._s(
+                                                        _vm._f("int")(
+                                                          _vm.cobertura[
+                                                            "SumaAsegurada"
+                                                          ]
+                                                        )
+                                                      ) +
+                                                      " "
+                                                  )
+                                                ]),
+                                                _vm._v(" "),
+                                                _c("br"),
+                                                _vm._v(
+                                                  "\n                                                            Valor Factura: Para Vehículos de hasta 12 meses de antigüedad. "
+                                                ),
+                                                _c("br"),
+                                                _vm._v(
+                                                  "\n                                                             Valor Comercial: Para vehículos de mas de 12 meses de antigüedad.\n                                                            "
+                                                ),
+                                                _c("br"),
+                                                _vm._v(" "),
+                                                _c("strong", [
+                                                  _vm._v("Riesgos cubiertos:")
+                                                ]),
+                                                _c("br"),
+                                                _vm._v(
+                                                  "\n\n                                                            Colisiones y Vuelcos "
+                                                ),
+                                                _c("br"),
+                                                _vm._v(
+                                                  "\n                                                            Rotura de Cristales"
+                                                ),
+                                                _c("br"),
+                                                _vm._v(
+                                                  "\n                                                            Incendio, Rayo y explosion"
+                                                ),
+                                                _c("br"),
+                                                _vm._v(
+                                                  "\n                                                            Catástrofes naturales"
+                                                ),
+                                                _c("br"),
+                                                _vm._v(
+                                                  "\n                                                            Paros, mítines, huelga o disturbios"
+                                                ),
+                                                _c("br"),
+                                                _vm._v(
+                                                  "\n                                                            Daños al transportar el vehículo asegurado"
+                                                ),
+                                                _c("br"),
+                                                _vm._v(
+                                                  " Penetración accidental de agua al motor"
+                                                ),
+                                                _c("br"),
+                                                _vm._v(
+                                                  "\n\n                                                            Reparacion en Agencia"
+                                                ),
+                                                _c("br")
+                                              ],
+                                              2
                                             )
                                           : _c(
                                               "div",
