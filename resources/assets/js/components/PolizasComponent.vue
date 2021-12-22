@@ -865,27 +865,27 @@
     		},
             'desc_ana': function (newVal,oldVal){
                 this.loader = true;
-                // this.sendCotizacionANA(this.desc_ana,this.tipo_poliza);
+                this.sendCotizacionANA(this.desc_ana,this.tipo_poliza);
             },
             'desc_qualitas':function (newVal,oldVal) {
                 this.loader = true;
-                // this.sendCotizacionQualitas(this.desc_qualitas, this.tipo_poliza);
+                this.sendCotizacionQualitas(this.desc_qualitas, this.tipo_poliza);
             },
             'desc_gs': function(newVal,oldVal) {
                 this.loader = true;
-                // this.sendCotizacionGS(this.desc_gs,this.tipo_poliza);
+                this.sendCotizacionGS(this.desc_gs,this.tipo_poliza);
             },
             'desc_gnp': function(value) {
                 this.loader = true;
                 console.log('PRIMER PASO GNP');
-                // this.sendCotizacionGNP(this.desc_gnp,this.tipo_poliza);
+                this.sendCotizacionGNP(this.desc_gnp,this.tipo_poliza);
             },
             'tipo_poliza':function (newVal,oldVal) {
                 this.loader=true;
-                // this.sendCotizacionANA(this.desc_ana,this.tipo_poliza);
-                // this.sendCotizacionQualitas(this.desc_qualitas, this.tipo_poliza);
-                // this.sendCotizacionGS(this.desc_gs,this.tipo_poliza);
-                // this.sendCotizacionGNP(this.desc_gnp,this.tipo_poliza);
+                this.sendCotizacionANA(this.desc_ana,this.tipo_poliza);
+                this.sendCotizacionQualitas(this.desc_qualitas, this.tipo_poliza);
+                this.sendCotizacionGS(this.desc_gs,this.tipo_poliza);
+                this.sendCotizacionGNP(this.desc_gnp,this.tipo_poliza);
             }
     	},
     	methods:{
