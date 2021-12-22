@@ -251,7 +251,7 @@ class GeneralSegurosController extends Controller
             ]]);
             $response = json_decode(json_encode($res), true);
 
-             dd($response);
+             // dd($response);
             // return $response;
             // dd($response,$res,['arg0' => [
             //     'token' => $this->token,
@@ -302,7 +302,7 @@ class GeneralSegurosController extends Controller
             return $response['return']['coberturas'];
             // return response()->json(['coberturas'=>$response['return']['coberturas']]);
         }
-        // dd($response);
+        dd($response);
 
         // dd($soapClient->__getTypes());
 
