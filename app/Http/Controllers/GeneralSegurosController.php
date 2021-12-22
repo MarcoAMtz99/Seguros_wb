@@ -250,6 +250,8 @@ class GeneralSegurosController extends Controller
                 ]
             ]]);
             $response = json_decode(json_encode($res), true);
+
+             dd($response);
             // return $response;
             // dd($response,$res,['arg0' => [
             //     'token' => $this->token,
@@ -275,7 +277,7 @@ class GeneralSegurosController extends Controller
                         array_push($paquete_gs, $paquete);
                     }
                 }
-                // dd($paquetes);
+               
                 $cotizacion = ['id' => $response['return']['idCotizacion'], 'paquete' => $paquete_gs];
                 return response()->json(['cotizacion' => $cotizacion]);
             } elseif (!$response['return']['exito']) {
