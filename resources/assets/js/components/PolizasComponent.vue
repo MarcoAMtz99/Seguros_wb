@@ -103,10 +103,10 @@
                                                 <td class="text-center" v-if="cliente.gnp">
                                                     <div v-if="cotizacionesGNP && cotizacionesGNP.PAQUETES !== undefined" style="padding">
                                                         <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[0].DESC_PERIODICIDAD }}: Unico pago ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[0].CONCEPTO_ECONOMICO[10].MONTO | int }}</div>
-                                                        <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].DESC_PERIODICIDAD }}: 1er pago ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].CONCEPTO_ECONOMICO[11].MONTO | int }}<br>Subsecuentes x 1: ${{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].CONCEPTO_ECONOMICO[12].MONTO}} </div>
-                                                        <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].DESC_PERIODICIDAD }}: 1er pago ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].CONCEPTO_ECONOMICO[11].MONTO | int }} <br> Subsecuentes x 3: ${{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].CONCEPTO_ECONOMICO[12].MONTO}}</div>
+                                                        <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].DESC_PERIODICIDAD }}: 1er pago ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].CONCEPTO_ECONOMICO[10].MONTO | int }}<br>Subsecuentes x 1: ${{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[1].CONCEPTO_ECONOMICO[11].MONTO}} </div>
+                                                        <div class="border">{{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].DESC_PERIODICIDAD }}: 1er pago ${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].CONCEPTO_ECONOMICO[10].MONTO | int }} <br> Subsecuentes x 3: ${{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[2].CONCEPTO_ECONOMICO[11].MONTO}}</div>
 
-                                                        <div class="border">{{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].DESC_PERIODICIDAD }}:1er pago .${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].CONCEPTO_ECONOMICO[11].MONTO | int }} <br> Subsecuentes x 11: ${{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].CONCEPTO_ECONOMICO[12].MONTO | int}} </div>
+                                                        <div class="border">{{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].DESC_PERIODICIDAD }}:1er pago .${{ cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].CONCEPTO_ECONOMICO[10].MONTO | int }} <br> Subsecuentes x 11: ${{cotizacionesGNP.PAQUETES.PAQUETE.TOTALES.TOTAL_PRIMA[3].CONCEPTO_ECONOMICO[11].MONTO | int}} </div>
                                                     </div>
                                                     <div v-else>
                                                         Seleccione una descripción
@@ -119,7 +119,7 @@
                                                             {{pago.nombre}}:  ${{pago.primaTotal | int}}
                                                         <div>
                                                             1er pago: ${{pago.reciboini | int}} <br>
-                                                            Subsecuente x : ${{pago.recibosub | int}}
+                                                            Subsecuente x {{parseInt(pago.divisor)-1}}: ${{pago.recibosub | int}}
                                                         </div>
                                                        
                                                         </div>
@@ -147,7 +147,7 @@
                                                         <div v-if="cotizacionesANA[3]['TRIMESTRAL']['recibos'][1] !==undefined && cotizacionesANA[3]['TRIMESTRAL']['recibos'][0] !=='' " >
                                                         <div class="border">Trimestral: <!-- ${{cotizacionesANA[3]['TRIMESTRAL']['prima']['primatotal'] | int }} --></div>
                                                         <div class="border">1er Pago: ${{cotizacionesANA[3]['TRIMESTRAL']['recibos'][0]['primatotal'] | int }}</div>
-                                                          <div class="border">Subsecuente x 2: ${{cotizacionesANA[3]['TRIMESTRAL']['recibos'][1]['primatotal'] | int }}</div>
+                                                          <div class="border">Subsecuente x 3: ${{cotizacionesANA[3]['TRIMESTRAL']['recibos'][1]['primatotal'] | int }}</div>
 
                                                           </div>
                                                          <div v-if="cotizacionesANA[1]['MENSUAL']['recibos'][1] !== undefined &&
@@ -281,7 +281,7 @@
                                                         <div v-for="(cobertura,index) in cotizacionesGNP.PAQUETES.PAQUETE.COBERTURAS.COBERTURA" v-if="cobertura.NOMBRE == 'DM PERDIDA PARCIAL                                '">
                                                             <div class="border"><strong>{{cobertura.NOMBRE}}:</strong> 5% de la suma asegurada</div>
                                                             <br>
-                                                            <strong>Suma Asegurada:</strong> <br>
+                                                            <strong>Suma Asegurada: {{cobertura.SUMA_ASEGURADA}} </strong> <br>
                                                             Valor Factura: Para Vehículos de hasta 12 meses de antigüedad. <br>
                                                              Valor Comercial: Para vehículos de mas de 12 meses de antigüedad.
                                                             <br>
@@ -310,7 +310,29 @@
                                                     <div class="text-center" v-if="desc_gs && tipo_poliza && cotizacionesGS.id" style="padding:0">
                                                         <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Daños Materiales Pérdida Parcial'">
                                                             <div class="border"><strong>{{cobertura.descripcion}}:</strong> {{cobertura.monto}}</div>
+                                                           
+
+
                                                         </div>
+                                                         <br>
+                                                            <strong>Suma Asegurada: 5% </strong> <br>
+                                                            Valor Factura: Para Vehículos de hasta 12 meses de antigüedad. <br>
+                                                             Valor Comercial: Para vehículos de mas de 12 meses de antigüedad.
+                                                            <br>
+                                                        
+                                                        
+                                                            <strong>Riesgos cubiertos:</strong><br>
+
+                                                            Colisiones y Vuelcos <br>
+                                                            Rotura de Cristales<br>
+                                                            Incendio, Rayo y explosion<br>
+                                                            Catástrofes naturales<br>
+                                                            Paros, mítines, huelga o disturbios<br>
+                                                            Daños al transportar el vehículo asegurado<br> Penetración accidental de agua al motor<br>
+
+                                                            Reparacion en Agencia<br>
+
+                                                            Para Vehículos de hasta 2 años de antiguedad <br>
                                                         <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Daños Materiales Pérdida Total'">
                                                             <div class="border"><strong>{{cobertura.descripcion}}:</strong> {{cobertura.monto}}</div>
                  
@@ -325,6 +347,27 @@
                                                         <div v-for="(cobertura,index) in cotizacionesANA[0]['CONTADO']['coberturas']" v-if="cobertura.desc == 'DAÑOS MATERIALES'">
                                                             <span><strong>{{cobertura.desc}}:</strong> {{cobertura.sa}}</span>
                                                             <span v-if="cobertura.ded"><strong>Deducible por daños:</strong>{{cobertura.ded}}</span>
+                                                            <br>
+                                                            <span>Daños Materiales: Valor Comercial = Valor más alto guía EBC o Autometrica del mes de siniestro.</span>
+
+                                                            <strong>Suma Asegurada: ${{cobertura.ded}} </strong> <br>
+                                                            Valor Factura: Para Vehículos de hasta 12 meses de antigüedad. <br>
+                                                             Valor Comercial: Para vehículos de mas de 12 meses de antigüedad.
+                                                            <br>
+                                                        
+                                                        
+                                                            <strong>Riesgos cubiertos:</strong><br>
+
+                                                            Colisiones y Vuelcos <br>
+                                                            Rotura de Cristales<br>
+                                                            Incendio, Rayo y explosion<br>
+                                                            Catástrofes naturales<br>
+                                                            Paros, mítines, huelga o disturbios<br>
+                                                            Daños al transportar el vehículo asegurado<br> Penetración accidental de agua al motor<br>
+
+                                                            Reparacion en Agencia<br>
+
+                                                            Para Vehículos de hasta 2 años de antiguedad <br>
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">
@@ -336,8 +379,25 @@
                                                         <div v-for="(cobertura,index) in cotizacionesQualitas['Coberturas']" v-if="cobertura.tipo == 'Daños Materiales'">
                                                             <span><strong>{{cobertura.tipo}}:</strong> ${{cobertura['SumaAsegurada']|int}}</span>
                                                             <span v-if="cobertura['Deducible']"><strong>Deducible por daños:</strong> {{cobertura['Deducible']|int}}%</span>
-                                                        </div>
+                                                        <br>
+                                                        <strong>Suma Asegurada: ${{cobertura['SumaAsegurada']|int}} </strong><br>
+                                                            Valor Factura: Para Vehículos de hasta 12 meses de antigüedad. <br>
+                                                             Valor Comercial: Para vehículos de mas de 12 meses de antigüedad.
+                                                            <br>
+                                                        
+                                                        
+                                                            <strong>Riesgos cubiertos:</strong><br>
+
+                                                            Colisiones y Vuelcos <br>
+                                                            Rotura de Cristales<br>
+                                                            Incendio, Rayo y explosion<br>
+                                                            Catástrofes naturales<br>
+                                                            Paros, mítines, huelga o disturbios<br>
+                                                            Daños al transportar el vehículo asegurado<br> Penetración accidental de agua al motor<br>
+
+                                                            Reparacion en Agencia<br>
                                                     </div>
+                                                     </div>
                                                     <div v-else class="text-center">
                                                         Seleccione una descripción
                                                     </div>
@@ -365,8 +425,12 @@
                                                         <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Robo Total'">
                                                             <span>
                                                                 <strong>{{cobertura.descripcion}}:</strong> {{cobertura.monto}}
+                                                                
                                                             </span>
                                                         </div>
+                                                                 <br>
+                                                                <strong>ROBO TOTAL:</strong>
+                                                                <p>10% de la Suma Asegurada</p>
                                                     </div>
                                                     <div v-else class="text-center">
                                                         Seleccione una descripción
@@ -420,7 +484,11 @@
                                                     <div class="text-center" v-if="desc_gs && tipo_poliza && cotizacionesGS.id" style="padding:0">
                                                         <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Responsabilidad Civil por Daños a Terceros (LUC)'">
                                                             <div class="border"><strong>{{cobertura.descripcion}}:</strong> ${{cobertura.monto}}</div>
+                                                            
                                                         </div>
+                                                        <br>
+                                                            <strong>Suma asegurada:</strong>
+                                                            <p>3,000,000</p>
                                                         <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Responsabilidad Civil por Fallecimiento'">
                                                             <div class="border"><strong>{{cobertura.descripcion}}:</strong> ${{cobertura.monto}}</div>
                                                         </div>
@@ -496,7 +564,11 @@
                                                     <div class="text-center" v-if="desc_gs && tipo_poliza && cotizacionesGS.id" >
                                                         <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Gastos Médicos'">
                                                              <span><strong>{{cobertura.descripcion}}:</strong> ${{cobertura.monto}} </span>
+                                                              
                                                         </div>
+                                                         <br>
+                                                            <strong>Gastos Medicos:</strong>
+                                                            <p> 200,000</p>
                                                     </div>
                                                     <div v-else class="text-center">
                                                         Seleccione una descripción
@@ -543,7 +615,10 @@
                                                     <div class="text-center" v-if="desc_gs && tipo_poliza && cotizacionesGS.id" >
                                                         <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Asistencia Jurídica GS'">
                                                              <span><strong>{{cobertura.descripcion}}:</strong> {{cobertura.monto}} </span>
+                                                             
                                                         </div>
+                                                        <br>
+                                                             <strong>AMPARADA</strong>
                                                     </div>
                                                     <div v-else class="text-center">
                                                         Seleccione una descripción
@@ -605,7 +680,11 @@
                                                                 </strong>
                                                                 {{cobertura.monto}} 
                                                             </span>
+                                                            
                                                         </div>
+                                                         <br>
+                                                             <strong>AMPARADA</strong>
+                                                           
                                                     </div>
                                                     <div v-else class="text-center">
                                                         Seleccione una descripción
@@ -663,7 +742,11 @@
                                                                 </strong> 
                                                                 ${{cobertura.monto}}
                                                             </span>
+                                                             
                                                         </div>
+                                                         <br>
+                                                             <strong>Asistencia en Estados Unidos GS :</strong>
+                                                            <p>AMPARADA</p>
                                                     </div>
                                                     <div v-else class="text-center">
                                                         Seleccione una descripción
@@ -716,6 +799,7 @@
 	export default{
 		props:[
     		'cliente',
+            'GNP',
     		'getcotizacion',
             'alert',
             'img'
@@ -759,18 +843,23 @@
     	},
     	watch:{
     		'getcotizacion.value': function (newVal,oldVal) {
+                console.log('Cliente::',this.cliente);
+                // console.log('GETCOTIZACION:',this.getcotizacion);
+                
                 if (this.cliente.ana) {
                     this.getDescripcionesANA(this.cliente.marca_auto.id_ana,this.cliente.submarca_auto.id_ana,this.cliente.submarca_auto.anio);
                 }
                 if (this.cliente.qualitas) {
-                    this.getDescripcionesQualitas(this.cliente.marca_auto.descripcion,this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio)
+                   this.getDescripcionesQualitas(this.cliente.qaMarca,this.cliente.qaSubmarca, this.cliente.submarca_auto.anio)
+                    console.log('DATOS DE QA EN COTIZACION',this.cliente);
                 }
                 if(this.cliente.gs){
                     console.log("Datos del auto: ",this.cliente.marca_auto.descripcion,this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio);
-                    this.getDescripcionesGS(this.cliente.marca_auto.descripcion,this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio);
+                    
+                    this.getDescripcionesGS(this.cliente.gsMarca,this.cliente.gssubMarca,this.cliente.submarca_auto.anio);
                 }
                 if(this.cliente.gnp){
-                    this.getDescripcionesGNP(this.cliente.marca_auto.descripcion,this.cliente.submarca_auto.descripcion, this.cliente.submarca_auto.anio);
+                    this.getDescripcionesGNP(this.cliente.gnpMarca,this.cliente.gnpsubMarca,this.cliente.submarca_auto.anio);
                         console.log("Datos cliente",this.cliente);
                 }
     		},
@@ -831,10 +920,10 @@
                         this.cotizacionesANA=res.data.ANASeguros;
                         this.xmlentrada=res.data.xmlentrada;
                         this.respuestaxml=res.data.respuestaxml;
-                        console.log('Cotizacion Ana:',this.cotizacionesANA);
-                         console.log('Cotizacion Ana XML :',this.xmlentrada);
-                           console.log('Cotizacion Ana XML salida :',this.respuestaxml);
-                        this.sendCotizacion(this.cliente, this.cotizacionesANA, "ANA");
+                        // console.log('Cotizacion Ana:',this.cotizacionesANA);
+                        //  console.log('Cotizacion Ana XML :',this.xmlentrada);
+                           // console.log('Cotizacion Ana XML salida :',this.respuestaxml);
+                        // this.sendCotizacion(this.cliente, this.cotizacionesANA, "ANA");
                     }
                 }).catch(err=>{
                     this.loader = false;
@@ -846,7 +935,7 @@
                 let params = { "cliente": cliente, "cotizacion": cotizacion, "aseguradora": aseguradora};
                 let url = "./api/email-cotizacion";
                 this.alert.message = '';
-                this.alert.class = '';
+                this.alert.class = '';  
                 axios.post(url,params).then(res=>{
                     console.log('res:');
                     console.log('Metodo sendCotizacion');
@@ -886,7 +975,8 @@
                 let uso = this.cliente.uso_auto
                 let url=`./api/modelos/${uso}/${marca}/${submarca}/${modelo}`;
                 axios.get(url).then(res=>{
-                     console.log("descripcion qualitas",res.data);
+                     // console.log("descripcion qualitas",res.data);
+                     console.log("datos que se envian qualitas",submarca,marca,modelo);
                     this.descripciones_qualitas = res.data.descripciones;
                 }).catch(err=>{
                     console.log(err);
@@ -918,7 +1008,7 @@
                        this.cotizacionQualitas.push(this.cotizacionesQualitasM);
                        this.cotizacionQualitas.push(this.cotizacionesQualitasT);
                        console.log('COTIZACION COMPLETA QA: ',this.cotizacionQualitas);
-                       this.sendCotizacion(this.cliente, this.cotizacionQualitas, "QA");
+                       // this.sendCotizacion(this.cliente, this.cotizacionQualitas, "QA");
                     console.log('Cotizacion QA:', this.cotizacionesQualitas);
                     console.log('Cotizacion QAS:', this.cotizacionesQualitasS);
                     console.log('Cotizacion QAM:', this.cotizacionesQualitasM);
@@ -954,7 +1044,7 @@
                     console.log(res);
                     this.loader=false;
                     this.cotizacionesGS=res.data.cotizacion;
-                     this.sendCotizacion(this.cliente, this.cotizacionesGS, "GS");
+                     // this.sendCotizacion(this.cliente, this.cotizacionesGS, "GS");
                     console.log('Cotizacion General de seguros',this.cotizacionesGS);
                 }).catch(err=>{
                     this.loader=false;
@@ -990,7 +1080,7 @@
                 this.cotizacionesGNP = {};
                 axios.post(url,params).then(res=>{
                     this.cotizacionesGNP=res.data.cotizacionGNP;
-                    this.sendCotizacion(this.cliente, this.cotizacionesGNP, "GNP");
+                    // this.sendCotizacion(this.cliente, this.cotizacionesGNP, "GNP");
                     console.log('Cotizacion GNP arreglo',this.cotizacionesGNP);
                     this.loader=false;
                 }).catch(err=>{

@@ -438,8 +438,7 @@ XML;
             $modelo = $cliente->auto->submarca->anio;
             $descripcion= $request->descripcion;
             $poliza = $request->poliza;
-            $Descuento = 0;
-
+            
             $planes=['1','3','4'];
             // dd($clave_amis);
             $pagosJSON=$this->formaPagos();
@@ -454,18 +453,15 @@ XML;
             // dd($fecha_t);
             // dd($poblacion);
             $respuestas=[];
-            if ($cliente->ejecutivo || $cliente->codigo_descuento != null) {
-                 $Descuento = 50;
-            }else{
-                 $Descuento =0;
-            }
+            $XMLS=[];
+            $XMLS_REQUEST=[];
             foreach ($pagos as $pago) {
                 switch ($poliza) {
                     case "Amplia":
                         // code...
                         $xml = <<<XML
 <transacciones xmlns="">
-    <transaccion version="1" tipotransaccion="$pago->id" cotizacion="" negocio="1195" tiponegocio="">
+    <transaccion version="1" tipotransaccion="C" cotizacion="" negocio="1195" tiponegocio="">
         <vehiculo id="1" amis="$descripcion" modelo="$modelo" descripcion="" uso="1" servicio="1" plan="1" motor="" serie="" repuve="" placas="" conductor="" conductorliciencia="" conductorfecnac="" conductorocupacion="" estado="$estadoANA" poblacion="$poblacion" color="01" dispositivo="" fecdispositivo="" tipocarga="" tipocargadescripcion="">
 
             <cobertura id="02" desc="" sa="" tipo="3" ded="5" pma=""/>
@@ -483,7 +479,7 @@ XML;
             <cobertura id="40" desc="" sa="" tipo="" ded="50" pma=""/>
         </vehiculo>
         <asegurado id="" nombre="" paterno="" materno="" calle="" numerointerior="" numeroexterior="" colonia="" poblacion="" estado="$estadoANA" cp="" pais="" tipopersona=""/>
-        <poliza id="" tipo="A" endoso="" fecemision="" feciniciovig="$fecha_hoy" fecterminovig="$fecha_t" moneda="0" bonificacion="$Descuento" formapago="$pago->id" agente="14275" tarifacuotas="1804" tarifavalores="1804" tarifaderechos="1804" beneficiario="" politicacancelacion="1"/>
+        <poliza id="" tipo="A" endoso="" fecemision="" feciniciovig="$fecha_hoy" fecterminovig="$fecha_t" moneda="0" bonificacion="50" formapago="$pago->id" agente="14275" tarifacuotas="1804" tarifavalores="1804" tarifaderechos="1804" beneficiario="" politicacancelacion="1"/>
         <prima primaneta="" derecho="" recargo="" impuesto="" primatotal="" comision=""/>
         <recibo id="" feciniciovig="" fecterminovig="" primaneta="" derecho="" recargo="" impuesto="" primatotal="" comision="" cadenaoriginal="" sellodigital="" fecemision="" serie="" folio="" horaemision="" numeroaprobacion="" anoaprobacion="" numseriecertificado=""/>
         <error/>
@@ -507,7 +503,7 @@ XML;
             <cobertura id="34" desc="" sa="2000000" tipo="" ded="" pma=""/>
         </vehiculo>
         <asegurado id="" nombre="" paterno="" materno="" calle="" numerointerior="" numeroexterior="" colonia="" poblacion="" estado="$estadoANA" cp="" pais="" tipopersona=""/>
-        <poliza id="" tipo="A" endoso="" fecemision="" feciniciovig="$fecha_hoy" fecterminovig="$fecha_t" moneda="0" bonificacion="$Descuento" formapago="$pago->id" agente="14275" tarifacuotas="1804" tarifavalores="1804" tarifaderechos="1804" beneficiario="" politicacancelacion="1"/>
+        <poliza id="" tipo="A" endoso="" fecemision="" feciniciovig="$fecha_hoy" fecterminovig="$fecha_t" moneda="0" bonificacion="50" formapago="$pago->id" agente="14275" tarifacuotas="1804" tarifavalores="1804" tarifaderechos="1804" beneficiario="" politicacancelacion="1"/>
         <prima primaneta="" derecho="" recargo="" impuesto="" primatotal="" comision=""/>
         <recibo id="" feciniciovig="" fecterminovig="" primaneta="" derecho="" recargo="" impuesto="" primatotal="" comision="" cadenaoriginal="" sellodigital="" fecemision="" serie="" folio="" horaemision="" numeroaprobacion="" anoaprobacion="" numseriecertificado=""/>
         <error/>
@@ -529,7 +525,7 @@ XML;
             <cobertura id="34" desc="" sa="2000000" tipo="" ded="" pma=""/>
         </vehiculo>
         <asegurado id="" nombre="" paterno="" materno="" calle="" numerointerior="" numeroexterior="" colonia="" poblacion="" estado="01001" cp="" pais="" tipopersona=""/>
-        <poliza id="" tipo="A" endoso="" fecemision="" feciniciovig="$fecha_hoy" fecterminovig="$fecha_t" moneda="0" bonificacion="$Descuento" formapago="$pago->id" agente="14275" tarifacuotas="1804" tarifavalores="1804" tarifaderechos="1804" beneficiario="" politicacancelacion="1"/>
+        <poliza id="" tipo="A" endoso="" fecemision="" feciniciovig="$fecha_hoy" fecterminovig="$fecha_t" moneda="0" bonificacion="50" formapago="$pago->id" agente="14275" tarifacuotas="1804" tarifavalores="1804" tarifaderechos="1804" beneficiario="" politicacancelacion="1"/>
         <prima primaneta="" derecho="" recargo="" impuesto="" primatotal="" comision=""/>
         <recibo id="" feciniciovig="" fecterminovig="" primaneta="" derecho="" recargo="" impuesto="" primatotal="" comision="" cadenaoriginal="" sellodigital="" fecemision="" serie="" folio="" horaemision="" numeroaprobacion="" anoaprobacion="" numseriecertificado=""/>
         <error/>
@@ -580,6 +576,9 @@ XML;
                             ]
                         ]
                     );
+                    array_push($XMLS,$xml);
+                    array_push($XMLS_REQUEST, $respText->TransaccionTextResult);
+
                 }catch(SoapFault $fault){
                     dd($fault);
                 }
@@ -588,7 +587,7 @@ XML;
             // $correo_e = ;
             // Mail::to($request->correo)->send(new EmisionPoliza($respuestas));
             // 
-            return response()->json(['ANASeguros'=>$respuestas,'xmlentrada'=>$xml,'respuestaxml'=>$respText->TransaccionTextResult],201);
+            return response()->json(['ANASeguros'=>$respuestas,'xmlentrada'=>$xml,'respuestaxml'=>$respText->TransaccionTextResult,'XML_ENTRADA'=>$XMLS,'XMLS_SALIDA'=>$XMLS_REQUEST],201);
         }
        
     }

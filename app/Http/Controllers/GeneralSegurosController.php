@@ -31,10 +31,17 @@ class GeneralSegurosController extends Controller
         // *******************************************************
         //                https://serviciosgs.mx/gsautos-ws/soap/catalogoAutosWS?wsdl
         //                https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl
-        //                
+        //                https://gswas.com.mx/gsautos-ws/soap/autenticacionWS?wsdl
         $this->urlCatD = "https://serviciosgs.mx/gsautos-ws/DescargaCatalogo?6424687fddcef5216829292a0a172332";
-        $this->urlAuth = "https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl";
-        $this->urlCotiza = "https://serviciosgs.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
+        //ambiente de pruebas 
+        
+        // $this->urlAuth = "https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl";
+        // $this->urlCotiza = "https://serviciosgs.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
+        
+        //produccion
+        $this->urlAuth = "https://gswas.com.mx/gsautos-ws/soap/autenticacionWS?wsdl";
+        $this->urlCotiza = "https://gswas.com.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
+        
         $this->urlCat = "https://serviciosgs.mx/gsautos-ws/soap/catalogosWS?wsdl";
         $this->urlCatAuto = "https://serviciosgs.mx/gsautos-ws/soap/catalogoAutosWS?wsdl";
         $this->urlCober = "https://serviciosgs.mx/gsautos-ws/soap/catalogoCoberturasWS?wsdl";
@@ -306,14 +313,14 @@ class GeneralSegurosController extends Controller
         // dd($marca_gs);
         if ($marca_gs) {
             $submarca_gs = $this->searchSubMarca($marca_gs, $submarca);
-            // dd($submarca_gs,$marca_gs, $submarca);
+          
             if ($submarca_gs) {
 
                 $modelo_gs = $this->searchModelos($submarca_gs, $modelo);
                 // dd($submarca_gs,$modelo_gs,$marca_gs);
                 if ($modelo_gs) {
                     $versiones_gs = $this->searchVersiones($submarca_gs, $modelo_gs);
-                    // dd($versiones_gs->amis);
+                    // dd($versiones_gs);
                     // dd(count(array($versiones_gs)));
                     if (isset($versiones_gs->amis)) {
                         // $aux = array( 
@@ -397,50 +404,50 @@ class GeneralSegurosController extends Controller
         $res = $client->wsListarSubMarcas(['arg0' => ['token' => $this->token, 'idMarca' => $marca_gs->id]]);
         if ($res->return->exito) {
             $submarcas = $res->return->submarcas;
-
+           
             // return $submarcas;
             // 
-            if ($submarca == 'SERIE 208') {
-                $submarca = '208';
-            }
-             if ($submarca == 'SERIE 207') {
-                $submarca = '207';
-            }
-            if ($submarca == 'SERIE 2008') {
-                $submarca = '208';
-            }
-            if ($submarca == 'SERIE 308') {
-                $submarca = '308';
-            }
-            if ($submarca == 'SERIE 301') {
-                $submarca = '301';
-            }
-            if ($submarca == 'SERIE 5008') {
-                $submarca = '5008';
-            }
-            if ($submarca == 'SERIE 508') {
-                $submarca = '508';
-            }
-             if ($submarca == 'CR-V') {
-                $submarca = 'CRV';
-            }
-            if ($submarca == 'MINIVAN') {
-                $submarca = '1000';
-            }
-            if ($submarca == 'IMPREZA WRX') {
-                $submarca = 'WRX';
-            }
+            // if ($submarca == 'SERIE 208') {
+            //     $submarca = '208';
+            // }
+            //  if ($submarca == 'SERIE 207') {
+            //     $submarca = '207';
+            // }
+            // if ($submarca == 'SERIE 2008') {
+            //     $submarca = '208';
+            // }
+            // if ($submarca == 'SERIE 308') {
+            //     $submarca = '308';
+            // }
+            // if ($submarca == 'SERIE 301') {
+            //     $submarca = '301';
+            // }
+            // if ($submarca == 'SERIE 5008') {
+            //     $submarca = '5008';
+            // }
+            // if ($submarca == 'SERIE 508') {
+            //     $submarca = '508';
+            // }
+            //  if ($submarca == 'CR-V') {
+            //     $submarca = 'CRV';
+            // }
+            // if ($submarca == 'MINIVAN') {
+            //     $submarca = '1000';
+            // }
+            // if ($submarca == 'IMPREZA WRX') {
+            //     $submarca = 'WRX';
+            // }
 
-              // dd($submarcas,$submarca);
-            //  if ($submarca == 'X1') {
-            //     $submarca = 'X1';
-            // }
-            //  if ($submarca == 'X3') {
-            //     $submarca = 'X3';
-            // }
-            // if ($submarca == 'SERIE 5') {
-            //     $submarca = 'SERIE 5';
-            // }
+            //   // dd($submarcas,$submarca);
+            // //  if ($submarca == 'X1') {
+            // //     $submarca = 'X1';
+            // // }
+            // //  if ($submarca == 'X3') {
+            // //     $submarca = 'X3';
+            // // }
+            // // if ($submarca == 'SERIE 5') {
+            // //     $submarca = 'SERIE 5';
+            // // }
             foreach ($submarcas as $submarca_gs) {
                 if ($submarca_gs->nombre == $submarca || strpos($submarca_gs->nombre, $submarca) !== false ) {
                     return $submarca_gs;
@@ -648,8 +655,9 @@ class GeneralSegurosController extends Controller
               Mail::to($request->email)->send(new EmisionPoliza($arr,'GS'));
             return view('generalseguros.pago', ['response' => $arr]);
         } else {
-            // dd($request->colonia);
-            dd($arr,$emitir,$request);
+         
+              return response()->json(['estatus' => 500]);
+            // dd($arr,$emitir,$request);
         }
     }
 }

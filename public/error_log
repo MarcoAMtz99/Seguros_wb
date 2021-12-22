@@ -1,0 +1,5 @@
+[16-Mar-2021 03:44:33 UTC] PHP Warning:  require(/home3/autoseg1/prueba/seguros_cotiza/public/../vendor/autoload.php): failed to open stream: No such file or directory in /home3/autoseg1/prueba/seguros_cotiza/public/index.php on line 24
+[16-Mar-2021 03:44:33 UTC] PHP Warning:  require(/home3/autoseg1/prueba/seguros_cotiza/public/../vendor/autoload.php): failed to open stream: No such file or directory in /home3/autoseg1/prueba/seguros_cotiza/public/index.php on line 24
+[16-Mar-2021 03:44:33 UTC] PHP Fatal error:  require(): Failed opening required '/home3/autoseg1/prueba/seguros_cotiza/public/../vendor/autoload.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home3/autoseg1/prueba/seguros_cotiza/public/index.php on line 24
+[19-Mar-2021 12:52:23 UTC] PHP Parse error:  syntax error, unexpected '?' in /home3/autoseg1/prueba/seguros_cotiza/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php on line 242
+[19-Mar-2021 12:52:48 UTC] PHP Parse error:  syntax error, unexpected 'const' (T_CONST), expecting variable (T_VARIABLE) in /home3/autoseg1/prueba/seguros_cotiza/vendor/symfony/http-foundation/HeaderUtils.php on line 21

@@ -18,6 +18,7 @@ class CPController extends Controller
     {
         //
         $codigo_postal = CP::where('codigo_postal',$cp)->get();
+        // dd( $codigo_postal);
         if(count($codigo_postal) !=0){
             return response()->json(['response'=>$codigo_postal],200);
         }

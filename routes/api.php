@@ -21,7 +21,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/marcas',"QualitasController@getMarcas");
 Route::get('/submarca/{uso}/{marca}/{submarca}/{modelo}',"QualitasController@getSubmarcas");
 
+Route::get('/submarcasQa/{marca}/{modelo}','QualitasController@getsubMarcas');
+
 Route::get('/modelos/{uso}/{marca}/{submarca}/{modelo}',"QualitasController@getModelos");
+
 Route::get('/tarifas','WebServiceController@getTarifas');
 // Route::get('/emitir','WebServiceController@emitirPoliza');
 // Route::get('/emitirGS','GeneralSegurosController@emitir');
@@ -75,3 +78,8 @@ Route::get('/domicilio-gnp/{cp}', 'GNPController@getDatosDomicilio');
 Route::get('/usos-vehiculo-gnp', 'GNPController@getUsosVehiculo');
 Route::get('/estados-circulacion-gnp', 'GNPController@getEstadosCirculacion');
 Route::get('/tipos-via-gnp', 'GNPController@getTiposVia');
+//CON ESTA URI VAMOS A OBTENER TODAS LAS MARCAS DE ESE AÑO
+Route::get('/marcas-gnp/{modelo}','GNPController@marcasAño');
+//con esta obtendremos los Resultados de modelos de esta marca
+Route::get('/submarcas-gnp/{modelo}/{marca}','GNPController@submarcas');
+Route::get('/versiones-gnp/{modelo}/{marca}','GNPController@versiones');

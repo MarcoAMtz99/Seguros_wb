@@ -73,12 +73,86 @@ class QualitasController extends Controller
         
  		
  	}
+ 	public function prueba(){
+ 		$marca= "HONDA";
+ 		$modelo= "2018";
+ 		//con esta consulta vamos a obtener todo lo relacionado a la marca y año que indiquemos 
+ 		$result = $this->clientTarifa->listaTarifas(['cUsuario'=>"linea",'cTarifa'=>"linea",'cMarca'=>$marca,'cModelo'=>$modelo]);
+	
+		$xml = simplexml_load_string($result->listaTarifasResult->any);
+		$results = json_decode(json_encode($xml), true);
+		$descripciones= [];
+		
+		foreach ($results['datos'] as $key => $value) {
+			foreach ($value as $key => $submarcas) {	
+				foreach ($submarcas as $key => $auxiliar) {
+					$aux = array(
+						'id'=>$key,
+						'cTipo'=>$auxiliar['cTipo']
+						);
+					array_push($descripciones, $aux);
+				}	
+			}
+		} // fin del primer foreach results['datos']
+		// dd(array_unique($descripciones),"Descripciones finales");
+		return response()->json(['descripciones'=>array_unique($descripciones)],201);
+ 	}
+
+
+ 		public function getsubMarcas($marca,$modelo)
+	{
+	  
+	  try {
+		
+		
+		$result = $this->clientTarifa->listaTarifas(['cUsuario'=>"linea",'cTarifa'=>"linea",'cMarca'=>$marca,'cModelo'=>$modelo]);
+	
+		$xml = simplexml_load_string($result->listaTarifasResult->any);
+		$results = json_decode(json_encode($xml), true);
+		$descripciones= [];
+			// dd($results['datos'],$modelo,$marca);
+		foreach ($results['datos'] as $key => $value) {
+			foreach ($value as $key => $submarcas) {	
+				// dd($submarcas);
+				// foreach ($submarcas as $key => $auxiliar) {
+					// dd($auxiliar);
+					// $aux = array(
+					// 	'id'=>$key,
+					// 	'cTipo'=>$submarcas['cTipo']
+					// 	);
+					array_push($descripciones, $submarcas['cTipo']);
+				// }	
+			}
+		} // fin del primer foreach results['datos']
+		// 	foreach ($results['datos'] as $key => $value) {
+		// 	foreach ($value as $key => $submarcas) {	
+		// 		dd($submarcas);
+		// 		foreach ($submarcas as $key => $auxiliar) {
+
+		// 			$aux = array(
+		// 				'id'=>$key,
+		// 				'cTipo'=>$auxiliar['cTipo']
+		// 				);
+		// 			array_push($descripciones, $aux);
+		// 		}	
+		// 	}
+		// }
+		// dd(array_unique($descripciones),"Descripciones finales");
+		return response()->json(['descripciones'=>array_unique($descripciones)],201);
+
+
+
+
+	  } catch (SoapFault $fault) {
+		
+		dd($fault);
+	  }
+	}
 
  	public function getMarcas()
 	{
 	  
 	  try {
-		
 		
 		// dd($this->clientTarifa->__getTypes());
 		$lista_marcas = $this->clientTarifa->listaMarcas(['cUsuario'=>"linea","cTarifa"=>"linea"]);
@@ -95,6 +169,7 @@ class QualitasController extends Controller
 	}
 	public function getModelos($uso,$marca,$submarca,$modelo)
 	{
+			// dd($uso,$marca,$submarca,$modelo);
 	  
  		if($submarca == 'SERIE 208'){
 			$submarca ='208';

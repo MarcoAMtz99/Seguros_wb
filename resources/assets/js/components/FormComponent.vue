@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<div v-show="loader_marca" class="loading"> </div>
 		<div class="row m-3">
 			<div class="col-12 m-2 p-2">
 				<!-- <form> -->
@@ -321,7 +322,7 @@
 					</div>
 					<div class="row">
 						<div class="col d-flex justify-content-center">
-							<button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+							<button type="submit" class="btn btn-primary btn-lg" v-model="SendGs">Enviar</button>
 						</div>
 					</div>
 				</form>
@@ -1166,6 +1167,7 @@
 						idpaquete:""
 					},
 				},
+				SendGs:false,
 				selectPobla:{},
 				qualitasPobla:[],
 				qualitasGiros:[],
@@ -1188,6 +1190,7 @@
 				giros:[],
 				tipocontactos:[],
 				detallePago:{},
+				loader_marca:false,
 
 			}
 		},
@@ -1205,6 +1208,9 @@
 				this.generalseguro.cliente.telefono1 = this.cliente.telefono;
 				this.searchColonia(this.generalseguro.cliente.cp);
 
+			},
+			'SendGs':function(){
+					console.log('Enviando a GS');
 			},
 			'cotizacion.paquete.id':function(new_value,old_value){
 				console.log(new_value);
@@ -1419,6 +1425,7 @@
 
 
 			'sendGS':function(){
+				this.loader_marca=true;
 				console.log('enviado');
 			},
 			'sendQua': function(){
