@@ -57039,7 +57039,7 @@ var render = function() {
                                                         _vm._v(" "),
                                                         _c("span", [
                                                           _vm._v(
-                                                            "Daños Materiales: Valor Comercial = Valor más alto guía EBC o Automática del mes de siniestro."
+                                                            "Daños Materiales: Valor Comercial = Valor más alto guía EBC o Autometrica del mes de siniestro."
                                                           )
                                                         ]),
                                                         _vm._v(" "),
@@ -58325,7 +58325,7 @@ var render = function() {
                                             _c("br"),
                                             _vm._v(" "),
                                             _c("strong", [
-                                              _vm._v("Suma asegurada:")
+                                              _vm._v("Gastos Medicos:")
                                             ]),
                                             _vm._v(" "),
                                             _c("p", [_vm._v(" 200,000")])

@@ -348,7 +348,7 @@
                                                             <span><strong>{{cobertura.desc}}:</strong> {{cobertura.sa}}</span>
                                                             <span v-if="cobertura.ded"><strong>Deducible por daños:</strong>{{cobertura.ded}}</span>
                                                             <br>
-                                                            <span>Daños Materiales: Valor Comercial = Valor más alto guía EBC o Automática del mes de siniestro.</span>
+                                                            <span>Daños Materiales: Valor Comercial = Valor más alto guía EBC o Autometrica del mes de siniestro.</span>
 
                                                             <strong>Suma Asegurada: ${{cobertura.ded}} </strong> <br>
                                                             Valor Factura: Para Vehículos de hasta 12 meses de antigüedad. <br>
@@ -567,7 +567,7 @@
                                                               
                                                         </div>
                                                          <br>
-                                                            <strong>Suma asegurada:</strong>
+                                                            <strong>Gastos Medicos:</strong>
                                                             <p> 200,000</p>
                                                     </div>
                                                     <div v-else class="text-center">
