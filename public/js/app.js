@@ -56890,13 +56890,7 @@ var render = function() {
                                                 _c("br"),
                                                 _vm._v(" "),
                                                 _c("strong", [
-                                                  _vm._v(
-                                                    "Suma Asegurada: 5% $" +
-                                                      _vm._s(
-                                                        _vm.cobertura.monto
-                                                      ) +
-                                                      " "
-                                                  )
+                                                  _vm._v("Suma Asegurada: 5% ")
                                                 ]),
                                                 _vm._v(" "),
                                                 _c("br"),

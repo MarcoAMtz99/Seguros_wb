@@ -315,7 +315,7 @@
 
                                                         </div>
                                                          <br>
-                                                            <strong>Suma Asegurada: 5% ${{cobertura.monto}} </strong> <br>
+                                                            <strong>Suma Asegurada: 5% </strong> <br>
                                                             Valor Factura: Para Vehículos de hasta 12 meses de antigüedad. <br>
                                                              Valor Comercial: Para vehículos de mas de 12 meses de antigüedad.
                                                             <br>
