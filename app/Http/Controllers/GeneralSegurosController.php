@@ -274,15 +274,10 @@ class GeneralSegurosController extends Controller
                 foreach ($response['return']['paquetes'] as $paquete) {
                     if ($paquete['nombre'] == $poliza_gs) {
 
-                        // $paquete['coberturas'] = $this->getCoberturas($response['return']['idCotizacion'], $paquete['id']);
-                        $coberturas = $soapClient->wsObtenerCoberturasCotizacion(['arg0' => ['token' => $this->token, 'cotizacion' => $response['return']['idCotizacion'], 'paquete' => $paquete['id'] ]]);
-                                $response = json_decode(json_encode($coberturas), true);
 
-                                if ($response['return']['exito']) {
-                                       $paquete['coberturas'] =  $response['return']['coberturas'];
-                                    // return response()->json(['coberturas'=>$response['return']['coberturas']]);
-                                }
-                                array_push($paquete_gs, $paquete);
+                        $paquete['coberturas'] = $this->getCoberturas($response['return']['idCotizacion'], $paquete['id']);
+
+                        array_push($paquete_gs, $paquete);
                     }
                 }
                
@@ -310,7 +305,7 @@ class GeneralSegurosController extends Controller
             return $response['return']['coberturas'];
             // return response()->json(['coberturas'=>$response['return']['coberturas']]);
         }
-        // dd($response);
+        dd($response,$cotizacion,$paquete);
 
         // dd($soapClient->__getTypes());
 
