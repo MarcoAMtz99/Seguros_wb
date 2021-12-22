@@ -275,7 +275,7 @@ class GeneralSegurosController extends Controller
                     if ($paquete['nombre'] == $poliza_gs) {
 
                         // $paquete['coberturas'] = $this->getCoberturas($response['return']['idCotizacion'], $paquete['id']);
-                        $coberturas = $soapClient->wsObtenerCoberturasCotizacion(['arg0' => ['token' => $this->token, 'cotizacion' => $cotizacion, 'paquete' => $paquete]]);
+                        $coberturas = $soapClient->wsObtenerCoberturasCotizacion(['arg0' => ['token' => $this->token, 'cotizacion' => $response['return']['idCotizacion'], 'paquete' => $paquete['id'] ]]);
                                 $response = json_decode(json_encode($coberturas), true);
 
                                 if ($response['return']['exito']) {
