@@ -25,9 +25,9 @@ class GeneralSegurosController extends Controller
         // *******************************************************
         // $this->urlAuth = "https://gdswas.mx/gsautos-ws/soap/autenticacionWS?wsdl";
         // $this->urlCotiza = "https://gdswas.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
-        // $this->urlCat = "https://gdswas.mx/gsautos-ws/soap/catalogosWS?wsdl";
-        // $this->urlCatAuto = "https://gdswas.mx/gsautos-ws/soap/catalogoAutosWS?wsdl";
-        // $this->urlCober = "https://gdswas.mx/gsautos-ws/soap/catalogoCoberturasWS?wsdl";
+        $this->urlCat = "https://gdswas.mx/gsautos-ws/soap/catalogosWS?wsdl";
+        $this->urlCatAuto = "https://gdswas.mx/gsautos-ws/soap/catalogoAutosWS?wsdl";
+        $this->urlCober = "https://gdswas.mx/gsautos-ws/soap/catalogoCoberturasWS?wsdl";
         // *******************************************************
         //                https://serviciosgs.mx/gsautos-ws/soap/catalogoAutosWS?wsdl
         //                https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl
@@ -35,16 +35,16 @@ class GeneralSegurosController extends Controller
         $this->urlCatD = "https://serviciosgs.mx/gsautos-ws/DescargaCatalogo?6424687fddcef5216829292a0a172332";
         //ambiente de pruebas 
         
-        // $this->urlAuth = "https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl";
-        // $this->urlCotiza = "https://serviciosgs.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
+        $this->urlAuth = "https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl";
+        $this->urlCotiza = "https://serviciosgs.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
         
         //produccion
-        $this->urlAuth = "https://gswas.com.mx/gsautos-ws/soap/autenticacionWS?wsdl";
-        $this->urlCotiza = "https://gswas.com.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
+        // $this->urlAuth = "https://gswas.com.mx/gsautos-ws/soap/autenticacionWS?wsdl";
+        // $this->urlCotiza = "https://gswas.com.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
         
-        $this->urlCat = "https://serviciosgs.mx/gsautos-ws/soap/catalogosWS?wsdl";
-        $this->urlCatAuto = "https://serviciosgs.mx/gsautos-ws/soap/catalogoAutosWS?wsdl";
-        $this->urlCober = "https://serviciosgs.mx/gsautos-ws/soap/catalogoCoberturasWS?wsdl";
+        // $this->urlCat = "https://serviciosgs.mx/gsautos-ws/soap/catalogosWS?wsdl";
+        // $this->urlCatAuto = "https://serviciosgs.mx/gsautos-ws/soap/catalogoAutosWS?wsdl";
+        // $this->urlCober = "https://serviciosgs.mx/gsautos-ws/soap/catalogoCoberturasWS?wsdl";
         try {
             $this->clientAuthGS = $this->getClient($this->urlAuth);
             // dd($this->clientAuthGS);
