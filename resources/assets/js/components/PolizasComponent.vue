@@ -683,8 +683,8 @@
                                                             
                                                         </div>
                                                          <br>
-                                                             <strong>Asistencia en Estados Unidos GS :</strong>
-                                                            <p>AMPARADA</p>
+                                                             <strong>AMPARADA</strong>
+                                                           
                                                     </div>
                                                     <div v-else class="text-center">
                                                         Seleccione una descripción
@@ -744,8 +744,9 @@
                                                             </span>
                                                              
                                                         </div>
-                                                        <br>
-                                                             <strong>AMPARADA</strong>
+                                                         <br>
+                                                             <strong>Asistencia en Estados Unidos GS :</strong>
+                                                            <p>AMPARADA</p>
                                                     </div>
                                                     <div v-else class="text-center">
                                                         Seleccione una descripción
@@ -864,27 +865,27 @@
     		},
             'desc_ana': function (newVal,oldVal){
                 this.loader = true;
-                this.sendCotizacionANA(this.desc_ana,this.tipo_poliza);
+                // this.sendCotizacionANA(this.desc_ana,this.tipo_poliza);
             },
             'desc_qualitas':function (newVal,oldVal) {
                 this.loader = true;
-                this.sendCotizacionQualitas(this.desc_qualitas, this.tipo_poliza);
+                // this.sendCotizacionQualitas(this.desc_qualitas, this.tipo_poliza);
             },
             'desc_gs': function(newVal,oldVal) {
                 this.loader = true;
-                this.sendCotizacionGS(this.desc_gs,this.tipo_poliza);
+                // this.sendCotizacionGS(this.desc_gs,this.tipo_poliza);
             },
             'desc_gnp': function(value) {
                 this.loader = true;
                 console.log('PRIMER PASO GNP');
-                this.sendCotizacionGNP(this.desc_gnp,this.tipo_poliza);
+                // this.sendCotizacionGNP(this.desc_gnp,this.tipo_poliza);
             },
             'tipo_poliza':function (newVal,oldVal) {
                 this.loader=true;
-                this.sendCotizacionANA(this.desc_ana,this.tipo_poliza);
-                this.sendCotizacionQualitas(this.desc_qualitas, this.tipo_poliza);
-                this.sendCotizacionGS(this.desc_gs,this.tipo_poliza);
-                this.sendCotizacionGNP(this.desc_gnp,this.tipo_poliza);
+                // this.sendCotizacionANA(this.desc_ana,this.tipo_poliza);
+                // this.sendCotizacionQualitas(this.desc_qualitas, this.tipo_poliza);
+                // this.sendCotizacionGS(this.desc_gs,this.tipo_poliza);
+                // this.sendCotizacionGNP(this.desc_gnp,this.tipo_poliza);
             }
     	},
     	methods:{
@@ -922,7 +923,7 @@
                         // console.log('Cotizacion Ana:',this.cotizacionesANA);
                         //  console.log('Cotizacion Ana XML :',this.xmlentrada);
                            // console.log('Cotizacion Ana XML salida :',this.respuestaxml);
-                        this.sendCotizacion(this.cliente, this.cotizacionesANA, "ANA");
+                        // this.sendCotizacion(this.cliente, this.cotizacionesANA, "ANA");
                     }
                 }).catch(err=>{
                     this.loader = false;
@@ -1043,7 +1044,7 @@
                     console.log(res);
                     this.loader=false;
                     this.cotizacionesGS=res.data.cotizacion;
-                     this.sendCotizacion(this.cliente, this.cotizacionesGS, "GS");
+                     // this.sendCotizacion(this.cliente, this.cotizacionesGS, "GS");
                     console.log('Cotizacion General de seguros',this.cotizacionesGS);
                 }).catch(err=>{
                     this.loader=false;
@@ -1079,7 +1080,7 @@
                 this.cotizacionesGNP = {};
                 axios.post(url,params).then(res=>{
                     this.cotizacionesGNP=res.data.cotizacionGNP;
-                    this.sendCotizacion(this.cliente, this.cotizacionesGNP, "GNP");
+                    // this.sendCotizacion(this.cliente, this.cotizacionesGNP, "GNP");
                     console.log('Cotizacion GNP arreglo',this.cotizacionesGNP);
                     this.loader=false;
                 }).catch(err=>{

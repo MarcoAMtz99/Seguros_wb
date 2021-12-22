@@ -6157,6 +6157,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'GNP', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -6220,28 +6221,23 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     'desc_ana': function desc_ana(newVal, oldVal) {
-      this.loader = true;
-      this.sendCotizacionANA(this.desc_ana, this.tipo_poliza);
+      this.loader = true; // this.sendCotizacionANA(this.desc_ana,this.tipo_poliza);
     },
     'desc_qualitas': function desc_qualitas(newVal, oldVal) {
-      this.loader = true;
-      this.sendCotizacionQualitas(this.desc_qualitas, this.tipo_poliza);
+      this.loader = true; // this.sendCotizacionQualitas(this.desc_qualitas, this.tipo_poliza);
     },
     'desc_gs': function desc_gs(newVal, oldVal) {
-      this.loader = true;
-      this.sendCotizacionGS(this.desc_gs, this.tipo_poliza);
+      this.loader = true; // this.sendCotizacionGS(this.desc_gs,this.tipo_poliza);
     },
     'desc_gnp': function desc_gnp(value) {
       this.loader = true;
-      console.log('PRIMER PASO GNP');
-      this.sendCotizacionGNP(this.desc_gnp, this.tipo_poliza);
+      console.log('PRIMER PASO GNP'); // this.sendCotizacionGNP(this.desc_gnp,this.tipo_poliza);
     },
     'tipo_poliza': function tipo_poliza(newVal, oldVal) {
-      this.loader = true;
-      this.sendCotizacionANA(this.desc_ana, this.tipo_poliza);
-      this.sendCotizacionQualitas(this.desc_qualitas, this.tipo_poliza);
-      this.sendCotizacionGS(this.desc_gs, this.tipo_poliza);
-      this.sendCotizacionGNP(this.desc_gnp, this.tipo_poliza);
+      this.loader = true; // this.sendCotizacionANA(this.desc_ana,this.tipo_poliza);
+      // this.sendCotizacionQualitas(this.desc_qualitas, this.tipo_poliza);
+      // this.sendCotizacionGS(this.desc_gs,this.tipo_poliza);
+      // this.sendCotizacionGNP(this.desc_gnp,this.tipo_poliza);
     }
   },
   methods: {
@@ -6278,8 +6274,7 @@ __webpack_require__.r(__webpack_exports__);
           _this2.respuestaxml = res.data.respuestaxml; // console.log('Cotizacion Ana:',this.cotizacionesANA);
           //  console.log('Cotizacion Ana XML :',this.xmlentrada);
           // console.log('Cotizacion Ana XML salida :',this.respuestaxml);
-
-          _this2.sendCotizacion(_this2.cliente, _this2.cotizacionesANA, "ANA");
+          // this.sendCotizacion(this.cliente, this.cotizacionesANA, "ANA");
         }
       })["catch"](function (err) {
         _this2.loader = false;
@@ -6408,9 +6403,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post(url, params).then(function (res) {
         console.log(res);
         _this6.loader = false;
-        _this6.cotizacionesGS = res.data.cotizacion;
-
-        _this6.sendCotizacion(_this6.cliente, _this6.cotizacionesGS, "GS");
+        _this6.cotizacionesGS = res.data.cotizacion; // this.sendCotizacion(this.cliente, this.cotizacionesGS, "GS");
 
         console.log('Cotizacion General de seguros', _this6.cotizacionesGS);
       })["catch"](function (err) {
@@ -6446,9 +6439,7 @@ __webpack_require__.r(__webpack_exports__);
       };
       this.cotizacionesGNP = {};
       axios.post(url, params).then(function (res) {
-        _this8.cotizacionesGNP = res.data.cotizacionGNP;
-
-        _this8.sendCotizacion(_this8.cliente, _this8.cotizacionesGNP, "GNP");
+        _this8.cotizacionesGNP = res.data.cotizacionGNP; // this.sendCotizacion(this.cliente, this.cotizacionesGNP, "GNP");
 
         console.log('Cotizacion GNP arreglo', _this8.cotizacionesGNP);
         _this8.loader = false;
@@ -58816,13 +58807,7 @@ var render = function() {
                                             _vm._v(" "),
                                             _c("br"),
                                             _vm._v(" "),
-                                            _c("strong", [
-                                              _vm._v(
-                                                "Asistencia en Estados Unidos GS :"
-                                              )
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("p", [_vm._v("AMPARADA")])
+                                            _c("strong", [_vm._v("AMPARADA")])
                                           ],
                                           2
                                         )
@@ -59035,7 +59020,13 @@ var render = function() {
                                             _vm._v(" "),
                                             _c("br"),
                                             _vm._v(" "),
-                                            _c("strong", [_vm._v("AMPARADA")])
+                                            _c("strong", [
+                                              _vm._v(
+                                                "Asistencia en Estados Unidos GS :"
+                                              )
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", [_vm._v("AMPARADA")])
                                           ],
                                           2
                                         )
