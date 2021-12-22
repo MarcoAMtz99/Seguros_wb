@@ -6150,6 +6150,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'GNP', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -56755,7 +56762,7 @@ var render = function() {
                                                           _vm._v(" "),
                                                           _c("strong", [
                                                             _vm._v(
-                                                              "Suma Asegurada: $" +
+                                                              "Suma Asegurada: " +
                                                                 _vm._s(
                                                                   cobertura.SUMA_ASEGURADA
                                                                 ) +
@@ -56874,76 +56881,74 @@ var render = function() {
                                                                   )
                                                               )
                                                             ]
-                                                          ),
-                                                          _vm._v(" "),
-                                                          _c("br"),
-                                                          _vm._v(" "),
-                                                          _c("strong", [
-                                                            _vm._v(
-                                                              "Suma Asegurada: 5% $" +
-                                                                _vm._s(
-                                                                  cobertura.monto
-                                                                ) +
-                                                                " "
-                                                            )
-                                                          ]),
-                                                          _vm._v(" "),
-                                                          _c("br"),
-                                                          _vm._v(
-                                                            "\n                                                            Valor Factura: Para Vehículos de hasta 12 meses de antigüedad. "
-                                                          ),
-                                                          _c("br"),
-                                                          _vm._v(
-                                                            "\n                                                             Valor Comercial: Para vehículos de mas de 12 meses de antigüedad.\n                                                            "
-                                                          ),
-                                                          _c("br"),
-                                                          _vm._v(" "),
-                                                          _c("strong", [
-                                                            _vm._v(
-                                                              "Riesgos cubiertos:"
-                                                            )
-                                                          ]),
-                                                          _c("br"),
-                                                          _vm._v(
-                                                            "\n\n                                                            Colisiones y Vuelcos "
-                                                          ),
-                                                          _c("br"),
-                                                          _vm._v(
-                                                            "\n                                                            Rotura de Cristales"
-                                                          ),
-                                                          _c("br"),
-                                                          _vm._v(
-                                                            "\n                                                            Incendio, Rayo y explosion"
-                                                          ),
-                                                          _c("br"),
-                                                          _vm._v(
-                                                            "\n                                                            Catástrofes naturales"
-                                                          ),
-                                                          _c("br"),
-                                                          _vm._v(
-                                                            "\n                                                            Paros, mítines, huelga o disturbios"
-                                                          ),
-                                                          _c("br"),
-                                                          _vm._v(
-                                                            "\n                                                            Daños al transportar el vehículo asegurado"
-                                                          ),
-                                                          _c("br"),
-                                                          _vm._v(
-                                                            " Penetración accidental de agua al motor"
-                                                          ),
-                                                          _c("br"),
-                                                          _vm._v(
-                                                            "\n\n                                                            Reparacion en Agencia"
-                                                          ),
-                                                          _c("br"),
-                                                          _vm._v(
-                                                            "\n\n                                                            Para Vehículos de hasta 2 años de antiguedad "
-                                                          ),
-                                                          _c("br")
+                                                          )
                                                         ])
                                                       : _vm._e()
                                                   }
                                                 ),
+                                                _vm._v(" "),
+                                                _c("br"),
+                                                _vm._v(" "),
+                                                _c("strong", [
+                                                  _vm._v(
+                                                    "Suma Asegurada: 5% $" +
+                                                      _vm._s(
+                                                        _vm.cobertura.monto
+                                                      ) +
+                                                      " "
+                                                  )
+                                                ]),
+                                                _vm._v(" "),
+                                                _c("br"),
+                                                _vm._v(
+                                                  "\n                                                            Valor Factura: Para Vehículos de hasta 12 meses de antigüedad. "
+                                                ),
+                                                _c("br"),
+                                                _vm._v(
+                                                  "\n                                                             Valor Comercial: Para vehículos de mas de 12 meses de antigüedad.\n                                                            "
+                                                ),
+                                                _c("br"),
+                                                _vm._v(" "),
+                                                _c("strong", [
+                                                  _vm._v("Riesgos cubiertos:")
+                                                ]),
+                                                _c("br"),
+                                                _vm._v(
+                                                  "\n\n                                                            Colisiones y Vuelcos "
+                                                ),
+                                                _c("br"),
+                                                _vm._v(
+                                                  "\n                                                            Rotura de Cristales"
+                                                ),
+                                                _c("br"),
+                                                _vm._v(
+                                                  "\n                                                            Incendio, Rayo y explosion"
+                                                ),
+                                                _c("br"),
+                                                _vm._v(
+                                                  "\n                                                            Catástrofes naturales"
+                                                ),
+                                                _c("br"),
+                                                _vm._v(
+                                                  "\n                                                            Paros, mítines, huelga o disturbios"
+                                                ),
+                                                _c("br"),
+                                                _vm._v(
+                                                  "\n                                                            Daños al transportar el vehículo asegurado"
+                                                ),
+                                                _c("br"),
+                                                _vm._v(
+                                                  " Penetración accidental de agua al motor"
+                                                ),
+                                                _c("br"),
+                                                _vm._v(
+                                                  "\n\n                                                            Reparacion en Agencia"
+                                                ),
+                                                _c("br"),
+                                                _vm._v(
+                                                  "\n\n                                                            Para Vehículos de hasta 2 años de antiguedad "
+                                                ),
+                                                _c("br"),
                                                 _vm._v(" "),
                                                 _vm._l(
                                                   _vm.cotizacionesGS.paquete[0]
@@ -57341,47 +57346,48 @@ var render = function() {
                                           ? _c(
                                               "div",
                                               { staticClass: "text-center" },
-                                              _vm._l(
-                                                _vm.cotizacionesGS.paquete[0]
-                                                  .coberturas,
-                                                function(cobertura, index) {
-                                                  return cobertura.descripcion ==
-                                                    "Robo Total"
-                                                    ? _c("div", [
-                                                        _c("span", [
-                                                          _c("strong", [
+                                              [
+                                                _vm._l(
+                                                  _vm.cotizacionesGS.paquete[0]
+                                                    .coberturas,
+                                                  function(cobertura, index) {
+                                                    return cobertura.descripcion ==
+                                                      "Robo Total"
+                                                      ? _c("div", [
+                                                          _c("span", [
+                                                            _c("strong", [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  cobertura.descripcion
+                                                                ) + ":"
+                                                              )
+                                                            ]),
                                                             _vm._v(
-                                                              _vm._s(
-                                                                cobertura.descripcion
-                                                              ) + ":"
-                                                            )
-                                                          ]),
-                                                          _vm._v(
-                                                            " " +
-                                                              _vm._s(
-                                                                cobertura.monto
-                                                              ) +
-                                                              "\n                                                                "
-                                                          ),
-                                                          _c("br"),
-                                                          _vm._v(" "),
-                                                          _c("strong", [
-                                                            _vm._v(
-                                                              "ROBO TOTAL:"
-                                                            )
-                                                          ]),
-                                                          _vm._v(" "),
-                                                          _c("p", [
-                                                            _vm._v(
-                                                              "10% de la Suma Asegurada"
+                                                              " " +
+                                                                _vm._s(
+                                                                  cobertura.monto
+                                                                ) +
+                                                                "\n                                                                \n                                                            "
                                                             )
                                                           ])
                                                         ])
-                                                      ])
-                                                    : _vm._e()
-                                                }
-                                              ),
-                                              0
+                                                      : _vm._e()
+                                                  }
+                                                ),
+                                                _vm._v(" "),
+                                                _c("br"),
+                                                _vm._v(" "),
+                                                _c("strong", [
+                                                  _vm._v("ROBO TOTAL:")
+                                                ]),
+                                                _vm._v(" "),
+                                                _c("p", [
+                                                  _vm._v(
+                                                    "10% de la Suma Asegurada"
+                                                  )
+                                                ])
+                                              ],
+                                              2
                                             )
                                           : _c(
                                               "div",
@@ -57723,23 +57729,19 @@ var render = function() {
                                                               )
                                                           )
                                                         ]
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _c("br"),
-                                                      _vm._v(" "),
-                                                      _c("strong", [
-                                                        _vm._v(
-                                                          "Suma asegurada:"
-                                                        )
-                                                      ]),
-                                                      _vm._v(" "),
-                                                      _c("p", [
-                                                        _vm._v("3,000,000")
-                                                      ])
+                                                      )
                                                     ])
                                                   : _vm._e()
                                               }
                                             ),
+                                            _vm._v(" "),
+                                            _c("br"),
+                                            _vm._v(" "),
+                                            _c("strong", [
+                                              _vm._v("Suma asegurada:")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", [_vm._v("3,000,000")]),
                                             _vm._v(" "),
                                             _vm._l(
                                               _vm.cotizacionesGS.paquete[0]
@@ -58301,44 +58303,44 @@ var render = function() {
                                       ? _c(
                                           "div",
                                           { staticClass: "text-center" },
-                                          _vm._l(
-                                            _vm.cotizacionesGS.paquete[0]
-                                              .coberturas,
-                                            function(cobertura, index) {
-                                              return cobertura.descripcion ==
-                                                "Gastos Médicos"
-                                                ? _c("div", [
-                                                    _c("span", [
-                                                      _c("strong", [
+                                          [
+                                            _vm._l(
+                                              _vm.cotizacionesGS.paquete[0]
+                                                .coberturas,
+                                              function(cobertura, index) {
+                                                return cobertura.descripcion ==
+                                                  "Gastos Médicos"
+                                                  ? _c("div", [
+                                                      _c("span", [
+                                                        _c("strong", [
+                                                          _vm._v(
+                                                            _vm._s(
+                                                              cobertura.descripcion
+                                                            ) + ":"
+                                                          )
+                                                        ]),
                                                         _vm._v(
-                                                          _vm._s(
-                                                            cobertura.descripcion
-                                                          ) + ":"
+                                                          " $" +
+                                                            _vm._s(
+                                                              cobertura.monto
+                                                            ) +
+                                                            " "
                                                         )
-                                                      ]),
-                                                      _vm._v(
-                                                        " $" +
-                                                          _vm._s(
-                                                            cobertura.monto
-                                                          ) +
-                                                          " "
-                                                      )
-                                                    ]),
-                                                    _vm._v(" "),
-                                                    _c("br"),
-                                                    _vm._v(" "),
-                                                    _c("strong", [
-                                                      _vm._v("Suma asegurada:")
-                                                    ]),
-                                                    _vm._v(" "),
-                                                    _c("p", [
-                                                      _vm._v(" 200,000")
+                                                      ])
                                                     ])
-                                                  ])
-                                                : _vm._e()
-                                            }
-                                          ),
-                                          0
+                                                  : _vm._e()
+                                              }
+                                            ),
+                                            _vm._v(" "),
+                                            _c("br"),
+                                            _vm._v(" "),
+                                            _c("strong", [
+                                              _vm._v("Suma asegurada:")
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", [_vm._v(" 200,000")])
+                                          ],
+                                          2
                                         )
                                       : _c(
                                           "div",
@@ -58539,40 +58541,40 @@ var render = function() {
                                       ? _c(
                                           "div",
                                           { staticClass: "text-center" },
-                                          _vm._l(
-                                            _vm.cotizacionesGS.paquete[0]
-                                              .coberturas,
-                                            function(cobertura, index) {
-                                              return cobertura.descripcion ==
-                                                "Asistencia Jurídica GS"
-                                                ? _c("div", [
-                                                    _c("span", [
-                                                      _c("strong", [
+                                          [
+                                            _vm._l(
+                                              _vm.cotizacionesGS.paquete[0]
+                                                .coberturas,
+                                              function(cobertura, index) {
+                                                return cobertura.descripcion ==
+                                                  "Asistencia Jurídica GS"
+                                                  ? _c("div", [
+                                                      _c("span", [
+                                                        _c("strong", [
+                                                          _vm._v(
+                                                            _vm._s(
+                                                              cobertura.descripcion
+                                                            ) + ":"
+                                                          )
+                                                        ]),
                                                         _vm._v(
-                                                          _vm._s(
-                                                            cobertura.descripcion
-                                                          ) + ":"
+                                                          " " +
+                                                            _vm._s(
+                                                              cobertura.monto
+                                                            ) +
+                                                            " "
                                                         )
-                                                      ]),
-                                                      _vm._v(
-                                                        " " +
-                                                          _vm._s(
-                                                            cobertura.monto
-                                                          ) +
-                                                          " "
-                                                      )
-                                                    ]),
-                                                    _vm._v(" "),
-                                                    _c("br"),
-                                                    _vm._v(" "),
-                                                    _c("strong", [
-                                                      _vm._v("AMPARADA")
+                                                      ])
                                                     ])
-                                                  ])
-                                                : _vm._e()
-                                            }
-                                          ),
-                                          0
+                                                  : _vm._e()
+                                              }
+                                            ),
+                                            _vm._v(" "),
+                                            _c("br"),
+                                            _vm._v(" "),
+                                            _c("strong", [_vm._v("AMPARADA")])
+                                          ],
+                                          2
                                         )
                                       : _c(
                                           "div",
@@ -58787,48 +58789,48 @@ var render = function() {
                                       ? _c(
                                           "div",
                                           { staticClass: "text-center" },
-                                          _vm._l(
-                                            _vm.cotizacionesGS.paquete[0]
-                                              .coberturas,
-                                            function(cobertura, index) {
-                                              return cobertura.descripcion ==
-                                                "Asistencia Vial y en Viajes GS"
-                                                ? _c("div", [
-                                                    _c("span", [
-                                                      _c("strong", [
+                                          [
+                                            _vm._l(
+                                              _vm.cotizacionesGS.paquete[0]
+                                                .coberturas,
+                                              function(cobertura, index) {
+                                                return cobertura.descripcion ==
+                                                  "Asistencia Vial y en Viajes GS"
+                                                  ? _c("div", [
+                                                      _c("span", [
+                                                        _c("strong", [
+                                                          _vm._v(
+                                                            "\n                                                                    " +
+                                                              _vm._s(
+                                                                cobertura.descripcion
+                                                              ) +
+                                                              ": \n\n                                                                "
+                                                          )
+                                                        ]),
                                                         _vm._v(
-                                                          "\n                                                                    " +
+                                                          "\n                                                                " +
                                                             _vm._s(
-                                                              cobertura.descripcion
+                                                              cobertura.monto
                                                             ) +
-                                                            ": \n\n                                                                "
+                                                            " \n                                                            "
                                                         )
-                                                      ]),
-                                                      _vm._v(
-                                                        "\n                                                                " +
-                                                          _vm._s(
-                                                            cobertura.monto
-                                                          ) +
-                                                          " \n                                                            "
-                                                      )
-                                                    ]),
-                                                    _vm._v(" "),
-                                                    _c("br"),
-                                                    _vm._v(" "),
-                                                    _c("strong", [
-                                                      _vm._v(
-                                                        "Asistencia en Estados Unidos GS :"
-                                                      )
-                                                    ]),
-                                                    _vm._v(" "),
-                                                    _c("p", [
-                                                      _vm._v("AMPARADA")
+                                                      ])
                                                     ])
-                                                  ])
-                                                : _vm._e()
-                                            }
-                                          ),
-                                          0
+                                                  : _vm._e()
+                                              }
+                                            ),
+                                            _vm._v(" "),
+                                            _c("br"),
+                                            _vm._v(" "),
+                                            _c("strong", [
+                                              _vm._v(
+                                                "Asistencia en Estados Unidos GS :"
+                                              )
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", [_vm._v("AMPARADA")])
+                                          ],
+                                          2
                                         )
                                       : _c(
                                           "div",
@@ -58992,54 +58994,56 @@ var render = function() {
                                             staticClass: "text-center",
                                             staticStyle: { padding: "0" }
                                           },
-                                          _vm._l(
-                                            _vm.cotizacionesGS.paquete[0]
-                                              .coberturas,
-                                            function(cobertura, index) {
-                                              return [
-                                                "Daños Materiales Pérdida Parcial",
-                                                "Daños Materiales Pérdida Total",
-                                                "Robo Total",
-                                                "Responsabilidad Civil por Daños a Terceros (LUC)",
-                                                "Responsabilidad Civil por Fallecimiento",
-                                                "Gastos Médicos",
-                                                "Asistencia Jurídica GS",
-                                                "Asistencia Vial y en Viajes GS"
-                                              ].indexOf(cobertura.tipo) != -1
-                                                ? _c("div", [
-                                                    _c(
-                                                      "span",
-                                                      { staticClass: "border" },
-                                                      [
-                                                        _c("strong", [
+                                          [
+                                            _vm._l(
+                                              _vm.cotizacionesGS.paquete[0]
+                                                .coberturas,
+                                              function(cobertura, index) {
+                                                return [
+                                                  "Daños Materiales Pérdida Parcial",
+                                                  "Daños Materiales Pérdida Total",
+                                                  "Robo Total",
+                                                  "Responsabilidad Civil por Daños a Terceros (LUC)",
+                                                  "Responsabilidad Civil por Fallecimiento",
+                                                  "Gastos Médicos",
+                                                  "Asistencia Jurídica GS",
+                                                  "Asistencia Vial y en Viajes GS"
+                                                ].indexOf(cobertura.tipo) != -1
+                                                  ? _c("div", [
+                                                      _c(
+                                                        "span",
+                                                        {
+                                                          staticClass: "border"
+                                                        },
+                                                        [
+                                                          _c("strong", [
+                                                            _vm._v(
+                                                              "\n                                                                    " +
+                                                                _vm._s(
+                                                                  cobertura.descripcion
+                                                                ) +
+                                                                ":\n                                                                "
+                                                            )
+                                                          ]),
                                                           _vm._v(
-                                                            "\n                                                                    " +
+                                                            " \n                                                                $" +
                                                               _vm._s(
-                                                                cobertura.descripcion
+                                                                cobertura.monto
                                                               ) +
-                                                              ":\n                                                                "
+                                                              "\n                                                            "
                                                           )
-                                                        ]),
-                                                        _vm._v(
-                                                          " \n                                                                $" +
-                                                            _vm._s(
-                                                              cobertura.monto
-                                                            ) +
-                                                            "\n                                                            "
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c("br"),
-                                                    _vm._v(" "),
-                                                    _c("strong", [
-                                                      _vm._v("AMPARADA")
+                                                        ]
+                                                      )
                                                     ])
-                                                  ])
-                                                : _vm._e()
-                                            }
-                                          ),
-                                          0
+                                                  : _vm._e()
+                                              }
+                                            ),
+                                            _vm._v(" "),
+                                            _c("br"),
+                                            _vm._v(" "),
+                                            _c("strong", [_vm._v("AMPARADA")])
+                                          ],
+                                          2
                                         )
                                       : _c(
                                           "div",
