@@ -35,12 +35,12 @@ class GeneralSegurosController extends Controller
         $this->urlCatD = "https://serviciosgs.mx/gsautos-ws/DescargaCatalogo?6424687fddcef5216829292a0a172332";
         //ambiente de pruebas 
         
-        $this->urlAuth = "https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl";
-        $this->urlCotiza = "https://serviciosgs.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
+        // $this->urlAuth = "https://serviciosgs.mx/gsautos-ws/soap/autenticacionWS?wsdl";
+        // $this->urlCotiza = "https://serviciosgs.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
         
         //produccion
-        // $this->urlAuth = "https://gswas.com.mx/gsautos-ws/soap/autenticacionWS?wsdl";
-        // $this->urlCotiza = "https://gswas.com.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
+        $this->urlAuth = "https://gswas.com.mx/gsautos-ws/soap/autenticacionWS?wsdl";
+        $this->urlCotiza = "https://gswas.com.mx/gsautos-ws/soap/cotizacionEmisionWS?wsdl";
         
         $this->urlCat = "https://serviciosgs.mx/gsautos-ws/soap/catalogosWS?wsdl";
         $this->urlCatAuto = "https://serviciosgs.mx/gsautos-ws/soap/catalogoAutosWS?wsdl";
@@ -250,8 +250,6 @@ class GeneralSegurosController extends Controller
                 ]
             ]]);
             $response = json_decode(json_encode($res), true);
-
-             // dd($response);
             // return $response;
             // dd($response,$res,['arg0' => [
             //     'token' => $this->token,
@@ -273,16 +271,11 @@ class GeneralSegurosController extends Controller
                 $paquete_gs = [];
                 foreach ($response['return']['paquetes'] as $paquete) {
                     if ($paquete['nombre'] == $poliza_gs) {
-
-
-
-
                         $paquete['coberturas'] = $this->getCoberturas($response['return']['idCotizacion'], $paquete['id']);
-                        
                         array_push($paquete_gs, $paquete);
                     }
                 }
-               
+                // dd($paquetes);
                 $cotizacion = ['id' => $response['return']['idCotizacion'], 'paquete' => $paquete_gs];
                 return response()->json(['cotizacion' => $cotizacion]);
             } elseif (!$response['return']['exito']) {
