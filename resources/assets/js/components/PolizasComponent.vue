@@ -311,7 +311,7 @@
                                                         <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Daños Materiales Pérdida Parcial'">
                                                             <div class="border"><strong>{{cobertura.descripcion}}:</strong> {{cobertura.monto}}</div>
                                                             <br>
-                                                            <strong>Suma Asegurada: ${{cobertura.monto}} </strong> <br>
+                                                            <strong>Suma Asegurada: 5% ${{cobertura.monto}} </strong> <br>
                                                             Valor Factura: Para Vehículos de hasta 12 meses de antigüedad. <br>
                                                              Valor Comercial: Para vehículos de mas de 12 meses de antigüedad.
                                                             <br>
@@ -424,6 +424,9 @@
                                                         <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Robo Total'">
                                                             <span>
                                                                 <strong>{{cobertura.descripcion}}:</strong> {{cobertura.monto}}
+                                                                <br>
+                                                                <strong>ROBO TOTAL:</strong>
+                                                                <p>10% de la Suma Asegurada</p>
                                                             </span>
                                                         </div>
                                                     </div>
@@ -479,6 +482,9 @@
                                                     <div class="text-center" v-if="desc_gs && tipo_poliza && cotizacionesGS.id" style="padding:0">
                                                         <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Responsabilidad Civil por Daños a Terceros (LUC)'">
                                                             <div class="border"><strong>{{cobertura.descripcion}}:</strong> ${{cobertura.monto}}</div>
+                                                            <br>
+                                                            <strong>Suma asegurada:</strong>
+                                                            <p>3,000,000</p>
                                                         </div>
                                                         <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Responsabilidad Civil por Fallecimiento'">
                                                             <div class="border"><strong>{{cobertura.descripcion}}:</strong> ${{cobertura.monto}}</div>
@@ -555,6 +561,9 @@
                                                     <div class="text-center" v-if="desc_gs && tipo_poliza && cotizacionesGS.id" >
                                                         <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Gastos Médicos'">
                                                              <span><strong>{{cobertura.descripcion}}:</strong> ${{cobertura.monto}} </span>
+                                                               <br>
+                                                            <strong>Suma asegurada:</strong>
+                                                            <p> 200,000</p>
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">
@@ -602,6 +611,8 @@
                                                     <div class="text-center" v-if="desc_gs && tipo_poliza && cotizacionesGS.id" >
                                                         <div v-for="(cobertura,index) in cotizacionesGS.paquete[0].coberturas" v-if="cobertura.descripcion == 'Asistencia Jurídica GS'">
                                                              <span><strong>{{cobertura.descripcion}}:</strong> {{cobertura.monto}} </span>
+                                                             <br>
+                                                             <strong>AMPARADA</strong>
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">
@@ -664,6 +675,9 @@
                                                                 </strong>
                                                                 {{cobertura.monto}} 
                                                             </span>
+                                                             <br>
+                                                             <strong>Asistencia en Estados Unidos GS :</strong>
+                                                            <p>AMPARADA</p>
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">
@@ -722,6 +736,8 @@
                                                                 </strong> 
                                                                 ${{cobertura.monto}}
                                                             </span>
+                                                             <br>
+                                                             <strong>AMPARADA</strong>
                                                         </div>
                                                     </div>
                                                     <div v-else class="text-center">

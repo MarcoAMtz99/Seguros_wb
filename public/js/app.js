@@ -6134,6 +6134,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cliente', 'GNP', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -56864,7 +56880,7 @@ var render = function() {
                                                           _vm._v(" "),
                                                           _c("strong", [
                                                             _vm._v(
-                                                              "Suma Asegurada: $" +
+                                                              "Suma Asegurada: 5% $" +
                                                                 _vm._s(
                                                                   cobertura.monto
                                                                 ) +
@@ -57345,8 +57361,21 @@ var render = function() {
                                                               _vm._s(
                                                                 cobertura.monto
                                                               ) +
-                                                              "\n                                                            "
-                                                          )
+                                                              "\n                                                                "
+                                                          ),
+                                                          _c("br"),
+                                                          _vm._v(" "),
+                                                          _c("strong", [
+                                                            _vm._v(
+                                                              "ROBO TOTAL:"
+                                                            )
+                                                          ]),
+                                                          _vm._v(" "),
+                                                          _c("p", [
+                                                            _vm._v(
+                                                              "10% de la Suma Asegurada"
+                                                            )
+                                                          ])
                                                         ])
                                                       ])
                                                     : _vm._e()
@@ -57694,7 +57723,19 @@ var render = function() {
                                                               )
                                                           )
                                                         ]
-                                                      )
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c("br"),
+                                                      _vm._v(" "),
+                                                      _c("strong", [
+                                                        _vm._v(
+                                                          "Suma asegurada:"
+                                                        )
+                                                      ]),
+                                                      _vm._v(" "),
+                                                      _c("p", [
+                                                        _vm._v("3,000,000")
+                                                      ])
                                                     ])
                                                   : _vm._e()
                                               }
@@ -58282,6 +58323,16 @@ var render = function() {
                                                           ) +
                                                           " "
                                                       )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("br"),
+                                                    _vm._v(" "),
+                                                    _c("strong", [
+                                                      _vm._v("Suma asegurada:")
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("p", [
+                                                      _vm._v(" 200,000")
                                                     ])
                                                   ])
                                                 : _vm._e()
@@ -58510,6 +58561,12 @@ var render = function() {
                                                           ) +
                                                           " "
                                                       )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("br"),
+                                                    _vm._v(" "),
+                                                    _c("strong", [
+                                                      _vm._v("AMPARADA")
                                                     ])
                                                   ])
                                                 : _vm._e()
@@ -58754,6 +58811,18 @@ var render = function() {
                                                           ) +
                                                           " \n                                                            "
                                                       )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("br"),
+                                                    _vm._v(" "),
+                                                    _c("strong", [
+                                                      _vm._v(
+                                                        "Asistencia en Estados Unidos GS :"
+                                                      )
+                                                    ]),
+                                                    _vm._v(" "),
+                                                    _c("p", [
+                                                      _vm._v("AMPARADA")
                                                     ])
                                                   ])
                                                 : _vm._e()
@@ -58959,7 +59028,13 @@ var render = function() {
                                                             "\n                                                            "
                                                         )
                                                       ]
-                                                    )
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c("br"),
+                                                    _vm._v(" "),
+                                                    _c("strong", [
+                                                      _vm._v("AMPARADA")
+                                                    ])
                                                   ])
                                                 : _vm._e()
                                             }
