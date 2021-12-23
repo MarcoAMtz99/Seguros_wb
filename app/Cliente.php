@@ -33,6 +33,8 @@ class Cliente extends Model
         'gs',
         'gnp',
         'qualitas',
+        'ejecutivo',
+        'codigo_descuento',
         'gnpMarca',
         'gnpsubMarca',
         'anaMarca',
