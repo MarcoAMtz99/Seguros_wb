@@ -8,14 +8,16 @@
         <title>{{ config('app.name', 'Seguros') }}</title>
         <!--JQUERY.JS-->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Nunito Sans' rel='stylesheet'>
+        <link rel="icon" type="image/x-icon" href="{{ asset('public/favico.ico') }}">
         <!--POPPER.JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
         <!--BOOTSTRAP.CSS-->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
        <!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
 
-        
+
         <!--FONT-AWESOME.CSS-->
         <script src="https://kit.fontawesome.com/f7878fc8d0.js"></script>
         <!--Jquery UI -->
@@ -34,7 +36,8 @@
             .contenido{
                 padding: 0px;
                 margin: 0px;
-                background-image: url({{ asset('img/fondo_1.jpg') }});
+                /*background-image: url({{ asset('img/fondo_1.jpg') }});*/
+                background-color:#fff;
                 height: 110%;
                 background-position: center;
                 background-repeat: no-repeat;
@@ -55,7 +58,7 @@
                 color:#FFF;
                 font-size:18px;
                 box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-                transition:.3s;  
+                transition:.3s;
                 position: fixed;
                 z-index: 2;
                 display: block;
@@ -77,7 +80,7 @@
               height: 140px;
             }
              /*FAQS*/
-        
+
         .faq_question {
             margin: 0px;
             padding: 0px 0px 5px 0px;
@@ -85,7 +88,7 @@
             cursor: pointer;
             font-weight: bold;
         }
-        
+
         .faq_answer_container {
             display: none;
         }
@@ -103,7 +106,7 @@
                         </h5>
                     </div>
                     <div class="col-12 col-sm-6">
-                        <p class="text-muted text-justify-left">"A un click de tu Seguro"</p>
+                      <!--  <p class="text-muted text-justify-left">"A un click de tu Seguro"</p>-->
                     </div>
                 </div>
             </div>
@@ -116,98 +119,93 @@
         <!--NAV-->
         <div class="row bg-info">
             <div class="col-12">
-                <nav class="nav navbar navbar-expand-lg bg-info p-0 m-0">
+                <nav class="nav navbar navbar-expand-lg bg-info p-000 m-0">
                     <a class="navbar-brand m-0 p-0" href="{{ route('index') }}"  style="color: white;">
                         <h5 class="d-flex justify-content-around">
-                            <img src="{{ asset('img/logo2.jpg') }}" alt="">
+                            <img src="{{ asset('img/logo2.png') }}" alt="">
                             <p class="mt-3">
                                 Autosegurodirecto.com.mx
                             </p>
                             <span class="d-none d-sm-block text-secondary ml-2 mt-3 p-auto">
                                 <small>
-                                    "A un click de tu Seguro"
+
                                 </small>
                             </span>
                         </h5>
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fa fa-align-justify text-white"></i>
+                        <i class="fa fa-align-justify text-white2"></i>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                         <ul class="navbar-nav">
-                            <li class="nav-item active">
-                                <a class="nav-link" style="color: white;" href="{{ url('/') }}">Cotiza</a>
-                            </li>
+                          <!--  <li class="nav-item active">
+                                <a class="nav-link" style="color: white;" href="{{ url('/') }}"> </a>
+                            </li>-->
                          <!--    <li class="nav-item">
                                 <a class="nav-link" style="color: white;" href="{{ url('/') }}">Inicio</a>
                             </li> -->
                             <li class="nav-item">
-                                <a class="nav-link" style="color: white;" href="{{ url('/acerca_nosotros') }}">Acerca de Nosotros</a>
+                                <a class="nav-link" style="color: white;" href="{{ url('/acerca_nosotros') }}">NOSOTROS</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" style="color: white;" href="{{ url('/preguntas') }}">Preguntas Frecuentes</a>
+                                <a class="nav-link" style="color: white;" href="{{ url('/preguntas') }}">PREGUNTAS FRECUENTES</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" style="color: white;" href="{{ url('/contacto') }}">Contacto</a>
+                                <a class="nav-link" style="color: white;" href="{{ url('/noticias') }}">BLOG</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" style="color: white;" href="{{ url('/noticias') }}">Noticias</a>
+                                <a class="nav-link" style="color: white;" href="{{ url('/contacto') }}">CONTACTO</a>
                             </li>
-                            <li class="nav-item">
+                            <!--<li class="nav-item">
                                 <a class="nav-link" style="color: white;" href="{{ url('/aviso') }}">Aviso de privacidad</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" style="color: white;" href="{{ url('/terminos') }}">Terminos y condiciones</a>
-                            </li>
+                            </li>-->
                         </ul>
                     </div>
-                    <div class="col-sm-1 col-md-1 text-right m-auto p-auto d-flex justify-content-around">
+                    <!--<div class="col-sm-1 col-md-1 text-right m-auto p-auto d-flex justify-content-around">
                         <a href="https://www.facebook.com/autosegurodirecto" target="_blank">
                             <i class="fab fa-facebook-square" style="font-size:24px;color:white"></i>
                         </a>
                         <a href="https://twitter.com/autosegurodirecto" target="_blank">
                             <i class="fab fa-twitter-square" style="font-size:24px;color:#1DA1F2"></i>
                         </a>
-                    </div>
+                    </div>-->
                 </nav>
             </div>
         </div>
 
         <!--CONTENIDO-->
-        <div id="app" class="contenido p-0 m-0"> 
+        <div id="app" class="contenido p-0 m-0">
             @yield('content')
         </div>
 
         <!--FOOTER-->
-        <div class="row bg-info text-white p-4 footer">
-            <a class="botonF1" href="https://wa.me/525611763726?text=Hola%20Autosegurodirecto.com.%20Estoy%20interesado%20en%20contratar%20un%20seguro%20con%20ustedes.">
+        <div class="row bg-info2 text-white p-4 footer">
+            <!--<a class="botonF1" href="https://wa.me/525611763726?text=Hola%20Autosegurodirecto.com.%20Estoy%20interesado%20en%20contratar%20un%20seguro%20con%20ustedes.">
               <i class="fab fa-whatsapp"></i><span> Whatsapp</span>
-            </a>
-            <div class="col-12 col-sm-4">
-                <p class="font-weight-bold text-center">Autosegurodirecto.com.mx</p>
-                <p class="text-center">"A un click de tu Seguro"</p>
+            </a>-->
+            <div class="col-12 col-sm-3">
+                <p class="font-weight-bold text-center">Encuéntranos en redes sociales</p>
+                <p class="text-center"><i class="fab fa-facebook-square" style="font-size:36px; color:#000; margin:5px;"></i><i class="fab fa-twitter-square" style="font-size:36px; color:#000; margin:5px"></i></p>
             </div>
-            <div class="col-12 col-sm-4">
+            <div class="col-12 col-sm-3">
+                <p class="font-weight-bold text-center"></p>
+                <p class="text-center"></p>
+            </div>
+            <div class="col-12 col-sm-3">
                 <p class="font-weight-bold text-center">
-                    <i class="fa fa-clock-o" style="font-size:36px"></i>
-                    Horario de Atención:
+                  ¿Necesitas asistencia?
                 </p>
-                <p class="text-center">Lun–Vie: 10am–6pm</p>
+                <p class="text-center"><i class="material-icons" style="font-size:30px; color:#ffdd00;">call</i>(55) 6275-8686</p>
+                <p class="text-center"><i class="material-icons" style="font-size:30px; color:#ffdd00;">mail</i><a href="mailto:contacto@autosegurodirecto.com">contacto@autosegurodirecto.com</a></p>
             </div>
-            <div class="col-12 col-sm-4">
-                <p class="font-weight-bold text-center">¿NECESITA ASISTENCIA?</p>
-                <p class="text-center">
-                    <i class="fa fa-phone"  style="font-size:36px"></i>
-                    TEL DF: 55-6275-8686
-                </p>
-                
-                <p class="text-center">
-                    {{-- <a class="text-white" href="https://wa.me/525611763726?text=Hola%20AutoSeguroDirecto.com.%20Estoy%20interesado%20en%20contratar%20un%20seguro%20con%20ustedes.">
-                        <i class="fab fa-whatsapp" style="font-size:36px"></i>
-                        WHATSAPP: 56-1176-3726
-                    </a> --}}
-                </p>
-            </div>
+            <div class="col-12 col-sm-3">
+                <p class="font-weight-bold text-center">Legales</p>
+                <p class="text-center"><a href="#">Aviso de privacidad</a></p>
+                <p class="text-center"><a href="#">Términos y condiciones</a></p>
+                          </div>
         </div>
 
     </body>
