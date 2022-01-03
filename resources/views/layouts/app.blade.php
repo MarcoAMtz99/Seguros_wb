@@ -129,9 +129,9 @@
                                 Autosegurodirecto.com.mx
                             </p>
                             <span class="d-none d-sm-block text-secondary ml-2 mt-3 p-auto">
-                                <small>
+                                <!--<small>
                                     "A un click de tu Seguro"
-                                </small>
+                                </small>-->
                             </span>
                         </h5>
                     </a>
