@@ -5,6 +5,15 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
+pre,
+code,
+kbd,
+samp {
+  font-family: "nunito sans";
+  /*SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;*/
+  font-size: 1em;
+}
+
 h5,
 .h5 {
   /*font-size: 1.25rem;*/
@@ -86,6 +95,17 @@ h5,
   /*border-color: #dee2e6 #dee2e6 #fff;*/
 }
 
+.navbar-brand {
+  display: inline-block;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  /*font-size: 1.25rem;*/
+  font-size: 1.29rem;
+  line-height: inherit;
+  white-space: nowrap;
+}
+
 .navbar-nav {
   display: flex;
   flex-direction: column;
@@ -141,7 +161,21 @@ h5,
   background-color: #fff !important;
 }
 
+.rounded {
+  /* border-radius: 0.25rem !important;*/
+}
+
 .shadow-lg {
   /*box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;*/
+}
+
+.text-center {
+  /*text-align: center !important;*/
+  text-align: left !important;
+}
+
+.text-white {
+  /*color: #fff !important;*/
+  color: #000 !important;
 }
 
