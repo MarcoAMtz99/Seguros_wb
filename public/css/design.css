@@ -1,12 +1,10 @@
-@charset "UTF-8";
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-$font-family-sans-serif: "nunito sans", sans-serif;
-$body-bg: #fff;
+
 h5,
 .h5 {
   /*font-size: 1.25rem;*/
@@ -14,16 +12,16 @@ h5,
 }
 
 .btn-primary {
-  color:#432472;
+  color: #432472;
   /*color: #fff;
   background-color: #3B5998;
   border-color: #3B5998;*/
   background-color: #ffffff;
-  border:5px solid #ffdd00;
+  border: 5px solid #ffdd00;
 }
 
 .btn-primary:hover {
-  color:#432472;
+  color: #432472;
   /*color: #fff;
   background-color: #30497c;
   border-color: #2d4373;*/
@@ -36,9 +34,9 @@ h5,
   color: #fff;
   background-color: #3B5998;
   /*border-color: #3B5998;*/
-  border-color:#ffdd00;
+  border-color: #ffdd00;
   border-radius: 20px;
-  font-weight: 700 !important
+  font-weight: 700 !important;
 }
 
 .btn-secondary {
@@ -46,12 +44,11 @@ h5,
   background-color: #6c757d;
   border-color: #6c757d;*/
   background-color: #ffffff;
-  border:5px solid #ffdd00;
-  color:#432472;
+  border: 5px solid #ffdd00;
+  color: #432472;
   border-radius: 20px;
   text-transform: uppercase;
   font-weight: 700 !important;
-
 }
 
 .btn-secondary:hover {
@@ -59,17 +56,17 @@ h5,
   background-color: #5a6268;
   border-color: #545b62;*/
   background-color: #ffffff;
-  border:5px solid #ffdd00;
-  color:#432472;
+  border: 5px solid #ffdd00;
+  color: #432472;
   border-radius: 20px;
 }
 
 .nav-link.disabled {
- /*color: #6c757d;*/
- color:#432472;
- pointer-events: none;
- background: #fff;
- font-weight:500;
+  /*color: #6c757d;*/
+  color: #432472;
+  pointer-events: none;
+  background: #fff;
+  font-weight: 500;
 }
 
 .nav-tabs .nav-link {
@@ -82,7 +79,7 @@ h5,
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   /*color: #495057;*/
-  color:#000;
+  color: #000;
   background-color: #transparent;
   font-weight: 700;
   font-size: 32px;
@@ -93,7 +90,7 @@ h5,
   display: flex;
   flex-direction: column;
   /*padding-left: 0;*/
-  padding-left:300px;
+  padding-left: 300px;
   margin-bottom: 0;
   list-style: none;
 }
@@ -115,7 +112,7 @@ h5,
   display: block;
   margin: 0;
   /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";*/
-  font-family:-apple-system, nunito sans;
+  font-family: -apple-system, nunito sans;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -136,15 +133,15 @@ h5,
 
 .bg-info {
   /*background-color: #00496C !important;*/
-  background-color:#432472 !important;
+  background-color: #432472 !important;
 }
 
 .bg-info2 {
   /*background-color: #00496C !important;*/
-  background-color:#fff !important;
+  background-color: #fff !important;
 }
-
 
 .shadow-lg {
   /*box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;*/
 }
+
