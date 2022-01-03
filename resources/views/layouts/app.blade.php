@@ -186,33 +186,34 @@
 
         <!--FOOTER-->
         <div class="row bg-info text-white p-4 footer">
-            <a class="botonF1" href="https://wa.me/525611763726?text=Hola%20Autosegurodirecto.com.%20Estoy%20interesado%20en%20contratar%20un%20seguro%20con%20ustedes.">
+            <!--<a class="botonF1" href="https://wa.me/525611763726?text=Hola%20Autosegurodirecto.com.%20Estoy%20interesado%20en%20contratar%20un%20seguro%20con%20ustedes.">
               <i class="fab fa-whatsapp"></i><span> Whatsapp</span>
-            </a>
-            <div class="col-12 col-sm-4">
-                <p class="font-weight-bold text-center">Autosegurodirecto.com.mx</p>
-                <p class="text-center">"A un click de tu Seguro"</p>
+            </a>-->
+            <div class="col-12 col-sm-3">
+                <p class="font-weight-bold text-center">Encuéntranos en redes sociales</p>
+                <p class="text-center"><i class="fab fa-facebook-square" style="font-size:36px; color:#000; margin:5px;"></i><i class="fab fa-twitter-square" style="font-size:36px; color:#000; margin:5px"></i></p>
             </div>
-            <div class="col-12 col-sm-4">
+            <div class="col-12 col-sm-3">
+                <p class="font-weight-bold text-center"></p>
+                <p class="text-center"></p>
+            </div>
+            <div class="col-12 col-sm-3">
                 <p class="font-weight-bold text-center">
-                    <i class="fa fa-clock-o" style="font-size:36px"></i>
-                    Horario de Atención:
+                  ¿Necesitas asistencia?
                 </p>
-                <p class="text-center">Lun–Vie: 10am–6pm</p>
+                <p class="text-center"><i class="material-icons" style="font-size:30px; color:#ffdd00;">call</i>(55) 6275-8686</p>
+                <p class="text-center"><i class="material-icons" style="font-size:30px; color:#ffdd00;">mail</i><a href="mailto:contacto@autosegurodirecto.com">contacto@autosegurodirecto.com</a></p>
             </div>
-            <div class="col-12 col-sm-4">
-                <p class="font-weight-bold text-center">¿NECESITA ASISTENCIA?</p>
-                <p class="text-center">
-                    <i class="fa fa-phone"  style="font-size:36px"></i>
-                    TEL DF: 55-6275-8686
-                </p>
-
-                <p class="text-center">
+            <div class="col-12 col-sm-3">
+                <p class="font-weight-bold text-center">Legales</p>
+                <p class="text-center"><a href="#">Aviso de privacidad</a></p>
+                <p class="text-center"><a href="#">Términos y condiciones</a></p>
+              <!--  <p class="text-center">
                     {{-- <a class="text-white" href="https://wa.me/525611763726?text=Hola%20AutoSeguroDirecto.com.%20Estoy%20interesado%20en%20contratar%20un%20seguro%20con%20ustedes.">
                         <i class="fab fa-whatsapp" style="font-size:36px"></i>
                         WHATSAPP: 56-1176-3726
                     </a> --}}
-                </p>
+                </p>-->
             </div>
         </div>
 
