@@ -124,7 +124,7 @@
                 <nav class="nav navbar navbar-expand-lg bg-info p-0 m-0">
                     <a class="navbar-brand m-0 p-0" href="{{ route('index') }}"  style="color: white;">
                         <h5 class="d-flex justify-content-around">
-                            <img src="{{ asset('img/logo2.jpg') }}" alt="">
+                            <img src="{{ asset('img/logo2.png') }}" alt="">
                             <p class="mt-3">
                                 Autosegurodirecto.com.mx
                             </p>
