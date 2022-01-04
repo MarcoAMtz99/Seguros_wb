@@ -18,8 +18,6 @@
         <!-- DISEÑO -->
          <link rel="stylesheet" href="{{ asset('css/design.css') }}">
        <!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
-
-
         <!--FONT-AWESOME.CSS-->
         <script src="https://kit.fontawesome.com/f7878fc8d0.js"></script>
         <!--Jquery UI -->
@@ -136,7 +134,7 @@
                         </h5>
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fa fa-align-justify text-white"></i>
+                        <i class="fa fa-align-justify text-white2"></i>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                         <ul class="navbar-nav">
@@ -164,7 +162,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" style="color: white;" href="{{ url('/terminos') }}">Terminos y condiciones</a>
                             </li>-->
-
                         </ul>
                     </div>
                     <!--<div class="col-sm-1 col-md-1 text-right m-auto p-auto d-flex justify-content-around">
@@ -215,6 +212,11 @@
                     </a> --}}
                 </p>-->
             </div>
+            <div class="col-12 col-sm-3">
+                <p class="font-weight-bold text-center">Legales</p>
+                <p class="text-center"><a href="#">Aviso de privacidad</a></p>
+                <p class="text-center"><a href="#">Términos y condiciones</a></p>
+                          </div>
         </div>
 
     </body>

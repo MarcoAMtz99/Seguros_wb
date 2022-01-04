@@ -15,11 +15,6 @@ class Cliente extends Model
 
     protected $fillable=[
     	'uso_auto',
-    	// 'marca_auto',
-    	// 'modelo_auto',
-    	// 'descripcion_auto',
-     //    'tipo_auto',
-     //    'c_amis',
         'cp',
         'cestado',
         'nombre',
@@ -43,6 +38,7 @@ class Cliente extends Model
         'gssubMarca',
         'qaMarca',
         'qasubMarca'
+
     ];
 
     protected $hidden=[
