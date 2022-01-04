@@ -24,8 +24,8 @@
 
     			<div class="col col-sm-12 p-2" v-show="!searchOption">
     				<div class="tab-content" id="v-pills-tabContent">
-    					 
-    					
+
+
     					<div class="tab-pane fade show active" id="v-pills-Uso" role="tabpanel" aria-albelledby="v-pills-Uso-tab">
     						<div class="row p-0 m-0">
     							<div class="col-12 col-md-3 p-0 m-0">
@@ -70,17 +70,17 @@
     											</div>
     											<div class="card-body">
     												<div class="form-group">
-					                              	
+
 					                                <input type="date" v-model="cliente.f_nac" id="fechaNacimineto"  onchange="cambiarEdad(this.value)"  class="nav-link disabled col-12">
 					                            </div>
     											</div>
-    										
+
     									</div>
-    								
+
     								</div>
-    								 
-    							</div>  
-    						
+
+    							</div>
+
     							<!-- DESPUES DE AQUI IRAN LOS CAMPOES DEL FORMULARIO -->
     							<div class="col-12 col-md-4 ">
     								<div class="input-group">
@@ -91,11 +91,11 @@
     										</div>
     									<div class="card-body">
     										<div class="form-group">
-    								
+
 		    									<input class="nav-link disabled" type="number" v-model="cliente.modelos" placeholder="2001,2002,2003,2004" aria-label="Modelo" id="valorModelo" >
 		    								</div>
 		    									</div>
-		    								
+
 		    							</div>
 	    								<div class=" col-12 card ">
 	    									<div class="card-header">
@@ -104,14 +104,14 @@
 	    										</div>
 	    										<div class="card-body">
 	    													<div class="form-group">
-	    									
+
 			                                <input type="number" class="nav-link disabled" v-model="cliente.cp" placeholder="CP: 000000" id="valorCP" >
 			                                <div class="alert alert-danger" v-show="alert_cp">
 	  											<strong>{{alert_cp}}</strong>
 											</div>
 			                            </div>
 	    										</div>
-	    									
+
 	    								</div>
 	    								<div class="col-12 card">
 	    									<div class="card-header">
@@ -120,7 +120,7 @@
 	    										</div>
 	    										<div class="card-body">
 	    												  <div class="form-group">
-			                            	
+
 			                            	 <select v-model="cliente.sexo"  id="genero" class="nav-link disabled col-12"  style="overflow-y: hidden;">
 
 											<option value="Hombre" class="list-group-item text-center text-dark seleccionador">Masculino </option>
@@ -129,9 +129,9 @@
 										</select>
 			                            </div>
 	    										</div>
-	    									
+
 	    								</div>
-		                          
+
 
     								</div>
     								</div>
@@ -143,7 +143,7 @@
     							</div>
     							<div class="card-body">
     										<div class="row">
-						    						
+
 								  				<div class="col">
 								  					<!-- <label for="gnp_lista" class="col">GNP</label> -->
 								  					<input class="form-check-input nav-link disabled" type="checkbox" id="checkbox-gnp" v-model="cliente.gnp" true-value="1" false-value="0" hidden>
@@ -157,7 +157,7 @@
 
 						    								<option :value="marcas" v-for="marcas in marcasGNP">{{marcas}}</option>
 						    								</select>
-						    								
+
 								  				</div>
 								  				<strong>6-E </strong>
 								  				<div class="col-3">
@@ -167,13 +167,13 @@
 						    								<option v-for="marcas in submarcasGNP" :value="marcas">{{marcas}}</option>
 						    								</select>
 								  				</div>
-								  				
+
 												</div>
-						    							
+
 						    						</div>
 						    					</div>
-    				
-						
+
+
 							<!-- <hr>	 -->
 												<div class="card">
 													<div class="card-header">
@@ -201,12 +201,12 @@
 											    								<option v-for="submarca in submarcas" :value="submarca" class="list-group-item text-center text-dark seleccionador">{{submarca.descripcion}}</option>
 											    								</select>
 													  					</div>
-													  				
+
 																		</div>
 														</div>
-													
+
 												</div>
-					
+
 								<!-- <hr> -->
 																<div class="card">
 																<div class="card-header">
@@ -236,13 +236,13 @@
 											  						</div>
 
 
-											  				
-											  				
+
+
 																	</div>
 																	</div>
-																
-															</div>	
-						
+
+															</div>
+
 								<!-- <hr> -->
 																<div class="card">
 																		<div class="card-header">
@@ -266,16 +266,16 @@
 																		  				<div class="col-3">
 																		  					<select v-model="cliente.qaSubmarca" class="form-control nav-link disabled" id="submarcaQa">
 																    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-																    								
+
 																    								<option :value="marcas" v-for="marcas in submarcasQA">{{marcas}}</option>
 																    								</select>
 																		  				</div>
-																		  				
+
 																						</div>
 																			</div>
-																		
+
 																	</div>
-															
+
 							 <!--    <hr> -->
 																		<div class="card">
 																			<div class="card-header">
@@ -283,7 +283,7 @@
 																				COTIZAR
 																			</div>
 																				<div class="card-body">
-																						
+
 																						<div class="row">
 																							<div class="col mt-3 d-block d-sm-none">
 																								<button class="btn btn-primary" type="button" onclick="$('#v-pills-Nacimiento-tab').click();">Atras</button>
@@ -293,10 +293,10 @@
 															                                </div>
 																						</div>
 																				</div>
-																			
+
 																		</div>
 
-					</div> 
+					</div>
 								<!-- FIN DEL COL EN ASEGURADORAS -->
 								<!--  <div class="row">
 										<div class="col mt-3 d-block d-sm-none">
@@ -322,11 +322,11 @@
     								</div> -->
     								<div class="col mt-3 d-flex justify-content-end">
                         					<button type="button" class="btn btn-primary seleccionador" @click="nextPill('Marca')">Siguiente</button>
-											
+
 										</div>
 		                            <br>
 		                            <hr>
-		                
+
 						 <div class="row">
 										<div class="col-12 mt-3 d-block d-sm-none">
 											<button class="btn btn-primary" type="button" onclick="$('#v-pills-Marca-tab').click();">Atras</button>
@@ -359,14 +359,14 @@
 		  					<!-- <label for="gnp_lista" class="col">GNP</label> -->
 		  					 <label class="form-check-label" for=""><img :src="img.gnpImage" width="120" height="50"></label>
 		  				</div>
-		  		
+
 		  				<div class="col-3">
 		  					<select v-model="marcaGNP" class="form-control">
     								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
 
     								<option :value="marcas" v-for="marcas in marcasGNP">{{marcas}}</option>
     								</select>
-    								
+
 		  				</div>
 		  				<div class="col-3">
 		  					<select v-model="cliente.gnpsubMarca" class="form-control">
@@ -375,16 +375,16 @@
     								<option v-for="marcas in submarcasGNP" :value="marcas">{{marcas}}</option>
     								</select>
 		  				</div>
-		  				
+
 						</div>
 						<hr>
 
-						<hr>	
+						<hr>
 						<div class="row">
 		  				<div class="col">
 		  					<label class="form-check-label" for="checkbox-ana"><img :src="img.anaImage" width="120" height="50"></label>
 		  				</div>
-		  			
+
 		  					<div class="col-3">
 		  					<select v-model="cliente.marca_auto" class="form-control">
     								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione el modelo</option>
@@ -399,9 +399,9 @@
     								<option v-for="submarca in submarcas" :value="submarca" class="list-group-item text-center text-dark seleccionador">{{submarca.descripcion}}</option>
     								</select>
 		  					</div>
-		  				
+
 							</div>
-							<hr>	
+							<hr>
 							<div class="row">
 		  					<div class="col">
 		  					<label class="form-check-label" for="checkbox-gs"><img :src="img.gsImage" width="120" height="50"></label>
@@ -423,8 +423,8 @@
 		  						</div>
 
 
-		  				
-		  				
+
+
 								</div>
 								<hr>
 								<div class="row">
@@ -446,7 +446,7 @@
 												<option value="2020">2020</option>
 												<option value="2021">2021</option>
 												<option value="2022">2022</option>
-											</select>	
+											</select>
 
 				  				</div> -->
 				  				<div class="col-3">
@@ -459,11 +459,11 @@
 				  				<div class="col-3">
 				  					<select v-model="cliente.qaSubmarca" class="form-control">
 		    								<option value="" class="form-control form-control-sm" style="white-space: normal;">Seleccione la submarca</option>
-		    								
+
 		    								<option :value="marcas" v-for="marcas in submarcasQA">{{marcas}}</option>
 		    								</select>
 				  				</div>
-				  				
+
 								</div>
 
 
@@ -477,10 +477,10 @@
 
 		                <hr>
 
-		                
+
 						<div class="col mt-3 d-flex justify-content-end">
                         					<button type="button" class="btn btn-primary seleccionador" @click="nextPill('codigo')">Siguiente</button>
-											
+
 										</div>
 
 
@@ -531,7 +531,7 @@
 										</div>
 										<div class="col mt-3 d-flex justify-content-end">
                         					<button type="button" class="btn btn-primary seleccionador" @click="nextPill('cp')">Siguiente</button>
-											
+
 										</div>
 									</div>
 		                        </div>
@@ -664,7 +664,7 @@
 		                            		Aseguradoras
 		                        		</label>
 		                        		<div class="col mt-3 d-flex justify-content-end">
-										  	
+
 										  <!-- 	<label class="form-check-label" for="checkbox-todos"><input class="form-check-input" type="checkbox" id="checkbox-todos" v-model="checkall" @click="selectAll()">Todos</label> -->
 		                        		</div>
 		                        	</div>
@@ -698,7 +698,7 @@
 										</div>
 		                                <!-- <input type="date" v-model="cliente.f_nac" id="valorEdad" onchange="cambiarEdad(this.value)" class="form-control col"> -->
 		                            </div>
-		                            
+
 
 		                            <div class="row">
 										<div class="col mt-3 d-block d-sm-none">
@@ -716,13 +716,13 @@
     			</div>
     		</div>
     	</div>
-    	
+
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Como cotizar</h5>
+        <h5 class="modal-title" id="exampleModalLabel">¿Cómo cotizar?</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="close()">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -752,7 +752,7 @@
 
 
 </template>
-	
+
 
 
 <script>
@@ -781,7 +781,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 
 }
     export default {
-    	// Propiedades que se le asignan desde el componente padre 
+    	// Propiedades que se le asignan desde el componente padre
     	// (serian como entradas en el componente).
     	props:[
     		'cliente',
@@ -868,7 +868,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     		},
 
     		'modeloGNP':function(newValue,oldValue){
-    				
+
 					console.log('Aqui se ejecutaron los MODELOS GNP',this.modelos);
 
 					// this.marcaGNP = this.modeloGNP;
@@ -878,7 +878,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			if (newValue != "") {
     					this.modelos = this.cliente.modelos;
 						this.modeloGNP = this.cliente.modelos;
-						
+
 						$('#valorCP').removeClass('disabled');
 						// this.marcaGNP = marcaGNP
 						this.cliente.modelo_auto = this.cliente.modelos;
@@ -886,17 +886,17 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 						this.getMarcas(this.cliente.modelo_auto);
 						this.marcasGS = this.getMarcasGS();
 						this.marcasQA = this.getMarcasQa();
-					
-    			}
-    				
 
-    				
+    			}
+
+
+
     		},
     		'cliente.gnp':function(newValue,oldValue){
-    					
+
     					$('#marcaGNP').removeClass('disabled');
     					$('#submarcaGNP').removeClass('disabled');
-    				
+
     		},
     		'cliente.ana':function(newValue,oldValue){
     					$('#marcaAna').removeClass('disabled');
@@ -914,14 +914,14 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 
     		'marcaGNP':function(newValue,oldValue){
     				// this.cliente.gnpMarca ="";cliente.gnpMarca
-    				// this.marcaGNP = 
+    				// this.marcaGNP =
 					// console.log('SUBMarcas de Gnp en el año:',this.modeloGNP,this.marcaGNP,this.modelos);
 					this.cliente.gnpMarca =	this.marcaGNP;
     				this.subMarcasGNP = this.getSubmarcaGNP(this.modeloGNP,this.marcaGNP);
     		},
 
     		'cliente.gnpsubMarca':function(newValue,oldValue){
-    				
+
     					this.cp = true;
     				// console.log('subMarcas de Gnp en el año:',this.submarcasGNP);
     				// this.submarcasGNP = this.getSubmarcaGNP(this.modeloGNP,this.submarcasGNP);
@@ -932,16 +932,16 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 
     				// $('#v-pills-CP-tab').removeClass('disabled');
     				// $('#v-pills-CP-tab').click();
-    				
-					
+
+
     		},
 
     		'cliente.modelo_auto':function(newV,oldV){
     			if (newV != "") {
     				// this.marca = true;
-    				
+
     				this.getMarcas(this.cliente.modelo_auto);
-    				
+
     				// $('#v-pills-Marca-tab').removeClass('disabled');
     				// $('#v-pills-Marca-tab').click();
     			}
@@ -951,8 +951,8 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				console.log('VALOR DE LA MARCA',this.cliente.gsMarca);
     				this.cliente.modelo_auto = this.cliente.modelos;
     				this.submarcasGS = this.getSubmarcaGS(this.cliente.gsMarca.id);
-    				
-    				
+
+
     				// $('#v-pills-Marca-tab').removeClass('disabled');
     				// $('#v-pills-Marca-tab').click();
     			}
@@ -962,8 +962,8 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				console.log('VALOR DE LA MARCA',this.cliente.qaMarca);
     				this.marcaQA = this.cliente.qaMarca;
     				this.getsubMarcasQa(this.cliente.qaMarca);
-    				
-    				
+
+
     				// $('#v-pills-Marca-tab').removeClass('disabled');
     				// $('#v-pills-Marca-tab').click();
     			}
@@ -974,8 +974,8 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				this.submarcaQA = this.cliente.qaSubmarca;
     				this.cliente.qaSubmarca = this.submarcaQA;
     				$('#8_1').removeClass('disabled');
-    				
-    				
+
+
     				// $('#v-pills-Marca-tab').removeClass('disabled');
     				// $('#v-pills-Marca-tab').click();
     			}
@@ -983,7 +983,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     		'cliente.gsSubmarca':function(newV,oldV){
     			if (newV != "") {
     				this.submarcaGS = this.cliente.submarcasGS;
-    				
+
     				console.log('SUBMARCA SELECCIONADA GS:',this.submarcaGS);
     				this.cliente.gssubMarca = this.submarcaGS;
     				$('#8_1').removeClass('disabled');
@@ -1028,12 +1028,12 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				this.cliente.gs=1;
     				this.cliente.qualitas=1;
     				this.cliente.gnp=1;
-    			}	
+    			}
     		},
     		'cliente.cp':function(newValue,oldValue){
-						this.getCP();	
+						this.getCP();
 						$('#genero').removeClass('disabled');
-						// $('#v-pills-Nacimiento-tab').removeClass('disabled');	
+						// $('#v-pills-Nacimiento-tab').removeClass('disabled');
     		},
 
     	},
@@ -1084,7 +1084,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
         				$("#paso2-tab").click();
         				this.getcotizacion.value = !this.getcotizacion.value;
     				}
-    				
+
     			}).catch(err=>{
     				if(err.response.data.error){
     					this.alert.message = err.response.data.error;
@@ -1232,7 +1232,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     			this.loader_tipo=true;
     			this.loader_marca=true;
     			let url = `./api/submarcas-gnp/${año}/${marca}`;
-    			
+
     			axios.get(url).then(res=>{
     				this.loader_tipo = false;
     				// console.log('SUBMARCAS GNP COMPLETAS',res);
@@ -1242,16 +1242,16 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     					// console.log('RES SUBMARCAS',this.submarcasGNP);
     					// alert('EXITO EN LA CONSULTA SUBMARCAS');
     				}
-    				
+
     			}).catch(error=>{
     				console.log('error submarcas',error);
 				});
     		},
-    		
+
     		getmarcaGNP(año){
     			this.loader_tipo=true;
     			let url = `./api/marcas-gnp/${año}`;
-    			
+
     			axios.get(url).then(res=>{
     				this.loader_tipo = false;
     				// console.log('MARCAS GNP COMPLETAS',res);
@@ -1261,7 +1261,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     					// console.log('RES MARCAS',this.marcasGNP);
     					// alert('EXITO EN LA CONSULTA');
     				}
-    				
+
     			}).catch(error=>{
     				console.log('error submarcas',error);
 				});
@@ -1297,7 +1297,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 
     				axios.get(url).then(res=>{
     						if(res.data.response){
-    							this.alert_cp = 
+    							this.alert_cp =
     							this.nombre = true;
     							this.alert_cp = "";
     							// console.log('si entra');
@@ -1323,7 +1323,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 
     				axios.get(url).then(res=>{
     						if(res.data.response){
-    							this.alert_cp = 
+    							this.alert_cp =
     							this.nombre = true;
     							this.alert_cp = "";
     							// console.log('si entra');
@@ -1342,7 +1342,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     							this.alert_cp = err.response.data.error;
     						}
     					});
-    				
+
     			}
     			if (input == "codigo" && this.cliente.modelos != "") {
     				this.Marca = true;
@@ -1383,7 +1383,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
     				$('#v-pills-Aseguradoras-tab').click();
 
     			}
-    			
+
     		},
 
     		sendCotizacion(cliente){
@@ -1403,7 +1403,7 @@ function Cliente({cotizacion,auto,uso_auto,cp,nombre,appaterno,apmaterno,telefon
 					this.cliente.descripcion_auto = res.data.cotizacion.auto.version;
 					this.cliente.marca_auto    	  = res.data.cotizacion.auto.marca;
 					// if (isset(this.cliente.modelo_auto)) {
-						
+
 					// }
 					this.cliente.modelo_auto      = res.data.cotizacion.auto.submarca.anio;
 					this.cliente.submarca_auto    = res.data.cotizacion.auto.submarca;
