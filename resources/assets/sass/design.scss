@@ -81,6 +81,11 @@ h5,
  font-weight:500;
 }
 
+.nav-tabs {
+border-bottom: 6px solid #ffdd00 !important;
+box-sizing: border-box;
+width: 5%;
+}
 .nav-tabs .nav-link {
   margin-bottom: -1px;
   /*border: 1px solid transparent;*/
@@ -187,11 +192,7 @@ h5,
   color: #000 !important;
 }
 
-.nav-tabs {
-border-bottom: 6px solid #ffdd00;
-box-sizing: border-box;
-width: 5%;
-}
+
 
 input,
 button,
