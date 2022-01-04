@@ -21,7 +21,7 @@
 
 
         <!--FONT-AWESOME.CSS-->
-        <!--<script src="https://kit.fontawesome.com/f7878fc8d0.js"></script>-->
+        <script src="https://kit.fontawesome.com/f7878fc8d0.js"></script>
         <!--Jquery UI -->
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
         <!--STYLE-->
