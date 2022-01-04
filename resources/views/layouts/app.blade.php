@@ -10,7 +10,7 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <!--Fonts-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Nunito Sans' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css?family=Nunito%20Sans" rel="stylesheet">
         <!--POPPER.JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
         <!--BOOTSTRAP.CSS-->
@@ -129,9 +129,9 @@
                                 Autosegurodirecto.com.mx
                             </p>
                             <span class="d-none d-sm-block text-secondary ml-2 mt-3 p-auto">
-                                <!--<small>
-                                    "A un click de tu Seguro"
-                                </small>-->
+                                <small>
+
+                                </small>
                             </span>
                         </h5>
                     </a>
