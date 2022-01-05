@@ -8,16 +8,16 @@
         <title>{{ config('app.name', 'Seguros') }}</title>
         <!--JQUERY.JS-->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <!--Fonts-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Nunito Sans' rel='stylesheet'>
-        <link rel="icon" type="image/x-icon" href="{{ asset('public/favico.ico') }}">
+        <link href="https://fonts.googleapis.com/css?family=Nunito%20Sans" rel="stylesheet">
         <!--POPPER.JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
         <!--BOOTSTRAP.CSS-->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <!-- DISEÑO -->
+         <link rel="stylesheet" href="{{ asset('css/design.css') }}">
        <!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
-
-
         <!--FONT-AWESOME.CSS-->
         <script src="https://kit.fontawesome.com/f7878fc8d0.js"></script>
         <!--Jquery UI -->
@@ -106,7 +106,7 @@
                         </h5>
                     </div>
                     <div class="col-12 col-sm-6">
-                      <!--  <p class="text-muted text-justify-left">"A un click de tu Seguro"</p>-->
+                        <!--<p class="text-muted text-justify-left">"A un click de tu Seguro"</p>-->
                     </div>
                 </div>
             </div>
@@ -188,25 +188,36 @@
             </a>-->
             <div class="col-12 col-sm-3">
                 <p class="font-weight-bold text-center">Encuéntranos en redes sociales</p>
-                <p class="text-center"><i class="fab fa-facebook-square" style="font-size:36px; color:#000; margin:5px;"></i><i class="fab fa-twitter-square" style="font-size:36px; color:#000; margin:5px"></i></p>
+                <p class="text-center"><a href="https://www.facebook.com/autosegurodirecto" target="_blank"><i class="fab fa-facebook-square"></i></a><a href="https://twitter.com/autosegurodirecto" target="_blank"><i class="fab fa-twitter-square"></i></a></p>
             </div>
-            <div class="col-12 col-sm-3">
+            <div class="col-12 col-sm-2">
                 <p class="font-weight-bold text-center"></p>
                 <p class="text-center"></p>
             </div>
-            <div class="col-12 col-sm-3">
+            <div class="col-12 col-sm-4">
                 <p class="font-weight-bold text-center">
                   ¿Necesitas asistencia?
                 </p>
-                <p class="text-center"><i class="material-icons" style="font-size:30px; color:#ffdd00;">call</i>(55) 6275-8686</p>
-                <p class="text-center"><i class="material-icons" style="font-size:30px; color:#ffdd00;">mail</i><a href="mailto:contacto@autosegurodirecto.com">contacto@autosegurodirecto.com</a></p>
+                <p class="text-center"><i class="material-icons">call</i>(55) 6275-8686</p>
+                <p class="text-center"><i class="material-icons">mail</i><a href="mailto:contacto@autosegurodirecto.com">contacto@autosegurodirecto.com</a></p>
             </div>
             <div class="col-12 col-sm-3">
                 <p class="font-weight-bold text-center">Legales</p>
-                <p class="text-center"><a href="#">Aviso de privacidad</a></p>
-                <p class="text-center"><a href="#">Términos y condiciones</a></p>
-                          </div>
+                <p class="text-center"><a href="{{ url('/aviso') }}">Aviso de privacidad</a></p>
+                <p class="text-center"><a href="{{ url('/terminos') }}">Términos y condiciones</a></p>
+              <!--  <p class="text-center">
+                    {{-- <a class="text-white" href="https://wa.me/525611763726?text=Hola%20AutoSeguroDirecto.com.%20Estoy%20interesado%20en%20contratar%20un%20seguro%20con%20ustedes.">
+                        <i class="fab fa-whatsapp" style="font-size:36px"></i>
+                        WHATSAPP: 56-1176-3726
+                    </a> --}}
+                </p>-->
+            </div>
+            <br><br>
+            <div class="col-12 col-sm-2"></div>
+            <div class="col-12 col-sm-7"><p class="cop">© 2021 CooperturaAgente de Seguros y Fianzas. Todos los derechos reservados.</p></div>
+            <div class="col-12 col-sm-2"></div>
         </div>
+
 
     </body>
                 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
