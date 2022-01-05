@@ -2502,7 +2502,7 @@ function Cliente(_ref) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  // Propiedades que se le asignan desde el componente padre 
+  // Propiedades que se le asignan desde el componente padre
   // (serian como entradas en el componente).
   props: ['cliente', 'getcotizacion', 'alert', 'img'],
   data: function data() {
@@ -2592,7 +2592,7 @@ function Cliente(_ref) {
     },
     'marcaGNP': function marcaGNP(newValue, oldValue) {
       // this.cliente.gnpMarca ="";cliente.gnpMarca
-      // this.marcaGNP = 
+      // this.marcaGNP =
       // console.log('SUBMarcas de Gnp en el año:',this.modeloGNP,this.marcaGNP,this.modelos);
       this.cliente.gnpMarca = this.marcaGNP;
       this.subMarcasGNP = this.getSubmarcaGNP(this.modeloGNP, this.marcaGNP);
@@ -2684,7 +2684,7 @@ function Cliente(_ref) {
     },
     'cliente.cp': function clienteCp(newValue, oldValue) {
       this.getCP();
-      $('#genero').removeClass('disabled'); // $('#v-pills-Nacimiento-tab').removeClass('disabled');	
+      $('#genero').removeClass('disabled'); // $('#v-pills-Nacimiento-tab').removeClass('disabled');
     }
   },
   created: function created() {
@@ -45396,7 +45396,7 @@ var render = function() {
                     staticClass: "modal-title",
                     attrs: { id: "exampleModalLabel" }
                   },
-                  [_vm._v("Como cotizar")]
+                  [_vm._v("¿Cómo cotizar?")]
                 ),
                 _vm._v(" "),
                 _c(
