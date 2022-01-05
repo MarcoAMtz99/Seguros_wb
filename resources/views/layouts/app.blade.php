@@ -211,12 +211,7 @@
                         WHATSAPP: 56-1176-3726
                     </a> --}}
                 </p>-->
-            </div>
-            <div class="col-12 col-sm-3">
-                <p class="font-weight-bold text-center">Legales</p>
-                <p class="text-center"><a href="#">Aviso de privacidad</a></p>
-                <p class="text-center"><a href="#">Términos y condiciones</a></p>
-                          </div>
+            </div>            
         </div>
 
     </body>
