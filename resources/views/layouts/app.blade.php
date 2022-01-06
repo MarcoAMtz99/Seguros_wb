@@ -188,31 +188,36 @@
             </a>-->
             <div class="col-12 col-sm-3">
                 <p class="font-weight-bold text-center">Encuéntranos en redes sociales</p>
-                <p class="text-center"><i class="fab fa-facebook-square" style="font-size:36px; color:#000; margin:5px;"></i><i class="fab fa-twitter-square" style="font-size:36px; color:#000; margin:5px"></i></p>
+                <p class="text-center"><a href="https://www.facebook.com/autosegurodirecto" target="_blank"><i class="fab fa-facebook-square"></i></a><a href="https://twitter.com/autosegurodirecto" target="_blank"><i class="fab fa-twitter-square"></i></a></p>
             </div>
-            <div class="col-12 col-sm-3">
+            <div class="col-12 col-sm-2">
                 <p class="font-weight-bold text-center"></p>
                 <p class="text-center"></p>
             </div>
-            <div class="col-12 col-sm-3">
+            <div class="col-12 col-sm-4">
                 <p class="font-weight-bold text-center">
                   ¿Necesitas asistencia?
                 </p>
-                <p class="text-center"><i class="material-icons" style="font-size:30px; color:#ffdd00;">call</i>(55) 6275-8686</p>
-                <p class="text-center"><i class="material-icons" style="font-size:30px; color:#ffdd00;">mail</i><a href="mailto:contacto@autosegurodirecto.com">contacto@autosegurodirecto.com</a></p>
+                <p class="text-center"><i class="material-icons">call</i>(55) 6275-8686</p>
+                <p class="text-center"><i class="material-icons">mail</i><a href="mailto:contacto@autosegurodirecto.com">contacto@autosegurodirecto.com</a></p>
             </div>
             <div class="col-12 col-sm-3">
                 <p class="font-weight-bold text-center">Legales</p>
-                <p class="text-center"><a href="#">Aviso de privacidad</a></p>
-                <p class="text-center"><a href="#">Términos y condiciones</a></p>
+                <p class="text-center"><a href="{{ url('/aviso') }}">Aviso de privacidad</a></p>
+                <p class="text-center"><a href="{{ url('/terminos') }}">Términos y condiciones</a></p>
               <!--  <p class="text-center">
                     {{-- <a class="text-white" href="https://wa.me/525611763726?text=Hola%20AutoSeguroDirecto.com.%20Estoy%20interesado%20en%20contratar%20un%20seguro%20con%20ustedes.">
                         <i class="fab fa-whatsapp" style="font-size:36px"></i>
                         WHATSAPP: 56-1176-3726
                     </a> --}}
                 </p>-->
-            </div>            
+            </div>
+            <br><br>
+            <div class="col-12 col-sm-2"></div>
+            <div class="col-12 col-sm-7"><p class="cop">© 2021 CooperturaAgente de Seguros y Fianzas. Todos los derechos reservados.</p></div>
+            <div class="col-12 col-sm-2"></div>
         </div>
+
 
     </body>
                 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
