@@ -27,6 +27,8 @@ h5,
   font-size: 1.5rem;
 }
 
+/*Botones de navegación*/
+
 .btn-primary {
   color: #432472;
   /*color: #fff;
@@ -93,6 +95,8 @@ h5,
   border-radius: 20px;
 }
 
+/*Navegación*/
+
 .nav-link.disabled {
   /*color: #6c757d;*/
   color: #432472;
@@ -108,9 +112,14 @@ h5,
 
 .nav-tabs .nav-link {
   margin-bottom: -1px;
-  /*border: 1px solid transparent;*/
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  border: 0;
+  /*border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;*/
+  color: #6c757d;
+  font-weight: 700;
+  font-size: 32px;
+  border-bottom: 6px solid #efefef;
+  width: 5%;
 }
 
 .nav-tabs .nav-link.active,
